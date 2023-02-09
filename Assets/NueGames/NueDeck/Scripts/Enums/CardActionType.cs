@@ -11,6 +11,7 @@
         EarnMana,
         LifeSteal,
         Stun,
-        Exhaust
+        Exhaust,
+        MathAttack,
     }
 }
