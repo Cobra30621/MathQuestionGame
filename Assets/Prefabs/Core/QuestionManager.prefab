@@ -523,9 +523,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3528570657471176880}
-        m_TargetAssemblyTypeName: NueGames.NueDeck.Scripts.Managers.QuestionManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 7648598638887970589}
+        m_TargetAssemblyTypeName: Managers.QuestionManager, Assembly-CSharp
         m_MethodName: OnAnswer
         m_Mode: 3
         m_Arguments:
@@ -757,9 +756,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3528570657471176880}
-        m_TargetAssemblyTypeName: NueGames.NueDeck.Scripts.Managers.QuestionManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 7648598638887970589}
+        m_TargetAssemblyTypeName: Managers.QuestionManager, Assembly-CSharp
         m_MethodName: OnAnswer
         m_Mode: 3
         m_Arguments:
@@ -854,7 +852,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3528570657471176879}
-  - component: {fileID: 3528570657471176880}
+  - component: {fileID: 7648598638887970589}
   m_Layer: 0
   m_Name: QuestionManager
   m_TagString: Untagged
@@ -877,7 +875,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3528570657471176880
+--- !u!114 &7648598638887970589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -886,7 +884,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3528570657471176878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a7b847d0742cf4196e20c49339ea10, type: 3}
+  m_Script: {fileID: 11500000, guid: 6571b98663ba0a04cb60718bd36b8834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainPanel: {fileID: 3528570657698693409}
@@ -903,7 +901,7 @@ GameObject:
   - component: {fileID: 3528570657698693412}
   - component: {fileID: 3528570657698693411}
   m_Layer: 5
-  m_Name: QuestionPanel
+  m_Name: mainPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

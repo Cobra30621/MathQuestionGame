@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: 10_Math_Attack
+  m_EditorClassIdentifier: 
+  id: Math_Attack
+  cardName: Math Attack
+  manaCost: 1
+  cardSprite: {fileID: 21300000, guid: c8a69ecdf54ac8e4b873466605de27ff, type: 3}
+  rarity: 0
+  usableWithoutTarget: 0
+  exhaustAfterPlay: 0
+  cardActionDataList:
+  - cardActionType: 10
+    actionTargetType: 0
+    actionValue: 20
+    actionDelay: 0
+  cardDescriptionDataList:
+  - descriptionText: "\u7B54\u984C\u6210\u529F: 20\u9EDE\u50B7\u5BB3\n\u7B54\u984C\u5931\u6557:
+      \u6C92\u6709\u50B7\u5BB3"
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  specialKeywordsList: 
+  audioType: 0
