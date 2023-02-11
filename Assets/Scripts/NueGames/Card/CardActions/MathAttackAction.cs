@@ -3,7 +3,7 @@ using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.Card.CardActions;
 using UnityEngine;
-using Managers;
+using Question;
 
 namespace NueGames.Card.CardActions
 {
