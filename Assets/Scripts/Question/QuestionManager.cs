@@ -37,7 +37,7 @@ namespace Question
         private List<MultipleChoiceQuestion> questionList;
         private int correctAnswer;
 
-        private float startTime = 10;
+        private float startTime = 30;
         private float timer; 
         private bool timeOver;
         private bool waitAnswer;
@@ -140,23 +140,27 @@ namespace Question
         
         void Countdown(){
             if(timeOver){return;}
-
-            timer -= Time.deltaTime;
-            if(timer < 0){
-                timeOver = true;
-                StopCoroutine(QuestionCoroutine());
-                PlayAction();
-            }
-        }
-
-        void PlayAction()
-        {
+            
             if (correctCount >= 2)
             {
                 tempMathAction.OnAnswer();
+                ExitQuestionMode();
             }
+
+            timer -= Time.deltaTime;
+            if(timer < 0)
+            {
+                ExitQuestionMode();
+            }
+        }
+
+        void ExitQuestionMode()
+        {
+            timeOver = true;
+            StopCoroutine(QuestionCoroutine());
             mainPanel.SetActive(false);
         }
+        
         
         #endregion
     }

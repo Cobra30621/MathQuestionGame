@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Math_Attack
   cardName: Math Attack
-  manaCost: 1
+  manaCost: 2
   cardSprite: {fileID: 21300000, guid: c8a69ecdf54ac8e4b873466605de27ff, type: 3}
   rarity: 0
   usableWithoutTarget: 0
@@ -25,8 +25,25 @@ MonoBehaviour:
     actionValue: 20
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: "\u7B54\u984C\u6210\u529F: 20\u9EDE\u50B7\u5BB3\n\u7B54\u984C\u5931\u6557:
-      \u6C92\u6709\u50B7\u5BB3"
+  - descriptionText: "\u7B54\u984C\u6210\u529F: "
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 3
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 1
+  - descriptionText: "\u9EDE\u50B7\u5BB3\n\u7B54\u984C\u5931\u6557: \u6C92\u6709\u50B7\u5BB3"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

@@ -15,7 +15,7 @@ namespace Question
         public TextMeshProUGUI timeText;
         public TextMeshProUGUI wrongCountText;
 
-        // public TextMeshProUGUI correctCountText;
+        public TextMeshProUGUI correctCountText;
 
         void Update()
         {
@@ -23,7 +23,7 @@ namespace Question
             float timeRate = _questionManager.Timer / _questionManager.StartTime;
             timeBar.fillAmount = timeRate;
 
-            // correctCountText.text = $"{_questionManager.CorrectCount}";
+            correctCountText.text = $"{_questionManager.CorrectCount}";
             correctBar.fillAmount = (float)_questionManager.CorrectCount / _questionManager.NeedCorrectCount;
             // wrongCountText.text =  $"答錯 :{_questionManager.WrongCount}";
         }
