@@ -24,6 +24,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         [SerializeField] protected Transform descriptionRoot;
         [SerializeField] protected StatusIconsData statusIconsData;
         [SerializeField] protected TextMeshProUGUI currentHealthText;
+        [SerializeField] protected Image currentHealthBar;
         
         #region Cache
 
@@ -90,8 +91,12 @@ namespace NueGames.NueDeck.Scripts.Characters
           
             StatusDict[targetStatus].StatusValueText.text = $"{value}";
         }
-        
-        public void UpdateHealthText(int currentHealth,int maxHealth) =>  currentHealthText.text = $"{currentHealth}/{maxHealth}";
+
+        public void UpdateHealthInfo(int currentHealth, int maxHealth)
+        {
+            currentHealthText.text = $"{currentHealth}/{maxHealth}";
+            currentHealthBar.fillAmount = (float)currentHealth / maxHealth;
+        }  
         public void SetHighlight(bool open) => highlightRoot.gameObject.SetActive(open);
        
         #endregion

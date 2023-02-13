@@ -52,7 +52,7 @@ namespace NueGames.NueDeck.Scripts.Characters
             CurrentHealth = maxHealth;
             SetAllStatus();
             
-            OnHealthChanged += characterCanvas.UpdateHealthText;
+            OnHealthChanged += characterCanvas.UpdateHealthInfo;
             OnStatusChanged += characterCanvas.UpdateStatusText;
             OnStatusApplied += characterCanvas.ApplyStatus;
             OnStatusCleared += characterCanvas.ClearStatus;
