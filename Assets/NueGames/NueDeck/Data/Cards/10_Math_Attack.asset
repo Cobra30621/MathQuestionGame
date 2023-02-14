@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: 10_Math_Attack
   m_EditorClassIdentifier: 
   id: Math_Attack
-  cardName: Math Attack
+  cardName: "\u6578\u5B78\u653B\u64CA"
   manaCost: 2
   cardSprite: {fileID: 21300000, guid: c8a69ecdf54ac8e4b873466605de27ff, type: 3}
-  rarity: 0
+  rarity: 1
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 10
+  - cardActionType: 11
     actionTargetType: 0
-    actionValue: 20
+    actionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: "\u7B54\u984C\u6210\u529F: "
@@ -54,3 +54,14 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
   audioType: 0
+  useMathAction: 1
+  correctCardActionDataList:
+  - cardActionType: 0
+    actionTargetType: 0
+    actionValue: 20
+    actionDelay: 0
+  wrongCardActionDataList:
+  - cardActionType: 10
+    actionTargetType: 0
+    actionValue: 10
+    actionDelay: 0

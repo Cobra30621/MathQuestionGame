@@ -45,6 +45,12 @@ namespace NueGames.NueDeck.Scripts.Card
         protected CollectionManager CollectionManager => CollectionManager.Instance;
         
         public bool IsExhausted { get; private set; }
+        
+        // For Math Action
+        private CharacterBase tempSelf;
+        private CharacterBase tempTargetCharacter;
+        private List<EnemyBase> tempAllEnemies;
+        private List<AllyBase> tempAllAllies;
 
         #endregion
         
@@ -68,18 +74,52 @@ namespace NueGames.NueDeck.Scripts.Card
         }
         
         #endregion
+
+
+        #region Math Question Action
+        public void PlayMathCardAction( List<CardActionData> cardActionDataList)
+        {
+            StartCoroutine( MathActionRoutine(tempSelf, tempTargetCharacter, tempAllEnemies, tempAllAllies, cardActionDataList));
+        }
+        
+        private IEnumerator MathActionRoutine(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies,
+            List<AllyBase> allAllies, List<CardActionData> cardActionDataList)
+        {
+            foreach (var playerAction in cardActionDataList)
+            {
+                yield return new WaitForSeconds(playerAction.ActionDelay);
+                var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, playerAction);
+
+                foreach (var target in targetList)
+                    CardActionProcessor.GetAction(playerAction.CardActionType)
+                        .DoAction(new CardActionParameters(playerAction.ActionValue,
+                            target,self,CardData,this));
+            }
+            
+            CollectionManager.OnCardPlayed(this);
+        }
+        
+
+        #endregion
         
         #region Card Methods
+        // Math Action
+
         public virtual void Use(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
             if (!IsPlayable) return;
          
+            tempSelf = self;
+            tempTargetCharacter = targetCharacter;
+            tempAllEnemies = allEnemies;
+            tempAllAllies = allAllies;
+            
             StartCoroutine(CardUseRoutine(self, targetCharacter, allEnemies, allAllies));
         }
 
         private IEnumerator CardUseRoutine(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
-            SpendMana(CardData.ManaCost);
+            SpendMana( CardData.ManaCost);
             
             foreach (var playerAction in CardData.CardActionDataList)
             {
@@ -91,7 +131,11 @@ namespace NueGames.NueDeck.Scripts.Card
                         .DoAction(new CardActionParameters(playerAction.ActionValue,
                             target,self,CardData,this));
             }
-            CollectionManager.OnCardPlayed(this);
+
+            if (!CardData.UseMathAction)
+            {
+                CollectionManager.OnCardPlayed(this);
+            }
         }
 
         private static List<CharacterBase> DetermineTargets(CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies,
@@ -169,6 +213,8 @@ namespace NueGames.NueDeck.Scripts.Card
             descTextField.text = CardData.MyDescription;
             manaTextField.text = CardData.ManaCost.ToString();
         }
+
+        
         
         #endregion
         

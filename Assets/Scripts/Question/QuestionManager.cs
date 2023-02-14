@@ -39,7 +39,7 @@ namespace Question
 
         private float startTime = 30;
         private float timer; 
-        private bool timeOver;
+        [SerializeField] private bool timeOver;
         private bool waitAnswer;
 
         private int needCorrectCount = 2;
@@ -63,6 +63,7 @@ namespace Question
                 DontDestroyOnLoad(gameObject);
             }
             
+            timeOver = true;
             questionController.SetQuestionManager(this);
         }
 
@@ -72,6 +73,7 @@ namespace Question
 
         public void EnterQuestion(MathActionBase mathAction)
         {
+            Debug.Log("EnterQuestion");
             tempMathAction = mathAction;
             mainPanel.SetActive(true);
             StartCoroutine(QuestionCoroutine());
@@ -141,24 +143,34 @@ namespace Question
         void Countdown(){
             if(timeOver){return;}
             
-            if (correctCount >= 2)
-            {
-                tempMathAction.OnAnswer();
-                ExitQuestionMode();
-            }
-
             timer -= Time.deltaTime;
             if(timer < 0)
             {
+                tempMathAction.OnAnswer(false);
+                ExitQuestionMode();
+            }
+            
+            if (correctCount >= 2)
+            {
+                tempMathAction.OnAnswer(true);
+                ExitQuestionMode();
+            }
+            
+            if (wrongCount >= 3)
+            {
+                tempMathAction.OnAnswer(false);
+                Debug.Log("Wrong");
                 ExitQuestionMode();
             }
         }
 
         void ExitQuestionMode()
         {
+            Debug.Log("End");
             timeOver = true;
-            StopCoroutine(QuestionCoroutine());
             mainPanel.SetActive(false);
+            StopCoroutine(QuestionCoroutine());
+            Debug.Log("End2");
         }
         
         

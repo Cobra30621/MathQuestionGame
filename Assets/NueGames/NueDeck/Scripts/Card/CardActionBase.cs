@@ -1,4 +1,5 @@
-﻿using NueGames.NueDeck.Scripts.Characters;
+﻿using NueGames.Card;
+using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
@@ -12,6 +13,7 @@ namespace NueGames.NueDeck.Scripts.Card
         public readonly CharacterBase SelfCharacter;
         public readonly CardData CardData;
         public readonly CardBase CardBase;
+        
         public CardActionParameters(float value,CharacterBase target, CharacterBase self,CardData cardData, CardBase cardBase)
         {
             Value = value;

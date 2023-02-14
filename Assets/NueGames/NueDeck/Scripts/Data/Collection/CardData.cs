@@ -29,6 +29,11 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         
         [Header("Fx")]
         [SerializeField] private AudioActionType audioType;
+        
+        [Header("Math Action Settings")]
+        [SerializeField] private bool useMathAction;
+        [SerializeField] private List<CardActionData> correctCardActionDataList;
+        [SerializeField] private List<CardActionData> wrongCardActionDataList;
 
         #region Cache
         public string Id => id;
@@ -37,6 +42,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
         public List<CardActionData> CardActionDataList => cardActionDataList;
+        public List<CardActionData> CorrectCardActionDataList => correctCardActionDataList;
+        public List<CardActionData> WrongCardActionDataList => wrongCardActionDataList;
         public List<CardDescriptionData> CardDescriptionDataList => cardDescriptionDataList;
         public List<SpecialKeywords> KeywordsList => specialKeywordsList;
         public AudioActionType AudioType => audioType;
@@ -44,6 +51,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public RarityType Rarity => rarity;
 
         public bool ExhaustAfterPlay => exhaustAfterPlay;
+        public bool UseMathAction => useMathAction;
 
         #endregion
         
