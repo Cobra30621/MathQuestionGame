@@ -69,6 +69,22 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             
             MyDescription = str.ToString();
         }
+
+        public List<CardActionData> GetCardActionDataList(CardActionDataListType cardActionDataListType)
+        {
+            switch (cardActionDataListType)
+            {
+                case CardActionDataListType.Normal:
+                    return cardActionDataList;
+                case CardActionDataListType.Correct:
+                    return correctCardActionDataList;
+                case CardActionDataListType.Wrong:
+                    return wrongCardActionDataList;
+                default:
+                    Debug.LogWarning($"請設定{cardActionDataListType}的Data List");
+                    return cardActionDataList;
+            }
+        }
         #endregion
 
         #region Editor Methods
@@ -153,6 +169,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
        
         [Header("Modifer")]
         [SerializeField] private bool useModifier;
+
+        [SerializeField] private CardActionDataListType cardActionDataListType;
         [SerializeField] private int modifiedActionValueIndex;
         [SerializeField] private StatusType modiferStats;
         [SerializeField] private bool usePrefixOnModifiedValue;
@@ -163,6 +181,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public bool EnableOverrideColor => enableOverrideColor;
         public Color OverrideColor => overrideColor;
         public bool UseModifier => useModifier;
+        public CardActionDataListType CardActionDataListType => cardActionDataListType;
         public int ModifiedActionValueIndex => modifiedActionValueIndex;
         public StatusType ModiferStats => modiferStats;
         public bool UsePrefixOnModifiedValue => usePrefixOnModifiedValue;
@@ -185,16 +204,18 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 
         public string GetModifiedValue(CardData cardData)
         {
-            if (cardData.CardActionDataList.Count <= 0) return "";
+            List<CardActionData> cardActionDataList = cardData.GetCardActionDataList(cardActionDataListType);
             
-            if (ModifiedActionValueIndex>=cardData.CardActionDataList.Count)
-                modifiedActionValueIndex = cardData.CardActionDataList.Count - 1;
+            if (cardActionDataList.Count <= 0) return "";
+            
+            if (ModifiedActionValueIndex>=cardActionDataList.Count)
+                modifiedActionValueIndex = cardActionDataList.Count - 1;
 
             if (ModifiedActionValueIndex<0)
                 modifiedActionValueIndex = 0;
             
             var str = new StringBuilder();
-            var value = cardData.CardActionDataList[ModifiedActionValueIndex].ActionValue;
+            var value = cardActionDataList[ModifiedActionValueIndex].ActionValue;
             var modifer = 0;
             if (CombatManager)
             {
@@ -246,16 +267,18 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 
         public string GetModifiedValueEditor(CardData cardData)
         {
-            if (cardData.CardActionDataList.Count <= 0) return "";
+            List<CardActionData> cardActionDataList = cardData.GetCardActionDataList(cardActionDataListType);
             
-            if (ModifiedActionValueIndex>=cardData.CardActionDataList.Count)
-                modifiedActionValueIndex = cardData.CardActionDataList.Count - 1;
+            if (cardActionDataList.Count <= 0) return "";
+            
+            if (ModifiedActionValueIndex>=cardActionDataList.Count)
+                modifiedActionValueIndex = cardActionDataList.Count - 1;
 
             if (ModifiedActionValueIndex<0)
                 modifiedActionValueIndex = 0;
             
             var str = new StringBuilder();
-            var value = cardData.CardActionDataList[ModifiedActionValueIndex].ActionValue;
+            var value = cardActionDataList[ModifiedActionValueIndex].ActionValue;
             if (CombatManager)
             {
                 var player = CombatManager.CurrentMainAlly;
@@ -278,6 +301,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditEnableOverrideColor(bool newStatus) => enableOverrideColor = newStatus;
         public void EditOverrideColor(Color newColor) => overrideColor = newColor;
         public void EditUseModifier(bool newStatus) => useModifier = newStatus;
+        public void EditCardActionDataListType(CardActionDataListType newCardActionDataListType) => cardActionDataListType = newCardActionDataListType;
         public void EditModifiedActionValueIndex(int newIndex) => modifiedActionValueIndex = newIndex;
         public void EditModiferStats(StatusType newStatusType) => modiferStats = newStatusType;
         public void EditUsePrefixOnModifiedValues(bool newStatus) => usePrefixOnModifiedValue = newStatus;

@@ -16,4 +16,11 @@
         Math,
         MathDescription
     }
+
+    public enum CardActionDataListType
+    {
+        Normal,
+        Correct,
+        Wrong
+    }
 }

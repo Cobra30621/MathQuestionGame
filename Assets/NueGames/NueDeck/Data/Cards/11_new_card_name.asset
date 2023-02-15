@@ -25,10 +25,11 @@ MonoBehaviour:
     actionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: "\u7B54\u5C0D\uFF1A\u5C0D\u5168\u9AD4\u6575\u4EBA\u9020\u6210"
+  - descriptionText: "\u7B54\u5C0D\uFF1A\u5C0D\u6575\u4EBA\u9020\u6210 "
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
+    cardActionDataListType: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
@@ -38,15 +39,17 @@ MonoBehaviour:
     enableOverrideColor: 1
     overrideColor: {r: 1, g: 0, b: 0, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 1
+    cardActionDataListType: 1
+    modifiedActionValueIndex: 0
     modiferStats: 3
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: "\u9EDE\u50B7\u5BB3\n\u7B54\u932F:\u5C0D\u55AE\u4E00\u6575\u4EBA\u9020\u6210"
+  - descriptionText: " \u9EDE\u50B7\u5BB3\n\u7B54\u932F:\u5C0D\u55AE\u4E00\u6575\u4EBA\u9020\u6210 "
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
+    cardActionDataListType: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
@@ -56,15 +59,17 @@ MonoBehaviour:
     enableOverrideColor: 1
     overrideColor: {r: 1, g: 0, b: 0, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 2
+    cardActionDataListType: 2
+    modifiedActionValueIndex: 0
     modiferStats: 3
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: "\u9EDE\u50B7\u5BB3"
+  - descriptionText: " \u9EDE\u50B7\u5BB3"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
+    cardActionDataListType: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
@@ -76,10 +81,10 @@ MonoBehaviour:
   correctCardActionDataList:
   - cardActionType: 11
     actionTargetType: 0
-    actionValue: 0
+    actionValue: 20
     actionDelay: 0
   wrongCardActionDataList:
   - cardActionType: 0
-    actionTargetType: 2
+    actionTargetType: 0
     actionValue: 10
     actionDelay: 0

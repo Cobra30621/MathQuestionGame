@@ -288,16 +288,16 @@ namespace NueGames.NueDeck.Editor
             if (_isCardActionDataListFolded)
             {
                 _cardActionScrollPos = EditorGUILayout.BeginScrollView(_cardActionScrollPos,GUILayout.ExpandWidth(true));
-                SelectedCardData.EditUseMathAction(EditorGUILayout.ToggleLeft("Use Math Action",
-                    SelectedCardData.UseMathAction,GUILayout.Width(125), GUILayout.Height(25)));
+                SelectedCardData.EditUseMathAction(EditorGUILayout.ToggleLeft("使用數學卡牌（注意:會將一般卡牌行動清除）",
+                    SelectedCardData.UseMathAction,GUILayout.Width(500), GUILayout.Height(25)));
                 if (SelectedCardData.UseMathAction) // 顯示數學行動
                 {
-                    ChangeSingleMathCardActionDataList(CorrectCardActionDataList, "Correct Actions");
-                    ChangeSingleMathCardActionDataList(WrongCardActionDataList, "Wrong Actions");
+                    ChangeSingleMathCardActionDataList(CorrectCardActionDataList, "Correct Actions（答對時卡牌行動）");
+                    ChangeSingleMathCardActionDataList(WrongCardActionDataList, "Wrong Actions（答錯時卡牌行動）");
                 }
                 else // 顯示一般行動
                 {
-                    ChangeSingleMathCardActionDataList(CardActionDataList, "Card Actions");
+                    ChangeSingleMathCardActionDataList(CardActionDataList, "Card Actions（卡牌行動）");
                 }
                 
                 
@@ -390,6 +390,12 @@ namespace NueGames.NueDeck.Editor
                     if (GUILayout.Button("X", GUILayout.Width(25), GUILayout.Height(25)))
                         _removedList.Add(descriptionData);
                     EditorGUILayout.EndHorizontal();
+
+                    if (descriptionData.UseModifier)
+                    {
+                        var newCardActionDataListType = (CardActionDataListType )EditorGUILayout.EnumPopup("CardActionDataListType",descriptionData.CardActionDataListType,GUILayout.Width(250));
+                        descriptionData.EditCardActionDataListType(newCardActionDataListType);
+                    }
                     
                     descriptionData.EditEnableOverrideColor(EditorGUILayout.ToggleLeft("Override Color", descriptionData.EnableOverrideColor,
                         GUILayout.Width(125), GUILayout.Height(25)));
