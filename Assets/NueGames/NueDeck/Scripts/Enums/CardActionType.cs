@@ -14,5 +14,6 @@
         Exhaust,
         AttackSelf,
         Math,
+        MathDescription
     }
 }
