@@ -24,14 +24,6 @@ MonoBehaviour:
     actionTargetType: 0
     actionValue: 0
     actionDelay: 0
-  - cardActionType: 12
-    actionTargetType: 0
-    actionValue: 10
-    actionDelay: 0
-  - cardActionType: 12
-    actionTargetType: 0
-    actionValue: 10
-    actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: "\u7B54\u5C0D\uFF1A\u5C0D\u5168\u9AD4\u6575\u4EBA\u9020\u6210"
     enableOverrideColor: 0
@@ -82,9 +74,9 @@ MonoBehaviour:
   audioType: 0
   useMathAction: 1
   correctCardActionDataList:
-  - cardActionType: 0
+  - cardActionType: 11
     actionTargetType: 0
-    actionValue: 10
+    actionValue: 0
     actionDelay: 0
   wrongCardActionDataList:
   - cardActionType: 0

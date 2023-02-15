@@ -32,6 +32,8 @@ namespace NueGames.NueDeck.Editor
         private bool UsableWithoutTarget{ get; set; }
         private bool ExhaustAfterPlay{ get; set; }
         private List<CardActionData> CardActionDataList{ get; set; }
+        private List<CardActionData> CorrectCardActionDataList{ get; set; }
+        private List<CardActionData> WrongCardActionDataList{ get; set; }
         private List<CardDescriptionData> CardDescriptionDataList{ get; set; }
         private List<SpecialKeywords> SpecialKeywordsList{ get; set; }
         private AudioActionType AudioType{ get; set; }
@@ -47,6 +49,8 @@ namespace NueGames.NueDeck.Editor
             UsableWithoutTarget = SelectedCardData.UsableWithoutTarget;
             ExhaustAfterPlay = SelectedCardData.ExhaustAfterPlay;
             CardActionDataList = SelectedCardData.CardActionDataList.Count>0 ? new List<CardActionData>(SelectedCardData.CardActionDataList) : new List<CardActionData>();
+            CorrectCardActionDataList = SelectedCardData.CorrectCardActionDataList.Count>0 ? new List<CardActionData>(SelectedCardData.CorrectCardActionDataList) : new List<CardActionData>();
+            WrongCardActionDataList = SelectedCardData.WrongCardActionDataList.Count>0 ? new List<CardActionData>(SelectedCardData.WrongCardActionDataList) : new List<CardActionData>();
             CardDescriptionDataList = SelectedCardData.CardDescriptionDataList.Count>0 ? new List<CardDescriptionData>(SelectedCardData.CardDescriptionDataList) : new List<CardDescriptionData>();
             SpecialKeywordsList = SelectedCardData.KeywordsList.Count>0 ? new List<SpecialKeywords>(SelectedCardData.KeywordsList) : new List<SpecialKeywords>();
             AudioType = SelectedCardData.AudioType;
@@ -62,6 +66,8 @@ namespace NueGames.NueDeck.Editor
             UsableWithoutTarget = false;
             ExhaustAfterPlay = false;
             CardActionDataList?.Clear();
+            CorrectCardActionDataList?.Clear();
+            WrongCardActionDataList?.Clear();
             CardDescriptionDataList?.Clear();
             SpecialKeywordsList?.Clear();
             AudioType = AudioActionType.Attack;
@@ -188,7 +194,6 @@ namespace NueGames.NueDeck.Editor
            
             
             ChangeGeneralSettings();
-           
             ChangeCardActionDataList();
             ChangeCardDescriptionDataList();
             ChangeSpecialKeywords();
@@ -283,58 +288,84 @@ namespace NueGames.NueDeck.Editor
             if (_isCardActionDataListFolded)
             {
                 _cardActionScrollPos = EditorGUILayout.BeginScrollView(_cardActionScrollPos,GUILayout.ExpandWidth(true));
-                EditorGUILayout.BeginHorizontal();
-                List<CardActionData> _removedList = new List<CardActionData>();
-                for (var i = 0; i < CardActionDataList.Count; i++)
+                SelectedCardData.EditUseMathAction(EditorGUILayout.ToggleLeft("Use Math Action",
+                    SelectedCardData.UseMathAction,GUILayout.Width(125), GUILayout.Height(25)));
+                if (SelectedCardData.UseMathAction) // 顯示數學行動
                 {
-                    var cardActionData = CardActionDataList[i];
-                    EditorGUILayout.BeginVertical("box", GUILayout.Width(150), GUILayout.MaxHeight(50));
-                
-                    EditorGUILayout.BeginHorizontal();
-                    GUIStyle idStyle = new GUIStyle();
-                    idStyle.fontSize = 16;
-                    idStyle.fixedWidth = 25;
-                    idStyle.fixedHeight = 25;
-                    idStyle.fontStyle = FontStyle.Bold;
-                    idStyle.normal.textColor = Color.white;
-                    EditorGUILayout.LabelField($"Action Index: {i}",idStyle);
-                    
-                    GUILayout.FlexibleSpace();
-                    
-                    if (GUILayout.Button("X", GUILayout.MaxWidth(25), GUILayout.MaxHeight(25)))
-                        _removedList.Add(cardActionData);
-                    
-                    EditorGUILayout.EndHorizontal();
-                    EditorGUILayout.Separator();
-                    var newActionType = (CardActionType)EditorGUILayout.EnumPopup("Action Type",cardActionData.CardActionType,GUILayout.Width(250));
-
-                    if (newActionType != CardActionType.Exhaust)
-                    {
-                        var newActionTarget = (ActionTargetType)EditorGUILayout.EnumPopup("Target Type",cardActionData.ActionTargetType,GUILayout.Width(250));
-                        var newActionValue = EditorGUILayout.FloatField("Action Value: ",cardActionData.ActionValue);
-                        cardActionData.EditActionValue(newActionValue);
-                        cardActionData.EditActionTarget(newActionTarget);
-                    }
-                    
-                    var newActionDelay = EditorGUILayout.FloatField("Action Delay: ",cardActionData.ActionDelay);
-                    
-                    cardActionData.EditActionDelay(newActionDelay);
-                    cardActionData.EditActionType(newActionType);
-                    EditorGUILayout.EndVertical();
+                    ChangeSingleMathCardActionDataList(CorrectCardActionDataList, "Correct Actions");
+                    ChangeSingleMathCardActionDataList(WrongCardActionDataList, "Wrong Actions");
                 }
-
-                foreach (var cardActionData in _removedList)
-                    CardActionDataList.Remove(cardActionData);
-
-                if (GUILayout.Button("+",GUILayout.Width(50),GUILayout.Height(50)))
-                    CardActionDataList.Add(new CardActionData());
+                else // 顯示一般行動
+                {
+                    ChangeSingleMathCardActionDataList(CardActionDataList, "Card Actions");
+                }
                 
-                EditorGUILayout.EndHorizontal();
+                
                 EditorGUILayout.EndScrollView();
             }
             
             EditorGUILayout.EndFoldoutHeaderGroup();
         }
+
+        private void ChangeSingleMathCardActionDataList(List<CardActionData> cardActionDataList, string title)
+        {
+            
+            GUIStyle headStyle = new GUIStyle();
+            headStyle.fontStyle = FontStyle.Bold;
+            headStyle.normal.textColor = Color.white;
+            // EditorGUILayout.BeginVertical();
+            EditorGUILayout.LabelField(title,headStyle);
+            EditorGUILayout.BeginHorizontal();
+            
+            List<CardActionData> _removedList = new List<CardActionData>();
+            for (var i = 0; i < cardActionDataList.Count; i++)
+            {
+                var cardActionData = cardActionDataList[i];
+                EditorGUILayout.BeginVertical("box", GUILayout.Width(150), GUILayout.MaxHeight(50));
+            
+                EditorGUILayout.BeginHorizontal();
+                GUIStyle idStyle = new GUIStyle();
+                idStyle.fontSize = 16;
+                idStyle.fixedWidth = 25;
+                idStyle.fixedHeight = 25;
+                idStyle.fontStyle = FontStyle.Bold;
+                idStyle.normal.textColor = Color.white;
+                EditorGUILayout.LabelField($"Action Index: {i}",idStyle);
+                
+                GUILayout.FlexibleSpace();
+                
+                if (GUILayout.Button("X", GUILayout.MaxWidth(25), GUILayout.MaxHeight(25)))
+                    _removedList.Add(cardActionData);
+                
+                EditorGUILayout.EndHorizontal();
+                EditorGUILayout.Separator();
+                var newActionType = (CardActionType)EditorGUILayout.EnumPopup("Action Type",cardActionData.CardActionType,GUILayout.Width(250));
+
+                if (newActionType != CardActionType.Exhaust)
+                {
+                    var newActionTarget = (ActionTargetType)EditorGUILayout.EnumPopup("Target Type",cardActionData.ActionTargetType,GUILayout.Width(250));
+                    var newActionValue = EditorGUILayout.FloatField("Action Value: ",cardActionData.ActionValue);
+                    cardActionData.EditActionValue(newActionValue);
+                    cardActionData.EditActionTarget(newActionTarget);
+                }
+                
+                var newActionDelay = EditorGUILayout.FloatField("Action Delay: ",cardActionData.ActionDelay);
+                
+                cardActionData.EditActionDelay(newActionDelay);
+                cardActionData.EditActionType(newActionType);
+                EditorGUILayout.EndVertical();
+            }
+
+            foreach (var cardActionData in _removedList)
+                cardActionDataList.Remove(cardActionData);
+
+            if (GUILayout.Button("+",GUILayout.Width(50),GUILayout.Height(50)))
+                cardActionDataList.Add(new CardActionData());
+            
+            EditorGUILayout.EndHorizontal();
+            
+        }
+        
         
         private bool _isDescriptonDataListFolded;
         private Vector2 _descriptionDataScrollPos;
@@ -511,6 +542,8 @@ namespace NueGames.NueDeck.Editor
             SelectedCardData.EditUsableWithoutTarget(UsableWithoutTarget);
             SelectedCardData.EditExhaustAfterPlay(ExhaustAfterPlay);
             SelectedCardData.EditCardActionDataList(CardActionDataList);
+            SelectedCardData.EditCorrectCardActionDataList(CorrectCardActionDataList);
+            SelectedCardData.EditWrongCardActionDataList(WrongCardActionDataList);
             SelectedCardData.EditCardDescriptionDataList(CardDescriptionDataList);
             SelectedCardData.EditSpecialKeywordsList(SpecialKeywordsList);
             SelectedCardData.EditAudioType(AudioType);

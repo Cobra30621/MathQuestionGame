@@ -82,11 +82,33 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditExhaustAfterPlay(bool newStatus) => exhaustAfterPlay = newStatus;
         public void EditCardActionDataList(List<CardActionData> newCardActionDataList) =>
             cardActionDataList = newCardActionDataList;
+        public void EditCorrectCardActionDataList(List<CardActionData> newCardActionDataList) =>
+            correctCardActionDataList= newCardActionDataList;
+        public void EditWrongCardActionDataList(List<CardActionData> newCardActionDataList) =>
+            wrongCardActionDataList = newCardActionDataList;
         public void EditCardDescriptionDataList(List<CardDescriptionData> newCardDescriptionDataList) =>
             cardDescriptionDataList = newCardDescriptionDataList;
         public void EditSpecialKeywordsList(List<SpecialKeywords> newSpecialKeywordsList) =>
             specialKeywordsList = newSpecialKeywordsList;
         public void EditAudioType(AudioActionType newAudioActionType) => audioType = newAudioActionType;
+
+        public void EditUseMathAction(bool newStatus)
+        {
+            useMathAction = newStatus;
+            if (useMathAction) // 切換成數學卡片
+            {
+                // correctCardActionDataList = new List<CardActionData>(cardActionDataList);
+                // 卡片行動改成數學行動
+                cardActionDataList.Clear();
+                CardActionData cardActionData = new CardActionData();
+                cardActionData.EditActionType(CardActionType.Math);
+                cardActionDataList.Add(cardActionData);
+            }
+            else // 切換成一般卡片
+            {
+                // cardActionDataList = new List<CardActionData>(correctCardActionDataList);
+            }
+        } 
 #endif
 
         #endregion
@@ -105,6 +127,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public CardActionType CardActionType => cardActionType;
         public float ActionValue => actionValue;
         public float ActionDelay => actionDelay;
+        
 
         #region Editor
 
