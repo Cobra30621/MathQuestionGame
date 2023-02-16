@@ -14,15 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialKeywordBaseList:
   - specialKeyword: 0
+    titleText: 
     contentText: Block damages
   - specialKeyword: 1
+    titleText: 
     contentText: Increase your attack damage
   - specialKeyword: 4
+    titleText: 
     contentText: Increase your block amount
   - specialKeyword: 2
+    titleText: 
     contentText: Damage per round. Ignores <color=blue>block</color>.
   - specialKeyword: 3
+    titleText: 
     contentText: After using <color=yellow>Exhaust</color>, remove it from your deck
       for this combat
   - specialKeyword: 5
+    titleText: 
     contentText: Can not use any action
+  - specialKeyword: 6
+    titleText: "\u6578\u5B78\u7B54\u984C"
+    contentText: "\u6839\u64DA\u6578\u5B78\u7B54\u984C\u72C0\u6CC1\uFF0C\u7D66\u4E88\u4E0D\u540C\u6548\u679C"

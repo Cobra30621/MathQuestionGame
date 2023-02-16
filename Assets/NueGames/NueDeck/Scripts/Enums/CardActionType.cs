@@ -13,8 +13,7 @@
         Stun,
         Exhaust,
         AttackSelf,
-        Math,
-        MathDescription
+        Math
     }
 
     public enum CardActionDataListType
