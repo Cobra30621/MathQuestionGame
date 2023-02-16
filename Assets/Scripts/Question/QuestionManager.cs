@@ -13,7 +13,7 @@ namespace Question
         private QuestionManager(){}
         public static QuestionManager Instance { get; private set; }
         [SerializeField] private QuestionController questionController;
-        [SerializeField] private GameObject mainPanel;
+        
         [SerializeField] private QuestionsData questionsData;
         
         public float Timer{
@@ -41,7 +41,6 @@ namespace Question
         private float timer; 
         [SerializeField] private bool timeOver;
         private bool waitAnswer;
-
         private int needCorrectCount = 2;
         private int correctCount;
         private int wrongCount;
@@ -75,7 +74,7 @@ namespace Question
         {
             Debug.Log("EnterQuestion");
             tempMathAction = mathAction;
-            mainPanel.SetActive(true);
+            questionController.ShowPanel();
             StartCoroutine(QuestionCoroutine());
         }
 
@@ -168,7 +167,7 @@ namespace Question
         {
             Debug.Log("End");
             timeOver = true;
-            mainPanel.SetActive(false);
+            questionController.DisablePanel();
             StopCoroutine(QuestionCoroutine());
             Debug.Log("End2");
         }
