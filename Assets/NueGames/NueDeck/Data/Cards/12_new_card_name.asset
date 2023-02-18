@@ -12,17 +12,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 12_new_card_name
   m_EditorClassIdentifier: 
-  id: 12_new_card_name
-  cardName: 12_new_card_name
+  id: 12_hurt
+  cardName: "\u75DB\u64CA"
   manaCost: 0
   cardSprite: {fileID: 0}
   rarity: 0
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
-  cardActionDataList: []
-  cardDescriptionDataList: []
-  specialKeywordsList: 
+  cardActionDataList:
+  - cardActionType: 0
+    actionTargetType: 0
+    actionValue: 10
+    actionDelay: 0
+  - cardActionType: 12
+    actionTargetType: 0
+    actionValue: 2
+    actionDelay: 0
+  cardDescriptionDataList:
+  - descriptionText: "\u7D66\u4E88\u6575\u4EBA "
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    useModifier: 1
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 3
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: "\u50B7\u5BB3\uFF0C\u4E26\u9020\u6210 "
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 1
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: " \u9EDE\u6613\u50B7\u3002"
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  specialKeywordsList: 07000000
   audioType: 0
   useMathAction: 0
   correctCardActionDataList: []
   wrongCardActionDataList: []
+  correctActionNeedAnswerCount: 2
+  wrongActionNeedAnswerCount: 1

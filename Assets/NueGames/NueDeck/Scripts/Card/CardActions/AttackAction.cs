@@ -1,4 +1,5 @@
-﻿using NueGames.NueDeck.Scripts.Enums;
+﻿using NueGames.NueDeck.Scripts.Combat;
+using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using UnityEngine;
 
@@ -14,9 +15,10 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             var targetCharacter = actionParameters.TargetCharacter;
             var selfCharacter = actionParameters.SelfCharacter;
             
-            var value = actionParameters.Value + selfCharacter.CharacterStats.StatusDict[StatusType.Strength].StatusValue; 
+            // var value = actionParameters.Value + selfCharacter.CharacterStats.StatusDict[StatusType.Strength].StatusValue;
+            int value = CombatCalculator.GetDamageValue(actionParameters.Value, selfCharacter, targetCharacter);
             
-            targetCharacter.CharacterStats.Damage(Mathf.RoundToInt(value));
+            targetCharacter.CharacterStats.Damage(value);
 
             if (FxManager != null)
             {

@@ -13,7 +13,9 @@
         Stun,
         Exhaust,
         AttackSelf,
-        Math
+        Math,
+        GiveVulnerable,
+        GiveWeak
     }
 
     public enum CardActionDataListType

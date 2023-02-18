@@ -1,4 +1,5 @@
-﻿using NueGames.NueDeck.Scripts.Enums;
+﻿using NueGames.NueDeck.Scripts.Combat;
+using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using UnityEngine;
 
@@ -11,9 +12,11 @@ namespace NueGames.NueDeck.Scripts.EnemyBehaviour.EnemyActions
         public override void DoAction(EnemyActionParameters actionParameters)
         {
             if (!actionParameters.TargetCharacter) return;
-            var value = Mathf.RoundToInt(actionParameters.Value +
-                                         actionParameters.SelfCharacter.CharacterStats.StatusDict[StatusType.Strength]
-                                             .StatusValue);
+            
+            var targetCharacter = actionParameters.TargetCharacter;
+            var selfCharacter = actionParameters.SelfCharacter;
+            int value = CombatCalculator.GetDamageValue(actionParameters.Value, selfCharacter, targetCharacter);
+            
             actionParameters.TargetCharacter.CharacterStats.Damage(value);
             if (FxManager != null)
             {

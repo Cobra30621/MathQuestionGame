@@ -7,6 +7,8 @@
         Poison,
         Strength,
         Dexterity,
-        Stun
+        Stun,
+        Vulnerable,
+        Weak
     }
 }

@@ -8,6 +8,8 @@
         Exhaust,
         Dexterity,
         Stun,
-        Math
+        Math,
+        Vulnerable,
+        Weak
     }
 }
