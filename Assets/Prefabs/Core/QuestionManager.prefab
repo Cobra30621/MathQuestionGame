@@ -114,8 +114,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -296.18787, y: -326.20734}
-  m_SizeDelta: {x: -1041.3196, y: 39.5889}
+  m_AnchoredPosition: {x: -93.1967, y: -320.44}
+  m_SizeDelta: {x: -1198.9263, y: 46.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3084103468804183214
 CanvasRenderer:
@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 7264938829358898608}
   - component: {fileID: 1319319194938833027}
   m_Layer: 5
-  m_Name: time Text
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -745,8 +745,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 523, y: -0.0000040531}
-  m_SizeDelta: {x: 84.1088, y: 50}
+  m_AnchoredPosition: {x: -545, y: 0}
+  m_SizeDelta: {x: 334.7292, y: 70.6697}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7264938829358898608
 CanvasRenderer:
@@ -776,17 +776,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: "\u7B54\u5C0D\u984C\u6578\uFF1A"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 91dff817ceb0e6a4c87cf33aa6e6ccda, type: 2}
+  m_sharedMaterial: {fileID: -5983068599249183672, guid: 91dff817ceb0e6a4c87cf33aa6e6ccda, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255454
+  m_fontColor: {r: 0.3689115, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -880,7 +880,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 549.3994, y: -326.74884}
+  m_AnchoredPosition: {x: 598, y: -326.75}
   m_SizeDelta: {x: 496.8737, y: 59.328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4323016463016266618
@@ -997,7 +997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4847515048350150243
 RectTransform:
   m_ObjectHideFlags: 0

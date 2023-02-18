@@ -27,7 +27,8 @@ namespace Question
         public float StartTime =>  startTime;
         public int CorrectCount => correctCount;
         public int WrongCount => wrongCount;
-        public int NeedCorrectCount => needCorrectCount;
+        public int CorrectActionNeedAnswerCount => correctActionNeedAnswerCount;
+        public int WrongActionNeedAnswerCount => wrongActionNeedAnswerCount;
 
         #region Cache
         
@@ -40,8 +41,10 @@ namespace Question
         private float startTime = 30;
         private float timer; 
         [SerializeField] private bool timeOver;
+        private bool questioning;
         private bool waitAnswer;
-        private int needCorrectCount = 2;
+        private int correctActionNeedAnswerCount;
+        private int wrongActionNeedAnswerCount;
         private int correctCount;
         private int wrongCount;
         
@@ -63,6 +66,7 @@ namespace Question
             }
             
             timeOver = true;
+            questioning = false;
             questionController.SetQuestionManager(this);
         }
 
@@ -70,10 +74,12 @@ namespace Question
         
         #region Public Methods
 
-        public void EnterQuestion(MathActionBase mathAction)
+        public void EnterQuestion(MathActionBase mathAction, int correctNeedAnswerCount, int wrongNeedAnswerCount)
         {
-            Debug.Log("EnterQuestion");
             tempMathAction = mathAction;
+            correctActionNeedAnswerCount = correctNeedAnswerCount;
+            wrongActionNeedAnswerCount = wrongNeedAnswerCount;
+            
             questionController.ShowPanel();
             StartCoroutine(QuestionCoroutine());
         }
@@ -102,10 +108,11 @@ namespace Question
             timeOver = false;
             correctCount = 0;
             wrongCount = 0;
+            questioning = true;
             InitQuestionList();
 
             // Start Questioning
-            while (!timeOver)
+            while (questioning)
             {
                 NextQuestion();
                 questionController.SetNextQuestion(currentQuestion);
@@ -136,7 +143,8 @@ namespace Question
 
         void Update()
         {
-            Countdown();
+            JudgeMathCardAction();
+            // Countdown();
         }
         
         void Countdown(){
@@ -148,14 +156,21 @@ namespace Question
                 tempMathAction.OnAnswer(false);
                 ExitQuestionMode();
             }
+
             
-            if (correctCount >= 2)
+        }
+
+        void JudgeMathCardAction()
+        {
+            if (!questioning) { return;}
+            
+            if (correctCount >= correctActionNeedAnswerCount)
             {
                 tempMathAction.OnAnswer(true);
                 ExitQuestionMode();
             }
             
-            if (wrongCount >= 3)
+            if (wrongCount >= wrongActionNeedAnswerCount)
             {
                 tempMathAction.OnAnswer(false);
                 Debug.Log("Wrong");
@@ -167,6 +182,7 @@ namespace Question
         {
             Debug.Log("End");
             timeOver = true;
+            questioning = false;
             questionController.DisablePanel();
             StopCoroutine(QuestionCoroutine());
             Debug.Log("End2");

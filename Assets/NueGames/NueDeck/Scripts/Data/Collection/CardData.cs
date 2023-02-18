@@ -34,6 +34,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private bool useMathAction;
         [SerializeField] private List<CardActionData> correctCardActionDataList;
         [SerializeField] private List<CardActionData> wrongCardActionDataList;
+        [SerializeField] private int correctActionNeedAnswerCount = 2;
+        [SerializeField] private int wrongActionNeedAnswerCount = 1;
 
         #region Cache
         public string Id => id;
@@ -52,6 +54,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 
         public bool ExhaustAfterPlay => exhaustAfterPlay;
         public bool UseMathAction => useMathAction;
+        public int CorrectActionNeedAnswerCount => correctActionNeedAnswerCount;
+        public int WrongActionNeedAnswerCount => wrongActionNeedAnswerCount;
 
         #endregion
         
@@ -107,7 +111,10 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditSpecialKeywordsList(List<SpecialKeywords> newSpecialKeywordsList) =>
             specialKeywordsList = newSpecialKeywordsList;
         public void EditAudioType(AudioActionType newAudioActionType) => audioType = newAudioActionType;
-
+        public void EditCorrectActionNeedAnswerCount(int newCorrectActionNeedAnswerCount) => 
+            correctActionNeedAnswerCount = newCorrectActionNeedAnswerCount;
+        public void EditWrongActionNeedAnswerCount(int newWrongActionNeedAnswerCount)=> 
+            wrongActionNeedAnswerCount = newWrongActionNeedAnswerCount;
         public void EditUseMathAction(bool newStatus)
         {
             useMathAction = newStatus;

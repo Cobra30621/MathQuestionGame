@@ -24,13 +24,13 @@ namespace Question
 
         void Update()
         {
-            timeText.text = $"{Mathf.Ceil(_questionManager.Timer)}";
-            float timeRate = _questionManager.Timer / _questionManager.StartTime;
-            timeBar.fillAmount = timeRate;
+            // timeText.text = $"{Mathf.Ceil(_questionManager.Timer)}";
+            // float timeRate = _questionManager.Timer / _questionManager.StartTime;
+            // timeBar.fillAmount = timeRate;
 
-            correctCountText.text = $"{_questionManager.CorrectCount}";
-            correctBar.fillAmount = (float)_questionManager.CorrectCount / _questionManager.NeedCorrectCount;
-            wrongCountText.text =  $"答錯 :{_questionManager.WrongCount} / 3";
+            correctCountText.text = $"答對：{_questionManager.CorrectCount}/ {_questionManager.CorrectActionNeedAnswerCount}";
+            correctBar.fillAmount = (float)_questionManager.CorrectCount / _questionManager.CorrectActionNeedAnswerCount;
+            wrongCountText.text =  $"答錯 :{_questionManager.WrongCount} / {_questionManager.WrongActionNeedAnswerCount}";
         }
         
 

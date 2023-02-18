@@ -18,7 +18,9 @@ namespace NueGames.Card.CardActions
 
         public override void DoAction(CardActionParameters actionParameters)
         {
-            QuestionManager.Instance.EnterQuestion(this);
+            int correctActionNeedAnswerCount = actionParameters.CardData.CorrectActionNeedAnswerCount;
+            int wrongActionNeedAnswerCount = actionParameters.CardData.WrongActionNeedAnswerCount;
+            QuestionManager.Instance.EnterQuestion(this, correctActionNeedAnswerCount, wrongActionNeedAnswerCount);
             this.actionParameters = actionParameters;
             
         }

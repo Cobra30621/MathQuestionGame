@@ -34,10 +34,12 @@ namespace NueGames.NueDeck.Editor
         private List<CardActionData> CardActionDataList{ get; set; }
         private List<CardActionData> CorrectCardActionDataList{ get; set; }
         private List<CardActionData> WrongCardActionDataList{ get; set; }
+        private int CorrectActionNeedAnswerCount{ get; set; }
+        private int WrongActionNeedAnswerCount{ get; set; }
         private List<CardDescriptionData> CardDescriptionDataList{ get; set; }
         private List<SpecialKeywords> SpecialKeywordsList{ get; set; }
         private AudioActionType AudioType{ get; set; }
-        
+
         private RarityType CardRarity { get; set; }
 
         private void CacheCardData()
@@ -55,6 +57,8 @@ namespace NueGames.NueDeck.Editor
             SpecialKeywordsList = SelectedCardData.KeywordsList.Count>0 ? new List<SpecialKeywords>(SelectedCardData.KeywordsList) : new List<SpecialKeywords>();
             AudioType = SelectedCardData.AudioType;
             CardRarity = SelectedCardData.Rarity;
+            CorrectActionNeedAnswerCount = SelectedCardData.CorrectActionNeedAnswerCount;
+            WrongActionNeedAnswerCount = SelectedCardData.WrongActionNeedAnswerCount;
         }
         
         private void ClearCachedCardData()
@@ -292,8 +296,14 @@ namespace NueGames.NueDeck.Editor
                     SelectedCardData.UseMathAction,GUILayout.Width(500), GUILayout.Height(25)));
                 if (SelectedCardData.UseMathAction) // 顯示數學行動
                 {
+                    
                     ChangeSingleMathCardActionDataList(CorrectCardActionDataList, "Correct Actions（答對時卡牌行動）");
+                    CorrectActionNeedAnswerCount = EditorGUILayout.IntField("啟動行動，需答對題數", CorrectActionNeedAnswerCount);
+                    EditorGUILayout.Space(20);
+                    
                     ChangeSingleMathCardActionDataList(WrongCardActionDataList, "Wrong Actions（答錯時卡牌行動）");
+                    WrongActionNeedAnswerCount = EditorGUILayout.IntField("啟動行動，需答錯題數", WrongActionNeedAnswerCount);
+                    EditorGUILayout.Space(20);
                 }
                 else // 顯示一般行動
                 {
@@ -305,6 +315,7 @@ namespace NueGames.NueDeck.Editor
             }
             
             EditorGUILayout.EndFoldoutHeaderGroup();
+            
         }
 
         private void ChangeSingleMathCardActionDataList(List<CardActionData> cardActionDataList, string title)
@@ -313,6 +324,7 @@ namespace NueGames.NueDeck.Editor
             GUIStyle headStyle = new GUIStyle();
             headStyle.fontStyle = FontStyle.Bold;
             headStyle.normal.textColor = Color.white;
+            headStyle.fontSize = 20;
             // EditorGUILayout.BeginVertical();
             EditorGUILayout.LabelField(title,headStyle);
             EditorGUILayout.BeginHorizontal();
@@ -553,6 +565,8 @@ namespace NueGames.NueDeck.Editor
             SelectedCardData.EditCardDescriptionDataList(CardDescriptionDataList);
             SelectedCardData.EditSpecialKeywordsList(SpecialKeywordsList);
             SelectedCardData.EditAudioType(AudioType);
+            SelectedCardData.EditCorrectActionNeedAnswerCount(CorrectActionNeedAnswerCount);
+            SelectedCardData.EditWrongActionNeedAnswerCount(WrongActionNeedAnswerCount);
             EditorUtility.SetDirty(SelectedCardData);
             AssetDatabase.SaveAssets();
         }
