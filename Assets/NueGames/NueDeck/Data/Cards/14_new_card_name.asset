@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: 14_new_card_name
+  m_EditorClassIdentifier: 
+  id: "14_\u96F7\u9706"
+  cardName: "\u96F7\u9706"
+  manaCost: 0
+  cardSprite: {fileID: 0}
+  rarity: 0
+  usableWithoutTarget: 0
+  exhaustAfterPlay: 1
+  cardActionDataList:
+  - cardActionType: 0
+    actionTargetType: 0
+    actionValue: 4
+    actionDelay: 0
+  - cardActionType: 14
+    actionTargetType: 0
+    actionValue: 1
+    actionDelay: 0
+  cardDescriptionDataList:
+  - descriptionText: "\u9020\u6210 "
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    useModifier: 1
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: " \u9EDE\u50B7\u5BB3\uFF0C\u7D66\u4E88\u6575\u4EBA "
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 1
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: "\u9EBB\u75FA"
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  specialKeywordsList: 0500000003000000
+  audioType: 0
+  useMathAction: 0
+  correctCardActionDataList: []
+  wrongCardActionDataList: []
+  correctActionNeedAnswerCount: 0
+  wrongActionNeedAnswerCount: 0
