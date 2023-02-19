@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using MoreMountains.Feedbacks;
 
 namespace Question
 {
     public class QuestionController : MonoBehaviour
     {
         private QuestionManager _questionManager;
-        [SerializeField] private GameObject mainPanel;
         [SerializeField] private Image qeustionImage;
         [SerializeField] private Image timeBar;
         [SerializeField] private Image correctBar;
         [SerializeField] private  TextMeshProUGUI timeText;
         [SerializeField] private  TextMeshProUGUI wrongCountText;
         [SerializeField] private TextMeshProUGUI correctCountText;
+        [SerializeField] private MMF_Player onEnterQuestionModeFeedback;
+        [SerializeField] private MMF_Player onQuestionShowFeedback;
+        [SerializeField] private MMF_Player onAnswerFeedback;
+        [SerializeField] private MMF_Player onExitQuestionModeFeedback;
 
         void Awake()
         {
-            DisablePanel();
+            // DisablePanel();
         }
 
         void Update()
@@ -39,31 +43,29 @@ namespace Question
             _questionManager = manager;
         }
 
-        public void ShowPanel()
+        public void EnterQuestionMode()
         {
-            mainPanel.SetActive(true);
+            // mainPanel.SetActive(true);
+            onEnterQuestionModeFeedback.PlayFeedbacks();
         }
 
-        public void DisablePanel()
+        public void ExitQuestionMode()
         {
-            mainPanel.SetActive(false);
+            onExitQuestionModeFeedback.PlayFeedbacks();
         }
         
         public void SetNextQuestion(MultipleChoiceQuestion multipleChoiceQuestion)
         {
             qeustionImage.sprite = multipleChoiceQuestion.QuestionSprite;
+            onQuestionShowFeedback.PlayFeedbacks();
         }
+        
 
-        public void OnAnswer(bool correct)
+        public void OnAnswer(bool correct, int option)
         {
-            if (correct)
-            {
-                Debug.Log("Play Correct Effect");
-            }
-            else
-            {
-                Debug.Log("Play Wrong Effect");
-            }
+            onAnswerFeedback.GetFeedbackOfType<MMF_Feedbacks>().TargetFeedbacks =
+                _questionManager.GetAnswerFeedback(correct, option);
+            onAnswerFeedback.PlayFeedbacks();
         }
     }
 }

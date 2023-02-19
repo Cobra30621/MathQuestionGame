@@ -5,6 +5,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Feedbacks;
 
 namespace Question
 {
@@ -29,6 +30,8 @@ namespace Question
         public int WrongCount => wrongCount;
         public int CorrectActionNeedAnswerCount => correctActionNeedAnswerCount;
         public int WrongActionNeedAnswerCount => wrongActionNeedAnswerCount;
+        public bool IsPlayingFeedback => isPlayingFeedback;
+        [SerializeField] private AnswerButton[] answerButtons;
 
         #region Cache
         
@@ -43,6 +46,7 @@ namespace Question
         [SerializeField] private bool timeOver;
         private bool questioning;
         private bool waitAnswer;
+        [SerializeField] private bool isPlayingFeedback;
         private int correctActionNeedAnswerCount;
         private int wrongActionNeedAnswerCount;
         private int correctCount;
@@ -80,8 +84,22 @@ namespace Question
             correctActionNeedAnswerCount = correctNeedAnswerCount;
             wrongActionNeedAnswerCount = wrongNeedAnswerCount;
             
-            questionController.ShowPanel();
+            questionController.EnterQuestionMode();
             StartCoroutine(QuestionCoroutine());
+        }
+
+        public void StartQuestion()
+        {
+            correctActionNeedAnswerCount =10;
+            wrongActionNeedAnswerCount = 10;
+            questionController.EnterQuestionMode();
+            StartCoroutine(QuestionCoroutine());
+        }
+        
+
+        public void SetPlayingFeedback(bool isPlaying)
+        {
+            isPlayingFeedback = isPlaying;
         }
 
         public void OnAnswer(int option)
@@ -89,12 +107,30 @@ namespace Question
             if (option == correctAnswer)
             {
                 correctCount++;
+                questionController.OnAnswer(true, option);
             }
             else
             {
                 wrongCount++;
+                questionController.OnAnswer(false, option);
             }
             waitAnswer = false;
+            EnableAnswer(false);
+        }
+
+        public MMF_Player GetAnswerFeedback(bool correct, int option)
+        {
+            if (option >= answerButtons.Length)
+            {
+                Debug.LogError($"{option} 超過 answerbuttons 數量");
+                return null;
+            }
+            
+            AnswerButton answerButton = answerButtons[option];
+            if (correct)
+                return answerButton.CorrectFeedback;
+            else
+                return answerButton.WrongFeedback;
         }
         
         #endregion
@@ -110,15 +146,29 @@ namespace Question
             wrongCount = 0;
             questioning = true;
             InitQuestionList();
+            yield return new WaitForSeconds(0.5f);
+            while (isPlayingFeedback) yield return null; // 等待開頭反饋特效
 
             // Start Questioning
             while (questioning)
             {
                 NextQuestion();
                 questionController.SetNextQuestion(currentQuestion);
+                while (isPlayingFeedback) yield return null; // 等待顯示題目反饋特效
+                EnableAnswer(true);
                 waitAnswer = true;
                 while (waitAnswer) yield return null;
+                yield return new WaitForSeconds(0.5f);
+                while (isPlayingFeedback) yield return null; // 等待答題成功反饋特效
 
+            }
+        }
+
+        void EnableAnswer(bool enable)
+        {
+            foreach (AnswerButton answerButton in answerButtons)
+            {
+                answerButton.EnableAnswer(enable);
             }
         }
 
@@ -183,7 +233,7 @@ namespace Question
             Debug.Log("End");
             timeOver = true;
             questioning = false;
-            questionController.DisablePanel();
+            questionController.ExitQuestionMode();
             StopCoroutine(QuestionCoroutine());
             Debug.Log("End2");
         }
