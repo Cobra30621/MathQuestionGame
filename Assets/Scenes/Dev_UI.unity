@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &217885304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3528570657698693409, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+  m_PrefabInstance: {fileID: 948991612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &273372194
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +287,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1765038687, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: FeedbacksList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765038687, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: Events.OnComplete.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765038687, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: Events.OnComplete.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765038687, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: Events.OnComplete.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 217885304}
+    - target: {fileID: 1765038687, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: Events.OnComplete.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765038687, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: Events.OnComplete.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765038687, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: Events.OnComplete.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765038687, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: Events.OnComplete.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 686758793060690353, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

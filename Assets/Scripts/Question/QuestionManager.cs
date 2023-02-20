@@ -51,6 +51,7 @@ namespace Question
         private int wrongActionNeedAnswerCount;
         private int correctCount;
         private int wrongCount;
+        private bool isCorrectAction;
         
         #endregion
         
@@ -84,7 +85,7 @@ namespace Question
             correctActionNeedAnswerCount = correctNeedAnswerCount;
             wrongActionNeedAnswerCount = wrongNeedAnswerCount;
             
-            questionController.EnterQuestionMode();
+            
             StartCoroutine(QuestionCoroutine());
         }
 
@@ -92,7 +93,6 @@ namespace Question
         {
             correctActionNeedAnswerCount =10;
             wrongActionNeedAnswerCount = 10;
-            questionController.EnterQuestionMode();
             StartCoroutine(QuestionCoroutine());
         }
         
@@ -146,7 +146,9 @@ namespace Question
             wrongCount = 0;
             questioning = true;
             InitQuestionList();
-            yield return new WaitForSeconds(0.5f);
+            
+            questionController.EnterQuestionMode();
+            yield return new WaitForSeconds(0.2f);
             while (isPlayingFeedback) yield return null; // 等待開頭反饋特效
 
             // Start Questioning
@@ -162,6 +164,9 @@ namespace Question
                 while (isPlayingFeedback) yield return null; // 等待答題成功反饋特效
 
             }
+            while (isPlayingFeedback) yield return null; // 等待離開動畫反饋特效
+            yield return new WaitForSeconds(0.1f);
+            tempMathAction.OnAnswer(isCorrectAction);
         }
 
         void EnableAnswer(bool enable)
@@ -204,7 +209,7 @@ namespace Question
             if(timer < 0)
             {
                 tempMathAction.OnAnswer(false);
-                ExitQuestionMode();
+                ExitQuestionMode(false);
             }
 
             
@@ -216,26 +221,24 @@ namespace Question
             
             if (correctCount >= correctActionNeedAnswerCount)
             {
-                tempMathAction.OnAnswer(true);
-                ExitQuestionMode();
+                isCorrectAction = true;
+                // tempMathAction.OnAnswer(true);
+                ExitQuestionMode(true);
             }
             
             if (wrongCount >= wrongActionNeedAnswerCount)
             {
-                tempMathAction.OnAnswer(false);
-                Debug.Log("Wrong");
-                ExitQuestionMode();
+                isCorrectAction = false;
+                // tempMathAction.OnAnswer(false);
+                ExitQuestionMode(false);
             }
         }
 
-        void ExitQuestionMode()
+        void ExitQuestionMode(bool correct)
         {
-            Debug.Log("End");
+            questionController.ExitQuestionMode(correct);
             timeOver = true;
             questioning = false;
-            questionController.ExitQuestionMode();
-            StopCoroutine(QuestionCoroutine());
-            Debug.Log("End2");
         }
         
         

@@ -16,6 +16,7 @@ namespace Question
         [SerializeField] private  TextMeshProUGUI timeText;
         [SerializeField] private  TextMeshProUGUI wrongCountText;
         [SerializeField] private TextMeshProUGUI correctCountText;
+        [SerializeField] private TextMeshProUGUI infoText;
         [SerializeField] private MMF_Player onEnterQuestionModeFeedback;
         [SerializeField] private MMF_Player onQuestionShowFeedback;
         [SerializeField] private MMF_Player onAnswerFeedback;
@@ -45,12 +46,20 @@ namespace Question
 
         public void EnterQuestionMode()
         {
+            
             // mainPanel.SetActive(true);
             onEnterQuestionModeFeedback.PlayFeedbacks();
         }
 
-        public void ExitQuestionMode()
+        public void ExitQuestionMode(bool correct)
         {
+            if (correct)
+            {
+                infoText.text = "魔法詠唱成功，發動好效果";
+            }else
+            {
+                infoText.text = "魔法詠唱失敗，發動壞效果";
+            }
             onExitQuestionModeFeedback.PlayFeedbacks();
         }
         
