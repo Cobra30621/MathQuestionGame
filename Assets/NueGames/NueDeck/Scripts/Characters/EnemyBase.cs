@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using NueGames.NueDeck.Scripts.Data.Characters;
+using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.EnemyBehaviour;
 using NueGames.NueDeck.Scripts.Enums;
@@ -100,9 +103,16 @@ namespace NueGames.NueDeck.Scripts.Characters
             var endRot = Quaternion.Euler(60, 0, 60);
             
             yield return StartCoroutine(MoveToTargetRoutine(waitFrame, startPos, endPos, startRot, endRot, 5));
-          
-            targetAbility.ActionList.ForEach(x=>EnemyActionProcessor.GetAction(x.ActionType).DoAction(new EnemyActionParameters(x.ActionValue,target,this)));
-            
+
+            // Do Action
+            foreach (EnemyActionData actionData in targetAbility.ActionList)
+            {
+                var targetList = CombatManager.EnemyDetermineTargets(this, actionData.ActionTargetType);
+                foreach (var t in targetList)
+                    EnemyActionProcessor.GetAction(actionData.ActionType)
+                        .DoAction(new EnemyActionParameters(actionData.ActionValue, t, this, actionData));
+            }
+
             yield return StartCoroutine(MoveToTargetRoutine(waitFrame, endPos, startPos, endRot, startRot, 5));
         }
         
@@ -120,10 +130,21 @@ namespace NueGames.NueDeck.Scripts.Characters
             
             yield return StartCoroutine(MoveToTargetRoutine(waitFrame, startPos, endPos, startRot, endRot, 5));
             
-            targetAbility.ActionList.ForEach(x=>EnemyActionProcessor.GetAction(x.ActionType).DoAction(new EnemyActionParameters(x.ActionValue,target,this)));
+            // Do Action
+            foreach (EnemyActionData actionData in targetAbility.ActionList)
+            {
+                var targetList = CombatManager.EnemyDetermineTargets(this, actionData.ActionTargetType);
+                foreach (var t in targetList)
+                    EnemyActionProcessor.GetAction(actionData.ActionType)
+                        .DoAction(new EnemyActionParameters(actionData.ActionValue, t, this, actionData));
+            }
+            // targetAbility.ActionList.ForEach(x=>EnemyActionProcessor.GetAction(x.ActionType).
+            //     DoAction(new EnemyActionParameters(x.ActionValue,target,this, x)));
             
             yield return StartCoroutine(MoveToTargetRoutine(waitFrame, endPos, startPos, endRot, startRot, 5));
         }
+        
+
         #endregion
         
         #region Other Routines

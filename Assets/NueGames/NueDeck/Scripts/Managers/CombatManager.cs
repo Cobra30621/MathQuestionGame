@@ -5,6 +5,7 @@ using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Characters.Enemies;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Enums;
+using NueGames.NueDeck.Scripts.NueExtentions;
 using NueGames.NueDeck.Scripts.Utils.Background;
 using UnityEngine;
 
@@ -201,6 +202,42 @@ namespace NueGames.NueDeck.Scripts.Managers
                     throw new ArgumentOutOfRangeException(nameof(targetTypeTargetType), targetTypeTargetType, null);
             }
         }
+        
+        public List<CharacterBase> EnemyDetermineTargets(CharacterBase enemyCharacter,
+            ActionTargetType actionTargetType)
+        {
+            List<CharacterBase> targetList = new List<CharacterBase>();
+            switch (actionTargetType)
+            {
+                case ActionTargetType.Enemy:
+                    targetList.Add(enemyCharacter);
+                    break;
+                case ActionTargetType.Ally:
+                    targetList.Add(CurrentAlliesList.RandomItem());
+                    break;
+                case ActionTargetType.AllEnemies:
+                    foreach (var enemyBase in CurrentEnemiesList)
+                        targetList.Add(enemyBase);
+                    break;
+                case ActionTargetType.AllAllies:
+                    foreach (var allyBase in CurrentAlliesList)
+                        targetList.Add(allyBase);
+                    break;
+                case ActionTargetType.RandomEnemy:
+                    if (CurrentEnemiesList.Count>0)
+                        targetList.Add(CurrentEnemiesList.RandomItem());
+                    
+                    break;
+                case ActionTargetType.RandomAlly:
+                    if (CurrentAlliesList.Count>0)
+                        targetList.Add(CurrentAlliesList.RandomItem());
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            return targetList;
+        }
         #endregion
         
         #region Private Methods
@@ -289,6 +326,8 @@ namespace NueGames.NueDeck.Scripts.Managers
             if (CurrentCombatStateType != CombatStateType.EndCombat)
                 CurrentCombatStateType = CombatStateType.AllyTurn;
         }
+        
+        
         #endregion
     }
 }

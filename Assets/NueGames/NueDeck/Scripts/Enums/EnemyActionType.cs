@@ -5,6 +5,7 @@
         Attack,
         Heal,
         Poison,
-        Block
+        Block,
+        GiveStatus
     }
 }

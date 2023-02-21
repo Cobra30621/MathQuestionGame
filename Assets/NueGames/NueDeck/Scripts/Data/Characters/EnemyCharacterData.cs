@@ -55,9 +55,14 @@ namespace NueGames.NueDeck.Scripts.Data.Characters
     public class EnemyActionData
     {
         [SerializeField] private EnemyActionType actionType;
+        [SerializeField] private ActionTargetType actionTargetType;
         [SerializeField] private int minActionValue;
         [SerializeField] private int maxActionValue;
+        [Header("給予狀態（只有 actionType 選擇 Give Status，才需要選擇）")]
+        [SerializeField] private StatusType statusType;
         public EnemyActionType ActionType => actionType;
+        public ActionTargetType ActionTargetType => actionTargetType;
+        public StatusType StatusType => statusType;
         public int ActionValue => Random.Range(minActionValue,maxActionValue);
         
     }
