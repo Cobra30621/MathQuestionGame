@@ -16,11 +16,11 @@ MonoBehaviour:
   characterName: Enemy test
   characterDescription: 'Test '
   maxHealth: 25
-  enemyPrefab: {fileID: 243822687015991123, guid: c973aeb67e007d54c97fd480d7f50773, type: 3}
+  enemyPrefab: {fileID: 243822687015991123, guid: 59c5f754020437142af957d67f1f045c, type: 3}
   followAbilityPattern: 1
   enemyAbilityList:
   - name: Buff
-    intention: {fileID: 11400000, guid: d8b91adf93b4e21419f64f9a68fc3c70, type: 2}
+    intention: {fileID: 11400000, guid: c70607cffd24871458aaa58871e74ba9, type: 2}
     hideActionValue: 0
     actionList:
     - actionType: 4
@@ -29,7 +29,7 @@ MonoBehaviour:
       maxActionValue: 3
       statusType: 3
   - name: Buff All
-    intention: {fileID: 11400000, guid: d8b91adf93b4e21419f64f9a68fc3c70, type: 2}
+    intention: {fileID: 11400000, guid: c70607cffd24871458aaa58871e74ba9, type: 2}
     hideActionValue: 0
     actionList:
     - actionType: 4
@@ -38,7 +38,7 @@ MonoBehaviour:
       maxActionValue: 3
       statusType: 3
   - name: Debuff
-    intention: {fileID: 11400000, guid: d8b91adf93b4e21419f64f9a68fc3c70, type: 2}
+    intention: {fileID: 11400000, guid: e7deaaa3f01f8f54ab8c29a0ce3c8f31, type: 2}
     hideActionValue: 0
     actionList:
     - actionType: 2

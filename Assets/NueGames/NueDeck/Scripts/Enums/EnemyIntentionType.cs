@@ -6,6 +6,7 @@
         Defend,
         Heal,
         Debuff,
-        Special
+        Special,
+        Buff
     }
 }
