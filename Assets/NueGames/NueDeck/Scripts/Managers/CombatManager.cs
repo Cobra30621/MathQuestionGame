@@ -165,18 +165,25 @@ namespace NueGames.NueDeck.Scripts.Managers
             foreach (var currentAlly in CurrentAlliesList)
                 currentAlly.AllyCanvas.SetHighlight(false);
         }
+        
+        public void DeactivateEnemyHighlights()
+        {
+            foreach (var currentEnemy in CurrentEnemiesList)
+                currentEnemy.EnemyCanvas.SetHighlight(false);
+        }
         public void IncreaseMana(int target)
         {
             GameManager.PersistentGameplayData.CurrentMana += target;
             UIManager.CombatCanvas.SetPileTexts();
         }
+        
         public void HighlightCardTarget(ActionTargetType targetTypeTargetType)
         {
             switch (targetTypeTargetType)
             {
                 case ActionTargetType.Enemy:
-                    foreach (var currentEnemy in CurrentEnemiesList)
-                        currentEnemy.EnemyCanvas.SetHighlight(true);
+                    // foreach (var currentEnemy in CurrentEnemiesList)
+                    //     currentEnemy.EnemyCanvas.SetHighlight(true);
                     break;
                 case ActionTargetType.Ally:
                     foreach (var currentAlly in CurrentAlliesList)
@@ -197,6 +204,8 @@ namespace NueGames.NueDeck.Scripts.Managers
                 case ActionTargetType.RandomAlly:
                     foreach (var currentAlly in CurrentAlliesList)
                         currentAlly.AllyCanvas.SetHighlight(true);
+                    break;
+                case ActionTargetType.None:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(targetTypeTargetType), targetTypeTargetType, null);

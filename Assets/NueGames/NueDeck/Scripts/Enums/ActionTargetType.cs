@@ -7,6 +7,7 @@
         AllEnemies,
         AllAllies,
         RandomEnemy,
-        RandomAlly
+        RandomAlly,
+        None
     }
 }

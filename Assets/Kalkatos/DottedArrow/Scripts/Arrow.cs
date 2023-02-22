@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Kalkatos.DottedArrow
 {
@@ -11,10 +12,13 @@ namespace Kalkatos.DottedArrow
 		[SerializeField] private Transform origin;
 		[SerializeField] private bool startsActive;
 
-		private RectTransform myRect;
-		private Canvas canvas;
-		private Camera mainCamera;
-		private bool isActive;
+		[SerializeField] private RectTransform myRect;
+		[SerializeField] private Canvas canvas;
+		[SerializeField] private Camera mainCamera;
+		[SerializeField] private bool isActive;
+
+		[SerializeField] private Image tipOutline, tipCenter;
+		[SerializeField] private Circle[] circles;
 
 		private void Awake ()
 		{
@@ -53,10 +57,25 @@ namespace Kalkatos.DottedArrow
 
 		public void Activate () => SetActive(true);
 		public void Deactivate () => SetActive(false);
+
+		public void SetCamera(Camera camera)
+		{
+			mainCamera = camera;
+		}
 		public void SetupAndActivate (Transform origin)
 		{
 			Origin = origin;
 			Activate();
+		}
+
+		public void SetColor(ArrowColor arrowColor)
+		{
+			tipOutline.color = arrowColor.OutlineColor;
+			tipCenter.color = arrowColor.CenterColor;
+			foreach (Circle circle in circles)
+			{
+				circle.SetColor(arrowColor);
+			}
 		}
 	}
 }

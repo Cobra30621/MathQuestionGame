@@ -105,6 +105,11 @@ namespace NueGames.NueDeck.Scripts.Card
         #region Card Methods
         // Math Action
 
+        public bool ActionTargetIsSingleEnemy()
+        {
+            return CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Enemy;
+        }
+        
         public virtual void Use(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
             if (!IsPlayable) return;
