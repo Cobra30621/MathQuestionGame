@@ -33,6 +33,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         public List<Transform> AllyPosList => allyPosList;
 
         public AllyBase CurrentMainAlly => CurrentAlliesList.Count>0 ? CurrentAlliesList[0] : null;
+        public EnemyBase CurrentTargetEnemy;
 
         public EnemyEncounter CurrentEncounter { get; private set; }
         
@@ -247,6 +248,12 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             return targetList;
         }
+        
+        public void SetTargetEnemy(EnemyBase enemyCharacter)
+        {
+            CurrentTargetEnemy = enemyCharacter;
+        }
+        
         #endregion
         
         #region Private Methods

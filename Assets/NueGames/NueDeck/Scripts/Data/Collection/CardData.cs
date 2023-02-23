@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NueGames.NueDeck.Scripts.Characters;
+using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.NueExtentions;
@@ -72,6 +74,11 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             }
             
             MyDescription = str.ToString();
+        }
+
+        public void UpdateDescription(CharacterBase targetCharacter)
+        {
+            
         }
 
         public List<CardActionData> GetCardActionDataList(CardActionDataListType cardActionDataListType)
@@ -230,14 +237,16 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                
                 if (player)
                 {
-                    modifer = player.CharacterStats.StatusDict[ModiferStats].StatusValue;
-                    value += modifer;
+                    // modifer = player.CharacterStats.StatusDict[ModiferStats].StatusValue;
+                    // value += modifer;
+                    if(cardActionDataList[ModifiedActionValueIndex].CardActionType == CardActionType.Attack)
+                        value = CombatCalculator.GetDamageValue(value, player);
 
-                    if (modifer != 0)
-                    {
-                        if (usePrefixOnModifiedValue)
-                            str.Append(modifiedValuePrefix);
-                    }
+                    // if (modifer != 0)
+                    // {
+                    //     if (usePrefixOnModifiedValue)
+                    //         str.Append(modifiedValuePrefix);
+                    // }
                 }
             }
            

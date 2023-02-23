@@ -6,6 +6,7 @@ using NueGames.NueDeck.Scripts.Interfaces;
 using NueGames.NueDeck.Scripts.Managers;
 using UnityEngine;
 using Kalkatos.DottedArrow;
+using NueGames.NueDeck.Scripts.Combat;
 using CombatManager = NueGames.NueDeck.Scripts.Managers.CombatManager;
 
 namespace NueGames.NueDeck.Scripts.Collection
@@ -33,10 +34,11 @@ namespace NueGames.NueDeck.Scripts.Collection
         // [HideInInspector]public List<CardBase> hand; // Cards currently in hand
         public List<CardBase> hand; // Cards currently in hand
 
-        [Header("Arrow Effect")] //  Arrow Effect for the card's ActionTarget is single enemy
+        [Header("Single Enemy Target Effect")] //  Arrow Effect for the card's ActionTarget is single enemy
         [SerializeField] private ArrowController arrowController;
-        private int _usingArrowEffectCardIndex = -1; // Card index those action target is single enemy, and use arrow effect
-        private bool _isUsingArrowEffectCard;
+        private int _usingSelectedEffectCardIndex = -1; // Card index those action target is single enemy, and use arrow effect
+        private bool _usingSelectedEffectCard;
+        private bool _hadEnemyTarget;
         
         #region Cache
         protected FxManager FxManager => FxManager.Instance;
@@ -129,9 +131,9 @@ namespace NueGames.NueDeck.Scripts.Collection
             
             // --------------------------------------------------------
             // HANDLE Enemy Bounds
-            // (CardActionTarget is single enemy, arrow inside enemy bound)
+            // (If CardActionTarget is single enemy, show Selected Effect)
             // --------------------------------------------------------
-            CheckMouseInsideEnemyBounds(mousePos);
+            HandleActivateSelectedTargetEffect(mousePos);
         }
         #endregion
         
@@ -288,7 +290,7 @@ namespace NueGames.NueDeck.Scripts.Collection
                 cardPos.z = transform.position.z - 0.2f;
                 
                 
-                if (!_isUsingArrowEffectCard)
+                if (!_usingSelectedEffectCard)
                 {
                     // Handle Position & Rotation
                     cardTransform.rotation = Quaternion.RotateTowards(cardTransform.rotation,
@@ -303,7 +305,7 @@ namespace NueGames.NueDeck.Scripts.Collection
                 {
                     //  || sqrDistance <= 2
                     // Card has gone back into hand
-                    if (!_isUsingArrowEffectCard)
+                    if (!_usingSelectedEffectCard)
                     {
                         AddCardToHand(_heldCard, _selected);
                     }
@@ -349,9 +351,10 @@ namespace NueGames.NueDeck.Scripts.Collection
                     //  Arrow Effect for the card's ActionTarget is single enemy
                     if (_heldCard.ActionTargetIsSingleEnemy())
                     {
-                        RemoveCardFromHand(_usingArrowEffectCardIndex);
+                        RemoveCardFromHand(_usingSelectedEffectCardIndex);
                     }
                     _heldCard.Use(selfCharacter,targetCharacter,CombatManager.CurrentEnemiesList,CombatManager.CurrentAlliesList);
+                    DeactivateMouseEnterSelectedTargetEffect();
                 }
             }
             
@@ -398,7 +401,7 @@ namespace NueGames.NueDeck.Scripts.Collection
                 // Stop dragging
                 _heldCardOffset = Vector3.zero;
                 _dragged = -1;
-                // _isUsingArrowEffectCard = false;
+                // _usingSelectedEffectCard = false;
             }
 
             if (_dragged != -1)
@@ -412,10 +415,10 @@ namespace NueGames.NueDeck.Scripts.Collection
                     // Remove from hand, so that cards in hand fill the hole that the card left
                     _heldCard = card;
                     // Check Whether the Card is Using Arrow Effect
-                    _isUsingArrowEffectCard = _heldCard.ActionTargetIsSingleEnemy();
-                    if (_isUsingArrowEffectCard)
+                    _usingSelectedEffectCard = _heldCard.ActionTargetIsSingleEnemy();
+                    if (_usingSelectedEffectCard)
                     {
-                        _usingArrowEffectCardIndex = _dragged;
+                        _usingSelectedEffectCardIndex = _dragged;
                         arrowController.SetupAndActivate(_heldCard.transform);
                     }
                     else
@@ -443,33 +446,60 @@ namespace NueGames.NueDeck.Scripts.Collection
             mouseButton = Input.GetMouseButton(0);
         }
 
-        private void CheckMouseInsideEnemyBounds(Vector2 mousePos)
+        
+        private void HandleActivateSelectedTargetEffect(Vector2 mousePos)
         {
-            
-            if (_heldCard == null) { return;}
-            if(!_heldCard.ActionTargetIsSingleEnemy()){ return;}
-            
-            // Show highlight when CardActionTarget is single enemy
-            CombatManager.DeactivateEnemyHighlights();
+            // Check Mouse Inside Enemy Bounds
+            EnemyBase targetEnemy= null;
             RaycastHit hit;
             var mainRay = _mainCam.ScreenPointToRay(mousePos);
             if (Physics.Raycast(mainRay, out hit, 1000, targetLayer))
             {
-                EnemyBase targetEnemy = hit.collider.gameObject.GetComponent<EnemyBase>();
-                if (targetEnemy != null)
-                {
-                    targetEnemy.EnemyCanvas.SetHighlight(true);
-                    arrowController.OnEnterEnemy();
-                }
-                else
-                {
-                    arrowController.OnLeaveEnemy();
-                }
+                targetEnemy = hit.collider.gameObject.GetComponent<EnemyBase>();
             }
-            else
+            
+            // Check card Action Target Is Single Enemy
+            if (_heldCard != null)
             {
-                arrowController.OnLeaveEnemy();
+                if (_heldCard.ActionTargetIsSingleEnemy())
+                {
+                    if (targetEnemy != null)
+                    {
+                        if (!_hadEnemyTarget)
+                        {
+                            // Show Effect when mouse enter target Enemy
+                            ActivateMouseEnterSelectedTargetEffect(targetEnemy);
+                        }
+                        _hadEnemyTarget = true;
+                    }
+                    else
+                    {
+                        if (_hadEnemyTarget)
+                        {
+                            // Close Effect when mouse enter target Enemy
+                            DeactivateMouseEnterSelectedTargetEffect();
+                        }
+                        _hadEnemyTarget = false;
+                    }
+                }
             }
+        }
+
+        private void ActivateMouseEnterSelectedTargetEffect(EnemyBase targetEnemy)
+        {
+            targetEnemy.EnemyCanvas.SetHighlight(true);
+            arrowController.OnEnterEnemy();
+            CombatManager.SetTargetEnemy(targetEnemy);
+            _heldCard.UpdateCardText();
+        }
+        
+        private void DeactivateMouseEnterSelectedTargetEffect()
+        {
+            arrowController.OnLeaveEnemy();
+            CombatManager.SetTargetEnemy(null);
+            CombatManager.DeactivateEnemyHighlights();
+            if(_heldCard != null)
+                _heldCard.UpdateCardText();
         }
 
         private void GetDistanceToCurrentSelectedCard(out int count, out float sqrDistance)

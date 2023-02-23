@@ -172,6 +172,8 @@ namespace NueGames.NueDeck.Scripts.Card
                     if (allAllies.Count>0)
                         targetList.Add(allAllies.RandomItem());
                     break;
+                case ActionTargetType.None:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

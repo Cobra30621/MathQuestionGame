@@ -21,6 +21,7 @@ namespace Kalkatos.DottedArrow
         public void SetupAndActivate (Transform origin)
         {
             arrow.SetupAndActivate(origin);
+            OnLeaveEnemy();
         }
 
         public void OnEnterEnemy()
