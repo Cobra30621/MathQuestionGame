@@ -119,6 +119,8 @@ namespace NueGames.NueDeck.Scripts.Card
             tempAllEnemies = allEnemies;
             tempAllAllies = allAllies;
             
+            HideTooltipInfo(TooltipManager.Instance);
+            
             StartCoroutine(CardUseRoutine(self, targetCharacter, allEnemies, allAllies));
         }
 

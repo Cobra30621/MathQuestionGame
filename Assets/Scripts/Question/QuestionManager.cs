@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
+using NueGames.NueDeck.Scripts.Managers;
 
 namespace Question
 {
@@ -32,6 +33,8 @@ namespace Question
         public int WrongActionNeedAnswerCount => wrongActionNeedAnswerCount;
         public bool IsPlayingFeedback => isPlayingFeedback;
         [SerializeField] private AnswerButton[] answerButtons;
+        
+        protected CollectionManager CollectionManager => CollectionManager.Instance;
 
         #region Cache
         
@@ -132,6 +135,12 @@ namespace Question
             else
                 return answerButton.WrongFeedback;
         }
+
+        public void EnableDragging()
+        {
+            if (CollectionManager)
+                CollectionManager.HandController.EnableDragging();
+        }
         
         #endregion
         
@@ -146,6 +155,9 @@ namespace Question
             wrongCount = 0;
             questioning = true;
             InitQuestionList();
+            if (CollectionManager)
+                CollectionManager.HandController.DisableDragging();
+            
             
             questionController.EnterQuestionMode();
             yield return new WaitForSeconds(0.2f);
