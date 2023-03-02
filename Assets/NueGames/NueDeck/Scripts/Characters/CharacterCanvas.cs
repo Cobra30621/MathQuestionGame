@@ -115,7 +115,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         #endregion
 
         #region Tooltip
-        public void ShowTooltipInfo()
+        public virtual void ShowTooltipInfo()
         {
             var tooltipManager = TooltipManager.Instance;
             var specialKeywords = new List<SpecialKeywords>();

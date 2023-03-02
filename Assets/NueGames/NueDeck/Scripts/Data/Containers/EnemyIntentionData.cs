@@ -8,9 +8,13 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
     {
         [SerializeField] private EnemyIntentionType enemyIntentionType;
         [SerializeField] private Sprite intentionSprite;
+        [SerializeField] private string header;
+        [SerializeField] private string content;
 
         public EnemyIntentionType EnemyIntentionType => enemyIntentionType;
 
         public Sprite IntentionSprite => intentionSprite;
+        public string Header => header;
+        public string Content => content;
     }
 }
