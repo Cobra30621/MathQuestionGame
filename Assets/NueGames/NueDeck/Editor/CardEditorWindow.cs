@@ -567,6 +567,7 @@ namespace NueGames.NueDeck.Editor
             SelectedCardData.EditAudioType(AudioType);
             SelectedCardData.EditCorrectActionNeedAnswerCount(CorrectActionNeedAnswerCount);
             SelectedCardData.EditWrongActionNeedAnswerCount(WrongActionNeedAnswerCount);
+            SelectedCardData.EditFileName();
             EditorUtility.SetDirty(SelectedCardData);
             AssetDatabase.SaveAssets();
         }

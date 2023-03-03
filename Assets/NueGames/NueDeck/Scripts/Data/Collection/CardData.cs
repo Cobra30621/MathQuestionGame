@@ -6,6 +6,7 @@ using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.NueExtentions;
+using UnityEditor;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Data.Collection
@@ -138,7 +139,14 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             {
                 // cardActionDataList = new List<CardActionData>(correctCardActionDataList);
             }
-        } 
+        }
+
+        public void EditFileName()
+        {
+            var path = AssetDatabase.GetAssetPath(this);
+            Debug.Log(path);
+            AssetDatabase.RenameAsset(path, Id);
+        }
 #endif
 
         #endregion
