@@ -145,7 +145,7 @@ namespace NueGames.NueDeck.Scripts.Card
             }
         }
 
-        private static List<CharacterBase> DetermineTargets(CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies,
+        private List<CharacterBase> DetermineTargets(CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies,
             CardActionData playerAction)
         {
             List<CharacterBase> targetList = new List<CharacterBase>();

@@ -17,7 +17,7 @@ namespace NueGames.NueDeck.Scripts.Combat
         
         public static int GetDamageValue(float rawValue, CharacterBase selfCharacter)
         {
-            _targetEnemy = CombatManager.CurrentTargetEnemy;
+            _targetEnemy = CombatManager.CurrentSelectedEnemy;
             return GetDamageValue(rawValue, selfCharacter, _targetEnemy);
         }
         

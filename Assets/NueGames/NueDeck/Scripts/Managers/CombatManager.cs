@@ -33,7 +33,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         public List<Transform> AllyPosList => allyPosList;
 
         public AllyBase CurrentMainAlly => CurrentAlliesList.Count>0 ? CurrentAlliesList[0] : null;
-        public EnemyBase CurrentTargetEnemy;
+        public EnemyBase CurrentSelectedEnemy;
 
         public EnemyEncounter CurrentEncounter { get; private set; }
         
@@ -158,60 +158,13 @@ namespace NueGames.NueDeck.Scripts.Managers
             if (CurrentEnemiesList.Count<=0)
                 WinCombat();
         }
-        public void DeactivateCardHighlights()
-        {
-            foreach (var currentEnemy in CurrentEnemiesList)
-                currentEnemy.EnemyCanvas.SetHighlight(false);
 
-            foreach (var currentAlly in CurrentAlliesList)
-                currentAlly.AllyCanvas.SetHighlight(false);
-        }
-        
-        public void DeactivateEnemyHighlights()
-        {
-            foreach (var currentEnemy in CurrentEnemiesList)
-                currentEnemy.EnemyCanvas.SetHighlight(false);
-        }
         public void IncreaseMana(int target)
         {
             GameManager.PersistentGameplayData.CurrentMana += target;
             UIManager.CombatCanvas.SetPileTexts();
         }
         
-        public void HighlightCardTarget(ActionTargetType targetTypeTargetType)
-        {
-            switch (targetTypeTargetType)
-            {
-                case ActionTargetType.Enemy:
-                    // foreach (var currentEnemy in CurrentEnemiesList)
-                    //     currentEnemy.EnemyCanvas.SetHighlight(true);
-                    break;
-                case ActionTargetType.Ally:
-                    foreach (var currentAlly in CurrentAlliesList)
-                        currentAlly.AllyCanvas.SetHighlight(true);
-                    break;
-                case ActionTargetType.AllEnemies:
-                    foreach (var currentEnemy in CurrentEnemiesList)
-                        currentEnemy.EnemyCanvas.SetHighlight(true);
-                    break;
-                case ActionTargetType.AllAllies:
-                    foreach (var currentAlly in CurrentAlliesList)
-                        currentAlly.AllyCanvas.SetHighlight(true);
-                    break;
-                case ActionTargetType.RandomEnemy:
-                    foreach (var currentEnemy in CurrentEnemiesList)
-                        currentEnemy.EnemyCanvas.SetHighlight(true);
-                    break;
-                case ActionTargetType.RandomAlly:
-                    foreach (var currentAlly in CurrentAlliesList)
-                        currentAlly.AllyCanvas.SetHighlight(true);
-                    break;
-                case ActionTargetType.None:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(targetTypeTargetType), targetTypeTargetType, null);
-            }
-        }
         
         public List<CharacterBase> EnemyDetermineTargets(CharacterBase enemyCharacter,
             ActionTargetType actionTargetType)
@@ -249,9 +202,9 @@ namespace NueGames.NueDeck.Scripts.Managers
             return targetList;
         }
         
-        public void SetTargetEnemy(EnemyBase enemyCharacter)
+        public void SetSelectedEnemy(EnemyBase selectedEnemy)
         {
-            CurrentTargetEnemy = enemyCharacter;
+            CurrentSelectedEnemy = selectedEnemy;
         }
         
         #endregion
