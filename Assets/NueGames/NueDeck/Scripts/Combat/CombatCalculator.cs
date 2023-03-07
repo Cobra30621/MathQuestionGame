@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Kalkatos.DottedArrow;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Enums;
+using NueGames.NueDeck.Scripts.Power;
 using UnityEngine;
 using CombatManager = NueGames.NueDeck.Scripts.Managers.CombatManager;
 
@@ -23,23 +24,35 @@ namespace NueGames.NueDeck.Scripts.Combat
         
         public static int GetDamageValue(float rawValue, CharacterBase selfCharacter, CharacterBase targetCharacter)
         {
-            // 力量 Strength
-            float value = rawValue + selfCharacter.CharacterStats.StatusDict[StatusType.Strength].StatusValue;
-            
-            // 易傷(Vulnerable)
+            float value = rawValue;
+            foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
+            {
+                value = powerBase.AtDamageGive(value);
+            }
+
             if (targetCharacter != null)
             {
-                if (targetCharacter.CharacterStats.StatusDict[StatusType.Vulnerable].IsActive)
+                foreach (PowerBase powerBase in targetCharacter.GetPowerDict().Values)
                 {
-                    value *= vulnerableValue;
+                    value = powerBase.AtDamageReceive(value);
                 }
             }
-            
-            
-            // 虛弱(Weak)
-            if (selfCharacter.CharacterStats.StatusDict[StatusType.Weak].IsActive)
+
+            return Mathf.RoundToInt(value);
+        }
+
+        public static int GetBlockValue(float rawValue, CharacterBase selfCharacter)
+        {
+            float value = rawValue;
+            Debug.Log("selfCharacter.GetPowerDict()" + selfCharacter);
+            foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
             {
-                value *= weakValue;
+                value = powerBase.ModifyBlock(value);
+            }
+            
+            foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
+            {
+                value = powerBase.ModifyBlockLast(value);
             }
 
             return Mathf.RoundToInt(value);

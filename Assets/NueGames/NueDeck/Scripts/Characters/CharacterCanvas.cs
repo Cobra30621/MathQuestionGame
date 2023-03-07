@@ -28,7 +28,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         
         #region Cache
 
-        protected Dictionary<StatusType, StatusIconBase> StatusDict = new Dictionary<StatusType, StatusIconBase>();
+        protected Dictionary<PowerType, StatusIconBase> StatusDict = new Dictionary<PowerType, StatusIconBase>();
 
         protected Canvas TargetCanvas;
         
@@ -47,8 +47,8 @@ namespace NueGames.NueDeck.Scripts.Characters
         {
             highlightRoot.gameObject.SetActive(false);
             
-            for (int i = 0; i < Enum.GetNames(typeof(StatusType)).Length; i++)
-                StatusDict.Add((StatusType) i, null);
+            for (int i = 0; i < Enum.GetNames(typeof(PowerType)).Length; i++)
+                StatusDict.Add((PowerType) i, null);
 
             TargetCanvas = GetComponent<Canvas>();
 
@@ -59,37 +59,37 @@ namespace NueGames.NueDeck.Scripts.Characters
         #endregion
         
         #region Public Methods
-        public void ApplyStatus(StatusType targetStatus, int value)
+        public void ApplyStatus(PowerType targetPower, int value)
         {
-            if (StatusDict[targetStatus] == null)
+            if (StatusDict[targetPower] == null)
             {
-                var targetData = statusIconsData.StatusIconList.FirstOrDefault(x => x.IconStatus == targetStatus);
+                var targetData = statusIconsData.StatusIconList.FirstOrDefault(x => x.IconPower == targetPower);
                 
                 if (targetData == null) return;
                 
                 var clone = Instantiate(statusIconsData.StatusIconBasePrefab, statusIconRoot);
                 clone.SetStatus(targetData);
-                StatusDict[targetStatus] = clone;
+                StatusDict[targetPower] = clone;
             }
             
-            StatusDict[targetStatus].SetStatusValue(value);
+            StatusDict[targetPower].SetStatusValue(value);
         }
 
-        public void ClearStatus(StatusType targetStatus)
+        public void ClearStatus(PowerType targetPower)
         {
-            if (StatusDict[targetStatus])
+            if (StatusDict[targetPower])
             {
-                Destroy(StatusDict[targetStatus].gameObject);
+                Destroy(StatusDict[targetPower].gameObject);
             }
            
-            StatusDict[targetStatus] = null;
+            StatusDict[targetPower] = null;
         }
         
-        public void UpdateStatusText(StatusType targetStatus, int value)
+        public void UpdateStatusText(PowerType targetPower, int value)
         {
-            if (StatusDict[targetStatus] == null) return;
+            if (StatusDict[targetPower] == null) return;
           
-            StatusDict[targetStatus].StatusValueText.text = $"{value}";
+            StatusDict[targetPower].StatusValueText.text = $"{value}";
         }
 
         public void UpdateHealthInfo(int currentHealth, int maxHealth)

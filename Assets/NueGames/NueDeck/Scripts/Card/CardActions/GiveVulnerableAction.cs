@@ -6,6 +6,6 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class GiveVulnerableAction : GiveStatusAction
     {
         public override CardActionType ActionType => CardActionType.GiveVulnerable;
-        public override StatusType StatusType => StatusType.Vulnerable;
+        public override PowerType PowerType => PowerType.Vulnerable;
     }
 }

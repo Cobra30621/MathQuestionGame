@@ -10,46 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 14_new_card_name
+  m_Name: "\u654F\u6377"
   m_EditorClassIdentifier: 
-  id: "14_\u96F7\u9706"
-  cardName: "\u96F7\u9706"
+  id: "\u654F\u6377"
+  cardName: "\u654F\u6377"
   manaCost: 0
   cardSprite: {fileID: 0}
   rarity: 0
   usableWithoutTarget: 0
   exhaustAfterPlay: 1
   cardActionDataList:
-  - cardActionType: 0
-    actionTargetType: 0
-    actionValue: 4
-    actionDelay: 0
   - cardActionType: 14
-    actionTargetType: 0
+    actionTargetType: 1
     actionValue: 1
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: "\u9020\u6210 "
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    cardActionDataListType: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 1, g: 0, b: 0, a: 1}
-    useModifier: 1
-    cardActionDataListType: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: " \u9EDE\u50B7\u5BB3\uFF0C\u7D66\u4E88\u6575\u4EBA "
+  - descriptionText: "\u7372\u5F97"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -64,12 +40,12 @@ MonoBehaviour:
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1
     cardActionDataListType: 0
-    modifiedActionValueIndex: 1
+    modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: "\u9EBB\u75FA"
+  - descriptionText: "\u654F\u6377"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

@@ -194,7 +194,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 
         [SerializeField] private CardActionDataListType cardActionDataListType;
         [SerializeField] private int modifiedActionValueIndex;
-        [SerializeField] private StatusType modiferStats;
+        [SerializeField] private PowerType modiferStats;
         [SerializeField] private bool usePrefixOnModifiedValue;
         [SerializeField] private string modifiedValuePrefix = "*";
         [SerializeField] private bool overrideColorOnValueScaled;
@@ -205,7 +205,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public bool UseModifier => useModifier;
         public CardActionDataListType CardActionDataListType => cardActionDataListType;
         public int ModifiedActionValueIndex => modifiedActionValueIndex;
-        public StatusType ModiferStats => modiferStats;
+        public PowerType ModiferStats => modiferStats;
         public bool UsePrefixOnModifiedValue => usePrefixOnModifiedValue;
         public string ModifiedValuePrefix => modifiedValuePrefix;
         public bool OverrideColorOnValueScaled => overrideColorOnValueScaled;
@@ -245,11 +245,13 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                
                 if (player)
                 {
-                    // modifer = player.CharacterStats.StatusDict[ModiferStats].StatusValue;
-                    // value += modifer;
+                    // modifer = player.CharacterStats.StatusDict[ModiferStats].Value;
+                    // Value += modifer;
                     if(cardActionDataList[ModifiedActionValueIndex].CardActionType == CardActionType.Attack)
                         value = CombatCalculator.GetDamageValue(value, player);
 
+                    if(cardActionDataList[ModifiedActionValueIndex].CardActionType == CardActionType.Block)
+                        value = CombatCalculator.GetBlockValue(value, player);
                     // if (modifer != 0)
                     // {
                     //     if (usePrefixOnModifiedValue)
@@ -327,7 +329,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditUseModifier(bool newStatus) => useModifier = newStatus;
         public void EditCardActionDataListType(CardActionDataListType newCardActionDataListType) => cardActionDataListType = newCardActionDataListType;
         public void EditModifiedActionValueIndex(int newIndex) => modifiedActionValueIndex = newIndex;
-        public void EditModiferStats(StatusType newStatusType) => modiferStats = newStatusType;
+        public void EditModiferStats(PowerType newPowerType) => modiferStats = newPowerType;
         public void EditUsePrefixOnModifiedValues(bool newStatus) => usePrefixOnModifiedValue = newStatus;
         public void EditPrefixOnModifiedValues(string newText) => modifiedValuePrefix = newText;
         public void EditOverrideColorOnValueScaled(bool newStatus) => overrideColorOnValueScaled = newStatus;

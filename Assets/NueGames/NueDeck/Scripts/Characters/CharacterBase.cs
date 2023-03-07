@@ -1,6 +1,8 @@
-﻿using NueGames.NueDeck.Scripts.Enums;
+﻿using System.Collections.Generic;
+using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Interfaces;
 using NueGames.NueDeck.Scripts.Managers;
+using NueGames.NueDeck.Scripts.Power;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Characters
@@ -47,6 +49,11 @@ namespace NueGames.NueDeck.Scripts.Characters
         public CharacterType GetCharacterType()
         {
             return CharacterType;
+        }
+
+        public Dictionary<PowerType, PowerBase> GetPowerDict()
+        {
+            return CharacterStats.PowerDict;
         }
     }
 }

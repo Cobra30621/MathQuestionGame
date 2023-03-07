@@ -437,7 +437,7 @@ namespace NueGames.NueDeck.Editor
                         descriptionData.EditModifiedActionValueIndex(
                             EditorGUILayout.IntField("Action Index:",clampedIndex));
                        
-                        descriptionData.EditModiferStats((StatusType)EditorGUILayout.EnumPopup("Scale Type:",descriptionData.ModiferStats));
+                        descriptionData.EditModiferStats((PowerType)EditorGUILayout.EnumPopup("Scale Type:",descriptionData.ModiferStats));
                         descriptionData.EditUsePrefixOnModifiedValues(EditorGUILayout.ToggleLeft("Use prefix on scale", descriptionData.UsePrefixOnModifiedValue,
                             GUILayout.Width(125), GUILayout.Height(25)));
                         if (descriptionData.UsePrefixOnModifiedValue)

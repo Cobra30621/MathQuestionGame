@@ -13,8 +13,8 @@ namespace NueGames.NueDeck.Scripts.EnemyBehaviour.EnemyActions
 
             if (!newTarget) return;
 
-            StatusType statusType = actionParameters.ActionData.StatusType;
-            newTarget.CharacterStats.ApplyStatus(statusType,Mathf.RoundToInt(actionParameters.Value));
+            PowerType powerType = actionParameters.ActionData.PowerType;
+            newTarget.CharacterStats.ApplyStatus(powerType,Mathf.RoundToInt(actionParameters.Value));
             
             if (FxManager != null) 
                 FxManager.PlayFx(newTarget.transform, FxType.Poison);

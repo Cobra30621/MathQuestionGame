@@ -18,7 +18,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         {
             base.BuildCharacter();
             allyCanvas.InitCanvas();
-            CharacterStats = new CharacterStats(allyCharacterData.MaxHealth,allyCanvas);
+            CharacterStats = new CharacterStats(allyCharacterData.MaxHealth,allyCanvas, this);
 
             if (!GameManager)
                 throw new Exception("There is no GameManager");

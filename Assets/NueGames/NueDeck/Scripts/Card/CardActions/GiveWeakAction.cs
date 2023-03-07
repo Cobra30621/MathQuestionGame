@@ -6,6 +6,6 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class GiveWeakAction : GiveStatusAction
     {
         public override CardActionType ActionType => CardActionType.GiveWeak;
-        public override StatusType StatusType => StatusType.Weak;
+        public override PowerType PowerType => PowerType.Weak;
     }
 }

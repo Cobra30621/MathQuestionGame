@@ -27,7 +27,7 @@ MonoBehaviour:
       actionTargetType: 0
       minActionValue: 3
       maxActionValue: 3
-      statusType: 3
+      powerType: 3
   - name: Buff All
     intention: {fileID: 11400000, guid: c70607cffd24871458aaa58871e74ba9, type: 2}
     hideActionValue: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
       actionTargetType: 2
       minActionValue: 3
       maxActionValue: 3
-      statusType: 3
+      powerType: 3
   - name: Debuff
     intention: {fileID: 11400000, guid: e7deaaa3f01f8f54ab8c29a0ce3c8f31, type: 2}
     hideActionValue: 0
@@ -45,4 +45,4 @@ MonoBehaviour:
       actionTargetType: 1
       minActionValue: 3
       maxActionValue: 3
-      statusType: 6
+      powerType: 0

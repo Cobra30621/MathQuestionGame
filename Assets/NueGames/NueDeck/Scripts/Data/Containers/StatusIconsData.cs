@@ -20,10 +20,10 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
     [Serializable]
     public class StatusIconData
     {
-        [SerializeField] private StatusType iconStatus;
+        [SerializeField] private PowerType iconPower;
         [SerializeField] private Sprite iconSprite;
         [SerializeField] private List<SpecialKeywords> specialKeywords;
-        public StatusType IconStatus => iconStatus;
+        public PowerType IconPower => iconPower;
         public Sprite IconSprite => iconSprite;
         public List<SpecialKeywords> SpecialKeywords => specialKeywords;
     }

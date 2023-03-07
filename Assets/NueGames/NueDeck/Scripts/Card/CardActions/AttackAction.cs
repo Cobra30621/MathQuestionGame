@@ -15,7 +15,6 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             var targetCharacter = actionParameters.TargetCharacter;
             var selfCharacter = actionParameters.SelfCharacter;
             
-            // var value = actionParameters.Value + selfCharacter.CharacterStats.StatusDict[StatusType.Strength].StatusValue;
             int value = CombatCalculator.GetDamageValue(actionParameters.Value, selfCharacter, targetCharacter);
             
             targetCharacter.CharacterStats.Damage(value);

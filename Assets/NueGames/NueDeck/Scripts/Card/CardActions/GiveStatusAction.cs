@@ -6,7 +6,9 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public abstract class GiveStatusAction : CardActionBase
     {
-        public abstract StatusType StatusType { get;}
+        public abstract PowerType PowerType { get;}
+        public virtual FxType FxType => FxType.Str;
+        
         public override void DoAction(CardActionParameters actionParameters)
         {
             var newTarget = actionParameters.TargetCharacter
@@ -15,10 +17,10 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             
             if (!newTarget) return;
             
-            newTarget.CharacterStats.ApplyStatus(StatusType,Mathf.RoundToInt(actionParameters.Value));
+            newTarget.CharacterStats.ApplyStatus(PowerType,Mathf.RoundToInt(actionParameters.Value));
             
             if (FxManager != null) 
-                FxManager.PlayFx(newTarget.transform, FxType.Str);
+                FxManager.PlayFx(newTarget.transform, FxType);
 
             if (AudioManager != null) 
                 AudioManager.PlayOneShot(actionParameters.CardData.AudioType);

@@ -12,7 +12,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             if (!actionParameters.TargetCharacter) return;
 
             var value = actionParameters.Value;
-            actionParameters.TargetCharacter.CharacterStats.ApplyStatus(StatusType.Stun,Mathf.RoundToInt(value));
+            actionParameters.TargetCharacter.CharacterStats.ApplyStatus(PowerType.Stun,Mathf.RoundToInt(value));
 
             if (FxManager != null)
             {

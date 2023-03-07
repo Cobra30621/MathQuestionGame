@@ -1,6 +1,6 @@
 ﻿namespace NueGames.NueDeck.Scripts.Enums
 {
-    public enum StatusType
+    public enum PowerType
     {
         None =0,
         Block,
