@@ -158,13 +158,16 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
     {
         [SerializeField] private CardActionType cardActionType;
         [SerializeField] private ActionTargetType actionTargetType;
+        [SerializeField] private PowerType powerType;
         [SerializeField] private float actionValue;
         [SerializeField] private float actionDelay;
 
         public ActionTargetType ActionTargetType => actionTargetType;
         public CardActionType CardActionType => cardActionType;
+        public PowerType PowerType => powerType;
         public float ActionValue => actionValue;
         public float ActionDelay => actionDelay;
+        
         
 
         #region Editor
@@ -172,6 +175,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 #if UNITY_EDITOR
         public void EditActionType(CardActionType newType) =>  cardActionType = newType;
         public void EditActionTarget(ActionTargetType newTargetType) => actionTargetType = newTargetType;
+        public void EditPower(PowerType newPowerType) => powerType = newPowerType;
         public void EditActionValue(float newValue) => actionValue = newValue;
         public void EditActionDelay(float newValue) => actionDelay = newValue;
 

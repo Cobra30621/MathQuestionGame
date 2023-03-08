@@ -48,6 +48,8 @@ namespace NueGames.NueDeck.Scripts.Power
                     return new BlockPower();
                 case PowerType.Dexterity:
                     return new DexterityPower();
+                case PowerType.Angry:
+                    return new AngryPower();
                 default:
                     Debug.LogError($"沒有 {targetPower} Power");
                     return null;

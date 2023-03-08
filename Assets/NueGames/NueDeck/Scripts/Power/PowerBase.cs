@@ -1,4 +1,5 @@
 ﻿using NueGames.NueDeck.Scripts.Characters;
+using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 
@@ -94,7 +95,7 @@ namespace NueGames.NueDeck.Scripts.Power
         
         #region Event
         protected virtual void AtStartOfTurn(){}
-        protected virtual void OnAttacked(){}
+        protected virtual void OnAttacked(DamageInfo info, int damageAmount){}
         
         #endregion
     }

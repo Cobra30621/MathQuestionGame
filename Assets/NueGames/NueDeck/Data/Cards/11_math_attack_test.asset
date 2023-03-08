@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: 11_math_attack_test
+  m_EditorClassIdentifier: 
+  id: 11_math_attack_test
+  cardName: "\u6578\u5B78\u653B\u64CA2"
+  manaCost: 2
+  cardSprite: {fileID: 21300000, guid: 0029170d14ce6c04c9f45c22cdae5559, type: 3}
+  rarity: 0
+  usableWithoutTarget: 0
+  exhaustAfterPlay: 0
+  cardActionDataList:
+  - cardActionType: 11
+    actionTargetType: 0
+    powerType: 0
+    actionValue: 0
+    actionDelay: 0
+  cardDescriptionDataList:
+  - descriptionText: "\u7B54\u5C0D\uFF1A\u5C0D\u6575\u4EBA\u9020\u6210 "
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    useModifier: 1
+    cardActionDataListType: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 3
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: " \u9EDE\u50B7\u5BB3\n\u7B54\u932F:\u5C0D\u55AE\u4E00\u6575\u4EBA\u9020\u6210 "
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    useModifier: 1
+    cardActionDataListType: 2
+    modifiedActionValueIndex: 0
+    modiferStats: 3
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: " \u9EDE\u50B7\u5BB3"
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  specialKeywordsList: 06000000
+  audioType: 0
+  useMathAction: 1
+  correctCardActionDataList:
+  - cardActionType: 0
+    actionTargetType: 0
+    powerType: 0
+    actionValue: 20
+    actionDelay: 0
+  wrongCardActionDataList:
+  - cardActionType: 0
+    actionTargetType: 0
+    powerType: 0
+    actionValue: 10
+    actionDelay: 0
+  correctActionNeedAnswerCount: 3
+  wrongActionNeedAnswerCount: 1

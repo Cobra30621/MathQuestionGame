@@ -16,6 +16,7 @@ namespace NueGames.NueDeck.ThirdParty.NueTooltip.Core
         [SerializeField] private TooltipText tooltipTextPrefab;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private SpecialKeywordData specialKeywordData;
+        [SerializeField] private PowersData powersData;
         
         [Header("Settings")]
         [SerializeField] private AnimationCurve fadeCurve;
@@ -23,6 +24,7 @@ namespace NueGames.NueDeck.ThirdParty.NueTooltip.Core
         [SerializeField] private bool canChangeCursor;
 
         public SpecialKeywordData SpecialKeywordData => specialKeywordData;
+        public PowersData PowersData => powersData;
      
         private List<TooltipText> _tooltipTextList = new List<TooltipText>();
         private TooltipController TooltipController => tooltipController;

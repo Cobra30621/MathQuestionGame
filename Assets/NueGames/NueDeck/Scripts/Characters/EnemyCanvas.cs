@@ -19,6 +19,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         {
             var tooltipManager = TooltipManager.Instance;
             ShowTooltipInfo(tooltipManager,IntentionData.Content,IntentionData.Header,descriptionRoot);
+            ShowPowerTooltipInfo();
         }
     }
 }

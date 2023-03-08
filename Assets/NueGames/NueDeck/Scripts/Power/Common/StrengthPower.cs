@@ -1,4 +1,5 @@
-﻿using NueGames.NueDeck.Scripts.Enums;
+﻿using NueGames.NueDeck.Scripts.Combat;
+using NueGames.NueDeck.Scripts.Enums;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Power
@@ -12,9 +13,9 @@ namespace NueGames.NueDeck.Scripts.Power
             CanNegativeStack = true;
         }
         
-        public override float AtDamageGive(float damage)
+        protected override void OnAttacked(DamageInfo info, int damageAmount)
         {
-            return damage + Value;
+            Debug.Log($"{Owner} 攻擊力增加{Value}");
         }
     }
 }

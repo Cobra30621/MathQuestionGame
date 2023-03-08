@@ -16,7 +16,8 @@
         Math,
         GiveVulnerable,
         GiveWeak,
-        GiveStun
+        GiveStun,
+        ApplyPower
     }
 
     public enum CardActionDataListType

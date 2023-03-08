@@ -2,14 +2,6 @@
 {
     public enum SpecialKeywords
     {
-        Block,
-        Strength,
-        Poison,
-        Exhaust,
-        Dexterity,
-        Stun,
-        Math,
-        Vulnerable,
-        Weak
+        Exhaust, Math
     }
 }

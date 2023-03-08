@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
+using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.NueExtentions;
@@ -93,7 +94,7 @@ namespace NueGames.NueDeck.Scripts.Card
                 foreach (var target in targetList)
                     CardActionProcessor.GetAction(playerAction.CardActionType)
                         .DoAction(new CardActionParameters(playerAction.ActionValue,
-                            target,self,CardData,this));
+                            target,self,CardData,this, playerAction.PowerType));
             }
             
             CollectionManager.OnCardPlayed(this);
@@ -136,7 +137,7 @@ namespace NueGames.NueDeck.Scripts.Card
                 foreach (var target in targetList)
                     CardActionProcessor.GetAction(playerAction.CardActionType)
                         .DoAction(new CardActionParameters(playerAction.ActionValue,
-                            target,self,CardData,this));
+                            target,self,CardData,this, playerAction.PowerType));
             }
 
             if (!CardData.UseMathAction)
@@ -329,7 +330,15 @@ namespace NueGames.NueDeck.Scripts.Card
                 if (specialKeyword != null)
                     ShowTooltipInfo(tooltipManager,specialKeyword.GetContent(),specialKeyword.GetHeader(),descriptionRoot,CursorType.Default,CollectionManager ? CollectionManager.HandController.cam : Camera.main);
             }
+
+            foreach (var powerType in GetActionsPowerTypes())
+            {
+                PowerData powerData = tooltipManager.PowersData.GetPowerData(powerType);
+                if(powerData != null)
+                    ShowTooltipInfo(tooltipManager,powerData.GetContent(),powerData.GetHeader(),descriptionRoot,CursorType.Default,CollectionManager ? CollectionManager.HandController.cam : Camera.main);
+            }
         }
+
         public virtual void ShowTooltipInfo(TooltipManager tooltipManager, string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default,Camera cam = null, float delayShow =0)
         {
             tooltipManager.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);
@@ -339,6 +348,21 @@ namespace NueGames.NueDeck.Scripts.Card
         {
             tooltipManager.HideTooltip();
         }
+        
+        private List<PowerType> GetActionsPowerTypes()
+        {
+            List<PowerType> powerTypes = new List<PowerType>();
+            
+            foreach (var cardActionData in CardData.CardActionDataList)
+            {
+                if (cardActionData.CardActionType == CardActionType.ApplyPower)
+                {
+                    powerTypes.Add(cardActionData.PowerType);
+                }
+            }
+            return powerTypes;
+        }
+
         #endregion
        
     }

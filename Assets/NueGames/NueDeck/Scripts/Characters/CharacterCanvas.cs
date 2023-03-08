@@ -22,13 +22,13 @@ namespace NueGames.NueDeck.Scripts.Characters
         [SerializeField] protected Transform statusIconRoot;
         [SerializeField] protected Transform highlightRoot;
         [SerializeField] protected Transform descriptionRoot;
-        [SerializeField] protected StatusIconsData statusIconsData;
+        [SerializeField] protected PowersData powersData;
         [SerializeField] protected TextMeshProUGUI currentHealthText;
         [SerializeField] protected Image currentHealthBar;
         
         #region Cache
 
-        protected Dictionary<PowerType, StatusIconBase> StatusDict = new Dictionary<PowerType, StatusIconBase>();
+        protected Dictionary<PowerType, PowerIconsBase> StatusDict = new Dictionary<PowerType, PowerIconsBase>();
 
         protected Canvas TargetCanvas;
         
@@ -46,9 +46,6 @@ namespace NueGames.NueDeck.Scripts.Characters
         public void InitCanvas()
         {
             highlightRoot.gameObject.SetActive(false);
-            
-            for (int i = 0; i < Enum.GetNames(typeof(PowerType)).Length; i++)
-                StatusDict.Add((PowerType) i, null);
 
             TargetCanvas = GetComponent<Canvas>();
 
@@ -61,15 +58,19 @@ namespace NueGames.NueDeck.Scripts.Characters
         #region Public Methods
         public void ApplyStatus(PowerType targetPower, int value)
         {
-            if (StatusDict[targetPower] == null)
+            if (!StatusDict.ContainsKey(targetPower))
             {
-                var targetData = statusIconsData.StatusIconList.FirstOrDefault(x => x.IconPower == targetPower);
+                var targetData = powersData.PowerList.FirstOrDefault(x => x.PowerType == targetPower);
+                if (targetData == null)
+                {
+                    Debug.LogError($"找不到 Power {targetPower} 的 powerData" +
+                                   $"請去 Assets/NueGames/NueDeck/Data/Containers/Powers.asset設定");
+                    return;
+                }
                 
-                if (targetData == null) return;
-                
-                var clone = Instantiate(statusIconsData.StatusIconBasePrefab, statusIconRoot);
+                var clone = Instantiate(powersData.PowerBasePrefab, statusIconRoot);
                 clone.SetStatus(targetData);
-                StatusDict[targetPower] = clone;
+                StatusDict.Add(targetPower, clone);
             }
             
             StatusDict[targetPower].SetStatusValue(value);
@@ -77,17 +78,16 @@ namespace NueGames.NueDeck.Scripts.Characters
 
         public void ClearStatus(PowerType targetPower)
         {
-            if (StatusDict[targetPower])
+            if (StatusDict.ContainsKey(targetPower))
             {
                 Destroy(StatusDict[targetPower].gameObject);
+                StatusDict.Remove(targetPower);
             }
-           
-            StatusDict[targetPower] = null;
         }
         
         public void UpdateStatusText(PowerType targetPower, int value)
         {
-            if (StatusDict[targetPower] == null) return;
+            if (!StatusDict.ContainsKey(targetPower)) return;
           
             StatusDict[targetPower].StatusValueText.text = $"{value}";
         }
@@ -117,29 +117,20 @@ namespace NueGames.NueDeck.Scripts.Characters
         #region Tooltip
         public virtual void ShowTooltipInfo()
         {
-            var tooltipManager = TooltipManager.Instance;
-            var specialKeywords = new List<SpecialKeywords>();
-            
-            foreach (var statusIcon in StatusDict)
-            {
-                if (statusIcon.Value == null) continue;
-               
-                var statusData = statusIcon.Value.MyStatusIconData;
-                foreach (var statusDataSpecialKeyword in statusData.SpecialKeywords)
-                {
-                    if (specialKeywords.Contains(statusDataSpecialKeyword)) continue;
-                    specialKeywords.Add(statusDataSpecialKeyword);
-                }
-            }
-            
-            foreach (var specialKeyword in specialKeywords)
-            {
-                var specialKeywordData =tooltipManager.SpecialKeywordData.SpecialKeywordBaseList.Find(x => x.SpecialKeyword == specialKeyword);
-                if (specialKeywordData != null)
-                    ShowTooltipInfo(tooltipManager,specialKeywordData.GetContent(),specialKeywordData.GetHeader(),descriptionRoot);
-            }
-            
+            ShowPowerTooltipInfo();
         }
+
+        protected void ShowPowerTooltipInfo()
+        {
+            var tooltipManager = TooltipManager.Instance;
+
+            foreach (var powerIconBase in StatusDict)
+            {
+                PowerData powerData = powerIconBase.Value.MyPowerData;
+                ShowTooltipInfo(tooltipManager,powerData.GetContent(),powerData.GetHeader(),descriptionRoot);
+            }
+        }
+        
         public void ShowTooltipInfo(TooltipManager tooltipManager, string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default,Camera cam = null, float delayShow =0)
         {
             tooltipManager.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);

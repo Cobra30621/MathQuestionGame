@@ -297,17 +297,17 @@ namespace NueGames.NueDeck.Editor
                 if (SelectedCardData.UseMathAction) // 顯示數學行動
                 {
                     
-                    ChangeSingleMathCardActionDataList(CorrectCardActionDataList, "Correct Actions（答對時卡牌行動）");
+                    ChangeSingleCardActionDataList(CorrectCardActionDataList, "Correct Actions（答對時卡牌行動）");
                     CorrectActionNeedAnswerCount = EditorGUILayout.IntField("啟動行動，需答對題數", CorrectActionNeedAnswerCount);
                     EditorGUILayout.Space(20);
                     
-                    ChangeSingleMathCardActionDataList(WrongCardActionDataList, "Wrong Actions（答錯時卡牌行動）");
+                    ChangeSingleCardActionDataList(WrongCardActionDataList, "Wrong Actions（答錯時卡牌行動）");
                     WrongActionNeedAnswerCount = EditorGUILayout.IntField("啟動行動，需答錯題數", WrongActionNeedAnswerCount);
                     EditorGUILayout.Space(20);
                 }
                 else // 顯示一般行動
                 {
-                    ChangeSingleMathCardActionDataList(CardActionDataList, "Card Actions（卡牌行動）");
+                    ChangeSingleCardActionDataList(CardActionDataList, "Card Actions（卡牌行動）");
                 }
                 
                 
@@ -318,7 +318,7 @@ namespace NueGames.NueDeck.Editor
             
         }
 
-        private void ChangeSingleMathCardActionDataList(List<CardActionData> cardActionDataList, string title)
+        private void ChangeSingleCardActionDataList(List<CardActionData> cardActionDataList, string title)
         {
             
             GUIStyle headStyle = new GUIStyle();
@@ -353,6 +353,12 @@ namespace NueGames.NueDeck.Editor
                 EditorGUILayout.Separator();
                 var newActionType = (CardActionType)EditorGUILayout.EnumPopup("Action Type",cardActionData.CardActionType,GUILayout.Width(250));
 
+                if (newActionType == CardActionType.ApplyPower)
+                {
+                    var newPowerType = (PowerType)EditorGUILayout.EnumPopup("Power Type",cardActionData.PowerType,GUILayout.Width(250));
+                    cardActionData.EditPower(newPowerType);
+                }
+                
                 if (newActionType != CardActionType.Exhaust)
                 {
                     var newActionTarget = (ActionTargetType)EditorGUILayout.EnumPopup("Target Type",cardActionData.ActionTargetType,GUILayout.Width(250));
@@ -360,6 +366,8 @@ namespace NueGames.NueDeck.Editor
                     cardActionData.EditActionValue(newActionValue);
                     cardActionData.EditActionTarget(newActionTarget);
                 }
+
+                
                 
                 var newActionDelay = EditorGUILayout.FloatField("Action Delay: ",cardActionData.ActionDelay);
                 

@@ -9,6 +9,7 @@
         Dexterity,
         Stun,
         Vulnerable,
-        Weak
+        Weak,
+        Angry
     }
 }
