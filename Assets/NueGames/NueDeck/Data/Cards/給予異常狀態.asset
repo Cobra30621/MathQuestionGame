@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: "\u7D66\u6575\u4EBA\u7570\u5E38"
+  m_Name: "\u7D66\u4E88\u7570\u5E38\u72C0\u614B"
   m_EditorClassIdentifier: 
-  id: "\u7D66\u6575\u4EBA\u7570\u5E38"
-  cardName: "\u7D66\u6575\u4EBA\u7570\u5E38"
+  id: "\u7D66\u4E88\u7570\u5E38\u72C0\u614B"
+  cardName: "\u7D66\u4E88\u7570\u5E38\u72C0\u614B"
   manaCost: 0
   cardSprite: {fileID: 0}
   rarity: 0
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 15
+  - gameActionType: 2
     actionTargetType: 0
-    powerType: 8
-    actionValue: 3
+    powerType: 6
+    actionValue: 0
     actionDelay: 0
   cardDescriptionDataList: []
-  specialKeywordsList: 08000000
+  specialKeywordsList: 
   audioType: 0
   useMathAction: 0
   correctCardActionDataList: []

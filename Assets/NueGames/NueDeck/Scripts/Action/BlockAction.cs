@@ -7,33 +7,29 @@ using UnityEngine;
 
 namespace Assets.NueGames.NueDeck.Scripts.Action
 {
-    public class HealAction : GameActionBase
+    public class BlockAction : GameActionBase
     {
-        public HealAction()
+        public BlockAction()
         {
-            FxType = FxType.Heal;
-            AudioActionType = AudioActionType.Heal;
+            FxType = FxType.Block;
+            AudioActionType = AudioActionType.Block;
         }
         
         public override void SetValue(CardActionParameter cardActionParameter)
         {
             CardActionData data = cardActionParameter.CardActionData;
-            Value = data.ActionValue;
             TargetCharacter = cardActionParameter.TargetCharacter;
             Duration = cardActionParameter.CardActionData.ActionDelay;
+            Value = data.ActionValue;
         }
         
         public override void DoAction()
         {
             if (!TargetCharacter) return;
             
-            TargetCharacter.CharacterStats.Heal(Mathf.RoundToInt(Value));
-
-            if (FxManager != null)
-            {
-                FxManager.PlayFx(TargetCharacter.transform,FxType.Attack);
-                FxManager.SpawnFloatingText(TargetCharacter.TextSpawnRoot,Value.ToString());
-            }
+            TargetCharacter.CharacterStats.ApplyStatus(PowerType.Block,Mathf.RoundToInt(Value));
+            
+            PlayFx();
             PlayAudio();
         }
     }

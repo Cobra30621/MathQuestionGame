@@ -7,12 +7,12 @@ using UnityEngine;
 
 namespace Assets.NueGames.NueDeck.Scripts.Action
 {
-    public class HealAction : GameActionBase
+    public class IncreaseMaxHealthAction : GameActionBase
     {
-        public HealAction()
+        public IncreaseMaxHealthAction()
         {
-            FxType = FxType.Heal;
-            AudioActionType = AudioActionType.Heal;
+            FxType = FxType.Buff;
+            AudioActionType = AudioActionType.Power;
         }
         
         public override void SetValue(CardActionParameter cardActionParameter)
@@ -27,7 +27,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         {
             if (!TargetCharacter) return;
             
-            TargetCharacter.CharacterStats.Heal(Mathf.RoundToInt(Value));
+            TargetCharacter.CharacterStats.IncreaseMaxHealth(Mathf.RoundToInt(Value));
 
             if (FxManager != null)
             {

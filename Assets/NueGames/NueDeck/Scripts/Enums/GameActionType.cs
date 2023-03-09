@@ -3,16 +3,14 @@
     public enum GameActionType
     {
         Damage,
-        Heal,
         Block,
-        IncreaseMaxHealth,
+        ApplyPower,
         DrawCard,
         EarnMana,
-        LifeSteal,
         Exhaust,
-        AttackSelf,
-        Math,
-        ApplyPower
+        Heal,
+        IncreaseMaxHealth,
+        Math
     }
 
     public enum CardActionDataListType
