@@ -20,6 +20,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField] private GameplayData gameplayData;
         [SerializeField] private EncounterData encounterData;
         [SerializeField] private SceneData sceneData;
+        [SerializeField] private bool isDevelopCombatMode;
 
 
         #region Cache
@@ -47,13 +48,23 @@ namespace NueGames.NueDeck.Scripts.Managers
                 CardActionProcessor.Initialize();
                 EnemyActionProcessor.Initialize();
                 PowerFactory.Initialize();
-                InitGameplayData();
-                SetInitalHand();
+                if (isDevelopCombatMode)
+                {
+                    StartRougeLikeGame();
+                }
             }
         }
+
         #endregion
         
         #region Public Methods
+
+        public void StartRougeLikeGame()
+        {
+            InitGameplayData();
+            SetInitalHand();
+        }
+        
         public void InitGameplayData()
         { 
             PersistentGameplayData = new PersistentGameplayData(gameplayData);
@@ -90,6 +101,11 @@ namespace NueGames.NueDeck.Scripts.Managers
         public void OnExitApp()
         {
             
+        }
+
+        public void SetGameplayData(GameplayData gameplayData)
+        {
+            this.gameplayData = gameplayData;
         }
         #endregion
       
