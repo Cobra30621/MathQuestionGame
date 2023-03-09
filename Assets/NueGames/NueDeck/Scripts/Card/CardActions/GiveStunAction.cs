@@ -5,7 +5,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class GiveStunAction : GiveStatusAction
     {
-        public override CardActionType ActionType => CardActionType.GiveStun;
+        public override GameActionType ActionType => GameActionType.GiveStun;
         public override PowerType PowerType => PowerType.Dexterity;
     }
 }

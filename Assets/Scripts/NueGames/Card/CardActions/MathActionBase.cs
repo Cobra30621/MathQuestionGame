@@ -12,7 +12,7 @@ namespace NueGames.Card.CardActions
 {
     public abstract class MathActionBase: CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.Math;
+        public override GameActionType ActionType => GameActionType.Math;
         protected QuestionManager QuestionManager => QuestionManager.Instance;
         private CardActionParameters actionParameters;
 

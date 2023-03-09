@@ -351,18 +351,18 @@ namespace NueGames.NueDeck.Editor
                 
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.Separator();
-                var newActionType = (CardActionType)EditorGUILayout.EnumPopup("Action Type",cardActionData.CardActionType,GUILayout.Width(250));
+                var newActionType = (GameActionType)EditorGUILayout.EnumPopup("Action Type",cardActionData.GameActionType,GUILayout.Width(250));
 
-                if (newActionType == CardActionType.ApplyPower)
+                if (newActionType == GameActionType.ApplyPower)
                 {
                     var newPowerType = (PowerType)EditorGUILayout.EnumPopup("Power Type",cardActionData.PowerType,GUILayout.Width(250));
                     cardActionData.EditPower(newPowerType);
                 }
                 
-                if (newActionType != CardActionType.Exhaust)
+                if (newActionType != GameActionType.Exhaust)
                 {
                     var newActionTarget = (ActionTargetType)EditorGUILayout.EnumPopup("Target Type",cardActionData.ActionTargetType,GUILayout.Width(250));
-                    var newActionValue = EditorGUILayout.FloatField("Action Value: ",cardActionData.ActionValue);
+                    var newActionValue = EditorGUILayout.IntField("Action Value: ",cardActionData.ActionValue);
                     cardActionData.EditActionValue(newActionValue);
                     cardActionData.EditActionTarget(newActionTarget);
                 }
@@ -459,7 +459,7 @@ namespace NueGames.NueDeck.Editor
                         var desc = EditorGUILayout.TextArea(descriptionData.DescriptionText, GUILayout.Width(150),
                             GUILayout.Height(50));
 
-                        // var hasExhaust = CardActionDataList.Find(x => x.CardActionType == CardActionType.Exhaust);
+                        // var hasExhaust = CardActionDataList.Find(x => x.GameActionType == GameActionType.Exhaust);
                         // if (ExhaustAfterPlay || hasExhaust != null)
                         // {
                         //     desc += " Exhaust ";

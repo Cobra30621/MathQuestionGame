@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class StunAction : CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.Stun;
+        public override GameActionType ActionType => GameActionType.Stun;
         public override void DoAction(CardActionParameters actionParameters)
         {
             if (!actionParameters.TargetCharacter) return;

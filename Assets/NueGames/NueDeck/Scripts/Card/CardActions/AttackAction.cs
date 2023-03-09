@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class AttackAction: CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.Attack;
+        public override GameActionType ActionType => GameActionType.Damage;
         public override void DoAction(CardActionParameters actionParameters)
         {
             if (!actionParameters.TargetCharacter) return;

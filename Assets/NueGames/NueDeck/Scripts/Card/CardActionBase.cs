@@ -6,6 +6,22 @@ using NueGames.NueDeck.Scripts.Managers;
 
 namespace NueGames.NueDeck.Scripts.Card
 {
+    public class CardActionParameter
+    {
+        public readonly int Value;
+        public readonly CharacterBase TargetCharacter;
+        public readonly CharacterBase SelfCharacter;
+        public readonly CardActionData CardActionData;
+        
+        public CardActionParameter(int value,CharacterBase target, CharacterBase self,CardActionData cardData)
+        {
+            Value = value;
+            TargetCharacter = target;
+            SelfCharacter = self;
+            CardActionData = cardData;
+        }
+    }
+    
     public class CardActionParameters
     {
         public readonly float Value;
@@ -28,7 +44,7 @@ namespace NueGames.NueDeck.Scripts.Card
     public abstract class CardActionBase
     {
         protected CardActionBase(){}
-        public abstract CardActionType ActionType { get;}
+        public abstract GameActionType ActionType { get;}
         public abstract void DoAction(CardActionParameters actionParameters);
         
         protected FxManager FxManager => FxManager.Instance;

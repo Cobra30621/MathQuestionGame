@@ -8,8 +8,8 @@ namespace NueGames.NueDeck.Scripts.Card
 { 
     public static class CardActionProcessor
     {
-        private static readonly Dictionary<CardActionType, CardActionBase> CardActionDict =
-            new Dictionary<CardActionType, CardActionBase>();
+        private static readonly Dictionary<GameActionType, CardActionBase> CardActionDict =
+            new Dictionary<GameActionType, CardActionBase>();
 
         public static bool IsInitialized { get; private set; }
 
@@ -29,7 +29,7 @@ namespace NueGames.NueDeck.Scripts.Card
             IsInitialized = true;
         }
 
-        public static CardActionBase GetAction(CardActionType targetAction) =>
+        public static CardActionBase GetAction(GameActionType targetAction) =>
             CardActionDict[targetAction];
 
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.NueGames.NueDeck.Scripts.Action;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Containers;
@@ -44,6 +45,7 @@ namespace NueGames.NueDeck.Scripts.Card
         protected GameManager GameManager => GameManager.Instance;
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;
+        protected GameActionManager GameActionManager => GameActionManager.Instance;
         
         public bool IsExhausted { get; private set; }
         
@@ -92,7 +94,7 @@ namespace NueGames.NueDeck.Scripts.Card
                 var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, playerAction);
 
                 foreach (var target in targetList)
-                    CardActionProcessor.GetAction(playerAction.CardActionType)
+                    CardActionProcessor.GetAction(playerAction.GameActionType)
                         .DoAction(new CardActionParameters(playerAction.ActionValue,
                             target,self,CardData,this, playerAction.PowerType));
             }
@@ -131,13 +133,22 @@ namespace NueGames.NueDeck.Scripts.Card
             
             foreach (var playerAction in CardData.CardActionDataList)
             {
-                yield return new WaitForSeconds(playerAction.ActionDelay);
+                // yield return new WaitForSeconds(playerAction.ActionDelay);
+                yield return null;
                 var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, playerAction);
 
-                foreach (var target in targetList)
-                    CardActionProcessor.GetAction(playerAction.CardActionType)
-                        .DoAction(new CardActionParameters(playerAction.ActionValue,
-                            target,self,CardData,this, playerAction.PowerType));
+                // foreach (var target in targetList)
+                //     CardActionProcessor.GetAction(playerAction.GameActionType)
+                //         .DoAction(new CardActionParameters(playerAction.ActionValue,
+                //             target,self,CardData,this, playerAction.PowerType));
+                
+                CardActionParameter cardActionParameter = new CardActionParameter(
+                    playerAction.ActionValue,
+                    targetCharacter,
+                    self,
+                    playerAction
+                );
+                GameActionManager.AddToBottom(playerAction.GameActionType, cardActionParameter);
             }
 
             if (!CardData.UseMathAction)
@@ -355,7 +366,7 @@ namespace NueGames.NueDeck.Scripts.Card
             
             foreach (var cardActionData in CardData.CardActionDataList)
             {
-                if (cardActionData.CardActionType == CardActionType.ApplyPower)
+                if (cardActionData.GameActionType == GameActionType.ApplyPower)
                 {
                     powerTypes.Add(cardActionData.PowerType);
                 }

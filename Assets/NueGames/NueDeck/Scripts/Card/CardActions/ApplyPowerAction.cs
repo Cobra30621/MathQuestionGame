@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class ApplyPowerAction : CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.ApplyPower;
+        public override GameActionType ActionType => GameActionType.ApplyPower;
         public virtual FxType FxType => FxType.Str;
         
         public override void DoAction(CardActionParameters actionParameters)

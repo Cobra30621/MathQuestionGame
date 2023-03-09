@@ -11,51 +11,33 @@ namespace NueGames.NueDeck.Scripts.Power
     {
     public static class PowerFactory
     {
-        private static readonly Dictionary<PowerType, PowerBase> PowerDict =
-            new Dictionary<PowerType, PowerBase>();
+     
+        private static IEnumerable<Type> PowerClasses;
 
         public static bool IsInitialized { get; private set; }
 
         public static void Initialize()
         {
-            // PowerDict.Clear();
-            //
-            // var allPowers = Assembly.GetAssembly(typeof(PowerBase)).GetTypes()
-            //     .Where(t => typeof(PowerBase).IsAssignableFrom(t) && t.IsAbstract == false);
-            //
-            // foreach (var powerBase in allPowers)
-            // {
-            //     PowerBase power = Activator.CreateInstance(powerBase) as PowerBase;
-            //     if (power != null) PowerDict.Add(power.PowerType, power);
-            // }
-            //
-            // IsInitialized = true;
+            PowerClasses = Assembly.GetAssembly(typeof(PowerBase)).GetTypes()
+                .Where(t => typeof(PowerBase).IsAssignableFrom(t) && t.IsAbstract == false);
+            
+            IsInitialized = true;
         }
 
         public static PowerBase GetPower(PowerType targetPower)
         {
-            switch (targetPower)
-            {
-                case PowerType.Strength:
-                    return new StrengthPower();
-                case PowerType.Vulnerable:
-                    return new VulnerablePower();
-                case PowerType.Weak:
-                    return new WeakPower();
-                case PowerType.Stun:
-                    return new StunPower();
-                case PowerType.Block:
-                    return new BlockPower();
-                case PowerType.Dexterity:
-                    return new DexterityPower();
-                case PowerType.Angry:
-                    return new AngryPower();
-                default:
-                    Debug.LogError($"沒有 {targetPower} Power");
-                    return null;
-            }
-        }
+            string powerBaseName = targetPower.ToString() + "Power";
             
-
+            foreach (var powerBase in PowerClasses)
+            {
+                if (powerBase.Name == powerBaseName)
+                {
+                    return  Activator.CreateInstance(powerBase) as PowerBase;
+                }
+            }
+            
+            Debug.LogError($"沒有 Power {powerBaseName} 的 Class");
+            return null;
+        }
     }
 }

@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class IncreaseStrengthAction : GiveStatusAction
     {
-        public override CardActionType ActionType => CardActionType.IncreaseStrength;
+        public override GameActionType ActionType => GameActionType.IncreaseStrength;
         public override PowerType PowerType => PowerType.Strength;
     }
 }

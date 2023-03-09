@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class DrawAction : CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.Draw;
+        public override GameActionType ActionType => GameActionType.DrawCard;
         public override void DoAction(CardActionParameters actionParameters)
         {
             if (CollectionManager != null)

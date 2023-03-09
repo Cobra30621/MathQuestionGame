@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class BlockAction : GiveStatusAction
     {
-        public override CardActionType ActionType => CardActionType.Block;
+        public override GameActionType ActionType => GameActionType.Block;
         public override PowerType PowerType => PowerType.Block;
         public override FxType FxType => FxType.Block;
     }

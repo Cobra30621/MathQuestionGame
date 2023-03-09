@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class EarnManaAction : CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.EarnMana;
+        public override GameActionType ActionType => GameActionType.EarnMana;
         public override void DoAction(CardActionParameters actionParameters)
         {
             if (CombatManager != null)

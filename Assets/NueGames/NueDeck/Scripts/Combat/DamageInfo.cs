@@ -4,7 +4,13 @@ namespace NueGames.NueDeck.Scripts.Combat
 {
     public class DamageInfo
     {
-        public CharacterBase owner;
-        public int value;
+        public CharacterBase SelfCharacter;
+        public int Value;
+
+        public DamageInfo(int value, CharacterBase selfCharacter)
+        {
+            Value = value;
+            SelfCharacter = selfCharacter;
+        }
     }
 }

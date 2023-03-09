@@ -132,7 +132,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 // 卡片行動改成數學行動
                 cardActionDataList.Clear();
                 CardActionData cardActionData = new CardActionData();
-                cardActionData.EditActionType(CardActionType.Math);
+                cardActionData.EditActionType(GameActionType.Math);
                 cardActionDataList.Add(cardActionData);
             }
             else // 切換成一般卡片
@@ -156,16 +156,16 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
     [Serializable]
     public class CardActionData
     {
-        [SerializeField] private CardActionType cardActionType;
+        [SerializeField] private GameActionType gameActionType;
         [SerializeField] private ActionTargetType actionTargetType;
         [SerializeField] private PowerType powerType;
-        [SerializeField] private float actionValue;
+        [SerializeField] private int actionValue;
         [SerializeField] private float actionDelay;
 
         public ActionTargetType ActionTargetType => actionTargetType;
-        public CardActionType CardActionType => cardActionType;
+        public GameActionType GameActionType => gameActionType;
         public PowerType PowerType => powerType;
-        public float ActionValue => actionValue;
+        public int ActionValue => actionValue;
         public float ActionDelay => actionDelay;
         
         
@@ -173,10 +173,10 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         #region Editor
 
 #if UNITY_EDITOR
-        public void EditActionType(CardActionType newType) =>  cardActionType = newType;
+        public void EditActionType(GameActionType newType) =>  gameActionType = newType;
         public void EditActionTarget(ActionTargetType newTargetType) => actionTargetType = newTargetType;
         public void EditPower(PowerType newPowerType) => powerType = newPowerType;
-        public void EditActionValue(float newValue) => actionValue = newValue;
+        public void EditActionValue(int newValue) => actionValue = newValue;
         public void EditActionDelay(float newValue) => actionDelay = newValue;
 
 #endif
@@ -251,10 +251,10 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 {
                     // modifer = player.CharacterStats.StatusDict[ModiferStats].Value;
                     // Value += modifer;
-                    if(cardActionDataList[ModifiedActionValueIndex].CardActionType == CardActionType.Attack)
+                    if(cardActionDataList[ModifiedActionValueIndex].GameActionType == GameActionType.Damage)
                         value = CombatCalculator.GetDamageValue(value, player);
 
-                    if(cardActionDataList[ModifiedActionValueIndex].CardActionType == CardActionType.Block)
+                    if(cardActionDataList[ModifiedActionValueIndex].GameActionType == GameActionType.Block)
                         value = CombatCalculator.GetBlockValue(value, player);
                     // if (modifer != 0)
                     // {
