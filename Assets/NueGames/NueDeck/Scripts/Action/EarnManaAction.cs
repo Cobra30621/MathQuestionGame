@@ -6,11 +6,12 @@ using UnityEngine;
 
 namespace Assets.NueGames.NueDeck.Scripts.Action
 {
-    public class DrawCardAction : GameActionBase
+    public class EarnManaAction : GameActionBase
     {
-        public DrawCardAction()
+        public EarnManaAction()
         {
-            
+            FxType = FxType.Buff;
+            AudioActionType = AudioActionType.Power;
         }
 
         public override void SetValue(CardActionParameter cardActionParameter)
@@ -22,13 +23,13 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         
         public override void DoAction()
         {
-            if (CollectionManager != null)
-                CollectionManager.DrawCards(Mathf.RoundToInt(Value));
+            if (CombatManager != null)
+                CombatManager.IncreaseMana(Mathf.RoundToInt(Value));
             else
-                Debug.LogError("There is no CollectionManager");
-            
-            // PlayFx();
-            // PlayAudio();
+                Debug.LogError("There is no CombatManager");
+
+            PlayFx();
+            PlayAudio();
         }
     }
 }

@@ -4,6 +4,7 @@ using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
+using UnityEngine;
 
 namespace Assets.NueGames.NueDeck.Scripts.Action
 {
@@ -14,6 +15,10 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         public CharacterBase SelfCharacter;
         public int Value;
         public float Duration = 0;
+
+        protected Transform fxTransform;
+        public FxType FxType;
+        public AudioActionType AudioActionType;
         
         public CardActionData CardActionData;
 
@@ -27,5 +32,22 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         public virtual void SetValue(CardActionParameter cardActionParameter){}
 
         public abstract void DoAction();
+
+        protected void PlayFx()
+        {
+            // TODO 設定 FX 預設產生處
+            if (FxManager != null)
+            {
+                if(TargetCharacter != null)
+                    FxManager.PlayFx(TargetCharacter.transform, FxType);
+            }
+                
+        }
+
+        protected void PlayAudio()
+        {
+            if (AudioManager != null) 
+                AudioManager.PlayOneShot(AudioActionType);
+        }
     }
 }

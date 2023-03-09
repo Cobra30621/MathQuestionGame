@@ -12,6 +12,6 @@
         Heal,
         Poison,
         Power,
-        Swing
+        Swing,
     }
 }

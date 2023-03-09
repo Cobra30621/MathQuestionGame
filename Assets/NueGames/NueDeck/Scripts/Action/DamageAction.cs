@@ -10,23 +10,24 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
     {
         private DamageInfo damageInfo;
         
-        public DamageAction(DamageInfo damageInfo, CharacterBase target)
-        {
-            this.damageInfo = damageInfo;
-            TargetCharacter = target;
-        }
-        
         public DamageAction()
         {
-            // SetValue(cardActionParameter);
+            FxType = FxType.Attack;
+            AudioActionType = AudioActionType.Attack;
         }
-
+        
         public override void SetValue(CardActionParameter cardActionParameter)
         {
             CardActionData data = cardActionParameter.CardActionData;
             damageInfo = new DamageInfo(data.ActionValue, cardActionParameter.SelfCharacter);
             TargetCharacter = cardActionParameter.TargetCharacter;
             Duration = cardActionParameter.CardActionData.ActionDelay;
+        }
+        
+        public void SetValue(DamageInfo damageInfo, CharacterBase target)
+        {
+            this.damageInfo = damageInfo;
+            TargetCharacter = target;
         }
         
         public override void DoAction()
@@ -43,8 +44,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
                 FxManager.SpawnFloatingText(TargetCharacter.TextSpawnRoot,value.ToString());
             }
            
-            if (AudioManager != null) 
-                AudioManager.PlayOneShot(AudioActionType.Attack);
+            PlayAudio();
         }
     }
 }

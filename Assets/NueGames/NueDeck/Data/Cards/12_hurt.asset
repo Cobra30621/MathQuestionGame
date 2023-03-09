@@ -20,15 +20,10 @@ MonoBehaviour:
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 0
-    actionTargetType: 0
+  - gameActionType: 1
+    actionTargetType: 1
     powerType: 0
     actionValue: 10
-    actionDelay: 0
-  - cardActionType: 15
-    actionTargetType: 0
-    powerType: 6
-    actionValue: 2
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: "\u7D66\u4E88\u6575\u4EBA "

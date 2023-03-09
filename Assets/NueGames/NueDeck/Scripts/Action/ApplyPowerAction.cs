@@ -9,8 +9,14 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
 {
     public class ApplyPowerAction : GameActionBase
     {
-        private PowerType powerType; 
+        private PowerType powerType;
 
+        public ApplyPowerAction()
+        {
+            FxType = FxType.Buff;
+            AudioActionType = AudioActionType.Power;
+        }
+        
         public override void SetValue(CardActionParameter cardActionParameter)
         {
             CardActionData data = cardActionParameter.CardActionData;
@@ -26,11 +32,8 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             
             TargetCharacter.CharacterStats.ApplyStatus(powerType,Mathf.RoundToInt(Value));
             
-            if (FxManager != null) 
-                FxManager.PlayFx(TargetCharacter.transform, FxType.Str);
-
-            if (AudioManager != null) 
-                AudioManager.PlayOneShot(AudioActionType.Poison);
+            PlayFx();
+            PlayAudio();
         }
     }
 }
