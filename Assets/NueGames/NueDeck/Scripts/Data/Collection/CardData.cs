@@ -40,8 +40,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private bool useMathAction;
         [SerializeField] private List<CardActionData> correctCardActionDataList;
         [SerializeField] private List<CardActionData> wrongCardActionDataList;
-        [SerializeField] private int correctActionNeedAnswerCount = 2;
-        [SerializeField] private int wrongActionNeedAnswerCount = 1;
+        [SerializeField] private MathQuestioningActionParameters mathQuestioningActionParameters;
 
         #region Cache
         public string Id => id;
@@ -54,6 +53,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public List<CardActionData> CardActionDataList => cardActionDataList;
         public List<CardActionData> CorrectCardActionDataList => correctCardActionDataList;
         public List<CardActionData> WrongCardActionDataList => wrongCardActionDataList;
+        public MathQuestioningActionParameters MathQuestioningActionParameters => mathQuestioningActionParameters;
+        
         public List<CardDescriptionData> CardDescriptionDataList => cardDescriptionDataList;
         public List<SpecialKeywords> KeywordsList => specialKeywordsList;
         public AudioActionType AudioType => audioType;
@@ -61,9 +62,6 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public RarityType Rarity => rarity;
 
         public bool ExhaustAfterPlay => exhaustAfterPlay;
-        public bool UseMathAction => useMathAction;
-        public int CorrectActionNeedAnswerCount => correctActionNeedAnswerCount;
-        public int WrongActionNeedAnswerCount => wrongActionNeedAnswerCount;
 
         #endregion
         
@@ -81,12 +79,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             
             MyDescription = str.ToString();
         }
-
-        public void UpdateDescription(CharacterBase targetCharacter)
-        {
-            
-        }
-
+        
         public List<CardActionData> GetCardActionDataList(CardActionDataListType cardActionDataListType)
         {
             switch (cardActionDataListType)
@@ -119,33 +112,24 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             correctCardActionDataList= newCardActionDataList;
         public void EditWrongCardActionDataList(List<CardActionData> newCardActionDataList) =>
             wrongCardActionDataList = newCardActionDataList;
+        public void EditUseLimitedQuestion(bool newValue) =>
+            mathQuestioningActionParameters.UseLimitedQuestion = newValue;
+
+        public void EditQuestionCount(int newValue) => mathQuestioningActionParameters.QuestionCount = newValue;
+        public void EditUseCorrectAction(bool newValue) => mathQuestioningActionParameters.UseCorrectAction = newValue;
+
+        public void EditCorrectActionNeedAnswerCount(int newValue) =>
+            mathQuestioningActionParameters.CorrectActionNeedAnswerCount = newValue;
+        public void EditUseWrongAction(bool newValue) => mathQuestioningActionParameters.UseWrongAction = newValue;
+
+        public void EditWrongActionNeedAnswerCount(int newValue) =>
+            mathQuestioningActionParameters.WrongActionNeedAnswerCount = newValue;
         public void EditCardDescriptionDataList(List<CardDescriptionData> newCardDescriptionDataList) =>
             cardDescriptionDataList = newCardDescriptionDataList;
         public void EditSpecialKeywordsList(List<SpecialKeywords> newSpecialKeywordsList) =>
             specialKeywordsList = newSpecialKeywordsList;
         public void EditAudioType(AudioActionType newAudioActionType) => audioType = newAudioActionType;
-        public void EditCorrectActionNeedAnswerCount(int newCorrectActionNeedAnswerCount) => 
-            correctActionNeedAnswerCount = newCorrectActionNeedAnswerCount;
-        public void EditWrongActionNeedAnswerCount(int newWrongActionNeedAnswerCount)=> 
-            wrongActionNeedAnswerCount = newWrongActionNeedAnswerCount;
-        public void EditUseMathAction(bool newStatus)
-        {
-            useMathAction = newStatus;
-            if (useMathAction) // 切換成數學卡片
-            {
-                // correctCardActionDataList = new List<CardActionData>(cardActionDataList);
-                // 卡片行動改成數學行動
-                cardActionDataList.Clear();
-                CardActionData cardActionData = new CardActionData();
-                cardActionData.EditActionType(GameActionType.EnterMathQuestioning);
-                cardActionDataList.Add(cardActionData);
-            }
-            else // 切換成一般卡片
-            {
-                // cardActionDataList = new List<CardActionData>(correctCardActionDataList);
-            }
-        }
-
+        
         public void EditFileName()
         {
             var path = AssetDatabase.GetAssetPath(this);
@@ -166,7 +150,6 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private PowerType powerType;
         [SerializeField] private int actionValue;
         [SerializeField] private float actionDelay;
-        [SerializeField] private MathQuestioningActionParameters mathQuestioningActionParameters;
 
         public ActionTargetType ActionTargetType => actionTargetType;
         public GameActionType GameActionType => gameActionType;
@@ -174,9 +157,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public int ActionValue => actionValue;
         public float ActionDelay => actionDelay;
         
-        public MathQuestioningActionParameters MathQuestioningActionParameters => mathQuestioningActionParameters;
-        
-        
+    
 
         #region Editor
 
@@ -186,6 +167,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditPower(PowerType newPowerType) => powerType = newPowerType;
         public void EditActionValue(int newValue) => actionValue = newValue;
         public void EditActionDelay(float newValue) => actionDelay = newValue;
+
+        
 
 #endif
 

@@ -189,18 +189,9 @@ namespace NueGames.NueDeck.Scripts.Managers
                     foreach (var enemyBase in CurrentEnemiesList)
                         targetList.Add(enemyBase);
                     break;
-                case ActionTargetType.AllAllies:
-                    foreach (var allyBase in CurrentAlliesList)
-                        targetList.Add(allyBase);
-                    break;
                 case ActionTargetType.RandomEnemy:
                     if (CurrentEnemiesList.Count>0)
                         targetList.Add(CurrentEnemiesList.RandomItem());
-                    
-                    break;
-                case ActionTargetType.RandomAlly:
-                    if (CurrentAlliesList.Count>0)
-                        targetList.Add(CurrentAlliesList.RandomItem());
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

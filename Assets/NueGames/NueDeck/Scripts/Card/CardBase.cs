@@ -94,11 +94,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
             List<GameActionBase> gameActions = GameActionManager.GetGameActions(CardData, CardData.CardActionDataList, self, target);
             GameActionManager.AddToBottom(gameActions);
-
-            if (!CardData.UseMathAction)
-            {
-                CollectionManager.OnCardPlayed(this);
-            }
+            
         }
         
 
@@ -118,18 +114,9 @@ namespace NueGames.NueDeck.Scripts.Card
                     foreach (var enemyBase in allEnemies)
                         targetList.Add(enemyBase);
                     break;
-                case ActionTargetType.AllAllies:
-                    foreach (var allyBase in allAllies)
-                        targetList.Add(allyBase);
-                    break;
                 case ActionTargetType.RandomEnemy:
                     if (allEnemies.Count>0)
                         targetList.Add(allEnemies.RandomItem());
-                    
-                    break;
-                case ActionTargetType.RandomAlly:
-                    if (allAllies.Count>0)
-                        targetList.Add(allAllies.RandomItem());
                     break;
                 case ActionTargetType.None:
                     break;

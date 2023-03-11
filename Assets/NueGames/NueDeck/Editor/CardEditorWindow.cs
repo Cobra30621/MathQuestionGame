@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.NueGames.NueDeck.Scripts.Action;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.NueExtentions;
@@ -34,8 +35,22 @@ namespace NueGames.NueDeck.Editor
         private List<CardActionData> CardActionDataList{ get; set; }
         private List<CardActionData> CorrectCardActionDataList{ get; set; }
         private List<CardActionData> WrongCardActionDataList{ get; set; }
+        
+        private MathQuestioningActionParameters MathParameters{ get; set; }
+        
+        private bool UseLimitedQuestion{ get; set; }
+        private int QuestionCount{ get; set; }
+        
+        private bool UseCorrectAction{ get; set; }
         private int CorrectActionNeedAnswerCount{ get; set; }
+
+        public bool UseWrongAction{ get; set; }
         private int WrongActionNeedAnswerCount{ get; set; }
+        
+        private bool UseTimeCountDown{ get; set; }
+        private int Time{ get; set; }
+        
+        
         private List<CardDescriptionData> CardDescriptionDataList{ get; set; }
         private List<SpecialKeywords> SpecialKeywordsList{ get; set; }
         private AudioActionType AudioType{ get; set; }
@@ -53,12 +68,11 @@ namespace NueGames.NueDeck.Editor
             CardActionDataList = SelectedCardData.CardActionDataList.Count>0 ? new List<CardActionData>(SelectedCardData.CardActionDataList) : new List<CardActionData>();
             CorrectCardActionDataList = SelectedCardData.CorrectCardActionDataList.Count>0 ? new List<CardActionData>(SelectedCardData.CorrectCardActionDataList) : new List<CardActionData>();
             WrongCardActionDataList = SelectedCardData.WrongCardActionDataList.Count>0 ? new List<CardActionData>(SelectedCardData.WrongCardActionDataList) : new List<CardActionData>();
+            MathParameters = SelectedCardData.MathQuestioningActionParameters;
             CardDescriptionDataList = SelectedCardData.CardDescriptionDataList.Count>0 ? new List<CardDescriptionData>(SelectedCardData.CardDescriptionDataList) : new List<CardDescriptionData>();
             SpecialKeywordsList = SelectedCardData.KeywordsList.Count>0 ? new List<SpecialKeywords>(SelectedCardData.KeywordsList) : new List<SpecialKeywords>();
             AudioType = SelectedCardData.AudioType;
             CardRarity = SelectedCardData.Rarity;
-            CorrectActionNeedAnswerCount = SelectedCardData.CorrectActionNeedAnswerCount;
-            WrongActionNeedAnswerCount = SelectedCardData.WrongActionNeedAnswerCount;
         }
         
         private void ClearCachedCardData()
@@ -172,6 +186,8 @@ namespace NueGames.NueDeck.Editor
             clone.EditId(str.ToString());
             clone.EditCardName(str.ToString());
             clone.EditCardActionDataList(new List<CardActionData>());
+            clone.EditCorrectCardActionDataList(new List<CardActionData>());
+            clone.EditWrongCardActionDataList(new List<CardActionData>());
             clone.EditCardDescriptionDataList(new List<CardDescriptionData>());
             clone.EditSpecialKeywordsList(new List<SpecialKeywords>());
             clone.EditRarity(RarityType.Common);
@@ -292,25 +308,33 @@ namespace NueGames.NueDeck.Editor
             if (_isCardActionDataListFolded)
             {
                 _cardActionScrollPos = EditorGUILayout.BeginScrollView(_cardActionScrollPos,GUILayout.ExpandWidth(true));
-                SelectedCardData.EditUseMathAction(EditorGUILayout.ToggleLeft("使用數學卡牌（注意:會將一般卡牌行動清除）",
-                    SelectedCardData.UseMathAction,GUILayout.Width(500), GUILayout.Height(25)));
-                if (SelectedCardData.UseMathAction) // 顯示數學行動
+                ChangeSingleCardActionDataList(CardActionDataList);
+
+                if (IsUseMathAction()) // 顯示數學行動
                 {
+                    UseLimitedQuestion = EditorGUILayout.Toggle("有題數限制", UseLimitedQuestion);
+                    if(UseLimitedQuestion)
+                        QuestionCount = EditorGUILayout.IntField("題目數量: ",QuestionCount);
                     
-                    ChangeSingleCardActionDataList(CorrectCardActionDataList, "Correct Actions（答對時卡牌行動）");
-                    CorrectActionNeedAnswerCount = EditorGUILayout.IntField("啟動行動，需答對題數", CorrectActionNeedAnswerCount);
-                    EditorGUILayout.Space(20);
+                    UseCorrectAction = EditorGUILayout.Toggle("Use Correct Action", UseCorrectAction);
+                    if (UseCorrectAction)
+                    {
+                        ChangeSingleCardActionDataList(CorrectCardActionDataList);
+                        CorrectActionNeedAnswerCount = EditorGUILayout.IntField("啟動行動，需答對題數", CorrectActionNeedAnswerCount);
+                        EditorGUILayout.Space(20);
+                    }
                     
-                    ChangeSingleCardActionDataList(WrongCardActionDataList, "Wrong Actions（答錯時卡牌行動）");
-                    WrongActionNeedAnswerCount = EditorGUILayout.IntField("啟動行動，需答錯題數", WrongActionNeedAnswerCount);
-                    EditorGUILayout.Space(20);
-                }
-                else // 顯示一般行動
-                {
-                    ChangeSingleCardActionDataList(CardActionDataList, "Card Actions（卡牌行動）");
+                    UseWrongAction = EditorGUILayout.Toggle("Use Wrong Action", UseWrongAction);
+                    if (UseWrongAction)
+                    {
+                        ChangeSingleCardActionDataList(WrongCardActionDataList);
+                        WrongActionNeedAnswerCount = EditorGUILayout.IntField("啟動行動，需答錯題數", WrongActionNeedAnswerCount);
+                        EditorGUILayout.Space(20);
+                    }
                 }
                 
                 
+
                 EditorGUILayout.EndScrollView();
             }
             
@@ -318,15 +342,22 @@ namespace NueGames.NueDeck.Editor
             
         }
 
-        private void ChangeSingleCardActionDataList(List<CardActionData> cardActionDataList, string title)
+        private bool IsUseMathAction()
+        {
+            if (CardActionDataList.Count == 0)
+            {
+                return false;
+            }
+            return CardActionDataList[0].GameActionType == GameActionType.EnterMathQuestioning;
+        }
+        
+        private void ChangeSingleCardActionDataList(List<CardActionData> cardActionDataList)
         {
             
             GUIStyle headStyle = new GUIStyle();
             headStyle.fontStyle = FontStyle.Bold;
             headStyle.normal.textColor = Color.white;
             headStyle.fontSize = 20;
-            // EditorGUILayout.BeginVertical();
-            EditorGUILayout.LabelField(title,headStyle);
             EditorGUILayout.BeginHorizontal();
             
             List<CardActionData> _removedList = new List<CardActionData>();
@@ -351,28 +382,11 @@ namespace NueGames.NueDeck.Editor
                 
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.Separator();
-                var newActionType = (GameActionType)EditorGUILayout.EnumPopup("Action Type",cardActionData.GameActionType,GUILayout.Width(250));
-
-                if (newActionType == GameActionType.ApplyPower)
-                {
-                    var newPowerType = (PowerType)EditorGUILayout.EnumPopup("Power Type",cardActionData.PowerType,GUILayout.Width(250));
-                    cardActionData.EditPower(newPowerType);
-                }
+                ChangeActionType(cardActionData);
                 
-                if (newActionType != GameActionType.Exhaust)
-                {
-                    var newActionTarget = (ActionTargetType)EditorGUILayout.EnumPopup("Target Type",cardActionData.ActionTargetType,GUILayout.Width(250));
-                    var newActionValue = EditorGUILayout.IntField("Action Value: ",cardActionData.ActionValue);
-                    cardActionData.EditActionValue(newActionValue);
-                    cardActionData.EditActionTarget(newActionTarget);
-                }
-
+                // var newActionDelay = EditorGUILayout.FloatField("Action Delay: ",cardActionData.ActionDelay);
+                // cardActionData.EditActionDelay(newActionDelay);
                 
-                
-                var newActionDelay = EditorGUILayout.FloatField("Action Delay: ",cardActionData.ActionDelay);
-                
-                cardActionData.EditActionDelay(newActionDelay);
-                cardActionData.EditActionType(newActionType);
                 EditorGUILayout.EndVertical();
             }
 
@@ -384,6 +398,26 @@ namespace NueGames.NueDeck.Editor
             
             EditorGUILayout.EndHorizontal();
             
+        }
+
+        void ChangeActionType(CardActionData cardActionData)
+        {
+            var newActionType = (GameActionType)EditorGUILayout.EnumPopup("Action Type",cardActionData.GameActionType,GUILayout.Width(250));
+
+            if (newActionType == GameActionType.ApplyPower)
+            {
+                var newPowerType = (PowerType)EditorGUILayout.EnumPopup("Power Type",cardActionData.PowerType,GUILayout.Width(250));
+                cardActionData.EditPower(newPowerType);
+            }
+                
+            if (newActionType != GameActionType.Exhaust)
+            {
+                var newActionTarget = (ActionTargetType)EditorGUILayout.EnumPopup("Target Type",cardActionData.ActionTargetType,GUILayout.Width(250));
+                var newActionValue = EditorGUILayout.IntField("Action Value: ",cardActionData.ActionValue);
+                cardActionData.EditActionValue(newActionValue);
+                cardActionData.EditActionTarget(newActionTarget);
+            }
+            cardActionData.EditActionType(newActionType);
         }
         
         
@@ -567,17 +601,26 @@ namespace NueGames.NueDeck.Editor
             SelectedCardData.EditCardSprite(CardSprite);
             SelectedCardData.EditUsableWithoutTarget(UsableWithoutTarget);
             SelectedCardData.EditExhaustAfterPlay(ExhaustAfterPlay);
+            
             SelectedCardData.EditCardActionDataList(CardActionDataList);
             SelectedCardData.EditCorrectCardActionDataList(CorrectCardActionDataList);
             SelectedCardData.EditWrongCardActionDataList(WrongCardActionDataList);
+            
+            SelectedCardData.EditUseLimitedQuestion(UseLimitedQuestion);
+            SelectedCardData.EditQuestionCount(QuestionCount);
+            SelectedCardData.EditUseCorrectAction(UseCorrectAction);
+            SelectedCardData.EditCorrectActionNeedAnswerCount(CorrectActionNeedAnswerCount);
+            SelectedCardData.EditUseWrongAction(UseWrongAction);
+            SelectedCardData.EditWrongActionNeedAnswerCount(WrongActionNeedAnswerCount);
+            
             SelectedCardData.EditCardDescriptionDataList(CardDescriptionDataList);
             SelectedCardData.EditSpecialKeywordsList(SpecialKeywordsList);
             SelectedCardData.EditAudioType(AudioType);
-            SelectedCardData.EditCorrectActionNeedAnswerCount(CorrectActionNeedAnswerCount);
-            SelectedCardData.EditWrongActionNeedAnswerCount(WrongActionNeedAnswerCount);
-            SelectedCardData.EditFileName();
+            
             EditorUtility.SetDirty(SelectedCardData);
             AssetDatabase.SaveAssets();
+            
+            SelectedCardData.EditFileName();
         }
         private void RefreshCardData()
         {

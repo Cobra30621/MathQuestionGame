@@ -27,7 +27,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             CardData cardData = cardActionParameter.CardData;
             Duration = cardActionParameter.CardActionData.ActionDelay;
 
-            parameters = cardActionParameter.CardActionData.MathQuestioningActionParameters;
+            parameters = cardData.MathQuestioningActionParameters;
             parameters.CorrectActions = GameActionManager.GetGameActions(cardData, cardData.CorrectCardActionDataList , Self, Target);
             parameters.WrongActions = GameActionManager.GetGameActions(cardData, cardData.WrongCardActionDataList, Self, Target);
             parameters.TargetCharacter =cardActionParameter.TargetCharacter;

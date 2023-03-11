@@ -27,8 +27,6 @@ namespace NueGames.NueDeck.Scripts.Combat
                     ActivateAllEnemyHighlights();
                     break;
                 case ActionTargetType.Ally:
-                case ActionTargetType.AllAllies:
-                case ActionTargetType.RandomAlly:
                     ActivateAllAllyHighlights();
                     break;
                 case ActionTargetType.Enemy:
