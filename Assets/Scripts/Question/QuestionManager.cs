@@ -5,6 +5,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.NueGames.NueDeck.Scripts.Action;
 using MoreMountains.Feedbacks;
 using NueGames.NueDeck.Scripts.Managers;
 
@@ -17,6 +18,9 @@ namespace Question
         [SerializeField] private QuestionController questionController;
         
         [SerializeField] private QuestionsData questionsData;
+        [SerializeField] private AnswerButton[] answerButtons;
+        
+        protected CollectionManager CollectionManager => CollectionManager.Instance;
         
         public float Timer{
             get{
@@ -26,35 +30,29 @@ namespace Question
                     return timer;
             }
         }
-        public float StartTime =>  startTime;
         public int CorrectCount => correctCount;
         public int WrongCount => wrongCount;
-        public int CorrectActionNeedAnswerCount => correctActionNeedAnswerCount;
-        public int WrongActionNeedAnswerCount => wrongActionNeedAnswerCount;
-        public bool IsPlayingFeedback => isPlayingFeedback;
-        [SerializeField] private AnswerButton[] answerButtons;
+        public bool IsQuestioning => isQuestioning;
+        public MathQuestioningActionParameters Parameters => parameters;
         
-        protected CollectionManager CollectionManager => CollectionManager.Instance;
-
+        
         #region Cache
+        private MathQuestioningActionParameters parameters;
         
-        private CardActionParameters tempCardActionParameters;
-        private MathActionBase tempMathAction;
         private MultipleChoiceQuestion currentQuestion;
         private List<MultipleChoiceQuestion> questionList;
         private int correctAnswer;
 
-        private float startTime = 30;
         private float timer; 
         [SerializeField] private bool timeOver;
-        private bool questioning;
+        private bool isQuestioning;
         private bool waitAnswer;
         [SerializeField] private bool isPlayingFeedback;
-        private int correctActionNeedAnswerCount;
-        private int wrongActionNeedAnswerCount;
+
+        private int hadAnswerCount;
         private int correctCount;
         private int wrongCount;
-        private bool isCorrectAction;
+        private bool playCorrectAction;
         
         #endregion
         
@@ -74,35 +72,36 @@ namespace Question
             }
             
             timeOver = true;
-            questioning = false;
+            isQuestioning = false;
             questionController.SetQuestionManager(this);
+            parameters = new MathQuestioningActionParameters();
         }
 
         #endregion
-        
-        #region Public Methods
 
-        public void EnterQuestion(MathActionBase mathAction, int correctNeedAnswerCount, int wrongNeedAnswerCount)
+        #region Update
+        void Update()
         {
-            tempMathAction = mathAction;
-            correctActionNeedAnswerCount = correctNeedAnswerCount;
-            wrongActionNeedAnswerCount = wrongNeedAnswerCount;
+            Countdown(); 
             
-            
-            StartCoroutine(QuestionCoroutine());
+            JudgeEndConditions();
         }
-
-        public void StartQuestion()
-        {
-            correctActionNeedAnswerCount =10;
-            wrongActionNeedAnswerCount = 10;
-            StartCoroutine(QuestionCoroutine());
+        
+        void Countdown(){
+            if(!parameters.UseTimeCountDown){return;}
+            if(timeOver){return;}
+            
+            timer -= Time.deltaTime;
         }
         
 
-        public void SetPlayingFeedback(bool isPlaying)
+        #endregion
+
+        #region Public Method
+        public void EnterQuestionMode(MathQuestioningActionParameters newParameters)
         {
-            isPlayingFeedback = isPlaying;
+            parameters = newParameters;
+            StartCoroutine(QuestionCoroutine());
         }
 
         public void OnAnswer(int option)
@@ -117,8 +116,16 @@ namespace Question
                 wrongCount++;
                 questionController.OnAnswer(false, option);
             }
+
+            hadAnswerCount++;
+            
             waitAnswer = false;
             EnableAnswer(false);
+        }
+
+        public void SetPlayingFeedback(bool isPlaying)
+        {
+            isPlayingFeedback = isPlaying;
         }
 
         public MMF_Player GetAnswerFeedback(bool correct, int option)
@@ -141,20 +148,22 @@ namespace Question
             if (CollectionManager)
                 CollectionManager.HandController.EnableDragging();
         }
-        
+
         #endregion
         
-        #region Private Methods
+        #region Questioning Coroutine
         
         IEnumerator QuestionCoroutine()
         {
             // Init
-            timer = startTime;
+            timer = parameters.Time;
             timeOver = false;
+            
             correctCount = 0;
             wrongCount = 0;
-            questioning = true;
-            InitQuestionList();
+            isQuestioning = true;
+            
+            GenerateQuestions();
             if (CollectionManager)
                 CollectionManager.HandController.DisableDragging();
             
@@ -164,7 +173,7 @@ namespace Question
             while (isPlayingFeedback) yield return null; // 等待開頭反饋特效
 
             // Start Questioning
-            while (questioning)
+            while (isQuestioning)
             {
                 NextQuestion();
                 questionController.SetNextQuestion(currentQuestion);
@@ -174,13 +183,15 @@ namespace Question
                 while (waitAnswer) yield return null;
                 yield return new WaitForSeconds(0.5f);
                 while (isPlayingFeedback) yield return null; // 等待答題成功反饋特效
-
             }
+            
             while (isPlayingFeedback) yield return null; // 等待離開動畫反饋特效
             yield return new WaitForSeconds(0.1f);
-            tempMathAction.OnAnswer(isCorrectAction);
-        }
 
+            PlayCorrectOrWrongAction();
+
+        }
+        
         void EnableAnswer(bool enable)
         {
             foreach (AnswerButton answerButton in answerButtons)
@@ -193,7 +204,7 @@ namespace Question
         {
             if (questionList.Count == 0)
             {
-                InitQuestionList();
+                GenerateQuestions();
             }
             
             int index = new System.Random().Next(questionList.Count);
@@ -202,57 +213,91 @@ namespace Question
             questionList.RemoveAt(index);
         }
 
-        void InitQuestionList()
+        void GenerateQuestions()
         {
             questionList = new List<MultipleChoiceQuestion>(questionsData.MultipleChoiceQuestions);
         }
         
-
-        void Update()
+        private void PlayCorrectOrWrongAction()
         {
-            JudgeMathCardAction();
-            // Countdown();
+            if (parameters.UseCorrectAction && playCorrectAction)
+            {
+                GameActionManager.Instance.AddToBottom(parameters.CorrectActions, parameters.SelfCharacter, parameters.TargetCharacter);
+            }
+
+            if (parameters.UseWrongAction && playCorrectAction)
+            {
+                GameActionManager.Instance.AddToBottom(parameters.WrongActions, parameters.SelfCharacter, parameters.TargetCharacter);
+            }
+        }
+
+        
+        #endregion
+        
+        #region Judge End Questioning Mode Condition
+        private void JudgeEndConditions()
+        {
+            if (isQuestioning)
+            {
+                JudgeTimeEnd();
+                JudgeHasAnsweredQuestionCount();
+                JudgeCorrectCount();
+                JudgeWrongCount();
+            }
         }
         
-        void Countdown(){
-            if(timeOver){return;}
+        private void JudgeTimeEnd()
+        {
+            if(!parameters.UseTimeCountDown){return;}
             
-            timer -= Time.deltaTime;
             if(timer < 0)
             {
-                tempMathAction.OnAnswer(false);
-                ExitQuestionMode(false);
-            }
-
-            
-        }
-
-        void JudgeMathCardAction()
-        {
-            if (!questioning) { return;}
-            
-            if (correctCount >= correctActionNeedAnswerCount)
-            {
-                isCorrectAction = true;
-                // tempMathAction.OnAnswer(true);
-                ExitQuestionMode(true);
-            }
-            
-            if (wrongCount >= wrongActionNeedAnswerCount)
-            {
-                isCorrectAction = false;
-                // tempMathAction.OnAnswer(false);
+                // currentMathAction.OnAnswer(false);
                 ExitQuestionMode(false);
             }
         }
 
-        void ExitQuestionMode(bool correct)
+        private void JudgeHasAnsweredQuestionCount()
         {
-            questionController.ExitQuestionMode(correct);
-            timeOver = true;
-            questioning = false;
+            if (parameters.UseLimitedQuestion)
+            {
+                if (hadAnswerCount >= parameters.QuestionCount)
+                {
+                    ExitQuestionMode(true);
+                }
+            }
+        }
+
+        private void JudgeCorrectCount()
+        {
+            if (parameters.UseCorrectAction)
+            {
+                if (correctAnswer >= parameters.CorrectActionNeedAnswerCount)
+                {
+                    playCorrectAction = true;
+                    ExitQuestionMode(true);
+                }
+            }
         }
         
+        private void JudgeWrongCount()
+        {
+            if (parameters.UseWrongAction)
+            {
+                if (wrongCount >= parameters.WrongActionNeedAnswerCount)
+                {
+                    playCorrectAction = false;
+                    ExitQuestionMode(false);
+                }
+            }
+        }
+        
+        void ExitQuestionMode(bool correct)
+        {
+            timeOver = true;
+            isQuestioning = false;
+            questionController.ExitQuestionMode(playCorrectAction);
+        }
         
         #endregion
     }

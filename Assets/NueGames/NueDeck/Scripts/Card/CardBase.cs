@@ -130,6 +130,7 @@ namespace NueGames.NueDeck.Scripts.Card
         private IEnumerator CardUseRoutine(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
             SpendMana( CardData.ManaCost);
+            SpendMathMana(CardData.MathManaCost);
             
             foreach (var playerAction in CardData.CardActionDataList)
             {
@@ -216,6 +217,12 @@ namespace NueGames.NueDeck.Scripts.Card
         {
             if (!IsPlayable) return;
             GameManager.PersistentGameplayData.CurrentMana -= value;
+        }
+        
+        protected virtual void SpendMathMana(int value)
+        {
+            if (!IsPlayable) return;
+            GameManager.PersistentGameplayData.CurrentMathMana -= value;
         }
         
         public virtual void SetInactiveMaterialState(bool isInactive) 

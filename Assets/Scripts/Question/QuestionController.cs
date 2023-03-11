@@ -33,12 +33,19 @@ namespace Question
             // float timeRate = _questionManager.Timer / _questionManager.StartTime;
             // timeBar.fillAmount = timeRate;
 
-            correctCountText.text = $"答對：{_questionManager.CorrectCount}/ {_questionManager.CorrectActionNeedAnswerCount}";
-            correctBar.fillAmount = (float)_questionManager.CorrectCount / _questionManager.CorrectActionNeedAnswerCount;
-            wrongCountText.text =  $"答錯 :{_questionManager.WrongCount} / {_questionManager.WrongActionNeedAnswerCount}";
+            if (_questionManager.IsQuestioning)
+            {
+                UpdateUI();
+            }
+        }
+
+        public void UpdateUI()
+        {
+            correctCountText.text = $"答對：{_questionManager.CorrectCount}/ {_questionManager.Parameters.CorrectActionNeedAnswerCount}";
+            correctBar.fillAmount = (float)_questionManager.CorrectCount / _questionManager.Parameters.CorrectActionNeedAnswerCount;
+            wrongCountText.text =  $"答錯 :{_questionManager.WrongCount} / {_questionManager.Parameters.WrongActionNeedAnswerCount}";
         }
         
-
         public void SetQuestionManager(QuestionManager manager)
         {
             _questionManager = manager;

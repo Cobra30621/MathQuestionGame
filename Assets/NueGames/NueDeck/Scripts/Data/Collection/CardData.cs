@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Assets.NueGames.NueDeck.Scripts.Action;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Enums;
@@ -20,6 +21,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private int manaCost;
         [SerializeField] private Sprite cardSprite;
         [SerializeField] private RarityType rarity;
+        [SerializeField] private bool needMathManaToPlay;
+        [SerializeField] private int mathManaCost;
         
         [Header("Action Settings")]
         [SerializeField] private bool usableWithoutTarget;
@@ -44,6 +47,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public string Id => id;
         public bool UsableWithoutTarget => usableWithoutTarget;
         public int ManaCost => manaCost;
+        public bool NeedMathManaToPlay => needMathManaToPlay;
+        public int MathManaCost => mathManaCost;
         public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
         public List<CardActionData> CardActionDataList => cardActionDataList;
@@ -132,7 +137,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 // 卡片行動改成數學行動
                 cardActionDataList.Clear();
                 CardActionData cardActionData = new CardActionData();
-                cardActionData.EditActionType(GameActionType.Math);
+                cardActionData.EditActionType(GameActionType.MathQuestioning);
                 cardActionDataList.Add(cardActionData);
             }
             else // 切換成一般卡片
@@ -161,12 +166,14 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private PowerType powerType;
         [SerializeField] private int actionValue;
         [SerializeField] private float actionDelay;
+        [SerializeField] private MathQuestioningActionParameters mathQuestioningActionParameters;
 
         public ActionTargetType ActionTargetType => actionTargetType;
         public GameActionType GameActionType => gameActionType;
         public PowerType PowerType => powerType;
         public int ActionValue => actionValue;
         public float ActionDelay => actionDelay;
+        public MathQuestioningActionParameters MathQuestioningActionParameters;
         
         
 

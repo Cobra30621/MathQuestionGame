@@ -12,7 +12,7 @@ namespace NueGames.Card.CardActions
 {
     public abstract class MathActionBase: CardActionBase
     {
-        public override GameActionType ActionType => GameActionType.Math;
+        public override GameActionType ActionType => GameActionType.MathQuestioning;
         protected QuestionManager QuestionManager => QuestionManager.Instance;
         private CardActionParameters actionParameters;
 
@@ -20,7 +20,7 @@ namespace NueGames.Card.CardActions
         {
             int correctActionNeedAnswerCount = actionParameters.CardData.CorrectActionNeedAnswerCount;
             int wrongActionNeedAnswerCount = actionParameters.CardData.WrongActionNeedAnswerCount;
-            QuestionManager.Instance.EnterQuestion(this, correctActionNeedAnswerCount, wrongActionNeedAnswerCount);
+            // QuestionManager.Instance.EnterQuestionMode(this, correctActionNeedAnswerCount, wrongActionNeedAnswerCount);
             this.actionParameters = actionParameters;
             
         }

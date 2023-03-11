@@ -170,7 +170,7 @@ namespace NueGames.NueDeck.Scripts.Collection
                 var cardTransform = card.transform;
 
                 // Set to inactive material if not enough mana required to use card
-                card.SetInactiveMaterialState(GameManager.PersistentGameplayData.CurrentMana < card.CardData.ManaCost);
+                card.SetInactiveMaterialState(!PlayCardJudgment.EnoughManaToUseCard(card));
 
                 var noCardHeld = _heldCard == null; // Whether a card is "held" (outside of hand)
                 var onSelectedCard = noCardHeld && _selected == i;
@@ -336,8 +336,8 @@ namespace NueGames.NueDeck.Scripts.Collection
             
             characterHighlightController.DeactivateAllHighlights();
             bool backToHand = true;
-                
-            if (GameManager.PersistentGameplayData.CanUseCards && GameManager.PersistentGameplayData.CurrentMana >= _heldCard.CardData.ManaCost)
+
+            if (PlayCardJudgment.CanUseCard(_heldCard)) 
             {
                 RaycastHit hit;
                 var mainRay = _mainCam.ScreenPointToRay(mousePos);

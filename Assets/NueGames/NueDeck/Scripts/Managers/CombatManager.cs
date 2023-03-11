@@ -85,6 +85,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             backgroundContainer.OpenSelectedBackground();
           
             CollectionManager.SetGameDeck();
+            GameManager.PersistentGameplayData.CurrentMathMana = 0;
            
             UIManager.CombatCanvas.gameObject.SetActive(true);
             UIManager.InformationCanvas.gameObject.SetActive(true);
@@ -162,6 +163,12 @@ namespace NueGames.NueDeck.Scripts.Managers
         public void IncreaseMana(int target)
         {
             GameManager.PersistentGameplayData.CurrentMana += target;
+            UIManager.CombatCanvas.SetPileTexts();
+        }
+        
+        public void IncreaseMathMana(int target)
+        {
+            GameManager.PersistentGameplayData.CurrentMathMana += target;
             UIManager.CombatCanvas.SetPileTexts();
         }
         

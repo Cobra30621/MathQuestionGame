@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.NueGames.NueDeck.Scripts.Action;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,5 +21,16 @@ public class Tester : MonoBehaviour
     public void PlayTest()
     {
         testEvent.Invoke();
+        CreateMathQuestioningAction();
+    }
+
+
+    void CreateMathQuestioningAction()
+    {
+        EnterMathQuestioningAction enterMathQuestioningAction = new EnterMathQuestioningAction();
+        MathQuestioningActionParameters parameters = new MathQuestioningActionParameters();
+        parameters.SetQuestionCountValue(true, 3);
+        enterMathQuestioningAction.SetValue(parameters);
+        enterMathQuestioningAction.AddToBottom();
     }
 }

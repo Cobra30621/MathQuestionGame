@@ -15,6 +15,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private int drawCount;
         [SerializeField] private int maxMana;
         [SerializeField] private int currentMana;
+        [SerializeField] private int currentMathMana;
         [SerializeField] private bool canUseCards;
         [SerializeField] private bool canSelectCards;
         [SerializeField] private bool isRandomHand;
@@ -84,6 +85,11 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         {
             get => currentMana;
             set => currentMana = value;
+        }
+        public int CurrentMathMana
+        {
+            get => currentMathMana;
+            set => currentMathMana = value;
         }
 
         public bool CanUseCards

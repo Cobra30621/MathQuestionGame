@@ -5,6 +5,8 @@ using System.Linq;
 using System.Reflection;
 using Assets.NueGames.NueDeck.Scripts.Action;
 using NueGames.NueDeck.Scripts.Card;
+using NueGames.NueDeck.Scripts.Characters;
+using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Power;
 using UnityEngine;
@@ -129,6 +131,22 @@ namespace NueGames.NueDeck.Scripts.Managers
         #endregion
         
         private static IEnumerable<Type> gameActionClasses;
+
+        public void AddToBottom(List<CardActionData> cardActionDatas, CharacterBase self, CharacterBase target)
+        {
+            foreach (var playerAction in cardActionDatas)
+            {
+                CardActionParameter cardActionParameter = new CardActionParameter(
+                    playerAction.ActionValue,
+                    target,
+                    self,
+                    playerAction
+                );
+                
+                AddToBottom(playerAction.GameActionType, cardActionParameter);
+            }
+        }
+        
 
         public void AddToTop(GameActionType actionType, CardActionParameter cardActionParameter)
         {

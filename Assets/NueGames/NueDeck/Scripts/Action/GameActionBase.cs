@@ -27,11 +27,34 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         protected GameManager GameManager => GameManager.Instance;
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;
+        protected GameActionManager GameActionManager => GameActionManager.Instance;
 
 
         public virtual void SetValue(CardActionParameter cardActionParameter){}
 
         public abstract void DoAction();
+
+
+        public void AddToTop()
+        {
+            AddToTop(this);
+        }
+
+        public void AddToBottom()
+        {
+            AddToBottom(this);
+        }
+        
+        public void AddToTop(GameActionBase gameActionBase)
+        {
+            GameActionManager.AddToTop(gameActionBase);
+        }
+
+        public void AddToBottom(GameActionBase gameActionBase)
+        {
+            GameActionManager.AddToTop(gameActionBase);
+        }
+        
 
         protected void PlayFx()
         {

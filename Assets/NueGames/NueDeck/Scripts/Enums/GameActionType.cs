@@ -10,7 +10,8 @@
         Exhaust,
         Heal,
         IncreaseMaxHealth,
-        Math
+        MathQuestioning,
+        EarnMathMana
     }
 
     public enum CardActionDataListType

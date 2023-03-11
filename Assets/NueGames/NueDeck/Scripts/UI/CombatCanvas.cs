@@ -12,6 +12,7 @@ namespace NueGames.NueDeck.Scripts.UI
         [SerializeField] private TextMeshProUGUI discardPileTextField;
         [SerializeField] private TextMeshProUGUI exhaustPileTextField;
         [SerializeField] private TextMeshProUGUI manaTextTextField;
+        [SerializeField] private TextMeshProUGUI mathManaTextTextField;
         
         [Header("Panels")]
         [SerializeField] private GameObject combatWinPanel;
@@ -20,6 +21,7 @@ namespace NueGames.NueDeck.Scripts.UI
         public TextMeshProUGUI DrawPileTextField => drawPileTextField;
         public TextMeshProUGUI DiscardPileTextField => discardPileTextField;
         public TextMeshProUGUI ManaTextTextField => manaTextTextField;
+        public TextMeshProUGUI MathManaTextTextField => mathManaTextTextField;
         public GameObject CombatWinPanel => combatWinPanel;
         public GameObject CombatLosePanel => combatLosePanel;
 
@@ -40,6 +42,7 @@ namespace NueGames.NueDeck.Scripts.UI
             DiscardPileTextField.text = $"{CollectionManager.DiscardPile.Count.ToString()}";
             ExhaustPileTextField.text =  $"{CollectionManager.ExhaustPile.Count.ToString()}";
             ManaTextTextField.text = $"{GameManager.PersistentGameplayData.CurrentMana.ToString()}/{GameManager.PersistentGameplayData.MaxMana}";
+            MathManaTextTextField.text = $"{GameManager.PersistentGameplayData.CurrentMathMana.ToString()}";
         }
 
         public override void ResetCanvas()
