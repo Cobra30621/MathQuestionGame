@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: "\u5FEB\u6A02\u56DE\u7B54 5 \u984C"
+  m_Name: "\u5FEB\u6A02\u56DE\u7B54 2 \u984C"
   m_EditorClassIdentifier: 
-  id: "\u5FEB\u6A02\u56DE\u7B54 5 \u984C"
-  cardName: "\u5FEB\u6A02\u56DE\u7B54 5 \u984C"
+  id: "\u5FEB\u6A02\u56DE\u7B54 2 \u984C"
+  cardName: "\u5FEB\u6A02\u56DE\u7B54 2 \u984C"
   manaCost: 0
   cardSprite: {fileID: 0}
   rarity: 0
@@ -35,11 +35,11 @@ MonoBehaviour:
   wrongCardActionDataList: []
   mathQuestioningActionParameters:
     UseLimitedQuestion: 1
-    QuestionCount: 10
+    QuestionCount: 2
     UseCorrectAction: 0
     CorrectActionNeedAnswerCount: 2
     UseWrongAction: 0
-    WrongActionNeedAnswerCount: 1
+    WrongActionNeedAnswerCount: 2
     UseTimeCountDown: 0
     Time: -1
     SelfCharacter: {fileID: 0}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: "\u6E2C\u8A66\u5361\u724C1"
+  m_Name: "\u6E2C\u8A66\u5361\u724C"
   m_EditorClassIdentifier: 
   id: "\u6E2C\u8A66\u5361\u724C"
   cardName: "\u6E2C\u8A66\u5361\u724C"
@@ -27,17 +27,6 @@ MonoBehaviour:
     powerType: 0
     actionValue: 5
     actionDelay: 0
-    mathQuestioningActionParameters:
-      UseLimitedQuestion: 0
-      QuestionCount: 0
-      UseCorrectAction: 1
-      CorrectActionNeedAnswerCount: 2
-      UseWrongAction: 1
-      WrongActionNeedAnswerCount: 1
-      UseTimeCountDown: 0
-      Time: 0
-      SelfCharacter: {fileID: 0}
-      TargetCharacter: {fileID: 0}
   cardDescriptionDataList:
   - descriptionText: 'Deal '
     enableOverrideColor: 0
@@ -76,35 +65,22 @@ MonoBehaviour:
   - gameActionType: 0
     actionTargetType: 0
     powerType: 0
-    actionValue: 19
+    actionValue: 7
     actionDelay: 0
-    mathQuestioningActionParameters:
-      UseLimitedQuestion: 0
-      QuestionCount: 0
-      UseCorrectAction: 0
-      CorrectActionNeedAnswerCount: 0
-      UseWrongAction: 0
-      WrongActionNeedAnswerCount: 0
-      UseTimeCountDown: 0
-      Time: 0
-      SelfCharacter: {fileID: 0}
-      TargetCharacter: {fileID: 0}
   wrongCardActionDataList:
   - gameActionType: 0
     actionTargetType: 0
     powerType: 0
-    actionValue: 10
+    actionValue: 17
     actionDelay: 0
-    mathQuestioningActionParameters:
-      UseLimitedQuestion: 0
-      QuestionCount: 0
-      UseCorrectAction: 0
-      CorrectActionNeedAnswerCount: 0
-      UseWrongAction: 0
-      WrongActionNeedAnswerCount: 0
-      UseTimeCountDown: 0
-      Time: 0
-      SelfCharacter: {fileID: 0}
-      TargetCharacter: {fileID: 0}
-  correctActionNeedAnswerCount: 2
-  wrongActionNeedAnswerCount: 1
+  mathQuestioningActionParameters:
+    UseLimitedQuestion: 0
+    QuestionCount: 5
+    UseCorrectAction: 1
+    CorrectActionNeedAnswerCount: 2
+    UseWrongAction: 1
+    WrongActionNeedAnswerCount: 2
+    UseTimeCountDown: 0
+    Time: -1
+    SelfCharacter: {fileID: 0}
+    TargetCharacter: {fileID: 0}

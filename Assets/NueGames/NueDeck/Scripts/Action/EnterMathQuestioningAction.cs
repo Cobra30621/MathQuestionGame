@@ -41,6 +41,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         
         public override void DoAction()
         {
+            Debug.Log("parameters.QuestionCount" + parameters.QuestionCount);
             QuestionManager.Instance.EnterQuestionMode(parameters);
 
             PlayAudio();

@@ -22,27 +22,25 @@ MonoBehaviour:
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 8
+  - gameActionType: 2
     actionTargetType: 0
     powerType: 6
     actionValue: 0
     actionDelay: 0
-    mathQuestioningActionParameters:
-      UseLimitedQuestion: 0
-      QuestionCount: 0
-      UseCorrectAction: 0
-      CorrectActionNeedAnswerCount: 0
-      UseWrongAction: 0
-      WrongActionNeedAnswerCount: 0
-      UseTimeCountDown: 0
-      Time: 0
-      SelfCharacter: {fileID: 0}
-      TargetCharacter: {fileID: 0}
   cardDescriptionDataList: []
   specialKeywordsList: 
   audioType: 0
   useMathAction: 0
   correctCardActionDataList: []
   wrongCardActionDataList: []
-  correctActionNeedAnswerCount: 2
-  wrongActionNeedAnswerCount: 1
+  mathQuestioningActionParameters:
+    UseLimitedQuestion: 0
+    QuestionCount: -1
+    UseCorrectAction: 0
+    CorrectActionNeedAnswerCount: 2
+    UseWrongAction: 0
+    WrongActionNeedAnswerCount: 1
+    UseTimeCountDown: 0
+    Time: -1
+    SelfCharacter: {fileID: 0}
+    TargetCharacter: {fileID: 0}

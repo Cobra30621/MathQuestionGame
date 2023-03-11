@@ -29,6 +29,8 @@ namespace Question
                     return timer;
             }
         }
+
+        public int HasAnswerCount => hasAnswerCount;
         public int CorrectCount => correctCount;
         public int WrongCount => wrongCount;
         public bool IsQuestioning => isQuestioning;
@@ -44,13 +46,13 @@ namespace Question
 
         private float timer; 
         [SerializeField] private bool timeOver;
-        private bool isQuestioning;
+        [SerializeField] private bool isQuestioning;
         private bool waitAnswer;
         [SerializeField] private bool isPlayingFeedback;
 
-        private int hadAnswerCount;
-        private int correctCount;
-        private int wrongCount;
+        [SerializeField] private int hasAnswerCount;
+        [SerializeField] private int correctCount;
+        [SerializeField]  private int wrongCount;
         private bool playCorrectAction;
         
         #endregion
@@ -83,7 +85,7 @@ namespace Question
         {
             Countdown(); 
             
-            JudgeEndConditions();
+            // JudgeEndConditions();
         }
         
         void Countdown(){
@@ -99,7 +101,6 @@ namespace Question
         #region Public Method
         public void EnterQuestionMode(MathQuestioningActionParameters newParameters)
         {
-            Debug.Log(newParameters);
             parameters = newParameters;
             StartCoroutine(QuestionCoroutine());
         }
@@ -117,7 +118,7 @@ namespace Question
                 questionController.OnAnswer(false, option);
             }
 
-            hadAnswerCount++;
+            hasAnswerCount++;
             
             waitAnswer = false;
             EnableAnswer(false);
@@ -158,7 +159,8 @@ namespace Question
             // Init
             timer = parameters.Time;
             timeOver = false;
-            
+
+            hasAnswerCount = 0;
             correctCount = 0;
             wrongCount = 0;
             isQuestioning = true;
@@ -178,11 +180,14 @@ namespace Question
                 NextQuestion();
                 questionController.SetNextQuestion(currentQuestion);
                 while (isPlayingFeedback) yield return null; // 等待顯示題目反饋特效
+                
                 EnableAnswer(true);
                 waitAnswer = true;
                 while (waitAnswer) yield return null;
                 yield return new WaitForSeconds(0.5f);
                 while (isPlayingFeedback) yield return null; // 等待答題成功反饋特效
+                
+                JudgeEndConditions();
             }
             
             while (isPlayingFeedback) yield return null; // 等待離開動畫反饋特效
@@ -222,12 +227,13 @@ namespace Question
         {
             if (parameters.UseCorrectAction && playCorrectAction)
             {
+                Debug.Log("答對行動" + parameters.CorrectActions.Count);
                 GameActionManager.Instance.AddToBottom(parameters.CorrectActions);
             }
 
             if (parameters.UseWrongAction && !playCorrectAction)
             {
-                Debug.Log("parameters.WrongActions" + parameters.WrongActions.Count + parameters.WrongActions[0]);
+                Debug.Log("答錯行動" + parameters.WrongActions.Count);
                 GameActionManager.Instance.AddToBottom(parameters.WrongActions);
             }
         }
@@ -238,13 +244,9 @@ namespace Question
         #region Judge End Questioning Mode Condition
         private void JudgeEndConditions()
         {
-            if (isQuestioning)
-            {
-                JudgeTimeEnd();
-                JudgeHasAnsweredQuestionCount();
-                JudgeCorrectCount();
-                JudgeWrongCount();
-            }
+            JudgeHasAnsweredQuestionCount();
+            JudgeCorrectCount();
+            JudgeWrongCount();
         }
         
         private void JudgeTimeEnd()
@@ -254,7 +256,7 @@ namespace Question
             if(timer < 0)
             {
                 // currentMathAction.OnAnswer(false);
-                ExitQuestionMode(false);
+                ExitQuestionMode("魔法詠唱失敗，發動壞效果");
             }
         }
 
@@ -262,9 +264,9 @@ namespace Question
         {
             if (parameters.UseLimitedQuestion)
             {
-                if (hadAnswerCount >= parameters.QuestionCount)
+                if (hasAnswerCount >= parameters.QuestionCount)
                 {
-                    ExitQuestionMode(true);
+                    ExitQuestionMode("魔法詠唱結束");
                 }
             }
         }
@@ -276,7 +278,7 @@ namespace Question
                 if (correctAnswer >= parameters.CorrectActionNeedAnswerCount)
                 {
                     playCorrectAction = true;
-                    ExitQuestionMode(true);
+                    ExitQuestionMode("魔法詠唱成功，發動好效果");
                 }
             }
         }
@@ -288,16 +290,16 @@ namespace Question
                 if (wrongCount >= parameters.WrongActionNeedAnswerCount)
                 {
                     playCorrectAction = false;
-                    ExitQuestionMode(false);
+                    ExitQuestionMode("魔法詠唱失敗，發動壞效果");
                 }
             }
         }
         
-        void ExitQuestionMode(bool correct)
+        void ExitQuestionMode(string info)
         {
             timeOver = true;
             isQuestioning = false;
-            questionController.ExitQuestionMode(playCorrectAction);
+            questionController.ExitQuestionMode(info);
         }
         
         #endregion

@@ -94,7 +94,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
             List<GameActionBase> gameActions = GameActionManager.GetGameActions(CardData, CardData.CardActionDataList, self, target);
             GameActionManager.AddToBottom(gameActions);
-            
+            CollectionManager.OnCardPlayed(this);
         }
         
 

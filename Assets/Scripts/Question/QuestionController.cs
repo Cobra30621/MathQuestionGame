@@ -12,10 +12,12 @@ namespace Question
         private QuestionManager _questionManager;
         [SerializeField] private Image qeustionImage;
         [SerializeField] private Image timeBar;
-        [SerializeField] private Image correctBar;
         [SerializeField] private  TextMeshProUGUI timeText;
-        [SerializeField] private  TextMeshProUGUI wrongCountText;
-        [SerializeField] private TextMeshProUGUI correctCountText;
+
+        [SerializeField] private MathActionBar answerBar;
+        [SerializeField] private MathActionBar correctBar;
+        [SerializeField] private MathActionBar wrongBar;
+        
         [SerializeField] private TextMeshProUGUI infoText;
         [SerializeField] private MMF_Player onEnterQuestionModeFeedback;
         [SerializeField] private MMF_Player onQuestionShowFeedback;
@@ -41,9 +43,9 @@ namespace Question
 
         public void UpdateUI()
         {
-            correctCountText.text = $"答對：{_questionManager.CorrectCount}/ {_questionManager.Parameters.CorrectActionNeedAnswerCount}";
-            correctBar.fillAmount = (float)_questionManager.CorrectCount / _questionManager.Parameters.CorrectActionNeedAnswerCount;
-            wrongCountText.text =  $"答錯 :{_questionManager.WrongCount} / {_questionManager.Parameters.WrongActionNeedAnswerCount}";
+            answerBar.UpdateUI(_questionManager.HasAnswerCount, _questionManager.Parameters.QuestionCount, "");
+            correctBar.UpdateUI(_questionManager.CorrectCount, _questionManager.Parameters.CorrectActionNeedAnswerCount, "答對時行動(待作)");
+            wrongBar.UpdateUI(_questionManager.WrongCount, _questionManager.Parameters.WrongActionNeedAnswerCount, "答錯時行動(待作)");
         }
         
         public void SetQuestionManager(QuestionManager manager)
@@ -58,18 +60,12 @@ namespace Question
             onEnterQuestionModeFeedback.PlayFeedbacks();
         }
 
-        public void ExitQuestionMode(bool correct)
+        public void ExitQuestionMode(string info)
         {
-            if (correct)
-            {
-                infoText.text = "魔法詠唱成功，發動好效果";
-            }else
-            {
-                infoText.text = "魔法詠唱失敗，發動壞效果";
-            }
+            infoText.text = info;
             onExitQuestionModeFeedback.PlayFeedbacks();
         }
-        
+
         public void SetNextQuestion(MultipleChoiceQuestion multipleChoiceQuestion)
         {
             qeustionImage.sprite = multipleChoiceQuestion.QuestionSprite;

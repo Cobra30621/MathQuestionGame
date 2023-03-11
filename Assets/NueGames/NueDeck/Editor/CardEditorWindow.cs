@@ -36,8 +36,6 @@ namespace NueGames.NueDeck.Editor
         private List<CardActionData> CorrectCardActionDataList{ get; set; }
         private List<CardActionData> WrongCardActionDataList{ get; set; }
         
-        private MathQuestioningActionParameters MathParameters{ get; set; }
-        
         private bool UseLimitedQuestion{ get; set; }
         private int QuestionCount{ get; set; }
         
@@ -68,11 +66,18 @@ namespace NueGames.NueDeck.Editor
             CardActionDataList = SelectedCardData.CardActionDataList.Count>0 ? new List<CardActionData>(SelectedCardData.CardActionDataList) : new List<CardActionData>();
             CorrectCardActionDataList = SelectedCardData.CorrectCardActionDataList.Count>0 ? new List<CardActionData>(SelectedCardData.CorrectCardActionDataList) : new List<CardActionData>();
             WrongCardActionDataList = SelectedCardData.WrongCardActionDataList.Count>0 ? new List<CardActionData>(SelectedCardData.WrongCardActionDataList) : new List<CardActionData>();
-            MathParameters = SelectedCardData.MathQuestioningActionParameters;
             CardDescriptionDataList = SelectedCardData.CardDescriptionDataList.Count>0 ? new List<CardDescriptionData>(SelectedCardData.CardDescriptionDataList) : new List<CardDescriptionData>();
             SpecialKeywordsList = SelectedCardData.KeywordsList.Count>0 ? new List<SpecialKeywords>(SelectedCardData.KeywordsList) : new List<SpecialKeywords>();
             AudioType = SelectedCardData.AudioType;
             CardRarity = SelectedCardData.Rarity;
+
+            MathQuestioningActionParameters parameters = SelectedCardData.MathQuestioningActionParameters;
+            UseLimitedQuestion = parameters.UseLimitedQuestion;
+            QuestionCount = parameters.QuestionCount;
+            UseCorrectAction = parameters.UseCorrectAction;
+            CorrectActionNeedAnswerCount = parameters.CorrectActionNeedAnswerCount;
+            UseWrongAction = parameters.UseWrongAction;
+            WrongActionNeedAnswerCount = parameters.WrongActionNeedAnswerCount;
         }
         
         private void ClearCachedCardData()
@@ -90,6 +95,13 @@ namespace NueGames.NueDeck.Editor
             SpecialKeywordsList?.Clear();
             AudioType = AudioActionType.Attack;
             CardRarity = RarityType.Common;
+            
+            UseLimitedQuestion = false;
+            QuestionCount = 0;
+            UseCorrectAction = false;
+            CorrectActionNeedAnswerCount = 0;
+            UseWrongAction = false;
+            WrongActionNeedAnswerCount = 0;
         }
         #endregion
         
