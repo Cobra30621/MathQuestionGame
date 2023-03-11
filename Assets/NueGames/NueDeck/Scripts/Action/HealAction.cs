@@ -19,20 +19,20 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         {
             CardActionData data = cardActionParameter.CardActionData;
             Value = data.ActionValue;
-            TargetCharacter = cardActionParameter.TargetCharacter;
+            Target = cardActionParameter.TargetCharacter;
             Duration = cardActionParameter.CardActionData.ActionDelay;
         }
         
         public override void DoAction()
         {
-            if (!TargetCharacter) return;
+            if (!Target) return;
             
-            TargetCharacter.CharacterStats.Heal(Mathf.RoundToInt(Value));
+            Target.CharacterStats.Heal(Mathf.RoundToInt(Value));
 
             if (FxManager != null)
             {
-                FxManager.PlayFx(TargetCharacter.transform,FxType.Attack);
-                FxManager.SpawnFloatingText(TargetCharacter.TextSpawnRoot,Value.ToString());
+                FxManager.PlayFx(Target.transform,FxType.Attack);
+                FxManager.SpawnFloatingText(Target.TextSpawnRoot,Value.ToString());
             }
             PlayAudio();
         }

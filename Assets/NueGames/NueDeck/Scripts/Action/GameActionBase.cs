@@ -11,8 +11,8 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
     public abstract class GameActionBase
     {
         public GameActionType ActionType { get;}
-        public CharacterBase TargetCharacter;
-        public CharacterBase SelfCharacter;
+        public CharacterBase Target;
+        public CharacterBase Self;
         public int Value;
         public float Duration = 0;
 
@@ -61,8 +61,8 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             // TODO 設定 FX 預設產生處
             if (FxManager != null)
             {
-                if(TargetCharacter != null)
-                    FxManager.PlayFx(TargetCharacter.transform, FxType);
+                if(Target != null)
+                    FxManager.PlayFx(Target.transform, FxType);
             }
                 
         }

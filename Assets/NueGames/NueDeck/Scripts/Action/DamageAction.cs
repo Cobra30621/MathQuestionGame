@@ -20,28 +20,28 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         {
             CardActionData data = cardActionParameter.CardActionData;
             damageInfo = new DamageInfo(data.ActionValue, cardActionParameter.SelfCharacter);
-            TargetCharacter = cardActionParameter.TargetCharacter;
+            Target = cardActionParameter.TargetCharacter;
             Duration = cardActionParameter.CardActionData.ActionDelay;
         }
         
         public void SetValue(DamageInfo damageInfo, CharacterBase target)
         {
             this.damageInfo = damageInfo;
-            TargetCharacter = target;
+            Target = target;
         }
         
         public override void DoAction()
         {
-            if (!TargetCharacter) return;
+            if (!Target) return;
 
-            int value = CombatCalculator.GetDamageValue(damageInfo.Value, damageInfo.SelfCharacter, TargetCharacter);
+            int value = CombatCalculator.GetDamageValue(damageInfo.Value, damageInfo.SelfCharacter, Target);
             
-            TargetCharacter.CharacterStats.Damage(value);
+            Target.CharacterStats.Damage(value);
 
             if (FxManager != null)
             {
-                FxManager.PlayFx(TargetCharacter.transform,FxType.Attack);
-                FxManager.SpawnFloatingText(TargetCharacter.TextSpawnRoot,value.ToString());
+                FxManager.PlayFx(Target.transform,FxType.Attack);
+                FxManager.SpawnFloatingText(Target.TextSpawnRoot,value.ToString());
             }
            
             PlayAudio();

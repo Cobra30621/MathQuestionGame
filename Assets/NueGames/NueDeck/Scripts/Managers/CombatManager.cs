@@ -219,8 +219,6 @@ namespace NueGames.NueDeck.Scripts.Managers
         #region Private Methods
         private void BuildEnemies()
         {
-            Debug.Log(" GameManager.EncounterData" + GameManager.EncounterData);
-            Debug.Log("GameManager.PersistentGameplayData" + GameManager.PersistentGameplayData);
             CurrentEncounter = GameManager.EncounterData.GetEnemyEncounter(
                 GameManager.PersistentGameplayData.CurrentStageId,
                 GameManager.PersistentGameplayData.CurrentEncounterId,

@@ -10,7 +10,7 @@
         Exhaust,
         Heal,
         IncreaseMaxHealth,
-        MathQuestioning,
+        EnterMathQuestioning,
         EarnMathMana
     }
 

@@ -137,7 +137,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 // 卡片行動改成數學行動
                 cardActionDataList.Clear();
                 CardActionData cardActionData = new CardActionData();
-                cardActionData.EditActionType(GameActionType.MathQuestioning);
+                cardActionData.EditActionType(GameActionType.EnterMathQuestioning);
                 cardActionDataList.Add(cardActionData);
             }
             else // 切換成一般卡片
@@ -173,7 +173,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public PowerType PowerType => powerType;
         public int ActionValue => actionValue;
         public float ActionDelay => actionDelay;
-        public MathQuestioningActionParameters MathQuestioningActionParameters;
+        
+        public MathQuestioningActionParameters MathQuestioningActionParameters => mathQuestioningActionParameters;
         
         
 

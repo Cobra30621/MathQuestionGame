@@ -49,11 +49,6 @@ namespace NueGames.NueDeck.Scripts.Card
         
         public bool IsExhausted { get; private set; }
         
-        // For Math Action
-        private CharacterBase tempSelf;
-        private CharacterBase tempTargetCharacter;
-        private List<EnemyBase> tempAllEnemies;
-        private List<AllyBase> tempAllAllies;
 
         #endregion
         
@@ -79,31 +74,6 @@ namespace NueGames.NueDeck.Scripts.Card
         #endregion
 
 
-        #region Math Question Action
-        public void PlayMathCardAction( List<CardActionData> cardActionDataList)
-        {
-            StartCoroutine( MathActionRoutine(tempSelf, tempTargetCharacter, tempAllEnemies, tempAllAllies, cardActionDataList));
-        }
-        
-        private IEnumerator MathActionRoutine(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies,
-            List<AllyBase> allAllies, List<CardActionData> cardActionDataList)
-        {
-            foreach (var playerAction in cardActionDataList)
-            {
-                yield return new WaitForSeconds(playerAction.ActionDelay);
-                var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, playerAction);
-
-                foreach (var target in targetList)
-                    CardActionProcessor.GetAction(playerAction.GameActionType)
-                        .DoAction(new CardActionParameters(playerAction.ActionValue,
-                            target,self,CardData,this, playerAction.PowerType));
-            }
-            
-            CollectionManager.OnCardPlayed(this);
-        }
-        
-
-        #endregion
         
         #region Card Methods
         // Math Action
@@ -113,50 +83,24 @@ namespace NueGames.NueDeck.Scripts.Card
             return CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Enemy;
         }
         
-        public virtual void Use(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
+        public virtual void Use(CharacterBase self,CharacterBase target, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
             if (!IsPlayable) return;
-         
-            tempSelf = self;
-            tempTargetCharacter = targetCharacter;
-            tempAllEnemies = allEnemies;
-            tempAllAllies = allAllies;
-            
+
             HideTooltipInfo(TooltipManager.Instance);
             
-            StartCoroutine(CardUseRoutine(self, targetCharacter, allEnemies, allAllies));
-        }
-
-        private IEnumerator CardUseRoutine(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
-        {
             SpendMana( CardData.ManaCost);
             SpendMathMana(CardData.MathManaCost);
-            
-            foreach (var playerAction in CardData.CardActionDataList)
-            {
-                // yield return new WaitForSeconds(playerAction.ActionDelay);
-                yield return null;
-                var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, playerAction);
 
-                // foreach (var target in targetList)
-                //     CardActionProcessor.GetAction(playerAction.GameActionType)
-                //         .DoAction(new CardActionParameters(playerAction.ActionValue,
-                //             target,self,CardData,this, playerAction.PowerType));
-                
-                CardActionParameter cardActionParameter = new CardActionParameter(
-                    playerAction.ActionValue,
-                    targetCharacter,
-                    self,
-                    playerAction
-                );
-                GameActionManager.AddToBottom(playerAction.GameActionType, cardActionParameter);
-            }
+            List<GameActionBase> gameActions = GameActionManager.GetGameActions(CardData, CardData.CardActionDataList, self, target);
+            GameActionManager.AddToBottom(gameActions);
 
             if (!CardData.UseMathAction)
             {
                 CollectionManager.OnCardPlayed(this);
             }
         }
+        
 
         private List<CharacterBase> DetermineTargets(CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies,
             CardActionData playerAction)

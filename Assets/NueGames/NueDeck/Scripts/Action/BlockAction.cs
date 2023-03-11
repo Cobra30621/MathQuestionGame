@@ -18,16 +18,16 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         public override void SetValue(CardActionParameter cardActionParameter)
         {
             CardActionData data = cardActionParameter.CardActionData;
-            TargetCharacter = cardActionParameter.TargetCharacter;
+            Target = cardActionParameter.TargetCharacter;
             Duration = cardActionParameter.CardActionData.ActionDelay;
             Value = data.ActionValue;
         }
         
         public override void DoAction()
         {
-            if (!TargetCharacter) return;
+            if (!Target) return;
             
-            TargetCharacter.CharacterStats.ApplyStatus(PowerType.Block,Mathf.RoundToInt(Value));
+            Target.CharacterStats.ApplyStatus(PowerType.Block,Mathf.RoundToInt(Value));
             
             PlayFx();
             PlayAudio();

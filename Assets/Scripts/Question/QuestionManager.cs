@@ -1,5 +1,4 @@
 using NueGames.NueDeck.Scripts.Card;
-using NueGames.Card.CardActions;
 using Question;
 using UnityEngine;
 using System;
@@ -37,7 +36,7 @@ namespace Question
         
         
         #region Cache
-        private MathQuestioningActionParameters parameters;
+        [SerializeField] private MathQuestioningActionParameters parameters;
         
         private MultipleChoiceQuestion currentQuestion;
         private List<MultipleChoiceQuestion> questionList;
@@ -100,6 +99,7 @@ namespace Question
         #region Public Method
         public void EnterQuestionMode(MathQuestioningActionParameters newParameters)
         {
+            Debug.Log(newParameters);
             parameters = newParameters;
             StartCoroutine(QuestionCoroutine());
         }
@@ -222,12 +222,13 @@ namespace Question
         {
             if (parameters.UseCorrectAction && playCorrectAction)
             {
-                GameActionManager.Instance.AddToBottom(parameters.CorrectActions, parameters.SelfCharacter, parameters.TargetCharacter);
+                GameActionManager.Instance.AddToBottom(parameters.CorrectActions);
             }
 
-            if (parameters.UseWrongAction && playCorrectAction)
+            if (parameters.UseWrongAction && !playCorrectAction)
             {
-                GameActionManager.Instance.AddToBottom(parameters.WrongActions, parameters.SelfCharacter, parameters.TargetCharacter);
+                Debug.Log("parameters.WrongActions" + parameters.WrongActions.Count + parameters.WrongActions[0]);
+                GameActionManager.Instance.AddToBottom(parameters.WrongActions);
             }
         }
 

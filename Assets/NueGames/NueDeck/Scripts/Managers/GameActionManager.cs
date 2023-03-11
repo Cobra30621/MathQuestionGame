@@ -132,34 +132,12 @@ namespace NueGames.NueDeck.Scripts.Managers
         
         private static IEnumerable<Type> gameActionClasses;
 
-        public void AddToBottom(List<CardActionData> cardActionDatas, CharacterBase self, CharacterBase target)
+        public void AddToBottom(List<GameActionBase> cardActionDatas)
         {
             foreach (var playerAction in cardActionDatas)
             {
-                CardActionParameter cardActionParameter = new CardActionParameter(
-                    playerAction.ActionValue,
-                    target,
-                    self,
-                    playerAction
-                );
-                
-                AddToBottom(playerAction.GameActionType, cardActionParameter);
+                AddToBottom(playerAction);
             }
-        }
-        
-
-        public void AddToTop(GameActionType actionType, CardActionParameter cardActionParameter)
-        {
-            GameActionBase gameActionBase = GetGameAction(actionType);
-            gameActionBase.SetValue(cardActionParameter);
-            AddToTop(gameActionBase);
-        }
-        
-        public void AddToBottom(GameActionType actionType, CardActionParameter cardActionParameter)
-        {
-            GameActionBase gameActionBase = GetGameAction(actionType);
-            gameActionBase.SetValue(cardActionParameter);
-            AddToBottom(gameActionBase);
         }
         
         public void AddToTop(GameActionBase action) {
@@ -168,6 +146,35 @@ namespace NueGames.NueDeck.Scripts.Managers
         
         public void AddToBottom(GameActionBase action) {
             actions.Add(action);
+        }
+
+
+        public List<GameActionBase> GetGameActions(CardData cardData, List<CardActionData> cardActionDataList, CharacterBase self,
+            CharacterBase target)
+        {
+            List<GameActionBase> gameActionBases = new List<GameActionBase>();
+            foreach (var playerAction in cardActionDataList)
+            {
+                CardActionParameter cardActionParameter = new CardActionParameter(
+                    playerAction.ActionValue,
+                    target,
+                    self,
+                    playerAction,
+                    cardData
+                );
+
+                GameActionBase gameActionBase = GetGameAction(playerAction.GameActionType, cardActionParameter);
+                gameActionBases.Add(gameActionBase);
+            }
+
+            return gameActionBases;
+        }
+
+        public GameActionBase GetGameAction(GameActionType actionType, CardActionParameter cardActionParameter)
+        {
+            GameActionBase gameActionBase = GetGameAction(actionType);
+            gameActionBase.SetValue(cardActionParameter);
+            return gameActionBase;
         }
 
         private GameActionBase GetGameAction(GameActionType actionType)

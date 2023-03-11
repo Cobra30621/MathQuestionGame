@@ -5,13 +5,16 @@ using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
+using NueGames.NueDeck.Scripts.Managers;
 using Question;
+using UnityEngine;
 
 namespace Assets.NueGames.NueDeck.Scripts.Action
 {
     public class EnterMathQuestioningAction : GameActionBase
     {
-        public MathQuestioningActionParameters parameters;
+        private MathQuestioningActionParameters parameters;
+        public GameActionManager GameActionManager => GameActionManager.Instance;
         
         public EnterMathQuestioningAction()
         {
@@ -21,10 +24,14 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         
         public override void SetValue(CardActionParameter cardActionParameter)
         {
-            CardActionData data = cardActionParameter.CardActionData;
-            parameters = data.MathQuestioningActionParameters;
-            TargetCharacter = cardActionParameter.TargetCharacter;
+            CardData cardData = cardActionParameter.CardData;
             Duration = cardActionParameter.CardActionData.ActionDelay;
+
+            parameters = cardActionParameter.CardActionData.MathQuestioningActionParameters;
+            parameters.CorrectActions = GameActionManager.GetGameActions(cardData, cardData.CorrectCardActionDataList , Self, Target);
+            parameters.WrongActions = GameActionManager.GetGameActions(cardData, cardData.WrongCardActionDataList, Self, Target);
+            parameters.TargetCharacter =cardActionParameter.TargetCharacter;
+            parameters.SelfCharacter  = cardActionParameter.SelfCharacter;
         }
 
         public void SetValue(MathQuestioningActionParameters newParameters)
@@ -35,8 +42,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         public override void DoAction()
         {
             QuestionManager.Instance.EnterQuestionMode(parameters);
-            
-            
+
             PlayAudio();
         }
     }
@@ -49,11 +55,11 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         
         public bool UseCorrectAction;
         public int CorrectActionNeedAnswerCount;
-        public List<CardActionData> CorrectActions;
+        public List<GameActionBase> CorrectActions;
 
         public bool UseWrongAction;
         public int WrongActionNeedAnswerCount;
-        public List<CardActionData> WrongActions;
+        public List<GameActionBase> WrongActions;
         
         public  bool UseTimeCountDown;
         public  int Time;
@@ -76,14 +82,14 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             QuestionCount = questionCount;
         }
 
-        public void SetCorrectActionValue(bool useCorrectAction, int correctActionNeedAnswerCount, List<CardActionData> correctActions)
+        public void SetCorrectActionValue(bool useCorrectAction, int correctActionNeedAnswerCount, List<GameActionBase> correctActions)
         {
             UseCorrectAction = useCorrectAction;
             CorrectActionNeedAnswerCount = correctActionNeedAnswerCount;
             CorrectActions = correctActions;
         }
 
-        public void SetWrongActionValue(bool useWrongAction, int wrongActionNeedAnswerCount, List<CardActionData> wrongActions)
+        public void SetWrongActionValue(bool useWrongAction, int wrongActionNeedAnswerCount, List<GameActionBase> wrongActions)
         {
             UseWrongAction = useWrongAction;
             WrongActionNeedAnswerCount = wrongActionNeedAnswerCount;
@@ -101,7 +107,5 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             SelfCharacter = self;
             TargetCharacter = target;
         }
-
-        
     }
 }

@@ -20,7 +20,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         public override void SetValue(CardActionParameter cardActionParameter)
         {
             CardActionData data = cardActionParameter.CardActionData;
-            TargetCharacter = cardActionParameter.TargetCharacter;
+            Target = cardActionParameter.TargetCharacter;
             Duration = cardActionParameter.CardActionData.ActionDelay;
             powerType = data.PowerType;
             Value = data.ActionValue;
@@ -28,9 +28,9 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         
         public override void DoAction()
         {
-            if (!TargetCharacter) return;
+            if (!Target) return;
             
-            TargetCharacter.CharacterStats.ApplyStatus(powerType,Mathf.RoundToInt(Value));
+            Target.CharacterStats.ApplyStatus(powerType,Mathf.RoundToInt(Value));
             
             PlayFx();
             PlayAudio();
