@@ -31,8 +31,8 @@ namespace Question
         }
 
         public int HasAnswerCount => hasAnswerCount;
-        public int CorrectCount => correctCount;
-        public int WrongCount => wrongCount;
+        public int CorrectAnswerCount => correctAnswerCount;
+        public int WrongAnswerCount => wrongAnswerCount;
         public bool IsQuestioning => isQuestioning;
         public MathQuestioningActionParameters Parameters => parameters;
         
@@ -51,8 +51,8 @@ namespace Question
         [SerializeField] private bool isPlayingFeedback;
 
         [SerializeField] private int hasAnswerCount;
-        [SerializeField] private int correctCount;
-        [SerializeField]  private int wrongCount;
+        [SerializeField] private int correctAnswerCount;
+        [SerializeField]  private int wrongAnswerCount;
         private bool playCorrectAction;
         
         #endregion
@@ -109,12 +109,12 @@ namespace Question
         {
             if (option == correctAnswer)
             {
-                correctCount++;
+                correctAnswerCount++;
                 questionController.OnAnswer(true, option);
             }
             else
             {
-                wrongCount++;
+                wrongAnswerCount++;
                 questionController.OnAnswer(false, option);
             }
 
@@ -161,8 +161,8 @@ namespace Question
             timeOver = false;
 
             hasAnswerCount = 0;
-            correctCount = 0;
-            wrongCount = 0;
+            correctAnswerCount = 0;
+            wrongAnswerCount = 0;
             isQuestioning = true;
             
             GenerateQuestions();
@@ -275,8 +275,11 @@ namespace Question
         {
             if (parameters.UseCorrectAction)
             {
-                if (correctAnswer >= parameters.CorrectActionNeedAnswerCount)
+                Debug.Log("parameters.UseCorrectAction" + parameters.UseCorrectAction);
+                if (correctAnswerCount >= parameters.CorrectActionNeedAnswerCount)
                 {
+                    Debug.Log($"correctAnswer {correctAnswer} parameters.CorrectActionNeedAnswerCount{parameters.CorrectActionNeedAnswerCount}");
+                    Debug.Log($"correctAnswer >= parameters.CorrectActionNeedAnswerCount {correctAnswer >= parameters.CorrectActionNeedAnswerCount}" );
                     playCorrectAction = true;
                     ExitQuestionMode("魔法詠唱成功，發動好效果");
                 }
@@ -287,8 +290,10 @@ namespace Question
         {
             if (parameters.UseWrongAction)
             {
-                if (wrongCount >= parameters.WrongActionNeedAnswerCount)
+                Debug.Log($"parameters.UseWrongAction{parameters.UseWrongAction}");
+                if (wrongAnswerCount >= parameters.WrongActionNeedAnswerCount)
                 {
+                    Debug.Log($"wrongAnswerCount >= parameters.WrongActionNeedAnswerCount{wrongAnswerCount >= parameters.WrongActionNeedAnswerCount}");
                     playCorrectAction = false;
                     ExitQuestionMode("魔法詠唱失敗，發動壞效果");
                 }

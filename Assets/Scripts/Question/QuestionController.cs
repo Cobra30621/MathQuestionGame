@@ -44,8 +44,8 @@ namespace Question
         public void UpdateUI()
         {
             answerBar.UpdateUI(_questionManager.HasAnswerCount, _questionManager.Parameters.QuestionCount, "");
-            correctBar.UpdateUI(_questionManager.CorrectCount, _questionManager.Parameters.CorrectActionNeedAnswerCount, "答對時行動(待作)");
-            wrongBar.UpdateUI(_questionManager.WrongCount, _questionManager.Parameters.WrongActionNeedAnswerCount, "答錯時行動(待作)");
+            correctBar.UpdateUI(_questionManager.CorrectAnswerCount, _questionManager.Parameters.CorrectActionNeedAnswerCount, "答對時行動(待作)");
+            wrongBar.UpdateUI(_questionManager.WrongAnswerCount, _questionManager.Parameters.WrongActionNeedAnswerCount, "答錯時行動(待作)");
         }
         
         public void SetQuestionManager(QuestionManager manager)

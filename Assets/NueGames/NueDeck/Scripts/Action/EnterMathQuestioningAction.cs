@@ -28,10 +28,10 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             Duration = cardActionParameter.CardActionData.ActionDelay;
 
             parameters = cardData.MathQuestioningActionParameters;
+            Target = parameters.TargetCharacter = cardActionParameter.TargetCharacter;
+            Self = parameters.SelfCharacter  = cardActionParameter.SelfCharacter;
             parameters.CorrectActions = GameActionManager.GetGameActions(cardData, cardData.CorrectCardActionDataList , Self, Target);
             parameters.WrongActions = GameActionManager.GetGameActions(cardData, cardData.WrongCardActionDataList, Self, Target);
-            parameters.TargetCharacter =cardActionParameter.TargetCharacter;
-            parameters.SelfCharacter  = cardActionParameter.SelfCharacter;
         }
 
         public void SetValue(MathQuestioningActionParameters newParameters)

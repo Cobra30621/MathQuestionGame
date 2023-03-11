@@ -10,7 +10,6 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
 {
     public abstract class GameActionBase
     {
-        public GameActionType ActionType { get;}
         public CharacterBase Target;
         public CharacterBase Self;
         public int Value;
@@ -71,6 +70,12 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         {
             if (AudioManager != null) 
                 AudioManager.PlayOneShot(AudioActionType);
+        }
+
+        protected void PrintInfo()
+        {
+            Debug.Log($"{this.GetType()} \n " +
+                      $"value{Value}");
         }
     }
 }
