@@ -13,11 +13,11 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             
         }
 
-        public override void SetValue(CardActionParameter cardActionParameter)
+        public override void SetValue(CardActionParameters cardActionParameters)
         {
-            CardActionData data = cardActionParameter.CardActionData;
+            CardActionData data = cardActionParameters.CardActionData;
             Value = data.ActionValue;
-            Duration = cardActionParameter.CardActionData.ActionDelay;
+            Duration = cardActionParameters.CardActionData.ActionDelay;
         }
         
         public override void DoAction()

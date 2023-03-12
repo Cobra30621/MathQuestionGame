@@ -155,7 +155,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             List<GameActionBase> gameActionBases = new List<GameActionBase>();
             foreach (var playerAction in cardActionDataList)
             {
-                CardActionParameter cardActionParameter = new CardActionParameter(
+                CardActionParameters cardActionParameters = new CardActionParameters(
                     playerAction.ActionValue,
                     target,
                     self,
@@ -163,17 +163,17 @@ namespace NueGames.NueDeck.Scripts.Managers
                     cardData
                 );
 
-                GameActionBase gameActionBase = GetGameAction(playerAction.GameActionType, cardActionParameter);
+                GameActionBase gameActionBase = GetGameAction(playerAction.GameActionType, cardActionParameters);
                 gameActionBases.Add(gameActionBase);
             }
 
             return gameActionBases;
         }
 
-        public GameActionBase GetGameAction(GameActionType actionType, CardActionParameter cardActionParameter)
+        public GameActionBase GetGameAction(GameActionType actionType, CardActionParameters cardActionParameters)
         {
             GameActionBase gameActionBase = GetGameAction(actionType);
-            gameActionBase.SetValue(cardActionParameter);
+            gameActionBase.SetValue(cardActionParameters);
             return gameActionBase;
         }
 

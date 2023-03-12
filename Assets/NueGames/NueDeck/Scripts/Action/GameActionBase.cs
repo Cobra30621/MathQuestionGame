@@ -29,7 +29,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         protected GameActionManager GameActionManager => GameActionManager.Instance;
 
 
-        public virtual void SetValue(CardActionParameter cardActionParameter){}
+        public virtual void SetValue(CardActionParameters cardActionParameters){}
 
         public abstract void DoAction();
 

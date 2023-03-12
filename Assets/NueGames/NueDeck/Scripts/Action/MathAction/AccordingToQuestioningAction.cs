@@ -13,7 +13,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         private int baseValue;
         private int additionValue;
         private GameActionType afterQuestioningAction;
-        private CardActionParameter cardParameter;
+        private CardActionParameters cardParameters;
         
         public AccordingToQuestioningAction()
         {
@@ -21,11 +21,11 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             AudioActionType = AudioActionType.Attack;
         }
         
-        public override void SetValue(CardActionParameter cardActionParameter)
+        public override void SetValue(CardActionParameters cardActionParameters)
         {
-            cardParameter = cardActionParameter;
-            additionValue = cardActionParameter.CardActionData.AdditionValue;
-            baseValue = cardActionParameter.Value;
+            cardParameters = cardActionParameters;
+            additionValue = cardActionParameters.CardActionData.AdditionValue;
+            baseValue = cardActionParameters.Value;
         }
 
         public override void DoAction()
@@ -33,14 +33,14 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             int correctAnswerCount = QuestionManager.Instance.CorrectAnswerCount;
             
             Value = baseValue + correctAnswerCount * additionValue;
-            CardActionParameter newParameter = new CardActionParameter(
+            CardActionParameters newParameters = new CardActionParameters(
                 Value, 
-                cardParameter.TargetCharacter, 
-                cardParameter.SelfCharacter, 
-                cardParameter.CardActionData, 
-                cardParameter.CardData
+                cardParameters.TargetCharacter, 
+                cardParameters.SelfCharacter, 
+                cardParameters.CardActionData, 
+                cardParameters.CardData
             );
-            GameActionBase gameActionBase = GameActionManager.GetGameAction(afterQuestioningAction, newParameter);
+            GameActionBase gameActionBase = GameActionManager.GetGameAction(afterQuestioningAction, newParameters);
             GameActionManager.AddToBottom(gameActionBase);
         }
     }

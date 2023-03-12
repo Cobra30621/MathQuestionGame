@@ -2,6 +2,7 @@
 using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
+using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Power
 {
@@ -69,7 +70,7 @@ namespace NueGames.NueDeck.Scripts.Power
                 }
                 else
                 {
-                    if (IsPermanent)
+                    if (!IsPermanent)
                         ClearPower();
                 }
             }
@@ -80,8 +81,9 @@ namespace NueGames.NueDeck.Scripts.Power
         {
             IsActive = false;
             Value = 0;
-            UnSubscribeAllEvent();
+            Owner.CharacterStats.PowerDict.Remove(PowerType);
             Owner.CharacterStats.OnPowerCleared.Invoke(PowerType);
+            UnSubscribeAllEvent();
         }
 
         #endregion

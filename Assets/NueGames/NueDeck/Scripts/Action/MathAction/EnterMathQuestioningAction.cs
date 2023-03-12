@@ -22,16 +22,16 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             AudioActionType = AudioActionType.Attack;
         }
         
-        public override void SetValue(CardActionParameter cardActionParameter)
+        public override void SetValue(CardActionParameters cardActionParameters)
         {
-            CardData cardData = cardActionParameter.CardData;
-            Duration = cardActionParameter.CardActionData.ActionDelay;
-            Target = cardActionParameter.TargetCharacter;
-            Self = cardActionParameter.SelfCharacter;
+            CardData cardData = cardActionParameters.CardData;
+            Duration = cardActionParameters.CardActionData.ActionDelay;
+            Target = cardActionParameters.TargetCharacter;
+            Self = cardActionParameters.SelfCharacter;
 
             parameters = cardData.MathQuestioningActionParameters;
-            parameters.TargetCharacter = cardActionParameter.TargetCharacter;
-            parameters.SelfCharacter  = cardActionParameter.SelfCharacter;
+            parameters.TargetCharacter = cardActionParameters.TargetCharacter;
+            parameters.SelfCharacter  = cardActionParameters.SelfCharacter;
             parameters.LimitedQuestionAction = GameActionManager.GetGameActions(cardData, cardData.LimitedQuestionCardActionDataList, Self, Target);
             parameters.CorrectActions = GameActionManager.GetGameActions(cardData, cardData.CorrectCardActionDataList , Self, Target);
             parameters.WrongActions = GameActionManager.GetGameActions(cardData, cardData.WrongCardActionDataList, Self, Target);
@@ -51,75 +51,5 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         }
     }
     
-    [Serializable]
-    public class MathQuestioningActionParameters
-    {
-        public bool UseMathAction;
-        public QuestioningEndJudgeType QuestioningEndJudgeType;
-        
-        public int QuestionCount;
-        public List<GameActionBase> LimitedQuestionAction;
-        
-        public bool UseCorrectAction;
-        public int CorrectActionNeedAnswerCount;
-        public List<GameActionBase> CorrectActions;
-
-        public bool UseWrongAction;
-        public int WrongActionNeedAnswerCount;
-        public List<GameActionBase> WrongActions;
-        
-        public  bool UseTimeCountDown;
-        public  int Time;
-
-        public CharacterBase SelfCharacter;
-        public CharacterBase TargetCharacter;
-        
-        public MathQuestioningActionParameters()
-        {
-            SetJudgeType(false, QuestioningEndJudgeType.LimitedQuestionCount);
-            SetQuestionCountValue( -1, null);
-            SetCorrectActionValue(false, -1, null);
-            SetWrongActionValue(false, -1, null);
-            SetTimeValue(false, -1);
-            SetCharacter(null, null);
-        }
-
-        public void SetJudgeType(bool useMathAction, QuestioningEndJudgeType questioningEndJudgeType)
-        {
-            UseMathAction = useMathAction;
-            QuestioningEndJudgeType = questioningEndJudgeType;
-        }
-
-        public void SetQuestionCountValue(int questionCount, List<GameActionBase> limitedQuestionActions)
-        {
-            QuestionCount = questionCount;
-            LimitedQuestionAction = limitedQuestionActions;
-        }
-
-        public void SetCorrectActionValue(bool useCorrectAction, int correctActionNeedAnswerCount, List<GameActionBase> correctActions)
-        {
-            UseCorrectAction = useCorrectAction;
-            CorrectActionNeedAnswerCount = correctActionNeedAnswerCount;
-            CorrectActions = correctActions;
-        }
-
-        public void SetWrongActionValue(bool useWrongAction, int wrongActionNeedAnswerCount, List<GameActionBase> wrongActions)
-        {
-            UseWrongAction = useWrongAction;
-            WrongActionNeedAnswerCount = wrongActionNeedAnswerCount;
-            WrongActions = wrongActions;
-        }
-        
-        public void SetTimeValue(bool useTimeCountDown, int time)
-        {
-            UseTimeCountDown = useTimeCountDown;
-            Time = time;
-        }
-
-        public void SetCharacter(CharacterBase self, CharacterBase target)
-        {
-            SelfCharacter = self;
-            TargetCharacter = target;
-        }
-    }
+    
 }

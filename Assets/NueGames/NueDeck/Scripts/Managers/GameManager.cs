@@ -45,7 +45,6 @@ namespace NueGames.NueDeck.Scripts.Managers
                 transform.parent = null;
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-                CardActionProcessor.Initialize();
                 EnemyActionProcessor.Initialize();
                 PowerFactory.Initialize();
                 if (isDevelopCombatMode)

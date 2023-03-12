@@ -10,7 +10,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
     {
         private DamageInfo damageInfo;
         private PowerType accordingPowerType;
-        private CardActionParameter cardParameter;
+        private CardActionParameters cardParameters;
         
         public DamageByAllyPowerValueAction()
         {
@@ -18,27 +18,27 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             AudioActionType = AudioActionType.Attack;
         }
         
-        public override void SetValue(CardActionParameter cardActionParameter)
+        public override void SetValue(CardActionParameters cardActionParameters)
         {
-            cardParameter = cardActionParameter;
-            CardActionData data = cardActionParameter.CardActionData;
-            damageInfo = new DamageInfo(cardActionParameter.Value, cardActionParameter.SelfCharacter);
-            Target = cardActionParameter.TargetCharacter;
-            Duration = cardActionParameter.CardActionData.ActionDelay;
+            cardParameters = cardActionParameters;
+            CardActionData data = cardActionParameters.CardActionData;
+            damageInfo = new DamageInfo(cardActionParameters.Value, cardActionParameters.SelfCharacter);
+            Target = cardActionParameters.TargetCharacter;
+            Duration = cardActionParameters.CardActionData.ActionDelay;
             accordingPowerType = data.PowerType;
         }
         
         public override void DoAction()
         {
             Value = CombatManager.CurrentMainAlly.GetPowerValue(accordingPowerType);
-            CardActionParameter newParameter = new CardActionParameter(
+            CardActionParameters newParameters = new CardActionParameters(
                 Value, 
-                cardParameter.TargetCharacter, 
-                cardParameter.SelfCharacter, 
-                cardParameter.CardActionData, 
-                cardParameter.CardData
+                cardParameters.TargetCharacter, 
+                cardParameters.SelfCharacter, 
+                cardParameters.CardActionData, 
+                cardParameters.CardData
             );
-            GameActionBase gameActionBase = GameActionManager.GetGameAction(GameActionType.Damage, newParameter);
+            GameActionBase gameActionBase = GameActionManager.GetGameAction(GameActionType.Damage, newParameters);
             GameActionManager.AddToBottom(gameActionBase);
         }
     }

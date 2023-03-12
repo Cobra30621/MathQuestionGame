@@ -15,11 +15,11 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             AudioActionType = AudioActionType.Block;
         }
         
-        public override void SetValue(CardActionParameter cardActionParameter)
+        public override void SetValue(CardActionParameters cardActionParameters)
         {
-            CardActionData data = cardActionParameter.CardActionData;
-            Target = cardActionParameter.TargetCharacter;
-            Duration = cardActionParameter.CardActionData.ActionDelay;
+            CardActionData data = cardActionParameters.CardActionData;
+            Target = cardActionParameters.TargetCharacter;
+            Duration = cardActionParameters.CardActionData.ActionDelay;
             Value = data.ActionValue;
         }
         
