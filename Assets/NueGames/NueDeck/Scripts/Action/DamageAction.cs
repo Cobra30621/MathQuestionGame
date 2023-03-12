@@ -19,7 +19,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         public override void SetValue(CardActionParameter cardActionParameter)
         {
             CardActionData data = cardActionParameter.CardActionData;
-            damageInfo = new DamageInfo(data.ActionValue, cardActionParameter.SelfCharacter);
+            damageInfo = new DamageInfo(cardActionParameter.Value, cardActionParameter.SelfCharacter);
             Target = cardActionParameter.TargetCharacter;
             Duration = cardActionParameter.CardActionData.ActionDelay;
         }

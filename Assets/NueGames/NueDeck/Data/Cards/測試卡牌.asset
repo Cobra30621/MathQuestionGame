@@ -25,7 +25,8 @@ MonoBehaviour:
   - gameActionType: 8
     actionTargetType: 0
     powerType: 0
-    actionValue: 5
+    actionValue: 0
+    additionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Deal '
@@ -60,21 +61,24 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
   audioType: 0
-  useMathAction: 0
   correctCardActionDataList:
   - gameActionType: 0
     actionTargetType: 0
     powerType: 0
     actionValue: 7
+    additionValue: 0
     actionDelay: 0
   wrongCardActionDataList:
   - gameActionType: 0
     actionTargetType: 0
     powerType: 0
     actionValue: 17
+    additionValue: 0
     actionDelay: 0
+  limitedQuestionCardActionDataList: []
   mathQuestioningActionParameters:
-    UseLimitedQuestion: 0
+    UseMathAction: 1
+    QuestioningEndJudgeType: 1
     QuestionCount: 5
     UseCorrectAction: 1
     CorrectActionNeedAnswerCount: 2

@@ -27,10 +27,10 @@ public class Tester : MonoBehaviour
 
     void CreateMathQuestioningAction()
     {
-        EnterMathQuestioningAction enterMathQuestioningAction = new EnterMathQuestioningAction();
-        MathQuestioningActionParameters parameters = new MathQuestioningActionParameters();
-        parameters.SetQuestionCountValue(true, 3);
-        enterMathQuestioningAction.SetValue(parameters);
-        enterMathQuestioningAction.AddToBottom();
+        // EnterMathQuestioningAction enterMathQuestioningAction = new EnterMathQuestioningAction();
+        // MathQuestioningActionParameters parameters = new MathQuestioningActionParameters();
+        // parameters.SetQuestionCountValue(true, 3);
+        // enterMathQuestioningAction.SetValue(parameters);
+        // enterMathQuestioningAction.AddToBottom();
     }
 }

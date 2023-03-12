@@ -35,11 +35,11 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         
         [Header("Fx")]
         [SerializeField] private AudioActionType audioType;
-        
+
         [Header("Math Action Settings")]
-        [SerializeField] private bool useMathAction;
         [SerializeField] private List<CardActionData> correctCardActionDataList;
         [SerializeField] private List<CardActionData> wrongCardActionDataList;
+        [SerializeField] private List<CardActionData> limitedQuestionCardActionDataList;
         [SerializeField] private MathQuestioningActionParameters mathQuestioningActionParameters;
 
         #region Cache
@@ -53,6 +53,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public List<CardActionData> CardActionDataList => cardActionDataList;
         public List<CardActionData> CorrectCardActionDataList => correctCardActionDataList;
         public List<CardActionData> WrongCardActionDataList => wrongCardActionDataList;
+        public List<CardActionData> LimitedQuestionCardActionDataList => limitedQuestionCardActionDataList;
         public MathQuestioningActionParameters MathQuestioningActionParameters => mathQuestioningActionParameters;
         
         public List<CardDescriptionData> CardDescriptionDataList => cardDescriptionDataList;
@@ -112,8 +113,12 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             correctCardActionDataList= newCardActionDataList;
         public void EditWrongCardActionDataList(List<CardActionData> newCardActionDataList) =>
             wrongCardActionDataList = newCardActionDataList;
-        public void EditUseLimitedQuestion(bool newValue) =>
-            mathQuestioningActionParameters.UseLimitedQuestion = newValue;
+        public void EditLimitedQuestionCardActionDataList(List<CardActionData> newCardActionDataList) =>
+           limitedQuestionCardActionDataList = newCardActionDataList;
+        
+        public void EditUseMathAction(bool newValue)=> mathQuestioningActionParameters.UseMathAction = newValue;
+        public void EditQuestioningEndJudgeType(QuestioningEndJudgeType newValue) =>
+            mathQuestioningActionParameters.QuestioningEndJudgeType = newValue;
 
         public void EditQuestionCount(int newValue) => mathQuestioningActionParameters.QuestionCount = newValue;
         public void EditUseCorrectAction(bool newValue) => mathQuestioningActionParameters.UseCorrectAction = newValue;
@@ -149,12 +154,14 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private ActionTargetType actionTargetType;
         [SerializeField] private PowerType powerType;
         [SerializeField] private int actionValue;
+        [SerializeField] private int additionValue;
         [SerializeField] private float actionDelay;
 
         public ActionTargetType ActionTargetType => actionTargetType;
         public GameActionType GameActionType => gameActionType;
         public PowerType PowerType => powerType;
         public int ActionValue => actionValue;
+        public int AdditionValue => additionValue;
         public float ActionDelay => actionDelay;
         
     
@@ -166,6 +173,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditActionTarget(ActionTargetType newTargetType) => actionTargetType = newTargetType;
         public void EditPower(PowerType newPowerType) => powerType = newPowerType;
         public void EditActionValue(int newValue) => actionValue = newValue;
+        public void EditAdditionValue(int newValue) => additionValue = newValue;
         public void EditActionDelay(float newValue) => actionDelay = newValue;
 
         

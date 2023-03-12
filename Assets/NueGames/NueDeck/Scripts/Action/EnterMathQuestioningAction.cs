@@ -26,10 +26,13 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         {
             CardData cardData = cardActionParameter.CardData;
             Duration = cardActionParameter.CardActionData.ActionDelay;
+            Target = cardActionParameter.TargetCharacter;
+            Self = cardActionParameter.SelfCharacter;
 
             parameters = cardData.MathQuestioningActionParameters;
-            Target = parameters.TargetCharacter = cardActionParameter.TargetCharacter;
-            Self = parameters.SelfCharacter  = cardActionParameter.SelfCharacter;
+            parameters.TargetCharacter = cardActionParameter.TargetCharacter;
+            parameters.SelfCharacter  = cardActionParameter.SelfCharacter;
+            parameters.LimitedQuestionAction = GameActionManager.GetGameActions(cardData, cardData.LimitedQuestionCardActionDataList, Self, Target);
             parameters.CorrectActions = GameActionManager.GetGameActions(cardData, cardData.CorrectCardActionDataList , Self, Target);
             parameters.WrongActions = GameActionManager.GetGameActions(cardData, cardData.WrongCardActionDataList, Self, Target);
         }
@@ -51,8 +54,11 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
     [Serializable]
     public class MathQuestioningActionParameters
     {
-        public bool UseLimitedQuestion;
+        public bool UseMathAction;
+        public QuestioningEndJudgeType QuestioningEndJudgeType;
+        
         public int QuestionCount;
+        public List<GameActionBase> LimitedQuestionAction;
         
         public bool UseCorrectAction;
         public int CorrectActionNeedAnswerCount;
@@ -70,17 +76,24 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         
         public MathQuestioningActionParameters()
         {
-            SetQuestionCountValue(false, -1);
+            SetJudgeType(false, QuestioningEndJudgeType.LimitedQuestionCount);
+            SetQuestionCountValue( -1, null);
             SetCorrectActionValue(false, -1, null);
             SetWrongActionValue(false, -1, null);
             SetTimeValue(false, -1);
             SetCharacter(null, null);
         }
 
-        public void SetQuestionCountValue(bool useLimitedQuestion, int questionCount)
+        public void SetJudgeType(bool useMathAction, QuestioningEndJudgeType questioningEndJudgeType)
         {
-            UseLimitedQuestion = useLimitedQuestion;
+            UseMathAction = useMathAction;
+            QuestioningEndJudgeType = questioningEndJudgeType;
+        }
+
+        public void SetQuestionCountValue(int questionCount, List<GameActionBase> limitedQuestionActions)
+        {
             QuestionCount = questionCount;
+            LimitedQuestionAction = limitedQuestionActions;
         }
 
         public void SetCorrectActionValue(bool useCorrectAction, int correctActionNeedAnswerCount, List<GameActionBase> correctActions)

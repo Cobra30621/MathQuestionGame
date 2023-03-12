@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets.NueGames.NueDeck.Scripts.Action;
 using MoreMountains.Feedbacks;
+using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 
 namespace Question
@@ -193,7 +194,7 @@ namespace Question
             while (isPlayingFeedback) yield return null; // 等待離開動畫反饋特效
             yield return new WaitForSeconds(0.1f);
 
-            PlayCorrectOrWrongAction();
+            PlayAfterQuestioningAction();
 
         }
         
@@ -223,19 +224,28 @@ namespace Question
             questionList = new List<MultipleChoiceQuestion>(questionsData.MultipleChoiceQuestions);
         }
         
-        private void PlayCorrectOrWrongAction()
+        private void PlayAfterQuestioningAction()
         {
-            if (parameters.UseCorrectAction && playCorrectAction)
+            if (parameters.QuestioningEndJudgeType == QuestioningEndJudgeType.LimitedQuestionCount)
             {
-                Debug.Log("答對行動" + parameters.CorrectActions.Count);
-                GameActionManager.Instance.AddToBottom(parameters.CorrectActions);
+                Debug.Log("答題完行動 " + parameters.LimitedQuestionAction.Count);
+                GameActionManager.Instance.AddToBottom(parameters.LimitedQuestionAction);
             }
+            else
+            {
+                if (parameters.UseCorrectAction && playCorrectAction)
+                {
+                    Debug.Log("答對行動 " + parameters.CorrectActions.Count);
+                    GameActionManager.Instance.AddToBottom(parameters.CorrectActions);
+                }
 
-            if (parameters.UseWrongAction && !playCorrectAction)
-            {
-                Debug.Log("答錯行動" + parameters.WrongActions.Count);
-                GameActionManager.Instance.AddToBottom(parameters.WrongActions);
+                if (parameters.UseWrongAction && !playCorrectAction)
+                {
+                    Debug.Log("答錯行動 " + parameters.WrongActions.Count);
+                    GameActionManager.Instance.AddToBottom(parameters.WrongActions);
+                }
             }
+            
         }
 
         
@@ -244,9 +254,15 @@ namespace Question
         #region Judge End Questioning Mode Condition
         private void JudgeEndConditions()
         {
-            JudgeHasAnsweredQuestionCount();
-            JudgeCorrectCount();
-            JudgeWrongCount();
+            if (parameters.QuestioningEndJudgeType == QuestioningEndJudgeType.LimitedQuestionCount)
+            {
+                JudgeHasAnsweredQuestionCount();
+            }
+            else if (parameters.QuestioningEndJudgeType == QuestioningEndJudgeType.CorrectOrWrongCount)
+            {
+                JudgeCorrectCount();
+                JudgeWrongCount();
+            }
         }
         
         private void JudgeTimeEnd()
@@ -255,48 +271,36 @@ namespace Question
             
             if(timer < 0)
             {
-                // currentMathAction.OnAnswer(false);
                 ExitQuestionMode("魔法詠唱失敗，發動壞效果");
             }
         }
 
         private void JudgeHasAnsweredQuestionCount()
         {
-            if (parameters.UseLimitedQuestion)
+            
+            if (hasAnswerCount >= parameters.QuestionCount)
             {
-                if (hasAnswerCount >= parameters.QuestionCount)
-                {
-                    ExitQuestionMode("魔法詠唱結束");
-                }
+                ExitQuestionMode("魔法詠唱結束");
             }
+            
         }
 
         private void JudgeCorrectCount()
         {
-            if (parameters.UseCorrectAction)
+            if (parameters.UseCorrectAction && correctAnswerCount >= parameters.CorrectActionNeedAnswerCount)
             {
-                Debug.Log("parameters.UseCorrectAction" + parameters.UseCorrectAction);
-                if (correctAnswerCount >= parameters.CorrectActionNeedAnswerCount)
-                {
-                    Debug.Log($"correctAnswer {correctAnswer} parameters.CorrectActionNeedAnswerCount{parameters.CorrectActionNeedAnswerCount}");
-                    Debug.Log($"correctAnswer >= parameters.CorrectActionNeedAnswerCount {correctAnswer >= parameters.CorrectActionNeedAnswerCount}" );
-                    playCorrectAction = true;
-                    ExitQuestionMode("魔法詠唱成功，發動好效果");
-                }
+                playCorrectAction = true;
+                ExitQuestionMode("魔法詠唱成功，發動好效果");
+
             }
         }
         
         private void JudgeWrongCount()
         {
-            if (parameters.UseWrongAction)
+            if (parameters.UseWrongAction && wrongAnswerCount >= parameters.WrongActionNeedAnswerCount)
             {
-                Debug.Log($"parameters.UseWrongAction{parameters.UseWrongAction}");
-                if (wrongAnswerCount >= parameters.WrongActionNeedAnswerCount)
-                {
-                    Debug.Log($"wrongAnswerCount >= parameters.WrongActionNeedAnswerCount{wrongAnswerCount >= parameters.WrongActionNeedAnswerCount}");
-                    playCorrectAction = false;
-                    ExitQuestionMode("魔法詠唱失敗，發動壞效果");
-                }
+                playCorrectAction = false;
+                ExitQuestionMode("魔法詠唱失敗，發動壞效果");
             }
         }
         

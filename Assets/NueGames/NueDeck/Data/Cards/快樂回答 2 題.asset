@@ -25,16 +25,35 @@ MonoBehaviour:
   - gameActionType: 8
     actionTargetType: 0
     powerType: 0
-    actionValue: 5
+    actionValue: 0
+    additionValue: 0
     actionDelay: 0
-  cardDescriptionDataList: []
+  cardDescriptionDataList:
+  - descriptionText: "\u7D66\u4E88\u6575\u4EBA 8 + 3 * \u7B54\u5C0D\u984C\u6578\u50B7\u5BB3\n\u7B54\u984C\u6578
+      2 \u984C"
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
   specialKeywordsList: 
   audioType: 0
-  useMathAction: 0
   correctCardActionDataList: []
   wrongCardActionDataList: []
+  limitedQuestionCardActionDataList:
+  - gameActionType: 10
+    actionTargetType: 0
+    powerType: 0
+    actionValue: 8
+    additionValue: 3
+    actionDelay: 0
   mathQuestioningActionParameters:
-    UseLimitedQuestion: 1
+    UseMathAction: 1
+    QuestioningEndJudgeType: 0
     QuestionCount: 2
     UseCorrectAction: 0
     CorrectActionNeedAnswerCount: 2

@@ -11,7 +11,8 @@
         Heal,
         IncreaseMaxHealth,
         EnterMathQuestioning,
-        EarnMathMana
+        EarnMathMana,
+        AccordingToQuestioning
     }
 
     public enum CardActionDataListType
