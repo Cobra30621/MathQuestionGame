@@ -27,9 +27,18 @@ namespace NueGames.NueDeck.Scripts.Power
         protected void SubscribeAllEvent()
         {
             EventManager.onAttacked += OnAttacked;
+            EventManager.OnQuestioningModeEnd += OnQuestioningModeEnd;
+        }
+
+        protected void UnSubscribeAllEvent()
+        {
+            EventManager.onAttacked -= OnAttacked;
+            EventManager.OnQuestioningModeEnd -= OnQuestioningModeEnd;
         }
         
         #endregion
+        
+        
 
         #region Power Control
         public virtual void StackPower(int stackAmount)
@@ -37,15 +46,19 @@ namespace NueGames.NueDeck.Scripts.Power
             if (IsActive)
             {
                 Value += stackAmount;
+                Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
             }
             else
             {
                 Value = stackAmount;
                 IsActive = true;
+                Owner.CharacterStats.OnPowerApplied.Invoke(PowerType, Value);
             }
         }
         
-        public virtual void ReducePower(int reduceAmount) {
+        public virtual void ReducePower(int reduceAmount)
+        {
+            Value -= reduceAmount;
             //Check status
             if (Value <= 0)
             {
@@ -60,13 +73,49 @@ namespace NueGames.NueDeck.Scripts.Power
                         ClearPower();
                 }
             }
+            Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
         }
         
         public void ClearPower()
         {
             IsActive = false;
             Value = 0;
-            EventManager.OnPowerCleared.Invoke(PowerType);
+            UnSubscribeAllEvent();
+            Owner.CharacterStats.OnPowerCleared.Invoke(PowerType);
+        }
+
+        #endregion
+
+        #region Game Process
+
+        public virtual void OnTurnStarted()
+        {
+            //One turn only statuses
+            if (ClearAtNextTurn)
+            {
+                ClearPower();
+                return;
+            }
+            
+            if (DecreaseOverTurn) 
+                ReducePower(1);
+            
+            //Check status
+            if (Value <= 0)
+            {
+                if (CanNegativeStack)
+                {
+                    if (Value == 0 && !IsPermanent)
+                        ClearPower();
+                }
+                else
+                {
+                    if (!IsPermanent)
+                        ClearPower();
+                }
+            }
+            
+            
         }
 
         #endregion
@@ -94,8 +143,14 @@ namespace NueGames.NueDeck.Scripts.Power
 
         
         #region Event
+        protected virtual void OnPowerChange(){}
         protected virtual void AtStartOfTurn(){}
         protected virtual void OnAttacked(DamageInfo info, int damageAmount){}
+        
+        protected virtual void OnQuestioningModeStart(){}
+        
+        protected virtual void OnAnswer(bool answerCorrect){}
+        protected virtual void OnQuestioningModeEnd(int correctCount){}
         
         #endregion
     }

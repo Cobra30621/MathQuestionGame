@@ -10,6 +10,7 @@
         Stun,
         Vulnerable,
         Weak,
-        Angry
+        Angry,
+        MathMana
     }
 }

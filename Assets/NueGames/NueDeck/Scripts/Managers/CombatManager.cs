@@ -6,6 +6,7 @@ using NueGames.NueDeck.Scripts.Characters.Enemies;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.NueExtentions;
+using NueGames.NueDeck.Scripts.Power;
 using NueGames.NueDeck.Scripts.Utils.Background;
 using UnityEngine;
 
@@ -85,7 +86,6 @@ namespace NueGames.NueDeck.Scripts.Managers
             backgroundContainer.OpenSelectedBackground();
           
             CollectionManager.SetGameDeck();
-            GameManager.PersistentGameplayData.CurrentMathMana = 0;
            
             UIManager.CombatCanvas.gameObject.SetActive(true);
             UIManager.InformationCanvas.gameObject.SetActive(true);
@@ -165,14 +165,8 @@ namespace NueGames.NueDeck.Scripts.Managers
             GameManager.PersistentGameplayData.CurrentMana += target;
             UIManager.CombatCanvas.SetPileTexts();
         }
-        
-        public void IncreaseMathMana(int target)
-        {
-            GameManager.PersistentGameplayData.CurrentMathMana += target;
-            UIManager.CombatCanvas.SetPileTexts();
-        }
-        
-        
+
+
         public List<CharacterBase> EnemyDetermineTargets(CharacterBase enemyCharacter,
             ActionTargetType actionTargetType)
         {
@@ -203,6 +197,16 @@ namespace NueGames.NueDeck.Scripts.Managers
         public void SetSelectedEnemy(EnemyBase selectedEnemy)
         {
             CurrentSelectedEnemy = selectedEnemy;
+        }
+
+        public Dictionary<PowerType, PowerBase> GetMainAllyPowerDict()
+        {
+            return CurrentMainAlly.GetPowerDict();
+        }
+
+        public void SpendPower(PowerType powerType, int value)
+        {
+            CurrentMainAlly.CharacterStats.ReducePower(powerType, value);
         }
         
         #endregion

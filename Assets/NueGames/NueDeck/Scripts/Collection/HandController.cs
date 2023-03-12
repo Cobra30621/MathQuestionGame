@@ -170,7 +170,7 @@ namespace NueGames.NueDeck.Scripts.Collection
                 var cardTransform = card.transform;
 
                 // Set to inactive material if not enough mana required to use card
-                card.SetInactiveMaterialState(!PlayCardJudgment.EnoughManaToUseCard(card));
+                card.SetInactiveMaterialState(!PlayCardJudgment.EnoughResourceToUseCard(card));
 
                 var noCardHeld = _heldCard == null; // Whether a card is "held" (outside of hand)
                 var onSelectedCard = noCardHeld && _selected == i;

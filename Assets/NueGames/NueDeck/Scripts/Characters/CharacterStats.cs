@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NueGames.NueDeck.Scripts.Enums;
+using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.Power;
 using UnityEngine;
 
@@ -31,7 +32,7 @@ namespace NueGames.NueDeck.Scripts.Characters
     }
     public class CharacterStats
     {
-        private CharacterBase owner;
+        private readonly CharacterBase owner;
         public int MaxHealth { get; set; }
         public int CurrentHealth { get; set; }
         public bool IsStunned { get;  set; }
@@ -39,15 +40,17 @@ namespace NueGames.NueDeck.Scripts.Characters
        
         public Action OnDeath;
         public Action<int, int> OnHealthChanged;
-        private readonly Action<PowerType,int> OnStatusChanged;
-        private readonly Action<PowerType, int> OnStatusApplied;
-        private readonly Action<PowerType> OnStatusCleared;
+        public Action<PowerType, int> OnPowerApplied;
+        public Action<PowerType, int> OnPowerChanged;
+        public Action<PowerType> OnPowerCleared;
+        
         public Action OnHealAction;
         public Action OnTakeDamageAction;
         public Action OnShieldGained;
         
-        public readonly Dictionary<PowerType, StatusStats> StatusDict = new Dictionary<PowerType, StatusStats>();
-        public Dictionary<PowerType, PowerBase> PowerDict = new Dictionary<PowerType, PowerBase>();
+        public EventManager EventManager => EventManager.Instance;
+        
+        public readonly Dictionary<PowerType, PowerBase> PowerDict = new Dictionary<PowerType, PowerBase>();
 
         #region Setup
         public CharacterStats(int maxHealth, CharacterCanvas characterCanvas, CharacterBase characterBase)
@@ -55,43 +58,24 @@ namespace NueGames.NueDeck.Scripts.Characters
             owner = characterBase;
             MaxHealth = maxHealth;
             CurrentHealth = maxHealth;
-            SetAllStatus();
+            
+            OnPowerApplied += characterCanvas.ApplyStatus;
+            OnPowerChanged += characterCanvas.UpdateStatusText;
+            OnPowerCleared += characterCanvas.ClearStatus;
             
             OnHealthChanged += characterCanvas.UpdateHealthInfo;
-            OnStatusChanged += characterCanvas.UpdateStatusText;
-            OnStatusApplied += characterCanvas.ApplyStatus;
-            OnStatusCleared += characterCanvas.ClearStatus;
         }
 
-        private void SetAllStatus()
-        {
-            for (int i = 0; i < Enum.GetNames(typeof(PowerType)).Length; i++)
-                StatusDict.Add((PowerType) i, new StatusStats((PowerType) i, 0));
-
-            StatusDict[PowerType.Poison].DecreaseOverTurn = true;
-            StatusDict[PowerType.Poison].OnTriggerAction += DamagePoison;
-
-            StatusDict[PowerType.Block].ClearAtNextTurn = true;
-
-            StatusDict[PowerType.Strength].CanNegativeStack = true;
-            StatusDict[PowerType.Dexterity].CanNegativeStack = true;
-            
-            StatusDict[PowerType.Stun].DecreaseOverTurn = true;
-            StatusDict[PowerType.Stun].OnTriggerAction += CheckStunStatus;
-            
-            StatusDict[PowerType.Vulnerable].DecreaseOverTurn = true;
-            StatusDict[PowerType.Weak].DecreaseOverTurn = true;
-            
-        }
+        
         #endregion
         
         #region Public Methods
-        public void ApplyStatus(PowerType targetPower,int value)
+        public void ApplyPower(PowerType targetPower,int value)
         {
+            Debug.Log($"{owner.name} apply {targetPower} {value}");
             if (PowerDict.ContainsKey(targetPower))
             {
                 PowerDict[targetPower].StackPower(value);
-                OnStatusChanged?.Invoke(targetPower, PowerDict[targetPower].Value);
             }
             else
             {
@@ -99,16 +83,21 @@ namespace NueGames.NueDeck.Scripts.Characters
                 powerBase.Owner = owner;
                 powerBase.StackPower(value);
                 
-                
                 PowerDict.Add(targetPower, powerBase);
-                OnStatusApplied?.Invoke(targetPower, PowerDict[targetPower].Value);
             }
         }
 
-        public void TriggerAllStatus()
+        public void ReducePower(PowerType targetPower,int value)
         {
-            for (int i = 0; i < Enum.GetNames(typeof(PowerType)).Length; i++)
-                TriggerStatus((PowerType) i);
+            PowerDict[targetPower].ReducePower(value);
+        }
+
+        public void HandleAllPowerOnTurnStart()
+        {
+            foreach (PowerBase power in PowerDict.Values)
+            {
+                power.OnTurnStarted();
+            }
         }
         
         public void SetCurrentHealth(int targetCurrentHealth)
@@ -132,15 +121,15 @@ namespace NueGames.NueDeck.Scripts.Characters
             
             if (!canPierceArmor)
             {
-                if (StatusDict[PowerType.Block].IsActive)
+                if (PowerDict.ContainsKey(PowerType.Block))
                 {
-                    ApplyStatus(PowerType.Block,-value);
+                    ApplyPower(PowerType.Block,-value);
 
                     remainingDamage = 0;
-                    if (StatusDict[PowerType.Block].StatusValue <= 0)
+                    if (PowerDict[PowerType.Block].Value <= 0)
                     {
-                        remainingDamage = StatusDict[PowerType.Block].StatusValue * -1;
-                        ClearStatus(PowerType.Block);
+                        remainingDamage = PowerDict[PowerType.Block].Value * -1;
+                        ClearPower(PowerType.Block);
                     }
                 }
             }
@@ -164,75 +153,16 @@ namespace NueGames.NueDeck.Scripts.Characters
 
         public void ClearAllStatus()
         {
-            foreach (var status in StatusDict)
-                ClearStatus(status.Key);
+            foreach (var power in PowerDict)
+                ClearPower(power.Key);
         }
            
-        public void ClearStatus(PowerType targetPower)
+        public void ClearPower(PowerType targetPower)
         {
-            StatusDict[targetPower].IsActive = false;
-            StatusDict[targetPower].StatusValue = 0;
-            OnStatusCleared?.Invoke(targetPower);
+            PowerDict[targetPower].ClearPower();
         }
 
         #endregion
 
-        #region Private Methods
-        private void TriggerStatus(PowerType targetPower)
-        {
-            StatusDict[targetPower].OnTriggerAction?.Invoke();
-            
-            //One turn only statuses
-            if (StatusDict[targetPower].ClearAtNextTurn)
-            {
-                ClearStatus(targetPower);
-                OnStatusChanged?.Invoke(targetPower, StatusDict[targetPower].StatusValue);
-                return;
-            }
-            
-            //Check status
-            if (StatusDict[targetPower].StatusValue <= 0)
-            {
-                if (StatusDict[targetPower].CanNegativeStack)
-                {
-                    if (StatusDict[targetPower].StatusValue == 0 && !StatusDict[targetPower].IsPermanent)
-                        ClearStatus(targetPower);
-                }
-                else
-                {
-                    if (!StatusDict[targetPower].IsPermanent)
-                        ClearStatus(targetPower);
-                }
-            }
-            
-            if (StatusDict[targetPower].DecreaseOverTurn) 
-                StatusDict[targetPower].StatusValue--;
-            
-            if (StatusDict[targetPower].StatusValue == 0)
-                if (!StatusDict[targetPower].IsPermanent)
-                    ClearStatus(targetPower);
-            
-            OnStatusChanged?.Invoke(targetPower, StatusDict[targetPower].StatusValue);
-        }
-        
-     
-        private void DamagePoison()
-        {
-            if (StatusDict[PowerType.Poison].StatusValue<=0) return;
-            Damage(StatusDict[PowerType.Poison].StatusValue,true);
-        }
-        
-        public void CheckStunStatus()
-        {
-            // if (PowerDict[PowerType.Stun].Value <= 0)
-            // {
-            //     IsStunned = false;
-            //     return;
-            // }
-            //
-            // IsStunned = true;
-        }
-        
-        #endregion
     }
 }

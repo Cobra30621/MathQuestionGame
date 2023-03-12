@@ -17,8 +17,9 @@ MonoBehaviour:
   manaCost: 0
   cardSprite: {fileID: 21300000, guid: 1113310f8619a8747b68ee8b7fc7d63d, type: 3}
   rarity: 0
-  needMathManaToPlay: 0
-  mathManaCost: 0
+  needPowerToPlay: 1
+  needPowerType: 9
+  powerCost: 2
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
@@ -75,11 +76,17 @@ MonoBehaviour:
     actionValue: 17
     additionValue: 0
     actionDelay: 0
-  limitedQuestionCardActionDataList: []
+  limitedQuestionCardActionDataList:
+  - gameActionType: 0
+    actionTargetType: 0
+    powerType: 0
+    actionValue: 0
+    additionValue: 0
+    actionDelay: 0
   mathQuestioningActionParameters:
     UseMathAction: 1
     QuestioningEndJudgeType: 1
-    QuestionCount: 5
+    QuestionCount: 2
     UseCorrectAction: 1
     CorrectActionNeedAnswerCount: 2
     UseWrongAction: 1

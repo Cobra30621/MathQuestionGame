@@ -21,8 +21,9 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private int manaCost;
         [SerializeField] private Sprite cardSprite;
         [SerializeField] private RarityType rarity;
-        [SerializeField] private bool needMathManaToPlay;
-        [SerializeField] private int mathManaCost;
+        [SerializeField] private bool needPowerToPlay;
+        [SerializeField] private PowerType needPowerType;
+        [SerializeField] private int powerCost;
         
         [Header("Action Settings")]
         [SerializeField] private bool usableWithoutTarget;
@@ -46,8 +47,9 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public string Id => id;
         public bool UsableWithoutTarget => usableWithoutTarget;
         public int ManaCost => manaCost;
-        public bool NeedMathManaToPlay => needMathManaToPlay;
-        public int MathManaCost => mathManaCost;
+        public bool NeedPowerToPlay => needPowerToPlay;
+        public PowerType NeedPowerType => needPowerType;
+        public int PowerCost => powerCost;
         public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
         public List<CardActionData> CardActionDataList => cardActionDataList;
@@ -103,6 +105,9 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditCardName(string newName) => cardName = newName;
         public void EditId(string newId) => id = newId;
         public void EditManaCost(int newCost) => manaCost = newCost;
+        public void EditNeedPowerToPlay(bool newValue) => needPowerToPlay = newValue;
+        public void EditNeedPowerType(PowerType powerType) => needPowerType = powerType;
+        public void EditPowerCost(int newValue) => powerCost = newValue;
         public void EditRarity(RarityType targetRarity) => rarity = targetRarity;
         public void EditCardSprite(Sprite newSprite) => cardSprite = newSprite;
         public void EditUsableWithoutTarget(bool newStatus) => usableWithoutTarget = newStatus;
@@ -313,7 +318,9 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 var player = CombatManager.CurrentMainAlly;
                 if (player)
                 {
-                    var modifer =player.CharacterStats.StatusDict[ModiferStats].StatusValue;
+                    // TODO: 修正
+                    // var modifer = player.CharacterStats.StatusDict[ModiferStats].StatusValue;
+                    var modifer = 0;
                     value += modifer;
                 
                     if (modifer!= 0)

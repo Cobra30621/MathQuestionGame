@@ -29,6 +29,9 @@ namespace NueGames.NueDeck.Editor
         private string CardId { get; set; }
         private string CardName{ get; set; }
         private int ManaCost{ get; set; }
+        private bool NeedPowerToPlay { get; set; }
+        private PowerType NeedPowerType { get; set; }
+        private int PowerCost { get; set; }
         private Sprite CardSprite{ get; set; }
         private bool UsableWithoutTarget{ get; set; }
         private bool ExhaustAfterPlay{ get; set; }
@@ -41,17 +44,18 @@ namespace NueGames.NueDeck.Editor
         private bool UseMathAction { get => useMathAction; 
             set
             {
+                bool previousMathAction = useMathAction;
                 useMathAction = value;
-                if (useMathAction)  // 使用 MathAction ，自動將 CardAction 的 GameActionType 變成EnterMathQuestioning
+                if (previousMathAction != useMathAction)
                 {
-                    CardActionDataList.Clear();
-                    CardActionData cardActionData = new CardActionData();
-                    cardActionData.EditActionType(GameActionType.EnterMathQuestioning);
-                    CardActionDataList.Add(cardActionData);
-                }
-                else
-                {
-                    CardActionDataList.Clear();
+                    if (useMathAction)  // 使用 MathAction ，自動將 CardAction 的 GameActionType 變成EnterMathQuestioning
+                    {
+                        CardActionDataList.Clear();
+                        CardActionData cardActionData = new CardActionData();
+                        cardActionData.EditActionType(GameActionType.EnterMathQuestioning);
+                        CardActionDataList.Add(cardActionData);
+                    }
+                    Debug.Log("useMathAction" + useMathAction);
                 }
             }
         }
@@ -80,6 +84,9 @@ namespace NueGames.NueDeck.Editor
             CardId = SelectedCardData.Id;
             CardName = SelectedCardData.CardName;
             ManaCost = SelectedCardData.ManaCost;
+            NeedPowerToPlay = SelectedCardData.NeedPowerToPlay;
+            NeedPowerType = NeedPowerType;
+            PowerCost = SelectedCardData.PowerCost;
             CardSprite = SelectedCardData.CardSprite;
             UsableWithoutTarget = SelectedCardData.UsableWithoutTarget;
             ExhaustAfterPlay = SelectedCardData.ExhaustAfterPlay;
@@ -98,6 +105,7 @@ namespace NueGames.NueDeck.Editor
             CardRarity = SelectedCardData.Rarity;
 
             MathQuestioningActionParameters parameters = SelectedCardData.MathQuestioningActionParameters;
+            UseMathAction = parameters.UseMathAction;
             QuestionCount = parameters.QuestionCount;
             UseCorrectAction = parameters.UseCorrectAction;
             CorrectActionNeedAnswerCount = parameters.CorrectActionNeedAnswerCount;
@@ -110,6 +118,9 @@ namespace NueGames.NueDeck.Editor
             CardId = String.Empty;
             CardName = String.Empty;
             ManaCost = 0;
+            NeedPowerToPlay = false;
+            NeedPowerType = PowerType.MathMana;
+            PowerCost = 0;
             CardSprite = null;
             UsableWithoutTarget = false;
             ExhaustAfterPlay = false;
@@ -122,7 +133,8 @@ namespace NueGames.NueDeck.Editor
             SpecialKeywordsList?.Clear();
             AudioType = AudioActionType.Attack;
             CardRarity = RarityType.Common;
-            
+
+            UseMathAction = false;
             QuestionCount = 0;
             UseCorrectAction = false;
             CorrectActionNeedAnswerCount = 0;
@@ -290,7 +302,17 @@ namespace NueGames.NueDeck.Editor
         {
             ManaCost = EditorGUILayout.IntField("Mana Cost:", ManaCost);
         }
-        
+
+        private void ChangeNeedPowerToPlay()
+        {
+            NeedPowerToPlay = EditorGUILayout.Toggle("需要消耗能力才能觸發卡片", NeedPowerToPlay);
+            if (NeedPowerToPlay)
+            {
+                NeedPowerType = (PowerType) EditorGUILayout.EnumPopup("需要消耗的能力", NeedPowerType, GUILayout.Width(250));
+                PowerCost = EditorGUILayout.IntField("消耗能力數量", PowerCost);
+            }
+        }
+
         private void ChangeRarity()
         { 
             CardRarity = (RarityType) EditorGUILayout.EnumPopup("Rarity: ",CardRarity,GUILayout.Width(250));
@@ -328,6 +350,7 @@ namespace NueGames.NueDeck.Editor
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.BeginVertical();
             ChangeManaCost();
+            ChangeNeedPowerToPlay();
             ChangeRarity();
             ChangeUsableWithoutTarget();
             ChangeExhaustAfterPlay();
@@ -662,6 +685,10 @@ namespace NueGames.NueDeck.Editor
             SelectedCardData.EditId(CardId);
             SelectedCardData.EditCardName(CardName);
             SelectedCardData.EditManaCost(ManaCost);
+            SelectedCardData.EditNeedPowerToPlay(NeedPowerToPlay);
+            SelectedCardData.EditNeedPowerType(NeedPowerType);
+            SelectedCardData.EditPowerCost(PowerCost);
+            
             SelectedCardData.EditCardSprite(CardSprite);
             SelectedCardData.EditUsableWithoutTarget(UsableWithoutTarget);
             SelectedCardData.EditExhaustAfterPlay(ExhaustAfterPlay);

@@ -13,8 +13,10 @@ namespace NueGames.NueDeck.Scripts.Managers
         public static EventManager Instance { get; private set; }
         
         public Action<DamageInfo, int> onAttacked;
-        public Action<PowerType> OnPowerApplied;
-        public Action<PowerType> OnPowerCleared;
+        // public Action<PowerType, int> OnPowerApplied;
+        // public Action<PowerType, int> OnPowerChanged;
+        // public Action<PowerType> OnPowerCleared;
+        public Action<int> OnQuestioningModeEnd;
 
         private void Awake()
         {

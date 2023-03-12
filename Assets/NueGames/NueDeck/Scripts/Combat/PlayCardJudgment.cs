@@ -1,6 +1,9 @@
-﻿using NueGames.NueDeck.Scripts.Card;
+﻿using System.Collections.Generic;
+using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Data.Collection;
+using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
+using NueGames.NueDeck.Scripts.Power;
 using UnityEngine;
 using CombatManager = NueGames.NueDeck.Scripts.Managers.CombatManager;
 
@@ -9,18 +12,20 @@ namespace NueGames.NueDeck.Scripts.Combat
     public static class PlayCardJudgment
     {
         public static GameManager GameManager => GameManager.Instance;
+        public static CombatManager CombatManager => CombatManager.Instance;
 
         public static bool CanUseCard(CardBase cardBase)
         {
-            return GameManager.PersistentGameplayData.CanUseCards && EnoughManaToUseCard(cardBase);
+            return GameManager.PersistentGameplayData.CanUseCards && EnoughResourceToUseCard(cardBase);
         }
 
-        public static bool EnoughManaToUseCard(CardBase cardBase)
+        public static bool EnoughResourceToUseCard(CardBase cardBase)
         {
             CardData cardData = cardBase.CardData;
-            if (cardData.NeedMathManaToPlay)
+            if (cardData.NeedPowerToPlay)
             {
-                return EnoughMana(cardData.ManaCost) && EnoughMathMana(cardData.MathManaCost);
+                return EnoughMana(cardData.ManaCost) && 
+                       EnoughPower(cardData.NeedPowerType, cardData.PowerCost, CombatManager.GetMainAllyPowerDict());
             }
             else
             {
@@ -33,9 +38,19 @@ namespace NueGames.NueDeck.Scripts.Combat
             return GameManager.PersistentGameplayData.CurrentMana >= needMana;
         }
         
-        private static bool EnoughMathMana(int needMathMana)
+
+        private static bool EnoughPower(PowerType needPower, int needCount, Dictionary<PowerType, PowerBase> PowerDict)
         {
-            return GameManager.PersistentGameplayData.CurrentMathMana >= needMathMana;
+            bool enoughPower = false;
+            if (PowerDict.ContainsKey(needPower))
+            {
+                if (PowerDict[needPower].Value >= needCount)
+                {
+                    enoughPower = true;
+                }
+            }
+
+            return enoughPower;
         }
     }
 }

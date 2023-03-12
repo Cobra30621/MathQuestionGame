@@ -13,7 +13,7 @@ namespace NueGames.NueDeck.Scripts.EnemyBehaviour.EnemyActions
 
             if (!newTarget) return;
             
-            newTarget.CharacterStats.ApplyStatus(PowerType.Poison,Mathf.RoundToInt(actionParameters.Value));
+            newTarget.CharacterStats.ApplyPower(PowerType.Poison,Mathf.RoundToInt(actionParameters.Value));
             
             if (FxManager != null) 
                 FxManager.PlayFx(newTarget.transform, FxType.Poison);

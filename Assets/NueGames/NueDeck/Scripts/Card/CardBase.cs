@@ -90,7 +90,8 @@ namespace NueGames.NueDeck.Scripts.Card
             HideTooltipInfo(TooltipManager.Instance);
             
             SpendMana( CardData.ManaCost);
-            SpendMathMana(CardData.MathManaCost);
+            if(CardData.NeedPowerToPlay)
+                SpendPower(CardData.NeedPowerType, CardData.PowerCost);
 
             List<GameActionBase> gameActions = GameActionManager.GetGameActions(CardData, CardData.CardActionDataList, self, target);
             GameActionManager.AddToBottom(gameActions);
@@ -150,10 +151,11 @@ namespace NueGames.NueDeck.Scripts.Card
             GameManager.PersistentGameplayData.CurrentMana -= value;
         }
         
-        protected virtual void SpendMathMana(int value)
+        protected virtual void SpendPower(PowerType powerType, int value)
         {
             if (!IsPlayable) return;
-            GameManager.PersistentGameplayData.CurrentMathMana -= value;
+            Debug.Log("powerType" + powerType + "value" + value);
+            CombatManager.SpendPower(powerType, value);
         }
         
         public virtual void SetInactiveMaterialState(bool isInactive) 

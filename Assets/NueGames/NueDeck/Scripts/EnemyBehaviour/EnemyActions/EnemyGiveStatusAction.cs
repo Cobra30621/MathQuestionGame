@@ -14,7 +14,7 @@ namespace NueGames.NueDeck.Scripts.EnemyBehaviour.EnemyActions
             if (!newTarget) return;
 
             PowerType powerType = actionParameters.ActionData.PowerType;
-            newTarget.CharacterStats.ApplyStatus(powerType,Mathf.RoundToInt(actionParameters.Value));
+            newTarget.CharacterStats.ApplyPower(powerType,Mathf.RoundToInt(actionParameters.Value));
             
             if (FxManager != null) 
                 FxManager.PlayFx(newTarget.transform, FxType.Poison);

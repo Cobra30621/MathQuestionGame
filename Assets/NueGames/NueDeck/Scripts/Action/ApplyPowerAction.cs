@@ -30,7 +30,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         {
             if (!Target) return;
             
-            Target.CharacterStats.ApplyStatus(powerType,Mathf.RoundToInt(Value));
+            Target.CharacterStats.ApplyPower(powerType,Mathf.RoundToInt(Value));
             
             PlayFx();
             PlayAudio();
