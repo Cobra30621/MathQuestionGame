@@ -33,6 +33,7 @@ namespace NueGames.NueDeck.Editor
         private PowerType NeedPowerType { get; set; }
         private int PowerCost { get; set; }
         private Sprite CardSprite{ get; set; }
+        private ActionTargetType ActionTargetType { get; set; }
         private bool UsableWithoutTarget{ get; set; }
         private bool ExhaustAfterPlay{ get; set; }
         private List<CardActionData> CardActionDataList{ get; set; }
@@ -88,6 +89,7 @@ namespace NueGames.NueDeck.Editor
             NeedPowerType = NeedPowerType;
             PowerCost = SelectedCardData.PowerCost;
             CardSprite = SelectedCardData.CardSprite;
+            ActionTargetType = SelectedCardData.ActionTargetType;
             UsableWithoutTarget = SelectedCardData.UsableWithoutTarget;
             ExhaustAfterPlay = SelectedCardData.ExhaustAfterPlay;
             CardActionDataList = SelectedCardData.CardActionDataList.Count>0 
@@ -123,6 +125,7 @@ namespace NueGames.NueDeck.Editor
             PowerCost = 0;
             CardSprite = null;
             UsableWithoutTarget = false;
+            ActionTargetType = ActionTargetType.Enemy;
             ExhaustAfterPlay = false;
             CardActionDataList?.Clear();
             CorrectCardActionDataList?.Clear();
@@ -324,6 +327,14 @@ namespace NueGames.NueDeck.Editor
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
         }
+
+        private void ChangeActionTargetType()
+        {
+            ActionTargetType =
+                (ActionTargetType)EditorGUILayout.EnumPopup("Action Target Type: ", ActionTargetType,
+                    GUILayout.Width(250));
+        }
+        
         private void ChangeUsableWithoutTarget()
         {
             UsableWithoutTarget = EditorGUILayout.Toggle("Usable Without Target:", UsableWithoutTarget);
@@ -352,6 +363,7 @@ namespace NueGames.NueDeck.Editor
             ChangeManaCost();
             ChangeNeedPowerToPlay();
             ChangeRarity();
+            ChangeActionTargetType();
             ChangeUsableWithoutTarget();
             ChangeExhaustAfterPlay();
             ChangeAudioActionType();
@@ -492,10 +504,8 @@ namespace NueGames.NueDeck.Editor
                 
             if (newActionType != GameActionType.Exhaust)
             {
-                var newActionTarget = (ActionTargetType)EditorGUILayout.EnumPopup("Target Type",cardActionData.ActionTargetType,GUILayout.Width(250));
                 var newActionValue = EditorGUILayout.IntField("Action Value: ",cardActionData.ActionValue);
                 cardActionData.EditActionValue(newActionValue);
-                cardActionData.EditActionTarget(newActionTarget);
             }
 
             if (newActionType == GameActionType.AccordingToQuestioning)
@@ -690,6 +700,7 @@ namespace NueGames.NueDeck.Editor
             SelectedCardData.EditPowerCost(PowerCost);
             
             SelectedCardData.EditCardSprite(CardSprite);
+            SelectedCardData.EditActionTargetType(ActionTargetType);
             SelectedCardData.EditUsableWithoutTarget(UsableWithoutTarget);
             SelectedCardData.EditExhaustAfterPlay(ExhaustAfterPlay);
             

@@ -20,11 +20,10 @@ MonoBehaviour:
   needPowerToPlay: 0
   needPowerType: 9
   powerCost: 0
-  usableWithoutTarget: 0
+  actionTargetType: 1
   exhaustAfterPlay: 0
   cardActionDataList:
   - gameActionType: 2
-    actionTargetType: 1
     powerType: 9
     actionValue: 5
     additionValue: 0
@@ -37,7 +36,7 @@ MonoBehaviour:
   limitedQuestionCardActionDataList: []
   mathQuestioningActionParameters:
     UseMathAction: 0
-    QuestioningEndJudgeType: 1
+    QuestioningEndJudgeType: 0
     QuestionCount: -1
     UseCorrectAction: 0
     CorrectActionNeedAnswerCount: 2

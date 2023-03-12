@@ -6,6 +6,6 @@
         Ally,
         AllEnemies,
         RandomEnemy,
-        None
+        WithoutTarget
     }
 }

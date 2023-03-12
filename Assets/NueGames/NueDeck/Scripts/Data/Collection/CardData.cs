@@ -26,6 +26,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private int powerCost;
         
         [Header("Action Settings")]
+        [SerializeField] private ActionTargetType actionTargetType;
         [SerializeField] private bool usableWithoutTarget;
         [SerializeField] private bool exhaustAfterPlay;
         [SerializeField] private List<CardActionData> cardActionDataList;
@@ -46,6 +47,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         #region Cache
         public string Id => id;
         public bool UsableWithoutTarget => usableWithoutTarget;
+        public ActionTargetType ActionTargetType => actionTargetType;
         public int ManaCost => manaCost;
         public bool NeedPowerToPlay => needPowerToPlay;
         public PowerType NeedPowerType => needPowerType;
@@ -111,6 +113,9 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditRarity(RarityType targetRarity) => rarity = targetRarity;
         public void EditCardSprite(Sprite newSprite) => cardSprite = newSprite;
         public void EditUsableWithoutTarget(bool newStatus) => usableWithoutTarget = newStatus;
+        
+        public void EditActionTargetType(ActionTargetType newActionTargetType) =>
+            actionTargetType = newActionTargetType;
         public void EditExhaustAfterPlay(bool newStatus) => exhaustAfterPlay = newStatus;
         public void EditCardActionDataList(List<CardActionData> newCardActionDataList) =>
             cardActionDataList = newCardActionDataList;
@@ -156,13 +161,11 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
     public class CardActionData
     {
         [SerializeField] private GameActionType gameActionType;
-        [SerializeField] private ActionTargetType actionTargetType;
         [SerializeField] private PowerType powerType;
         [SerializeField] private int actionValue;
         [SerializeField] private int additionValue;
         [SerializeField] private float actionDelay;
 
-        public ActionTargetType ActionTargetType => actionTargetType;
         public GameActionType GameActionType => gameActionType;
         public PowerType PowerType => powerType;
         public int ActionValue => actionValue;
@@ -175,7 +178,6 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 
 #if UNITY_EDITOR
         public void EditActionType(GameActionType newType) =>  gameActionType = newType;
-        public void EditActionTarget(ActionTargetType newTargetType) => actionTargetType = newTargetType;
         public void EditPower(PowerType newPowerType) => powerType = newPowerType;
         public void EditActionValue(int newValue) => actionValue = newValue;
         public void EditAdditionValue(int newValue) => additionValue = newValue;

@@ -80,7 +80,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
         public bool ActionTargetIsSingleEnemy()
         {
-            return CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Enemy;
+            return CardData.ActionTargetType == ActionTargetType.Enemy;
         }
         
         public virtual void Use(CharacterBase self,CharacterBase target, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
@@ -96,36 +96,6 @@ namespace NueGames.NueDeck.Scripts.Card
             List<GameActionBase> gameActions = GameActionManager.GetGameActions(CardData, CardData.CardActionDataList, self, target);
             GameActionManager.AddToBottom(gameActions);
             CollectionManager.OnCardPlayed(this);
-        }
-        
-
-        private List<CharacterBase> DetermineTargets(CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies,
-            CardActionData playerAction)
-        {
-            List<CharacterBase> targetList = new List<CharacterBase>();
-            switch (playerAction.ActionTargetType)
-            {
-                case ActionTargetType.Enemy:
-                    targetList.Add(targetCharacter);
-                    break;
-                case ActionTargetType.Ally:
-                    targetList.Add(targetCharacter);
-                    break;
-                case ActionTargetType.AllEnemies:
-                    foreach (var enemyBase in allEnemies)
-                        targetList.Add(enemyBase);
-                    break;
-                case ActionTargetType.RandomEnemy:
-                    if (allEnemies.Count>0)
-                        targetList.Add(allEnemies.RandomItem());
-                    break;
-                case ActionTargetType.None:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
-            return targetList;
         }
         
         public virtual void Discard()

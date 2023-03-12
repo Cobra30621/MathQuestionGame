@@ -10,23 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 3-Block_Basic
+  m_Name: 3_block_basic
   m_EditorClassIdentifier: 
   id: 3_block_basic
   cardName: Basic block
   manaCost: 1
   cardSprite: {fileID: -1513487178384027574, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
+  rarity: 0
+  needPowerToPlay: 0
+  needPowerType: 9
+  powerCost: 0
+  actionTargetType: 1
   usableWithoutTarget: 1
+  exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 2
-    actionTargetType: 1
+  - gameActionType: 0
+    powerType: 0
     actionValue: 5
+    additionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Gain '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
+    cardActionDataListType: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
@@ -36,6 +44,7 @@ MonoBehaviour:
     enableOverrideColor: 1
     overrideColor: {r: 0, g: 0.41176474, b: 0.6666667, a: 1}
     useModifier: 1
+    cardActionDataListType: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 1
@@ -45,6 +54,7 @@ MonoBehaviour:
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
+    cardActionDataListType: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
@@ -52,3 +62,18 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 00000000
   audioType: 2
+  correctCardActionDataList: []
+  wrongCardActionDataList: []
+  limitedQuestionCardActionDataList: []
+  mathQuestioningActionParameters:
+    UseMathAction: 0
+    QuestioningEndJudgeType: 0
+    QuestionCount: -1
+    UseCorrectAction: 0
+    CorrectActionNeedAnswerCount: -1
+    UseWrongAction: 0
+    WrongActionNeedAnswerCount: -1
+    UseTimeCountDown: 0
+    Time: -1
+    SelfCharacter: {fileID: 0}
+    TargetCharacter: {fileID: 0}

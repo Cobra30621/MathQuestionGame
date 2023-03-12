@@ -17,13 +17,13 @@ MonoBehaviour:
   manaCost: 0
   cardSprite: {fileID: 0}
   rarity: 0
-  needMathManaToPlay: 0
-  mathManaCost: 0
-  usableWithoutTarget: 0
+  needPowerToPlay: 0
+  needPowerType: 9
+  powerCost: 0
+  actionTargetType: 0
   exhaustAfterPlay: 0
   cardActionDataList:
   - gameActionType: 8
-    actionTargetType: 0
     powerType: 0
     actionValue: 0
     additionValue: 0
@@ -46,7 +46,6 @@ MonoBehaviour:
   wrongCardActionDataList: []
   limitedQuestionCardActionDataList:
   - gameActionType: 10
-    actionTargetType: 0
     powerType: 0
     actionValue: 8
     additionValue: 3

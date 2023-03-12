@@ -296,7 +296,7 @@ namespace NueGames.NueDeck.Scripts.Collection
                     cardTransform.position = cardPos;
                 }
 
-                ActionTargetType actionTargetType = _heldCard.CardData.CardActionDataList[0].ActionTargetType;
+                ActionTargetType actionTargetType = _heldCard.CardData.ActionTargetType;
                 characterHighlightController.OnDraggedCardOutsideHand(actionTargetType);
 
                 if (!GameManager.PersistentGameplayData.CanSelectCards || _mouseInsideHand)
@@ -345,7 +345,9 @@ namespace NueGames.NueDeck.Scripts.Collection
                 CharacterBase selfCharacter = CombatManager.CurrentMainAlly;
                 CharacterBase targetCharacter = null;
 
-                _canUse = _heldCard.CardData.UsableWithoutTarget || CheckPlayOnCharacter(mainRay, _canUse, ref selfCharacter, ref targetCharacter);
+                _canUse = _heldCard.CardData.UsableWithoutTarget ||
+                          _heldCard.CardData.ActionTargetType == ActionTargetType.WithoutTarget ||
+                          CheckPlayOnCharacter(mainRay, _canUse, ref selfCharacter, ref targetCharacter);
                 
                 if (_canUse)
                 {
@@ -379,9 +381,9 @@ namespace NueGames.NueDeck.Scripts.Collection
 
                 if (character != null)
                 {
-                    var checkEnemy = (_heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Enemy &&
+                    var checkEnemy = (_heldCard.CardData.ActionTargetType == ActionTargetType.Enemy &&
                                       character.GetCharacterType() == CharacterType.Enemy);
-                    var checkAlly = (_heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Ally &&
+                    var checkAlly = (_heldCard.CardData.ActionTargetType == ActionTargetType.Ally &&
                                      character.GetCharacterType() == CharacterType.Ally);
 
                     if (checkEnemy || checkAlly)

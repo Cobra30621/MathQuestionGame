@@ -30,7 +30,7 @@ namespace NueGames.NueDeck.Scripts.Combat
                     ActivateAllAllyHighlights();
                     break;
                 case ActionTargetType.Enemy:
-                case ActionTargetType.None:
+                case ActionTargetType.WithoutTarget:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(targetTypeTargetType), targetTypeTargetType, null);

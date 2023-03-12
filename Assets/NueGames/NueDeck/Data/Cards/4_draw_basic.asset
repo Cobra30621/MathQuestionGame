@@ -10,19 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 4-Draw_Basic
+  m_Name: 4_draw_basic
   m_EditorClassIdentifier: 
   id: 4_draw_basic
   cardName: Basic draw
   manaCost: 0
   cardSprite: {fileID: 21300000, guid: 6d79f0e0e016ca64592cdb3293bf37da, type: 3}
   rarity: 0
+  needPowerToPlay: 0
+  needPowerType: 9
+  powerCost: 0
+  actionTargetType: 4
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 5
-    actionTargetType: 6
+  - gameActionType: 3
+    powerType: 0
     actionValue: 2
+    additionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Draw '
@@ -57,8 +62,18 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
   audioType: 4
-  useMathAction: 0
   correctCardActionDataList: []
   wrongCardActionDataList: []
-  correctActionNeedAnswerCount: 2
-  wrongActionNeedAnswerCount: 1
+  limitedQuestionCardActionDataList: []
+  mathQuestioningActionParameters:
+    UseMathAction: 0
+    QuestioningEndJudgeType: 0
+    QuestionCount: -1
+    UseCorrectAction: 0
+    CorrectActionNeedAnswerCount: -1
+    UseWrongAction: 0
+    WrongActionNeedAnswerCount: -1
+    UseTimeCountDown: 0
+    Time: -1
+    SelfCharacter: {fileID: 0}
+    TargetCharacter: {fileID: 0}
