@@ -395,6 +395,12 @@ namespace NueGames.NueDeck.Scripts.Collection
                 }
             }
 
+            if (_heldCard.CardData.UsableWithoutTarget ||
+                _heldCard.CardData.ActionTargetType == ActionTargetType.Ally)
+            {
+                targetCharacter = CombatManager.CurrentMainAlly;
+            }
+
             return _canUse;
         }
 

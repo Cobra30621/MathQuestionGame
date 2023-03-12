@@ -42,7 +42,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private List<CardActionData> correctCardActionDataList;
         [SerializeField] private List<CardActionData> wrongCardActionDataList;
         [SerializeField] private List<CardActionData> limitedQuestionCardActionDataList;
-        [SerializeField] private MathQuestioningActionParameters mathQuestioningActionParameters;
+        [SerializeField] private MathQuestioningActionParameters mathQuestioningActionParameters = new MathQuestioningActionParameters();
 
         #region Cache
         public string Id => id;

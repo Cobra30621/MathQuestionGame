@@ -12,7 +12,8 @@
         IncreaseMaxHealth,
         EnterMathQuestioning,
         EarnMathMana,
-        AccordingToQuestioning
+        AccordingToQuestioning,
+        DamageByAllyPowerValue
     }
 
     public enum CardActionDataListType

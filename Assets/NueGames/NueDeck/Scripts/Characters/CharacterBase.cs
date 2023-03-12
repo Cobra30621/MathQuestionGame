@@ -55,5 +55,15 @@ namespace NueGames.NueDeck.Scripts.Characters
         {
             return CharacterStats.PowerDict;
         }
+
+        public int GetPowerValue(PowerType powerType)
+        {
+            if (CharacterStats.PowerDict.ContainsKey(powerType))
+            {
+                return CharacterStats.PowerDict[powerType].Value;
+            }
+
+            return 0;
+        }
     }
 }

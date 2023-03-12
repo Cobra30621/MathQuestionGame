@@ -92,14 +92,10 @@ namespace NueGames.NueDeck.Editor
             ActionTargetType = SelectedCardData.ActionTargetType;
             UsableWithoutTarget = SelectedCardData.UsableWithoutTarget;
             ExhaustAfterPlay = SelectedCardData.ExhaustAfterPlay;
-            CardActionDataList = SelectedCardData.CardActionDataList.Count>0 
-                ? new List<CardActionData>(SelectedCardData.CardActionDataList) : new List<CardActionData>();
-            CorrectCardActionDataList = SelectedCardData.CorrectCardActionDataList.Count>0 
-                ? new List<CardActionData>(SelectedCardData.CorrectCardActionDataList) : new List<CardActionData>();
-            WrongCardActionDataList = SelectedCardData.WrongCardActionDataList.Count>0 ? 
-                new List<CardActionData>(SelectedCardData.WrongCardActionDataList) : new List<CardActionData>();
-            LimitedQuestionCardActionDataList = SelectedCardData.LimitedQuestionCardActionDataList.Count>0 ? 
-                new List<CardActionData>(SelectedCardData.LimitedQuestionCardActionDataList) : new List<CardActionData>();
+            CardActionDataList = SelectedCardData.CardActionDataList;
+            CorrectCardActionDataList = SelectedCardData.CorrectCardActionDataList;
+            WrongCardActionDataList = SelectedCardData.WrongCardActionDataList;
+            LimitedQuestionCardActionDataList = SelectedCardData.LimitedQuestionCardActionDataList;
             
             CardDescriptionDataList = SelectedCardData.CardDescriptionDataList.Count>0 ? new List<CardDescriptionData>(SelectedCardData.CardDescriptionDataList) : new List<CardDescriptionData>();
             SpecialKeywordsList = SelectedCardData.KeywordsList.Count>0 ? new List<SpecialKeywords>(SelectedCardData.KeywordsList) : new List<SpecialKeywords>();
@@ -400,16 +396,7 @@ namespace NueGames.NueDeck.Editor
             EditorGUILayout.EndFoldoutHeaderGroup();
             
         }
-
-        private bool IsUseMathAction()
-        {
-            if (CardActionDataList.Count == 0)
-            {
-                return false;
-            }
-            return CardActionDataList[0].GameActionType == GameActionType.EnterMathQuestioning;
-        }
-
+        
         private void ChangeMathActions()
         {
             QuestioningEndJudgeType = (QuestioningEndJudgeType)EditorGUILayout.EnumPopup
@@ -496,7 +483,7 @@ namespace NueGames.NueDeck.Editor
         {
             var newActionType = (GameActionType)EditorGUILayout.EnumPopup("Action Type",cardActionData.GameActionType,GUILayout.Width(250));
 
-            if (newActionType == GameActionType.ApplyPower)
+            if (newActionType == GameActionType.ApplyPower || newActionType == GameActionType.DamageByAllyPowerValue)
             {
                 var newPowerType = (PowerType)EditorGUILayout.EnumPopup("Power Type",cardActionData.PowerType,GUILayout.Width(250));
                 cardActionData.EditPower(newPowerType);

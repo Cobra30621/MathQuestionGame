@@ -31,11 +31,8 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         public override void DoAction()
         {
             int correctAnswerCount = QuestionManager.Instance.CorrectAnswerCount;
-            Debug.Log("correctAnswerCount" + correctAnswerCount);
-            Debug.Log("additionValue" + additionValue);
             
             Value = baseValue + correctAnswerCount * additionValue;
-            Debug.Log("Value" + Value);
             CardActionParameter newParameter = new CardActionParameter(
                 Value, 
                 cardParameter.TargetCharacter, 
