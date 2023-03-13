@@ -86,7 +86,7 @@ namespace NueGames.NueDeck.Editor
             CardName = SelectedCardData.CardName;
             ManaCost = SelectedCardData.ManaCost;
             NeedPowerToPlay = SelectedCardData.NeedPowerToPlay;
-            NeedPowerType = NeedPowerType;
+            NeedPowerType = SelectedCardData.NeedPowerType;
             PowerCost = SelectedCardData.PowerCost;
             CardSprite = SelectedCardData.CardSprite;
             ActionTargetType = SelectedCardData.ActionTargetType;
