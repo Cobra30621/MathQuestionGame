@@ -44,7 +44,6 @@ namespace NueGames.NueDeck.Scripts.Combat
         public static int GetBlockValue(float rawValue, CharacterBase selfCharacter)
         {
             float value = rawValue;
-            Debug.Log("selfCharacter.GetPowerDict()" + selfCharacter);
             foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
             {
                 value = powerBase.ModifyBlock(value);

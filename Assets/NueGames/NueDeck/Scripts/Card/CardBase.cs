@@ -124,7 +124,6 @@ namespace NueGames.NueDeck.Scripts.Card
         protected virtual void SpendPower(PowerType powerType, int value)
         {
             if (!IsPlayable) return;
-            Debug.Log("powerType" + powerType + "value" + value);
             CombatManager.SpendPower(powerType, value);
         }
         

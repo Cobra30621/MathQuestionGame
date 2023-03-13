@@ -60,6 +60,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         {
             if (!StatusDict.ContainsKey(targetPower))
             {
+                Debug.Log($"{targetPower} {value}");
                 var targetData = powersData.PowerList.FirstOrDefault(x => x.PowerType == targetPower);
                 if (targetData == null)
                 {

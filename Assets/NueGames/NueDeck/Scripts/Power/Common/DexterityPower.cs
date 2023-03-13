@@ -5,7 +5,7 @@ namespace NueGames.NueDeck.Scripts.Power
 {
     public class DexterityPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Vulnerable;
+        public override PowerType PowerType => PowerType.Dexterity;
 
         public DexterityPower()
         {

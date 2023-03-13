@@ -26,7 +26,6 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         public override void DoAction()
         {
             if (!Target) return;
-            Debug.Log("PowerType.Block" + PowerType.Block);
             Target.CharacterStats.ApplyPower(PowerType.Block,Mathf.RoundToInt(Value));
             
             PlayFx();

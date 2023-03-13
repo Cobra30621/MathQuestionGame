@@ -16,16 +16,7 @@ namespace NueGames.NueDeck.Scripts.Power
         public override void StackPower(int rawAmount)
         {
             int stackAmount = CombatCalculator.GetBlockValue(rawAmount, Owner);
-            Debug.Log(stackAmount);
-            if (IsActive)
-            {
-                Value += stackAmount;
-            }
-            else
-            {
-                Value = stackAmount;
-                IsActive = true;
-            }
+            base.StackPower(stackAmount);
         }
     }
 }

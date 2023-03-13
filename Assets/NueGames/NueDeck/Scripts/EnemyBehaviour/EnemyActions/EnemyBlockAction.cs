@@ -19,7 +19,7 @@ namespace NueGames.NueDeck.Scripts.EnemyBehaviour.EnemyActions
             
             newTarget.CharacterStats.ApplyPower(PowerType.Block,
                 Mathf.RoundToInt(actionParameters.Value + actionParameters.SelfCharacter.CharacterStats
-                    .PowerDict[PowerType.Dexterity].Value));
+                    .PowerDict[PowerType.Block].Value));
             
             if (FxManager != null)
                 FxManager.PlayFx(newTarget.transform,FxType.Block);

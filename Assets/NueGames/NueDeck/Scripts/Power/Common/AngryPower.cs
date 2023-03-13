@@ -5,7 +5,7 @@ namespace NueGames.NueDeck.Scripts.Power
 {
     public class AngryPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Strength;
+        public override PowerType PowerType => PowerType.Angry;
 
         
     }

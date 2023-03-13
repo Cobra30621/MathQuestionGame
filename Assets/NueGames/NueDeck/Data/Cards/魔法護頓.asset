@@ -21,11 +21,11 @@ MonoBehaviour:
   needPowerType: 9
   powerCost: 3
   actionTargetType: 1
-  usableWithoutTarget: 1
+  usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 2
-    powerType: 2
+  - gameActionType: 1
+    powerType: 1
     actionValue: 3
     additionValue: 0
     actionDelay: 0
