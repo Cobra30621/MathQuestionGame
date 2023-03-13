@@ -10,6 +10,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
 {
     public abstract class GameActionBase
     {
+        protected bool hasSetValue = false;
         public CharacterBase Target;
         public CharacterBase Self;
         public int Value;
@@ -29,7 +30,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         protected GameActionManager GameActionManager => GameActionManager.Instance;
 
 
-        public virtual void SetValue(CardActionParameters cardActionParameters){}
+        public virtual void SetValue(CardActionParameters parameters){}
 
         public abstract void DoAction();
 
@@ -76,6 +77,24 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         {
             Debug.Log($"{this.GetType()} \n " +
                       $"value{Value}");
+        }
+
+        protected void CheckHasSetValue()
+        {
+            if (!hasSetValue)
+            {
+                Debug.LogError($"{this.GetType()} hasn't set value.\n Please Call SetValue");
+            }
+        }
+
+        protected bool IsTargetNull()
+        {
+            if (!Target)
+            {
+                Debug.Log($"{GetType()} 找不到Target");
+            }
+
+            return !Target;
         }
     }
 }

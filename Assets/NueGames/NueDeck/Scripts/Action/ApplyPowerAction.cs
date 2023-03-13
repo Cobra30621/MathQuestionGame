@@ -17,18 +17,27 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             AudioActionType = AudioActionType.Power;
         }
         
-        public override void SetValue(CardActionParameters cardActionParameters)
+        public override void SetValue(CardActionParameters parameters)
         {
-            CardActionData data = cardActionParameters.CardActionData;
-            Target = cardActionParameters.TargetCharacter;
-            Duration = cardActionParameters.CardActionData.ActionDelay;
-            powerType = data.PowerType;
-            Value = data.ActionValue;
+            CardActionData data = parameters.CardActionData;
+            Duration = parameters.CardActionData.ActionDelay;
+            
+            SetValue(data.PowerType, data.ActionValue, parameters.TargetCharacter);
+        }
+
+        public void SetValue(PowerType applyPower, int powerValue, CharacterBase target)
+        {
+            powerType = applyPower;
+            Value = powerValue;
+            Target = target;
+
+            hasSetValue = true;
         }
         
         public override void DoAction()
         {
-            if (!Target) return;
+            CheckHasSetValue();
+            if (IsTargetNull()) return;
             
             Target.CharacterStats.ApplyPower(powerType,Mathf.RoundToInt(Value));
             

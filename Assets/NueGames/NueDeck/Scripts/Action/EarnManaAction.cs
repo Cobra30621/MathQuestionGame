@@ -14,15 +14,25 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             AudioActionType = AudioActionType.Power;
         }
 
-        public override void SetValue(CardActionParameters cardActionParameters)
+        public override void SetValue(CardActionParameters parameters)
         {
-            CardActionData data = cardActionParameters.CardActionData;
-            Value = data.ActionValue;
-            Duration = cardActionParameters.CardActionData.ActionDelay;
+            CardActionData data = parameters.CardActionData;
+            Duration = parameters.CardActionData.ActionDelay;
+            
+            SetValue(Value);
+        }
+
+        public void SetValue(int earnMana)
+        {
+            Value = earnMana;
+            
+            hasSetValue = true;
         }
         
         public override void DoAction()
         {
+            CheckHasSetValue();
+            
             if (CombatManager != null)
                 CombatManager.IncreaseMana(Mathf.RoundToInt(Value));
             else

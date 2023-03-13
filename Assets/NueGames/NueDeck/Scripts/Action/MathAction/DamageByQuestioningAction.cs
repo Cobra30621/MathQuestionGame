@@ -6,32 +6,25 @@ using NueGames.NueDeck.Scripts.Enums;
 
 namespace Assets.NueGames.NueDeck.Scripts.Action
 {
-    public class DamageByAllyPowerValueAction : GameActionBase
+    public class DamageByQuestioningAction : ByQuestioningActionBase
     {
         private DamageInfo damageInfo;
-        private PowerType accordingPowerType;
-        
-        public DamageByAllyPowerValueAction()
-        {
-            FxType = FxType.Attack;
-            AudioActionType = AudioActionType.Attack;
-        }
         
         public override void SetValue(CardActionParameters parameters)
         {
             CardActionData data = parameters.CardActionData;
-            damageInfo = new DamageInfo(parameters.Value, parameters.SelfCharacter);
             Duration = parameters.CardActionData.ActionDelay;
 
-            SetValue(new DamageInfo(parameters.Value, parameters.SelfCharacter),
-                parameters.TargetCharacter, data.PowerType);
+            SetValue(new DamageInfo(data.ActionValue, data.AdditionValue, parameters.SelfCharacter),
+                parameters.TargetCharacter);
         }
-
-        public void SetValue(DamageInfo info, CharacterBase target, PowerType accordingPower)
+        
+        public void SetValue(DamageInfo info, CharacterBase target)
         {
             damageInfo = info;
             Target = target;
-            accordingPowerType = accordingPower;
+            baseValue = info.Value;
+            additionValue = info.AddtionValue;
 
             hasSetValue = true;
         }
@@ -39,11 +32,12 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         public override void DoAction()
         {
             CheckHasSetValue();
-            damageInfo.Value  = CombatManager.CurrentMainAlly.GetPowerValue(accordingPowerType);
+            damageInfo.Value  = GetAddedValue();
             
             DamageAction gameActionBase = new DamageAction();
             gameActionBase.SetValue(damageInfo, Target);
             GameActionManager.AddToBottom(gameActionBase);
         }
+
     }
 }

@@ -103,6 +103,7 @@ namespace NueGames.NueDeck.Editor
             CardRarity = SelectedCardData.Rarity;
 
             MathQuestioningActionParameters parameters = SelectedCardData.MathQuestioningActionParameters;
+            QuestioningEndJudgeType = parameters.QuestioningEndJudgeType;
             UseMathAction = parameters.UseMathAction;
             QuestionCount = parameters.QuestionCount;
             UseCorrectAction = parameters.UseCorrectAction;
@@ -495,7 +496,7 @@ namespace NueGames.NueDeck.Editor
                 cardActionData.EditActionValue(newActionValue);
             }
 
-            if (newActionType == GameActionType.AccordingToQuestioning)
+            if (newActionType == GameActionType.DamageByQuestioningAction)
             {
                 var newAdditionValue = EditorGUILayout.IntField("AdditionValue: ",cardActionData.AdditionValue);
                 cardActionData.EditAdditionValue(newAdditionValue);

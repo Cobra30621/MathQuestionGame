@@ -22,19 +22,19 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             AudioActionType = AudioActionType.Attack;
         }
         
-        public override void SetValue(CardActionParameters cardActionParameters)
+        public override void SetValue(CardActionParameters parameters)
         {
-            CardData cardData = cardActionParameters.CardData;
-            Duration = cardActionParameters.CardActionData.ActionDelay;
-            Target = cardActionParameters.TargetCharacter;
-            Self = cardActionParameters.SelfCharacter;
+            CardData cardData = parameters.CardData;
+            Duration = parameters.CardActionData.ActionDelay;
+            Target = parameters.TargetCharacter;
+            Self = parameters.SelfCharacter;
 
-            parameters = cardData.MathQuestioningActionParameters;
-            parameters.TargetCharacter = cardActionParameters.TargetCharacter;
-            parameters.SelfCharacter  = cardActionParameters.SelfCharacter;
-            parameters.LimitedQuestionAction = GameActionManager.GetGameActions(cardData, cardData.LimitedQuestionCardActionDataList, Self, Target);
-            parameters.CorrectActions = GameActionManager.GetGameActions(cardData, cardData.CorrectCardActionDataList , Self, Target);
-            parameters.WrongActions = GameActionManager.GetGameActions(cardData, cardData.WrongCardActionDataList, Self, Target);
+            this.parameters = cardData.MathQuestioningActionParameters;
+            this.parameters.TargetCharacter = parameters.TargetCharacter;
+            this.parameters.SelfCharacter  = parameters.SelfCharacter;
+            this.parameters.LimitedQuestionAction = GameActionManager.GetGameActions(cardData, cardData.LimitedQuestionCardActionDataList, Self, Target);
+            this.parameters.CorrectActions = GameActionManager.GetGameActions(cardData, cardData.CorrectCardActionDataList , Self, Target);
+            this.parameters.WrongActions = GameActionManager.GetGameActions(cardData, cardData.WrongCardActionDataList, Self, Target);
         }
 
         public void SetValue(MathQuestioningActionParameters newParameters)

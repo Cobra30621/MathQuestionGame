@@ -12,7 +12,7 @@
         IncreaseMaxHealth,
         EnterMathQuestioning,
         EarnMathMana,
-        AccordingToQuestioning,
+        DamageByQuestioningAction,
         DamageByAllyPowerValue
     }
 

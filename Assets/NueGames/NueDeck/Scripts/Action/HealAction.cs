@@ -15,17 +15,26 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             AudioActionType = AudioActionType.Heal;
         }
         
-        public override void SetValue(CardActionParameters cardActionParameters)
+        public override void SetValue(CardActionParameters parameters)
         {
-            CardActionData data = cardActionParameters.CardActionData;
-            Value = data.ActionValue;
-            Target = cardActionParameters.TargetCharacter;
-            Duration = cardActionParameters.CardActionData.ActionDelay;
+            CardActionData data = parameters.CardActionData;
+            Duration = parameters.CardActionData.ActionDelay;
+            
+            SetValue(data.ActionValue,parameters.TargetCharacter);
+        }
+
+        public void SetValue(int healValue, CharacterBase target)
+        {
+            Value = healValue;
+            Target = target;
+
+            hasSetValue = true;
         }
         
         public override void DoAction()
         {
-            if (!Target) return;
+            CheckHasSetValue();
+            if (IsTargetNull()) return;
             
             Target.CharacterStats.Heal(Mathf.RoundToInt(Value));
 

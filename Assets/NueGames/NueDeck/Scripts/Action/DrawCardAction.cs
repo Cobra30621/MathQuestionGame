@@ -8,16 +8,19 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
 {
     public class DrawCardAction : GameActionBase
     {
-        public DrawCardAction()
+        public override void SetValue(CardActionParameters parameters)
         {
+            CardActionData data = parameters.CardActionData;
+            Duration = parameters.CardActionData.ActionDelay;
             
+            SetValue(data.ActionValue);
         }
-
-        public override void SetValue(CardActionParameters cardActionParameters)
+        
+        public void SetValue(int drawCard)
         {
-            CardActionData data = cardActionParameters.CardActionData;
-            Value = data.ActionValue;
-            Duration = cardActionParameters.CardActionData.ActionDelay;
+            Value = drawCard;
+
+            hasSetValue = true;
         }
         
         public override void DoAction()
