@@ -10,50 +10,70 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 1-Attack_Basic
+  m_Name: "\u6E2C\u8A66\u7528_\u62BD 10 \u5F35\u5361"
   m_EditorClassIdentifier: 
-  id: 1_attack_basic
-  cardName: Basic Attack
-  manaCost: 1
-  cardSprite: {fileID: 21300000, guid: 8510ca3a47f6c23479e9992c04455698, type: 3}
+  id: "\u6E2C\u8A66\u7528_\u62BD 10 \u5F35\u5361"
+  cardName: "\u6E2C\u8A66\u7528_\u62BD 10 \u5F35\u5361"
+  manaCost: 0
+  cardSprite: {fileID: 21300000, guid: 6d79f0e0e016ca64592cdb3293bf37da, type: 3}
   rarity: 0
-  usableWithoutTarget: 0
+  needPowerToPlay: 0
+  needPowerType: 9
+  powerCost: 0
+  actionTargetType: 4
+  usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 0
-    actionTargetType: 0
-    actionValue: 6
+  - gameActionType: 3
+    powerType: 0
+    actionValue: 10
+    additionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Deal '
+  - descriptionText: 'Draw '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
+    cardActionDataListType: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1
+    cardActionDataListType: 0
     modifiedActionValueIndex: 0
-    modiferStats: 3
-    usePrefixOnModifiedValue: 1
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 1
-  - descriptionText: ' damage'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' cards'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
+    cardActionDataListType: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
-  audioType: 0
-  useMathAction: 0
+  audioType: 4
   correctCardActionDataList: []
   wrongCardActionDataList: []
+  limitedQuestionCardActionDataList: []
+  mathQuestioningActionParameters:
+    UseMathAction: 0
+    QuestioningEndJudgeType: 0
+    QuestionCount: -1
+    UseCorrectAction: 0
+    CorrectActionNeedAnswerCount: -1
+    UseWrongAction: 0
+    WrongActionNeedAnswerCount: -1
+    UseTimeCountDown: 0
+    Time: -1
+    SelfCharacter: {fileID: 0}
+    TargetCharacter: {fileID: 0}

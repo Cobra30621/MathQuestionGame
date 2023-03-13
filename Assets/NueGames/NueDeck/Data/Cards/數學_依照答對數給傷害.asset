@@ -10,27 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 3_block_basic
+  m_Name: "\u6578\u5B78_\u4F9D\u7167\u7B54\u5C0D\u6578\u7D66\u50B7\u5BB3"
   m_EditorClassIdentifier: 
-  id: 3_block_basic
-  cardName: Basic block
-  manaCost: 1
-  cardSprite: {fileID: -1513487178384027574, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
+  id: "\u6578\u5B78_\u4F9D\u7167\u7B54\u5C0D\u6578\u7D66\u50B7\u5BB3"
+  cardName: "\u6578\u5B78_\u4F9D\u7167\u7B54\u5C0D\u6578\u7D66\u50B7\u5BB3"
+  manaCost: 0
+  cardSprite: {fileID: 21300000, guid: 8774e86e736c9cb41a211789d0661e84, type: 3}
   rarity: 0
   needPowerToPlay: 0
   needPowerType: 0
   powerCost: 0
-  actionTargetType: 1
+  actionTargetType: 0
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 2
-    powerType: 1
-    actionValue: 5
+  - gameActionType: 8
+    powerType: 0
+    actionValue: 0
     additionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Gain '
+  - descriptionText: "\u7D66\u4E88\u6575\u4EBA 8 + 3 x \u7B54\u5C0D\u6578\u7684\u50B7\u5BB3\n\u4E00\u5171\u51FA
+      2 \u984C"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -40,39 +41,24 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 0, g: 0.41176474, b: 0.6666667, a: 1}
-    useModifier: 1
-    cardActionDataListType: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 1
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 1
-  - descriptionText: ' block'
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    cardActionDataListType: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  specialKeywordsList: 00000000
-  audioType: 2
+  specialKeywordsList: 
+  audioType: 0
   correctCardActionDataList: []
   wrongCardActionDataList: []
-  limitedQuestionCardActionDataList: []
+  limitedQuestionCardActionDataList:
+  - gameActionType: 10
+    powerType: 0
+    actionValue: 8
+    additionValue: 3
+    actionDelay: 0
   mathQuestioningActionParameters:
-    UseMathAction: 0
+    UseMathAction: 1
     QuestioningEndJudgeType: 0
-    QuestionCount: -1
+    QuestionCount: 2
     UseCorrectAction: 0
-    CorrectActionNeedAnswerCount: -1
+    CorrectActionNeedAnswerCount: 2
     UseWrongAction: 0
-    WrongActionNeedAnswerCount: -1
+    WrongActionNeedAnswerCount: 2
     UseTimeCountDown: 0
     Time: -1
     SelfCharacter: {fileID: 0}

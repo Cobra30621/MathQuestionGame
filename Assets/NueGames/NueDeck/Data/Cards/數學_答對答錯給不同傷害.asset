@@ -10,47 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: "\u6E2C\u8A66\u5361\u724C"
+  m_Name: "\u6578\u5B78_\u7B54\u5C0D\u7B54\u932F\u7D66\u4E0D\u540C\u50B7\u5BB3"
   m_EditorClassIdentifier: 
-  id: "\u6E2C\u8A66\u5361\u724C"
-  cardName: "\u6E2C\u8A66\u5361\u724C"
+  id: "\u6578\u5B78_\u7B54\u5C0D\u7B54\u932F\u7D66\u4E0D\u540C\u50B7\u5BB3"
+  cardName: "\u6578\u5B78_\u7B54\u5C0D\u7B54\u932F\u7D66\u4E0D\u540C\u50B7\u5BB3"
   manaCost: 0
-  cardSprite: {fileID: 21300000, guid: 1113310f8619a8747b68ee8b7fc7d63d, type: 3}
+  cardSprite: {fileID: 21300012, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
   rarity: 0
-  needPowerToPlay: 1
+  needPowerToPlay: 0
   needPowerType: 9
-  powerCost: 2
+  powerCost: 0
+  actionTargetType: 0
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
   - gameActionType: 8
-    actionTargetType: 0
     powerType: 0
     actionValue: 0
     additionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Deal '
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    cardActionDataListType: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
-    useModifier: 1
-    cardActionDataListType: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 3
-    usePrefixOnModifiedValue: 1
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 1
-  - descriptionText: ' damage'
+  - descriptionText: "\u7B54\u5C0D 2 \u984C: \u7D66\u4E88 \u6575\u4EBA 15 \u9EDE\u50B7\u5BB3\n\u7B54\u932F
+      1 \u984C: \u7D66\u4E88 \u6575\u4EBA 7 \u9EDE\u50B7\u5BB3"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -64,33 +45,25 @@ MonoBehaviour:
   audioType: 0
   correctCardActionDataList:
   - gameActionType: 0
-    actionTargetType: 0
     powerType: 0
-    actionValue: 7
+    actionValue: 15
     additionValue: 0
     actionDelay: 0
   wrongCardActionDataList:
   - gameActionType: 0
-    actionTargetType: 0
     powerType: 0
-    actionValue: 17
+    actionValue: 7
     additionValue: 0
     actionDelay: 0
-  limitedQuestionCardActionDataList:
-  - gameActionType: 0
-    actionTargetType: 0
-    powerType: 0
-    actionValue: 0
-    additionValue: 0
-    actionDelay: 0
+  limitedQuestionCardActionDataList: []
   mathQuestioningActionParameters:
     UseMathAction: 1
     QuestioningEndJudgeType: 1
-    QuestionCount: 2
+    QuestionCount: -1
     UseCorrectAction: 1
     CorrectActionNeedAnswerCount: 2
     UseWrongAction: 1
-    WrongActionNeedAnswerCount: 2
+    WrongActionNeedAnswerCount: 1
     UseTimeCountDown: 0
     Time: -1
     SelfCharacter: {fileID: 0}

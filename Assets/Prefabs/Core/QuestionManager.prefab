@@ -1744,7 +1744,8 @@ MonoBehaviour:
   - {fileID: 9164320520808091327}
   - {fileID: 8827589061318023082}
   parameters:
-    UseLimitedQuestion: 0
+    UseMathAction: 0
+    QuestioningEndJudgeType: 0
     QuestionCount: -1
     UseCorrectAction: 0
     CorrectActionNeedAnswerCount: -1
@@ -1755,7 +1756,11 @@ MonoBehaviour:
     SelfCharacter: {fileID: 0}
     TargetCharacter: {fileID: 0}
   timeOver: 0
+  isQuestioning: 0
   isPlayingFeedback: 1
+  hasAnswerCount: 0
+  correctAnswerCount: 0
+  wrongAnswerCount: 0
 --- !u!114 &6933779548279769729
 MonoBehaviour:
   m_ObjectHideFlags: 0

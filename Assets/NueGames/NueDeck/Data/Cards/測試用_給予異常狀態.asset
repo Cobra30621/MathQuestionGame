@@ -10,54 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: "\u5FEB\u6A02\u56DE\u7B54 2 \u984C"
+  m_Name: "\u6E2C\u8A66\u7528_\u7D66\u4E88\u7570\u5E38\u72C0\u614B"
   m_EditorClassIdentifier: 
-  id: "\u5FEB\u6A02\u56DE\u7B54 2 \u984C"
-  cardName: "\u5FEB\u6A02\u56DE\u7B54 2 \u984C"
+  id: "\u6E2C\u8A66\u7528_\u7D66\u4E88\u7570\u5E38\u72C0\u614B"
+  cardName: "\u6E2C\u8A66\u7528_\u7D66\u4E88\u7570\u5E38\u72C0\u614B"
   manaCost: 0
   cardSprite: {fileID: 0}
   rarity: 0
   needPowerToPlay: 0
   needPowerType: 9
   powerCost: 0
-  actionTargetType: 0
+  actionTargetType: 1
+  usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 8
-    powerType: 0
-    actionValue: 0
+  - gameActionType: 2
+    powerType: 9
+    actionValue: 5
     additionValue: 0
     actionDelay: 0
-  cardDescriptionDataList:
-  - descriptionText: "\u7D66\u4E88\u6575\u4EBA 8 + 3 * \u7B54\u5C0D\u984C\u6578\u50B7\u5BB3\n\u7B54\u984C\u6578
-      2 \u984C"
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    cardActionDataListType: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
+  cardDescriptionDataList: []
   specialKeywordsList: 
   audioType: 0
   correctCardActionDataList: []
   wrongCardActionDataList: []
-  limitedQuestionCardActionDataList:
-  - gameActionType: 10
-    powerType: 0
-    actionValue: 8
-    additionValue: 3
-    actionDelay: 0
+  limitedQuestionCardActionDataList: []
   mathQuestioningActionParameters:
-    UseMathAction: 1
+    UseMathAction: 0
     QuestioningEndJudgeType: 0
-    QuestionCount: 2
+    QuestionCount: -1
     UseCorrectAction: 0
     CorrectActionNeedAnswerCount: 2
     UseWrongAction: 0
-    WrongActionNeedAnswerCount: 2
+    WrongActionNeedAnswerCount: 1
     UseTimeCountDown: 0
     Time: -1
     SelfCharacter: {fileID: 0}
