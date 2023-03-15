@@ -38,7 +38,7 @@ namespace NueGames.NueDeck.Scripts.Action
             Target.CharacterStats.Heal(Mathf.RoundToInt(Amount));
 
             PlayFx();
-            PlaySpawnTextFx();
+            PlaySpawnTextFx($"{Amount}");
             PlayAudio();
         }
     }

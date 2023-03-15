@@ -43,7 +43,7 @@ namespace NueGames.NueDeck.Scripts.Action
             Target.CharacterStats.Damage(value);
 
             PlayFx();
-            PlaySpawnTextFx();
+            PlaySpawnTextFx($"{value}");
             PlayAudio();
         }
     }

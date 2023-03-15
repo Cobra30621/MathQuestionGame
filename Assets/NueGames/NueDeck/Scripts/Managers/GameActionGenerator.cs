@@ -12,7 +12,7 @@ namespace NueGames.NueDeck.Scripts.Action
 {
     public static class GameActionGenerator
     {
-        private static Dictionary<string, Type> _gameActionDict;
+        private static Dictionary<string, Type> _gameActionDict = new Dictionary<string, Type>();
 
         static GameActionGenerator()
         {

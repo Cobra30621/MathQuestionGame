@@ -31,11 +31,11 @@ namespace NueGames.NueDeck.Scripts.Action
         public abstract void DoAction();
         
 
-        protected void PlaySpawnTextFx()
+        protected void PlaySpawnTextFx(string info)
         {
             if (Target != null)
             {
-                FxManager.SpawnFloatingText(Target.TextSpawnRoot,Amount.ToString());
+                FxManager.SpawnFloatingText(Target.TextSpawnRoot,info);
             }
         }
         
