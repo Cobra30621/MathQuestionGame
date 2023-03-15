@@ -1,12 +1,6 @@
-﻿using NueGames.NueDeck.Scripts.Card;
-using NueGames.NueDeck.Scripts.Characters;
-using NueGames.NueDeck.Scripts.Combat;
-using NueGames.NueDeck.Scripts.Data.Collection;
-using NueGames.NueDeck.Scripts.Enums;
-using Question;
-using UnityEngine;
+﻿using Question;
 
-namespace Assets.NueGames.NueDeck.Scripts.Action
+namespace NueGames.NueDeck.Scripts.Action.MathAction
 {
     public abstract class ByQuestioningActionBase : GameActionBase
     {

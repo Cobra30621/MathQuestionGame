@@ -1,11 +1,10 @@
 ﻿using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Characters;
-using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using UnityEngine;
 
-namespace Assets.NueGames.NueDeck.Scripts.Action
+namespace NueGames.NueDeck.Scripts.Action
 {
     public class IncreaseMaxHealthAction : GameActionBase
     {
@@ -25,10 +24,10 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
 
         public void SetValue(int increaseValue, CharacterBase target)
         {
-            Value = increaseValue;
+            Amount = increaseValue;
             Target = target;
 
-            hasSetValue = true;
+            HasSetValue = true;
         }
         
         public override void DoAction()
@@ -36,12 +35,12 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            Target.CharacterStats.IncreaseMaxHealth(Mathf.RoundToInt(Value));
+            Target.CharacterStats.IncreaseMaxHealth(Mathf.RoundToInt(Amount));
 
             if (FxManager != null)
             {
                 FxManager.PlayFx(Target.transform,FxType.Attack);
-                FxManager.SpawnFloatingText(Target.TextSpawnRoot,Value.ToString());
+                FxManager.SpawnFloatingText(Target.TextSpawnRoot,Amount.ToString());
             }
             PlayAudio();
         }

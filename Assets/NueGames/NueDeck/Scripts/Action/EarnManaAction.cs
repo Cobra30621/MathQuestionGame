@@ -1,10 +1,9 @@
 ﻿using NueGames.NueDeck.Scripts.Card;
-using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using UnityEngine;
 
-namespace Assets.NueGames.NueDeck.Scripts.Action
+namespace NueGames.NueDeck.Scripts.Action
 {
     public class EarnManaAction : GameActionBase
     {
@@ -19,14 +18,14 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             CardActionData data = parameters.CardActionData;
             Duration = parameters.CardActionData.ActionDelay;
             
-            SetValue(Value);
+            SetValue(Amount);
         }
 
         public void SetValue(int earnMana)
         {
-            Value = earnMana;
+            Amount = earnMana;
             
-            hasSetValue = true;
+            HasSetValue = true;
         }
         
         public override void DoAction()
@@ -34,7 +33,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             CheckHasSetValue();
             
             if (CombatManager != null)
-                CombatManager.IncreaseMana(Mathf.RoundToInt(Value));
+                CombatManager.IncreaseMana(Mathf.RoundToInt(Amount));
             else
                 Debug.LogError("There is no CombatManager");
 

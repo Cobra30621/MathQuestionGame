@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Enums;
 
-namespace Assets.NueGames.NueDeck.Scripts.Action
+namespace NueGames.NueDeck.Scripts.Action.MathAction
 {
     [Serializable]
     public class MathQuestioningActionParameters

@@ -27,8 +27,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         public List<EnemyBase> CurrentEnemiesList { get; private set; } = new List<EnemyBase>();
         public List<AllyBase> CurrentAlliesList { get; private set; }= new List<AllyBase>();
 
-        public Action OnAllyTurnStarted;
-        public Action OnEnemyTurnStarted;
+        public System.Action OnAllyTurnStarted;
+        public System.Action OnEnemyTurnStarted;
         public List<Transform> EnemyPosList => enemyPosList;
 
         public List<Transform> AllyPosList => allyPosList;

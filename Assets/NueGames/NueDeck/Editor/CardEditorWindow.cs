@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Assets.NueGames.NueDeck.Scripts.Action;
+using NueGames.NueDeck.Scripts.Action.MathAction;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.NueExtentions;
@@ -492,7 +492,7 @@ namespace NueGames.NueDeck.Editor
                 
             if (newActionType != GameActionType.Exhaust)
             {
-                var newActionValue = EditorGUILayout.IntField("Action Value: ",cardActionData.ActionValue);
+                var newActionValue = EditorGUILayout.IntField("Action Amount: ",cardActionData.ActionValue);
                 cardActionData.EditActionValue(newActionValue);
             }
 

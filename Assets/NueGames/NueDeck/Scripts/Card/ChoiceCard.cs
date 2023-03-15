@@ -11,7 +11,7 @@ namespace NueGames.NueDeck.Scripts.Card
         [SerializeField] private float showScaleRate = 1.15f;
         private CardBase _cardBase;
         private Vector3 _initalScale;
-        public Action OnCardChose;
+        public System.Action OnCardChose;
         public GameManager GameManager => GameManager.Instance;
         public UIManager UIManager => UIManager.Instance;
         

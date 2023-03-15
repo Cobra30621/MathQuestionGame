@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.Power;
@@ -18,7 +17,6 @@ namespace NueGames.NueDeck.Scripts.Characters
         public bool CanNegativeStack { get; set; }
         public bool ClearAtNextTurn { get; set; }
         
-        public Action OnTriggerAction;
         public StatusStats(PowerType powerType,int statusValue,bool decreaseOverTurn = false, bool isPermanent = false,bool isActive = false,bool canNegativeStack = false,bool clearAtNextTurn = false)
         {
             PowerType = powerType;
@@ -38,15 +36,15 @@ namespace NueGames.NueDeck.Scripts.Characters
         public bool IsStunned { get;  set; }
         public bool IsDeath { get; private set; }
        
-        public Action OnDeath;
+        public System.Action OnDeath;
         public Action<int, int> OnHealthChanged;
         public Action<PowerType, int> OnPowerApplied;
         public Action<PowerType, int> OnPowerChanged;
         public Action<PowerType> OnPowerCleared;
         
-        public Action OnHealAction;
-        public Action OnTakeDamageAction;
-        public Action OnShieldGained;
+        public System.Action OnHealAction;
+        public System.Action OnTakeDamageAction;
+        public System.Action OnShieldGained;
         
         public EventManager EventManager => EventManager.Instance;
         

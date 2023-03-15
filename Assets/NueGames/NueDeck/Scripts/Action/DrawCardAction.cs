@@ -1,10 +1,8 @@
 ﻿using NueGames.NueDeck.Scripts.Card;
-using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Data.Collection;
-using NueGames.NueDeck.Scripts.Enums;
 using UnityEngine;
 
-namespace Assets.NueGames.NueDeck.Scripts.Action
+namespace NueGames.NueDeck.Scripts.Action
 {
     public class DrawCardAction : GameActionBase
     {
@@ -18,15 +16,15 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         
         public void SetValue(int drawCard)
         {
-            Value = drawCard;
+            Amount = drawCard;
 
-            hasSetValue = true;
+            HasSetValue = true;
         }
         
         public override void DoAction()
         {
             if (CollectionManager != null)
-                CollectionManager.DrawCards(Mathf.RoundToInt(Value));
+                CollectionManager.DrawCards(Mathf.RoundToInt(Amount));
             else
                 Debug.LogError("There is no CollectionManager");
             

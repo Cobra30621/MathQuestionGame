@@ -1,92 +1,70 @@
 ﻿using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Characters;
-using NueGames.NueDeck.Scripts.Combat;
-using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using UnityEngine;
 
-namespace Assets.NueGames.NueDeck.Scripts.Action
+namespace NueGames.NueDeck.Scripts.Action
 {
     public abstract class GameActionBase
     {
-        protected bool hasSetValue = false;
-        public CharacterBase Target;
-        public CharacterBase Self;
-        public int Value;
+        protected bool HasSetValue = false;
+        protected CharacterBase Target;
+        protected CharacterBase Self;
+        protected int Amount;
         public float Duration = 0;
 
-        protected Transform fxTransform;
+        protected Transform FXTransform;
         public FxType FxType;
         public AudioActionType AudioActionType;
-        
-        public CardActionData CardActionData;
 
         protected FxManager FxManager => FxManager.Instance;
         protected AudioManager AudioManager => AudioManager.Instance;
         protected GameManager GameManager => GameManager.Instance;
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;
-        protected GameActionManager GameActionManager => GameActionManager.Instance;
+        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
 
 
         public virtual void SetValue(CardActionParameters parameters){}
 
         public abstract void DoAction();
-
-
-        public void AddToTop()
-        {
-            AddToTop(this);
-        }
-
-        public void AddToBottom()
-        {
-            AddToBottom(this);
-        }
-        
-        public void AddToTop(GameActionBase gameActionBase)
-        {
-            GameActionManager.AddToTop(gameActionBase);
-        }
-
-        public void AddToBottom(GameActionBase gameActionBase)
-        {
-            GameActionManager.AddToTop(gameActionBase);
-        }
         
 
+        protected void PlaySpawnTextFx()
+        {
+            if (Target != null)
+            {
+                FxManager.SpawnFloatingText(Target.TextSpawnRoot,Amount.ToString());
+            }
+        }
+        
         protected void PlayFx()
         {
             // TODO 設定 FX 預設產生處
-            if (FxManager != null)
+            if (Target != null)
             {
-                if(Target != null)
-                    FxManager.PlayFx(Target.transform, FxType);
+                FxManager.PlayFx(Target.transform, FxType);
             }
                 
         }
 
         protected void PlayAudio()
         {
-            if (AudioManager != null) 
-                AudioManager.PlayOneShot(AudioActionType);
+            AudioManager.PlayOneShot(AudioActionType);
         }
+        
 
-        protected void PrintInfo()
-        {
-            Debug.Log($"{this.GetType()} \n " +
-                      $"value{Value}");
-        }
-
+        // ReSharper disable Unity.PerformanceAnalysis
         protected void CheckHasSetValue()
         {
-            if (!hasSetValue)
+            if (!HasSetValue)
             {
                 Debug.LogError($"{this.GetType()} hasn't set value.\n Please Call SetValue");
             }
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         protected bool IsTargetNull()
         {
             if (!Target)

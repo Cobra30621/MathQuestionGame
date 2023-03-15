@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Assets.NueGames.NueDeck.Scripts.Action;
+using NueGames.NueDeck.Scripts.Action;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Containers;
@@ -45,7 +45,7 @@ namespace NueGames.NueDeck.Scripts.Card
         protected GameManager GameManager => GameManager.Instance;
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;
-        protected GameActionManager GameActionManager => GameActionManager.Instance;
+        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
         
         public bool IsExhausted { get; private set; }
         
@@ -93,8 +93,8 @@ namespace NueGames.NueDeck.Scripts.Card
             if(CardData.NeedPowerToPlay)
                 SpendPower(CardData.NeedPowerType, CardData.PowerCost);
 
-            List<GameActionBase> gameActions = GameActionManager.GetGameActions(CardData, CardData.CardActionDataList, self, target);
-            GameActionManager.AddToBottom(gameActions);
+            List<GameActionBase> gameActions = GameActionGenerator.GetGameActions(CardData, CardData.CardActionDataList, self, target);
+            GameActionExecutor.AddToBottom(gameActions);
             CollectionManager.OnCardPlayed(this);
         }
         

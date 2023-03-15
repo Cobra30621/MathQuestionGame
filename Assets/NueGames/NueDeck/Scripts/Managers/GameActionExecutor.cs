@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using Assets.NueGames.NueDeck.Scripts.Action;
-using NueGames.NueDeck.Scripts.Card;
-using NueGames.NueDeck.Scripts.Characters;
-using NueGames.NueDeck.Scripts.Data.Collection;
-using NueGames.NueDeck.Scripts.Enums;
+using NueGames.NueDeck.Scripts.Action;
 using NueGames.NueDeck.Scripts.Power;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Managers
 {
-    public class GameActionManager : MonoBehaviour
+    public class GameActionExecutor : MonoBehaviour
     {
         private List<GameActionBase> actions;
         private GameActionBase currentAction;
@@ -22,9 +16,9 @@ namespace NueGames.NueDeck.Scripts.Managers
         private Phase phase;
         [SerializeField]private bool actionIsDone;
         
-        private GameActionManager() { }
-
-        public static GameActionManager Instance { get; private set; }
+     
+        public static GameActionExecutor Instance { get; private set; }
+        
 
         #region SetUp
         private void Awake()
@@ -45,14 +39,10 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         void Initialize()
         {
-            gameActionClasses = Assembly.GetAssembly(typeof(GameActionBase)).GetTypes()
-                .Where(t => typeof(GameActionBase).IsAssignableFrom(t) && t.IsAbstract == false);
-            
             actions = new List<GameActionBase>();
             phase = Phase.WaitingOnUser;
             actionIsDone = true;
         }
-        
 
         #endregion
 
@@ -129,8 +119,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         }
 
         #endregion
-        
-        private static IEnumerable<Type> gameActionClasses;
+
 
         public void AddToBottom(List<GameActionBase> cardActionDatas)
         {
@@ -146,50 +135,6 @@ namespace NueGames.NueDeck.Scripts.Managers
         
         public void AddToBottom(GameActionBase action) {
             actions.Add(action);
-        }
-
-
-        public List<GameActionBase> GetGameActions(CardData cardData, List<CardActionData> cardActionDataList, CharacterBase self,
-            CharacterBase target)
-        {
-            List<GameActionBase> gameActionBases = new List<GameActionBase>();
-            foreach (var playerAction in cardActionDataList)
-            {
-                CardActionParameters cardActionParameters = new CardActionParameters(
-                    playerAction.ActionValue,
-                    target,
-                    self,
-                    playerAction,
-                    cardData
-                );
-
-                GameActionBase gameActionBase = GetGameAction(playerAction.GameActionType, cardActionParameters);
-                gameActionBases.Add(gameActionBase);
-            }
-
-            return gameActionBases;
-        }
-
-        public GameActionBase GetGameAction(GameActionType actionType, CardActionParameters cardActionParameters)
-        {
-            GameActionBase gameActionBase = GetGameAction(actionType);
-            gameActionBase.SetValue(cardActionParameters);
-            return gameActionBase;
-        }
-
-        private GameActionBase GetGameAction(GameActionType actionType)
-        {
-            string gameActionName = actionType.ToString() + "Action";
-            foreach (var powerBase in gameActionClasses)
-            {
-                if (powerBase.Name == gameActionName)
-                {
-                    return Activator.CreateInstance(powerBase) as GameActionBase;
-                }
-            }
-            
-            Debug.LogError($"沒有 GameAction {gameActionName} 的 Class");
-            return null;
         }
     }
 

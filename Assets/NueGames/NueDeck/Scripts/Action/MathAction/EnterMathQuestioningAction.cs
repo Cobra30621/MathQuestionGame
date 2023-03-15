@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using NueGames.NueDeck.Scripts.Card;
-using NueGames.NueDeck.Scripts.Characters;
-using NueGames.NueDeck.Scripts.Combat;
+﻿using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using Question;
 using UnityEngine;
 
-namespace Assets.NueGames.NueDeck.Scripts.Action
+namespace NueGames.NueDeck.Scripts.Action.MathAction
 {
     public class EnterMathQuestioningAction : GameActionBase
     {
         private MathQuestioningActionParameters parameters;
-        public GameActionManager GameActionManager => GameActionManager.Instance;
-        
         public EnterMathQuestioningAction()
         {
             FxType = FxType.Attack;
@@ -32,9 +26,9 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             this.parameters = cardData.MathQuestioningActionParameters;
             this.parameters.TargetCharacter = parameters.TargetCharacter;
             this.parameters.SelfCharacter  = parameters.SelfCharacter;
-            this.parameters.LimitedQuestionAction = GameActionManager.GetGameActions(cardData, cardData.LimitedQuestionCardActionDataList, Self, Target);
-            this.parameters.CorrectActions = GameActionManager.GetGameActions(cardData, cardData.CorrectCardActionDataList , Self, Target);
-            this.parameters.WrongActions = GameActionManager.GetGameActions(cardData, cardData.WrongCardActionDataList, Self, Target);
+            this.parameters.LimitedQuestionAction = GameActionGenerator.GetGameActions(cardData, cardData.LimitedQuestionCardActionDataList, Self, Target);
+            this.parameters.CorrectActions = GameActionGenerator.GetGameActions(cardData, cardData.CorrectCardActionDataList , Self, Target);
+            this.parameters.WrongActions = GameActionGenerator.GetGameActions(cardData, cardData.WrongCardActionDataList, Self, Target);
         }
 
         public void SetValue(MathQuestioningActionParameters newParameters)

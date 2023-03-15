@@ -1,11 +1,10 @@
 ﻿using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Characters;
-using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using UnityEngine;
 
-namespace Assets.NueGames.NueDeck.Scripts.Action
+namespace NueGames.NueDeck.Scripts.Action
 {
     public class ApplyPowerAction : GameActionBase
     {
@@ -28,10 +27,10 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
         public void SetValue(PowerType applyPower, int powerValue, CharacterBase target)
         {
             powerType = applyPower;
-            Value = powerValue;
+            Amount = powerValue;
             Target = target;
 
-            hasSetValue = true;
+            HasSetValue = true;
         }
         
         public override void DoAction()
@@ -39,7 +38,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            Target.CharacterStats.ApplyPower(powerType,Mathf.RoundToInt(Value));
+            Target.CharacterStats.ApplyPower(powerType,Mathf.RoundToInt(Amount));
             
             PlayFx();
             PlayAudio();

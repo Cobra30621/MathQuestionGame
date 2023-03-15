@@ -4,8 +4,8 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Assets.NueGames.NueDeck.Scripts.Action;
 using MoreMountains.Feedbacks;
+using NueGames.NueDeck.Scripts.Action.MathAction;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 
@@ -229,20 +229,20 @@ namespace Question
             if (parameters.QuestioningEndJudgeType == QuestioningEndJudgeType.LimitedQuestionCount)
             {
                 Debug.Log("答題完行動 " + parameters.LimitedQuestionAction.Count);
-                GameActionManager.Instance.AddToBottom(parameters.LimitedQuestionAction);
+                GameActionExecutor.Instance.AddToBottom(parameters.LimitedQuestionAction);
             }
             else
             {
                 if (parameters.UseCorrectAction && playCorrectAction)
                 {
                     Debug.Log("答對行動 " + parameters.CorrectActions.Count);
-                    GameActionManager.Instance.AddToBottom(parameters.CorrectActions);
+                    GameActionExecutor.Instance.AddToBottom(parameters.CorrectActions);
                 }
 
                 if (parameters.UseWrongAction && !playCorrectAction)
                 {
                     Debug.Log("答錯行動 " + parameters.WrongActions.Count);
-                    GameActionManager.Instance.AddToBottom(parameters.WrongActions);
+                    GameActionExecutor.Instance.AddToBottom(parameters.WrongActions);
                 }
             }
             

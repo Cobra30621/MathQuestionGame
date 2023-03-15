@@ -4,7 +4,7 @@ using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 
-namespace Assets.NueGames.NueDeck.Scripts.Action
+namespace NueGames.NueDeck.Scripts.Action
 {
     public class DamageAction : GameActionBase
     {
@@ -30,7 +30,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             damageInfo = info;
             Target = target;
 
-            hasSetValue = true;
+            HasSetValue = true;
         }
         
         public override void DoAction()
@@ -42,12 +42,8 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             
             Target.CharacterStats.Damage(value);
 
-            if (FxManager != null)
-            {
-                FxManager.PlayFx(Target.transform,FxType.Attack);
-                FxManager.SpawnFloatingText(Target.TextSpawnRoot,value.ToString());
-            }
-           
+            PlayFx();
+            PlaySpawnTextFx();
             PlayAudio();
         }
     }

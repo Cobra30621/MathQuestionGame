@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Assets.NueGames.NueDeck.Scripts.Action;
+using NueGames.NueDeck.Scripts.Action.MathAction;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Enums;
@@ -255,8 +255,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                
                 if (player)
                 {
-                    // modifer = player.CharacterStats.StatusDict[ModiferStats].Value;
-                    // Value += modifer;
+                    // modifer = player.CharacterStats.StatusDict[ModiferStats].Amount;
+                    // Amount += modifer;
                     if(cardActionDataList[ModifiedActionValueIndex].GameActionType == GameActionType.Damage)
                         value = CombatCalculator.GetDamageValue(value, player);
 

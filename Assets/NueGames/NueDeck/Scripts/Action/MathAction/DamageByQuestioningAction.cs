@@ -2,9 +2,8 @@
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Combat;
 using NueGames.NueDeck.Scripts.Data.Collection;
-using NueGames.NueDeck.Scripts.Enums;
 
-namespace Assets.NueGames.NueDeck.Scripts.Action
+namespace NueGames.NueDeck.Scripts.Action.MathAction
 {
     public class DamageByQuestioningAction : ByQuestioningActionBase
     {
@@ -26,7 +25,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             baseValue = info.Value;
             additionValue = info.AddtionValue;
 
-            hasSetValue = true;
+            HasSetValue = true;
         }
         
         public override void DoAction()
@@ -36,7 +35,7 @@ namespace Assets.NueGames.NueDeck.Scripts.Action
             
             DamageAction gameActionBase = new DamageAction();
             gameActionBase.SetValue(damageInfo, Target);
-            GameActionManager.AddToBottom(gameActionBase);
+            GameActionExecutor.AddToBottom(gameActionBase);
         }
 
     }
