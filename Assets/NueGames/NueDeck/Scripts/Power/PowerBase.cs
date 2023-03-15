@@ -16,6 +16,9 @@ namespace NueGames.NueDeck.Scripts.Power
         public bool CanNegativeStack;
         public bool ClearAtNextTurn;
         public CharacterBase Owner;
+
+        public int Counter;
+        public int NeedCounter;
         
         protected EventManager EventManager => EventManager.Instance;
 
@@ -29,12 +32,14 @@ namespace NueGames.NueDeck.Scripts.Power
         {
             EventManager.onAttacked += OnAttacked;
             EventManager.OnQuestioningModeEnd += OnQuestioningModeEnd;
+            EventManager.OnAnswer += OnAnswer;
         }
 
         protected void UnSubscribeAllEvent()
         {
             EventManager.onAttacked -= OnAttacked;
             EventManager.OnQuestioningModeEnd -= OnQuestioningModeEnd;
+            EventManager.OnAnswer -= OnAnswer;
         }
         
         #endregion

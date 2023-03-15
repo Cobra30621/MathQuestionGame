@@ -16,6 +16,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         // public Action<PowerType, int> OnPowerApplied;
         // public Action<PowerType, int> OnPowerChanged;
         // public Action<PowerType> OnPowerCleared;
+
+        public Action<bool> OnAnswer;
         public Action<int> OnQuestioningModeEnd;
 
         private void Awake()

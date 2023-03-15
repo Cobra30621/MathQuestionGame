@@ -19,8 +19,9 @@ namespace Question
         
         [SerializeField] private QuestionsData questionsData;
         [SerializeField] private AnswerButton[] answerButtons;
-        
-        protected CollectionManager CollectionManager => CollectionManager.Instance;
+
+        private CollectionManager CollectionManager => CollectionManager.Instance;
+        private EventManager EventManager => EventManager.Instance;
         
         public float Timer{
             get{
@@ -112,11 +113,13 @@ namespace Question
             {
                 correctAnswerCount++;
                 questionController.OnAnswer(true, option);
+                EventManager.OnAnswer(true);
             }
             else
             {
                 wrongAnswerCount++;
                 questionController.OnAnswer(false, option);
+                EventManager.OnAnswer(false);
             }
 
             hasAnswerCount++;

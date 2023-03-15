@@ -11,6 +11,8 @@
         Vulnerable,
         Weak,
         Angry,
-        MathMana
+        MathMana,
+        MathManaCharacter = 201,
+        DrawCardOnAnswerCorrect = 202
     }
 }
