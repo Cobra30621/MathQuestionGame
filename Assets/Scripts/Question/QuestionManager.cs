@@ -109,17 +109,18 @@ namespace Question
 
         public void OnAnswer(int option)
         {
+            EventManager.OnAnswer();
             if (option == correctAnswer)
             {
                 correctAnswerCount++;
                 questionController.OnAnswer(true, option);
-                EventManager.OnAnswer(true);
+                EventManager.OnAnswerCorrect();
             }
             else
             {
                 wrongAnswerCount++;
                 questionController.OnAnswer(false, option);
-                EventManager.OnAnswer(false);
+                EventManager.OnAnswerWrong();
             }
 
             hasAnswerCount++;

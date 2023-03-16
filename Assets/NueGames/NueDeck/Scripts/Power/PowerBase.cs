@@ -33,6 +33,8 @@ namespace NueGames.NueDeck.Scripts.Power
             EventManager.onAttacked += OnAttacked;
             EventManager.OnQuestioningModeEnd += OnQuestioningModeEnd;
             EventManager.OnAnswer += OnAnswer;
+            EventManager.OnAnswerCorrect += OnAnswerCorrect;
+            EventManager.OnAnswerWrong += OnAnswerWrong;
         }
 
         protected void UnSubscribeAllEvent()
@@ -40,6 +42,8 @@ namespace NueGames.NueDeck.Scripts.Power
             EventManager.onAttacked -= OnAttacked;
             EventManager.OnQuestioningModeEnd -= OnQuestioningModeEnd;
             EventManager.OnAnswer -= OnAnswer;
+            EventManager.OnAnswerCorrect -= OnAnswerCorrect;
+            EventManager.OnAnswerWrong -= OnAnswerWrong;
         }
         
         #endregion
@@ -156,7 +160,9 @@ namespace NueGames.NueDeck.Scripts.Power
         
         protected virtual void OnQuestioningModeStart(){}
         
-        protected virtual void OnAnswer(bool answerCorrect){}
+        protected virtual void OnAnswer(){}
+        protected virtual void OnAnswerCorrect(){}
+        protected virtual void OnAnswerWrong(){}
         protected virtual void OnQuestioningModeEnd(int correctCount){}
         
         #endregion
