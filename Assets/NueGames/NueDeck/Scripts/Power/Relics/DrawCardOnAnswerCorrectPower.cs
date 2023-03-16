@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Power.Relics
 {
     public class DrawCardOnAnswerCorrectPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.DrawCardOnAnswerCorrect;
+        public override PowerType PowerType => PowerType.Character_DrawCardOnAnswerCorrect;
 
         protected override void OnAnswerCorrect()
         {

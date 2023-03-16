@@ -21,7 +21,7 @@
         Angry = 51,
         
         // 遺物、角色(暫時)
-        MathManaCharacter = 201,
-        DrawCardOnAnswerCorrect = 202
+        Relic_MathManaCharacter = 201,
+        Character_DrawCardOnAnswerCorrect = 202
     }
 }
