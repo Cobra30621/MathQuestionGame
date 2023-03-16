@@ -70,7 +70,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         #region Public Methods
         public void ApplyPower(PowerType targetPower,int value)
         {
-            Debug.Log($"{owner.name} apply {targetPower} {value}");
+            // Debug.Log($"{owner.name} apply {targetPower} {value}");
             if (PowerDict.ContainsKey(targetPower))
             {
                 PowerDict[targetPower].StackPower(value);

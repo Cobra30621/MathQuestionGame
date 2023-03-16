@@ -100,7 +100,6 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             previousAction = currentAction;
             currentAction = null;
-            Debug.Log($"Get action {currentAction?.GetType().Name}");
             TryGetNextAction();
             if (currentAction == null ) {
                 phase = Phase.WaitingOnUser;
@@ -112,7 +111,6 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             if (actions.Any() ) {
                 currentAction = actions[0];
-                Debug.Log($"Try Get action {currentAction.GetType().Name}");
                 actions.RemoveAt(0);
                 phase = Phase.ExecutingAction;
             }

@@ -12,14 +12,10 @@ namespace NueGames.NueDeck.Scripts.Power.Relics
 
         protected override void OnAnswerCorrect()
         {
-            NeedCounter = 1;
-            Counter++;
-
             ApplyPowerAction action = new ApplyPowerAction();
             action.SetValue(PowerType.MathMana, 1, CombatManager.Instance.CurrentMainAlly);
             GameActionExecutor.Instance.AddToTop(action);
             
-            Debug.Log($"{PowerType} counter: {Counter} / {NeedCounter}");
         }
     }
 }

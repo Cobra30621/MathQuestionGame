@@ -18,39 +18,39 @@ MonoBehaviour:
     contentText: Block damages
     powerType: 1
     iconSprite: {fileID: -1513487178384027574, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
-  - titleText: Poison
-    contentText: Damage per round. Ignores <color=blue>block</color>.
-    powerType: 2
-    iconSprite: {fileID: -214828719786938277, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   - titleText: Strength
     contentText: Increase your attack damage
-    powerType: 3
+    powerType: 2
     iconSprite: {fileID: 8414397559482299720, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   - titleText: Dexterity
     contentText: 
-    powerType: 4
+    powerType: 3
     iconSprite: {fileID: 5524590292671962877, guid: f7043b7291f49844b9671b3d3dedcbb5, type: 3}
   - titleText: Stun
     contentText: Can not use any action
-    powerType: 5
+    powerType: 22
     iconSprite: {fileID: 21300000, guid: 9c0d6ec706e01ce448aea81584af092b, type: 3}
   - titleText: Vulnerable
     contentText: "\u53D7\u5230\u50B7\u5BB3 1.5 \u500D"
-    powerType: 6
+    powerType: 4
     iconSprite: {fileID: 0}
   - titleText: Weak
     contentText: "\u9020\u6210\u50B7\u5BB3\u6E1B\u5C11 25 %"
-    powerType: 7
+    powerType: 5
     iconSprite: {fileID: 0}
+  - titleText: Poison
+    contentText: Damage per round. Ignores <color=blue>block</color>.
+    powerType: 21
+    iconSprite: {fileID: -214828719786938277, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
+  - titleText: Math Mana
+    contentText: "\u6578\u5B78\u6CD5\u529B"
+    powerType: 41
+    iconSprite: {fileID: 21300000, guid: c8a69ecdf54ac8e4b873466605de27ff, type: 3}
   - titleText: Angry
     contentText: "\u53D7\u5230\u653B\u64CA\u6642\uFF0C\u529B\u91CF\u63D0\u5347 1
       (\u5C1A\u672A\u5BE6\u73FE)"
-    powerType: 8
+    powerType: 51
     iconSprite: {fileID: 0}
-  - titleText: Math Mana
-    contentText: "\u6578\u5B78\u6CD5\u529B"
-    powerType: 9
-    iconSprite: {fileID: 21300000, guid: c8a69ecdf54ac8e4b873466605de27ff, type: 3}
   - titleText: "\u89D2\u8272_\u6578\u5B78\u5BB6"
     contentText: "\u7B54\u5C0D\u4E00\u984C\u6578\u5B78\u984C\u76EE\uFF0C\u7372\u5F97\u4E00\u9EDE\u6578\u5B78\u6CD5\u529B"
     powerType: 201

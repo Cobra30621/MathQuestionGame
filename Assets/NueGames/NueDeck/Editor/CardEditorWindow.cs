@@ -56,7 +56,6 @@ namespace NueGames.NueDeck.Editor
                         cardActionData.EditActionType(GameActionType.EnterMathQuestioning);
                         CardActionDataList.Add(cardActionData);
                     }
-                    Debug.Log("useMathAction" + useMathAction);
                 }
             }
         }
