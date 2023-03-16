@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Power.Relics
 {
-    public class DrawCardOnAnswerCorrectPower : PowerBase
+    public class Relic_DrawCardOnAnswerCorrectPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Character_DrawCardOnAnswerCorrect;
+        public override PowerType PowerType => PowerType.Relic_DrawCardOnAnswerCorrect;
 
         protected override void OnAnswerCorrect()
         {

@@ -6,9 +6,9 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Power.Relics
 {
-    public class MathManaCharacterPower : PowerBase
+    public class Character_MathManaCharacterPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Relic_MathManaCharacter;
+        public override PowerType PowerType => PowerType.Character_MathManaCharacter;
 
         protected override void OnAnswerCorrect()
         {
