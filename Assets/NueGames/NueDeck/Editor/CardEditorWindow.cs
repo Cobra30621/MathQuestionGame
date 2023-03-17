@@ -495,7 +495,7 @@ namespace NueGames.NueDeck.Editor
                 cardActionData.EditActionValue(newActionValue);
             }
 
-            if (newActionType == GameActionType.DamageByQuestioningAction)
+            if (newActionType == GameActionType.DamageByQuestioning)
             {
                 var newAdditionValue = EditorGUILayout.IntField("AdditionValue: ",cardActionData.AdditionValue);
                 cardActionData.EditAdditionValue(newAdditionValue);

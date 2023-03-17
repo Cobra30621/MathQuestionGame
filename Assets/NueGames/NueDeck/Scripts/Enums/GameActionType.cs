@@ -4,7 +4,7 @@
     {
         // 1~10 傷害
         Damage = 1, 
-        DamageByQuestioningAction = 4,
+        DamageByQuestioning = 4,
         DamageByAllyPowerValue = 5,
         // 11~20 角色狀態
         ApplyPower = 11, 

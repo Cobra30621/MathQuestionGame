@@ -11,8 +11,8 @@ namespace NueGames.NueDeck.Scripts.Power.Relics
 
         protected override void OnAnswerCorrect()
         {
-            NeedCounter = 3;
             Counter++;
+            NeedCounter = 3;
 
             if (Counter >= NeedCounter)
             {
