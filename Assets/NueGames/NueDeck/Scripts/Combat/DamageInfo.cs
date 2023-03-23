@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Combat
     {
         public CharacterBase SelfCharacter;
         public int Value;
-        public int AddtionValue;
+        public int AdditionalValue;
 
         public DamageInfo(int value, CharacterBase selfCharacter)
         {
@@ -14,10 +14,10 @@ namespace NueGames.NueDeck.Scripts.Combat
             SelfCharacter = selfCharacter;
         }
         
-        public DamageInfo(int value, int addtionValue, CharacterBase selfCharacter)
+        public DamageInfo(int value, int additionalValue, CharacterBase selfCharacter)
         {
             Value = value;
-            AddtionValue = addtionValue;
+            AdditionalValue = additionalValue;
             SelfCharacter = selfCharacter;
         }
     }

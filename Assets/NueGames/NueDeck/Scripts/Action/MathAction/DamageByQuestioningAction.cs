@@ -23,7 +23,7 @@ namespace NueGames.NueDeck.Scripts.Action.MathAction
             damageInfo = info;
             Target = target;
             baseValue = info.Value;
-            additionValue = info.AddtionValue;
+            additionValue = info.AdditionalValue;
 
             HasSetValue = true;
         }
