@@ -11,6 +11,7 @@ namespace Question
     {
         private QuestionManager _questionManager;
         [SerializeField] private Image qeustionImage;
+        [SerializeField] private Image optionImage;
         [SerializeField] private Image timeBar;
         [SerializeField] private  TextMeshProUGUI timeText;
 
@@ -69,6 +70,7 @@ namespace Question
         public void SetNextQuestion(MultipleChoiceQuestion multipleChoiceQuestion)
         {
             qeustionImage.sprite = multipleChoiceQuestion.QuestionSprite;
+            optionImage.sprite = multipleChoiceQuestion.OptionSprite;
             onQuestionShowFeedback.PlayFeedbacks();
         }
         

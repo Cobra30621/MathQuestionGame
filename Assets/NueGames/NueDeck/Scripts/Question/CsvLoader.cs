@@ -13,12 +13,12 @@ namespace Question
             // options = LoadData("options");
         }
         
-        private string [][] LoadData(string filename){
+        public string [][] LoadData(string filename){
             //读取csv二进制文件  
             TextAsset binAsset = Resources.Load (filename, typeof(TextAsset)) as TextAsset;         
             
             //读取每一行的内容  
-            string [] lineArray = binAsset.text.Split ("\r"[0]);  
+            string [] lineArray = binAsset.text.Split ("\n"[0]);  
             
             //创建二维数组  
             string [][] array;
@@ -33,5 +33,7 @@ namespace Question
 
             return array;
         }
+        
+        
     }
 }

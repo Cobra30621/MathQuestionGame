@@ -43,7 +43,7 @@ namespace Question
         [SerializeField] private MathQuestioningActionParameters parameters;
         
         private MultipleChoiceQuestion currentQuestion;
-        private List<MultipleChoiceQuestion> questionList;
+        [SerializeField] private List<MultipleChoiceQuestion> questionList;
         private int correctAnswer;
 
         private float timer; 
