@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: "\u6E2C\u8A66\u7528_\u62BD 10 \u5F35\u5361"
+  m_EditorClassIdentifier: 
+  id: "\u6E2C\u8A66\u7528_\u62BD 10 \u5F35\u5361"
+  cardName: "\u6E2C\u8A66\u7528_\u62BD 10 \u5F35\u5361"
+  manaCost: 0
+  cardSprite: {fileID: 21300000, guid: 6d79f0e0e016ca64592cdb3293bf37da, type: 3}
+  rarity: 0
+  needPowerToPlay: 0
+  needPowerType: 9
+  powerCost: 0
+  actionTargetType: 4
+  usableWithoutTarget: 1
+  exhaustAfterPlay: 0
+  cardActionDataList:
+  - gameActionType: 22
+    powerType: 0
+    actionValue: 10
+    additionValue: 0
+    actionDelay: 0
+  cardDescriptionDataList:
+  - descriptionText: 'Draw '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' cards'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  specialKeywordsList: 
+  audioType: 4
+  correctCardActionDataList: []
+  wrongCardActionDataList: []
+  limitedQuestionCardActionDataList: []
+  mathQuestioningActionParameters:
+    UseMathAction: 0
+    QuestioningEndJudgeType: 0
+    QuestionCount: -1
+    UseCorrectAction: 0
+    CorrectActionNeedAnswerCount: -1
+    UseWrongAction: 0
+    WrongActionNeedAnswerCount: -1
+    UseTimeCountDown: 0
+    Time: -1
+    SelfCharacter: {fileID: 0}
+    TargetCharacter: {fileID: 0}

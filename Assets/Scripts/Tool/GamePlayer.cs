@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using NueGames.NueDeck.Scripts.Data.Settings;
-using NueGames.NueDeck.Scripts.Managers;
+using NueGames.Data.Settings;
+using NueGames.Managers;
 using UnityEngine;
 
 public class GamePlayer : MonoBehaviour

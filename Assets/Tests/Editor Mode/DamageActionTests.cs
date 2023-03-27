@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using NSubstitute;
-using NueGames.NueDeck.Scripts.Action;
-using NueGames.NueDeck.Scripts.Characters;
-using NueGames.NueDeck.Scripts.Combat;
+using NueGames.Action;
+using NueGames.Characters;
+using NueGames.Combat;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
