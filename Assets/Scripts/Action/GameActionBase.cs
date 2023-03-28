@@ -28,7 +28,7 @@ namespace NueGames.Action
 
         public override string ToString()
         {
-            return $"{GetType().Name} {nameof(Target)}: {Target}, {nameof(Self)}: {Self}, {nameof(Amount)}: {Amount}";
+            return $"{GetType().Name} \n {nameof(Target)}: {Target}, {nameof(Self)}: {Self}, {nameof(Amount)}: {Amount}";
         }
 
         public virtual void SetValue(ActionParameters parameters){}

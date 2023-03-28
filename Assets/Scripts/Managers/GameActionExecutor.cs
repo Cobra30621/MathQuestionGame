@@ -85,7 +85,7 @@ namespace NueGames.Managers
         private void DoCurrentAction()
         {
             currentAction.DoAction();
-            Debug.Log($"Do action {currentAction.GetType().Name}");
+            Debug.Log($"Do action {currentAction.ToString()}");
             actionIsDone = false;
             StartCoroutine(DoActionRoutine(currentAction.Duration));
         }

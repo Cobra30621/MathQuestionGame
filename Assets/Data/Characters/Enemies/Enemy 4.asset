@@ -22,18 +22,20 @@ MonoBehaviour:
   - name: Buff
     intention: {fileID: 11400000, guid: c70607cffd24871458aaa58871e74ba9, type: 2}
     hideActionValue: 0
+    actionTargetType: 0
     actionList:
-    - actionType: 4
-      actionTargetType: 0
-      minActionValue: 3
-      maxActionValue: 3
-      powerType: 3
+    - gameActionType: 11
+      powerType: 2
+      actionValue: 5
+      additionValue: 0
+      actionDelay: 0
   - name: Buff All
     intention: {fileID: 11400000, guid: c70607cffd24871458aaa58871e74ba9, type: 2}
     hideActionValue: 0
+    actionTargetType: 2
     actionList:
-    - actionType: 4
-      actionTargetType: 2
-      minActionValue: 3
-      maxActionValue: 3
-      powerType: 3
+    - gameActionType: 13
+      powerType: 2
+      actionValue: 3
+      additionValue: 0
+      actionDelay: 0

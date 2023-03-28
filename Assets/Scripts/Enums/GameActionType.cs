@@ -4,11 +4,12 @@
     {
         // 1~10 傷害
         Damage = 1, 
+        DamageAllEnemy = 2,
         DamageByQuestioning = 4,
         DamageByAllyPowerValue = 5,
         // 11~20 角色狀態
         ApplyPower = 11, 
-        Block = 12,
+        ApplyPowerToAllEnemy = 13,
         // 21~30 卡組相關
         EarnMana = 21,
         DrawCard = 22,

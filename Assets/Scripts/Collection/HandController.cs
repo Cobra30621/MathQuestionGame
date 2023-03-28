@@ -347,6 +347,7 @@ namespace NueGames.Collection
 
                 _canUse = _heldCard.CardData.UsableWithoutTarget ||
                           _heldCard.CardData.ActionTargetType == ActionTargetType.WithoutTarget ||
+                          _heldCard.CardData.ActionTargetType == ActionTargetType.AllEnemies ||
                           CheckPlayOnCharacter(mainRay, _canUse, ref selfCharacter, ref targetCharacter);
                 
                 if (_canUse)

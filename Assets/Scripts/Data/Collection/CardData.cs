@@ -260,8 +260,8 @@ namespace NueGames.Data.Collection
                     if(cardActionDataList[ModifiedActionValueIndex].GameActionType == GameActionType.Damage)
                         value = CombatCalculator.GetDamageValue(value, player);
 
-                    if(cardActionDataList[ModifiedActionValueIndex].GameActionType == GameActionType.Block)
-                        value = CombatCalculator.GetBlockValue(value, player);
+                    // if(cardActionDataList[ModifiedActionValueIndex].GameActionType == GameActionType.Block)
+                    //     value = CombatCalculator.GetBlockValue(value, player);
                     // if (modifer != 0)
                     // {
                     //     if (usePrefixOnModifiedValue)

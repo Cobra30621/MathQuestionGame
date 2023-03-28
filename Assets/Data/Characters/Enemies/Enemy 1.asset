@@ -22,7 +22,7 @@ MonoBehaviour:
   - name: Attack Single
     intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     hideActionValue: 0
-    actionTargetType: 0
+    actionTargetType: 1
     actionList:
     - gameActionType: 1
       powerType: 0
@@ -34,8 +34,8 @@ MonoBehaviour:
     hideActionValue: 0
     actionTargetType: 0
     actionList:
-    - gameActionType: 12
+    - gameActionType: 11
       powerType: 1
-      actionValue: 10
+      actionValue: 15
       additionValue: 0
       actionDelay: 0

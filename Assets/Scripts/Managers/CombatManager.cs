@@ -173,6 +173,7 @@ namespace NueGames.Managers
            CharacterBase target = null;
             switch (actionTargetType)
             {
+                case ActionTargetType.AllEnemies:
                 case ActionTargetType.Enemy:
                     target = enemyCharacter;
                     break;

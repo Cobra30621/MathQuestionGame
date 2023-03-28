@@ -101,10 +101,6 @@ namespace NueGames.Characters
         {
             // Do Action
             List<GameActionBase> gameActions =  GameActionGenerator.GetGameActions(null, targetAbility.ActionList, self, target);
-            foreach (GameActionBase action in gameActions)
-            {
-                Debug.Log(action.ToString());
-            }
             GameActionExecutor.AddToBottom(gameActions);
         }
         
