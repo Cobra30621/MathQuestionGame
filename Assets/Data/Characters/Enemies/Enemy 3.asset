@@ -22,72 +22,30 @@ MonoBehaviour:
   - name: Attack Single
     intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     hideActionValue: 0
+    actionTargetType: 0
     actionList:
-    - actionType: 0
-      actionTargetType: 1
-      minActionValue: 3
-      maxActionValue: 4
-      statusType: 0
+    - gameActionType: 1
+      powerType: 0
+      actionValue: 5
+      additionValue: 0
+      actionDelay: 0
   - name: Attack Single
     intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     hideActionValue: 0
+    actionTargetType: 0
     actionList:
-    - actionType: 0
-      actionTargetType: 1
-      minActionValue: 4
-      maxActionValue: 5
-      statusType: 0
+    - gameActionType: 1
+      powerType: 0
+      actionValue: 9
+      additionValue: 0
+      actionDelay: 0
   - name: Heal
     intention: {fileID: 11400000, guid: d8b91adf93b4e21419f64f9a68fc3c70, type: 2}
     hideActionValue: 0
+    actionTargetType: 0
     actionList:
-    - actionType: 1
-      actionTargetType: 0
-      minActionValue: 5
-      maxActionValue: 5
-      statusType: 0
-  - name: Attack Single
-    intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
-    hideActionValue: 0
-    actionList:
-    - actionType: 0
-      actionTargetType: 1
-      minActionValue: 5
-      maxActionValue: 6
-      statusType: 0
-  - name: Attack Single
-    intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
-    hideActionValue: 0
-    actionList:
-    - actionType: 0
-      actionTargetType: 1
-      minActionValue: 6
-      maxActionValue: 7
-      statusType: 0
-  - name: Heal
-    intention: {fileID: 11400000, guid: d8b91adf93b4e21419f64f9a68fc3c70, type: 2}
-    hideActionValue: 0
-    actionList:
-    - actionType: 1
-      actionTargetType: 0
-      minActionValue: 7
-      maxActionValue: 7
-      statusType: 0
-  - name: Attack Single
-    intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
-    hideActionValue: 0
-    actionList:
-    - actionType: 0
-      actionTargetType: 1
-      minActionValue: 7
-      maxActionValue: 8
-      statusType: 0
-  - name: Attack Single
-    intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
-    hideActionValue: 0
-    actionList:
-    - actionType: 0
-      actionTargetType: 1
-      minActionValue: 9
-      maxActionValue: 10
-      statusType: 0
+    - gameActionType: 24
+      powerType: 0
+      actionValue: 5
+      additionValue: 0
+      actionDelay: 0
