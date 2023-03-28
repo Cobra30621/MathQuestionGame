@@ -1,4 +1,5 @@
 ﻿using NueGames.Managers;
+using UnityEngine;
 
 namespace NueGames.Characters.Allies
 {

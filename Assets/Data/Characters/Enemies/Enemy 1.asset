@@ -22,18 +22,20 @@ MonoBehaviour:
   - name: Attack Single
     intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     hideActionValue: 0
+    actionTargetType: 0
     actionList:
-    - actionType: 0
-      actionTargetType: 0
-      minActionValue: 6
-      maxActionValue: 6
+    - gameActionType: 1
       powerType: 0
+      actionValue: 10
+      additionValue: 0
+      actionDelay: 0
   - name: Block
     intention: {fileID: 11400000, guid: b0b1e7f2f78bb444eb1666e4accf22ee, type: 2}
     hideActionValue: 0
+    actionTargetType: 0
     actionList:
-    - actionType: 3
-      actionTargetType: 0
-      minActionValue: 5
-      maxActionValue: 8
-      powerType: 0
+    - gameActionType: 12
+      powerType: 1
+      actionValue: 10
+      additionValue: 0
+      actionDelay: 0

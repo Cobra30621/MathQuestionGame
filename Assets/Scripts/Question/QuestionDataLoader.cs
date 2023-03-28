@@ -23,11 +23,17 @@ namespace Question
 
         private void LoadQuestionData(string chapterName)
         {
-            QuestionsData questionsData = CreateQuestionData(chapterName);
-            questionsData.MultipleChoiceQuestions = new List<MultipleChoiceQuestion>();
-            
+            // 載入 Question Data
+            string assetPath = outputPath + chapterName  + ".asset";
+            QuestionsData questionsData = AssetDatabase.LoadAssetAtPath(assetPath, typeof(QuestionsData)) as QuestionsData;
+
+            if (questionsData == null)
+            {
+                questionsData = CreateQuestionData(chapterName, assetPath);
+                Debug.Log($"創造新的 QuestionData{chapterName}");
+            }
+
             string[][] datas = _csvLoader.LoadData(inputPath + chapterName);
-            
             foreach (string[] data in datas)
             {
                 int answer = Convert.ToInt32(data[0]) - 1;
@@ -38,14 +44,14 @@ namespace Question
                 Sprite optionSprite =  Resources.Load<Sprite> (inputPath + spriteName + "b");   
                 
                 MultipleChoiceQuestion question = new MultipleChoiceQuestion(answer, optionCount, questionSprite, optionSprite);
-                questionsData.MultipleChoiceQuestions.Add(question);
+                questionsData.AddQuestion(question);
             }
         }
 
-        private QuestionsData CreateQuestionData(string chapterName)
+        private QuestionsData CreateQuestionData(string chapterName, string assetPath)
         {
             QuestionsData questionsData = ScriptableObject.CreateInstance<QuestionsData>();
-            AssetDatabase.CreateAsset(questionsData, outputPath + chapterName + ".asset");
+            AssetDatabase.CreateAsset(questionsData, assetPath);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             EditorUtility.FocusProjectWindow();

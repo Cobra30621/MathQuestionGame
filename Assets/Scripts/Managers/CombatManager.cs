@@ -167,31 +167,27 @@ namespace NueGames.Managers
         }
 
 
-        public List<CharacterBase> EnemyDetermineTargets(CharacterBase enemyCharacter,
+        public CharacterBase EnemyDetermineTargets(CharacterBase enemyCharacter,
             ActionTargetType actionTargetType)
         {
-            List<CharacterBase> targetList = new List<CharacterBase>();
+           CharacterBase target = null;
             switch (actionTargetType)
             {
                 case ActionTargetType.Enemy:
-                    targetList.Add(enemyCharacter);
+                    target = enemyCharacter;
                     break;
                 case ActionTargetType.Ally:
-                    targetList.Add(CurrentAlliesList.RandomItem());
-                    break;
-                case ActionTargetType.AllEnemies:
-                    foreach (var enemyBase in CurrentEnemiesList)
-                        targetList.Add(enemyBase);
+                    target = CurrentMainAlly;
                     break;
                 case ActionTargetType.RandomEnemy:
                     if (CurrentEnemiesList.Count>0)
-                        targetList.Add(CurrentEnemiesList.RandomItem());
+                        target = CurrentEnemiesList.RandomItem();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
-            return targetList;
+            return target;
         }
         
         public void SetSelectedEnemy(EnemyBase selectedEnemy)

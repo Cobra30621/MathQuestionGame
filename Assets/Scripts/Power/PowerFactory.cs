@@ -26,6 +26,9 @@ namespace NueGames.Power
 
         public static PowerBase GetPower(PowerType targetPower)
         {
+            if(!IsInitialized)
+                Initialize();
+            
             string powerBaseName = targetPower.ToString() + "Power";
             
             foreach (var powerBase in PowerClasses)

@@ -25,12 +25,13 @@ namespace NueGames.Characters
         protected UIManager UIManager => UIManager.Instance;
 
         #endregion
-       
 
-        public virtual void Awake()
+
+        public CharacterStats GetCharacterStats()
         {
+            return CharacterStats;
         }
-        
+
         public virtual void BuildCharacter()
         {
             
@@ -64,6 +65,11 @@ namespace NueGames.Characters
             }
 
             return 0;
+        }
+
+        public void SetCharacterStatus(CharacterStats stats)
+        {
+            CharacterStats = stats;
         }
     }
 }

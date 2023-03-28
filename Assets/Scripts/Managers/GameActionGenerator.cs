@@ -4,7 +4,9 @@ using System.Linq;
 using System.Reflection;
 using NueGames.Card;
 using NueGames.Characters;
+using NueGames.Data.Characters;
 using NueGames.Data.Collection;
+using NueGames.EnemyBehaviour;
 using NueGames.Enums;
 using UnityEngine;
 
@@ -29,7 +31,7 @@ namespace NueGames.Action
                 _gameActionDict.Add(gameActionClass.Name, gameActionClass);
             }
         }
-
+        
         public static List<GameActionBase> GetGameActions(CardData cardData, List<CardActionData> cardActionDataList, CharacterBase self,
             CharacterBase target)
         {

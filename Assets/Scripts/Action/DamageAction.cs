@@ -3,6 +3,7 @@ using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Data.Collection;
 using NueGames.Enums;
+using UnityEngine;
 
 namespace NueGames.Action
 {
@@ -38,6 +39,7 @@ namespace NueGames.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
 
+            Debug.Log("damageInfo.SelfCharacter" +  damageInfo.SelfCharacter );
             int value = CombatCalculator.GetDamageValue(damageInfo.Value, damageInfo.SelfCharacter, Target);
             
             Target.CharacterStats.Damage(value);

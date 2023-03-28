@@ -46,7 +46,7 @@ namespace NueGames.Managers
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
                 EnemyActionProcessor.Initialize();
-                PowerFactory.Initialize();
+                // PowerFactory.Initialize();
                 if (isDevelopCombatMode)
                 {
                     StartRougeLikeGame();

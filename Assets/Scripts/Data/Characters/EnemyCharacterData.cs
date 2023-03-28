@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NueGames.Characters;
+using NueGames.Data.Collection;
 using NueGames.Data.Containers;
 using NueGames.Enums;
 using NueGames.NueExtentions;
@@ -44,23 +45,25 @@ namespace NueGames.Data.Characters
         [SerializeField] private string name;
         [SerializeField] private EnemyIntentionData intention;
         [SerializeField] private bool hideActionValue;
-        [SerializeField] private List<EnemyActionData> actionList;
+        [SerializeField] private ActionTargetType actionTargetType;
+        [SerializeField] private List<CardActionData> actionList;
         public string Name => name;
         public EnemyIntentionData Intention => intention;
-        public List<EnemyActionData> ActionList => actionList;
+        public List<CardActionData> ActionList => actionList;
+        public ActionTargetType ActionTargetType => actionTargetType;
         public bool HideActionValue => hideActionValue;
     }
     
     [Serializable]
     public class EnemyActionData
     {
-        [SerializeField] private EnemyActionType actionType;
+        [SerializeField] private GameActionType actionType;
         [SerializeField] private ActionTargetType actionTargetType;
         [SerializeField] private int minActionValue;
         [SerializeField] private int maxActionValue;
         [Header("給予狀態（只有 actionType 選擇 Give Status，才需要選擇）")]
         [SerializeField] private PowerType powerType;
-        public EnemyActionType ActionType => actionType;
+        public GameActionType ActionType => actionType;
         public ActionTargetType ActionTargetType => actionTargetType;
         public PowerType PowerType => powerType;
         public int ActionValue => Random.Range(minActionValue,maxActionValue);

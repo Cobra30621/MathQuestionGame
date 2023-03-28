@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using NueGames.Action;
 using NueGames.Data.Characters;
 using NueGames.Data.Collection;
 using NueGames.Data.Containers;
@@ -24,13 +25,15 @@ namespace NueGames.Characters
         public EnemyCharacterData EnemyCharacterData => enemyCharacterData;
         public EnemyCanvas EnemyCanvas => enemyCanvas;
         public SoundProfileData DeathSoundProfileData => deathSoundProfileData;
+        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
 
         #region Setup
         public override void BuildCharacter()
         {
             base.BuildCharacter();
             EnemyCanvas.InitCanvas();
-            CharacterStats = new CharacterStats(EnemyCharacterData.MaxHealth,EnemyCanvas, this);
+            CharacterStats = new CharacterStats(EnemyCharacterData.MaxHealth, this);
+            CharacterStats.SetCharacterCanvasEvent(EnemyCanvas);
             CharacterStats.OnDeath += OnDeath;
             CharacterStats.SetCurrentHealth(CharacterStats.CurrentHealth);
             CombatManager.OnAllyTurnStarted += ShowNextAbility;
@@ -79,49 +82,53 @@ namespace NueGames.Characters
                 yield break;
             
             EnemyCanvas.IntentImage.gameObject.SetActive(false);
-            if (NextAbility.Intention.EnemyIntentionType == EnemyIntentionType.Attack || NextAbility.Intention.EnemyIntentionType == EnemyIntentionType.Debuff)
+            
+            var self = this;
+            var target = CombatManager.EnemyDetermineTargets(this, NextAbility.ActionTargetType);
+            DoGameAction(NextAbility, self, target);
+            
+            if (NextAbility.Intention.EnemyIntentionType == EnemyIntentionType.Attack || 
+                NextAbility.Intention.EnemyIntentionType == EnemyIntentionType.Debuff)
             {
-                yield return StartCoroutine(AttackRoutine(NextAbility));
+                yield return StartCoroutine(AttackRoutine(NextAbility, target.transform));
             }
             else
             {
                 yield return StartCoroutine(BuffRoutine(NextAbility));
             }
         }
+
+        private void DoGameAction(EnemyAbilityData targetAbility, CharacterBase self, CharacterBase target)
+        {
+            // Do Action
+            List<GameActionBase> gameActions =  GameActionGenerator.GetGameActions(null, targetAbility.ActionList, self, target);
+            foreach (GameActionBase action in gameActions)
+            {
+                Debug.Log(action.ToString());
+            }
+            GameActionExecutor.AddToBottom(gameActions);
+        }
         
-        protected virtual IEnumerator AttackRoutine(EnemyAbilityData targetAbility)
+        protected virtual IEnumerator AttackRoutine(EnemyAbilityData targetAbility, Transform targetTransform )
         {
             var waitFrame = new WaitForEndOfFrame();
 
             if (CombatManager == null) yield break;
             
-            var target = CombatManager.CurrentAlliesList.RandomItem();
             
             var startPos = transform.position;
-            var endPos = target.transform.position;
+            var endPos = targetTransform.transform.position;
 
             var startRot = transform.localRotation;
             var endRot = Quaternion.Euler(60, 0, 60);
             
             yield return StartCoroutine(MoveToTargetRoutine(waitFrame, startPos, endPos, startRot, endRot, 5));
-
-            // Do Action
-            foreach (EnemyActionData actionData in targetAbility.ActionList)
-            {
-                var targetList = CombatManager.EnemyDetermineTargets(this, actionData.ActionTargetType);
-                foreach (var t in targetList)
-                    EnemyActionProcessor.GetAction(actionData.ActionType)
-                        .DoAction(new EnemyActionParameters(actionData.ActionValue, t, this, actionData));
-            }
-
             yield return StartCoroutine(MoveToTargetRoutine(waitFrame, endPos, startPos, endRot, startRot, 5));
         }
         
         protected virtual IEnumerator BuffRoutine(EnemyAbilityData targetAbility)
         {
             var waitFrame = new WaitForEndOfFrame();
-            
-            var target = CombatManager.CurrentEnemiesList.RandomItem();
             
             var startPos = transform.position;
             var endPos = startPos+new Vector3(0,0.2f,0);
@@ -130,18 +137,6 @@ namespace NueGames.Characters
             var endRot = transform.localRotation;
             
             yield return StartCoroutine(MoveToTargetRoutine(waitFrame, startPos, endPos, startRot, endRot, 5));
-            
-            // Do Action
-            foreach (EnemyActionData actionData in targetAbility.ActionList)
-            {
-                var targetList = CombatManager.EnemyDetermineTargets(this, actionData.ActionTargetType);
-                foreach (var t in targetList)
-                    EnemyActionProcessor.GetAction(actionData.ActionType)
-                        .DoAction(new EnemyActionParameters(actionData.ActionValue, t, this, actionData));
-            }
-            // targetAbility.ActionList.ForEach(x=>EnemyActionProcessor.GetAction(x.ActionType).
-            //     DoAction(new EnemyActionParameters(x.ActionValue,target,this, x)));
-            
             yield return StartCoroutine(MoveToTargetRoutine(waitFrame, endPos, startPos, endRot, startRot, 5));
         }
         

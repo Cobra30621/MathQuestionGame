@@ -51,16 +51,20 @@ namespace NueGames.Characters
         public readonly Dictionary<PowerType, PowerBase> PowerDict = new Dictionary<PowerType, PowerBase>();
 
         #region Setup
-        public CharacterStats(int maxHealth, CharacterCanvas characterCanvas, CharacterBase characterBase)
+        public CharacterStats(int maxHealth, CharacterBase characterBase)
         {
             owner = characterBase;
             MaxHealth = maxHealth;
             CurrentHealth = maxHealth;
             
+            
+        }
+
+        public void SetCharacterCanvasEvent(CharacterCanvas characterCanvas)
+        {
             OnPowerApplied += characterCanvas.ApplyStatus;
             OnPowerChanged += characterCanvas.UpdateStatusText;
             OnPowerCleared += characterCanvas.ClearStatus;
-            
             OnHealthChanged += characterCanvas.UpdateHealthInfo;
         }
 
@@ -92,7 +96,8 @@ namespace NueGames.Characters
 
         public void HandleAllPowerOnTurnStart()
         {
-            foreach (PowerBase power in PowerDict.Values)
+            var copyPowerDict = new Dictionary<PowerType, PowerBase> (PowerDict);
+            foreach (PowerBase power in copyPowerDict.Values)
             {
                 power.OnTurnStarted();
             }

@@ -11,15 +11,24 @@ namespace Question
         [SerializeField] private QuestionType questionType;
         [SerializeField] private MathType mathType;
         [SerializeField] private string chapterName;
+        [SerializeField] private List<MultipleChoiceQuestion> multipleChoiceQuestions;
         
         public QuestionType QuestionType => questionType;
         public MathType MathType => mathType;
         public string ChapterName => chapterName;
-        public List<MultipleChoiceQuestion> MultipleChoiceQuestions;
+        public List<MultipleChoiceQuestion> MultipleChoiceQuestions => multipleChoiceQuestions;
 
         public void SetChapterName(string name)
         {
             chapterName = name;
+        }
+
+        public void AddQuestion(MultipleChoiceQuestion question)
+        {
+            if (multipleChoiceQuestions == null)
+                multipleChoiceQuestions = new List<MultipleChoiceQuestion>();
+            
+            multipleChoiceQuestions.Add(question);
         }
     }
 

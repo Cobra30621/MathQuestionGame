@@ -1,5 +1,6 @@
 ﻿using NueGames.Card;
 using NueGames.Characters;
+using NueGames.Data.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
 using UnityEngine;
@@ -25,9 +26,13 @@ namespace NueGames.Action
         protected CollectionManager CollectionManager => CollectionManager.Instance;
         protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
 
+        public override string ToString()
+        {
+            return $"{GetType().Name} {nameof(Target)}: {Target}, {nameof(Self)}: {Self}, {nameof(Amount)}: {Amount}";
+        }
 
         public virtual void SetValue(CardActionParameters parameters){}
-
+        
         public abstract void DoAction();
         
 

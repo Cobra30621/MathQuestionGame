@@ -30,20 +30,26 @@ namespace NueGames.Power
 
         protected void SubscribeAllEvent()
         {
-            EventManager.onAttacked += OnAttacked;
-            EventManager.OnQuestioningModeEnd += OnQuestioningModeEnd;
-            EventManager.OnAnswer += OnAnswer;
-            EventManager.OnAnswerCorrect += OnAnswerCorrect;
-            EventManager.OnAnswerWrong += OnAnswerWrong;
+            if (EventManager != null)
+            {
+                EventManager.onAttacked += OnAttacked;
+                EventManager.OnQuestioningModeEnd += OnQuestioningModeEnd;
+                EventManager.OnAnswer += OnAnswer;
+                EventManager.OnAnswerCorrect += OnAnswerCorrect;
+                EventManager.OnAnswerWrong += OnAnswerWrong;
+            }
         }
 
         protected void UnSubscribeAllEvent()
         {
-            EventManager.onAttacked -= OnAttacked;
-            EventManager.OnQuestioningModeEnd -= OnQuestioningModeEnd;
-            EventManager.OnAnswer -= OnAnswer;
-            EventManager.OnAnswerCorrect -= OnAnswerCorrect;
-            EventManager.OnAnswerWrong -= OnAnswerWrong;
+            if (EventManager != null)
+            {
+                EventManager.onAttacked -= OnAttacked;
+                EventManager.OnQuestioningModeEnd -= OnQuestioningModeEnd;
+                EventManager.OnAnswer -= OnAnswer;
+                EventManager.OnAnswerCorrect -= OnAnswerCorrect;
+                EventManager.OnAnswerWrong -= OnAnswerWrong;
+            }
         }
         
         #endregion
@@ -56,13 +62,13 @@ namespace NueGames.Power
             if (IsActive)
             {
                 Value += stackAmount;
-                Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
+                Owner?.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
             }
             else
             {
                 Value = stackAmount;
                 IsActive = true;
-                Owner.CharacterStats.OnPowerApplied.Invoke(PowerType, Value);
+                Owner?.CharacterStats.OnPowerApplied.Invoke(PowerType, Value);
             }
         }
         
