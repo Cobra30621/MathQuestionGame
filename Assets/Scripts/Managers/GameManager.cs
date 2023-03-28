@@ -2,7 +2,6 @@ using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Data.Containers;
 using NueGames.Data.Settings;
-using NueGames.EnemyBehaviour;
 using NueGames.NueExtentions;
 using NueGames.Power;
 using UnityEngine;
@@ -45,8 +44,6 @@ namespace NueGames.Managers
                 transform.parent = null;
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-                EnemyActionProcessor.Initialize();
-                // PowerFactory.Initialize();
                 if (isDevelopCombatMode)
                 {
                     StartRougeLikeGame();

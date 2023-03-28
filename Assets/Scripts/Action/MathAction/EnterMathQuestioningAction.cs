@@ -16,10 +16,10 @@ namespace NueGames.Action.MathAction
             AudioActionType = AudioActionType.Attack;
         }
         
-        public override void SetValue(CardActionParameters parameters)
+        public override void SetValue(ActionParameters parameters)
         {
             CardData cardData = parameters.CardData;
-            Duration = parameters.CardActionData.ActionDelay;
+            Duration = parameters.ActionData.ActionDelay;
             Target = parameters.TargetCharacter;
             Self = parameters.SelfCharacter;
 

@@ -46,10 +46,10 @@ namespace NueGames.Data.Characters
         [SerializeField] private EnemyIntentionData intention;
         [SerializeField] private bool hideActionValue;
         [SerializeField] private ActionTargetType actionTargetType;
-        [SerializeField] private List<CardActionData> actionList;
+        [SerializeField] private List<ActionData> actionList;
         public string Name => name;
         public EnemyIntentionData Intention => intention;
-        public List<CardActionData> ActionList => actionList;
+        public List<ActionData> ActionList => actionList;
         public ActionTargetType ActionTargetType => actionTargetType;
         public bool HideActionValue => hideActionValue;
     }

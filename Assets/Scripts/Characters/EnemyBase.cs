@@ -5,7 +5,6 @@ using NueGames.Action;
 using NueGames.Data.Characters;
 using NueGames.Data.Collection;
 using NueGames.Data.Containers;
-using NueGames.EnemyBehaviour;
 using NueGames.Enums;
 using NueGames.Interfaces;
 using NueGames.Managers;

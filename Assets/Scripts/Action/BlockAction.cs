@@ -14,10 +14,10 @@ namespace NueGames.Action
             AudioActionType = AudioActionType.Block;
         }
         
-        public override void SetValue(CardActionParameters parameters)
+        public override void SetValue(ActionParameters parameters)
         {
-            CardActionData data = parameters.CardActionData;
-            Duration = parameters.CardActionData.ActionDelay;
+            ActionData data = parameters.ActionData;
+            Duration = parameters.ActionData.ActionDelay;
             
             SetValue(data.ActionValue, parameters.TargetCharacter);
         }

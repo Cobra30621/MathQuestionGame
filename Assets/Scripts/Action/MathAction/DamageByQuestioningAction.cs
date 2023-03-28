@@ -9,10 +9,10 @@ namespace NueGames.Action.MathAction
     {
         private DamageInfo damageInfo;
         
-        public override void SetValue(CardActionParameters parameters)
+        public override void SetValue(ActionParameters parameters)
         {
-            CardActionData data = parameters.CardActionData;
-            Duration = parameters.CardActionData.ActionDelay;
+            ActionData data = parameters.ActionData;
+            Duration = parameters.ActionData.ActionDelay;
 
             SetValue(new DamageInfo(data.ActionValue, data.AdditionValue, parameters.SelfCharacter),
                 parameters.TargetCharacter);

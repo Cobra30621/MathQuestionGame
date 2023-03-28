@@ -5,20 +5,20 @@ using NueGames.Managers;
 
 namespace NueGames.Card
 {
-    public class CardActionParameters
+    public class ActionParameters
     {
         public readonly int Value;
         public readonly CharacterBase TargetCharacter;
         public readonly CharacterBase SelfCharacter;
-        public readonly CardActionData CardActionData;
+        public readonly ActionData ActionData;
         public readonly CardData CardData;
         
-        public CardActionParameters(int value,CharacterBase target, CharacterBase self,CardActionData cardActionData, CardData cardData)
+        public ActionParameters(int value,CharacterBase target, CharacterBase self,ActionData actionData, CardData cardData)
         {
             Value = value;
             TargetCharacter = target;
             SelfCharacter = self;
-            CardActionData = cardActionData;
+            ActionData = actionData;
             CardData = cardData;
         }
     }

@@ -6,7 +6,6 @@ using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Characters;
 using NueGames.Data.Collection;
-using NueGames.EnemyBehaviour;
 using NueGames.Enums;
 using UnityEngine;
 
@@ -32,13 +31,13 @@ namespace NueGames.Action
             }
         }
         
-        public static List<GameActionBase> GetGameActions(CardData cardData, List<CardActionData> cardActionDataList, CharacterBase self,
+        public static List<GameActionBase> GetGameActions(CardData cardData, List<ActionData> cardActionDataList, CharacterBase self,
             CharacterBase target)
         {
             List<GameActionBase> gameActionBases = new List<GameActionBase>();
             foreach (var playerAction in cardActionDataList)
             {
-                CardActionParameters cardActionParameters = new CardActionParameters(
+                ActionParameters actionParameters = new ActionParameters(
                     playerAction.ActionValue,
                     target,
                     self,
@@ -46,17 +45,17 @@ namespace NueGames.Action
                     cardData
                 );
 
-                GameActionBase gameActionBase = GetGameAction(playerAction.GameActionType, cardActionParameters);
+                GameActionBase gameActionBase = GetGameAction(playerAction.GameActionType, actionParameters);
                 gameActionBases.Add(gameActionBase);
             }
 
             return gameActionBases;
         }
 
-        public static GameActionBase GetGameAction(GameActionType actionType, CardActionParameters cardActionParameters)
+        public static GameActionBase GetGameAction(GameActionType actionType, ActionParameters actionParameters)
         {
             GameActionBase gameActionBase = GetGameAction(actionType);
-            gameActionBase.SetValue(cardActionParameters);
+            gameActionBase.SetValue(actionParameters);
             return gameActionBase;
         }
 

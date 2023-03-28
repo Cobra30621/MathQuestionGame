@@ -29,7 +29,7 @@ namespace NueGames.Data.Collection
         [SerializeField] private ActionTargetType actionTargetType;
         [SerializeField] private bool usableWithoutTarget;
         [SerializeField] private bool exhaustAfterPlay;
-        [SerializeField] private List<CardActionData> cardActionDataList;
+        [SerializeField] private List<ActionData> cardActionDataList;
         
         [Header("Description")]
         [SerializeField] private List<CardDescriptionData> cardDescriptionDataList;
@@ -39,9 +39,9 @@ namespace NueGames.Data.Collection
         [SerializeField] private AudioActionType audioType;
 
         [Header("Math Action Settings")]
-        [SerializeField] private List<CardActionData> correctCardActionDataList;
-        [SerializeField] private List<CardActionData> wrongCardActionDataList;
-        [SerializeField] private List<CardActionData> limitedQuestionCardActionDataList;
+        [SerializeField] private List<ActionData> correctCardActionDataList;
+        [SerializeField] private List<ActionData> wrongCardActionDataList;
+        [SerializeField] private List<ActionData> limitedQuestionCardActionDataList;
         [SerializeField] private MathQuestioningActionParameters mathQuestioningActionParameters = new MathQuestioningActionParameters();
 
         #region Cache
@@ -54,10 +54,10 @@ namespace NueGames.Data.Collection
         public int PowerCost => powerCost;
         public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
-        public List<CardActionData> CardActionDataList => cardActionDataList;
-        public List<CardActionData> CorrectCardActionDataList => correctCardActionDataList;
-        public List<CardActionData> WrongCardActionDataList => wrongCardActionDataList;
-        public List<CardActionData> LimitedQuestionCardActionDataList => limitedQuestionCardActionDataList;
+        public List<ActionData> CardActionDataList => cardActionDataList;
+        public List<ActionData> CorrectCardActionDataList => correctCardActionDataList;
+        public List<ActionData> WrongCardActionDataList => wrongCardActionDataList;
+        public List<ActionData> LimitedQuestionCardActionDataList => limitedQuestionCardActionDataList;
         public MathQuestioningActionParameters MathQuestioningActionParameters => mathQuestioningActionParameters;
         
         public List<CardDescriptionData> CardDescriptionDataList => cardDescriptionDataList;
@@ -85,7 +85,7 @@ namespace NueGames.Data.Collection
             MyDescription = str.ToString();
         }
         
-        public List<CardActionData> GetCardActionDataList(CardActionDataListType cardActionDataListType)
+        public List<ActionData> GetCardActionDataList(CardActionDataListType cardActionDataListType)
         {
             switch (cardActionDataListType)
             {
@@ -117,13 +117,13 @@ namespace NueGames.Data.Collection
         public void EditActionTargetType(ActionTargetType newActionTargetType) =>
             actionTargetType = newActionTargetType;
         public void EditExhaustAfterPlay(bool newStatus) => exhaustAfterPlay = newStatus;
-        public void EditCardActionDataList(List<CardActionData> newCardActionDataList) =>
+        public void EditCardActionDataList(List<ActionData> newCardActionDataList) =>
             cardActionDataList = newCardActionDataList;
-        public void EditCorrectCardActionDataList(List<CardActionData> newCardActionDataList) =>
+        public void EditCorrectCardActionDataList(List<ActionData> newCardActionDataList) =>
             correctCardActionDataList= newCardActionDataList;
-        public void EditWrongCardActionDataList(List<CardActionData> newCardActionDataList) =>
+        public void EditWrongCardActionDataList(List<ActionData> newCardActionDataList) =>
             wrongCardActionDataList = newCardActionDataList;
-        public void EditLimitedQuestionCardActionDataList(List<CardActionData> newCardActionDataList) =>
+        public void EditLimitedQuestionCardActionDataList(List<ActionData> newCardActionDataList) =>
            limitedQuestionCardActionDataList = newCardActionDataList;
         
         public void EditUseMathAction(bool newValue)=> mathQuestioningActionParameters.UseMathAction = newValue;
@@ -158,7 +158,7 @@ namespace NueGames.Data.Collection
     }
 
     [Serializable]
-    public class CardActionData
+    public class ActionData
     {
         [SerializeField] private GameActionType gameActionType;
         [SerializeField] private PowerType powerType;
@@ -236,7 +236,7 @@ namespace NueGames.Data.Collection
 
         public string GetModifiedValue(CardData cardData)
         {
-            List<CardActionData> cardActionDataList = cardData.GetCardActionDataList(cardActionDataListType);
+            List<ActionData> cardActionDataList = cardData.GetCardActionDataList(cardActionDataListType);
             
             if (cardActionDataList.Count <= 0) return "";
             
@@ -303,7 +303,7 @@ namespace NueGames.Data.Collection
 
         public string GetModifiedValueEditor(CardData cardData)
         {
-            List<CardActionData> cardActionDataList = cardData.GetCardActionDataList(cardActionDataListType);
+            List<ActionData> cardActionDataList = cardData.GetCardActionDataList(cardActionDataListType);
             
             if (cardActionDataList.Count <= 0) return "";
             

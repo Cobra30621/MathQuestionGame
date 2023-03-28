@@ -31,7 +31,7 @@ namespace NueGames.Action
             return $"{GetType().Name} {nameof(Target)}: {Target}, {nameof(Self)}: {Self}, {nameof(Amount)}: {Amount}";
         }
 
-        public virtual void SetValue(CardActionParameters parameters){}
+        public virtual void SetValue(ActionParameters parameters){}
         
         public abstract void DoAction();
         

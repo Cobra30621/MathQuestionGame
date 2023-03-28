@@ -36,10 +36,10 @@ namespace NueGames.NueDeck.Editor
         private ActionTargetType ActionTargetType { get; set; }
         private bool UsableWithoutTarget{ get; set; }
         private bool ExhaustAfterPlay{ get; set; }
-        private List<CardActionData> CardActionDataList{ get; set; }
-        private List<CardActionData> CorrectCardActionDataList{ get; set; }
-        private List<CardActionData> WrongCardActionDataList{ get; set; }
-        private List<CardActionData> LimitedQuestionCardActionDataList{ get; set; }
+        private List<ActionData> CardActionDataList{ get; set; }
+        private List<ActionData> CorrectCardActionDataList{ get; set; }
+        private List<ActionData> WrongCardActionDataList{ get; set; }
+        private List<ActionData> LimitedQuestionCardActionDataList{ get; set; }
 
         private bool useMathAction;
         private bool UseMathAction { get => useMathAction; 
@@ -52,9 +52,9 @@ namespace NueGames.NueDeck.Editor
                     if (useMathAction)  // 使用 MathAction ，自動將 CardAction 的 GameActionType 變成EnterMathQuestioning
                     {
                         CardActionDataList.Clear();
-                        CardActionData cardActionData = new CardActionData();
-                        cardActionData.EditActionType(GameActionType.EnterMathQuestioning);
-                        CardActionDataList.Add(cardActionData);
+                        ActionData actionData = new ActionData();
+                        actionData.EditActionType(GameActionType.EnterMathQuestioning);
+                        CardActionDataList.Add(actionData);
                     }
                 }
             }
@@ -234,10 +234,10 @@ namespace NueGames.NueDeck.Editor
             str.Append(count + 1).Append("_").Append("new_card_name");
             clone.EditId(str.ToString());
             clone.EditCardName(str.ToString());
-            clone.EditCardActionDataList(new List<CardActionData>());
-            clone.EditCorrectCardActionDataList(new List<CardActionData>());
-            clone.EditWrongCardActionDataList(new List<CardActionData>());
-            clone.EditLimitedQuestionCardActionDataList(new List<CardActionData>());
+            clone.EditCardActionDataList(new List<ActionData>());
+            clone.EditCorrectCardActionDataList(new List<ActionData>());
+            clone.EditWrongCardActionDataList(new List<ActionData>());
+            clone.EditLimitedQuestionCardActionDataList(new List<ActionData>());
             clone.EditCardDescriptionDataList(new List<CardDescriptionData>());
             clone.EditSpecialKeywordsList(new List<SpecialKeywords>());
             clone.EditRarity(RarityType.Common);
@@ -430,7 +430,7 @@ namespace NueGames.NueDeck.Editor
         }
         
         
-        private void ChangeSingleCardActionDataList(List<CardActionData> cardActionDataList)
+        private void ChangeSingleCardActionDataList(List<ActionData> cardActionDataList)
         {
             
             GUIStyle headStyle = new GUIStyle();
@@ -439,7 +439,7 @@ namespace NueGames.NueDeck.Editor
             headStyle.fontSize = 20;
             EditorGUILayout.BeginHorizontal();
             
-            List<CardActionData> _removedList = new List<CardActionData>();
+            List<ActionData> _removedList = new List<ActionData>();
             for (var i = 0; i < cardActionDataList.Count; i++)
             {
                 var cardActionData = cardActionDataList[i];
@@ -473,35 +473,35 @@ namespace NueGames.NueDeck.Editor
                 cardActionDataList.Remove(cardActionData);
 
             if (GUILayout.Button("+",GUILayout.Width(50),GUILayout.Height(50)))
-                cardActionDataList.Add(new CardActionData());
+                cardActionDataList.Add(new ActionData());
             
             EditorGUILayout.EndHorizontal();
             
         }
 
-        void ChangeActionType(CardActionData cardActionData)
+        void ChangeActionType(ActionData actionData)
         {
-            var newActionType = (GameActionType)EditorGUILayout.EnumPopup("Action Type",cardActionData.GameActionType,GUILayout.Width(250));
+            var newActionType = (GameActionType)EditorGUILayout.EnumPopup("Action Type",actionData.GameActionType,GUILayout.Width(250));
 
             if (newActionType == GameActionType.ApplyPower || newActionType == GameActionType.DamageByAllyPowerValue)
             {
-                var newPowerType = (PowerType)EditorGUILayout.EnumPopup("Power Type",cardActionData.PowerType,GUILayout.Width(250));
-                cardActionData.EditPower(newPowerType);
+                var newPowerType = (PowerType)EditorGUILayout.EnumPopup("Power Type",actionData.PowerType,GUILayout.Width(250));
+                actionData.EditPower(newPowerType);
             }
                 
             if (newActionType != GameActionType.Exhaust)
             {
-                var newActionValue = EditorGUILayout.IntField("Action Amount: ",cardActionData.ActionValue);
-                cardActionData.EditActionValue(newActionValue);
+                var newActionValue = EditorGUILayout.IntField("Action Amount: ",actionData.ActionValue);
+                actionData.EditActionValue(newActionValue);
             }
 
             if (newActionType == GameActionType.DamageByQuestioning)
             {
-                var newAdditionValue = EditorGUILayout.IntField("AdditionValue: ",cardActionData.AdditionValue);
-                cardActionData.EditAdditionValue(newAdditionValue);
+                var newAdditionValue = EditorGUILayout.IntField("AdditionValue: ",actionData.AdditionValue);
+                actionData.EditAdditionValue(newAdditionValue);
             }
             
-            cardActionData.EditActionType(newActionType);
+            actionData.EditActionType(newActionType);
         }
         
         
