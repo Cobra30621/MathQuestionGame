@@ -7,11 +7,12 @@ using System.Reflection;
 using NueGames.Enums;
 using UnityEngine;
 
-namespace NueGames.Power
+namespace NueGames.Power {
+    /// <summary>
+    /// 產生能力(Power)物件
+    /// </summary>
+    public static class PowerGenerator
     {
-    public static class PowerFactory
-    {
-     
         private static IEnumerable<Type> PowerClasses;
 
         public static bool IsInitialized { get; private set; }
@@ -24,6 +25,11 @@ namespace NueGames.Power
             IsInitialized = true;
         }
 
+        /// <summary>
+        ///  獲得能力(Power)物件
+        /// </summary>
+        /// <param name="targetPower"></param>
+        /// <returns></returns>
         public static PowerBase GetPower(PowerType targetPower)
         {
             if(!IsInitialized)
