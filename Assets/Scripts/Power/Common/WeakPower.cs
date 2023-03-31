@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace NueGames.Power
 {
+    /// <summary>
+    /// 虛弱，受到的傷害變 0.75 倍
+    /// </summary>
     public class WeakPower : PowerBase
     {
         public override PowerType PowerType => PowerType.Weak;
