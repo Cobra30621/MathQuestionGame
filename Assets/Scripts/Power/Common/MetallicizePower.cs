@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace NueGames.Power
 {
-    // At the end of your/its turn, gain X Block
+    /// <summary>
+    /// 回合結束時，獲得格檔
+    /// TODO 尚未格檔
+    /// </summary>
     public class MetallicizePower : PowerBase
     {
         public override PowerType PowerType => PowerType.Strength;

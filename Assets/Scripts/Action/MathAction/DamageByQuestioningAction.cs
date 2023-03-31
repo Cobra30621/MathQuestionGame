@@ -5,6 +5,9 @@ using NueGames.Data.Collection;
 
 namespace NueGames.Action.MathAction
 {
+    /// <summary>
+    /// 根據答對數，造成傷害
+    /// </summary>
     public class DamageByQuestioningAction : ByQuestioningActionBase
     {
         private DamageInfo damageInfo;
@@ -28,6 +31,9 @@ namespace NueGames.Action.MathAction
             HasSetValue = true;
         }
         
+        /// <summary>
+        /// 執行遊戲行為的功能
+        /// </summary>
         public override void DoAction()
         {
             CheckHasSetValue();

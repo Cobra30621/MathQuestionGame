@@ -6,6 +6,9 @@ using NueGames.Enums;
 
 namespace NueGames.Action
 {
+    /// <summary>
+    /// 根據玩家的能力層數，給予傷害
+    /// </summary>
     public class DamageByAllyPowerValueAction : GameActionBase
     {
         private DamageInfo damageInfo;
@@ -36,6 +39,9 @@ namespace NueGames.Action
             HasSetValue = true;
         }
         
+        /// <summary>
+        /// 執行遊戲行為的功能
+        /// </summary>
         public override void DoAction()
         {
             CheckHasSetValue();

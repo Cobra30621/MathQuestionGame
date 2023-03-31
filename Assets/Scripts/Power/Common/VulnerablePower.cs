@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace NueGames.Power
 {
+    /// <summary>
+    /// 易傷，受到的傷害變 1.5 倍
+    /// </summary>
     public class VulnerablePower : PowerBase
     {
         public override PowerType PowerType => PowerType.Vulnerable;

@@ -268,7 +268,7 @@ namespace NueGames.Managers
             }
             else
             {
-                CurrentMainAlly.CharacterStats.ClearAllStatus();
+                CurrentMainAlly.CharacterStats.ClearAllPower();
                 GameManager.PersistentGameplayData.CurrentEncounterId++;
                 UIManager.CombatCanvas.gameObject.SetActive(false);
                 UIManager.RewardCanvas.gameObject.SetActive(true);

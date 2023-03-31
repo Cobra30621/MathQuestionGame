@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace NueGames.Characters
 {
+    /// <summary>
+    /// 角色
+    /// </summary>
     public abstract class CharacterBase : MonoBehaviour, ICharacter
     {
         [Header("Base settings")]
@@ -14,8 +17,17 @@ namespace NueGames.Characters
         [SerializeField] private Transform textSpawnRoot;
 
         #region Cache
+        /// <summary>
+        /// 角色數值
+        /// </summary>
         public CharacterStats CharacterStats { get; protected set; }
+        /// <summary>
+        /// 玩家類型
+        /// </summary>
         public CharacterType CharacterType => characterType;
+        /// <summary>
+        /// 文字特效生成處
+        /// </summary>
         public Transform TextSpawnRoot => textSpawnRoot;
         protected FxManager FxManager => FxManager.Instance;
         protected AudioManager AudioManager => AudioManager.Instance;

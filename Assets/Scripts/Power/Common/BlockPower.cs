@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace NueGames.Power
 {
+    /// <summary>
+    /// 格檔
+    /// </summary>
     public class BlockPower : PowerBase
     {
         public override PowerType PowerType => PowerType.Block;

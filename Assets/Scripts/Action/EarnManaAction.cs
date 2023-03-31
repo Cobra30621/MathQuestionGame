@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace NueGames.Action
 {
+    /// <summary>
+    /// 獲得瑪娜
+    /// </summary>
     public class EarnManaAction : GameActionBase
     {
         public EarnManaAction()
@@ -28,6 +31,9 @@ namespace NueGames.Action
             HasSetValue = true;
         }
         
+        /// <summary>
+        /// 執行遊戲行為的功能
+        /// </summary>
         public override void DoAction()
         {
             CheckHasSetValue();

@@ -157,23 +157,48 @@ namespace NueGames.Data.Collection
 
     }
 
+    /// <summary>
+    /// 用於設計遊戲行為所需資料
+    /// </summary>
+    [Tooltip("用於設計遊戲行為所需資料")]
     [Serializable]
     public class ActionData
     {
+        [Tooltip("遊戲行為類型")]
         [SerializeField] private GameActionType gameActionType;
+        [Tooltip("能力類型\n用於 ApplyPower(賦予能力), DamageByAllyPowerValue(根據能力造成傷害) 等跟能力有關行動")]
         [SerializeField] private PowerType powerType;
+        [Tooltip("數值，用於傷害大小、增加異常狀態層數等")]
         [SerializeField] private int actionValue;
+        [Tooltip("加成數值\n用於如 DamageByQuestioning(根據答對題數造成傷害) 行動")]
         [SerializeField] private int additionValue;
+        [Tooltip("行為延遲時間")]
         [SerializeField] private float actionDelay;
-
+        
+        /// <summary>
+        /// 遊戲行為類型
+        /// </summary>
         public GameActionType GameActionType => gameActionType;
+        /// <summary>
+        /// 能力類型
+        /// 用於 ApplyPower(賦予能力), DamageByAllyPowerValue(根據能力造成傷害) 等跟能力有關行動
+        /// </summary>
         public PowerType PowerType => powerType;
+        /// <summary>
+        /// 數值，用於傷害大小、增加異常狀態層數等
+        /// </summary>
         public int ActionValue => actionValue;
+        /// <summary>
+        /// 加成數值
+        /// 用於如 DamageByQuestioning(根據答對題數造成傷害) 行動
+        /// </summary>
         public int AdditionValue => additionValue;
+        /// <summary>
+        /// 行為延遲時間
+        /// </summary>
         public float ActionDelay => actionDelay;
         
-    
-
+        
         #region Editor
 
 #if UNITY_EDITOR

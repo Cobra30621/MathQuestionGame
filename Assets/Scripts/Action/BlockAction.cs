@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace NueGames.Action
 {
+    /// <summary>
+    /// 給予格檔
+    /// </summary>
     public class BlockAction : GameActionBase
     {
         public BlockAction()
@@ -30,6 +33,9 @@ namespace NueGames.Action
             HasSetValue = true;
         }
         
+        /// <summary>
+        /// 執行遊戲行為的功能
+        /// </summary>
         public override void DoAction()
         {
             CheckHasSetValue();

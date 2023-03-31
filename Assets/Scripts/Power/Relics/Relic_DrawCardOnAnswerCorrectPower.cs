@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace NueGames.Power.Relics
 {
+    /// <summary>
+    /// 遺物能力，先用能力系統實作
+    /// 答對 3 題，抽一張卡
+    /// </summary>
     public class Relic_DrawCardOnAnswerCorrectPower : PowerBase
     {
         public override PowerType PowerType => PowerType.Relic_DrawCardOnAnswerCorrect;

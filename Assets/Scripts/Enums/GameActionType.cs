@@ -1,5 +1,8 @@
 ﻿namespace NueGames.Enums
 {
+    /// <summary>
+    /// 遊戲行為類型
+    /// </summary>
     public enum GameActionType
     {
         // 1~10 傷害
@@ -22,6 +25,9 @@
         
     }
 
+    /// <summary>
+    /// 答題後觸發行為的類型
+    /// </summary>
     public enum CardActionDataListType
     {
         Normal,

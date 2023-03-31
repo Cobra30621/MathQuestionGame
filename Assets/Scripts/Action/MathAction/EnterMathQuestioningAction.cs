@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace NueGames.Action.MathAction
 {
+    /// <summary>
+    /// 進入數學模式
+    /// </summary>
     public class EnterMathQuestioningAction : GameActionBase
     {
         private MathQuestioningActionParameters parameters;
@@ -36,6 +39,9 @@ namespace NueGames.Action.MathAction
             parameters = newParameters;
         }
         
+        /// <summary>
+        /// 執行遊戲行為的功能
+        /// </summary>
         public override void DoAction()
         {
             Debug.Log("parameters.QuestionCount" + parameters.QuestionCount);

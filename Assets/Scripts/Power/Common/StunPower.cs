@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace NueGames.Power
 {
+    /// <summary>
+    /// 暈眩，無法行動
+    /// </summary>
     public class StunPower : PowerBase
     {
         public override PowerType PowerType => PowerType.Stun;

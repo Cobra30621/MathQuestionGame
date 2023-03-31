@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace NueGames.Action
 {
+    /// <summary>
+    /// 賦予能力
+    /// </summary>
     public class ApplyPowerAction : GameActionBase
     {
         private PowerType powerType;
@@ -33,6 +36,9 @@ namespace NueGames.Action
             HasSetValue = true;
         }
         
+        /// <summary>
+        /// 執行遊戲行為的功能
+        /// </summary>
         public override void DoAction()
         {
             CheckHasSetValue();

@@ -11,6 +11,9 @@ using UnityEngine;
 
 namespace NueGames.Action
 {
+    /// <summary>
+    /// 產生遊戲行為(GameAction)
+    /// </summary>
     public static class GameActionGenerator
     {
         private static Dictionary<string, Type> _gameActionDict = new Dictionary<string, Type>();
@@ -31,6 +34,14 @@ namespace NueGames.Action
             }
         }
         
+        /// <summary>
+        /// 產生遊戲行為(GameAction)
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <param name="cardActionDataList"></param>
+        /// <param name="self"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public static List<GameActionBase> GetGameActions(CardData cardData, List<ActionData> cardActionDataList, CharacterBase self,
             CharacterBase target)
         {
@@ -52,6 +63,12 @@ namespace NueGames.Action
             return gameActionBases;
         }
 
+        /// <summary>
+        /// 產生遊戲行為(GameAction)
+        /// </summary>
+        /// <param name="actionType"></param>
+        /// <param name="actionParameters"></param>
+        /// <returns></returns>
         public static GameActionBase GetGameAction(GameActionType actionType, ActionParameters actionParameters)
         {
             GameActionBase gameActionBase = GetGameAction(actionType);
@@ -59,6 +76,11 @@ namespace NueGames.Action
             return gameActionBase;
         }
 
+        /// <summary>
+        /// 產生遊戲行為(GameAction)
+        /// </summary>
+        /// <param name="actionType"></param>
+        /// <returns></returns>
         private static GameActionBase GetGameAction(GameActionType actionType)
         {
             string gameActionName = actionType.ToString() + "Action";

@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace NueGames.Action
 {
+    /// <summary>
+    /// 對所有敵人造成傷害
+    /// </summary>
     public class DamageAllEnemyAction : GameActionBase
     {
         private DamageInfo damageInfo;
@@ -35,6 +38,9 @@ namespace NueGames.Action
             HasSetValue = true;
         }
         
+        /// <summary>
+        /// 執行遊戲行為的功能
+        /// </summary>
         public override void DoAction()
         {
             CheckHasSetValue();

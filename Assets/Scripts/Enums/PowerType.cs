@@ -1,5 +1,8 @@
 ﻿namespace NueGames.Enums
 {
+    /// <summary>
+    /// 能力類型
+    /// </summary>
     public enum PowerType
     {
         None =0,

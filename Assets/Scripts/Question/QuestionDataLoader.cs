@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using NueGames.Characters;
+using NueGames.Interfaces;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,12 +13,13 @@ namespace Question
         private readonly CsvLoader _csvLoader = new CsvLoader();
         private string inputPath = "Questions/";
         private string outputPath = "Assets/Data/Questions/";
+        [SerializeField] private string chapterName = "angle";
 
-
+        
+        
         [ContextMenu("Test")]
         public void Test()
         {
-            string chapterName = "angle";
             LoadQuestionData(chapterName);
         }
 

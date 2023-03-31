@@ -2,6 +2,9 @@
 
 namespace NueGames.Action.MathAction
 {
+    /// <summary>
+    /// 根據答對數，產生不同行動
+    /// </summary>
     public abstract class ByQuestioningActionBase : GameActionBase
     {
         protected int baseValue;

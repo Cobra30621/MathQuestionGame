@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace NueGames.Action
 {
+    /// <summary>
+    /// 抽卡
+    /// </summary>
     public class DrawCardAction : GameActionBase
     {
         public override void SetValue(ActionParameters parameters)
@@ -21,6 +24,9 @@ namespace NueGames.Action
             HasSetValue = true;
         }
         
+        /// <summary>
+        /// 執行遊戲行為的功能
+        /// </summary>
         public override void DoAction()
         {
             if (CollectionManager != null)
