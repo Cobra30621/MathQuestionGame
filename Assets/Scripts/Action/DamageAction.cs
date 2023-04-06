@@ -16,7 +16,7 @@ namespace NueGames.Action
         
         public DamageAction()
         {
-            FxType = FxType.Attack;
+            FxType = FxType.FeedBackTest;
             AudioActionType = AudioActionType.Attack;
         }
         
@@ -51,7 +51,7 @@ namespace NueGames.Action
             Target.CharacterStats.Damage(value);
 
             PlayFx();
-            PlaySpawnTextFx($"{value}");
+            PlaySpawnTextFx($"{value}", Target);
             PlayAudio();
         }
     }

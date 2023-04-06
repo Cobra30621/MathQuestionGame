@@ -74,12 +74,11 @@ namespace NueGames.Action
         /// 生成文字特效(如收到傷害顯示傷害數值)
         /// </summary>
         /// <param name="info"></param>
-        protected void PlaySpawnTextFx(string info)
+        protected void PlaySpawnTextFx(string info, CharacterBase target)
         {
-            if (Target != null)
-            {
-                FxManager.SpawnFloatingText(Target.TextSpawnRoot,info);
-            }
+          
+            FxManager.SpawnFloatingText(target.TextSpawnRoot,info);
+            
         }
         
         /// <summary>

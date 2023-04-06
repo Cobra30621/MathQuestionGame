@@ -202,15 +202,18 @@ namespace NueGames.Collection
                     cardForward -= new Vector3(heldCardOffset.x, heldCardOffset.y, 0);
                 }*/
 
-                // Sorting Order
+                // Sorting Order // 當滑鼠移動到卡片時顯示
                 if (mouseHoveringOnSelected || onDraggedCard)
                 {
                     // When selected bring card to front
                     if (cardUprightWhenSelected) cardUp = Vector3.up;
+                    
+                    cardTransform.localScale = 1.6f * Vector3.one;
                     cardPos.z = transform.position.z - 0.2f;
                 }
                 else
                 {
+                    cardTransform.localScale = Vector3.one;
                     cardPos.z = transform.position.z + t * 0.5f;
                 }
 

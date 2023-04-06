@@ -50,10 +50,11 @@ namespace NueGames.Action
             {
                 int value = CombatCalculator.GetDamageValue(damageInfo.Value, damageInfo.SelfCharacter, enemy);
                 enemy.CharacterStats.Damage(value);
-                PlayFx();
-                PlaySpawnTextFx($"{value}");
+                
+                PlaySpawnTextFx($"{value}", enemy);
             }
             
+            PlayFx();
             PlayAudio();
         }
     }
