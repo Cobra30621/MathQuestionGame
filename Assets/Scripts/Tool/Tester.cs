@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using NueGames.Collection;
+using NueGames.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,7 +22,14 @@ public class Tester : MonoBehaviour
     public void PlayTest()
     {
         testEvent.Invoke();
-        CreateMathQuestioningAction();
+        CardChoice();
+    }
+
+    public ChoiceParameter ChoiceParameter;
+    
+    private void CardChoice()
+    {
+        CollectionManager.Instance.ShowChoiceCardPanel(ChoiceParameter);
     }
 
 

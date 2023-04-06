@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NueGames.Card;
 using NueGames.Collection;
 using NueGames.Data.Collection;
+using NueGames.Enums;
 using UnityEngine;
 
 namespace NueGames.Managers
@@ -16,8 +17,11 @@ namespace NueGames.Managers
         [Header("Controllers")] 
         [SerializeField] private HandController handController;
 
+        [SerializeField] private CardChoicer cardChoicer;
 
         #region Cache
+
+        public Dictionary<PileType, List<CardData>> PileDict;
 
         public List<CardData> DrawPile { get; private set; } = new List<CardData>();
         public List<CardData> HandPile { get; private set; } = new List<CardData>();
@@ -37,6 +41,7 @@ namespace NueGames.Managers
         #region Setup
         private void Awake()
         {
+            SetupPileDict();
             if (Instance)
             {
                 Destroy(gameObject);
@@ -46,6 +51,20 @@ namespace NueGames.Managers
             {
                 Instance = this;
             }
+        }
+
+        /// <summary>
+        /// 初始化卡堆 Dictionary
+        /// </summary>
+        private void SetupPileDict()
+        {
+            PileDict = new Dictionary<PileType, List<CardData>>();
+            PileDict.Add(PileType.Draw, DrawPile);
+            PileDict.Add(PileType.Hand, HandPile);
+            PileDict.Add(PileType.Discard, DiscardPile);
+            PileDict.Add(PileType.Exhaust, ExhaustPile);
+            
+            Debug.Log("SetupPileDict");
         }
 
         #endregion
@@ -129,9 +148,65 @@ namespace NueGames.Managers
             ExhaustPile.Clear();
             HandController.hand.Clear();
         }
+        
+        /// <summary>
+        /// 開啟選牌介面
+        /// </summary>
+        /// <param name="choiceParameter"></param>
+        public void ShowChoiceCardPanel(ChoiceParameter choiceParameter)
+        {
+            cardChoicer.ShowChoiceCardPanel(choiceParameter);
+        }
+
+        /// <summary>
+        /// 對卡牌堆的卡片，進行移動
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <param name="targetCard"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public void ChangeCardPile(ChoiceParameter parameter, CardBase targetCard)
+        {
+            Debug.Log($"ChangeCard{parameter}");
+            switch (parameter.TargetPile)
+            {
+                case PileType.Discard:
+                    // targetCard.Discard();
+                    break;
+                case PileType.Exhaust:
+                    // targetCard.Exhaust();
+                    break;
+                case PileType.Draw:
+                    // throw new System.NotImplementedException();
+                    break;
+                case PileType.Hand:
+                    AddCardOnHand(targetCard.CardData);
+                    break;
+            }
+            
+            OnCardChangePile(parameter, targetCard);
+        }
+        
+        public void OnCardChangePile(ChoiceParameter parameter, CardBase targetCard)
+        {
+            PileDict[parameter.SourcePile].Remove(targetCard.CardData);
+            PileDict[parameter.TargetPile].Add(targetCard.CardData);
+            UIManager.CombatCanvas.SetPileTexts();
+        }
+
+        /// <summary>
+        /// 加入卡牌到手牌
+        /// </summary>
+        /// <param name="cardData"></param>
+        public void AddCardOnHand(CardData cardData)
+        {
+            var clone = GameManager.BuildAndGetCard(cardData, HandController.drawTransform);
+            HandController.AddCardToHand(clone);
+        }
+        
         #endregion
 
         #region Private Methods
+
         private void ReshuffleDiscardPile()
         {
             foreach (var i in DiscardPile) 
