@@ -490,13 +490,10 @@ namespace NueGames.NueDeck.Editor
                 var newPowerType = (PowerType)EditorGUILayout.EnumPopup("Power Type",actionData.PowerType,GUILayout.Width(250));
                 actionData.EditPower(newPowerType);
             }
-                
-            if (newActionType != GameActionType.Exhaust)
-            {
-                var newActionValue = EditorGUILayout.IntField("Action Amount: ",actionData.ActionValue);
-                actionData.EditActionValue(newActionValue);
-            }
-
+            
+            var newActionValue = EditorGUILayout.IntField("Action Amount: ",actionData.ActionValue);
+            actionData.EditActionValue(newActionValue);
+            
             if (newActionType == GameActionType.DamageByQuestioning)
             {
                 var newAdditionValue = EditorGUILayout.IntField("AdditionValue: ",actionData.AdditionValue);

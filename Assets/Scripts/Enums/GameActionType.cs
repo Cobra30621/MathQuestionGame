@@ -16,7 +16,6 @@
         // 21~30 卡組相關
         EarnMana = 21,
         DrawCard = 22,
-        Exhaust = 23,
         Heal = 24,
         // 31~40 永久效果(結束戰鬥持續)
         IncreaseMaxHealth = 31,  
