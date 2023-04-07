@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using NueGames.Collection;
 using NueGames.Managers;
+using NueGames.Relic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,7 +24,8 @@ public class Tester : MonoBehaviour
     public void PlayTest()
     {
         testEvent.Invoke();
-        CardChoice();
+        // CardChoice();
+        GainRelic();
     }
 
     public ChoiceParameter ChoiceParameter;
@@ -30,6 +33,13 @@ public class Tester : MonoBehaviour
     private void CardChoice()
     {
         CollectionManager.Instance.ShowChoiceCardPanel(ChoiceParameter);
+    }
+
+    public RelicType RelicType;
+    private void GainRelic()
+    {
+        RelicManager.Instance.GainRelic(RelicType);
+        RelicManager.Instance.PrintCurrentRelicList();
     }
 
 

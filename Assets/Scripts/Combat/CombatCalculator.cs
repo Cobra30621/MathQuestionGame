@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Kalkatos.DottedArrow;
 using NueGames.Characters;
 using NueGames.Enums;
+using NueGames.Managers;
 using NueGames.Power;
 using UnityEngine;
 using CombatManager = NueGames.Managers.CombatManager;
@@ -15,6 +16,7 @@ namespace NueGames.Combat
     public static class CombatCalculator
     {
         private static CombatManager CombatManager => CombatManager.Instance;
+        private static GameManager GameManager => GameManager.Instance;
         /// <summary>
         /// 易傷加乘
         /// </summary>
@@ -43,11 +45,13 @@ namespace NueGames.Combat
         public static int GetDamageValue(float rawValue, CharacterBase selfCharacter, CharacterBase targetCharacter)
         {
             float value = rawValue;
+            // 計算使用者能力加成
             foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
             {
                 value = powerBase.AtDamageGive(value);
             }
 
+            // 計算目標對象能力加成
             if (targetCharacter != null)
             {
                 foreach (PowerBase powerBase in targetCharacter.GetPowerDict().Values)
@@ -55,7 +59,21 @@ namespace NueGames.Combat
                     value = powerBase.AtDamageReceive(value);
                 }
             }
-
+            
+            bool selfIsAlly = selfCharacter.CharacterType == CharacterType.Ally;
+            // 計算遺物能力加成
+            foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
+            {
+                if (selfIsAlly)// 傷害發起者是玩家，遺物給予傷害加成
+                {
+                    value = relicClip.Relic.AtDamageGive(value);
+                }
+                else // 攻擊對象是敵人，遺物給予受到傷害加成
+                {
+                    value = relicClip.Relic.AtDamageReceive(value);
+                }
+            }
+            
             return Mathf.RoundToInt(value);
         }
 
@@ -65,14 +83,35 @@ namespace NueGames.Combat
         public static int GetBlockValue(float rawValue, CharacterBase selfCharacter)
         {
             float value = rawValue;
+            // 計算能力加成
             foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
             {
                 value = powerBase.ModifyBlock(value);
             }
             
+            // 計算遺物能力加成
+            bool selfIsAlly = selfCharacter.CharacterType == CharacterType.Ally;
+            foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
+            {
+                if (selfIsAlly)// 格檔發起者是玩家，遺物給予加成
+                {
+                    value = relicClip.Relic.ModifyBlock(value);
+                }
+            }
+            
+            // 計算能力加成
             foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
             {
                 value = powerBase.ModifyBlockLast(value);
+            }
+            
+            // 計算遺物能力加成
+            foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
+            {
+                if (selfIsAlly)// 格檔發起者是玩家，遺物給予加成
+                {
+                    value = relicClip.Relic.ModifyBlockLast(value);
+                }
             }
 
             return Mathf.RoundToInt(value);

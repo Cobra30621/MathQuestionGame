@@ -1,48 +1,17 @@
-﻿using NueGames.Characters;
-using NueGames.Combat;
-using NueGames.Enums;
+﻿using NueGames.Combat;
 using NueGames.Managers;
-using UnityEngine;
 
-namespace NueGames.Power
+namespace NueGames.Relic
 {
     /// <summary>
-    /// 能力（ex: 力量、易傷、中毒）的基底 class
+    /// 遺物的基底 class
     /// </summary>
-    public abstract class PowerBase
+    public abstract class RelicBase
     {
         /// <summary>
-        /// 能力類型
+        /// 哪一個遺物
         /// </summary>
-        public abstract PowerType PowerType  { get;}
-        /// <summary>
-        /// 能力數值
-        /// </summary>
-        public int Value;
-        /// <summary>
-        /// 能力是否被觸發
-        /// </summary>
-        public bool IsActive;
-        /// <summary>
-        /// 回合結束時數值 - 1
-        /// </summary>
-        public bool DecreaseOverTurn;
-        /// <summary>
-        /// 永久能力(本場戰鬥)
-        /// </summary>
-        public bool IsPermanent; 
-        /// <summary>
-        /// 數值可以是負數
-        /// </summary>
-        public bool CanNegativeStack;
-        /// <summary>
-        /// 回合結束時清除能力
-        /// </summary>
-        public bool ClearAtNextTurn;
-        /// <summary>
-        /// 能力持有者
-        /// </summary>
-        public CharacterBase Owner;
+        public abstract RelicType RelicType { get; }
         /// <summary>
         /// 計數器，用來計算如回合數、答對題數、使用卡片張數等等
         /// </summary>
@@ -55,10 +24,12 @@ namespace NueGames.Power
         /// 事件管理器
         /// </summary>
         protected EventManager EventManager => EventManager.Instance;
-
+        protected CombatManager CombatManager => CombatManager.Instance;
+        
         #region SetUp
 
-        public PowerBase(){
+        protected RelicBase()
+        {
             SubscribeAllEvent();
         }
 
@@ -75,6 +46,11 @@ namespace NueGames.Power
                 EventManager.OnAnswerCorrect += OnAnswerCorrect;
                 EventManager.OnAnswerWrong += OnAnswerWrong;
             }
+
+            if (CombatManager != null)
+            {
+                CombatManager.OnAllyTurnStarted += OnTurnStarted;
+            }
         }
 
         /// <summary>
@@ -90,68 +66,13 @@ namespace NueGames.Power
                 EventManager.OnAnswerCorrect -= OnAnswerCorrect;
                 EventManager.OnAnswerWrong -= OnAnswerWrong;
             }
-        }
-        
-        #endregion
-        
-        
-
-        #region 能力控制
-        /// <summary>
-        /// 增加能力數值
-        /// </summary>
-        /// <param name="stackAmount"></param>
-        public virtual void StackPower(int stackAmount)
-        {
-            if (IsActive)
+            
+            if (CombatManager != null)
             {
-                Value += stackAmount;
-                Owner?.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
-            }
-            else
-            {
-                Value = stackAmount;
-                IsActive = true;
-                Owner?.CharacterStats.OnPowerApplied.Invoke(PowerType, Value);
+                CombatManager.OnAllyTurnStarted -= OnTurnStarted;
             }
         }
         
-        /// <summary>
-        /// 降低能力數值
-        /// </summary>
-        /// <param name="reduceAmount"></param>
-        public virtual void ReducePower(int reduceAmount)
-        {
-            Value -= reduceAmount;
-            //Check status
-            if (Value <= 0)
-            {
-                if (CanNegativeStack)
-                {
-                    if (Value == 0 && !IsPermanent)
-                        ClearPower();
-                }
-                else
-                {
-                    if (!IsPermanent)
-                        ClearPower();
-                }
-            }
-            Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
-        }
-        
-        /// <summary>
-        /// 清除能力
-        /// </summary>
-        public void ClearPower()
-        {
-            IsActive = false;
-            Value = 0;
-            Owner.CharacterStats.PowerDict.Remove(PowerType);
-            Owner.CharacterStats.OnPowerCleared.Invoke(PowerType);
-            UnSubscribeAllEvent();
-        }
-
         #endregion
 
         #region 戰鬥計算
@@ -195,54 +116,29 @@ namespace NueGames.Power
 
         #endregion
 
-        
-        #region 事件觸發的方法
+
+        #region 戰鬥流程觸發
         /// <summary>
         /// 回合開始時，觸發的方法
         /// </summary>
         public virtual void OnTurnStarted()
         {
-            //One turn only statuses
-            if (ClearAtNextTurn)
-            {
-                ClearPower();
-                return;
-            }
-            
-            if (DecreaseOverTurn) 
-                ReducePower(1);
-            
-            //Check status
-            if (Value <= 0)
-            {
-                if (CanNegativeStack)
-                {
-                    if (Value == 0 && !IsPermanent)
-                        ClearPower();
-                }
-                else
-                {
-                    if (!IsPermanent)
-                        ClearPower();
-                }
-            }
-            
             
         }
-
         
-        /// <summary>
-        /// 當能力改變時
-        /// </summary>
-        protected virtual void OnPowerChange(){}
+
+        #endregion
+        
+        
+        #region 事件觸發的方法
+        
+
         /// <summary>
         /// 受到攻擊時，觸發的方法
         /// </summary>
         /// <param name="info"></param>
         /// <param name="damageAmount"></param>
         protected virtual void OnAttacked(DamageInfo info, int damageAmount){}
-
-        #region 答題模式
         /// <summary>
         /// 開始問答模式時，觸發的方法
         /// </summary>
@@ -265,11 +161,17 @@ namespace NueGames.Power
         /// <param name="correctCount"></param>
         protected virtual void OnQuestioningModeEnd(int correctCount){}
         
+        #endregion
 
-        #endregion
-        
-        
-        
-        #endregion
+        public override string ToString()
+        {
+            return $"{nameof(RelicType)}: {RelicType}, {nameof(NeedCounter)}: {NeedCounter}";
+        }
+    }
+
+    public enum RelicType
+    {
+        // Test 101 ~
+        ManaGenerator = 101 // 每回產生瑪那
     }
 }
