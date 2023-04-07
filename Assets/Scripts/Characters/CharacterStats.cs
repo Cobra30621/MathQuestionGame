@@ -117,6 +117,16 @@ namespace NueGames.Characters
         {
             PowerDict[targetPower].ReducePower(value);
         }
+        
+        /// <summary>
+        /// 將能力 x 倍數
+        /// </summary>
+        public void MultiplyPower(PowerType targetPower,int value)
+        {
+            if(PowerDict.ContainsKey(targetPower))
+                PowerDict[targetPower].MultiplyPower(value);
+        }
+
 
         /// <summary>
         /// 回合開始時，通知持有的能力

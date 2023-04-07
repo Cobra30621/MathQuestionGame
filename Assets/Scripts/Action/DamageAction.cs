@@ -12,6 +12,7 @@ namespace NueGames.Action
     /// </summary>
     public class DamageAction : GameActionBase
     {
+        public override GameActionType ActionType => GameActionType.Damage;
         private DamageInfo damageInfo;
         
         public DamageAction()

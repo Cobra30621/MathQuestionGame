@@ -11,6 +11,7 @@ namespace NueGames.Action
     /// </summary>
     public class DamageByAllyPowerValueAction : GameActionBase
     {
+        public override GameActionType ActionType => GameActionType.DamageByAllyPowerValue;
         private DamageInfo damageInfo;
         private PowerType accordingPowerType;
         

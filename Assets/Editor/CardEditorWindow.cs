@@ -485,7 +485,8 @@ namespace NueGames.NueDeck.Editor
 
             if (newActionType == GameActionType.ApplyPower || 
                 newActionType == GameActionType.DamageByAllyPowerValue ||
-                newActionType == GameActionType.ApplyPowerToAllEnemy)
+                newActionType == GameActionType.ApplyPowerToAllEnemy ||
+                newActionType == GameActionType.MultiplyPower)
             {
                 var newPowerType = (PowerType)EditorGUILayout.EnumPopup("Power Type",actionData.PowerType,GUILayout.Width(250));
                 actionData.EditPower(newPowerType);

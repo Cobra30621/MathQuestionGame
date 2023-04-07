@@ -123,6 +123,25 @@ namespace NueGames.Power
         public virtual void ReducePower(int reduceAmount)
         {
             Value -= reduceAmount;
+            CheckClearPower();
+            Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
+        }
+
+        /// <summary>
+        /// 將能力 x 倍數
+        /// </summary>
+        public virtual void MultiplyPower(int multiplyAmount)
+        {
+            Value *= multiplyAmount;
+            CheckClearPower();
+            Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
+        }
+
+        /// <summary>
+        /// 檢查要不要清除能力
+        /// </summary>
+        private void CheckClearPower()
+        {
             //Check status
             if (Value <= 0)
             {
@@ -137,7 +156,6 @@ namespace NueGames.Power
                         ClearPower();
                 }
             }
-            Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
         }
         
         /// <summary>

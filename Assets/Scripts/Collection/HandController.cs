@@ -208,7 +208,7 @@ namespace NueGames.Collection
                     // When selected bring card to front
                     if (cardUprightWhenSelected) cardUp = Vector3.up;
                     
-                    cardTransform.localScale = 1.6f * Vector3.one;
+                    cardTransform.localScale = 1.2f * Vector3.one;
                     cardPos.z = transform.position.z - 0.2f;
                 }
                 else

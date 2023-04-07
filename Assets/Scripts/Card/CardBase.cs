@@ -93,9 +93,9 @@ namespace NueGames.Card
 
             HideTooltipInfo(TooltipManager.Instance);
             
-            SpendMana( CardData.ManaCost);
+            SpendMana( ManaCost);
             if(CardData.NeedPowerToPlay)
-                SpendPower(CardData.NeedPowerType, CardData.PowerCost);
+                SpendPower(CardData.NeedPowerType, PowerCost);
 
             List<GameActionBase> gameActions = GameActionGenerator.GetGameActions(CardData, CardData.CardActionDataList, self, target);
             GameActionExecutor.AddToBottom(gameActions);

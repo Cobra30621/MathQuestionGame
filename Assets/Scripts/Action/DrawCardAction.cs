@@ -1,5 +1,6 @@
 ﻿using NueGames.Card;
 using NueGames.Data.Collection;
+using NueGames.Enums;
 using UnityEngine;
 
 namespace NueGames.Action
@@ -9,6 +10,7 @@ namespace NueGames.Action
     /// </summary>
     public class DrawCardAction : GameActionBase
     {
+        public override GameActionType ActionType => GameActionType.DrawCard;
         public override void SetValue(ActionParameters parameters)
         {
             ActionData data = parameters.ActionData;

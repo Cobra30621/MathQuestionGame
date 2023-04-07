@@ -13,6 +13,7 @@
         // 11~20 角色狀態
         ApplyPower = 11, 
         ApplyPowerToAllEnemy = 13,
+        MultiplyPower = 14,
         // 21~30 卡組相關
         EarnMana = 21,
         DrawCard = 22,
@@ -22,6 +23,8 @@
         // 41~50 其他系統
         EnterMathQuestioning = 41, 
         
+        // 71 法力系統
+        UnlimitedUseMathManaCard = 71,
     }
 
     /// <summary>

@@ -26,7 +26,7 @@ public class Tester : MonoBehaviour
     {
         testEvent.Invoke();
         
-        CollectionManager.Instance.ChangeHandManaCost(SpecialKeywords.MathMana, 0);
+        CollectionManager.Instance.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, false);
         // CardChoice();
         // GainRelic();
     }

@@ -10,6 +10,7 @@ namespace NueGames.Action
     /// </summary>
     public class EarnManaAction : GameActionBase
     {
+        public override GameActionType ActionType => GameActionType.EarnMana;
         public EarnManaAction()
         {
             FxType = FxType.Buff;
