@@ -10,10 +10,10 @@ namespace Managers
     public class RelicManager : MonoBehaviour
     {
         public static RelicManager Instance { get; private set; }
-
         private GameManager GameManager => GameManager.Instance;
-        private List<RelicClip> currentRelicList => GameManager.PersistentGameplayData.CurrentRelicList;
-        [SerializeField] private RelicsData relicsData;
+        protected UIManager UIManager => UIManager.Instance;
+        public List<RelicClip> CurrentRelicList => GameManager.PersistentGameplayData.CurrentRelicList;
+        public RelicsData relicsData;
         
         #region SetUp (初始化)
         private void Awake()
@@ -48,7 +48,8 @@ namespace Managers
             RelicData data = relicsData.RelicList.FirstOrDefault(x => x.RelicType == targetRelic);
             RelicClip relicClip = new RelicClip(relicBase, data);
             
-            currentRelicList.Add(relicClip);
+            CurrentRelicList.Add(relicClip);
+            UIManager.RelicCanvas.OnGainRelic(relicClip);
         }
         
         #region Debug 用
@@ -57,7 +58,7 @@ namespace Managers
         /// </summary>
         public void PrintCurrentRelicList()
         {
-            foreach (var relicClip in currentRelicList)
+            foreach (var relicClip in CurrentRelicList)
             {
                 Debug.Log(relicClip);
             }

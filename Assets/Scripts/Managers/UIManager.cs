@@ -19,6 +19,7 @@ namespace NueGames.Managers
         [SerializeField] private InformationCanvas informationCanvas;
         [SerializeField] private RewardCanvas rewardCanvas;
         [SerializeField] private InventoryCanvas inventoryCanvas;
+        [SerializeField] private RelicCanvas relicCanvas;
         
 
         [Header("Fader")]
@@ -31,6 +32,7 @@ namespace NueGames.Managers
         public InformationCanvas InformationCanvas => informationCanvas;
         public RewardCanvas RewardCanvas => rewardCanvas;
         public InventoryCanvas InventoryCanvas => inventoryCanvas;
+        public RelicCanvas RelicCanvas => relicCanvas;
         #endregion
 
         #region Setup
