@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Managers;
 using NueGames.Collection;
+using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Relic;
 using UnityEngine;
@@ -24,8 +25,10 @@ public class Tester : MonoBehaviour
     public void PlayTest()
     {
         testEvent.Invoke();
+        
+        CollectionManager.Instance.ChangeHandManaCost(SpecialKeywords.MathMana, 0);
         // CardChoice();
-        GainRelic();
+        // GainRelic();
     }
 
     public ChoiceParameter ChoiceParameter;

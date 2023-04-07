@@ -148,7 +148,9 @@ namespace NueGames.Managers
             ExhaustPile.Clear();
             HandController.hand.Clear();
         }
-        
+
+        #region 卡牌在卡組間移動
+
         /// <summary>
         /// 開啟選牌介面
         /// </summary>
@@ -202,6 +204,32 @@ namespace NueGames.Managers
             var clone = GameManager.BuildAndGetCard(cardData, HandController.drawTransform);
             HandController.AddCardToHand(clone);
         }
+
+        #endregion
+        
+        #region Card Cost(卡牌花費改變)
+
+        /// <summary>
+        /// 根據卡牌的關鍵字，改變卡牌花費
+        /// </summary>
+        public void ChangeHandManaCost(SpecialKeywords TargetKeyword, int cost)
+        {
+            foreach (var card in HandController.hand)
+            {
+                List<SpecialKeywords> keywordsList = card.CardData.KeywordsList;
+                foreach (var specialKeywords in keywordsList)
+                {
+                    Debug.Log($"specialKeywords{specialKeywords} TargetKeyword {TargetKeyword}");
+                    if (specialKeywords == TargetKeyword)
+                    {
+                        card.SetManaCost(cost);
+                    }
+                }
+            }
+        }
+        
+        #endregion
+        
         
         #endregion
 

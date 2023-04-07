@@ -2,6 +2,6 @@
 {
     public enum SpecialKeywords
     {
-        Exhaust, Math
+        Exhaust, Math, MathMana
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: "\u6E2C\u8A66\u7528_\u5176\u4ED6\u529F\u80FD"
   cardName: "\u6E2C\u8A66\u7528_\u5176\u4ED6\u529F\u80FD"
-  manaCost: 0
+  manaCost: 1
   cardSprite: {fileID: 21300000, guid: a06f26bd1f8d2cf4e867a8f80fda6b95, type: 3}
   rarity: 0
   needPowerToPlay: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  specialKeywordsList: 02000000
   audioType: 0
   correctCardActionDataList: []
   wrongCardActionDataList: []

@@ -24,12 +24,12 @@ namespace NueGames.Combat
             CardData cardData = cardBase.CardData;
             if (cardData.NeedPowerToPlay)
             {
-                return EnoughMana(cardData.ManaCost) && 
-                       EnoughPower(cardData.NeedPowerType, cardData.PowerCost, CombatManager.GetMainAllyPowerDict());
+                return EnoughMana(cardBase.ManaCost) && 
+                       EnoughPower(cardData.NeedPowerType, cardBase.PowerCost, CombatManager.GetMainAllyPowerDict());
             }
             else
             {
-                return EnoughMana(cardData.ManaCost);
+                return EnoughMana(cardBase.ManaCost);
             }
         }
         
