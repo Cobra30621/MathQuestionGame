@@ -505,6 +505,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3902459897956553874, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 47.94507
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902459897956553874, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.299999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
 --- !u!1 &727680099
@@ -942,7 +950,7 @@ MonoBehaviour:
   TestEvent:
     m_PersistentCalls:
       m_Calls: []
-  createRelicList: 65000000
+  createRelicList: 6500000066000000
 --- !u!1 &1826299083
 GameObject:
   m_ObjectHideFlags: 0

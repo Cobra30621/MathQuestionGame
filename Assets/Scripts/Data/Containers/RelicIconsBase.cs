@@ -2,6 +2,7 @@
 using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
 using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
+using NueGames.Relic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,22 +15,32 @@ namespace NueGames.UI
         [SerializeField] private Image statusImage;
         [SerializeField] private TextMeshProUGUI statusValueText;
 
-        public RelicData MyRelicData { get; private set; } = null;
+        public RelicClip RelicClip;
 
         public Image StatusImage => statusImage;
 
         public TextMeshProUGUI StatusValueText => statusValueText;
 
-        public void SetData(RelicData relicData)
+        public void SetRelicClip(RelicClip relicClip)
         {
-            MyRelicData = relicData;
-            StatusImage.sprite = relicData.IconSprite;
+            RelicClip = relicClip;
+            StatusImage.sprite = RelicClip.Data.IconSprite;
+
+            // 當 counter 發生變化時，改變 UI 顯示
+            if (relicClip.Relic.UseCounter)
+            {
+                relicClip.Relic.OnCounterChange += SetValue;
+            }
+            else
+            {
+                StatusValueText.text = "";
+            }
             
         }
 
-        public void SetValue(int statusValue)
+        private void SetValue(int counter)
         {
-            StatusValueText.text = statusValue.ToString();
+            StatusValueText.text = counter.ToString();
         }
 
 
@@ -39,7 +50,7 @@ namespace NueGames.UI
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            ShowTooltipInfo(TooltipManager.Instance,MyRelicData.GetContent() ,MyRelicData.GetHeader());
+            ShowTooltipInfo(TooltipManager.Instance, RelicClip.Data.GetContent() , RelicClip.Data.GetHeader());
         }
 
         public void OnPointerExit(PointerEventData eventData)

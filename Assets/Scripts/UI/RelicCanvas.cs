@@ -20,7 +20,7 @@ public class RelicCanvas : CanvasBase
     public void OnGainRelic(RelicClip relicClip)
     {
         var clone = Instantiate(RelicBasePrefab, relicIconSpawnRoot);
-        clone.SetData(relicClip.Data);
+        clone.SetRelicClip(relicClip);
     }
     
     public void ShowCurrentRelicList()
@@ -28,7 +28,7 @@ public class RelicCanvas : CanvasBase
         foreach (var relicClip in RelicManager.CurrentRelicList)
         {
             var clone = Instantiate(RelicBasePrefab, relicIconSpawnRoot);
-            clone.SetData(relicClip.Data);
+            clone.SetRelicClip(relicClip);
         }
     }
 }

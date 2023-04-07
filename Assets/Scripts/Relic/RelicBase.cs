@@ -13,6 +13,10 @@ namespace NueGames.Relic
         /// </summary>
         public abstract RelicType RelicType { get; }
         /// <summary>
+        /// 遺物使用計數器
+        /// </summary>
+        public bool UseCounter;
+        /// <summary>
         /// 計數器，用來計算如回合數、答對題數、使用卡片張數等等
         /// </summary>
         public int Counter;
@@ -20,6 +24,11 @@ namespace NueGames.Relic
         /// 發動事件，所需的計數
         /// </summary>
         public int NeedCounter;
+
+        /// <summary>
+        /// 計數器數值發生變動
+        /// </summary>
+        public System.Action<int> OnCounterChange;
         /// <summary>
         /// 事件管理器
         /// </summary>
@@ -172,6 +181,7 @@ namespace NueGames.Relic
     public enum RelicType
     {
         // Test 101 ~
-        ManaGenerator = 101 // 每回產生瑪那
+        ManaGenerator = 101, // 每回產生瑪那
+        DrawCardOnAnswerCorrect = 102
     }
 }
