@@ -49,6 +49,11 @@ namespace Question
                 MultipleChoiceQuestion question = new MultipleChoiceQuestion(answer, optionCount, questionSprite, optionSprite);
                 questionsData.AddQuestion(question);
             }
+            
+            
+            // 宣告物件已經被修改，需要重新存檔。
+            EditorUtility.SetDirty(questionsData);
+            AssetDatabase.SaveAssets();
         }
 
         private QuestionsData CreateQuestionData(string chapterName, string assetPath)
