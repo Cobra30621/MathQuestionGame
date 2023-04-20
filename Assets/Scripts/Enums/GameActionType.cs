@@ -23,6 +23,7 @@
         // 41~50 其他系統
         EnterMathQuestioning = 41, 
         
+        UseRandom = 51, // 隨機行動
         // 71 法力系統
         UnlimitedUseMathManaCard = 71,
     }

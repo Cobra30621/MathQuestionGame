@@ -30,7 +30,11 @@ namespace NueGames.Card
         /// 卡片資料(卡牌行為才需要)
         /// </summary>
         public readonly CardData CardData;
-        
+
+        public ActionParameters()
+        {
+        }
+
         public ActionParameters(int value,CharacterBase target, CharacterBase self,ActionData actionData, CardData cardData)
         {
             Value = value;

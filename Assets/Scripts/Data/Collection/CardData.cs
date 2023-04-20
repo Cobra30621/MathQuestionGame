@@ -44,6 +44,11 @@ namespace NueGames.Data.Collection
         [SerializeField] private List<ActionData> limitedQuestionCardActionDataList;
         [SerializeField] private MathQuestioningActionParameters mathQuestioningActionParameters = new MathQuestioningActionParameters();
 
+        [Header("Random Action Settings")] 
+        [SerializeField] private bool useRandomAction;
+
+        [SerializeField] private RandomActionData randomActionData;
+        
         #region Cache
         public string Id => id;
         public bool UsableWithoutTarget => usableWithoutTarget;
@@ -67,6 +72,8 @@ namespace NueGames.Data.Collection
         public RarityType Rarity => rarity;
 
         public bool ExhaustAfterPlay => exhaustAfterPlay;
+        public bool UseRandomAction => useRandomAction;
+        public RandomActionData RandomActionData => randomActionData;
 
         #endregion
         
