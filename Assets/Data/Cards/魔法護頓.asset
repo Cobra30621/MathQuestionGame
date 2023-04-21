@@ -24,13 +24,14 @@ MonoBehaviour:
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 1
+  - gameActionType: 11
     powerType: 1
-    actionValue: 3
+    actionValue: 20
     additionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: "\u6263\u9664\u4E09\u9EDE\u6CD5\u529B\u767C\u52D5 \u589E\u52A0\u4E09\u9EDE\u8B77\u9813"
+  - descriptionText: "\u6263\u9664\u4E09\u9EDE\u6CD5\u529B\u767C\u52D5 \u589E\u52A0
+      20 \u9EDE\u8B77\u9813"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -40,7 +41,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  specialKeywordsList: 02000000
   audioType: 2
   correctCardActionDataList: []
   wrongCardActionDataList: []

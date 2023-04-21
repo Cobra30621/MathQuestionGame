@@ -123,6 +123,25 @@ namespace NueGames.Power
         public virtual void ReducePower(int reduceAmount)
         {
             Value -= reduceAmount;
+            CheckClearPower();
+            Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
+        }
+
+        /// <summary>
+        /// 將能力 x 倍數
+        /// </summary>
+        public virtual void MultiplyPower(int multiplyAmount)
+        {
+            Value *= multiplyAmount;
+            CheckClearPower();
+            Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
+        }
+
+        /// <summary>
+        /// 檢查要不要清除能力
+        /// </summary>
+        private void CheckClearPower()
+        {
             //Check status
             if (Value <= 0)
             {
@@ -137,7 +156,6 @@ namespace NueGames.Power
                         ClearPower();
                 }
             }
-            Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
         }
         
         /// <summary>
@@ -154,43 +172,6 @@ namespace NueGames.Power
 
         #endregion
 
-        #region 遊戲流程
-
-        /// <summary>
-        /// 回合開始時，觸發的方法
-        /// </summary>
-        public virtual void OnTurnStarted()
-        {
-            //One turn only statuses
-            if (ClearAtNextTurn)
-            {
-                ClearPower();
-                return;
-            }
-            
-            if (DecreaseOverTurn) 
-                ReducePower(1);
-            
-            //Check status
-            if (Value <= 0)
-            {
-                if (CanNegativeStack)
-                {
-                    if (Value == 0 && !IsPermanent)
-                        ClearPower();
-                }
-                else
-                {
-                    if (!IsPermanent)
-                        ClearPower();
-                }
-            }
-            
-            
-        }
-
-        #endregion
-        
         #region 戰鬥計算
         /// <summary>
         /// 受到傷害時，對傷害的加成
@@ -235,16 +216,51 @@ namespace NueGames.Power
         
         #region 事件觸發的方法
         /// <summary>
+        /// 回合開始時，觸發的方法
+        /// </summary>
+        public virtual void OnTurnStarted()
+        {
+            //One turn only statuses
+            if (ClearAtNextTurn)
+            {
+                ClearPower();
+                return;
+            }
+            
+            if (DecreaseOverTurn) 
+                ReducePower(1);
+            
+            //Check status
+            if (Value <= 0)
+            {
+                if (CanNegativeStack)
+                {
+                    if (Value == 0 && !IsPermanent)
+                        ClearPower();
+                }
+                else
+                {
+                    if (!IsPermanent)
+                        ClearPower();
+                }
+            }
+            
+            
+        }
+
+        
+        /// <summary>
         /// 當能力改變時
         /// </summary>
         protected virtual void OnPowerChange(){}
-        protected virtual void AtStartOfTurn(){}
         /// <summary>
         /// 受到攻擊時，觸發的方法
         /// </summary>
         /// <param name="info"></param>
         /// <param name="damageAmount"></param>
         protected virtual void OnAttacked(DamageInfo info, int damageAmount){}
+
+        #region 答題模式
         /// <summary>
         /// 開始問答模式時，觸發的方法
         /// </summary>
@@ -266,6 +282,11 @@ namespace NueGames.Power
         /// </summary>
         /// <param name="correctCount"></param>
         protected virtual void OnQuestioningModeEnd(int correctCount){}
+        
+
+        #endregion
+        
+        
         
         #endregion
     }

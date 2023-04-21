@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -15,9 +13,9 @@ namespace NueGames.Power {
     {
         private static IEnumerable<Type> PowerClasses;
 
-        public static bool IsInitialized { get; private set; }
+        private static bool IsInitialized { get; set; }
 
-        public static void Initialize()
+        private static void Initialize()
         {
             PowerClasses = Assembly.GetAssembly(typeof(PowerBase)).GetTypes()
                 .Where(t => typeof(PowerBase).IsAssignableFrom(t) && t.IsAbstract == false);

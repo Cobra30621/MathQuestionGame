@@ -14,6 +14,10 @@ namespace NueGames.Action
     public abstract class GameActionBase
     {
         /// <summary>
+        /// 行動類型 (用來確保一定會創立 GameActionType)
+        /// </summary>
+        public abstract GameActionType ActionType  { get;}
+        /// <summary>
         /// 遊戲行為數值已經設定
         /// </summary>
         protected bool HasSetValue = false;
@@ -63,7 +67,7 @@ namespace NueGames.Action
         /// 依據參數設定行為數值
         /// </summary>
         /// <param name="parameters"></param>
-        public virtual void SetValue(ActionParameters parameters){}
+        public abstract void SetValue(ActionParameters parameters);
         
         /// <summary>
         /// 執行遊戲行為的功能
@@ -74,12 +78,11 @@ namespace NueGames.Action
         /// 生成文字特效(如收到傷害顯示傷害數值)
         /// </summary>
         /// <param name="info"></param>
-        protected void PlaySpawnTextFx(string info)
+        protected void PlaySpawnTextFx(string info, CharacterBase target)
         {
-            if (Target != null)
-            {
-                FxManager.SpawnFloatingText(Target.TextSpawnRoot,info);
-            }
+          
+            FxManager.SpawnFloatingText(target.TextSpawnRoot,info);
+            
         }
         
         /// <summary>

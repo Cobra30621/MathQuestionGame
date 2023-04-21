@@ -13,6 +13,7 @@ namespace NueGames.Power.Relics
     {
         public override PowerType PowerType => PowerType.Relic_DrawCardOnAnswerCorrect;
 
+        
         protected override void OnAnswerCorrect()
         {
             Counter++;

@@ -11,6 +11,7 @@ namespace NueGames.Action
     /// </summary>
     public class ApplyPowerToAllEnemyAction : GameActionBase
     {
+        public override GameActionType ActionType => GameActionType.ApplyPowerToAllEnemy;
         private PowerType powerType;
 
         public ApplyPowerToAllEnemyAction()

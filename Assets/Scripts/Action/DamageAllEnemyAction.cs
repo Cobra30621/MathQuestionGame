@@ -13,6 +13,7 @@ namespace NueGames.Action
     /// </summary>
     public class DamageAllEnemyAction : GameActionBase
     {
+        public override GameActionType ActionType => GameActionType.DamageAllEnemy;
         private DamageInfo damageInfo;
         
         public DamageAllEnemyAction()
@@ -50,10 +51,11 @@ namespace NueGames.Action
             {
                 int value = CombatCalculator.GetDamageValue(damageInfo.Value, damageInfo.SelfCharacter, enemy);
                 enemy.CharacterStats.Damage(value);
-                PlayFx();
-                PlaySpawnTextFx($"{value}");
+                
+                PlaySpawnTextFx($"{value}", enemy);
             }
             
+            PlayFx();
             PlayAudio();
         }
     }

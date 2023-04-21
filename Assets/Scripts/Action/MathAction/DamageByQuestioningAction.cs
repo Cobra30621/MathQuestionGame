@@ -2,6 +2,7 @@
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Data.Collection;
+using NueGames.Enums;
 
 namespace NueGames.Action.MathAction
 {
@@ -10,6 +11,7 @@ namespace NueGames.Action.MathAction
     /// </summary>
     public class DamageByQuestioningAction : ByQuestioningActionBase
     {
+        public override GameActionType ActionType => GameActionType.DamageByQuestioning;
         private DamageInfo damageInfo;
         
         public override void SetValue(ActionParameters parameters)

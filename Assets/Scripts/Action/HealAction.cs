@@ -11,6 +11,7 @@ namespace NueGames.Action
     /// </summary>
     public class HealAction : GameActionBase
     {
+        public override GameActionType ActionType => GameActionType.Heal;
         public HealAction()
         {
             FxType = FxType.Heal;
@@ -44,7 +45,7 @@ namespace NueGames.Action
             Target.CharacterStats.Heal(Mathf.RoundToInt(Amount));
 
             PlayFx();
-            PlaySpawnTextFx($"{Amount}");
+            PlaySpawnTextFx($"{Amount}", Target);
             PlayAudio();
         }
     }

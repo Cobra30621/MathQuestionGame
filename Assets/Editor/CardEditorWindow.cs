@@ -485,18 +485,16 @@ namespace NueGames.NueDeck.Editor
 
             if (newActionType == GameActionType.ApplyPower || 
                 newActionType == GameActionType.DamageByAllyPowerValue ||
-                newActionType == GameActionType.ApplyPowerToAllEnemy)
+                newActionType == GameActionType.ApplyPowerToAllEnemy ||
+                newActionType == GameActionType.MultiplyPower)
             {
                 var newPowerType = (PowerType)EditorGUILayout.EnumPopup("Power Type",actionData.PowerType,GUILayout.Width(250));
                 actionData.EditPower(newPowerType);
             }
-                
-            if (newActionType != GameActionType.Exhaust)
-            {
-                var newActionValue = EditorGUILayout.IntField("Action Amount: ",actionData.ActionValue);
-                actionData.EditActionValue(newActionValue);
-            }
-
+            
+            var newActionValue = EditorGUILayout.IntField("Action Amount: ",actionData.ActionValue);
+            actionData.EditActionValue(newActionValue);
+            
             if (newActionType == GameActionType.DamageByQuestioning)
             {
                 var newAdditionValue = EditorGUILayout.IntField("AdditionValue: ",actionData.AdditionValue);

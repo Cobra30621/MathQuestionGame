@@ -1,5 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
+using NueGames.Collection;
+using NueGames.Enums;
+using NueGames.Managers;
+using NueGames.Relic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,7 +25,24 @@ public class Tester : MonoBehaviour
     public void PlayTest()
     {
         testEvent.Invoke();
-        CreateMathQuestioningAction();
+        
+        CollectionManager.Instance.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, false);
+        // CardChoice();
+        // GainRelic();
+    }
+
+    public ChoiceParameter ChoiceParameter;
+    
+    private void CardChoice()
+    {
+        CollectionManager.Instance.ShowChoiceCardPanel(ChoiceParameter);
+    }
+
+    public RelicType RelicType;
+    private void GainRelic()
+    {
+        RelicManager.Instance.GainRelic(RelicType);
+        RelicManager.Instance.PrintCurrentRelicList();
     }
 
 

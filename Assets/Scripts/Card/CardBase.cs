@@ -38,6 +38,8 @@ namespace NueGames.Card
         protected Transform CachedTransform { get; set; }
         protected WaitForEndOfFrame CachedWaitFrame { get; set; }
         public bool IsPlayable { get; protected set; } = true;
+        public int ManaCost { get; protected set;}
+        public int PowerCost { get; protected set;}
 
         public List<RarityRoot> RarityRootList => rarityRootList;
         protected FxManager FxManager => FxManager.Instance;
@@ -67,6 +69,8 @@ namespace NueGames.Card
             descTextField.text = CardData.MyDescription;
             manaTextField.text = CardData.ManaCost.ToString();
             cardImage.sprite = CardData.CardSprite;
+            ManaCost = targetProfile.ManaCost;
+            PowerCost = targetProfile.PowerCost;
             foreach (var rarityRoot in RarityRootList)
                 rarityRoot.gameObject.SetActive(rarityRoot.Rarity == CardData.Rarity);
         }
@@ -89,9 +93,9 @@ namespace NueGames.Card
 
             HideTooltipInfo(TooltipManager.Instance);
             
-            SpendMana( CardData.ManaCost);
+            SpendMana( ManaCost);
             if(CardData.NeedPowerToPlay)
-                SpendPower(CardData.NeedPowerType, CardData.PowerCost);
+                SpendPower(CardData.NeedPowerType, PowerCost);
 
             List<GameActionBase> gameActions = GameActionGenerator.GetGameActions(CardData, CardData.CardActionDataList, self, target);
             GameActionExecutor.AddToBottom(gameActions);
@@ -141,12 +145,65 @@ namespace NueGames.Card
             CardData.UpdateDescription();
             nameTextField.text = CardData.CardName;
             descTextField.text = CardData.MyDescription;
-            manaTextField.text = CardData.ManaCost.ToString();
+            manaTextField.text = ManaCost.ToString();
         }
 
         
         
         #endregion
+
+        #region Card Cost(卡牌花費改變)
+        /// <summary>
+        /// 降低魔力花費
+        /// </summary>
+        /// <param name="reduceAmount"></param>
+        public void ReduceManaCost(int reduceAmount)
+        {
+            ManaCost -= reduceAmount;
+            if (ManaCost < 0)
+                ManaCost = 0;
+
+            UpdateCardText();
+        }
+
+        /// <summary>
+        /// 設置魔力花費
+        /// </summary>
+        /// <param name="cost"></param>
+        public void SetManaCost(int cost)
+        {
+            ManaCost = cost;
+            UpdateCardText();
+        }
+        
+        /// <summary>
+        /// 降低能力花費
+        /// </summary>
+        /// <param name="reduceAmount"></param>
+        public void ReducePowerCost(int reduceAmount)
+        {
+            PowerCost -= reduceAmount;
+            if (PowerCost < 0)
+                PowerCost = 0;
+            
+            UpdateCardText();
+        }
+
+        /// <summary>
+        /// 設置能力花費
+        /// </summary>
+        /// <param name="cost"></param>
+        public void SetPowerCost(int cost)
+        {
+            PowerCost = cost;
+            
+            UpdateCardText();
+        }
+        
+        
+
+        #endregion
+        
         
         #region Routines
         protected virtual IEnumerator DiscardRoutine(bool destroy = true)

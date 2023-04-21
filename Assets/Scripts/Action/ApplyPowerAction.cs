@@ -11,6 +11,7 @@ namespace NueGames.Action
     /// </summary>
     public class ApplyPowerAction : GameActionBase
     {
+        public override GameActionType ActionType => GameActionType.ApplyPower;
         private PowerType powerType;
 
         public ApplyPowerAction()

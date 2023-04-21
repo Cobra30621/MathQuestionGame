@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -58,4 +59,6 @@ MonoBehaviour:
     fxPrefab: {fileID: 4399970628791159158, guid: 11a5c265e67f20144a9ec55a3e948415, type: 3}
   - fxType: 6
     fxPrefab: {fileID: 306904137279546315, guid: 9f4840041868be74ea8d4f988e961a5f, type: 3}
+  - fxType: 7
+    fxPrefab: {fileID: 3809111169043240097, guid: b50e0de4fa864c342b595ebaa9379b5f, type: 3}
   floatingTextPrefab: {fileID: 5875565574366412673, guid: ff5e71a98d9a7364e9d9fbe0d5a58c35, type: 3}

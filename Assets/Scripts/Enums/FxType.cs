@@ -8,6 +8,7 @@
         Block,
         Str,
         Buff,
-        Stun
+        Stun,
+        FeedBackTest
     }
 }

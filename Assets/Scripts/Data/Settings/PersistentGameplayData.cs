@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NueGames.Characters;
 using NueGames.Data.Collection;
+using NueGames.Relic;
 using UnityEngine;
 
 namespace NueGames.Data.Settings
@@ -24,6 +25,10 @@ namespace NueGames.Data.Settings
         [SerializeField] private bool isFinalEncounter;
         [SerializeField] private List<CardData> currentCardsList;
         [SerializeField] private List<AllyHealthData> allyHealthDataDataList;
+        /// <summary>
+        /// 玩家持有的遺物
+        /// </summary>
+        [SerializeField] private List<RelicClip> currentRelicList;
 
         public PersistentGameplayData(GameplayData gameplayData)
         {
@@ -64,6 +69,7 @@ namespace NueGames.Data.Settings
             CurrentCardsList = new List<CardData>();
             IsFinalEncounter = false;
             allyHealthDataDataList = new List<AllyHealthData>();
+            currentRelicList = new List<RelicClip>();
         }
 
         #region Encapsulation
@@ -143,6 +149,12 @@ namespace NueGames.Data.Settings
         {
             get => currentGold;
             set => currentGold = value;
+        }
+
+        public List<RelicClip> CurrentRelicList
+        {
+            get => currentRelicList;
+            set => currentRelicList = value;
         }
         
         #endregion

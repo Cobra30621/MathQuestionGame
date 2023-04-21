@@ -11,6 +11,7 @@ namespace NueGames.Action
     /// </summary>
     public class IncreaseMaxHealthAction : GameActionBase
     {
+        public override GameActionType ActionType => GameActionType.IncreaseMaxHealth;
         public IncreaseMaxHealthAction()
         {
             FxType = FxType.Buff;
