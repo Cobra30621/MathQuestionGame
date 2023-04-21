@@ -175,6 +175,8 @@ namespace NueGames.Data.Collection
         [SerializeField] private GameActionType gameActionType;
         [Tooltip("能力類型\n用於 ApplyPower(賦予能力), DamageByAllyPowerValue(根據能力造成傷害) 等跟能力有關行動")]
         [SerializeField] private PowerType powerType;
+        [Tooltip("答題結果類型\n用於 DamageByAnswerCount(根據答題數造成傷害) 等跟答題有關行動")]
+        [SerializeField] private AnswerOutcomeType answerOutcomeType;
         [Tooltip("數值，用於傷害大小、增加異常狀態層數等")]
         [SerializeField] private int actionValue;
         [Tooltip("加成數值\n用於如 DamageByQuestioning(根據答對題數造成傷害) 行動")]
@@ -191,6 +193,10 @@ namespace NueGames.Data.Collection
         /// 用於 ApplyPower(賦予能力), DamageByAllyPowerValue(根據能力造成傷害) 等跟能力有關行動
         /// </summary>
         public PowerType PowerType => powerType;
+        /// <summary>
+        /// 答題結果類型\n用於 DamageByAnswerCount(根據答題數造成傷害) 等跟答題有關行動
+        /// </summary>
+        public AnswerOutcomeType AnswerOutcomeType => answerOutcomeType;
         /// <summary>
         /// 數值，用於傷害大小、增加異常狀態層數等
         /// </summary>

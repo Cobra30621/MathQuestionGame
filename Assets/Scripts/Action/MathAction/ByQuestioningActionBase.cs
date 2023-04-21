@@ -1,4 +1,6 @@
-﻿using Question;
+﻿using NueGames.Enums;
+using Question;
+using UnityEngine;
 
 namespace NueGames.Action.MathAction
 {
@@ -9,12 +11,18 @@ namespace NueGames.Action.MathAction
     {
         protected int baseValue;
         protected int additionValue;
+        protected int answerCount;
+        protected AnswerOutcomeType _answerOutcomeType;
         
         protected int GetAddedValue()
         {
-            int correctAnswerCount = QuestionManager.Instance.CorrectAnswerCount;
+            // Debug.Log($"{base.ToString()}, {nameof(baseValue)}: {baseValue}, " +
+            //           $"{nameof(additionValue)}: {additionValue}, {nameof(answerCount)}: {answerCount}, {nameof(_answerOutcomeType)}: {_answerOutcomeType}" +
+            //           $"baseValue + answerCount * additionValue, {baseValue + answerCount * additionValue}");
             
-            return baseValue + correctAnswerCount * additionValue;
+            return baseValue + answerCount * additionValue;
         }
+
+        
     }
 }

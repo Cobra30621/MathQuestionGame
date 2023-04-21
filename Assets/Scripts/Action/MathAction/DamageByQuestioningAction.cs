@@ -3,6 +3,7 @@ using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Data.Collection;
 using NueGames.Enums;
+using Question;
 
 namespace NueGames.Action.MathAction
 {
@@ -39,6 +40,7 @@ namespace NueGames.Action.MathAction
         public override void DoAction()
         {
             CheckHasSetValue();
+            answerCount = QuestionManager.Instance.CorrectAnswerCount;
             damageInfo.Value  = GetAddedValue();
             
             DamageAction gameActionBase = new DamageAction();

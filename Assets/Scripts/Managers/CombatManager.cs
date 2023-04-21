@@ -8,6 +8,7 @@ using NueGames.Enums;
 using NueGames.NueExtentions;
 using NueGames.Power;
 using NueGames.Utils.Background;
+using Question;
 using UnityEngine;
 
 namespace NueGames.Managers
@@ -86,6 +87,7 @@ namespace NueGames.Managers
             backgroundContainer.OpenSelectedBackground();
           
             CollectionManager.SetGameDeck();
+            QuestionManager.Instance.OnCombatStart();
            
             UIManager.CombatCanvas.gameObject.SetActive(true);
             UIManager.InformationCanvas.gameObject.SetActive(true);

@@ -32,9 +32,9 @@ namespace Question
             }
         }
 
-        public int HasAnswerCount => hasAnswerCount;
-        public int CorrectAnswerCount => correctAnswerCount;
-        public int WrongAnswerCount => wrongAnswerCount;
+        public int HasAnswerCount => answerRecord.AnswerCount;
+        public int CorrectAnswerCount => answerRecord.CorrectCount;
+        public int WrongAnswerCount => answerRecord.WrongCount;
         public bool IsQuestioning => isQuestioning;
         public MathQuestioningActionParameters Parameters => parameters;
         
@@ -52,9 +52,15 @@ namespace Question
         private bool waitAnswer;
         [SerializeField] private bool isPlayingFeedback;
 
-        [SerializeField] private int hasAnswerCount;
-        [SerializeField] private int correctAnswerCount;
-        [SerializeField]  private int wrongAnswerCount;
+        /// <summary>
+        /// 這次進入答題介面的答題紀錄
+        /// </summary>
+        [SerializeField]  private AnswerRecord answerRecord;
+        /// <summary>
+        /// 這場戰鬥的答題記錄
+        /// </summary>
+        [SerializeField] private AnswerRecord combatAnswerRecord;
+
         private bool playCorrectAction;
         
         #endregion
@@ -101,6 +107,14 @@ namespace Question
         #endregion
 
         #region Public Method
+        /// <summary>
+        /// 戰鬥開始時的初始化
+        /// </summary>
+        public void OnCombatStart()
+        {
+            combatAnswerRecord.Clear();
+        }
+        
         public void EnterQuestionMode(MathQuestioningActionParameters newParameters)
         {
             parameters = newParameters;
@@ -112,18 +126,21 @@ namespace Question
             EventManager.OnAnswer?.Invoke();
             if (option == correctAnswer)
             {
-                correctAnswerCount++;
+                answerRecord.CorrectCount++;
+                combatAnswerRecord.CorrectCount++;
                 questionController.OnAnswer(true, option);
                 EventManager.OnAnswerCorrect?.Invoke();
             }
             else
             {
-                wrongAnswerCount++;
+                answerRecord.WrongCount++;
+                combatAnswerRecord.WrongCount++;
                 questionController.OnAnswer(false, option);
                 EventManager.OnAnswerWrong?.Invoke();
             }
 
-            hasAnswerCount++;
+            answerRecord.AnswerCount++;
+            combatAnswerRecord.AnswerCount++;
             
             waitAnswer = false;
             EnableAnswer(false);
@@ -155,6 +172,22 @@ namespace Question
                 CollectionManager.HandController.EnableDragging();
         }
 
+        public int GetAnswerCountInThisCombat(AnswerOutcomeType answerOutcomeType)
+        {
+            switch (answerOutcomeType)
+            {
+                case AnswerOutcomeType.Answer:
+                    return combatAnswerRecord.AnswerCount;
+                case AnswerOutcomeType.Correct:
+                    return combatAnswerRecord.CorrectCount;
+                case AnswerOutcomeType.Wrong :
+                    return combatAnswerRecord.WrongCount;
+            }
+
+            Debug.LogError($"未設定 {answerOutcomeType} 的 GetAnswerCountInThisCombat");
+            return 0;
+        }
+
         #endregion
         
         #region Questioning Coroutine
@@ -165,9 +198,7 @@ namespace Question
             timer = parameters.Time;
             timeOver = false;
 
-            hasAnswerCount = 0;
-            correctAnswerCount = 0;
-            wrongAnswerCount = 0;
+            answerRecord.Clear();
             isQuestioning = true;
             
             GenerateQuestions();
@@ -279,7 +310,7 @@ namespace Question
         private void JudgeHasAnsweredQuestionCount()
         {
             
-            if (hasAnswerCount >= parameters.QuestionCount)
+            if (answerRecord.AnswerCount >= parameters.QuestionCount)
             {
                 ExitQuestionMode("魔法詠唱結束");
             }
@@ -288,7 +319,7 @@ namespace Question
 
         private void JudgeCorrectCount()
         {
-            if (parameters.UseCorrectAction && correctAnswerCount >= parameters.CorrectActionNeedAnswerCount)
+            if (parameters.UseCorrectAction && answerRecord.CorrectCount >= parameters.CorrectActionNeedAnswerCount)
             {
                 playCorrectAction = true;
                 ExitQuestionMode("魔法詠唱成功，發動好效果");
@@ -298,7 +329,7 @@ namespace Question
         
         private void JudgeWrongCount()
         {
-            if (parameters.UseWrongAction && wrongAnswerCount >= parameters.WrongActionNeedAnswerCount)
+            if (parameters.UseWrongAction && answerRecord.WrongCount >= parameters.WrongActionNeedAnswerCount)
             {
                 playCorrectAction = false;
                 ExitQuestionMode("魔法詠唱失敗，發動壞效果");
@@ -313,5 +344,24 @@ namespace Question
         }
         
         #endregion
+    }
+
+    /// <summary>
+    /// 答題紀錄
+    /// </summary>
+    [Serializable]
+    public class AnswerRecord
+    {
+        public int AnswerCount;
+        public int CorrectCount;
+        public int WrongCount;
+
+
+        public void Clear()
+        {
+            AnswerCount = 0;
+            CorrectCount = 0;
+            WrongCount = 0;
+        }
     }
 }
