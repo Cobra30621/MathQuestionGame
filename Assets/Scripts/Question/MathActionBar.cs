@@ -11,16 +11,14 @@ namespace Question
 {
     public class MathActionBar : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI actionContent;
         [SerializeField] private TextMeshProUGUI progressText;
         [SerializeField] private Image progressBarForeground;
         // private QuestionManager QuestionManager = QuestionManager.Instance;
         
-        public void UpdateUI(int answerCount, int needAnswerCount, string content)
+        public void UpdateUI(int answerCount, int needAnswerCount)
         {
             progressText.text = $"{answerCount} / {needAnswerCount}";
             progressBarForeground.fillAmount = (float) answerCount / needAnswerCount;
-            actionContent.text = content;
         }
     }
 }

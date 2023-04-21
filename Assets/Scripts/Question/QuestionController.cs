@@ -12,10 +12,8 @@ namespace Question
         private QuestionManager _questionManager;
         [SerializeField] private Image qeustionImage;
         [SerializeField] private Image optionImage;
-        [SerializeField] private Image timeBar;
-        [SerializeField] private  TextMeshProUGUI timeText;
 
-        [SerializeField] private MathActionBar answerBar;
+        [SerializeField] private TextMeshProUGUI needAnswerCount;
         [SerializeField] private MathActionBar correctBar;
         [SerializeField] private MathActionBar wrongBar;
         
@@ -44,9 +42,30 @@ namespace Question
 
         public void UpdateUI()
         {
-            answerBar.UpdateUI(_questionManager.HasAnswerCount, _questionManager.Parameters.QuestionCount, "");
-            correctBar.UpdateUI(_questionManager.CorrectAnswerCount, _questionManager.Parameters.CorrectActionNeedAnswerCount, "答對時行動(待作)");
-            wrongBar.UpdateUI(_questionManager.WrongAnswerCount, _questionManager.Parameters.WrongActionNeedAnswerCount, "答錯時行動(待作)");
+            // answerBar.UpdateUI(_questionManager.HasAnswerCount, _questionManager.Parameters.QuestionCount);
+            int questionCount = _questionManager.Parameters.QuestionCount;
+            int leastQuestionCount = questionCount - _questionManager.HasAnswerCount;
+            needAnswerCount.text = $"{leastQuestionCount}";
+            if (_questionManager.Parameters.UseCorrectAction)
+            {
+                correctBar.UpdateUI(_questionManager.CorrectAnswerCount, _questionManager.Parameters.CorrectActionNeedAnswerCount);
+            }
+            else
+            {
+                correctBar.UpdateUI(_questionManager.CorrectAnswerCount, questionCount);
+            }
+            
+            if (_questionManager.Parameters.UseWrongAction)
+            {
+                wrongBar.UpdateUI(_questionManager.WrongAnswerCount, _questionManager.Parameters.WrongActionNeedAnswerCount);
+            }
+            else
+            {
+                wrongBar.UpdateUI(_questionManager.WrongAnswerCount, questionCount);
+            }
+            
+            
+            
         }
         
         public void SetQuestionManager(QuestionManager manager)
