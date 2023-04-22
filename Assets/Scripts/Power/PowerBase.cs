@@ -65,7 +65,7 @@ namespace NueGames.Power
         /// <summary>
         /// 訂閱所有事件
         /// </summary>
-        protected void SubscribeAllEvent()
+        protected virtual void SubscribeAllEvent()
         {
             if (EventManager != null)
             {
@@ -80,7 +80,7 @@ namespace NueGames.Power
         /// <summary>
         /// 取消訂閱所以事件
         /// </summary>
-        protected void UnSubscribeAllEvent()
+        protected virtual void UnSubscribeAllEvent()
         {
             if (EventManager != null)
             {
@@ -90,6 +90,11 @@ namespace NueGames.Power
                 EventManager.OnAnswerCorrect -= OnAnswerCorrect;
                 EventManager.OnAnswerWrong -= OnAnswerWrong;
             }
+        }
+
+        public virtual void SetOwner(CharacterBase owner)
+        {
+            Owner = owner;
         }
         
         #endregion
@@ -106,13 +111,15 @@ namespace NueGames.Power
             if (IsActive)
             {
                 Value += stackAmount;
-                Owner?.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
+                Owner?.CharacterStats.OnPowerChanged?.Invoke(PowerType, Value);
+                Owner?.CharacterStats.OnPowerIncrease?.Invoke(PowerType, stackAmount);
             }
             else
             {
                 Value = stackAmount;
                 IsActive = true;
-                Owner?.CharacterStats.OnPowerApplied.Invoke(PowerType, Value);
+                Owner?.CharacterStats.OnPowerApplied?.Invoke(PowerType, Value);
+                Owner?.CharacterStats.OnPowerIncrease?.Invoke(PowerType, stackAmount);
             }
         }
         
@@ -253,6 +260,13 @@ namespace NueGames.Power
         /// 當能力改變時
         /// </summary>
         protected virtual void OnPowerChange(){}
+        
+        /// <summary>
+        /// 事件: 當能力數值增加時觸發
+        /// </summary>
+        protected virtual void OnPowerIncrease(PowerType powerType, int value){}
+        
+        
         /// <summary>
         /// 受到攻擊時，觸發的方法
         /// </summary>

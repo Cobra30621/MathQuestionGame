@@ -50,6 +50,10 @@ namespace NueGames.Characters
         /// </summary>
         public Action<PowerType, int> OnPowerChanged;
         /// <summary>
+        /// 事件: 當能力數值增加時觸發
+        /// </summary>
+        public Action<PowerType, int> OnPowerIncrease;
+        /// <summary>
         ///  事件: 當清除能力時觸發
         /// </summary>
         public Action<PowerType> OnPowerCleared;
@@ -101,7 +105,7 @@ namespace NueGames.Characters
             else
             {
                 PowerBase powerBase = PowerGenerator.GetPower(targetPower);
-                powerBase.Owner = owner;
+                powerBase.SetOwner(owner);
                 powerBase.StackPower(value);
                 
                 PowerDict.Add(targetPower, powerBase);
@@ -223,7 +227,10 @@ namespace NueGames.Characters
         /// <param name="targetPower"></param>
         public void ClearPower(PowerType targetPower)
         {
-            PowerDict[targetPower].ClearPower();
+            if (PowerDict.ContainsKey(targetPower))
+            {
+                PowerDict[targetPower].ClearPower();
+            }
         }
 
         #endregion

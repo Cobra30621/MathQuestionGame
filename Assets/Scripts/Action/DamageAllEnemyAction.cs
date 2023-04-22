@@ -27,14 +27,12 @@ namespace NueGames.Action
             ActionData data = parameters.ActionData;
             Duration = parameters.ActionData.ActionDelay;
             
-            SetValue(new DamageInfo(parameters.Value, parameters.SelfCharacter),
-                parameters.TargetCharacter);
+            SetValue(new DamageInfo(parameters.Value, parameters.SelfCharacter));
         }
         
-        public void SetValue(DamageInfo info, CharacterBase target)
+        public void SetValue(DamageInfo info)
         {
             damageInfo = info;
-            Target = target;
 
             HasSetValue = true;
         }

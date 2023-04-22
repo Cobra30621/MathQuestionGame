@@ -23,6 +23,9 @@
         // 每回合給予
         Angry = 51,
         
+        // 測試用
+        DamageAllEnemyWhenGainPower = 101,
+        
         // 遺物、角色(暫時)
         Character_MathManaCharacter = 201,
         Relic_DrawCardOnAnswerCorrect = 202
