@@ -15,6 +15,8 @@
         ApplyPower = 11, 
         ApplyPowerToAllEnemy = 13,
         MultiplyPower = 14,
+        ClearPower = 15,
+        ApplyPowerByMathManaValue = 17,
         // 21~30 卡組相關
         EarnMana = 21,
         DrawCard = 22,
