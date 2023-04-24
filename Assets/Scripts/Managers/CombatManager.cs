@@ -29,6 +29,11 @@ namespace NueGames.Managers
         public List<AllyBase> CurrentAlliesList { get; private set; }= new List<AllyBase>();
 
         public System.Action OnAllyTurnStarted;
+        /// <summary>
+        /// 回合結束時觸發
+        /// bool : 是否為玩家的回合
+        /// </summary>
+        public Action<bool> AtEndOfTurn;
         public System.Action OnEnemyTurnStarted;
         public List<Transform> EnemyPosList => enemyPosList;
 
@@ -118,7 +123,7 @@ namespace NueGames.Managers
                     
                     break;
                 case CombatStateType.EnemyTurn:
-
+                    AtEndOfTurn?.Invoke(true); // 玩家回合結束
                     OnEnemyTurnStarted?.Invoke();
                     
                     CollectionManager.DiscardHand();
@@ -129,6 +134,7 @@ namespace NueGames.Managers
                     
                     break;
                 case CombatStateType.EndCombat:
+                    AtEndOfTurn?.Invoke(false); // 敵人回合結束
                     
                     GameManager.PersistentGameplayData.CanSelectCards = false;
                     
@@ -205,7 +211,7 @@ namespace NueGames.Managers
 
         public void SpendPower(PowerType powerType, int value)
         {
-            CurrentMainAlly.CharacterStats.ReducePower(powerType, value);
+            CurrentMainAlly.CharacterStats.ApplyPower(powerType, - value);
         }
         
         #endregion

@@ -121,18 +121,10 @@ namespace NueGames.Power
                 Owner?.CharacterStats.OnPowerApplied?.Invoke(PowerType, Value);
                 Owner?.CharacterStats.OnPowerIncrease?.Invoke(PowerType, stackAmount);
             }
+
+            CheckClearPower();
         }
         
-        /// <summary>
-        /// 降低能力數值
-        /// </summary>
-        /// <param name="reduceAmount"></param>
-        public virtual void ReducePower(int reduceAmount)
-        {
-            Value -= reduceAmount;
-            CheckClearPower();
-            Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
-        }
 
         /// <summary>
         /// 將能力 x 倍數
@@ -235,7 +227,7 @@ namespace NueGames.Power
             }
             
             if (DecreaseOverTurn) 
-                ReducePower(1);
+                StackPower(-1);
             
             //Check status
             if (Value <= 0)
@@ -255,6 +247,14 @@ namespace NueGames.Power
             
         }
 
+        /// <summary>
+        /// 回合結束時觸發
+        /// </summary>
+        public virtual void AtEndOfTurn(bool isAlly)
+        {
+            
+        }
+        
         
         /// <summary>
         /// 當能力改變時

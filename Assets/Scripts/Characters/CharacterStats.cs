@@ -112,15 +112,6 @@ namespace NueGames.Characters
             }
         }
 
-        /// <summary>
-        /// 降低能力
-        /// </summary>
-        /// <param name="targetPower"></param>
-        /// <param name="value"></param>
-        public void ReducePower(PowerType targetPower,int value)
-        {
-            PowerDict[targetPower].ReducePower(value);
-        }
         
         /// <summary>
         /// 將能力 x 倍數
