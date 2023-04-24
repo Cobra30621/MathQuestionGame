@@ -67,14 +67,7 @@ namespace NueGames.Power
         /// </summary>
         protected virtual void SubscribeAllEvent()
         {
-            if (EventManager != null)
-            {
-                EventManager.onAttacked += OnAttacked;
-                EventManager.OnQuestioningModeEnd += OnQuestioningModeEnd;
-                EventManager.OnAnswer += OnAnswer;
-                EventManager.OnAnswerCorrect += OnAnswerCorrect;
-                EventManager.OnAnswerWrong += OnAnswerWrong;
-            }
+            
         }
 
         /// <summary>
@@ -82,14 +75,7 @@ namespace NueGames.Power
         /// </summary>
         protected virtual void UnSubscribeAllEvent()
         {
-            if (EventManager != null)
-            {
-                EventManager.onAttacked -= OnAttacked;
-                EventManager.OnQuestioningModeEnd -= OnQuestioningModeEnd;
-                EventManager.OnAnswer -= OnAnswer;
-                EventManager.OnAnswerCorrect -= OnAnswerCorrect;
-                EventManager.OnAnswerWrong -= OnAnswerWrong;
-            }
+            
         }
 
         public virtual void SetOwner(CharacterBase owner)
