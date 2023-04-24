@@ -1144,7 +1144,7 @@ MonoBehaviour:
     - rid: 3210068644551720976
       type: {class: MMF_Feedbacks, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -1911318089
         Label: Feedbacks Player
         ChannelMode: 0
@@ -1542,7 +1542,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 1606721255759489376}
         DebugActive: 0
-        PauseDuration: 1
+        PauseDuration: 0.1
         RandomizePauseDuration: 0
         MinPauseDuration: 1
         MaxPauseDuration: 3
@@ -1764,7 +1764,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 1606721255759489376}
         DebugActive: 0
-        PauseDuration: 1
+        PauseDuration: 0.1
         RandomizePauseDuration: 0
         MinPauseDuration: 1
         MaxPauseDuration: 3
@@ -2539,9 +2539,14 @@ MonoBehaviour:
   timeOver: 0
   isQuestioning: 0
   isPlayingFeedback: 1
-  hasAnswerCount: 0
-  correctAnswerCount: 0
-  wrongAnswerCount: 0
+  answerRecord:
+    AnswerCount: 0
+    CorrectCount: 0
+    WrongCount: 0
+  combatAnswerRecord:
+    AnswerCount: 0
+    CorrectCount: 0
+    WrongCount: 0
 --- !u!114 &6933779548279769729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2742,7 +2747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3364525532388474391
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4170,7 +4175,6 @@ MonoBehaviour:
   FeedbacksList:
   - rid: 3210068616561557537
   - rid: 3210068644551720978
-  - rid: 3210068644551720977
   - rid: 3210068616561557536
   - rid: 3210068616561557533
   - rid: 3210068616561557540
@@ -4514,79 +4518,6 @@ MonoBehaviour:
         ScriptDriven: 0
         AutoResume: 0
         AutoResumeAfter: 0.25
-    - rid: 3210068644551720977
-      type: {class: MMF_Feedbacks, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
-      data:
-        Active: 1
-        UniqueID: -932058369
-        Label: 'Feedbacks Player : show info bar'
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        Owner: {fileID: 3061105178014234530}
-        DebugActive: 0
-        Mode: 1
-        TargetFeedbacks: {fileID: 7063394381795813781}
-        OnlyTriggerPlayersInRange: 0
-        EventRange: 100
-        EventOriginTransform: {fileID: 3364525532388474391}
     - rid: 3210068644551720978
       type: {class: MMF_TMPText, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks.TextMeshPro}
       data:
@@ -5641,7 +5572,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 5511844139395013928}
         DebugActive: 0
-        PauseDuration: 0.5
+        PauseDuration: 0.1
         RandomizePauseDuration: 0
         MinPauseDuration: 1
         MaxPauseDuration: 3
@@ -5719,7 +5650,7 @@ MonoBehaviour:
         DebugActive: 0
         BoundImage: {fileID: 2578607267140284530}
         Mode: 0
-        Duration: 0.3
+        Duration: 0.2
         AllowAdditivePlays: 0
         InstantAlpha: 1
         Curve:
