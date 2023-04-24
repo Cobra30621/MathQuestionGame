@@ -46,8 +46,10 @@ namespace NueGames.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
 
-            Debug.Log("damageInfo.SelfCharacter" +  damageInfo.SelfCharacter );
-            int value = CombatCalculator.GetDamageValue(damageInfo.Value, damageInfo.SelfCharacter, Target);
+            Debug.Log("damageInfo.SelfCharacter" +  damageInfo.Self );
+            damageInfo.Target = Target;
+            
+            int value = CombatCalculator.GetDamageValue(damageInfo);
             
             Target.CharacterStats.Damage(value);
 

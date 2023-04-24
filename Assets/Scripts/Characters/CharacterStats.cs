@@ -208,7 +208,8 @@ namespace NueGames.Characters
         /// </summary>
         public void ClearAllPower()
         {
-            foreach (var power in PowerDict)
+            Dictionary<PowerType, PowerBase> copyPowerDict = new Dictionary<PowerType, PowerBase>(PowerDict);
+            foreach (var power in copyPowerDict)
                 ClearPower(power.Key);
         }
         

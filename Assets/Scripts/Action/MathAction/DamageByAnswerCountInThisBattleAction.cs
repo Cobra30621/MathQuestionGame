@@ -18,10 +18,9 @@ namespace NueGames.Action.MathAction
             Duration = parameters.ActionData.ActionDelay;
             
             baseValue = data.ActionValue;
-            additionValue = data.AdditionValue;
             _answerOutcomeType = data.AnswerOutcomeType;
 
-            damageInfo = new DamageInfo(baseValue, additionValue, parameters.SelfCharacter);
+            damageInfo = new DamageInfo(baseValue,  parameters.SelfCharacter);
             Target = parameters.TargetCharacter;
 
             HasSetValue = true;

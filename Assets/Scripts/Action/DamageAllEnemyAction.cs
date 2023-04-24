@@ -47,7 +47,8 @@ namespace NueGames.Action
             List<EnemyBase> enemyCopy = new List<EnemyBase>(CombatManager.CurrentEnemiesList);
             foreach (EnemyBase enemy in enemyCopy)
             {
-                int value = CombatCalculator.GetDamageValue(damageInfo.Value, damageInfo.SelfCharacter, enemy);
+                damageInfo.Target = enemy;
+                int value = CombatCalculator.GetDamageValue(damageInfo);
                 enemy.CharacterStats.Damage(value);
                 
                 PlaySpawnTextFx($"{value}", enemy);

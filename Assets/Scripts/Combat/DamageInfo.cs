@@ -4,21 +4,22 @@ namespace NueGames.Combat
 {
     public class DamageInfo
     {
-        public CharacterBase SelfCharacter;
+        public CharacterBase Self;
+        public CharacterBase Target;
         public int Value;
-        public int AdditionalValue;
+        /// <summary>
+        /// 固定傷害，不受狀態影響
+        /// </summary>
+        public bool FixDamage;
 
-        public DamageInfo(int value, CharacterBase selfCharacter)
+        public DamageInfo(int value, CharacterBase self)
         {
             Value = value;
-            SelfCharacter = selfCharacter;
+            Self = self;
         }
         
-        public DamageInfo(int value, int additionalValue, CharacterBase selfCharacter)
+        public DamageInfo()
         {
-            Value = value;
-            AdditionalValue = additionalValue;
-            SelfCharacter = selfCharacter;
         }
     }
 }

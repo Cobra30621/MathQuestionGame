@@ -88,6 +88,16 @@ namespace NueGames.Power
         
 
         #region 能力控制
+        
+        /// <summary>
+        /// 將能力 x 倍數
+        /// </summary>
+        public virtual void MultiplyPower(int multiplyAmount)
+        {
+            int addAmount = Mathf.RoundToInt(Value * (multiplyAmount - 1));
+            StackPower(addAmount);
+        }
+        
         /// <summary>
         /// 增加能力數值
         /// </summary>
@@ -98,13 +108,17 @@ namespace NueGames.Power
             {
                 Value += stackAmount;
                 Owner?.CharacterStats.OnPowerChanged?.Invoke(PowerType, Value);
-                Owner?.CharacterStats.OnPowerIncrease?.Invoke(PowerType, stackAmount);
+                
             }
             else
             {
                 Value = stackAmount;
                 IsActive = true;
                 Owner?.CharacterStats.OnPowerApplied?.Invoke(PowerType, Value);
+            }
+
+            if (stackAmount > 0)
+            {
                 Owner?.CharacterStats.OnPowerIncrease?.Invoke(PowerType, stackAmount);
             }
 
@@ -112,15 +126,7 @@ namespace NueGames.Power
         }
         
 
-        /// <summary>
-        /// 將能力 x 倍數
-        /// </summary>
-        public virtual void MultiplyPower(int multiplyAmount)
-        {
-            Value *= multiplyAmount;
-            CheckClearPower();
-            Owner.CharacterStats.OnPowerChanged.Invoke(PowerType, Value);
-        }
+        
 
         /// <summary>
         /// 檢查要不要清除能力

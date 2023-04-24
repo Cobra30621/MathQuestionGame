@@ -20,7 +20,7 @@ namespace NueGames.Action.MathAction
             ActionData data = parameters.ActionData;
             Duration = parameters.ActionData.ActionDelay;
 
-            SetValue(new DamageInfo(data.ActionValue, data.AdditionValue, parameters.SelfCharacter),
+            SetValue(new DamageInfo(data.ActionValue, parameters.SelfCharacter),
                 parameters.TargetCharacter);
         }
         
@@ -29,7 +29,6 @@ namespace NueGames.Action.MathAction
             damageInfo = info;
             Target = target;
             baseValue = info.Value;
-            additionValue = info.AdditionalValue;
 
             HasSetValue = true;
         }

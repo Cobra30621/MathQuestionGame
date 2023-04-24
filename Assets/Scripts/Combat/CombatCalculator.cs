@@ -38,11 +38,24 @@ namespace NueGames.Combat
             _targetEnemy = CombatManager.CurrentSelectedEnemy;
             return GetDamageValue(rawValue, selfCharacter, _targetEnemy);
         }
+
+        /// <summary>
+        /// 獲得戰鬥傷害數值
+        /// </summary>
+        public static int GetDamageValue(DamageInfo info)
+        {
+            if (info.FixDamage)
+            {
+                return info.Value;
+            }
+            
+            return GetDamageValue(info.Value, info.Self, info.Target);
+        }
         
         /// <summary>
         /// 獲得戰鬥傷害數值
         /// </summary>
-        public static int GetDamageValue(float rawValue, CharacterBase selfCharacter, CharacterBase targetCharacter)
+        private static int GetDamageValue(float rawValue, CharacterBase selfCharacter, CharacterBase targetCharacter)
         {
             float value = rawValue;
             // 計算使用者能力加成
