@@ -16,9 +16,10 @@ namespace NueGames.Power
             CanNegativeStack = true;
         }
         
-        protected override void OnAttacked(DamageInfo info, int damageAmount)
+        
+        public override float AtDamageGive(float damage)
         {
-            Debug.Log($"{Owner} 攻擊力增加{Value}");
+            return damage + Value;
         }
     }
 }

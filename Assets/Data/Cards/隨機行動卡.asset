@@ -23,7 +23,13 @@ MonoBehaviour:
   actionTargetType: 0
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
-  cardActionDataList: []
+  cardActionDataList:
+  - gameActionType: 51
+    powerType: 0
+    answerOutcomeType: 0
+    actionValue: 0
+    additionValue: 0
+    actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: "30% : \u9020\u6210 10 \u9EDE\u50B7\u5BB3\n70% : \u7D66\u4E88
       3 \u5C64\u6613\u50B7"
@@ -60,6 +66,7 @@ MonoBehaviour:
       ActionData:
         gameActionType: 1
         powerType: 0
+        answerOutcomeType: 0
         actionValue: 10
         additionValue: 0
         actionDelay: 0
@@ -67,6 +74,7 @@ MonoBehaviour:
       ActionData:
         gameActionType: 11
         powerType: 4
+        answerOutcomeType: 0
         actionValue: 3
         additionValue: 0
         actionDelay: 0
