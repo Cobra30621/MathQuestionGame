@@ -6,22 +6,15 @@ using UnityEngine.UI;
 
 namespace Question
 {
-    public class AnswerButton : MonoBehaviour
+    public class AnswerButtonUseMMFPlayer : AnswerButtonBase
     {
         public MMF_Player CorrectFeedback => correctFeedback;
         [SerializeField] private MMF_Player correctFeedback;
         public MMF_Player WrongFeedback => wrongFeedback;
         [SerializeField] private MMF_Player wrongFeedback;
-        private Button button;
-
-        void Awake()
+        public override void PlayOnAnswerAnimation(bool isCorrect)
         {
-            button = GetComponent<Button>();
-        }
-        
-        public void EnableAnswer(bool enable)
-        {
-            button.enabled = enable;
+            throw new System.NotImplementedException();
         }
     }
 }

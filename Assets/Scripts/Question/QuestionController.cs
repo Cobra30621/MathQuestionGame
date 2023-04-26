@@ -22,6 +22,13 @@ namespace Question
         [SerializeField] private MMF_Player onQuestionShowFeedback;
         [SerializeField] private MMF_Player onAnswerFeedback;
         [SerializeField] private MMF_Player onExitQuestionModeFeedback;
+        
+        [SerializeField] private Animator animator;
+        [SerializeField] private GameObject mainPanel;
+        
+        private static readonly int InQuestioningMode = Animator.StringToHash("In Questioning Mode");
+        private static readonly int ShowQuestion = Animator.StringToHash("Show Question");
+        private static readonly int OnAnswerQuestion = Animator.StringToHash("On Answer");
 
         void Awake()
         {
@@ -75,30 +82,50 @@ namespace Question
 
         public void EnterQuestionMode()
         {
-            
-            // mainPanel.SetActive(true);
-            onEnterQuestionModeFeedback.PlayFeedbacks();
+            mainPanel.SetActive(true);
+            StartPlayAnimation();
+            animator.SetBool(InQuestioningMode, true);
+            // onEnterQuestionModeFeedback.PlayFeedbacks();
         }
 
         public void ExitQuestionMode(string info)
         {
             infoText.text = info;
-            onExitQuestionModeFeedback.PlayFeedbacks();
+            StartPlayAnimation();
+            animator.SetBool(InQuestioningMode, false);
+            // onExitQuestionModeFeedback.PlayFeedbacks();
         }
 
         public void SetNextQuestion(MultipleChoiceQuestion multipleChoiceQuestion)
         {
             qeustionImage.sprite = multipleChoiceQuestion.QuestionSprite;
             optionImage.sprite = multipleChoiceQuestion.OptionSprite;
-            onQuestionShowFeedback.PlayFeedbacks();
+            
+            StartPlayAnimation();
+            animator.SetTrigger(ShowQuestion);
+            // onQuestionShowFeedback.PlayFeedbacks();
         }
         
 
         public void OnAnswer(bool correct, int option)
         {
-            onAnswerFeedback.GetFeedbackOfType<MMF_Feedbacks>().TargetFeedbacks =
-                _questionManager.GetAnswerFeedback(correct, option);
-            onAnswerFeedback.PlayFeedbacks();
+            StartPlayAnimation();
+            animator.SetTrigger(OnAnswerQuestion);
+            _questionManager.GetAnswerButton(option)?.PlayOnAnswerAnimation(correct);
+            
+            // onAnswerFeedback.GetFeedbackOfType<MMF_Feedbacks>().TargetFeedbacks =
+            //     _questionManager.GetAnswerFeedback(correct, option);
+            // onAnswerFeedback.PlayFeedbacks();
+        }
+
+        public void ClosePanel()
+        {
+            mainPanel.SetActive(false);
+        }
+        
+        public void StartPlayAnimation()
+        {
+            QuestionManager.Instance.StartPlayAnimation();
         }
     }
 }

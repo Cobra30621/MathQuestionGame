@@ -11,47 +11,92 @@ using NueGames.Managers;
 
 namespace Question
 {
+    /// <summary>
+    /// 答題模式管理器
+    /// </summary>
     public class QuestionManager : MonoBehaviour
     {
         private QuestionManager(){}
         public static QuestionManager Instance { get; private set; }
+        
+        /// <summary>
+        /// 答題介面
+        /// </summary>
         [SerializeField] private QuestionController questionController;
-        
+        /// <summary>
+        /// 答題資料
+        /// </summary>
         [SerializeField] private QuestionsData questionsData;
-        [SerializeField] private AnswerButton[] answerButtons;
+        /// <summary>
+        /// 答題按鈕
+        /// </summary>
+        [SerializeField] private AnswerButtonBase[] answerButtons;
 
+        /// <summary>
+        /// 卡牌管理器
+        /// </summary>
         private CollectionManager CollectionManager => CollectionManager.Instance;
+        /// <summary>
+        /// 事件管理器
+        /// </summary>
         private EventManager EventManager => EventManager.Instance;
-        
-        public float Timer{
-            get{
-                if(timer < 0)
-                    return 0;
-                else
-                    return timer;
-            }
-        }
 
-        public int HasAnswerCount => answerRecord.AnswerCount;
-        public int CorrectAnswerCount => answerRecord.CorrectCount;
-        public int WrongAnswerCount => answerRecord.WrongCount;
-        public bool IsQuestioning => isQuestioning;
+
+        #region Public 變數
+        /// <summary>
+        /// 數學行動變數
+        /// </summary>
         public MathQuestioningActionParameters Parameters => parameters;
+        /// <summary>
+        /// 已經答題數量
+        /// </summary>
+        public int HasAnswerCount => answerRecord.AnswerCount;
+        /// <summary>
+        /// 答對數量
+        /// </summary>
+        public int CorrectAnswerCount => answerRecord.CorrectCount;
+        /// <summary>
+        /// 答錯數量
+        /// </summary>
+        public int WrongAnswerCount => answerRecord.WrongCount;
+        /// <summary>
+        /// 正在答題中
+        /// </summary>
+        public bool IsQuestioning => isQuestioning;
+
+        #endregion
         
         
-        #region Cache
+        #region 暫存 Cache
+        
+        
         [SerializeField] private MathQuestioningActionParameters parameters;
-        
-        private MultipleChoiceQuestion currentQuestion;
+        /// <summary>
+        /// 題目清單
+        /// </summary>
         [SerializeField] private List<MultipleChoiceQuestion> questionList;
-        private int correctAnswer;
-
-        private float timer; 
-        [SerializeField] private bool timeOver;
+        /// <summary>
+        /// 正在回答的題目
+        /// </summary>
+        private MultipleChoiceQuestion _currentQuestion;
+        /// <summary>
+        /// 正確題目
+        /// </summary>
+        private int _correctAnswer;
+        /// <summary>
+        /// 正在答題中
+        /// </summary>
         [SerializeField] private bool isQuestioning;
-        private bool waitAnswer;
-        [SerializeField] private bool isPlayingFeedback;
-
+        /// <summary>
+        /// 等待玩家答題中
+        /// </summary>
+        [SerializeField] private bool waitAnswer;
+        /// <summary>
+        /// 等待動畫撥放
+        /// </summary>
+        [SerializeField] private bool waitPlayingAnimation;
+        
+        
         /// <summary>
         /// 這次進入答題介面的答題紀錄
         /// </summary>
@@ -61,8 +106,12 @@ namespace Question
         /// </summary>
         [SerializeField] private AnswerRecord combatAnswerRecord;
 
-        private bool playCorrectAction;
+        /// <summary>
+        /// 是否播放答題正確的行動
+        /// </summary>
+        private bool _playCorrectAction;
         
+
         #endregion
         
         #region Setup
@@ -77,10 +126,8 @@ namespace Question
             {
                 transform.parent = null;
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
             }
             
-            timeOver = true;
             isQuestioning = false;
             questionController.SetQuestionManager(this);
             parameters = new MathQuestioningActionParameters();
@@ -88,25 +135,8 @@ namespace Question
 
         #endregion
 
-        #region Update
-        void Update()
-        {
-            Countdown(); 
-            
-            // JudgeEndConditions();
-        }
-        
-        void Countdown(){
-            if(!parameters.UseTimeCountDown){return;}
-            if(timeOver){return;}
-            
-            timer -= Time.deltaTime;
-        }
-        
 
-        #endregion
-
-        #region Public Method
+        #region 事件
         /// <summary>
         /// 戰鬥開始時的初始化
         /// </summary>
@@ -115,16 +145,18 @@ namespace Question
             combatAnswerRecord.Clear();
         }
         
-        public void EnterQuestionMode(MathQuestioningActionParameters newParameters)
-        {
-            parameters = newParameters;
-            StartCoroutine(QuestionCoroutine());
-        }
-
+        /// <summary>
+        /// 回答問題時
+        /// </summary>
+        /// <param name="option"></param>
         public void OnAnswer(int option)
         {
+            EnableAnswer(false);
             EventManager.OnAnswer?.Invoke();
-            if (option == correctAnswer)
+            
+            Debug.Log($"option {option } correctAnswer {_correctAnswer}");
+            
+            if (option == _correctAnswer)
             {
                 answerRecord.CorrectCount++;
                 combatAnswerRecord.CorrectCount++;
@@ -143,34 +175,39 @@ namespace Question
             combatAnswerRecord.AnswerCount++;
             
             waitAnswer = false;
-            EnableAnswer(false);
+            
         }
 
-        public void SetPlayingFeedback(bool isPlaying)
+        
+
+        #endregion
+        
+
+        #region Public Method
+        
+        /// <summary>
+        /// 進入答題模式
+        /// </summary>
+        /// <param name="newParameters"></param>
+        public void EnterQuestionMode(MathQuestioningActionParameters newParameters)
         {
-            isPlayingFeedback = isPlaying;
+            parameters = newParameters;
+            StartCoroutine(QuestionCoroutine());
         }
+        
 
-        public MMF_Player GetAnswerFeedback(bool correct, int option)
+        public AnswerButtonBase GetAnswerButton(int option)
         {
             if (option >= answerButtons.Length)
             {
                 Debug.LogError($"{option} 超過 answerbuttons 數量");
                 return null;
             }
-            
-            AnswerButton answerButton = answerButtons[option];
-            if (correct)
-                return answerButton.CorrectFeedback;
-            else
-                return answerButton.WrongFeedback;
+
+            return answerButtons[option];
         }
 
-        public void EnableDragging()
-        {
-            if (CollectionManager)
-                CollectionManager.HandController.EnableDragging();
-        }
+        
 
         public int GetAnswerCountInThisCombat(AnswerOutcomeType answerOutcomeType)
         {
@@ -195,47 +232,68 @@ namespace Question
         IEnumerator QuestionCoroutine()
         {
             // Init
-            timer = parameters.Time;
-            timeOver = false;
-
             answerRecord.Clear();
             isQuestioning = true;
             
             GenerateQuestions();
             if (CollectionManager)
                 CollectionManager.HandController.DisableDragging();
+
             
-            
+            // 進入答題介面
             questionController.EnterQuestionMode();
-            yield return new WaitForSeconds(0.2f);
-            while (isPlayingFeedback) yield return null; // 等待開頭反饋特效
+            while (waitPlayingAnimation) yield return null; // 等待開頭反饋特效
+           
 
             // Start Questioning
             while (isQuestioning)
             {
                 NextQuestion();
-                questionController.SetNextQuestion(currentQuestion);
-                while (isPlayingFeedback) yield return null; // 等待顯示題目反饋特效
+                questionController.SetNextQuestion(_currentQuestion);
+                while (waitPlayingAnimation) yield return null; // 等待顯示題目反饋特效
                 
                 EnableAnswer(true);
                 waitAnswer = true;
                 while (waitAnswer) yield return null;
-                yield return new WaitForSeconds(0.5f);
-                while (isPlayingFeedback) yield return null; // 等待答題成功反饋特效
+                // yield return new WaitForSeconds(0.5f);
+                
+                while (waitPlayingAnimation) yield return null; // 等待答題成功反饋特效
                 
                 JudgeEndConditions();
             }
             
-            while (isPlayingFeedback) yield return null; // 等待離開動畫反饋特效
+            // questionController.ExitQuestionMode("");
+            while (waitPlayingAnimation) yield return null; // 等待離開動畫反饋特效
             yield return new WaitForSeconds(0.1f);
-
+            
+            OnQuestioningFinish();
+            
             PlayAfterQuestioningAction();
 
         }
+
+
+        public void StartPlayAnimation()
+        {
+            waitPlayingAnimation = true;
+        }
+        
+        public void OnAnimationFinish()
+        {
+            waitPlayingAnimation = false;
+        }
+
+        public void OnQuestioningFinish()
+        {
+            questionController.ClosePanel();
+            EnableDragging();
+            // isQuestioning = false;
+        }
+        
         
         void EnableAnswer(bool enable)
         {
-            foreach (AnswerButton answerButton in answerButtons)
+            foreach (var answerButton in answerButtons)
             {
                 answerButton.EnableAnswer(enable);
             }
@@ -249,8 +307,8 @@ namespace Question
             }
             
             int index = new System.Random().Next(questionList.Count);
-            currentQuestion = questionList[index];
-            correctAnswer = currentQuestion.Answer;
+            _currentQuestion = questionList[index];
+            _correctAnswer = _currentQuestion.Answer;
             questionList.RemoveAt(index);
         }
 
@@ -267,17 +325,23 @@ namespace Question
             }
             else
             {
-                if (parameters.UseCorrectAction && playCorrectAction)
+                if (parameters.UseCorrectAction && _playCorrectAction)
                 {
                     GameActionExecutor.Instance.AddToBottom(parameters.CorrectActions);
                 }
 
-                if (parameters.UseWrongAction && !playCorrectAction)
+                if (parameters.UseWrongAction && !_playCorrectAction)
                 {
                     GameActionExecutor.Instance.AddToBottom(parameters.WrongActions);
                 }
             }
             
+        }
+        
+        private void EnableDragging()
+        {
+            if (CollectionManager)
+                CollectionManager.HandController.EnableDragging();
         }
 
         
@@ -297,15 +361,6 @@ namespace Question
             }
         }
         
-        private void JudgeTimeEnd()
-        {
-            if(!parameters.UseTimeCountDown){return;}
-            
-            if(timer < 0)
-            {
-                ExitQuestionMode("魔法詠唱失敗，發動壞效果");
-            }
-        }
 
         private void JudgeHasAnsweredQuestionCount()
         {
@@ -321,7 +376,7 @@ namespace Question
         {
             if (parameters.UseCorrectAction && answerRecord.CorrectCount >= parameters.CorrectActionNeedAnswerCount)
             {
-                playCorrectAction = true;
+                _playCorrectAction = true;
                 ExitQuestionMode("魔法詠唱成功，發動好效果");
 
             }
@@ -331,14 +386,13 @@ namespace Question
         {
             if (parameters.UseWrongAction && answerRecord.WrongCount >= parameters.WrongActionNeedAnswerCount)
             {
-                playCorrectAction = false;
+                _playCorrectAction = false;
                 ExitQuestionMode("魔法詠唱失敗，發動壞效果");
             }
         }
         
         void ExitQuestionMode(string info)
         {
-            timeOver = true;
             isQuestioning = false;
             questionController.ExitQuestionMode(info);
         }
