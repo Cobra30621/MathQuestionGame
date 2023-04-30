@@ -26,8 +26,12 @@
         // 能力相關
         ReduceStrengthPowerAtEndOfTurn = 61,
         
+        
         // 測試用
         DamageAllEnemyWhenGainPower = 101,
+        
+        // 燃燒
+        Fire = 201,
         
     }
 }

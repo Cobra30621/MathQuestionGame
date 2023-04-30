@@ -58,7 +58,7 @@ namespace NueGames.Relic
 
             if (CombatManager != null)
             {
-                CombatManager.OnAllyTurnStarted += OnTurnStarted;
+                CombatManager.OnRoundStart += OnRoundStart;
             }
         }
 
@@ -78,7 +78,7 @@ namespace NueGames.Relic
             
             if (CombatManager != null)
             {
-                CombatManager.OnAllyTurnStarted -= OnTurnStarted;
+                CombatManager.OnRoundStart -= OnRoundStart;
             }
         }
         
@@ -128,16 +128,40 @@ namespace NueGames.Relic
 
         #region 戰鬥流程觸發
         /// <summary>
-        /// 回合開始時，觸發的方法
+        /// 遊戲回合開始時，觸發的方法
         /// </summary>
-        public virtual void OnTurnStarted()
+        protected virtual void OnRoundStart(RoundInfo info)
+        {
+            
+        }
+        
+        /// <summary>
+        /// 遊戲回合結束時，觸發的方法
+        /// </summary>
+        protected virtual void OnRoundEnd(RoundInfo info)
+        {
+            
+        }
+        
+        /// <summary>
+        /// 玩家/敵人 回合開始時觸發
+        /// </summary>
+        /// <param name="isAlly"></param>
+        protected virtual void OnTurnStart(TurnInfo info) 
+        {
+            
+        }
+        
+        /// <summary>
+        /// 玩家/敵人 回合結束時觸發
+        /// </summary>
+        protected virtual void OnTurnEnd(TurnInfo info)
         {
             
         }
         
 
         #endregion
-        
         
         #region 事件觸發的方法
         

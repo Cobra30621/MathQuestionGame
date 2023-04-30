@@ -56,6 +56,9 @@ namespace NueGames.Power
         /// </summary>
         protected EventManager EventManager => EventManager.Instance;
 
+        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
+        protected CombatManager CombatManager => CombatManager.Instance;
+
         #region SetUp
 
         public PowerBase(){
@@ -206,10 +209,12 @@ namespace NueGames.Power
 
         
         #region 事件觸發的方法
+        
+
         /// <summary>
-        /// 回合開始時，觸發的方法
+        /// 回合結束時，更新能力
         /// </summary>
-        public virtual void OnTurnStarted()
+        public void UpdatePowerStatus()
         {
             //One turn only statuses
             if (ClearAtNextTurn)
@@ -235,17 +240,46 @@ namespace NueGames.Power
                         ClearPower();
                 }
             }
-            
-            
         }
 
+        #region 戰鬥流程觸發
         /// <summary>
-        /// 回合結束時觸發
+        /// 遊戲回合開始時，觸發的方法
         /// </summary>
-        public virtual void AtEndOfTurn(bool isAlly)
+        protected virtual void OnRoundStart(RoundInfo info)
         {
             
         }
+        
+        /// <summary>
+        /// 遊戲回合結束時，觸發的方法
+        /// </summary>
+        protected virtual void OnRoundEnd(RoundInfo info)
+        {
+            
+        }
+        
+        /// <summary>
+        /// 玩家/敵人 回合開始時觸發
+        /// </summary>
+        /// <param name="isAlly"></param>
+        protected virtual void OnTurnStart(TurnInfo info) 
+        {
+            
+        }
+        
+        /// <summary>
+        /// 玩家/敵人 回合結束時觸發
+        /// </summary>
+        protected virtual void OnTurnEnd(TurnInfo info)
+        {
+            
+        }
+        
+
+        #endregion
+        
+        
         
         
         /// <summary>
@@ -295,5 +329,23 @@ namespace NueGames.Power
         
         
         #endregion
+
+
+        #region 工具
+
+        
+        
+        /// <summary>
+        /// 取得能力的持有對象的 CharacterType
+        /// </summary>
+        /// <returns></returns>
+        public CharacterType GetOwnerCharacterType()
+        {
+            return Owner.CharacterType;
+        }
+
+        #endregion
+        
+        
     }
 }

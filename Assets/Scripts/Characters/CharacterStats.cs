@@ -124,14 +124,14 @@ namespace NueGames.Characters
 
 
         /// <summary>
-        /// 回合開始時，通知持有的能力
+        /// 遊戲回合結束時，通知持有的能力
         /// </summary>
-        public void HandleAllPowerOnTurnStart()
+        public void HandleAllPowerOnRoundEnd(RoundInfo info)
         {
             var copyPowerDict = new Dictionary<PowerType, PowerBase> (PowerDict);
             foreach (PowerBase power in copyPowerDict.Values)
             {
-                power.OnTurnStarted();
+                power.UpdatePowerStatus();
             }
         }
         

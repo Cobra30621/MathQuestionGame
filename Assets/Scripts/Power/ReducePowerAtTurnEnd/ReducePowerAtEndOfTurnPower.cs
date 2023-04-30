@@ -1,5 +1,6 @@
 ﻿using Kalkatos.DottedArrow;
 using NueGames.Enums;
+using NueGames.Managers;
 
 namespace NueGames.Power
 {
@@ -13,19 +14,21 @@ namespace NueGames.Power
 
         protected override void SubscribeAllEvent()
         {
-            CombatManager.AtEndOfTurn += AtEndOfTurn;
+            CombatManager.OnRoundEnd += OnRoundEnd;
         }
 
         protected override void UnSubscribeAllEvent()
         {
-            CombatManager.AtEndOfTurn -= AtEndOfTurn;
+            CombatManager.OnRoundEnd -= OnRoundEnd;
         }
 
-        public override void AtEndOfTurn(bool isAlly)
+        protected override void OnRoundEnd(RoundInfo info)
         {
             // 回合結束時，降低使用者的能力
             Owner.CharacterStats.ApplyPower(TargetPowerType, - Value);
             Owner.CharacterStats.ClearPower(PowerType);
+            
+            base.OnRoundEnd(info);
         }
     }
 }

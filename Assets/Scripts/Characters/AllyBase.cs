@@ -41,7 +41,7 @@ namespace NueGames.Characters
             CharacterStats.SetCurrentHealth(CharacterStats.CurrentHealth);
             
             if (CombatManager != null)
-                CombatManager.OnAllyTurnStarted += CharacterStats.HandleAllPowerOnTurnStart;
+                CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
         }
         
         protected override void OnDeath()
@@ -49,7 +49,7 @@ namespace NueGames.Characters
             base.OnDeath();
             if (CombatManager != null)
             {
-                CombatManager.OnAllyTurnStarted -= CharacterStats.HandleAllPowerOnTurnStart;
+                CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
                 CombatManager.OnAllyDeath(this);
             }
 

@@ -25,7 +25,8 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   cardActionDataList:
   - gameActionType: 13
-    powerType: 4
+    powerType: 201
+    answerOutcomeType: 0
     actionValue: 3
     additionValue: 0
     actionDelay: 0
@@ -57,3 +58,6 @@ MonoBehaviour:
     Time: -1
     SelfCharacter: {fileID: 0}
     TargetCharacter: {fileID: 0}
+  useRandomAction: 0
+  randomActionData:
+    randomActionList: []
