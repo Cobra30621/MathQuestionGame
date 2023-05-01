@@ -13,7 +13,7 @@ namespace NueGames.Action.MathAction
     public class EnterMathQuestioningAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.EnterMathQuestioning;
-        private MathQuestioningActionParameters parameters;
+        private MathQuestioningActionParameters mathParameters;
         public EnterMathQuestioningAction()
         {
             FxType = FxType.Attack;
@@ -22,31 +22,30 @@ namespace NueGames.Action.MathAction
         
         public override void SetValue(ActionParameters parameters)
         {
+            base.SetValue(parameters);
+            
             CardData cardData = parameters.CardData;
-            Duration = parameters.ActionData.ActionDelay;
-            Target = parameters.TargetCharacter;
-            Self = parameters.SelfCharacter;
-
-            this.parameters = cardData.MathQuestioningActionParameters;
-            this.parameters.TargetCharacter = parameters.TargetCharacter;
-            this.parameters.SelfCharacter  = parameters.SelfCharacter;
-            this.parameters.LimitedQuestionAction = GameActionGenerator.GetGameActions(cardData, cardData.LimitedQuestionCardActionDataList, Self, Target);
-            this.parameters.CorrectActions = GameActionGenerator.GetGameActions(cardData, cardData.CorrectCardActionDataList , Self, Target);
-            this.parameters.WrongActions = GameActionGenerator.GetGameActions(cardData, cardData.WrongCardActionDataList, Self, Target);
+            
+            mathParameters = cardData.MathQuestioningActionParameters;
+            mathParameters.TargetCharacter = parameters.Target;
+            mathParameters.SelfCharacter  = parameters.Self;
+            
+            mathParameters.LimitedQuestionAction = GameActionGenerator.GetGameActions(cardData, 
+                parameters.ActionSource, cardData.LimitedQuestionCardActionDataList, Self, Target);
+            mathParameters.CorrectActions = GameActionGenerator.GetGameActions(cardData, 
+                parameters.ActionSource, cardData.CorrectCardActionDataList , Self, Target);
+            mathParameters.WrongActions = GameActionGenerator.GetGameActions(cardData, 
+                parameters.ActionSource, cardData.WrongCardActionDataList, Self, Target);
         }
 
-        public void SetValue(MathQuestioningActionParameters newParameters)
-        {
-            parameters = newParameters;
-        }
         
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         public override void DoAction()
         {
-            Debug.Log("parameters.QuestionCount" + parameters.QuestionCount);
-            QuestionManager.Instance.EnterQuestionMode(parameters);
+            Debug.Log("parameters.QuestionCount" + mathParameters.QuestionCount);
+            QuestionManager.Instance.EnterQuestionMode(mathParameters);
 
             PlayAudio();
         }

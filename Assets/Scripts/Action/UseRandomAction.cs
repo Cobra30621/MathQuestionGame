@@ -11,18 +11,17 @@ namespace Action
     public class UseRandomAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.UseRandom;
-        private ActionParameters _parameters;
         private RandomActionData _randomActionData;
         
         public override void SetValue(ActionParameters parameters)
         {
-            _parameters = parameters;
+            base.SetValue(parameters);
             _randomActionData = parameters.CardData.RandomActionData;
         }
 
         public override void DoAction()
         {
-            GameActionBase action = RandomGameActionGenerator.GetRandomAction(_randomActionData, _parameters);
+            GameActionBase action = RandomGameActionGenerator.GetRandomAction(_randomActionData, actionParameters);
             action.DoAction();
         }
     }

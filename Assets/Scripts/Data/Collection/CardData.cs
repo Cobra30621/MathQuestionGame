@@ -205,6 +205,7 @@ namespace NueGames.Data.Collection
         /// 加成數值
         /// 用於如 DamageByQuestioning(根據答對題數造成傷害) 行動
         /// </summary>
+        // TODO 重新命名
         public int AdditionValue => additionValue;
         /// <summary>
         /// 行為延遲時間

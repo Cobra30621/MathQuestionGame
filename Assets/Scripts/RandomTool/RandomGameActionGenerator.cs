@@ -1,5 +1,6 @@
 ﻿using NueGames.Action;
 using NueGames.Card;
+using NueGames.Data.Collection;
 using UnityEngine;
 
 namespace RandomTool
@@ -22,12 +23,19 @@ namespace RandomTool
                 cumulativeProbability += action.Probability;
                 if (cumulativeProbability >= randomValue)
                 {
-                    ActionParameters newParameters = new ActionParameters(
-                        action.ActionData.ActionValue, parameters.TargetCharacter, parameters.SelfCharacter, 
-                        action.ActionData, parameters.CardData);
+                    ActionData actionData = action.ActionData;
+                    ActionParameters newParameters = new ActionParameters()
+                    {
+                        ActionType = actionData.GameActionType,
+                        Value = actionData.ActionValue,
+                        Self = parameters.Self,
+                        Target = parameters.Target,
+                        ActionSource = parameters.ActionSource, 
+                        ActionData = actionData,
+                        CardData = parameters.CardData
+                    };
                     
-                    GameActionBase gameAction = GameActionGenerator.GetGameAction(action.ActionData.GameActionType,
-                        newParameters);
+                    GameActionBase gameAction = GameActionGenerator.GetGameAction(newParameters);
                     
                     Debug.Log($"randomValue : {randomValue}, Do Action {gameAction}");
                     

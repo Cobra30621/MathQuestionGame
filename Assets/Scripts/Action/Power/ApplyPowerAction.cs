@@ -12,29 +12,11 @@ namespace NueGames.Action
     public class ApplyPowerAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.ApplyPower;
-        private PowerType powerType;
 
         public ApplyPowerAction()
         {
             FxType = FxType.Buff;
             AudioActionType = AudioActionType.Power;
-        }
-        
-        public override void SetValue(ActionParameters parameters)
-        {
-            ActionData data = parameters.ActionData;
-            Duration = parameters.ActionData.ActionDelay;
-            
-            SetValue(data.PowerType, data.ActionValue, parameters.TargetCharacter);
-        }
-
-        public void SetValue(PowerType applyPower, int powerValue, CharacterBase target)
-        {
-            powerType = applyPower;
-            Amount = powerValue;
-            Target = target;
-
-            HasSetValue = true;
         }
         
         /// <summary>
@@ -45,7 +27,7 @@ namespace NueGames.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            Target.CharacterStats.ApplyPower(powerType,Mathf.RoundToInt(Amount));
+            Target.CharacterStats.ApplyPower(powerType, AdditionValue);
             
             PlayFx();
             PlayAudio();

@@ -39,8 +39,8 @@ public class DamageActionTests
         self.SetCharacterStatus(targetStatus);
         
         var damage = 10;
-        var damageInfo = new DamageInfo(damage, self);
-        damageAction.SetValue(damageInfo, target);
+        var damageInfo = new DamageInfo();
+        // damageAction.SetValue(damageInfo, target);
 
         // Act
         damageAction.DoAction();

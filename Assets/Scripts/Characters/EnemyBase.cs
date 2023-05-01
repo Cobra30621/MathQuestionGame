@@ -101,7 +101,8 @@ namespace NueGames.Characters
         private void DoGameAction(EnemyAbilityData targetAbility, CharacterBase self, CharacterBase target)
         {
             // Do Action
-            List<GameActionBase> gameActions =  GameActionGenerator.GetGameActions(null, targetAbility.ActionList, self, target);
+            List<GameActionBase> gameActions =  GameActionGenerator.GetGameActions(null, 
+                ActionSource.Enemy, targetAbility.ActionList, self, target);
             GameActionExecutor.AddToBottom(gameActions);
         }
         

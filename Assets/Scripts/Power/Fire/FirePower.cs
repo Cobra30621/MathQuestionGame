@@ -41,7 +41,7 @@ namespace NueGames.Power
                 };
 
                 DamageAction damageAction = new DamageAction();
-                damageAction.SetValue(damageInfo, Owner);
+                damageAction.SetValue(damageInfo);
                 
                 GameActionExecutor.AddToBottom(damageAction);
             }

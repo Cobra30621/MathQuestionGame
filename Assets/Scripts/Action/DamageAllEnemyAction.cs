@@ -14,27 +14,11 @@ namespace NueGames.Action
     public class DamageAllEnemyAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.DamageAllEnemy;
-        private DamageInfo damageInfo;
         
         public DamageAllEnemyAction()
         {
             FxType = FxType.Attack;
             AudioActionType = AudioActionType.Attack;
-        }
-        
-        public override void SetValue(ActionParameters parameters)
-        {
-            ActionData data = parameters.ActionData;
-            Duration = parameters.ActionData.ActionDelay;
-            
-            SetValue(new DamageInfo(parameters.Value, parameters.SelfCharacter));
-        }
-        
-        public void SetValue(DamageInfo info)
-        {
-            damageInfo = info;
-
-            HasSetValue = true;
         }
         
         /// <summary>
@@ -48,10 +32,9 @@ namespace NueGames.Action
             foreach (EnemyBase enemy in enemyCopy)
             {
                 damageInfo.Target = enemy;
-                int value = CombatCalculator.GetDamageValue(damageInfo);
-                enemy.CharacterStats.Damage(value);
+                enemy.CharacterStats.Damage(DamageValue);
                 
-                PlaySpawnTextFx($"{value}", enemy);
+                PlaySpawnTextFx($"{DamageValue}", enemy);
             }
             
             PlayFx();

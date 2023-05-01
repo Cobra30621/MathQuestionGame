@@ -1,6 +1,8 @@
 ﻿using NueGames.Card;
 using NueGames.Characters;
+using NueGames.Combat;
 using NueGames.Data.Characters;
+using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
 using UnityEngine;
@@ -18,6 +20,11 @@ namespace NueGames.Action
         /// </summary>
         public abstract GameActionType ActionType  { get;}
         /// <summary>
+        /// 行動參數
+        /// </summary>
+        protected ActionParameters actionParameters;
+        
+        /// <summary>
         /// 遊戲行為數值已經設定
         /// </summary>
         protected bool HasSetValue = false;
@@ -29,14 +36,49 @@ namespace NueGames.Action
         /// 行為的發起者
         /// </summary>
         protected CharacterBase Self;
+        
         /// <summary>
-        /// 數值（如攻擊力、給予能力層數）
+        /// 基礎數值
         /// </summary>
-        protected int Amount;
+        protected int baseValue;
+        /// <summary>
+        /// 加成數值
+        /// </summary>
+        protected float multiplierValue;
+        /// <summary>
+        /// 加成數量
+        /// </summary>
+        protected float multiplierAmount;
+
+        /// <summary>
+        /// 加乘後的數值
+        /// </summary>
+        protected int AdditionValue => Mathf.RoundToInt(baseValue + multiplierAmount * multiplierValue);
+
+        /// <summary>
+        /// 傷害的數值
+        /// </summary>
+        protected int DamageValue
+        {
+            get
+            {
+                damageInfo.Value = AdditionValue;
+                return CombatCalculator.GetDamageValue(damageInfo);
+            }
+        }
+
         /// <summary>
         /// 行為所需時間
         /// </summary>
         public float Duration = 0;
+        /// <summary>
+        /// 能力類型
+        /// </summary>
+        protected PowerType powerType;
+        /// <summary>
+        /// 根據答對數，產生不同行動
+        /// </summary>
+        protected AnswerOutcomeType answerOutcomeType;
 
         /// <summary>
         /// 特效出現位置
@@ -50,6 +92,10 @@ namespace NueGames.Action
         /// 音效類型
         /// </summary>
         public AudioActionType AudioActionType;
+        /// <summary>
+        /// 傷害類型
+        /// </summary>
+        protected DamageInfo damageInfo;
 
         protected FxManager FxManager => FxManager.Instance;
         protected AudioManager AudioManager => AudioManager.Instance;
@@ -58,16 +104,40 @@ namespace NueGames.Action
         protected CollectionManager CollectionManager => CollectionManager.Instance;
         protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
 
-        public override string ToString()
-        {
-            return $"{GetType().Name} \n {nameof(Target)}: {Target}, {nameof(Self)}: {Self}, {nameof(Amount)}: {Amount}";
-        }
+        
 
         /// <summary>
         /// 依據參數設定行為數值
         /// </summary>
         /// <param name="parameters"></param>
-        public abstract void SetValue(ActionParameters parameters);
+        public virtual void SetValue(ActionParameters parameters)
+        {
+            actionParameters = parameters;
+            ActionData data = parameters.ActionData;
+            baseValue = data.ActionValue;
+            multiplierValue = data.AdditionValue;
+            multiplierAmount = 0;
+            powerType = data.PowerType; 
+            Duration = data.ActionDelay;
+            answerOutcomeType = data.AnswerOutcomeType;
+
+            Self = parameters.Self;
+            Target = parameters.Target;
+
+            damageInfo = new DamageInfo(parameters);
+            
+            HasSetValue = true;
+        }
+
+        public virtual void SetValue(DamageInfo info)
+        {
+            damageInfo = info;
+            baseValue = damageInfo.Value;
+            Target = info.Target;
+
+            HasSetValue = true;
+        }
+        
         
         /// <summary>
         /// 執行遊戲行為的功能
@@ -130,6 +200,32 @@ namespace NueGames.Action
             }
 
             return !Target;
+        }
+
+        /// <summary>
+        /// 執行傷害行動
+        /// </summary>
+        protected void DoDamageAction()
+        {
+            DamageAction damageAction = new DamageAction();
+            damageAction.SetValue(GetDamageInfoForDamageAction());
+            GameActionExecutor.AddToBottom(damageAction);
+        }
+
+        /// <summary>
+        /// 取得傷害行動用的 DamageInfo
+        /// </summary>
+        /// <returns></returns>
+        protected DamageInfo GetDamageInfoForDamageAction()
+        {
+            damageInfo.Value = AdditionValue;
+            return damageInfo;
+        }
+        
+        
+        public override string ToString()
+        {
+            return $"{GetType().Name} \n {nameof(Target)}: {Target}, {nameof(Self)}: {Self}, {nameof(AdditionValue)}: {AdditionValue}";
         }
     }
 }

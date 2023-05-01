@@ -17,22 +17,7 @@ namespace NueGames.Action
             FxType = FxType.Buff;
             AudioActionType = AudioActionType.Power;
         }
-        
-        public override void SetValue(ActionParameters parameters)
-        {
-            ActionData data = parameters.ActionData;
-            Duration = parameters.ActionData.ActionDelay;
-            
-            SetValue(data.ActionValue,parameters.TargetCharacter);
-        }
 
-        public void SetValue(int increaseValue, CharacterBase target)
-        {
-            Amount = increaseValue;
-            Target = target;
-
-            HasSetValue = true;
-        }
         
         /// <summary>
         /// 執行遊戲行為的功能
@@ -42,12 +27,12 @@ namespace NueGames.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            Target.CharacterStats.IncreaseMaxHealth(Mathf.RoundToInt(Amount));
+            Target.CharacterStats.IncreaseMaxHealth(AdditionValue);
 
             if (FxManager != null)
             {
                 FxManager.PlayFx(Target.transform,FxType.Attack);
-                FxManager.SpawnFloatingText(Target.TextSpawnRoot,Amount.ToString());
+                FxManager.SpawnFloatingText(Target.TextSpawnRoot,AdditionValue.ToString());
             }
             PlayAudio();
         }

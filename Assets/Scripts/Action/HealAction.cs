@@ -18,21 +18,6 @@ namespace NueGames.Action
             AudioActionType = AudioActionType.Heal;
         }
         
-        public override void SetValue(ActionParameters parameters)
-        {
-            ActionData data = parameters.ActionData;
-            Duration = parameters.ActionData.ActionDelay;
-            
-            SetValue(data.ActionValue,parameters.TargetCharacter);
-        }
-
-        public void SetValue(int healValue, CharacterBase target)
-        {
-            Amount = healValue;
-            Target = target;
-
-            HasSetValue = true;
-        }
         
         /// <summary>
         /// 執行遊戲行為的功能
@@ -42,10 +27,10 @@ namespace NueGames.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            Target.CharacterStats.Heal(Mathf.RoundToInt(Amount));
+            Target.CharacterStats.Heal(AdditionValue);
 
             PlayFx();
-            PlaySpawnTextFx($"{Amount}", Target);
+            PlaySpawnTextFx($"{AdditionValue}", Target);
             PlayAudio();
         }
     }

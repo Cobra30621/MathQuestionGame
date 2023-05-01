@@ -97,7 +97,8 @@ namespace NueGames.Card
             if(CardData.NeedPowerToPlay)
                 SpendPower(CardData.NeedPowerType, PowerCost);
 
-            List<GameActionBase> gameActions = GameActionGenerator.GetGameActions(CardData, CardData.CardActionDataList, self, target);
+            List<GameActionBase> gameActions = GameActionGenerator.GetGameActions(CardData,
+                ActionSource.Card, CardData.CardActionDataList, self, target);
             GameActionExecutor.AddToBottom(gameActions);
             CollectionManager.OnCardPlayed(this);
         }

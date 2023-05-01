@@ -16,21 +16,6 @@ namespace NueGames.Action
             FxType = FxType.Buff;
             AudioActionType = AudioActionType.Power;
         }
-
-        public override void SetValue(ActionParameters parameters)
-        {
-            ActionData data = parameters.ActionData;
-            Duration = parameters.ActionData.ActionDelay;
-            
-            SetValue(Amount);
-        }
-
-        public void SetValue(int earnMana)
-        {
-            Amount = earnMana;
-            
-            HasSetValue = true;
-        }
         
         /// <summary>
         /// 執行遊戲行為的功能
@@ -40,7 +25,7 @@ namespace NueGames.Action
             CheckHasSetValue();
             
             if (CombatManager != null)
-                CombatManager.IncreaseMana(Mathf.RoundToInt(Amount));
+                CombatManager.IncreaseMana(baseValue);
             else
                 Debug.LogError("There is no CombatManager");
 

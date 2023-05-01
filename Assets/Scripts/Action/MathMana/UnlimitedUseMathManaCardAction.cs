@@ -10,11 +10,7 @@ namespace Action.MathMana
     public class UnlimitedUseMathManaCardAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.UnlimitedUseMathManaCard;
-        public override void SetValue(ActionParameters parameters)
-        {
-            HasSetValue = true;
-        }
-
+        
         public override void DoAction()
         {
             CollectionManager.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, true);

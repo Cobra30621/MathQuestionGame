@@ -12,7 +12,6 @@ namespace NueGames.Action
     public class ApplyPowerToAllEnemyAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.ApplyPowerToAllEnemy;
-        private PowerType powerType;
 
         public ApplyPowerToAllEnemyAction()
         {
@@ -20,23 +19,7 @@ namespace NueGames.Action
             AudioActionType = AudioActionType.Power;
         }
         
-        public override void SetValue(ActionParameters parameters)
-        {
-            ActionData data = parameters.ActionData;
-            Duration = parameters.ActionData.ActionDelay;
-            
-            SetValue(data.PowerType, data.ActionValue, parameters.TargetCharacter);
-        }
 
-        public void SetValue(PowerType applyPower, int powerValue, CharacterBase target)
-        {
-            powerType = applyPower;
-            Amount = powerValue;
-            Target = target;
-
-            HasSetValue = true;
-        }
-        
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
@@ -46,7 +29,7 @@ namespace NueGames.Action
             
             foreach (EnemyBase enemy in CombatManager.CurrentEnemiesList)
             {
-                enemy.CharacterStats.ApplyPower(powerType,Mathf.RoundToInt(Amount));
+                enemy.CharacterStats.ApplyPower(powerType, AdditionValue);
                 PlayFx();
             }
             

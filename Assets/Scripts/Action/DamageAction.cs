@@ -13,29 +13,11 @@ namespace NueGames.Action
     public class DamageAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.Damage;
-        public DamageInfo damageInfo;
         
         public DamageAction()
         {
             FxType = FxType.FeedBackTest;
             AudioActionType = AudioActionType.Attack;
-        }
-        
-        public override void SetValue(ActionParameters parameters)
-        {
-            ActionData data = parameters.ActionData;
-            Duration = parameters.ActionData.ActionDelay;
-            
-            SetValue(new DamageInfo(parameters.Value, parameters.SelfCharacter),
-                parameters.TargetCharacter);
-        }
-        
-        public void SetValue(DamageInfo info, CharacterBase target)
-        {
-            damageInfo = info;
-            Target = target;
-
-            HasSetValue = true;
         }
         
         /// <summary>
@@ -45,16 +27,11 @@ namespace NueGames.Action
         {
             CheckHasSetValue();
             if (IsTargetNull()) return;
-
-            Debug.Log("damageInfo.SelfCharacter" +  damageInfo.Self );
-            damageInfo.Target = Target;
             
-            int value = CombatCalculator.GetDamageValue(damageInfo);
-            
-            Target.CharacterStats.Damage(value);
+            Target.CharacterStats.Damage(DamageValue);
 
             PlayFx();
-            PlaySpawnTextFx($"{value}", Target);
+            PlaySpawnTextFx($"{DamageValue}", Target);
             PlayAudio();
         }
     }

@@ -33,30 +33,35 @@ namespace NueGames.Action
                 _gameActionDict.Add(gameActionClass.Name, gameActionClass);
             }
         }
-        
+
         /// <summary>
         /// 產生遊戲行為(GameAction)
         /// </summary>
         /// <param name="cardData"></param>
-        /// <param name="cardActionDataList"></param>
+        /// <param name="actionSource"></param>
+        /// <param name="actionDataList"></param>
         /// <param name="self"></param>
         /// <param name="target"></param>
         /// <returns></returns>
-        public static List<GameActionBase> GetGameActions(CardData cardData, List<ActionData> cardActionDataList, CharacterBase self,
+        public static List<GameActionBase> GetGameActions(CardData cardData, ActionSource actionSource,
+            List<ActionData> actionDataList, CharacterBase self,
             CharacterBase target)
         {
             List<GameActionBase> gameActionBases = new List<GameActionBase>();
-            foreach (var playerAction in cardActionDataList)
+            foreach (var actionData in actionDataList)
             {
-                ActionParameters actionParameters = new ActionParameters(
-                    playerAction.ActionValue,
-                    target,
-                    self,
-                    playerAction,
-                    cardData
-                );
+                ActionParameters actionParameters = new ActionParameters()
+                {
+                    ActionType = actionData.GameActionType,
+                    Value = actionData.ActionValue,
+                    Self = self,
+                    Target = target,
+                    ActionSource = actionSource, 
+                    ActionData = actionData,
+                    CardData = cardData
+                };
 
-                GameActionBase gameActionBase = GetGameAction(playerAction.GameActionType, actionParameters);
+                GameActionBase gameActionBase = GetGameAction(actionParameters);
                 gameActionBases.Add(gameActionBase);
             }
 
@@ -66,13 +71,12 @@ namespace NueGames.Action
         /// <summary>
         /// 產生遊戲行為(GameAction)
         /// </summary>
-        /// <param name="actionType"></param>
-        /// <param name="actionParameters"></param>
+        /// <param name="parameters"></param>
         /// <returns></returns>
-        public static GameActionBase GetGameAction(GameActionType actionType, ActionParameters actionParameters)
+        public static GameActionBase GetGameAction(ActionParameters parameters)
         {
-            GameActionBase gameActionBase = GetGameAction(actionType);
-            gameActionBase.SetValue(actionParameters);
+            GameActionBase gameActionBase = GetGameAction(parameters.ActionType);
+            gameActionBase.SetValue(parameters);
             return gameActionBase;
         }
 
