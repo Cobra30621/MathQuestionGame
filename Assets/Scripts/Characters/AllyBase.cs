@@ -3,6 +3,7 @@ using NueGames.Combat;
 using NueGames.Data.Characters;
 using NueGames.Interfaces;
 using NueGames.Managers;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Characters

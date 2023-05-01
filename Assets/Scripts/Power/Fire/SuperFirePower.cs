@@ -1,5 +1,6 @@
 ﻿using NueGames.Combat;
 using NueGames.Enums;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Power
@@ -25,8 +26,9 @@ namespace NueGames.Power
         {
             if (damageInfo.ActionSource == ActionSource.Power && damageInfo.SourcePower == PowerType.Fire)
             {
-                DoDamageAllEnemyAction(damageInfo); // 給予所有敵人"燃燒"層數的傷害
-                DoApplyPowerToAllEnemyAction(damageInfo.Value, PowerType.Fire); // 給予所有敵人"燃燒"層數的"燃燒"
+                GameActionExecutor.DoDamageAllEnemyAction(damageInfo); // 給予所有敵人"燃燒"層數的傷害
+                GameActionExecutor.DoApplyPowerToAllEnemyAction( 
+                    new ApplyPowerParameters(damageInfo.Value, PowerType.Fire)); // 給予所有敵人"燃燒"層數的"燃燒"
             }
         }
     }

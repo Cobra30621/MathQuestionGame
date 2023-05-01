@@ -2,6 +2,7 @@
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Parameters;
 
 namespace NueGames.Relic
 {
@@ -202,17 +203,8 @@ namespace NueGames.Relic
 
         
         #region 工具
-        /// <summary>
-        /// 執行傷害行動
-        /// </summary>
-        /// <param name="damageInfo"></param>
-        protected void DoDamageAction(DamageInfo damageInfo)
-        {
-            DamageAction damageAction = new DamageAction();
-            damageAction.SetValue(damageInfo);
-            GameActionExecutor.AddToBottom(damageAction);
-        }
-
+        
+        
         /// <summary>
         /// 取得 DamageInfo
         /// </summary>

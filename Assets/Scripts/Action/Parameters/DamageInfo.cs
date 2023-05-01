@@ -3,7 +3,7 @@ using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Relic;
 
-namespace NueGames.Combat
+namespace NueGames.Parameters
 {
     public class DamageInfo
     {

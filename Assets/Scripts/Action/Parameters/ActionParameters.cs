@@ -4,7 +4,7 @@ using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Relic;
 
-namespace NueGames.Card
+namespace NueGames.Parameters
 {
     /// <summary>
     /// 遊戲行為(GameAction)所需參數

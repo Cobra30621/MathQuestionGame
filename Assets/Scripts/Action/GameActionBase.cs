@@ -5,6 +5,7 @@ using NueGames.Data.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Action
@@ -135,6 +136,15 @@ namespace NueGames.Action
             BaseValue = DamageInfo.Value;
             Target = info.Target;
 
+            HasSetValue = true;
+        }
+
+        public virtual void SetValue(ApplyPowerParameters parameters)
+        {
+            BaseValue = parameters.Value;
+            Target = parameters.Target;
+            PowerType = parameters.PowerType;
+            
             HasSetValue = true;
         }
         

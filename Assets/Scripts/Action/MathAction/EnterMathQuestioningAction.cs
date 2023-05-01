@@ -2,6 +2,7 @@
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Parameters;
 using Question;
 using UnityEngine;
 

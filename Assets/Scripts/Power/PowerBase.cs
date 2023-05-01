@@ -4,6 +4,7 @@ using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Power
@@ -16,6 +17,8 @@ namespace NueGames.Power
         /// <summary>
         /// 能力類型
         /// </summary>
+        // TODO 改名成 PowerName
+        // PowerType 應該是 Buff, DeBuff
         public abstract PowerType PowerType  { get;}
         /// <summary>
         /// 能力數值
@@ -171,6 +174,7 @@ namespace NueGames.Power
         /// </summary>
         /// <param name="damage"></param>
         /// <returns></returns>
+        // TODO 思考不同能力的順序
         public virtual float AtDamageReceive(float damage)
         {
             return damage;
@@ -345,38 +349,7 @@ namespace NueGames.Power
             return Owner.CharacterType;
         }
 
-        /// <summary>
-        /// 執行傷害行動
-        /// </summary>
-        /// <param name="damageInfo"></param>
-        protected void DoDamageAction(DamageInfo damageInfo)
-        {
-            DamageAction damageAction = new DamageAction();
-            damageAction.SetValue(damageInfo);
-            GameActionExecutor.AddToBottom(damageAction);
-        }
-
-        /// <summary>
-        /// 執行對所有敵人造成傷害的行動
-        /// </summary>
-        protected void DoDamageAllEnemyAction(DamageInfo damageInfo)
-        {
-            DamageAllEnemyAction action = new DamageAllEnemyAction();
-            action.SetValue(damageInfo);
-            GameActionExecutor.Instance.AddToBottom(action);
-        }
-
-        /// <summary>
-        /// 給予所有敵人能力
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="powerType"></param>
-        protected void DoApplyPowerToAllEnemyAction(int value, PowerType powerType)
-        {
-            ApplyPowerToAllEnemyAction action = new ApplyPowerToAllEnemyAction();
-            action.SetValue(value, powerType);
-            GameActionExecutor.Instance.AddToBottom(action);
-        }
+        
 
         /// <summary>
         /// 取得 DamageInfo

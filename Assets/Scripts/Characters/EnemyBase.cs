@@ -10,6 +10,7 @@ using NueGames.Enums;
 using NueGames.Interfaces;
 using NueGames.Managers;
 using NueGames.NueExtentions;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Characters

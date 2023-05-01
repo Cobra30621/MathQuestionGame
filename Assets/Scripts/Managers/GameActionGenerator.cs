@@ -7,6 +7,7 @@ using NueGames.Characters;
 using NueGames.Data.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Action
