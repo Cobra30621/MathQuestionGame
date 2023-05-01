@@ -47,7 +47,7 @@ namespace NueGames.Managers
             private set
             {
                 _currentCombatStateType = value;
-                Debug.Log($"currentCombatState {_currentCombatStateType}");
+                // Debug.Log($"currentCombatState {_currentCombatStateType}");
                 ExecuteCombatState(value);
             }
         }
@@ -113,7 +113,82 @@ namespace NueGames.Managers
             StartCombat();
         }
 
+        
+        
+        
+        #endregion
+
+
+
+        #region 會更改 Routines 的方法
+
         public void StartCombat()
+        {
+            StartCoroutine(StartCombatRoutine());
+        }
+        
+        public void EndTurn()
+        {
+            OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Ally)); // 玩家回合結束
+            
+            CurrentCombatStateType = CombatStateType.EnemyTurn;
+        }
+        
+        
+        private void LoseCombat()
+        {
+            if (CurrentCombatStateType == CombatStateType.EndCombat) return;
+            
+            CurrentCombatStateType = CombatStateType.EndCombat;
+            
+            StartCoroutine(LoseCombatRoutine());
+        }
+        private void WinCombat()
+        {
+            if (CurrentCombatStateType == CombatStateType.EndCombat) return;
+          
+            CurrentCombatStateType = CombatStateType.EndCombat;
+
+            StartCoroutine(WinCombatRoutine());
+
+        }
+        
+
+        #endregion
+        
+        
+        
+        
+        #region 流程 Routines
+        private void ExecuteCombatState(CombatStateType targetStateType)
+        {
+            switch (targetStateType)
+            {
+                case CombatStateType.PrepareCombat:
+                    break;
+                case CombatStateType.RoundStart:
+                    StartCoroutine(RoundStartRoutine());
+                    break;
+                case CombatStateType.AllyTurn:
+                    StartCoroutine(AllyTurnRoutine());
+                    break;
+                case CombatStateType.EnemyTurn:
+                    StartCoroutine(EnemyTurnRoutine());
+                    break;
+                case CombatStateType.EndRound:
+                    StartCoroutine(RoundEndRoutine());
+                    
+                    break;
+                case CombatStateType.EndCombat:
+                    GameManager.PersistentGameplayData.CanSelectCards = false;
+                    
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(targetStateType), targetStateType, null);
+            }
+        }
+
+        private IEnumerator StartCombatRoutine()
         {
             BuildEnemies();
             BuildAllies();
@@ -126,68 +201,128 @@ namespace NueGames.Managers
            
             UIManager.CombatCanvas.gameObject.SetActive(true);
             UIManager.InformationCanvas.gameObject.SetActive(true);
+            
+            yield return new WaitForSeconds(0.1f);
+            
             CurrentCombatStateType = CombatStateType.RoundStart;
         }
         
-        private void ExecuteCombatState(CombatStateType targetStateType)
+        
+        private IEnumerator RoundStartRoutine()
         {
-            switch (targetStateType)
+            RoundNumber++;
+            OnRoundStart.Invoke(GetRoundInfo());
+            yield return new WaitForSeconds(0.1f);
+            
+            CurrentCombatStateType = CombatStateType.AllyTurn;
+        }
+        
+        private IEnumerator AllyTurnRoutine()
+        {
+            OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Ally));
+            
+            // TODO 改成等 OnTurnStart 結束觸發
+            yield return new WaitForSeconds(0.3f);
+                    
+            if (CurrentMainAlly.CharacterStats.IsStunned)
             {
-                case CombatStateType.PrepareCombat:
-                    break;
-                case CombatStateType.RoundStart:
-                    RoundNumber++;
-                    OnRoundStart.Invoke(GetRoundInfo());
-                    
-                    CurrentCombatStateType = CombatStateType.AllyTurn;
-                    break;
-                case CombatStateType.AllyTurn:
-                    OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Ally));
-                    
-                    if (CurrentMainAlly.CharacterStats.IsStunned)
-                    {
-                        EndTurn();
-                        return;
-                    }
-                    
-                    GameManager.PersistentGameplayData.CurrentMana = GameManager.PersistentGameplayData.MaxMana;
-                    CollectionManager.DrawCards(GameManager.PersistentGameplayData.DrawCount);
-                    GameManager.PersistentGameplayData.CanSelectCards = true;
-                    break;
-                case CombatStateType.EnemyTurn:
-                    OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Enemy));
-                    CollectionManager.DiscardHand();
-                    
-                    StartCoroutine(nameof(EnemyTurnRoutine));
-                    
-                    GameManager.PersistentGameplayData.CanSelectCards = false;
-                    OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Enemy)); // 敵人回合結束
-                    
-                    break;
-                case CombatStateType.EndRound:
-                    OnRoundEnd?.Invoke(GetRoundInfo());
-
-                    CurrentCombatStateType = CombatStateType.RoundStart;
-                    break;
-                case CombatStateType.EndCombat:
-                   
-                    
-                    GameManager.PersistentGameplayData.CanSelectCards = false;
-                    
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(targetStateType), targetStateType, null);
+                EndTurn();
+                yield return null;
+            }
+            else
+            {
+                GameManager.PersistentGameplayData.CurrentMana = GameManager.PersistentGameplayData.MaxMana;
+                CollectionManager.DrawCards(GameManager.PersistentGameplayData.DrawCount);
+                GameManager.PersistentGameplayData.CanSelectCards = true;
             }
         }
-        #endregion
-
-        #region Public Methods
-        public void EndTurn()
+        
+        
+        private IEnumerator EnemyTurnRoutine()
         {
-            OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Ally)); // 玩家回合結束
+            OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Enemy));
+            CollectionManager.DiscardHand();
+
+            // TODO 改成等 OnTurnStart 結束觸發
+            yield return new WaitForSeconds(0.3f);
             
-            CurrentCombatStateType = CombatStateType.EnemyTurn;
+            var waitDelay = new WaitForSeconds(0.1f);
+
+            foreach (var currentEnemy in CurrentEnemiesList)
+            {
+                yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
+                yield return waitDelay;
+            }
+            
+            GameManager.PersistentGameplayData.CanSelectCards = false;
+
+            if (CurrentCombatStateType != CombatStateType.EndCombat)
+            {
+                CurrentCombatStateType = CombatStateType.EndRound;
+            }
+            else
+            {
+                OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Enemy)); // 敵人回合結束
+            }
         }
+
+        private IEnumerator RoundEndRoutine()
+        {
+            OnRoundEnd?.Invoke(GetRoundInfo());
+            yield return new WaitForSeconds(0.1f);
+            
+            CurrentCombatStateType = CombatStateType.RoundStart;
+        }
+
+        private IEnumerator LoseCombatRoutine()
+        {
+            CollectionManager.DiscardHand();
+            CollectionManager.DiscardPile.Clear();
+            CollectionManager.DrawPile.Clear();
+            CollectionManager.HandPile.Clear();
+            CollectionManager.HandController.hand.Clear();
+            
+            yield return new WaitForSeconds(1.5f);
+            
+            UIManager.CombatCanvas.gameObject.SetActive(true);
+            UIManager.CombatCanvas.CombatLosePanel.SetActive(true);
+        }
+
+        private IEnumerator WinCombatRoutine()
+        {
+            foreach (var allyBase in CurrentAlliesList)
+            {
+                GameManager.PersistentGameplayData.SetAllyHealthData(allyBase.AllyCharacterData.CharacterID,
+                    allyBase.CharacterStats.CurrentHealth, allyBase.CharacterStats.MaxHealth);
+            }
+            
+            CollectionManager.ClearPiles();
+            
+            yield return new WaitForSeconds(1.5f);
+           
+            if (GameManager.PersistentGameplayData.IsFinalEncounter)
+            {
+                UIManager.CombatCanvas.CombatWinPanel.SetActive(true);
+            }
+            else
+            {
+                CurrentMainAlly.CharacterStats.ClearAllPower();
+                GameManager.PersistentGameplayData.CurrentEncounterId++;
+                UIManager.CombatCanvas.gameObject.SetActive(false);
+                UIManager.RewardCanvas.gameObject.SetActive(true);
+                UIManager.RewardCanvas.PrepareCanvas();
+                UIManager.RewardCanvas.BuildReward(RewardType.Gold);
+                UIManager.RewardCanvas.BuildReward(RewardType.Card);
+            }
+            
+        }
+        
+        
+        #endregion
+        
+        
+        #region Public Methods
+        
         public void OnAllyDeath(AllyBase targetAlly)
         {
             var targetAllyData = GameManager.PersistentGameplayData.AllyList.Find(x =>
@@ -311,72 +446,10 @@ namespace NueGames.Managers
         }
         
         
-        private void LoseCombat()
-        {
-            if (CurrentCombatStateType == CombatStateType.EndCombat) return;
-            
-            CurrentCombatStateType = CombatStateType.EndCombat;
-            
-            CollectionManager.DiscardHand();
-            CollectionManager.DiscardPile.Clear();
-            CollectionManager.DrawPile.Clear();
-            CollectionManager.HandPile.Clear();
-            CollectionManager.HandController.hand.Clear();
-            UIManager.CombatCanvas.gameObject.SetActive(true);
-            UIManager.CombatCanvas.CombatLosePanel.SetActive(true);
-        }
-        private void WinCombat()
-        {
-            if (CurrentCombatStateType == CombatStateType.EndCombat) return;
-          
-            CurrentCombatStateType = CombatStateType.EndCombat;
-           
-            foreach (var allyBase in CurrentAlliesList)
-            {
-                GameManager.PersistentGameplayData.SetAllyHealthData(allyBase.AllyCharacterData.CharacterID,
-                    allyBase.CharacterStats.CurrentHealth, allyBase.CharacterStats.MaxHealth);
-            }
-            
-            CollectionManager.ClearPiles();
-            
-           
-            if (GameManager.PersistentGameplayData.IsFinalEncounter)
-            {
-                UIManager.CombatCanvas.CombatWinPanel.SetActive(true);
-            }
-            else
-            {
-                CurrentMainAlly.CharacterStats.ClearAllPower();
-                GameManager.PersistentGameplayData.CurrentEncounterId++;
-                UIManager.CombatCanvas.gameObject.SetActive(false);
-                UIManager.RewardCanvas.gameObject.SetActive(true);
-                UIManager.RewardCanvas.PrepareCanvas();
-                UIManager.RewardCanvas.BuildReward(RewardType.Gold);
-                UIManager.RewardCanvas.BuildReward(RewardType.Card);
-            }
-           
-        }
-        #endregion
-        
-        #region Routines
-        private IEnumerator EnemyTurnRoutine()
-        {
-            var waitDelay = new WaitForSeconds(0.1f);
-
-            foreach (var currentEnemy in CurrentEnemiesList)
-            {
-                Debug.Log($"CurrentEnemiesList {CurrentEnemiesList.Count}");
-                Debug.Log($"{currentEnemy} + EnemyTurnRoutine");
-                yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
-                yield return waitDelay;
-            }
-
-            if (CurrentCombatStateType != CombatStateType.EndCombat)
-                CurrentCombatStateType = CombatStateType.EndRound;
-        }
-        
         
         #endregion
+        
+        
     }
 
 

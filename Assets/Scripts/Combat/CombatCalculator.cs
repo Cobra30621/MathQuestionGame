@@ -61,6 +61,7 @@ namespace NueGames.Combat
             // 計算使用者能力加成
             foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
             {
+                // TODO 力量、虛弱計算要分開
                 value = powerBase.AtDamageGive(value);
             }
 

@@ -25,7 +25,7 @@ namespace NueGames.Action
             CheckHasSetValue();
             
             if (CombatManager != null)
-                CombatManager.IncreaseMana(baseValue);
+                CombatManager.IncreaseMana(BaseValue);
             else
                 Debug.LogError("There is no CombatManager");
 

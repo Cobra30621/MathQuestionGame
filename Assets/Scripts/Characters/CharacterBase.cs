@@ -50,7 +50,7 @@ namespace NueGames.Characters
             
         }
         
-        protected virtual void OnDeath()
+        protected virtual void OnDeath(DamageInfo damageInfo)
         {
             
         }

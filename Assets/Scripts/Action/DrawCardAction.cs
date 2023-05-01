@@ -14,7 +14,7 @@ namespace NueGames.Action
         
         public void SetValue(int drawCard)
         {
-            baseValue = drawCard;
+            BaseValue = drawCard;
             HasSetValue = true;
         }
         
@@ -24,7 +24,7 @@ namespace NueGames.Action
         public override void DoAction()
         {
             if (CollectionManager != null)
-                CollectionManager.DrawCards(baseValue);
+                CollectionManager.DrawCards(BaseValue);
             else
                 Debug.LogError("There is no CollectionManager");
             

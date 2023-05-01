@@ -21,7 +21,7 @@ namespace Action
 
         public override void DoAction()
         {
-            GameActionBase action = RandomGameActionGenerator.GetRandomAction(_randomActionData, actionParameters);
+            GameActionBase action = RandomGameActionGenerator.GetRandomAction(_randomActionData, ActionParameters);
             action.DoAction();
         }
     }

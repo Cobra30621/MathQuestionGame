@@ -30,10 +30,7 @@ namespace NueGames.Power
                 DamageInfo damageInfo = GetDamageInfo(damageValue * Amount, 
                     true);
 
-                DamageAllEnemyAction damageAllEnemyAction = new DamageAllEnemyAction();
-                damageAllEnemyAction.SetValue(damageInfo);
-            
-                GameActionExecutor.Instance.AddToBottom(damageAllEnemyAction);
+                DoDamageAllEnemyAction(damageInfo);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using NueGames.Action;
+using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Enums;
@@ -61,15 +62,12 @@ namespace NueGames.Power
         protected CombatManager CombatManager => CombatManager.Instance;
 
         #region SetUp
-
-        protected PowerBase(){
-            SubscribeAllEvent();
-        }
+        
 
         /// <summary>
         /// 訂閱所有事件
         /// </summary>
-        protected virtual void SubscribeAllEvent()
+        public virtual void SubscribeAllEvent()
         {
             
         }
@@ -281,8 +279,6 @@ namespace NueGames.Power
         #endregion
         
         
-        
-        
         /// <summary>
         /// 當能力改變時
         /// </summary>
@@ -292,15 +288,22 @@ namespace NueGames.Power
         /// 事件: 當能力數值增加時觸發
         /// </summary>
         protected virtual void OnPowerIncrease(PowerType powerType, int value){}
-        
-        
+
+
+        #region 攻擊與死亡
+
         /// <summary>
         /// 受到攻擊時，觸發的方法
         /// </summary>
         /// <param name="info"></param>
-        /// <param name="damageAmount"></param>
-        protected virtual void OnAttacked(DamageInfo info, int damageAmount){}
+        protected virtual void OnAttacked(DamageInfo info){}
 
+        protected virtual void OnDead(DamageInfo damageInfo){}
+        
+        
+
+        #endregion
+        
         #region 答題模式
         /// <summary>
         /// 開始問答模式時，觸發的方法
@@ -351,6 +354,28 @@ namespace NueGames.Power
             DamageAction damageAction = new DamageAction();
             damageAction.SetValue(damageInfo);
             GameActionExecutor.AddToBottom(damageAction);
+        }
+
+        /// <summary>
+        /// 執行對所有敵人造成傷害的行動
+        /// </summary>
+        protected void DoDamageAllEnemyAction(DamageInfo damageInfo)
+        {
+            DamageAllEnemyAction action = new DamageAllEnemyAction();
+            action.SetValue(damageInfo);
+            GameActionExecutor.Instance.AddToBottom(action);
+        }
+
+        /// <summary>
+        /// 給予所有敵人能力
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="powerType"></param>
+        protected void DoApplyPowerToAllEnemyAction(int value, PowerType powerType)
+        {
+            ApplyPowerToAllEnemyAction action = new ApplyPowerToAllEnemyAction();
+            action.SetValue(value, powerType);
+            GameActionExecutor.Instance.AddToBottom(action);
         }
 
         /// <summary>

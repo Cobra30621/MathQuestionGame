@@ -50,6 +50,7 @@ namespace NueGames.Relic
         /// </summary>
         protected void SubscribeAllEvent()
         {
+            // TODO 將事件訂閱移動到子類別
             if (EventManager != null)
             {
                 EventManager.onAttacked += OnAttacked;

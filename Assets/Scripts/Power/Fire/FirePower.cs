@@ -12,7 +12,7 @@ namespace NueGames.Power
     {
         public override PowerType PowerType => PowerType.Fire;
         
-        protected override void SubscribeAllEvent()
+        public override void SubscribeAllEvent()
         {
             CombatManager.OnTurnStart += OnTurnStart;
         }
