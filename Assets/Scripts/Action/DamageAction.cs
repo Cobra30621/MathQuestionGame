@@ -28,7 +28,7 @@ namespace NueGames.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            Target.CharacterStats.Damage(DamageValue);
+            Target.BeAttacked(damageInfo);
 
             PlayFx();
             PlaySpawnTextFx($"{DamageValue}", Target);

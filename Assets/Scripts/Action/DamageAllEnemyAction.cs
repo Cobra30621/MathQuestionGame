@@ -32,7 +32,7 @@ namespace NueGames.Action
             foreach (EnemyBase enemy in enemyCopy)
             {
                 damageInfo.Target = enemy;
-                enemy.CharacterStats.Damage(DamageValue);
+                enemy.BeAttacked(damageInfo);
                 
                 PlaySpawnTextFx($"{DamageValue}", enemy);
             }

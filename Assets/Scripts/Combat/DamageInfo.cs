@@ -24,6 +24,10 @@ namespace NueGames.Combat
         /// 固定傷害，不受狀態影響
         /// </summary>
         public bool FixDamage;
+        /// <summary>
+        /// 可以穿甲
+        /// </summary>
+        public bool CanPierceArmor;
 
         #region 選填
 
@@ -52,6 +56,7 @@ namespace NueGames.Combat
             Target = parameters.Target;
             Value = parameters.Value;
             FixDamage = false; // TODO
+            CanPierceArmor = false;
             
             Self = parameters.Self;
             SourcePower = parameters.SourcePower;

@@ -333,9 +333,6 @@ namespace NueGames.Power
 
 
         #region 工具
-
-        
-        
         /// <summary>
         /// 取得能力的持有對象的 CharacterType
         /// </summary>
@@ -361,14 +358,16 @@ namespace NueGames.Power
         /// </summary>
         /// <param name="damageValue"></param>
         /// <param name="fixDamage"></param>
+        /// <param name="canPierceArmor"></param>
         /// <returns></returns>
-        protected DamageInfo GetDamageInfo(int damageValue, bool fixDamage)
+        protected DamageInfo GetDamageInfo(int damageValue, bool fixDamage  = false, bool canPierceArmor  = false)
         {
             DamageInfo damageInfo = new DamageInfo()
             {
                 Value = damageValue,
                 Target = Owner,
                 FixDamage = fixDamage,
+                CanPierceArmor = canPierceArmor,
                 ActionSource = ActionSource.Power,
                 SourcePower = PowerType
             };

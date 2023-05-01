@@ -27,7 +27,7 @@ namespace NueGames.Power
         {
             if (info.CharacterType == GetOwnerCharacterType())
             {
-                DamageInfo damageInfo = GetDamageInfo( Amount, true);
+                DamageInfo damageInfo = GetDamageInfo( Amount, true, true);
                 DoDamageAction(damageInfo);
                 Owner.CharacterStats.ApplyPower(PowerType, -1); // 燒血後減層數 1 
             }

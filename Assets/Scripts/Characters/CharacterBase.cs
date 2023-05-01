@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Interfaces;
 using NueGames.Managers;
@@ -52,6 +53,15 @@ namespace NueGames.Characters
         protected virtual void OnDeath()
         {
             
+        }
+        
+        /// <summary>
+        /// 被攻擊
+        /// </summary>
+        /// <param name="damageInfo"></param>
+        public virtual void BeAttacked(DamageInfo damageInfo)
+        {
+            CharacterStats.BeAttacked(damageInfo);
         }
         
         public  CharacterBase GetCharacterBase()

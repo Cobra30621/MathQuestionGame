@@ -262,22 +262,24 @@ namespace NueGames.Managers
                 GameManager.PersistentGameplayData.CurrentEncounterId,
                 GameManager.PersistentGameplayData.IsFinalEncounter);
             
+            CurrentEnemiesList = new List<EnemyBase>();
             var enemyList = CurrentEncounter.EnemyList;
             for (var i = 0; i < enemyList.Count; i++)
             {
                 var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
                 clone.BuildCharacter();
-                CurrentEnemiesList = new List<EnemyBase>();
+                
                 CurrentEnemiesList.Add(clone);
             }
         }
         private void BuildAllies()
         {
+            CurrentAlliesList = new List<AllyBase>();
             for (var i = 0; i < GameManager.PersistentGameplayData.AllyList.Count; i++)
             {
                 var clone = Instantiate(GameManager.PersistentGameplayData.AllyList[i], AllyPosList.Count >= i ? AllyPosList[i] : AllyPosList[0]);
                 clone.BuildCharacter();
-                CurrentAlliesList = new List<AllyBase>();
+                
                 CurrentAlliesList.Add(clone);
             }
         }
@@ -363,6 +365,8 @@ namespace NueGames.Managers
 
             foreach (var currentEnemy in CurrentEnemiesList)
             {
+                Debug.Log($"CurrentEnemiesList {CurrentEnemiesList.Count}");
+                Debug.Log($"{currentEnemy} + EnemyTurnRoutine");
                 yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
                 yield return waitDelay;
             }

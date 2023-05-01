@@ -9,8 +9,7 @@ namespace NueGames.Power
     /// </summary>
     public abstract class ReducePowerAtEndOfTurnPower : PowerBase
     {
-        public abstract PowerType TargetPowerType { get; }
-        protected Managers.CombatManager CombatManager => Managers.CombatManager.Instance;
+        protected abstract PowerType TargetPowerType { get; }
 
         protected override void SubscribeAllEvent()
         {

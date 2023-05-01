@@ -1,4 +1,6 @@
-﻿using NueGames.Combat;
+﻿using NueGames.Action;
+using NueGames.Combat;
+using NueGames.Enums;
 using NueGames.Managers;
 
 namespace NueGames.Relic
@@ -34,6 +36,7 @@ namespace NueGames.Relic
         /// </summary>
         protected EventManager EventManager => EventManager.Instance;
         protected CombatManager CombatManager => CombatManager.Instance;
+        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
         
         #region SetUp
 
@@ -196,6 +199,42 @@ namespace NueGames.Relic
         
         #endregion
 
+        
+        #region 工具
+        /// <summary>
+        /// 執行傷害行動
+        /// </summary>
+        /// <param name="damageInfo"></param>
+        protected void DoDamageAction(DamageInfo damageInfo)
+        {
+            DamageAction damageAction = new DamageAction();
+            damageAction.SetValue(damageInfo);
+            GameActionExecutor.AddToBottom(damageAction);
+        }
+
+        /// <summary>
+        /// 取得 DamageInfo
+        /// </summary>
+        /// <param name="damageValue"></param>
+        /// <param name="fixDamage"></param>
+        /// <returns></returns>
+        protected DamageInfo GetDamageInfo(int damageValue, bool fixDamage)
+        {
+            DamageInfo damageInfo = new DamageInfo()
+            {
+                Value = damageValue,
+                Target = CombatManager.CurrentMainAlly,
+                FixDamage = fixDamage,
+                ActionSource = ActionSource.Relic,
+                SourceRelic = RelicType
+            };
+
+            return damageInfo;
+        }
+
+        #endregion
+        
+        
         public override string ToString()
         {
             return $"{nameof(RelicType)}: {RelicType}, {nameof(NeedCounter)}: {NeedCounter}";
