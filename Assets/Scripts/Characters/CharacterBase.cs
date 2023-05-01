@@ -73,7 +73,7 @@ namespace NueGames.Characters
         {
             if (CharacterStats.PowerDict.ContainsKey(powerType))
             {
-                return CharacterStats.PowerDict[powerType].Value;
+                return CharacterStats.PowerDict[powerType].Amount;
             }
 
             return 0;

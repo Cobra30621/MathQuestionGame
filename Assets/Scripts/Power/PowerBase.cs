@@ -1,4 +1,5 @@
-﻿using NueGames.Characters;
+﻿using NueGames.Action;
+using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -18,7 +19,7 @@ namespace NueGames.Power
         /// <summary>
         /// 能力數值
         /// </summary>
-        public int Value;
+        public int Amount;
         /// <summary>
         /// 能力是否被觸發
         /// </summary>
@@ -61,7 +62,7 @@ namespace NueGames.Power
 
         #region SetUp
 
-        public PowerBase(){
+        protected PowerBase(){
             SubscribeAllEvent();
         }
 
@@ -97,7 +98,7 @@ namespace NueGames.Power
         /// </summary>
         public virtual void MultiplyPower(int multiplyAmount)
         {
-            int addAmount = Mathf.RoundToInt(Value * (multiplyAmount - 1));
+            int addAmount = Mathf.RoundToInt(Amount * (multiplyAmount - 1));
             StackPower(addAmount);
         }
         
@@ -109,15 +110,15 @@ namespace NueGames.Power
         {
             if (IsActive)
             {
-                Value += stackAmount;
-                Owner?.CharacterStats.OnPowerChanged?.Invoke(PowerType, Value);
+                Amount += stackAmount;
+                Owner?.CharacterStats.OnPowerChanged?.Invoke(PowerType, Amount);
                 
             }
             else
             {
-                Value = stackAmount;
+                Amount = stackAmount;
                 IsActive = true;
-                Owner?.CharacterStats.OnPowerApplied?.Invoke(PowerType, Value);
+                Owner?.CharacterStats.OnPowerApplied?.Invoke(PowerType, Amount);
             }
 
             if (stackAmount > 0)
@@ -137,11 +138,11 @@ namespace NueGames.Power
         private void CheckClearPower()
         {
             //Check status
-            if (Value <= 0)
+            if (Amount <= 0)
             {
                 if (CanNegativeStack)
                 {
-                    if (Value == 0 && !IsPermanent)
+                    if (Amount == 0 && !IsPermanent)
                         ClearPower();
                 }
                 else
@@ -158,7 +159,7 @@ namespace NueGames.Power
         public void ClearPower()
         {
             IsActive = false;
-            Value = 0;
+            Amount = 0;
             Owner.CharacterStats.PowerDict.Remove(PowerType);
             Owner.CharacterStats.OnPowerCleared.Invoke(PowerType);
             UnSubscribeAllEvent();
@@ -227,11 +228,11 @@ namespace NueGames.Power
                 StackPower(-1);
             
             //Check status
-            if (Value <= 0)
+            if (Amount <= 0)
             {
                 if (CanNegativeStack)
                 {
-                    if (Value == 0 && !IsPermanent)
+                    if (Amount == 0 && !IsPermanent)
                         ClearPower();
                 }
                 else
@@ -342,6 +343,37 @@ namespace NueGames.Power
         public CharacterType GetOwnerCharacterType()
         {
             return Owner.CharacterType;
+        }
+
+        /// <summary>
+        /// 執行傷害行動
+        /// </summary>
+        /// <param name="damageInfo"></param>
+        protected void DoDamageAction(DamageInfo damageInfo)
+        {
+            DamageAction damageAction = new DamageAction();
+            damageAction.SetValue(damageInfo);
+            GameActionExecutor.AddToBottom(damageAction);
+        }
+
+        /// <summary>
+        /// 取得 DamageInfo
+        /// </summary>
+        /// <param name="damageValue"></param>
+        /// <param name="fixDamage"></param>
+        /// <returns></returns>
+        protected DamageInfo GetDamageInfo(int damageValue, bool fixDamage)
+        {
+            DamageInfo damageInfo = new DamageInfo()
+            {
+                Value = damageValue,
+                Target = Owner,
+                FixDamage = fixDamage,
+                ActionSource = ActionSource.Power,
+                SourcePower = PowerType
+            };
+
+            return damageInfo;
         }
 
         #endregion

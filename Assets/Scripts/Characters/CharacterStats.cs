@@ -174,9 +174,9 @@ namespace NueGames.Characters
                     ApplyPower(PowerType.Block,-value);
 
                     remainingDamage = 0;
-                    if (PowerDict[PowerType.Block].Value <= 0)
+                    if (PowerDict[PowerType.Block].Amount <= 0)
                     {
-                        remainingDamage = PowerDict[PowerType.Block].Value * -1;
+                        remainingDamage = PowerDict[PowerType.Block].Amount * -1;
                         ClearPower(PowerType.Block);
                     }
                 }

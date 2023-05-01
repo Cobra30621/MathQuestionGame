@@ -39,7 +39,7 @@ namespace Tests.Editor_Mode
             
             // Assert
             bool havePower = characterStats.PowerDict.ContainsKey(powerType);
-            int powerValue = characterStats.PowerDict[powerType].Value;
+            int powerValue = characterStats.PowerDict[powerType].Amount;
             int expectValue = value;
             
             Assert.IsTrue(havePower);

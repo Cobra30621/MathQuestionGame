@@ -27,12 +27,7 @@ namespace NueGames.Power
         {
             if (powerType == gainPowerType)
             {
-                DamageInfo damageInfo = new DamageInfo
-                {
-                    FixDamage = true,
-                    Self = Owner,
-                    Value = damageValue * Value
-                };
+                DamageInfo damageInfo = GetDamageInfo(damageValue * Amount, true);
 
                 DamageAllEnemyAction damageAllEnemyAction = new DamageAllEnemyAction();
                 damageAllEnemyAction.SetValue(damageInfo);

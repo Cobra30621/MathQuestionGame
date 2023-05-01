@@ -11,13 +11,7 @@ namespace NueGames.Power
     public class FirePower : PowerBase
     {
         public override PowerType PowerType => PowerType.Fire;
-
-        public FirePower()
-        {
-            DecreaseOverTurn = true;
-        }
-
-
+        
         protected override void SubscribeAllEvent()
         {
             CombatManager.OnTurnStart += OnTurnStart;
@@ -33,17 +27,9 @@ namespace NueGames.Power
         {
             if (info.CharacterType == GetOwnerCharacterType())
             {
-                DamageInfo damageInfo = new DamageInfo()
-                {
-                    Value = Value,
-                    Target = Owner,
-                    FixDamage = true
-                };
-
-                DamageAction damageAction = new DamageAction();
-                damageAction.SetValue(damageInfo);
-                
-                GameActionExecutor.AddToBottom(damageAction);
+                DamageInfo damageInfo = GetDamageInfo( Amount, true);
+                DoDamageAction(damageInfo);
+                Owner.CharacterStats.ApplyPower(PowerType, -1); // 燒血後減層數 1 
             }
         }
     }

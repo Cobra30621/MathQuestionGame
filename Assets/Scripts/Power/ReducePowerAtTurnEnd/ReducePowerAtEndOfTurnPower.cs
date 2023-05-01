@@ -25,7 +25,7 @@ namespace NueGames.Power
         protected override void OnRoundEnd(RoundInfo info)
         {
             // 回合結束時，降低使用者的能力
-            Owner.CharacterStats.ApplyPower(TargetPowerType, - Value);
+            Owner.CharacterStats.ApplyPower(TargetPowerType, - Amount);
             Owner.CharacterStats.ClearPower(PowerType);
             
             base.OnRoundEnd(info);

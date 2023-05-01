@@ -44,7 +44,7 @@ namespace NueGames.Combat
             bool enoughPower = false;
             if (PowerDict.ContainsKey(needPower))
             {
-                if (PowerDict[needPower].Value >= needCount)
+                if (PowerDict[needPower].Amount >= needCount)
                 {
                     enoughPower = true;
                 }

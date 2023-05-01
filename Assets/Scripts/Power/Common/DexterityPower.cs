@@ -17,7 +17,7 @@ namespace NueGames.Power
         
         public override float ModifyBlock(float blockAmount) {
             
-            return  (blockAmount + Value) > 0 ?  (blockAmount + Value) : 0;
+            return  (blockAmount + Amount) > 0 ?  (blockAmount + Amount) : 0;
         }
     }
 }

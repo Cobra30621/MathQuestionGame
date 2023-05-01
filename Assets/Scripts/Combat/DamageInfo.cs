@@ -13,10 +13,6 @@ namespace NueGames.Combat
         /// <returns></returns>
         public ActionSource ActionSource;
         /// <summary>
-        /// 傷害源自哪個角色
-        /// </summary>
-        public CharacterBase Self;
-        /// <summary>
         /// 傷害對象
         /// </summary>
         public CharacterBase Target;
@@ -29,7 +25,12 @@ namespace NueGames.Combat
         /// </summary>
         public bool FixDamage;
 
-        
+        #region 選填
+
+        /// <summary>
+        /// 傷害源自哪個角色
+        /// </summary>
+        public CharacterBase Self;
         /// <summary>
         /// 傷害源自哪一個能力
         /// </summary>
@@ -39,6 +40,8 @@ namespace NueGames.Combat
         /// </summary>
         public RelicType SourceRelic;
 
+        #endregion
+
         public DamageInfo()
         {
         }
@@ -46,18 +49,13 @@ namespace NueGames.Combat
         public DamageInfo(ActionParameters parameters)
         {
             ActionSource = parameters.ActionSource;
-            Self = parameters.Self;
             Target = parameters.Target;
             Value = parameters.Value;
             FixDamage = false; // TODO
-
             
+            Self = parameters.Self;
             SourcePower = parameters.SourcePower;
             SourceRelic = parameters.SourceRelic;
         }
-
-
     }
-
-    
 }
