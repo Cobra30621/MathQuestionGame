@@ -59,32 +59,15 @@ namespace Map
             DOTween.Sequence().AppendInterval(enterNodeDelay).OnComplete(() => EnterNode(mapNode));
         }
 
-        private static void EnterNode(MapNode mapNode)
+        private void EnterNode(MapNode mapNode)
         {
             // we have access to blueprint name here as well
             Debug.Log("Entering node: " + mapNode.Node.blueprintName + " of type: " + mapNode.Node.nodeType);
             // load appropriate scene with context based on nodeType:
             // or show appropriate GUI over the map: 
             // if you choose to show GUI in some of these cases, do not forget to set "Locked" in MapPlayerTracker back to false
-            switch (mapNode.Node.nodeType)
-            {
-                case NodeType.MinorEnemy:
-                    break;
-                case NodeType.EliteEnemy:
-                    break;
-                case NodeType.RestSite:
-                    break;
-                case NodeType.Treasure:
-                    break;
-                case NodeType.Store:
-                    break;
-                case NodeType.Boss:
-                    break;
-                case NodeType.Mystery:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            
+            mapManager.encounterManager.EnterNode(mapNode.Node.nodeType);
         }
 
         private void PlayWarningThatNodeCannotBeAccessed()

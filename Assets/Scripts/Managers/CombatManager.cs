@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NueGames.Characters;
 using NueGames.Characters.Enemies;
 using NueGames.Data.Containers;
+using NueGames.Data.Encounter;
 using NueGames.Enums;
 using NueGames.NueExtentions;
 using NueGames.Power;
@@ -392,13 +393,10 @@ namespace NueGames.Managers
         #region Private Methods
         private void BuildEnemies()
         {
-            CurrentEncounter = GameManager.EncounterData.GetEnemyEncounter(
-                GameManager.PersistentGameplayData.CurrentStageId,
-                GameManager.PersistentGameplayData.CurrentEncounterId,
-                GameManager.PersistentGameplayData.IsFinalEncounter);
+            CurrentEncounter = GameManager.PersistentGameplayData.CurrentEnemyEncounter;
             
             CurrentEnemiesList = new List<EnemyBase>();
-            var enemyList = CurrentEncounter.EnemyList;
+            var enemyList = CurrentEncounter.enemyList;
             for (var i = 0; i < enemyList.Count; i++)
             {
                 var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);

@@ -21,10 +21,10 @@ namespace NueGames.UI
         
         
         #region Setup
-        private void Awake()
+        private void Start()
         {
             ResetCanvas();
-        }
+        } 
         #endregion
         
         #region Public Methods

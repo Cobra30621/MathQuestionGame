@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplayData: {fileID: 11400000, guid: 1ff5bb128064a2d449207d35299f803a, type: 2}
-  encounterData: {fileID: 11400000, guid: 35bec8ea199d6ee428e6ec0812189364, type: 2}
   sceneData: {fileID: 11400000, guid: 5ae2ae3ff5f3b8349b31eea9f8fd748e, type: 2}
+  isDevelopCombatMode: 0
+  DefaultEncounter: {fileID: 11400000, guid: e7301c4a413e7d347a6f92c5bd865308, type: 2}

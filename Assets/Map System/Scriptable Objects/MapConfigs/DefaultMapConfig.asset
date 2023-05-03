@@ -115,3 +115,23 @@ MonoBehaviour:
       nodesApartDistance: 2
       randomizePosition: 0.194
       randomizeNodes: 0
+  encounterStage:
+    weakEnemyCount: 2
+    weakEnemies:
+      weightClip:
+      - encounter: 0
+        weight: 4
+      - encounter: 1
+        weight: 1
+      - encounter: 2
+        weight: 5
+    strongEnemies:
+      weightClip:
+      - encounter: 3
+        weight: 1
+      - encounter: 1
+        weight: 1
+    eliteEnemies:
+      weightClip: []
+    bossEnemies:
+      weightClip: []

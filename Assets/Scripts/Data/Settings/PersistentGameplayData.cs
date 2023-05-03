@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NueGames.Characters;
 using NueGames.Data.Collection;
+using NueGames.Data.Encounter;
 using NueGames.Relic;
 using UnityEngine;
 
@@ -29,6 +30,10 @@ namespace NueGames.Data.Settings
         /// 玩家持有的遺物
         /// </summary>
         [SerializeField] private List<RelicClip> currentRelicList;
+        /// <summary>
+        /// 現在戰鬥敵人
+        /// </summary>
+        [SerializeField] private EnemyEncounter currentEnemyEncounter;
 
         public PersistentGameplayData(GameplayData gameplayData)
         {
@@ -155,6 +160,12 @@ namespace NueGames.Data.Settings
         {
             get => currentRelicList;
             set => currentRelicList = value;
+        }
+
+        public EnemyEncounter CurrentEnemyEncounter
+        {
+            get => currentEnemyEncounter;
+            set => currentEnemyEncounter = value;
         }
         
         #endregion

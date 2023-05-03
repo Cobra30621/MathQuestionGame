@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
+using Map;
 using NueGames.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -12,6 +13,8 @@ public class Tester : MonoBehaviour
 {
     public bool playOnStart;
     public UnityEvent testEvent;
+
+    public MapConfig MapConfig;
 
     void Start()
     {
@@ -26,7 +29,10 @@ public class Tester : MonoBehaviour
     {
         testEvent.Invoke();
         
-        CollectionManager.Instance.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, false);
+        MapConfig.encounterStage.Test();
+        
+        
+        // CollectionManager.Instance.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, false);
         // CardChoice();
         // GainRelic();
     }

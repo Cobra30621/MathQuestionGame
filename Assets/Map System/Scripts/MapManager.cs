@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 using Newtonsoft.Json;
+using NueGames.Encounter;
 
 namespace Map
 {
@@ -8,6 +9,7 @@ namespace Map
     {
         public MapConfig config;
         public MapView view;
+        public EncounterManager encounterManager;
 
         public Map CurrentMap { get; private set; }
 
@@ -26,6 +28,7 @@ namespace Map
                 else
                 {
                     CurrentMap = map;
+                    encounterManager.LoadEncounter();
                     // player has not reached the boss yet, load the current map
                     view.ShowMap(map);
                 }
@@ -41,6 +44,8 @@ namespace Map
             var map = MapGenerator.GetMap(config);
             CurrentMap = map;
             Debug.Log(map.ToJson());
+
+            encounterManager.GenerateNewMapEncounter(config.encounterStage);
             view.ShowMap(map);
         }
 
@@ -52,6 +57,8 @@ namespace Map
                 new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
             PlayerPrefs.SetString("Map", json);
             PlayerPrefs.Save();
+            
+            encounterManager.SaveEncounter();
         }
 
         private void OnApplicationQuit()
