@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NueGames.Action;
+using NueGames.Parameters;
 using NueGames.Power;
 using UnityEngine;
 
@@ -16,20 +17,20 @@ namespace NueGames.Managers
         /// <summary>
         /// "待執行的遊戲行為清單"
         /// </summary>
-        private List<GameActionBase> actions;
+        private List<GameActionBase> _actions;
         /// <summary>
         /// 正在執行的遊戲行為
         /// </summary>
-        private GameActionBase currentAction;
+        private GameActionBase _currentAction;
         /// <summary>
         /// 前一個遊戲行為
         /// </summary>
-        private GameActionBase previousAction;
+        private GameActionBase _previousAction;
 
         /// <summary>
         /// 階段
         /// </summary>
-        private Phase phase;
+        private Phase _phase;
         /// <summary>
         /// 遊戲行為是否執行完成
         /// </summary>
@@ -61,8 +62,8 @@ namespace NueGames.Managers
 
         void Initialize()
         {
-            actions = new List<GameActionBase>();
-            phase = Phase.WaitingOnUser;
+            _actions = new List<GameActionBase>();
+            _phase = Phase.WaitingOnUser;
             actionIsDone = true;
         }
 
@@ -79,7 +80,7 @@ namespace NueGames.Managers
         /// </summary>
         private void HandleGameActions()
         {
-            switch (phase)
+            switch (_phase)
             {
                 case Phase.WaitingOnUser:
                     HandleWaitingOnUser();
@@ -103,7 +104,7 @@ namespace NueGames.Managers
         /// </summary>
         private void HandleExecutingAction()
         {
-            if (actionIsDone && currentAction != null)
+            if (actionIsDone && _currentAction != null)
             {
                 DoCurrentAction();
             }
@@ -118,10 +119,10 @@ namespace NueGames.Managers
         /// </summary>
         private void DoCurrentAction()
         {
-            currentAction.DoAction();
-            Debug.Log($"Do action {currentAction.ToString()}");
+            _currentAction.DoAction();
+            Debug.Log($"Do action {_currentAction.ToString()}");
             actionIsDone = false;
-            StartCoroutine(DoActionRoutine(currentAction.Duration));
+            StartCoroutine(DoActionRoutine(_currentAction.Duration));
         }
 
         /// <summary>
@@ -140,11 +141,11 @@ namespace NueGames.Managers
         /// </summary>
         private void GetNextAction()
         {
-            previousAction = currentAction;
-            currentAction = null;
+            _previousAction = _currentAction;
+            _currentAction = null;
             TryGetNextAction();
-            if (currentAction == null ) {
-                phase = Phase.WaitingOnUser;
+            if (_currentAction == null ) {
+                _phase = Phase.WaitingOnUser;
             }
         }
         
@@ -153,14 +154,16 @@ namespace NueGames.Managers
         /// </summary>
         private void TryGetNextAction()
         {
-            if (actions.Any() ) {
-                currentAction = actions[0];
-                actions.RemoveAt(0);
-                phase = Phase.ExecutingAction;
+            if (_actions.Any() ) {
+                _currentAction = _actions[0];
+                _actions.RemoveAt(0);
+                _phase = Phase.ExecutingAction;
             }
         }
 
         #endregion
+
+        #region 將遊戲行為加入執行緒
 
         /// <summary>
         /// 將想執行的遊戲行為，加到"待執行的遊戲行為清單"
@@ -181,7 +184,7 @@ namespace NueGames.Managers
         /// </summary>
         /// <param name="action"></param>
         public void AddToTop(GameActionBase action) {
-            actions.Insert(0, action);
+            _actions.Insert(0, action);
         }
         
         /// <summary>
@@ -190,8 +193,59 @@ namespace NueGames.Managers
         /// </summary>
         /// <param name="action"></param>
         public void AddToBottom(GameActionBase action) {
-            actions.Add(action);
+            _actions.Add(action);
         }
+        
+
+        #endregion
+
+        #region 執行常見的遊戲行為
+
+        /// <summary>
+        /// 執行傷害行動
+        /// </summary>
+        /// <param name="damageInfo"></param>
+        public void DoDamageAction(DamageInfo damageInfo)
+        {
+            DamageAction damageAction = new DamageAction();
+            damageAction.SetValue(damageInfo);
+            AddToBottom(damageAction);
+        }
+
+        /// <summary>
+        /// 執行對所有敵人造成傷害的行動
+        /// </summary>
+        public void DoDamageAllEnemyAction(DamageInfo damageInfo)
+        {
+            DamageAllEnemyAction action = new DamageAllEnemyAction();
+            action.SetValue(damageInfo);
+            AddToBottom(action);
+        }
+
+        /// <summary>
+        /// 給予敵人能力
+        /// </summary>
+        /// <param name="parameters"></param>
+        public void DoApplyPowerAction(ApplyPowerParameters parameters)
+        {
+            ApplyPowerAction action = new ApplyPowerAction();
+            action.SetValue(parameters);
+            AddToBottom(action);
+        }
+        
+        
+        /// <summary>
+        /// 給予所有敵人能力
+        /// </summary>
+        /// <param name="parameters"></param>
+        public void DoApplyPowerToAllEnemyAction(ApplyPowerParameters parameters)
+        {
+            ApplyPowerToAllEnemyAction action = new ApplyPowerToAllEnemyAction();
+            action.SetValue(parameters);
+            AddToBottom(action);
+        }
+        
+        #endregion
     }
 
     /// <summary>

@@ -1,8 +1,10 @@
 ﻿using NueGames.Action;
+using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Power
@@ -15,6 +17,8 @@ namespace NueGames.Power
         /// <summary>
         /// 能力類型
         /// </summary>
+        // TODO 改名成 PowerName
+        // PowerType 應該是 Buff, DeBuff
         public abstract PowerType PowerType  { get;}
         /// <summary>
         /// 能力數值
@@ -61,15 +65,12 @@ namespace NueGames.Power
         protected CombatManager CombatManager => CombatManager.Instance;
 
         #region SetUp
-
-        protected PowerBase(){
-            SubscribeAllEvent();
-        }
+        
 
         /// <summary>
         /// 訂閱所有事件
         /// </summary>
-        protected virtual void SubscribeAllEvent()
+        public virtual void SubscribeAllEvent()
         {
             
         }
@@ -173,6 +174,7 @@ namespace NueGames.Power
         /// </summary>
         /// <param name="damage"></param>
         /// <returns></returns>
+        // TODO 思考不同能力的順序
         public virtual float AtDamageReceive(float damage)
         {
             return damage;
@@ -281,8 +283,6 @@ namespace NueGames.Power
         #endregion
         
         
-        
-        
         /// <summary>
         /// 當能力改變時
         /// </summary>
@@ -292,15 +292,22 @@ namespace NueGames.Power
         /// 事件: 當能力數值增加時觸發
         /// </summary>
         protected virtual void OnPowerIncrease(PowerType powerType, int value){}
-        
-        
+
+
+        #region 攻擊與死亡
+
         /// <summary>
         /// 受到攻擊時，觸發的方法
         /// </summary>
         /// <param name="info"></param>
-        /// <param name="damageAmount"></param>
-        protected virtual void OnAttacked(DamageInfo info, int damageAmount){}
+        protected virtual void OnAttacked(DamageInfo info){}
 
+        protected virtual void OnDead(DamageInfo damageInfo){}
+        
+        
+
+        #endregion
+        
         #region 答題模式
         /// <summary>
         /// 開始問答模式時，觸發的方法
@@ -342,16 +349,7 @@ namespace NueGames.Power
             return Owner.CharacterType;
         }
 
-        /// <summary>
-        /// 執行傷害行動
-        /// </summary>
-        /// <param name="damageInfo"></param>
-        protected void DoDamageAction(DamageInfo damageInfo)
-        {
-            DamageAction damageAction = new DamageAction();
-            damageAction.SetValue(damageInfo);
-            GameActionExecutor.AddToBottom(damageAction);
-        }
+        
 
         /// <summary>
         /// 取得 DamageInfo

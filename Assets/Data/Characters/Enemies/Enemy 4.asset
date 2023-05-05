@@ -15,7 +15,7 @@ MonoBehaviour:
   characterID: enemy_4
   characterName: Enemy test
   characterDescription: 'Test '
-  maxHealth: 25
+  maxHealth: 100
   enemyPrefab: {fileID: 243822687015991123, guid: 59c5f754020437142af957d67f1f045c, type: 3}
   followAbilityPattern: 1
   enemyAbilityList:
@@ -26,6 +26,7 @@ MonoBehaviour:
     actionList:
     - gameActionType: 11
       powerType: 2
+      answerOutcomeType: 0
       actionValue: 5
       additionValue: 0
       actionDelay: 0
@@ -36,6 +37,7 @@ MonoBehaviour:
     actionList:
     - gameActionType: 13
       powerType: 2
+      answerOutcomeType: 0
       actionValue: 3
       additionValue: 0
       actionDelay: 0

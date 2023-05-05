@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Parameters;
 using NueGames.Power;
 using UnityEngine;
 
@@ -37,7 +38,7 @@ namespace NueGames.Characters
         /// <summary>
         /// 事件：玩家死亡時觸發
         /// </summary>
-        public System.Action OnDeath;
+        public Action<DamageInfo> OnDeath;
         /// <summary>
         /// 事件：當生命值改變時觸發
         /// </summary>
@@ -116,6 +117,7 @@ namespace NueGames.Characters
             {
                 PowerBase powerBase = PowerGenerator.GetPower(targetPower);
                 powerBase.SetOwner(owner);
+                powerBase.SubscribeAllEvent();
                 powerBase.StackPower(value);
                 
                 PowerDict.Add(targetPower, powerBase);
@@ -196,7 +198,7 @@ namespace NueGames.Characters
             if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
-                OnDeath?.Invoke();
+                OnDeath?.Invoke(damageInfo);
                 IsDeath = true;
             }
             OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);

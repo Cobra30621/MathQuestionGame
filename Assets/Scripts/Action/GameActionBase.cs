@@ -5,6 +5,7 @@ using NueGames.Data.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Action
@@ -22,7 +23,7 @@ namespace NueGames.Action
         /// <summary>
         /// 行動參數
         /// </summary>
-        protected ActionParameters actionParameters;
+        protected ActionParameters ActionParameters;
         
         /// <summary>
         /// 遊戲行為數值已經設定
@@ -40,20 +41,20 @@ namespace NueGames.Action
         /// <summary>
         /// 基礎數值
         /// </summary>
-        protected int baseValue;
+        protected int BaseValue;
         /// <summary>
         /// 加成數值
         /// </summary>
-        protected float multiplierValue;
+        protected float MultiplierValue;
         /// <summary>
         /// 加成數量
         /// </summary>
-        protected float multiplierAmount;
+        protected float MultiplierAmount;
 
         /// <summary>
         /// 加乘後的數值
         /// </summary>
-        protected int AdditionValue => Mathf.RoundToInt(baseValue + multiplierAmount * multiplierValue);
+        protected int AdditionValue => Mathf.RoundToInt(BaseValue + MultiplierAmount * MultiplierValue);
 
         /// <summary>
         /// 傷害的數值
@@ -62,8 +63,8 @@ namespace NueGames.Action
         {
             get
             {
-                damageInfo.Value = AdditionValue;
-                return CombatCalculator.GetDamageValue(damageInfo);
+                DamageInfo.Value = AdditionValue;
+                return CombatCalculator.GetDamageValue(DamageInfo);
             }
         }
 
@@ -74,11 +75,11 @@ namespace NueGames.Action
         /// <summary>
         /// 能力類型
         /// </summary>
-        protected PowerType powerType;
+        protected PowerType PowerType;
         /// <summary>
         /// 根據答對數，產生不同行動
         /// </summary>
-        protected AnswerOutcomeType answerOutcomeType;
+        protected AnswerOutcomeType AnswerOutcomeType;
 
         /// <summary>
         /// 特效出現位置
@@ -95,7 +96,7 @@ namespace NueGames.Action
         /// <summary>
         /// 傷害類型
         /// </summary>
-        protected DamageInfo damageInfo;
+        protected DamageInfo DamageInfo;
 
         protected FxManager FxManager => FxManager.Instance;
         protected AudioManager AudioManager => AudioManager.Instance;
@@ -112,29 +113,38 @@ namespace NueGames.Action
         /// <param name="parameters"></param>
         public virtual void SetValue(ActionParameters parameters)
         {
-            actionParameters = parameters;
+            ActionParameters = parameters;
             ActionData data = parameters.ActionData;
-            baseValue = data.ActionValue;
-            multiplierValue = data.AdditionValue;
-            multiplierAmount = 0;
-            powerType = data.PowerType; 
+            BaseValue = data.ActionValue;
+            MultiplierValue = data.AdditionValue;
+            MultiplierAmount = 0;
+            PowerType = data.PowerType; 
             Duration = data.ActionDelay;
-            answerOutcomeType = data.AnswerOutcomeType;
+            AnswerOutcomeType = data.AnswerOutcomeType;
 
             Self = parameters.Self;
             Target = parameters.Target;
 
-            damageInfo = new DamageInfo(parameters);
+            DamageInfo = new DamageInfo(parameters);
             
             HasSetValue = true;
         }
 
         public virtual void SetValue(DamageInfo info)
         {
-            damageInfo = info;
-            baseValue = damageInfo.Value;
+            DamageInfo = info;
+            BaseValue = DamageInfo.Value;
             Target = info.Target;
 
+            HasSetValue = true;
+        }
+
+        public virtual void SetValue(ApplyPowerParameters parameters)
+        {
+            BaseValue = parameters.Value;
+            Target = parameters.Target;
+            PowerType = parameters.PowerType;
+            
             HasSetValue = true;
         }
         
@@ -218,8 +228,8 @@ namespace NueGames.Action
         /// <returns></returns>
         protected DamageInfo GetDamageInfoForDamageAction()
         {
-            damageInfo.Value = AdditionValue;
-            return damageInfo;
+            DamageInfo.Value = AdditionValue;
+            return DamageInfo;
         }
         
         

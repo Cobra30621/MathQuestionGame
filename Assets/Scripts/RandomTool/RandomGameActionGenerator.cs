@@ -1,6 +1,7 @@
 ﻿using NueGames.Action;
 using NueGames.Card;
 using NueGames.Data.Collection;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace RandomTool

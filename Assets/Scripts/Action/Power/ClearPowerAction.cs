@@ -29,7 +29,7 @@ namespace NueGames.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            Target.CharacterStats.ClearPower(powerType);
+            Target.CharacterStats.ClearPower(PowerType);
             
             PlayFx();
             PlayAudio();

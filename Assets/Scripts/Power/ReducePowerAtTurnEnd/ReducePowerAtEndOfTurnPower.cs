@@ -11,7 +11,7 @@ namespace NueGames.Power
     {
         protected abstract PowerType TargetPowerType { get; }
 
-        protected override void SubscribeAllEvent()
+        public override void SubscribeAllEvent()
         {
             CombatManager.OnRoundEnd += OnRoundEnd;
         }

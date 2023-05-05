@@ -1,6 +1,7 @@
 ﻿using NueGames.Action;
 using NueGames.Card;
 using NueGames.Enums;
+using NueGames.Parameters;
 using RandomTool;
 
 namespace Action
@@ -21,7 +22,7 @@ namespace Action
 
         public override void DoAction()
         {
-            GameActionBase action = RandomGameActionGenerator.GetRandomAction(_randomActionData, actionParameters);
+            GameActionBase action = RandomGameActionGenerator.GetRandomAction(_randomActionData, ActionParameters);
             action.DoAction();
         }
     }

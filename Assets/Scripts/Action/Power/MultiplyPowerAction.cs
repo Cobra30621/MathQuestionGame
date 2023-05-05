@@ -26,7 +26,7 @@ namespace NueGames.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            Target.CharacterStats.MultiplyPower(powerType, AdditionValue);
+            Target.CharacterStats.MultiplyPower(PowerType, AdditionValue);
             
             PlayFx();
             PlayAudio();

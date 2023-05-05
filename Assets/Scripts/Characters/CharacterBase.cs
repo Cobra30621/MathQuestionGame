@@ -3,6 +3,7 @@ using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Interfaces;
 using NueGames.Managers;
+using NueGames.Parameters;
 using NueGames.Power;
 using UnityEngine;
 
@@ -50,7 +51,7 @@ namespace NueGames.Characters
             
         }
         
-        protected virtual void OnDeath()
+        protected virtual void OnDeath(DamageInfo damageInfo)
         {
             
         }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NueGames.Combat;
 using NueGames.Enums;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Managers

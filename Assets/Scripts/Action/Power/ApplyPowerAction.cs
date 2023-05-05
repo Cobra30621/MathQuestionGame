@@ -18,6 +18,13 @@ namespace NueGames.Action
             FxType = FxType.Buff;
             AudioActionType = AudioActionType.Power;
         }
+
+        public void SetValue(int value, CharacterBase target, PowerType powerType)
+        {
+            BaseValue = value;
+            Target = target;
+            PowerType = powerType;
+        }
         
         /// <summary>
         /// 執行遊戲行為的功能
@@ -27,7 +34,7 @@ namespace NueGames.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            Target.CharacterStats.ApplyPower(powerType, AdditionValue);
+            Target.CharacterStats.ApplyPower(PowerType, AdditionValue);
             
             PlayFx();
             PlayAudio();

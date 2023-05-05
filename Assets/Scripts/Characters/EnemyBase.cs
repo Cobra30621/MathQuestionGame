@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using NueGames.Action;
+using NueGames.Combat;
 using NueGames.Data.Characters;
 using NueGames.Data.Collection;
 using NueGames.Data.Containers;
@@ -9,6 +10,7 @@ using NueGames.Enums;
 using NueGames.Interfaces;
 using NueGames.Managers;
 using NueGames.NueExtentions;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Characters
@@ -39,9 +41,9 @@ namespace NueGames.Characters
             CombatManager.OnRoundStart += ShowNextAbility;
             CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
         }
-        protected override void OnDeath()
+        protected override void OnDeath(DamageInfo damageInfo)
         {
-            base.OnDeath();
+            base.OnDeath(damageInfo);
             CombatManager.OnRoundStart -= ShowNextAbility;
             CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
            

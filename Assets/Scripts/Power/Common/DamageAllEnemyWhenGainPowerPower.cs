@@ -5,6 +5,7 @@ using NueGames.Combat;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Parameters;
 
 namespace NueGames.Power
 {
@@ -30,10 +31,7 @@ namespace NueGames.Power
                 DamageInfo damageInfo = GetDamageInfo(damageValue * Amount, 
                     true);
 
-                DamageAllEnemyAction damageAllEnemyAction = new DamageAllEnemyAction();
-                damageAllEnemyAction.SetValue(damageInfo);
-            
-                GameActionExecutor.Instance.AddToBottom(damageAllEnemyAction);
+                GameActionExecutor.DoDamageAllEnemyAction(damageInfo);
             }
         }
     }

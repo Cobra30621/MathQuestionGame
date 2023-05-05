@@ -27,7 +27,7 @@ namespace NueGames.Action
         public override void DoAction()
         {
             CheckHasSetValue();
-            baseValue = CombatManager.CurrentMainAlly.GetPowerValue(accordingPowerType);
+            BaseValue = CombatManager.CurrentMainAlly.GetPowerValue(accordingPowerType);
             
             DoDamageAction();
         }

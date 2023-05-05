@@ -18,6 +18,14 @@ namespace NueGames.Action
             FxType = FxType.Buff;
             AudioActionType = AudioActionType.Power;
         }
+
+        public void SetValue(int baseValue, PowerType targetPower)
+        {
+            BaseValue = baseValue;
+            PowerType = targetPower;
+
+            HasSetValue = true;
+        }
         
 
         /// <summary>
@@ -29,7 +37,7 @@ namespace NueGames.Action
             
             foreach (EnemyBase enemy in CombatManager.CurrentEnemiesList)
             {
-                enemy.CharacterStats.ApplyPower(powerType, AdditionValue);
+                enemy.CharacterStats.ApplyPower(PowerType, AdditionValue);
                 PlayFx();
             }
             
