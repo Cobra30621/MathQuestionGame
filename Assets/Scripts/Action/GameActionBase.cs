@@ -7,6 +7,7 @@ using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace NueGames.Action
 {
@@ -54,7 +55,10 @@ namespace NueGames.Action
         /// <summary>
         /// 加乘後的數值
         /// </summary>
-        protected int AdditionValue => Mathf.RoundToInt(BaseValue + MultiplierAmount * MultiplierValue);
+        protected int AdditionValue
+        {
+            get { return Mathf.RoundToInt(BaseValue + MultiplierAmount * MultiplierValue); }
+        }
 
         /// <summary>
         /// 傷害的數值
@@ -93,19 +97,52 @@ namespace NueGames.Action
         /// 音效類型
         /// </summary>
         public AudioActionType AudioActionType;
+
+
+        private DamageInfo _damageInfo;
         /// <summary>
         /// 傷害類型
         /// </summary>
-        protected DamageInfo DamageInfo;
+        protected DamageInfo DamageInfo
+        {
+            get
+            {
+                _damageInfo.Value = AdditionValue;
+                return _damageInfo;
+            }
+            set => _damageInfo = value;
+        }
 
-        protected FxManager FxManager => FxManager.Instance;
-        protected AudioManager AudioManager => AudioManager.Instance;
-        protected GameManager GameManager => GameManager.Instance;
-        protected CombatManager CombatManager => CombatManager.Instance;
-        protected CollectionManager CollectionManager => CollectionManager.Instance;
-        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
+        protected FxManager FxManager
+        {
+            get { return FxManager.Instance; }
+        }
 
-        
+        protected AudioManager AudioManager
+        {
+            get { return AudioManager.Instance; }
+        }
+
+        protected GameManager GameManager
+        {
+            get { return GameManager.Instance; }
+        }
+
+        protected CombatManager CombatManager
+        {
+            get { return CombatManager.Instance; }
+        }
+
+        protected CollectionManager CollectionManager
+        {
+            get { return CollectionManager.Instance; }
+        }
+
+        protected GameActionExecutor GameActionExecutor
+        {
+            get { return GameActionExecutor.Instance; }
+        }
+
 
         /// <summary>
         /// 依據參數設定行為數值

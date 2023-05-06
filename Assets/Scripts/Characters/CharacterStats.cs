@@ -177,7 +177,7 @@ namespace NueGames.Characters
             if (IsDeath) return;
             OnAttacked?.Invoke(damageInfo);
             
-            var remainingDamage = damageInfo.Value;
+            var remainingDamage = damageInfo.DamageValue;
             if (!damageInfo.CanPierceArmor)
             {
                 if (PowerDict.ContainsKey(PowerType.Block))

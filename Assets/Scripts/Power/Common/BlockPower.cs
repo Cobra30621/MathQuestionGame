@@ -1,5 +1,6 @@
 ﻿using NueGames.Combat;
 using NueGames.Enums;
+using NueGames.Managers;
 using UnityEngine;
 
 namespace NueGames.Power
@@ -13,9 +14,23 @@ namespace NueGames.Power
 
         public BlockPower()
         {
-            ClearAtNextTurn = true;
+            // ClearAtNextTurn = true;
         }
-        
+
+        public override void SubscribeAllEvent()
+        {
+            CombatManager.Instance.OnTurnStart += OnTurnStart;
+        }
+
+
+        protected override void OnTurnStart(TurnInfo info)
+        {
+            if (info.CharacterType == GetOwnerCharacterType())
+            {
+                ClearPower();
+            }
+        }
+
         public override void StackPower(int rawAmount)
         {
             int stackAmount = CombatCalculator.GetBlockValue(rawAmount, Owner);

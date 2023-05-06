@@ -1,5 +1,6 @@
 ﻿using NueGames.Card;
 using NueGames.Characters;
+using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Relic;
 
@@ -28,6 +29,10 @@ namespace NueGames.Parameters
         /// 可以穿甲
         /// </summary>
         public bool CanPierceArmor;
+        /// <summary>
+        /// 計算加成後的傷害
+        /// </summary>
+        public int DamageValue => CombatCalculator.GetDamageValue(this);
 
         #region 選填
 
