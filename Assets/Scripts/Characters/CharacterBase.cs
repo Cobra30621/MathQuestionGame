@@ -80,6 +80,16 @@ namespace NueGames.Characters
             return CharacterStats.PowerDict;
         }
 
+        /// <summary>
+        /// 持有能力
+        /// </summary>
+        /// <param name="powerType"></param>
+        /// <returns></returns>
+        public bool HasPower(PowerType powerType)
+        {
+            return CharacterStats.PowerDict.ContainsKey(powerType);
+        }
+
         public int GetPowerValue(PowerType powerType)
         {
             if (CharacterStats.PowerDict.ContainsKey(powerType))
