@@ -23,10 +23,14 @@ namespace NueGames.Data.Encounter
     /// TODO 撰寫單元測試檢查
     public enum EnemyEncounterName
     {
-        OneSmile = 0,
-        TwoSmiles = 1,
-        BigSmile = 2,
-        SmileGroup = 3
+        // Slay Of Spire (殺戮尖塔)
+        SmallSmiles = 1001, // 小史萊姆
+        Cultist = 1002, // 邪教徒
+        JawWorm = 1003, // 顎蟲
+        
+        LotsOfSlimes = 1011, // 一大堆史萊姆
+        TwoJawWorm = 1012, // 兩隻顎蟲
+        
     }
     
     

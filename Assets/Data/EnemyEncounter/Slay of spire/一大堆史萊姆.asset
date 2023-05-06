@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e4698fb3b4f4afa83aa9bb2201ae796, type: 3}
-  m_Name: OneSmile
+  m_Name: "\u4E00\u5927\u5806\u53F2\u840A\u59C6"
   m_EditorClassIdentifier: 
   targetBackgroundType: 1
-  encounterName: 0
+  encounterName: 1011
   enemyList:
+  - {fileID: 11400000, guid: 2fb43f6b96d72d743b103338a656e419, type: 2}
   - {fileID: 11400000, guid: ab4b1aaf78f9c8747a5708430c68f051, type: 2}
+  - {fileID: 11400000, guid: 2fb43f6b96d72d743b103338a656e419, type: 2}
