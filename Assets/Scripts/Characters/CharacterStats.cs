@@ -182,14 +182,15 @@ namespace NueGames.Characters
             {
                 if (PowerDict.ContainsKey(PowerType.Block))
                 {
-                    ApplyPower(PowerType.Block,- damageInfo.Value);
+                    var blockValue = PowerDict[PowerType.Block].Amount;
+                    remainingDamage -= blockValue;
 
-                    remainingDamage = 0;
-                    if (PowerDict[PowerType.Block].Amount <= 0)
+                    if (remainingDamage < 0)
                     {
-                        remainingDamage = PowerDict[PowerType.Block].Amount * -1;
-                        ClearPower(PowerType.Block);
+                        remainingDamage = 0;
                     }
+                    
+                    ApplyPower(PowerType.Block,- damageInfo.Value);
                 }
             }
             

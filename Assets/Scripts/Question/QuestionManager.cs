@@ -131,6 +131,7 @@ namespace Question
             isQuestioning = false;
             questionController.SetQuestionManager(this);
             parameters = new MathQuestioningActionParameters();
+            DontDestroyOnLoad(this);
         }
 
         #endregion

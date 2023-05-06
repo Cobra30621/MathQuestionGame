@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Managers;
 using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Data.Encounter;

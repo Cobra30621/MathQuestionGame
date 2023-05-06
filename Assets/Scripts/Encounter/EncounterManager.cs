@@ -69,9 +69,10 @@ namespace NueGames.Encounter
             switch (nodeType)
             {
                 case NodeType.MinorEnemy:
-                    EnterCombatRoom();
+                    EnterCombatRoom(mapEncounter.GetEnemyEncounter());
                     break;
                 case NodeType.EliteEnemy:
+                    EnterCombatRoom(mapEncounter.GetEliteEncounter());
                     break;
                 case NodeType.RestSite:
                     break;
@@ -80,6 +81,7 @@ namespace NueGames.Encounter
                 case NodeType.Store:
                     break;
                 case NodeType.Boss:
+                    EnterCombatRoom(mapEncounter.GetBossEncounter());
                     break;
                 case NodeType.Mystery:
                     break;
@@ -87,10 +89,10 @@ namespace NueGames.Encounter
                     throw new ArgumentOutOfRangeException();
             }
         }
-
-        private void EnterCombatRoom()
+        
+        private void EnterCombatRoom(EnemyEncounter encounter)
         {
-            GameManager.Instance.SetEnemyEncounter( mapEncounter.GetEnemyEncounter());
+            GameManager.Instance.SetEnemyEncounter(encounter);
             SaveEncounter();
             
             // 進入戰鬥場警

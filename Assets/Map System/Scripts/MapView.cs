@@ -341,6 +341,8 @@ namespace Map
         protected NodeBlueprint GetBlueprint(string blueprintName)
         {
             var config = GetConfig(mapManager.CurrentMap.configName);
+            Debug.Log(config);
+            Debug.Log(config.nodeBlueprints.Count);
             return config.nodeBlueprints.FirstOrDefault(n => n.name == blueprintName);
         }
     }

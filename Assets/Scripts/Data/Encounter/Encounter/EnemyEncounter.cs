@@ -31,6 +31,7 @@ namespace NueGames.Data.Encounter
         LotsOfSlimes = 1011, // 一大堆史萊姆
         TwoJawWorm = 1012, // 兩隻顎蟲
         
+        GremlinNob = 1080, // 大惡魔
     }
     
     

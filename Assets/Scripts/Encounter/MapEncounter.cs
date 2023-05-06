@@ -41,10 +41,28 @@ namespace NueGames.Encounter
             enemyList.Remove(encounterName);
             
             EnemyEncounter encounter = EncounterManager.Instance.GetEnemyEncounter(encounterName);
+            return encounter;
+        }
+
+        public EnemyEncounter GetEliteEncounter()
+        {
+            EnemyEncounterName encounterName = eliteEnemyList[0];
+            eliteEnemyList.Remove(encounterName);
             
+            EnemyEncounter encounter = EncounterManager.Instance.GetEnemyEncounter(encounterName);
             return encounter;
         }
         
+        public EnemyEncounter GetBossEncounter()
+        {
+            EnemyEncounterName encounterName = eliteEnemyList[0];
+            eliteEnemyList.Remove(encounterName);
+            
+            EnemyEncounter encounter = EncounterManager.Instance.GetEnemyEncounter(encounterName);
+            return encounter;
+        }
+
+
         
         public string ToJson()
         {

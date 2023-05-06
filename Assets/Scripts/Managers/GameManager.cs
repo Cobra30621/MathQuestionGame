@@ -1,3 +1,5 @@
+using System;
+using Managers;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Data.Containers;
@@ -48,11 +50,16 @@ namespace NueGames.Managers
                 transform.parent = null;
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-                if (isDevelopCombatMode)
-                {
-                    // TODO 一般模式、開發模式串接
-                    StartRougeLikeGame();
-                }
+                
+            }
+        }
+
+        private void Start()
+        {
+            if (isDevelopCombatMode)
+            {
+                // TODO 一般模式、開發模式串接
+                StartRougeLikeGame();
             }
         }
 
@@ -66,6 +73,7 @@ namespace NueGames.Managers
         {
             InitGameplayData();
             SetInitalHand();
+            InitialRelic();
         }
         
         public void InitGameplayData()
@@ -75,7 +83,17 @@ namespace NueGames.Managers
             if (UIManager)
                 UIManager.InformationCanvas.ResetCanvas();
            
-        } 
+        }
+
+        private void InitialRelic()
+        {
+            foreach (var relicType in gameplayData.InitialRelic)
+            {
+                RelicManager.Instance.GainRelic(relicType);
+            }
+        }
+        
+        
         public CardBase BuildAndGetCard(CardData targetData, Transform parent)
         {
             var clone = Instantiate(GameplayData.CardPrefab, parent);
