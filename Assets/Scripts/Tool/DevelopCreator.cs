@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using Managers;
+using NueGames.Enums;
+using NueGames.Managers;
+using NueGames.Parameters;
 using NueGames.Relic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,7 +26,9 @@ namespace Tool
         /// 測試創建的遺物
         /// </summary>
         public List<RelicType> createRelicList;
-        
+
+        public List<PowerType> allyPowerList;
+
         void Start()
         {
             if (PlayOnStart)
@@ -37,6 +42,7 @@ namespace Tool
         {
             TestEvent.Invoke();
             GainRelic();
+            GainAllyPower();
         }
         
         /// <summary>
@@ -48,6 +54,19 @@ namespace Tool
             {
                 RelicManager.Instance.GainRelic(relicType);
                 RelicManager.Instance.PrintCurrentRelicList();
+            }
+        }
+
+        private void GainAllyPower()
+        {
+            foreach (var powerType in allyPowerList)
+            {
+                var ally = CombatManager.Instance.CurrentMainAlly;
+                var parameter = new ApplyPowerParameters(ally, powerType, 1);
+                
+                GameActionExecutor.Instance.DoApplyPowerAction(parameter);
+                
+                
             }
         }
     }
