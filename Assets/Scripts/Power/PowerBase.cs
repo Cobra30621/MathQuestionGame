@@ -390,7 +390,7 @@ namespace NueGames.Power
         {
             DamageInfo damageInfo = new DamageInfo()
             {
-                Value = damageValue,
+                BaseValue = damageValue,
                 Target = Owner,
                 FixDamage = fixDamage,
                 CanPierceArmor = canPierceArmor,

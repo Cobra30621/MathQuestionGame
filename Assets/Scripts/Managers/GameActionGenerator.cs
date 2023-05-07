@@ -54,7 +54,8 @@ namespace NueGames.Action
                 ActionParameters actionParameters = new ActionParameters()
                 {
                     ActionType = actionData.GameActionType,
-                    Value = actionData.ActionValue,
+                    BaseValue = actionData.ActionValue,
+                    MultiplierValue =  actionData.AdditionValue,
                     Self = self,
                     Target = target,
                     ActionSource = actionSource, 

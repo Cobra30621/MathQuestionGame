@@ -232,7 +232,7 @@ namespace NueGames.Relic
         {
             DamageInfo damageInfo = new DamageInfo()
             {
-                Value = damageValue,
+                BaseValue = damageValue,
                 Target = CombatManager.CurrentMainAlly,
                 FixDamage = fixDamage,
                 ActionSource = ActionSource.Relic,

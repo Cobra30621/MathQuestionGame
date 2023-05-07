@@ -3,6 +3,7 @@ using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
+using UnityEngine;
 
 namespace NueGames.Power
 {
@@ -29,6 +30,8 @@ namespace NueGames.Power
             if (info.CharacterType == GetOwnerCharacterType())
             {
                 DamageInfo damageInfo = GetDamageInfo( Amount, true, true);
+
+                Debug.Log( "Fire" +  damageInfo);
                 GameActionExecutor.DoDamageAction(damageInfo);
                 
                 Owner.CharacterStats.ApplyPower(PowerType, -1); // 燒血後減層數 1 

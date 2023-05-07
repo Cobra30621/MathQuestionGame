@@ -3,6 +3,7 @@ using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Relic;
+using UnityEngine;
 
 namespace NueGames.Parameters
 {
@@ -18,9 +19,9 @@ namespace NueGames.Parameters
         /// </summary>
         public CharacterBase Target;
         /// <summary>
-        /// 傷害數值
+        /// 基礎傷害數值
         /// </summary>
-        public int Value;
+        public int BaseValue ;
         /// <summary>
         /// 固定傷害，不受狀態影響
         /// </summary>
@@ -29,10 +30,6 @@ namespace NueGames.Parameters
         /// 可以穿甲
         /// </summary>
         public bool CanPierceArmor;
-        /// <summary>
-        /// 計算加成後的傷害
-        /// </summary>
-        public int DamageValue => CombatCalculator.GetDamageValue(this);
 
         #region 選填
 
@@ -48,6 +45,16 @@ namespace NueGames.Parameters
         /// 傷害源自哪一個遺物
         /// </summary>
         public RelicType SourceRelic;
+        
+        /// <summary>
+        /// 加成數值
+        /// </summary>
+        public float MultiplierValue;
+        /// <summary>
+        /// 加成數量
+        /// </summary>
+        public float MultiplierAmount;
+
 
         #endregion
 
@@ -59,13 +66,35 @@ namespace NueGames.Parameters
         {
             ActionSource = parameters.ActionSource;
             Target = parameters.Target;
-            Value = parameters.Value;
+            BaseValue = parameters.BaseValue;
+            MultiplierValue = parameters.MultiplierValue;
             FixDamage = false; // TODO
             CanPierceArmor = false;
             
             Self = parameters.Self;
             SourcePower = parameters.SourcePower;
             SourceRelic = parameters.SourceRelic;
+        }
+
+        /// <summary>
+        /// 取得加成數值
+        /// </summary>
+        /// <returns></returns>
+        public int GetAddictionValue()
+        {
+            Debug.Log( $" GetAddictionValue {BaseValue} + {MultiplierAmount} * {MultiplierValue}"  );
+            return Mathf.RoundToInt(BaseValue + MultiplierAmount * MultiplierValue);
+        }
+
+        public int GetDamageValue()
+        {
+            return CombatCalculator.GetDamageValue(this);
+        }
+
+
+        public override string ToString()
+        {
+            return $"{nameof(ActionSource)}: {ActionSource}, {nameof(Target)}: {Target}, {nameof(BaseValue)}: {BaseValue}, {nameof(FixDamage)}: {FixDamage}, {nameof(CanPierceArmor)}: {CanPierceArmor}, {nameof(Self)}: {Self}, {nameof(SourcePower)}: {SourcePower}, {nameof(SourceRelic)}: {SourceRelic}, {nameof(MultiplierValue)}: {MultiplierValue}, {nameof(MultiplierAmount)}: {MultiplierAmount}";
         }
     }
 }

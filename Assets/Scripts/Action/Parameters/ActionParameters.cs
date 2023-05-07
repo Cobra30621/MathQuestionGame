@@ -18,9 +18,9 @@ namespace NueGames.Parameters
         /// </summary>
         public GameActionType ActionType;
         /// <summary>
-        /// 行為數值
+        /// 行為基礎數值
         /// </summary>
-        public int Value;
+        public int BaseValue;
         /// <summary>
         /// 行為目標對象
         /// </summary>
@@ -56,6 +56,11 @@ namespace NueGames.Parameters
         /// 傷害源自哪一個遺物(遺物才需要)
         /// </summary>
         public RelicType SourceRelic;
+        
+        /// <summary>
+        /// 加成數值
+        /// </summary>
+        public float MultiplierValue;
 
         #endregion
 

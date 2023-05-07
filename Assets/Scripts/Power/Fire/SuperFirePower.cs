@@ -28,7 +28,7 @@ namespace NueGames.Power
             {
                 GameActionExecutor.DoDamageAllEnemyAction(damageInfo); // 給予所有敵人"燃燒"層數的傷害
                 GameActionExecutor.DoApplyPowerToAllEnemyAction( 
-                    new ApplyPowerParameters(damageInfo.Value, PowerType.Fire)); // 給予所有敵人"燃燒"層數的"燃燒"
+                    new ApplyPowerParameters(damageInfo.BaseValue, PowerType.Fire)); // 給予所有敵人"燃燒"層數的"燃燒"
             }
         }
     }

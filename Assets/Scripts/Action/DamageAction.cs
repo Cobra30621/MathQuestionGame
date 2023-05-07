@@ -31,7 +31,7 @@ namespace NueGames.Action
             Target.BeAttacked(DamageInfo);
 
             PlayFx();
-            PlaySpawnTextFx($"{DamageValue}", Target);
+            PlaySpawnTextFx($"{DamageInfo.GetDamageValue()}", Target);
             PlayAudio();
         }
     }

@@ -34,7 +34,7 @@ namespace NueGames.Action
                 DamageInfo.Target = enemy;
                 enemy.BeAttacked(DamageInfo);
                 
-                PlaySpawnTextFx($"{DamageValue}", enemy);
+                PlaySpawnTextFx($"{DamageInfo.GetDamageValue()}", enemy);
             }
             
             PlayFx();

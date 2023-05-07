@@ -61,18 +61,6 @@ namespace NueGames.Action
         }
 
         /// <summary>
-        /// 傷害的數值
-        /// </summary>
-        protected int DamageValue
-        {
-            get
-            {
-                DamageInfo.Value = AdditionValue;
-                return CombatCalculator.GetDamageValue(DamageInfo);
-            }
-        }
-
-        /// <summary>
         /// 行為所需時間
         /// </summary>
         public float Duration = 0;
@@ -100,18 +88,11 @@ namespace NueGames.Action
 
 
         private DamageInfo _damageInfo;
+
         /// <summary>
         /// 傷害類型
         /// </summary>
-        protected DamageInfo DamageInfo
-        {
-            get
-            {
-                _damageInfo.Value = AdditionValue;
-                return _damageInfo;
-            }
-            set => _damageInfo = value;
-        }
+        protected DamageInfo DamageInfo;
 
         protected FxManager FxManager
         {
@@ -170,7 +151,10 @@ namespace NueGames.Action
         public virtual void SetValue(DamageInfo info)
         {
             DamageInfo = info;
-            BaseValue = DamageInfo.Value;
+            BaseValue = DamageInfo.BaseValue;
+            MultiplierValue = DamageInfo.MultiplierValue;
+            MultiplierAmount = DamageInfo.MultiplierAmount;
+            
             Target = info.Target;
 
             HasSetValue = true;
@@ -265,7 +249,10 @@ namespace NueGames.Action
         /// <returns></returns>
         protected DamageInfo GetDamageInfoForDamageAction()
         {
-            DamageInfo.Value = AdditionValue;
+            Debug.Log("GetDamageInfoForDamageAction()");
+            DamageInfo.BaseValue = BaseValue;
+            DamageInfo.MultiplierValue = MultiplierValue;
+            DamageInfo.MultiplierAmount = MultiplierAmount;
             return DamageInfo;
         }
         
