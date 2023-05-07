@@ -22,6 +22,11 @@ namespace NueGames.Power
             CombatManager.Instance.OnTurnStart += OnTurnStart;
         }
 
+        protected override void UnSubscribeAllEvent()
+        {
+            CombatManager.Instance.OnTurnStart -= OnTurnStart;
+        }
+
 
         protected override void OnTurnStart(TurnInfo info)
         {

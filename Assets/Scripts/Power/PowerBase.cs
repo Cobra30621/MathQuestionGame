@@ -245,6 +245,26 @@ namespace NueGames.Power
             }
         }
 
+
+
+
+        #region 回合開始
+
+        /// <summary>
+        /// 回合開始獲得瑪娜加成
+        /// </summary>
+        /// <param name="rawValue"></param>
+        /// <returns></returns>
+        public virtual int AtGainTurnStartMana(int rawValue)
+        {
+            return rawValue;
+        }
+        
+        
+
+        #endregion
+        
+
         #region 戰鬥流程觸發
         /// <summary>
         /// 遊戲回合開始時，觸發的方法
@@ -340,6 +360,13 @@ namespace NueGames.Power
 
 
         #region 工具
+
+        public bool IsCharacterTurn(TurnInfo info)
+        {
+            return info.CharacterType == GetOwnerCharacterType();
+        }
+        
+        
         /// <summary>
         /// 取得能力的持有對象的 CharacterType
         /// </summary>
@@ -349,6 +376,7 @@ namespace NueGames.Power
             return Owner.CharacterType;
         }
 
+        
         
 
         /// <summary>

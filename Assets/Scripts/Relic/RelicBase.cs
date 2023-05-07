@@ -168,6 +168,23 @@ namespace NueGames.Relic
 
         #endregion
         
+        #region 回合開始
+
+        /// <summary>
+        /// 回合開始獲得瑪娜加成
+        /// </summary>
+        /// <param name="rawValue"></param>
+        /// <returns></returns>
+        public virtual int AtGainTurnStartMana(int rawValue)
+        {
+            return rawValue;
+        }
+        
+        
+
+        #endregion
+        
+        
         #region 事件觸發的方法
         
 

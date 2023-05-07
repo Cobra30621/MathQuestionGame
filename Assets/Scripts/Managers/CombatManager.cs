@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using NueGames.Characters;
 using NueGames.Characters.Enemies;
 using NueGames.Data.Containers;
@@ -26,7 +27,9 @@ namespace NueGames.Managers
         [SerializeField] private BackgroundContainer backgroundContainer;
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
- 
+
+
+        public ManaManager ManaManager;
         
         #region Cache
         public List<EnemyBase> CurrentEnemiesList { get; private set; }
@@ -105,6 +108,7 @@ namespace NueGames.Managers
             else
             {
                 Instance = this;
+                ManaManager = new ManaManager();
                 CurrentCombatStateType = CombatStateType.PrepareCombat;
             }
         }
@@ -212,6 +216,11 @@ namespace NueGames.Managers
         private IEnumerator RoundStartRoutine()
         {
             RoundNumber++;
+            
+            ManaManager.HandleAtTurnStartMana();
+            CollectionManager.DrawCards(GameManager.PersistentGameplayData.DrawCount);
+            GameManager.PersistentGameplayData.CanSelectCards = true;
+            
             OnRoundStart.Invoke(GetRoundInfo());
             yield return new WaitForSeconds(0.1f);
             
@@ -228,13 +237,6 @@ namespace NueGames.Managers
             if (CurrentMainAlly.CharacterStats.IsStunned)
             {
                 EndTurn();
-                yield return null;
-            }
-            else
-            {
-                GameManager.PersistentGameplayData.CurrentMana = GameManager.PersistentGameplayData.MaxMana;
-                CollectionManager.DrawCards(GameManager.PersistentGameplayData.DrawCount);
-                GameManager.PersistentGameplayData.CanSelectCards = true;
             }
         }
         
@@ -386,6 +388,12 @@ namespace NueGames.Managers
         public void SpendPower(PowerType powerType, int value)
         {
             CurrentMainAlly.CharacterStats.ApplyPower(powerType, - value);
+        }
+
+
+        public void AddMana(int mana)
+        {
+            ManaManager.AddMana(mana);
         }
         
         #endregion
