@@ -7,7 +7,6 @@ using NueGames.Managers;
 using NueGames.Parameters;
 using NueGames.Power;
 using UnityEngine;
-using CombatManager = NueGames.Managers.CombatManager;
 
 namespace NueGames.Combat
 {

@@ -6,6 +6,7 @@ using NueGames.Parameters;
 using NueGames.Relic;
 using UnityEngine;
 using UnityEngine.Events;
+using NueGames.Combat;
 
 namespace Tool
 {

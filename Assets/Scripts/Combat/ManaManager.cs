@@ -5,7 +5,7 @@ using NueGames.Enums;
 using NueGames.Power;
 
 
-namespace Managers
+namespace NueGames.Combat
 {
     /// <summary>
     /// 管理戰鬥中的瑪娜

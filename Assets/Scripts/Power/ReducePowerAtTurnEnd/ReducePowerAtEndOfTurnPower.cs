@@ -1,6 +1,7 @@
 ﻿using Kalkatos.DottedArrow;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Combat;
 
 namespace NueGames.Power
 {

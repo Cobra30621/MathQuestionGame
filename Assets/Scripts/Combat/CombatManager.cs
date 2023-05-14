@@ -7,13 +7,14 @@ using NueGames.Characters.Enemies;
 using NueGames.Data.Containers;
 using NueGames.Data.Encounter;
 using NueGames.Enums;
+using NueGames.Managers;
 using NueGames.NueExtentions;
 using NueGames.Power;
 using NueGames.Utils.Background;
 using Question;
 using UnityEngine;
 
-namespace NueGames.Managers
+namespace NueGames.Combat
 {
     public class CombatManager : MonoBehaviour
     {

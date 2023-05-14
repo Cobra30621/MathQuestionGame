@@ -1,6 +1,7 @@
 ﻿using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Combat;
 
 namespace NueGames.Relic.Common
 {

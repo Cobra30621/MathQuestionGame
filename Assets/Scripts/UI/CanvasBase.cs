@@ -1,5 +1,6 @@
 ﻿using NueGames.Managers;
 using UnityEngine;
+using NueGames.Combat;
 
 namespace NueGames.UI
 {

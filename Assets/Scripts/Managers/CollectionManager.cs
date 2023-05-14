@@ -5,6 +5,7 @@ using NueGames.Collection;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using UnityEngine;
+using NueGames.Combat;
 
 namespace NueGames.Managers
 {

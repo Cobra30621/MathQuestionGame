@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NueGames.Managers;
 using UnityEngine;
+using NueGames.Combat;
 
 namespace NueGames.Utils.Background
 {

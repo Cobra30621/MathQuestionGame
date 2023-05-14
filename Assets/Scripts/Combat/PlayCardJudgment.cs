@@ -4,8 +4,6 @@ using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Power;
-using UnityEngine;
-using CombatManager = NueGames.Managers.CombatManager;
 
 namespace NueGames.Combat
 {
