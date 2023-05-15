@@ -18,7 +18,7 @@ namespace NueGames.Characters
     public class EnemyBase : CharacterBase, IEnemy
     {
         [Header("Enemy Base References")]
-        [SerializeField] protected EnemyCharacterData enemyCharacterData;
+        protected EnemyCharacterData enemyCharacterData;
         [SerializeField] protected EnemyCanvas enemyCanvas;
         [SerializeField] protected SoundProfileData deathSoundProfileData;
         protected EnemyAbilityData NextAbility;
@@ -41,6 +41,12 @@ namespace NueGames.Characters
             CombatManager.OnRoundStart += ShowNextAbility;
             CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
         }
+
+        public void SetEnemyData(EnemyCharacterData data)
+        {
+            enemyCharacterData = data;
+        }
+        
         protected override void OnDeath(DamageInfo damageInfo)
         {
             base.OnDeath(damageInfo);

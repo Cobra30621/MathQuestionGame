@@ -409,7 +409,9 @@ namespace NueGames.Combat
             for (var i = 0; i < enemyList.Count; i++)
             {
                 var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
+                clone.SetEnemyData(enemyList[i]);
                 clone.BuildCharacter();
+                
                 
                 CurrentEnemiesList.Add(clone);
             }
