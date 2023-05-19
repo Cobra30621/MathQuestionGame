@@ -20,9 +20,7 @@
         // 卡牌與魔力相關
         MathMana = 41,
         GainManaAtRoundStart = 42,
-        
-        // 每回合給予
-        Angry = 51,
+    
         
         // 能力相關
         ReduceStrengthPowerAtEndOfTurn = 61,
