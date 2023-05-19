@@ -72,7 +72,6 @@ namespace NueGames.Characters
         
         public System.Action OnShieldGained;
         
-        public EventManager EventManager => EventManager.Instance;
         
         /// <summary>
         /// 持有的能力清單

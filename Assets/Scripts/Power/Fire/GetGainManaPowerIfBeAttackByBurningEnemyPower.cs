@@ -17,7 +17,7 @@ namespace NueGames.Power
             Owner.CharacterStats.OnAttacked += OnAttacked;
         }
 
-        protected override void UnSubscribeAllEvent()
+        public override void UnSubscribeAllEvent()
         {
             Owner.CharacterStats.OnAttacked -= OnAttacked;
         }

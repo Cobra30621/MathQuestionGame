@@ -13,13 +13,13 @@ namespace NueGames.Power
     public class FirePower : PowerBase
     {
         public override PowerType PowerType => PowerType.Fire;
-        
+
         public override void SubscribeAllEvent()
         {
             CombatManager.OnTurnStart += OnTurnStart;
         }
 
-        protected override void UnSubscribeAllEvent()
+        public override void UnSubscribeAllEvent()
         {
             CombatManager.OnTurnStart -= OnTurnStart;
         }

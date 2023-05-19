@@ -12,14 +12,16 @@ namespace NueGames.Relic.Common
     {
         public override RelicType RelicType => RelicType.ManaGenerator;
 
-        
-        
-        // // 每回合開始時，給予一點數學瑪娜
-        // public override void OnTurnStarted()
-        // {
-        //     CharacterBase ally = CombatManager.Instance.CurrentMainAlly;
-        //     ally.CharacterStats.ApplyPower(PowerType.MathMana, 1);
-        // }
+
+        public override void SubscribeAllEvent()
+        {
+            QuestionManager.OnAnswerCorrect += OnAnswerCorrect;
+        }
+
+        public override void UnSubscribeAllEvent()
+        {
+            QuestionManager.OnAnswerCorrect -= OnAnswerCorrect;
+        }
         
         protected override void OnAnswerCorrect()
         {

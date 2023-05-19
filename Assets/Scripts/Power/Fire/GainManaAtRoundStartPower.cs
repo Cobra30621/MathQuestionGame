@@ -15,13 +15,13 @@ namespace NueGames.Power
         {
             
         }
-        
+
         public override void SubscribeAllEvent()
         {
             CombatManager.OnTurnStart += OnTurnStart;
         }
 
-        protected override void UnSubscribeAllEvent()
+        public override void UnSubscribeAllEvent()
         {
             CombatManager.OnTurnStart -= OnTurnStart;
         }

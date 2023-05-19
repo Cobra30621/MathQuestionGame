@@ -36,10 +36,6 @@ namespace Question
         /// 卡牌管理器
         /// </summary>
         private CollectionManager CollectionManager => CollectionManager.Instance;
-        /// <summary>
-        /// 事件管理器
-        /// </summary>
-        private EventManager EventManager => EventManager.Instance;
 
 
         #region Public 變數
@@ -65,8 +61,7 @@ namespace Question
         public bool IsQuestioning => isQuestioning;
 
         #endregion
-        
-        
+
         #region 暫存 Cache
         
         
@@ -114,6 +109,27 @@ namespace Question
 
         #endregion
         
+        #region 事件
+
+        /// <summary>
+        /// 事件: 答題
+        /// </summary>
+        public System.Action OnAnswerQuestion;
+        /// <summary>
+        /// 事件: 答對題目
+        /// </summary>
+        public System.Action OnAnswerCorrect;
+        /// <summary>
+        /// 事件: 答錯題目
+        /// </summary>
+        public System.Action OnAnswerWrong;
+        /// <summary>
+        /// 事件: 結束答題模式
+        /// </summary>
+        public Action<int> OnQuestioningModeEnd;
+
+        #endregion
+        
         #region Setup
         private void Awake()
         {
@@ -153,7 +169,7 @@ namespace Question
         public void OnAnswer(int option)
         {
             EnableAnswer(false);
-            EventManager.OnAnswer?.Invoke();
+            OnAnswerQuestion?.Invoke();
             
             Debug.Log($"option {option } correctAnswer {_correctAnswer}");
             
@@ -162,14 +178,14 @@ namespace Question
                 answerRecord.CorrectCount++;
                 combatAnswerRecord.CorrectCount++;
                 questionController.OnAnswer(true, option);
-                EventManager.OnAnswerCorrect?.Invoke();
+                OnAnswerCorrect?.Invoke();
             }
             else
             {
                 answerRecord.WrongCount++;
                 combatAnswerRecord.WrongCount++;
                 questionController.OnAnswer(false, option);
-                EventManager.OnAnswerWrong?.Invoke();
+                OnAnswerWrong?.Invoke();
             }
 
             answerRecord.AnswerCount++;

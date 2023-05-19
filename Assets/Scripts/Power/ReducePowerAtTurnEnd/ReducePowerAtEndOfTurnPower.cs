@@ -17,7 +17,7 @@ namespace NueGames.Power
             CombatManager.OnRoundEnd += OnRoundEnd;
         }
 
-        protected override void UnSubscribeAllEvent()
+        public override void UnSubscribeAllEvent()
         {
             CombatManager.OnRoundEnd -= OnRoundEnd;
         }

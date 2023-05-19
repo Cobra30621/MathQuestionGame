@@ -1,4 +1,5 @@
-﻿using NueGames.Action;
+﻿using GameListener;
+using NueGames.Action;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -12,7 +13,7 @@ namespace NueGames.Power
     /// <summary>
     /// 能力（ex: 力量、易傷、中毒）的基底 class
     /// </summary>
-    public abstract class PowerBase
+    public abstract class PowerBase : GameEventListener
     {
         /// <summary>
         /// 能力類型
@@ -56,32 +57,11 @@ namespace NueGames.Power
         /// 發動事件，所需的計數
         /// </summary>
         public int NeedCounter;
-        /// <summary>
-        /// 事件管理器
-        /// </summary>
-        protected EventManager EventManager => EventManager.Instance;
-
-        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
-        protected CombatManager CombatManager => CombatManager.Instance;
-
-        #region SetUp
         
-
-        /// <summary>
-        /// 訂閱所有事件
-        /// </summary>
-        public virtual void SubscribeAllEvent()
-        {
-            
-        }
-
-        /// <summary>
-        /// 取消訂閱所以事件
-        /// </summary>
-        protected virtual void UnSubscribeAllEvent()
-        {
-            
-        }
+        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
+        
+        
+        #region SetUp
 
         public virtual void SetOwner(CharacterBase owner)
         {
@@ -168,50 +148,9 @@ namespace NueGames.Power
 
         #endregion
 
-        #region 戰鬥計算
-        /// <summary>
-        /// 受到傷害時，對傷害的加成
-        /// </summary>
-        /// <param name="damage"></param>
-        /// <returns></returns>
-        // TODO 思考不同能力的順序
-        public virtual float AtDamageReceive(float damage)
-        {
-            return damage;
-        }
-
-        /// <summary>
-        /// 給予對方傷害時，對傷害的加成
-        /// </summary>
-        /// <param name="damage"></param>
-        /// <returns></returns>
-        public virtual float AtDamageGive(float damage)
-        {
-            return damage;
-        }
-        
-        /// <summary>
-        /// 賦予格檔時，對格檔的加乘
-        /// </summary>
-        /// <param name="blockAmount"></param>
-        /// <returns></returns>
-        public virtual float ModifyBlock(float blockAmount) {
-            return blockAmount;
-        }
-
-        /// <summary>
-        /// 賦予格檔時，對格檔的加乘(最後觸發)
-        /// </summary>
-        /// <param name="blockAmount"></param>
-        /// <returns></returns>
-        public virtual float ModifyBlockLast(float blockAmount) {
-            return blockAmount;
-        }
-
-        #endregion
 
         
-        #region 事件觸發的方法
+        #region 事件觸發
         
 
         /// <summary>
@@ -245,63 +184,6 @@ namespace NueGames.Power
             }
         }
 
-
-
-
-        #region 回合開始
-
-        /// <summary>
-        /// 回合開始獲得瑪娜加成
-        /// </summary>
-        /// <param name="rawValue"></param>
-        /// <returns></returns>
-        public virtual int AtGainTurnStartMana(int rawValue)
-        {
-            return rawValue;
-        }
-        
-        
-
-        #endregion
-        
-
-        #region 戰鬥流程觸發
-        /// <summary>
-        /// 遊戲回合開始時，觸發的方法
-        /// </summary>
-        protected virtual void OnRoundStart(RoundInfo info)
-        {
-            
-        }
-        
-        /// <summary>
-        /// 遊戲回合結束時，觸發的方法
-        /// </summary>
-        protected virtual void OnRoundEnd(RoundInfo info)
-        {
-            
-        }
-        
-        /// <summary>
-        /// 玩家/敵人 回合開始時觸發
-        /// </summary>
-        /// <param name="isAlly"></param>
-        protected virtual void OnTurnStart(TurnInfo info) 
-        {
-            
-        }
-        
-        /// <summary>
-        /// 玩家/敵人 回合結束時觸發
-        /// </summary>
-        protected virtual void OnTurnEnd(TurnInfo info)
-        {
-            
-        }
-        
-
-        #endregion
-        
         
         /// <summary>
         /// 當能力改變時
@@ -312,48 +194,6 @@ namespace NueGames.Power
         /// 事件: 當能力數值增加時觸發
         /// </summary>
         protected virtual void OnPowerIncrease(PowerType powerType, int value){}
-
-
-        #region 攻擊與死亡
-
-        /// <summary>
-        /// 受到攻擊時，觸發的方法
-        /// </summary>
-        /// <param name="info"></param>
-        protected virtual void OnAttacked(DamageInfo info){}
-
-        protected virtual void OnDead(DamageInfo damageInfo){}
-        
-        
-
-        #endregion
-        
-        #region 答題模式
-        /// <summary>
-        /// 開始問答模式時，觸發的方法
-        /// </summary>
-        protected virtual void OnQuestioningModeStart(){}
-        /// <summary>
-        /// 回答問題時，觸發的方法
-        /// </summary>
-        protected virtual void OnAnswer(){}
-        /// <summary>
-        /// 答對問題時，觸發的方法
-        /// </summary>
-        protected virtual void OnAnswerCorrect(){}
-        /// <summary>
-        /// 答錯問題時，觸發的方法
-        /// </summary>
-        protected virtual void OnAnswerWrong(){}
-        /// <summary>
-        /// 結束問答模式時，觸發的方法
-        /// </summary>
-        /// <param name="correctCount"></param>
-        protected virtual void OnQuestioningModeEnd(int correctCount){}
-        
-
-        #endregion
-        
         
         
         #endregion
