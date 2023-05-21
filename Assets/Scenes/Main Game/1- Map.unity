@@ -896,6 +896,7 @@ MonoBehaviour:
   orientation: 3
   allMapConfigs:
   - {fileID: 11400000, guid: 19bf411c79e522b4b8e54f82b0140314, type: 2}
+  - {fileID: 11400000, guid: e053b3c13f65cb346968c029272413e7, type: 2}
   nodePrefab: {fileID: 5037388882644343366, guid: d1c61babba3d845e89d15d136ce9793b, type: 3}
   orientationOffset: -4
   background: {fileID: 21300000, guid: 154be9da94274494592f60439cfd560e, type: 3}
@@ -1162,6 +1163,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 41fe7e80be66d1e449a8233314a3d9d1, type: 2}
   - {fileID: 11400000, guid: 384e758af60f7c24e86240200322a5bb, type: 2}
   - {fileID: 11400000, guid: c432081682ce8734dab2332d0f1d5ecc, type: 2}
+  - {fileID: 11400000, guid: 49153edabc6433448b6053f9b410d002, type: 2}
+  - {fileID: 11400000, guid: 7f700ffeb36011b4fb16eec544a68f91, type: 2}
 --- !u!4 &686897899
 Transform:
   m_ObjectHideFlags: 0
@@ -2146,7 +2149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37f4ff1d9fdcca4ea7c9bab9e16f0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 19bf411c79e522b4b8e54f82b0140314, type: 2}
+  config: {fileID: 11400000, guid: e053b3c13f65cb346968c029272413e7, type: 2}
   view: {fileID: 617654300}
   encounterManager: {fileID: 1139243805}
 --- !u!4 &1757793415

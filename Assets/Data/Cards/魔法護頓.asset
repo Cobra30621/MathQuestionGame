@@ -10,46 +10,46 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: "\u9ED1\u9B54\u6CD5\u5E2B_\u8A60\u5531"
+  m_Name: "\u9B54\u6CD5\u8B77\u9813"
   m_EditorClassIdentifier: 
-  id: "\u9ED1\u9B54\u6CD5\u5E2B_\u8A60\u5531"
-  cardName: "\u9ED1\u9B54\u6CD5\u5E2B_\u8A60\u5531"
-  manaCost: 0
-  cardSprite: {fileID: 21300000, guid: c5eca84f84253cc4099cce024e409760, type: 3}
+  id: "\u9B54\u6CD5\u8B77\u9813"
+  cardName: "\u9B54\u6CD5\u8B77\u9813"
+  manaCost: 1
+  cardSprite: {fileID: 2125737359283935466, guid: f7043b7291f49844b9671b3d3dedcbb5, type: 3}
   rarity: 0
   needPowerToPlay: 0
-  needPowerType: 9
+  needPowerType: 0
   powerCost: 0
-  actionTargetType: 4
-  usableWithoutTarget: 1
+  actionTargetType: 1
+  usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 41
-    powerType: 0
+  - gameActionType: 11
+    powerType: 1
     answerOutcomeType: 0
-    actionValue: 0
+    actionValue: 4
     additionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: "\u9032\u5165\u7B54\u984C\u6A21\u5F0F\uFF0C\u5BEB\u4E09\u9053\u984C\u76EE"
+  - descriptionText: "\u7372\u5F97 4 \u9EDE\u683C\u6A94"
     enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    overrideColor: {r: 0, g: 0, b: 0, a: 0}
     useModifier: 0
     cardActionDataListType: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
+    modifiedValuePrefix: 
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
-  audioType: 9
+  audioType: 0
   correctCardActionDataList: []
   wrongCardActionDataList: []
   limitedQuestionCardActionDataList: []
   mathQuestioningActionParameters:
-    UseMathAction: 1
+    UseMathAction: 0
     QuestioningEndJudgeType: 0
-    QuestionCount: 3
+    QuestionCount: -1
     UseCorrectAction: 0
     CorrectActionNeedAnswerCount: -1
     UseWrongAction: 0

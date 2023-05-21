@@ -23,6 +23,10 @@ namespace NueGames.Data.Encounter
     /// TODO 撰寫單元測試檢查
     public enum EnemyEncounterName
     {
+        // 測試
+        TwoBee = 101, // 兩隻黃蜂
+        Wolf = 102, // 狼人
+        
         // Slay Of Spire (殺戮尖塔)
         SmallSmiles = 1001, // 小史萊姆
         Cultist = 1002, // 邪教徒
@@ -32,6 +36,9 @@ namespace NueGames.Data.Encounter
         TwoJawWorm = 1012, // 兩隻顎蟲
         
         GremlinNob = 1080, // 大惡魔
+        
+        
+        
     }
     
     
