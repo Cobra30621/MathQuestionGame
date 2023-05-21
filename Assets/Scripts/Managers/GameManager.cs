@@ -1,6 +1,9 @@
+using System;
+using Managers;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Data.Containers;
+using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
 using NueGames.NueExtentions;
 using NueGames.Power;
@@ -17,18 +20,21 @@ namespace NueGames.Managers
         
         [Header("Settings")]
         [SerializeField] private GameplayData gameplayData;
-        [SerializeField] private EncounterData encounterData;
         [SerializeField] private SceneData sceneData;
         [SerializeField] private bool isDevelopCombatMode;
-
+        // TODO 預設 Encounter 之後優化
+        public EnemyEncounter DefaultEncounter;
 
         #region Cache
         public SceneData SceneData => sceneData;
-        public EncounterData EncounterData => encounterData;
         public GameplayData GameplayData => gameplayData;
         public PersistentGameplayData PersistentGameplayData { get; private set; }
-        protected UIManager UIManager => UIManager.Instance;
+        
         #endregion
+        
+        // TODO　整合並去除
+        // ReSharper disable once MemberCanBePrivate.Global
+        protected UIManager UIManager => UIManager.Instance;
         
         #region Setup
         private void Awake()
@@ -44,10 +50,16 @@ namespace NueGames.Managers
                 transform.parent = null;
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-                if (isDevelopCombatMode)
-                {
-                    StartRougeLikeGame();
-                }
+                
+            }
+        }
+
+        private void Start()
+        {
+            if (isDevelopCombatMode)
+            {
+                // TODO 一般模式、開發模式串接
+                StartRougeLikeGame();
             }
         }
 
@@ -55,19 +67,33 @@ namespace NueGames.Managers
         
         #region Public Methods
 
+        
+        
         public void StartRougeLikeGame()
         {
             InitGameplayData();
             SetInitalHand();
+            InitialRelic();
         }
         
         public void InitGameplayData()
         { 
             PersistentGameplayData = new PersistentGameplayData(gameplayData);
+            PersistentGameplayData.CurrentEnemyEncounter = DefaultEncounter;
             if (UIManager)
                 UIManager.InformationCanvas.ResetCanvas();
            
-        } 
+        }
+
+        private void InitialRelic()
+        {
+            foreach (var relicType in gameplayData.InitialRelic)
+            {
+                RelicManager.Instance.GainRelic(relicType);
+            }
+        }
+        
+        
         public CardBase BuildAndGetCard(CardData targetData, Transform parent)
         {
             var clone = Instantiate(GameplayData.CardPrefab, parent);
@@ -85,15 +111,8 @@ namespace NueGames.Managers
                 foreach (var cardData in GameplayData.InitalDeck.CardList)
                     PersistentGameplayData.CurrentCardsList.Add(cardData);
         }
-        public void NextEncounter()
-        {
-            PersistentGameplayData.CurrentEncounterId++;
-            if (PersistentGameplayData.CurrentEncounterId>=EncounterData.EnemyEncounterList[PersistentGameplayData.CurrentStageId].EnemyEncounterList.Count)
-            {
-                PersistentGameplayData.CurrentEncounterId = Random.Range(0,
-                    EncounterData.EnemyEncounterList[PersistentGameplayData.CurrentStageId].EnemyEncounterList.Count);
-            }
-        }
+        
+        
         public void OnExitApp()
         {
             
@@ -102,6 +121,12 @@ namespace NueGames.Managers
         public void SetGameplayData(GameplayData gameplayData)
         {
             this.gameplayData = gameplayData;
+        }
+        
+        
+        public void SetEnemyEncounter(EnemyEncounter encounter)
+        {
+            PersistentGameplayData.CurrentEnemyEncounter  = encounter;
         }
         #endregion
       

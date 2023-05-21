@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Parameters;
 using NueGames.Power;
 using UnityEngine;
 
@@ -37,7 +38,7 @@ namespace NueGames.Characters
         /// <summary>
         /// 事件：玩家死亡時觸發
         /// </summary>
-        public System.Action OnDeath;
+        public Action<DamageInfo> OnDeath;
         /// <summary>
         /// 事件：當生命值改變時觸發
         /// </summary>
@@ -71,7 +72,6 @@ namespace NueGames.Characters
         
         public System.Action OnShieldGained;
         
-        public EventManager EventManager => EventManager.Instance;
         
         /// <summary>
         /// 持有的能力清單
@@ -116,6 +116,7 @@ namespace NueGames.Characters
             {
                 PowerBase powerBase = PowerGenerator.GetPower(targetPower);
                 powerBase.SetOwner(owner);
+                powerBase.SubscribeAllEvent();
                 powerBase.StackPower(value);
                 
                 PowerDict.Add(targetPower, powerBase);
@@ -175,19 +176,21 @@ namespace NueGames.Characters
             if (IsDeath) return;
             OnAttacked?.Invoke(damageInfo);
             
-            var remainingDamage = damageInfo.Value;
+            var damageValue = damageInfo.GetDamageValue();
+            var remainingDamage = damageValue;
             if (!damageInfo.CanPierceArmor)
             {
                 if (PowerDict.ContainsKey(PowerType.Block))
                 {
-                    ApplyPower(PowerType.Block,- damageInfo.Value);
+                    var blockValue = PowerDict[PowerType.Block].Amount;
+                    remainingDamage -= blockValue;
 
-                    remainingDamage = 0;
-                    if (PowerDict[PowerType.Block].Amount <= 0)
+                    if (remainingDamage < 0)
                     {
-                        remainingDamage = PowerDict[PowerType.Block].Amount * -1;
-                        ClearPower(PowerType.Block);
+                        remainingDamage = 0;
                     }
+                    
+                    ApplyPower(PowerType.Block,- damageValue);
                 }
             }
             
@@ -196,7 +199,7 @@ namespace NueGames.Characters
             if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
-                OnDeath?.Invoke();
+                OnDeath?.Invoke(damageInfo);
                 IsDeath = true;
             }
             OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);

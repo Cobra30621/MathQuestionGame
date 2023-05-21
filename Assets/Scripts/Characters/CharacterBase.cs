@@ -3,6 +3,7 @@ using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Interfaces;
 using NueGames.Managers;
+using NueGames.Parameters;
 using NueGames.Power;
 using UnityEngine;
 
@@ -50,7 +51,7 @@ namespace NueGames.Characters
             
         }
         
-        protected virtual void OnDeath()
+        protected virtual void OnDeath(DamageInfo damageInfo)
         {
             
         }
@@ -77,6 +78,16 @@ namespace NueGames.Characters
         public Dictionary<PowerType, PowerBase> GetPowerDict()
         {
             return CharacterStats.PowerDict;
+        }
+
+        /// <summary>
+        /// 持有能力
+        /// </summary>
+        /// <param name="powerType"></param>
+        /// <returns></returns>
+        public bool HasPower(PowerType powerType)
+        {
+            return CharacterStats.PowerDict.ContainsKey(powerType);
         }
 
         public int GetPowerValue(PowerType powerType)

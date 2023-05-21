@@ -53,23 +53,4 @@ namespace NueGames.Data.Characters
         public ActionTargetType ActionTargetType => actionTargetType;
         public bool HideActionValue => hideActionValue;
     }
-    
-    [Serializable]
-    public class EnemyActionData
-    {
-        [SerializeField] private GameActionType actionType;
-        [SerializeField] private ActionTargetType actionTargetType;
-        [SerializeField] private int minActionValue;
-        [SerializeField] private int maxActionValue;
-        [Header("給予狀態（只有 actionType 選擇 Give Status，才需要選擇）")]
-        [SerializeField] private PowerType powerType;
-        public GameActionType ActionType => actionType;
-        public ActionTargetType ActionTargetType => actionTargetType;
-        public PowerType PowerType => powerType;
-        public int ActionValue => Random.Range(minActionValue,maxActionValue);
-        
-    }
-    
-    
-    
 }

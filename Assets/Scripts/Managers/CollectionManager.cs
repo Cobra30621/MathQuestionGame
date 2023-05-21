@@ -5,6 +5,7 @@ using NueGames.Collection;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using UnityEngine;
+using NueGames.Combat;
 
 namespace NueGames.Managers
 {
@@ -165,7 +166,7 @@ namespace NueGames.Managers
         /// </summary>
         /// <param name="parameter"></param>
         /// <param name="targetCard"></param>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="System.NotImplementedException"></exception>
         public void ChangeCardPile(ChoiceParameter parameter, CardBase targetCard)
         {
             Debug.Log($"ChangeCard{parameter}");

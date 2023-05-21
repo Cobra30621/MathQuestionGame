@@ -19,8 +19,8 @@ namespace Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            multiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerType.MathMana);
-            Target.CharacterStats.ApplyPower(powerType, AdditionValue);
+            MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerType.MathMana);
+            Target.CharacterStats.ApplyPower(PowerType, AdditionValue);
         }
     }
 }

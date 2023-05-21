@@ -2,6 +2,7 @@
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Collection;
+using NueGames.Relic;
 using UnityEngine;
 
 namespace NueGames.Data.Settings
@@ -29,6 +30,9 @@ namespace NueGames.Data.Settings
         [Header("Modifiers")]
         [SerializeField] private bool isRandomHand = false;
         [SerializeField] private int randomCardCount;
+
+        [Header("Relic")] 
+        [SerializeField] private List<RelicType> initialRelic;
         
         #region Encapsulation
         public int DrawCount => drawCount;
@@ -42,6 +46,9 @@ namespace NueGames.Data.Settings
         public CardBase CardPrefab => cardPrefab;
         public string DefaultName => defaultName;
         public bool UseStageSystem => useStageSystem;
+
+        public List<RelicType> InitialRelic => initialRelic;
+
         #endregion
     }
 }

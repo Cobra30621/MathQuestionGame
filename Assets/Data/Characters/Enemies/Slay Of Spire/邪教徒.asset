@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2612027158f847538279f7d8f10dff91, type: 3}
+  m_Name: "\u90AA\u6559\u5F92"
+  m_EditorClassIdentifier: 
+  characterID: "\u90AA\u6559\u5F92"
+  characterName: "\u90AA\u6559\u5F92"
+  characterDescription: "\u90AA\u6559\u5F92"
+  maxHealth: 25
+  enemyPrefab: {fileID: 243822687015991123, guid: bae26d64001102c4c90716d8c4f0b349, type: 3}
+  followAbilityPattern: 1
+  enemyAbilityList:
+  - name: "\u7372\u5F97\u529B\u91CF"
+    intention: {fileID: 11400000, guid: c70607cffd24871458aaa58871e74ba9, type: 2}
+    hideActionValue: 0
+    actionTargetType: 0
+    actionList:
+    - gameActionType: 11
+      powerType: 2
+      answerOutcomeType: 0
+      actionValue: 5
+      additionValue: 0
+      actionDelay: 0
+  - name: "\u653B\u64CA"
+    intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
+    hideActionValue: 0
+    actionTargetType: 1
+    actionList:
+    - gameActionType: 1
+      powerType: 2
+      answerOutcomeType: 0
+      actionValue: 6
+      additionValue: 0
+      actionDelay: 0

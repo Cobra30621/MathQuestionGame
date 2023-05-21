@@ -4,9 +4,9 @@ using Kalkatos.DottedArrow;
 using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Parameters;
 using NueGames.Power;
 using UnityEngine;
-using CombatManager = NueGames.Managers.CombatManager;
 
 namespace NueGames.Combat
 {
@@ -46,10 +46,10 @@ namespace NueGames.Combat
         {
             if (info.FixDamage)
             {
-                return info.Value;
+                return info.GetAddictionValue();
             }
             
-            return GetDamageValue(info.Value, info.Self, info.Target);
+            return GetDamageValue(info.GetAddictionValue(), info.Self, info.Target);
         }
         
         /// <summary>
@@ -57,10 +57,12 @@ namespace NueGames.Combat
         /// </summary>
         private static int GetDamageValue(float rawValue, CharacterBase selfCharacter, CharacterBase targetCharacter)
         {
+            Debug.Log( " GetDamageValue"  + rawValue);
             float value = rawValue;
             // 計算使用者能力加成
             foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
             {
+                // TODO 力量、虛弱計算要分開
                 value = powerBase.AtDamageGive(value);
             }
 

@@ -1,6 +1,7 @@
 ﻿using NueGames.Action;
 using NueGames.Card;
 using NueGames.Data.Collection;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace RandomTool
@@ -27,7 +28,7 @@ namespace RandomTool
                     ActionParameters newParameters = new ActionParameters()
                     {
                         ActionType = actionData.GameActionType,
-                        Value = actionData.ActionValue,
+                        BaseValue = actionData.ActionValue,
                         Self = parameters.Self,
                         Target = parameters.Target,
                         ActionSource = parameters.ActionSource, 

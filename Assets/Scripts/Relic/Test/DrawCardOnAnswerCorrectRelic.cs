@@ -15,6 +15,17 @@ namespace NueGames.Relic.Common
             NeedCounter = 3;
         }
 
+        public override void SubscribeAllEvent()
+        {
+            QuestionManager.OnAnswerCorrect += OnAnswerCorrect;
+        }
+
+        public override void UnSubscribeAllEvent()
+        {
+            QuestionManager.OnAnswerCorrect -= OnAnswerCorrect;
+        }
+
+
         protected override void OnAnswerCorrect()
         {
             Counter++;

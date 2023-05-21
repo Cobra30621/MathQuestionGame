@@ -14,7 +14,7 @@ namespace NueGames.Action.MathAction
         public override void DoAction()
         {
             CheckHasSetValue();
-            multiplierAmount = QuestionManager.Instance.GetAnswerCountInThisCombat(answerOutcomeType);
+            MultiplierAmount = QuestionManager.Instance.GetAnswerCountInThisCombat(AnswerOutcomeType);
      
             DoDamageAction();
         }

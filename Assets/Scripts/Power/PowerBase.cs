@@ -1,8 +1,11 @@
-﻿using NueGames.Action;
+﻿using GameListener;
+using NueGames.Action;
+using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Power
@@ -10,11 +13,13 @@ namespace NueGames.Power
     /// <summary>
     /// 能力（ex: 力量、易傷、中毒）的基底 class
     /// </summary>
-    public abstract class PowerBase
+    public abstract class PowerBase : GameEventListener
     {
         /// <summary>
         /// 能力類型
         /// </summary>
+        // TODO 改名成 PowerName
+        // PowerType 應該是 Buff, DeBuff
         public abstract PowerType PowerType  { get;}
         /// <summary>
         /// 能力數值
@@ -52,35 +57,11 @@ namespace NueGames.Power
         /// 發動事件，所需的計數
         /// </summary>
         public int NeedCounter;
-        /// <summary>
-        /// 事件管理器
-        /// </summary>
-        protected EventManager EventManager => EventManager.Instance;
-
+        
         protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
-        protected CombatManager CombatManager => CombatManager.Instance;
-
+        
+        
         #region SetUp
-
-        protected PowerBase(){
-            SubscribeAllEvent();
-        }
-
-        /// <summary>
-        /// 訂閱所有事件
-        /// </summary>
-        protected virtual void SubscribeAllEvent()
-        {
-            
-        }
-
-        /// <summary>
-        /// 取消訂閱所以事件
-        /// </summary>
-        protected virtual void UnSubscribeAllEvent()
-        {
-            
-        }
 
         public virtual void SetOwner(CharacterBase owner)
         {
@@ -167,49 +148,9 @@ namespace NueGames.Power
 
         #endregion
 
-        #region 戰鬥計算
-        /// <summary>
-        /// 受到傷害時，對傷害的加成
-        /// </summary>
-        /// <param name="damage"></param>
-        /// <returns></returns>
-        public virtual float AtDamageReceive(float damage)
-        {
-            return damage;
-        }
-
-        /// <summary>
-        /// 給予對方傷害時，對傷害的加成
-        /// </summary>
-        /// <param name="damage"></param>
-        /// <returns></returns>
-        public virtual float AtDamageGive(float damage)
-        {
-            return damage;
-        }
-        
-        /// <summary>
-        /// 賦予格檔時，對格檔的加乘
-        /// </summary>
-        /// <param name="blockAmount"></param>
-        /// <returns></returns>
-        public virtual float ModifyBlock(float blockAmount) {
-            return blockAmount;
-        }
-
-        /// <summary>
-        /// 賦予格檔時，對格檔的加乘(最後觸發)
-        /// </summary>
-        /// <param name="blockAmount"></param>
-        /// <returns></returns>
-        public virtual float ModifyBlockLast(float blockAmount) {
-            return blockAmount;
-        }
-
-        #endregion
 
         
-        #region 事件觸發的方法
+        #region 事件觸發
         
 
         /// <summary>
@@ -243,45 +184,6 @@ namespace NueGames.Power
             }
         }
 
-        #region 戰鬥流程觸發
-        /// <summary>
-        /// 遊戲回合開始時，觸發的方法
-        /// </summary>
-        protected virtual void OnRoundStart(RoundInfo info)
-        {
-            
-        }
-        
-        /// <summary>
-        /// 遊戲回合結束時，觸發的方法
-        /// </summary>
-        protected virtual void OnRoundEnd(RoundInfo info)
-        {
-            
-        }
-        
-        /// <summary>
-        /// 玩家/敵人 回合開始時觸發
-        /// </summary>
-        /// <param name="isAlly"></param>
-        protected virtual void OnTurnStart(TurnInfo info) 
-        {
-            
-        }
-        
-        /// <summary>
-        /// 玩家/敵人 回合結束時觸發
-        /// </summary>
-        protected virtual void OnTurnEnd(TurnInfo info)
-        {
-            
-        }
-        
-
-        #endregion
-        
-        
-        
         
         /// <summary>
         /// 當能力改變時
@@ -294,45 +196,17 @@ namespace NueGames.Power
         protected virtual void OnPowerIncrease(PowerType powerType, int value){}
         
         
-        /// <summary>
-        /// 受到攻擊時，觸發的方法
-        /// </summary>
-        /// <param name="info"></param>
-        /// <param name="damageAmount"></param>
-        protected virtual void OnAttacked(DamageInfo info, int damageAmount){}
-
-        #region 答題模式
-        /// <summary>
-        /// 開始問答模式時，觸發的方法
-        /// </summary>
-        protected virtual void OnQuestioningModeStart(){}
-        /// <summary>
-        /// 回答問題時，觸發的方法
-        /// </summary>
-        protected virtual void OnAnswer(){}
-        /// <summary>
-        /// 答對問題時，觸發的方法
-        /// </summary>
-        protected virtual void OnAnswerCorrect(){}
-        /// <summary>
-        /// 答錯問題時，觸發的方法
-        /// </summary>
-        protected virtual void OnAnswerWrong(){}
-        /// <summary>
-        /// 結束問答模式時，觸發的方法
-        /// </summary>
-        /// <param name="correctCount"></param>
-        protected virtual void OnQuestioningModeEnd(int correctCount){}
-        
-
-        #endregion
-        
-        
-        
         #endregion
 
 
         #region 工具
+
+        public bool IsCharacterTurn(TurnInfo info)
+        {
+            return info.CharacterType == GetOwnerCharacterType();
+        }
+        
+        
         /// <summary>
         /// 取得能力的持有對象的 CharacterType
         /// </summary>
@@ -342,16 +216,8 @@ namespace NueGames.Power
             return Owner.CharacterType;
         }
 
-        /// <summary>
-        /// 執行傷害行動
-        /// </summary>
-        /// <param name="damageInfo"></param>
-        protected void DoDamageAction(DamageInfo damageInfo)
-        {
-            DamageAction damageAction = new DamageAction();
-            damageAction.SetValue(damageInfo);
-            GameActionExecutor.AddToBottom(damageAction);
-        }
+        
+        
 
         /// <summary>
         /// 取得 DamageInfo
@@ -364,7 +230,7 @@ namespace NueGames.Power
         {
             DamageInfo damageInfo = new DamageInfo()
             {
-                Value = damageValue,
+                BaseValue = damageValue,
                 Target = Owner,
                 FixDamage = fixDamage,
                 CanPierceArmor = canPierceArmor,

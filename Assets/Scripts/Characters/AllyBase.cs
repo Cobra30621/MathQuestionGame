@@ -1,7 +1,9 @@
 ﻿using System;
+using NueGames.Combat;
 using NueGames.Data.Characters;
 using NueGames.Interfaces;
 using NueGames.Managers;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Characters
@@ -44,9 +46,9 @@ namespace NueGames.Characters
                 CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
         }
         
-        protected override void OnDeath()
+        protected override void OnDeath(DamageInfo damageInfo)
         {
-            base.OnDeath();
+            base.OnDeath(damageInfo);
             if (CombatManager != null)
             {
                 CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;

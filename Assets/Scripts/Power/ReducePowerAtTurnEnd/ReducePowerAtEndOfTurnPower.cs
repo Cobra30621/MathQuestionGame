@@ -1,6 +1,7 @@
 ﻿using Kalkatos.DottedArrow;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Combat;
 
 namespace NueGames.Power
 {
@@ -11,12 +12,12 @@ namespace NueGames.Power
     {
         protected abstract PowerType TargetPowerType { get; }
 
-        protected override void SubscribeAllEvent()
+        public override void SubscribeAllEvent()
         {
             CombatManager.OnRoundEnd += OnRoundEnd;
         }
 
-        protected override void UnSubscribeAllEvent()
+        public override void UnSubscribeAllEvent()
         {
             CombatManager.OnRoundEnd -= OnRoundEnd;
         }

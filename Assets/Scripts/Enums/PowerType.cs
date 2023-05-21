@@ -19,9 +19,8 @@
         
         // 卡牌與魔力相關
         MathMana = 41,
-        
-        // 每回合給予
-        Angry = 51,
+        GainManaAtRoundStart = 42,
+    
         
         // 能力相關
         ReduceStrengthPowerAtEndOfTurn = 61,
@@ -32,6 +31,9 @@
         
         // 燃燒
         Fire = 201,
+        SuperFire = 202,
+        
+        GetGainManaPowerIfBeAttackByBurningEnemy = 211,
         
     }
 }

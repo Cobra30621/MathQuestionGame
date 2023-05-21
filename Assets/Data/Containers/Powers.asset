@@ -33,11 +33,11 @@ MonoBehaviour:
   - titleText: Vulnerable
     contentText: "\u53D7\u5230\u50B7\u5BB3 1.5 \u500D"
     powerType: 4
-    iconSprite: {fileID: 0}
+    iconSprite: {fileID: 21300000, guid: 3afe9266576aa4041b27d5775e70022c, type: 3}
   - titleText: Weak
     contentText: "\u9020\u6210\u50B7\u5BB3\u6E1B\u5C11 25 %"
     powerType: 5
-    iconSprite: {fileID: 0}
+    iconSprite: {fileID: 21300000, guid: 91f3a59db48995646a98d1c1658bb71e, type: 3}
   - titleText: Poison
     contentText: Damage per round. Ignores <color=blue>block</color>.
     powerType: 21
@@ -46,11 +46,6 @@ MonoBehaviour:
     contentText: "\u6578\u5B78\u6CD5\u529B"
     powerType: 41
     iconSprite: {fileID: 21300000, guid: c8a69ecdf54ac8e4b873466605de27ff, type: 3}
-  - titleText: Angry
-    contentText: "\u53D7\u5230\u653B\u64CA\u6642\uFF0C\u529B\u91CF\u63D0\u5347 1
-      (\u5C1A\u672A\u5BE6\u73FE)"
-    powerType: 51
-    iconSprite: {fileID: 0}
   - titleText: "\u6BCF\u7372\u5F971\u9EDE\u529B\u91CF\uFF0C\u5C0D\u5168\u9AD4\u9020\u62105\u9EDE\u50B7\u5BB3"
     contentText: "\u6BCF\u7372\u5F971\u9EDE\u529B\u91CF\uFF0C\u5C0D\u5168\u9AD4\u9020\u62105\u9EDE\u50B7\u5BB3"
     powerType: 101
@@ -63,3 +58,16 @@ MonoBehaviour:
     contentText: "\u56DE\u5408\u958B\u59CB\u6642\u6263\u8840"
     powerType: 201
     iconSprite: {fileID: -214828719786938277, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
+  - titleText: "\u7206\u71C3"
+    contentText: "\u5982\u679C\u5C0D\u65B9\u88AB\u6D88\u6EC5\u6642\u662F\u56E0\u70BA\u71C3\u71D2\uFF0C\u5247\u9020\u6210\u5168\u9AD4\u50B7\u5BB3"
+    powerType: 202
+    iconSprite: {fileID: 21300000, guid: 575f96a269b894d94a9d962ddd424ed1, type: 3}
+  - titleText: "\u56DE\u5408\u958B\u59CB\u6642\uFF0C\u7372\u5F97\u746A\u5A1C"
+    contentText: "\u56DE\u5408\u958B\u59CB\u6642\uFF0C\u7372\u5F97\u746A\u5A1C"
+    powerType: 42
+    iconSprite: {fileID: 21300000, guid: f811a6d9e30364072a8c156ebc5215f8, type: 3}
+  - titleText: "\u706B\u821E"
+    contentText: "\u906D\u53D7\u5230\u4F86\u81EA\u71C3\u71D2\u72C0\u614B\u7684\u6575\u4EBA\u653B\u64CA\u6642
+      \u4E0B\u4E00\u56DE\u5408\u9B54\u529B\u984D\u5916\u589E\u52A01"
+    powerType: 211
+    iconSprite: {fileID: 21300000, guid: 4c6503d12cac245d386e9c334bddf0b4, type: 3}
