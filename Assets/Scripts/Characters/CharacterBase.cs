@@ -75,6 +75,7 @@ namespace NueGames.Characters
             return CharacterType;
         }
 
+
         public Dictionary<PowerType, PowerBase> GetPowerDict()
         {
             return CharacterStats.PowerDict;

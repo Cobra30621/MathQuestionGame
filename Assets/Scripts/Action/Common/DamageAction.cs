@@ -28,11 +28,11 @@ namespace NueGames.Action
             CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            Target.BeAttacked(DamageInfo);
-
             PlayFx();
-            PlaySpawnTextFx($"{DamageInfo.GetDamageValue()}", Target);
+            PlaySpawnTextFx($"{DamageInfo.GetAfterBlockDamage()}", Target);
             PlayAudio();
+            
+            Target.BeAttacked(DamageInfo);
         }
     }
 }

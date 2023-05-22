@@ -92,6 +92,61 @@ namespace NueGames.Parameters
         }
 
 
+        /// <summary>
+        /// 傷害是否可以被格檔
+        /// </summary>
+        /// <returns></returns>
+        public bool EnableBlock()
+        {
+            var target = Target;
+            var damageValue = GetDamageValue();
+            
+            if (CanPierceArmor)
+            {
+                return false;
+            }
+            
+            if (target.HasPower(PowerType.Block))
+            {
+                var blockValue = target.GetPowerValue(PowerType.Block);
+
+                return blockValue >= damageValue;
+            }
+
+            return false;
+        }
+        
+        
+        /// <summary>
+        /// 取得格檔後剩下的傷害
+        /// </summary>
+        /// <param name="damageInfo"></param>
+        /// <returns></returns>
+        public int GetAfterBlockDamage()
+        {
+            var target = Target;
+            var damageValue = GetDamageValue();
+            var remainingDamage = damageValue;
+            if (!CanPierceArmor)
+            {
+                if (target.HasPower(PowerType.Block))
+                {
+                    var blockValue = target.GetPowerValue(PowerType.Block);
+                    remainingDamage -= blockValue;
+
+                    if (remainingDamage < 0)
+                    {
+                        remainingDamage = 0;
+                    }
+                }
+            }
+
+            return remainingDamage;
+        }
+        
+        
+
+
         public override string ToString()
         {
             return $"{nameof(ActionSource)}: {ActionSource}, {nameof(Target)}: {Target}, {nameof(BaseValue)}: {BaseValue}, {nameof(FixDamage)}: {FixDamage}, {nameof(CanPierceArmor)}: {CanPierceArmor}, {nameof(Self)}: {Self}, {nameof(SourcePower)}: {SourcePower}, {nameof(SourceRelic)}: {SourceRelic}, {nameof(MultiplierValue)}: {MultiplierValue}, {nameof(MultiplierAmount)}: {MultiplierAmount}";

@@ -32,9 +32,11 @@ namespace NueGames.Action
             foreach (EnemyBase enemy in enemyCopy)
             {
                 DamageInfo.Target = enemy;
+                PlaySpawnTextFx($"{DamageInfo.GetAfterBlockDamage()}", enemy);
+                
                 enemy.BeAttacked(DamageInfo);
                 
-                PlaySpawnTextFx($"{DamageInfo.GetDamageValue()}", enemy);
+                
             }
             
             PlayFx();

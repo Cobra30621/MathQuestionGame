@@ -175,35 +175,53 @@ namespace NueGames.Characters
         {
             if (IsDeath) return;
             OnAttacked?.Invoke(damageInfo);
-            
-            var damageValue = damageInfo.GetDamageValue();
-            var remainingDamage = damageValue;
-            if (!damageInfo.CanPierceArmor)
-            {
-                if (PowerDict.ContainsKey(PowerType.Block))
-                {
-                    var blockValue = PowerDict[PowerType.Block].Amount;
-                    remainingDamage -= blockValue;
 
-                    if (remainingDamage < 0)
-                    {
-                        remainingDamage = 0;
-                    }
-                    
-                    ApplyPower(PowerType.Block,- damageValue);
-                }
+            var damageValue = damageInfo.GetDamageValue();
+            var afterBlockDamage = damageInfo.GetAfterBlockDamage();
+            
+            BeDamaged(afterBlockDamage);
+            ReduceBlock(damageValue - afterBlockDamage);
+            CheckIsDeath(damageInfo);
+        }
+
+        /// <summary>
+        /// 受到傷害
+        /// </summary>
+        private void BeDamaged(int damage)
+        {
+            CurrentHealth -= damage;
+            if (damage > 0)
+            {
+                OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
             }
-            
-            CurrentHealth -= remainingDamage;
-            
+        }
+
+        /// <summary>
+        /// 降低格檔值
+        /// </summary>
+        /// <param name="damageValue"></param>
+        private void ReduceBlock(int damageValue)
+        {
+            if (PowerDict.ContainsKey(PowerType.Block))
+            {
+                ApplyPower(PowerType.Block,- damageValue);
+            }
+        }
+
+        /// <summary>
+        /// 判斷是否死亡
+        /// </summary>
+        /// <param name="damageInfo"></param>
+        private void CheckIsDeath(DamageInfo damageInfo)
+        {
             if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
                 OnDeath?.Invoke(damageInfo);
                 IsDeath = true;
             }
-            OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
         }
+      
         
         /// <summary>
         /// 增加最大生命值
