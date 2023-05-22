@@ -10,41 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: "\u6E2C\u8A66\u7528_\u5176\u4ED6\u529F\u80FD"
+  m_Name: "\u7570\u5E38_\u6495\u88C2"
   m_EditorClassIdentifier: 
-  id: "\u6E2C\u8A66\u7528_\u5176\u4ED6\u529F\u80FD"
-  cardName: "\u6E2C\u8A66\u7528_\u5176\u4ED6\u529F\u80FD"
-  manaCost: 1
-  cardSprite: {fileID: 21300000, guid: a06f26bd1f8d2cf4e867a8f80fda6b95, type: 3}
+  id: "\u7570\u5E38_\u6495\u88C2"
+  cardName: "\u7570\u5E38_\u6495\u88C2"
+  manaCost: 0
+  cardSprite: {fileID: 0}
   rarity: 0
   needPowerToPlay: 0
   needPowerType: 0
   powerCost: 0
-  actionTargetType: 0
+  actionTargetType: 1
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 302
+  - gameActionType: 1
     powerType: 0
     answerOutcomeType: 0
-    actionValue: 10
+    actionValue: 2
     additionValue: 0
     actionDelay: 0
     SourcePile: 0
-    TargetPile: 1
-    TargetCardData: {fileID: 11400000, guid: 2aad5d5ec9f593b4a99c0373c94e6de3, type: 2}
+    TargetPile: 0
+    TargetCardData: {fileID: 0}
   cardDescriptionDataList:
-  - descriptionText: "\u6E2C\u8A66\u7528_\u5176\u4ED6\u529F\u80FD"
+  - descriptionText: "\u9020\u6210\u73A9\u5BB6 2 \u9EDE\u50B7\u5BB3"
     enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    overrideColor: {r: 0, g: 0, b: 0, a: 0}
     useModifier: 0
     cardActionDataListType: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
+    modifiedValuePrefix: 
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 02000000
+  specialKeywordsList: 
   audioType: 0
   correctCardActionDataList: []
   wrongCardActionDataList: []

@@ -30,6 +30,9 @@ MonoBehaviour:
       actionValue: 6
       additionValue: 0
       actionDelay: 0
+      SourcePile: 0
+      TargetPile: 0
+      TargetCardData: {fileID: 0}
   - name: "\u6495\u88C2\u653B\u64CA"
     intention: {fileID: 11400000, guid: 2e6f988430cbc924b9450f7ab02dd731, type: 2}
     hideActionValue: 0
@@ -41,14 +44,20 @@ MonoBehaviour:
       actionValue: 9
       additionValue: 0
       actionDelay: 0
+      SourcePile: 0
+      TargetPile: 0
+      TargetCardData: {fileID: 0}
   - name: "\u9632\u79A6"
     intention: {fileID: 11400000, guid: b0b1e7f2f78bb444eb1666e4accf22ee, type: 2}
     hideActionValue: 0
     actionTargetType: 0
     actionList:
-    - gameActionType: 11
-      powerType: 1
+    - gameActionType: 18
+      powerType: 0
       answerOutcomeType: 0
       actionValue: 6
       additionValue: 0
       actionDelay: 0
+      SourcePile: 0
+      TargetPile: 0
+      TargetCardData: {fileID: 0}

@@ -1,6 +1,7 @@
 ﻿using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
+using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Relic;
 using UnityEngine;
@@ -55,6 +56,7 @@ namespace NueGames.Parameters
         /// </summary>
         public float MultiplierAmount;
 
+        
 
         #endregion
 

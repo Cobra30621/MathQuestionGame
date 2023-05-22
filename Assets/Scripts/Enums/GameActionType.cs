@@ -30,6 +30,9 @@
         UseRandom = 51, // 隨機行動
         // 71 法力系統
         UnlimitedUseMathManaCard = 71,
+        
+        // 301 卡組相關
+        GainCardInThisBattle = 302,
     }
 
     /// <summary>
