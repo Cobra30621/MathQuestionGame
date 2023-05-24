@@ -84,7 +84,7 @@ namespace NueGames.Parameters
         /// <returns></returns>
         public int GetAddictionValue()
         {
-            Debug.Log( $" GetAddictionValue {BaseValue} + {MultiplierAmount} * {MultiplierValue}"  );
+            // Debug.Log( $" GetAddictionValue {BaseValue} + {MultiplierAmount} * {MultiplierValue}"  );
             return Mathf.RoundToInt(BaseValue + MultiplierAmount * MultiplierValue);
         }
 
@@ -116,6 +116,18 @@ namespace NueGames.Parameters
             }
 
             return false;
+        }
+
+
+        /// <summary>
+        /// 本次傷害有讓對方受到傷害
+        /// </summary>
+        /// <returns></returns>
+        public bool HaveDamage()
+        {
+            int afterBlockDamage = GetAfterBlockDamage();
+
+            return afterBlockDamage != 0;
         }
         
         

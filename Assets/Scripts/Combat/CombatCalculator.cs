@@ -57,7 +57,7 @@ namespace NueGames.Combat
         /// </summary>
         private static int GetDamageValue(float rawValue, CharacterBase selfCharacter, CharacterBase targetCharacter)
         {
-            Debug.Log( " GetDamageValue"  + rawValue);
+            // Debug.Log( " GetDamageValue"  + rawValue);
             float value = rawValue;
             // 計算使用者能力加成
             foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)

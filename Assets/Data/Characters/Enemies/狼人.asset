@@ -33,12 +33,13 @@ MonoBehaviour:
       SourcePile: 0
       TargetPile: 0
       TargetCardData: {fileID: 0}
+      TriggerActionList: []
   - name: "\u6495\u88C2\u653B\u64CA"
     intention: {fileID: 11400000, guid: 2e6f988430cbc924b9450f7ab02dd731, type: 2}
     hideActionValue: 0
     actionTargetType: 1
     actionList:
-    - gameActionType: 1
+    - gameActionType: 7
       powerType: 0
       answerOutcomeType: 0
       actionValue: 9
@@ -47,6 +48,17 @@ MonoBehaviour:
       SourcePile: 0
       TargetPile: 0
       TargetCardData: {fileID: 0}
+      TriggerActionList:
+      - gameActionType: 302
+        powerType: 0
+        answerOutcomeType: 0
+        actionValue: 0
+        additionValue: 0
+        actionDelay: 0
+        SourcePile: 0
+        TargetPile: 0
+        TargetCardData: {fileID: 11400000, guid: d39fdb898cd8da64bb5078cab57e11f7, type: 2}
+        TriggerActionList: []
   - name: "\u9632\u79A6"
     intention: {fileID: 11400000, guid: b0b1e7f2f78bb444eb1666e4accf22ee, type: 2}
     hideActionValue: 0
@@ -61,3 +73,4 @@ MonoBehaviour:
       SourcePile: 0
       TargetPile: 0
       TargetCardData: {fileID: 0}
+      TriggerActionList: []

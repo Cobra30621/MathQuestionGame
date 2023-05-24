@@ -11,6 +11,7 @@
         DamageByQuestioning = 4,
         DamageByAllyPowerValue = 5,
         DamageByAnswerCountInThisBattle = 6,
+        DamageAndTriggerActionIfDamageSuccess = 7,
         // 11~20 角色狀態
         ApplyPower = 11, 
         ApplyPowerToAllEnemy = 13,

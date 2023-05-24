@@ -199,6 +199,11 @@ namespace NueGames.Data.Collection
         /// 目標卡牌
         /// </summary>
         public CardData TargetCardData;
+
+        /// <summary>
+        /// 觸發的行動
+        /// </summary>
+        [SerializeField] public List<ActionData> TriggerActionList;
         
         /// <summary>
         /// 遊戲行為類型

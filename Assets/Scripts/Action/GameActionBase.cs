@@ -1,4 +1,5 @@
-﻿using NueGames.Card;
+﻿using System.Collections.Generic;
+using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Data.Characters;
@@ -106,8 +107,13 @@ namespace NueGames.Action
         /// 目標卡牌
         /// </summary>
         public CardData TargetCardData;
-        
-        
+
+        /// <summary>
+        /// 觸發的行動
+        /// </summary>
+        public List<ActionData> TriggerActionList;
+
+
 
         protected FxManager FxManager
         {
@@ -164,7 +170,7 @@ namespace NueGames.Action
 
             DamageInfo = new DamageInfo(parameters);
 
-            
+            TriggerActionList = data.TriggerActionList;
             
             HasSetValue = true;
         }
