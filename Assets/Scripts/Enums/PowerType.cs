@@ -32,7 +32,7 @@
         // 燃燒
         Fire = 201,
         SuperFire = 202,
-        
+        Kindle = 203,
         GetGainManaPowerIfBeAttackByBurningEnemy = 211,
         
     }

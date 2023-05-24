@@ -29,8 +29,13 @@ namespace NueGames.Power
         {
             if (info.CharacterType == GetOwnerCharacterType())
             {
-                DamageInfo damageInfo = GetDamageInfo( Amount, true, true);
+                int FireAmount = Amount;
+                if (CombatManager.IsMainAllyHasPower(PowerType.Kindle))
+                {
+                   FireAmount = Amount * 2;
+                }
 
+                DamageInfo damageInfo = GetDamageInfo(FireAmount, true, true);
                 Debug.Log( "Fire" +  damageInfo);
                 GameActionExecutor.DoDamageAction(damageInfo);
                 

@@ -396,7 +396,15 @@ namespace NueGames.Combat
         {
             ManaManager.AddMana(mana);
         }
-        
+/// <summary>
+/// 判斷玩家得到的能力
+/// </summary>
+/// <param name="powerType"></param>
+/// <returns></returns>
+        public bool IsMainAllyHasPower(PowerType powerType)
+        {
+            return CurrentMainAlly.GetPowerDict().ContainsKey(powerType);
+        }
         #endregion
         
         #region Private Methods
