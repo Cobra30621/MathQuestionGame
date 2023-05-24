@@ -93,6 +93,21 @@ namespace NueGames.Action
         /// 傷害類型
         /// </summary>
         protected DamageInfo DamageInfo;
+        
+        /// <summary>
+        /// 起始的卡組
+        /// </summary>
+        public PileType SourcePile;
+        /// <summary>
+        /// 目標的卡組
+        /// </summary>
+        public PileType TargetPile;
+        /// <summary>
+        /// 目標卡牌
+        /// </summary>
+        public CardData TargetCardData;
+        
+        
 
         protected FxManager FxManager
         {
@@ -139,11 +154,17 @@ namespace NueGames.Action
             PowerType = data.PowerType; 
             Duration = data.ActionDelay;
             AnswerOutcomeType = data.AnswerOutcomeType;
+            
+            SourcePile = data.SourcePile;
+            TargetPile = data.TargetPile;
+            TargetCardData = data.TargetCardData;
 
             Self = parameters.Self;
             Target = parameters.Target;
 
             DamageInfo = new DamageInfo(parameters);
+
+            
             
             HasSetValue = true;
         }

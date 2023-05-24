@@ -49,6 +49,8 @@ namespace NueGames.Data.Collection
 
         [SerializeField] private RandomActionData randomActionData;
         
+        
+        
         #region Cache
         public string Id => id;
         public bool UsableWithoutTarget => usableWithoutTarget;
@@ -183,6 +185,20 @@ namespace NueGames.Data.Collection
         [SerializeField] private int additionValue;
         [Tooltip("行為延遲時間")]
         [SerializeField] private float actionDelay;
+        
+        [Header("卡牌")] 
+        /// <summary>
+        /// 起始的卡組
+        /// </summary>
+        public PileType SourcePile;
+        /// <summary>
+        /// 目標的卡組
+        /// </summary>
+        public PileType TargetPile;
+        /// <summary>
+        /// 目標卡牌
+        /// </summary>
+        public CardData TargetCardData;
         
         /// <summary>
         /// 遊戲行為類型

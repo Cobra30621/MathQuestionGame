@@ -17,6 +17,7 @@
         MultiplyPower = 14,
         ClearPower = 15,
         ApplyPowerByMathManaValue = 17,
+        ApplyBlock = 18,
         // 21~30 卡組相關
         EarnMana = 21,
         DrawCard = 22,
@@ -29,6 +30,9 @@
         UseRandom = 51, // 隨機行動
         // 71 法力系統
         UnlimitedUseMathManaCard = 71,
+        
+        // 301 卡組相關
+        GainCardInThisBattle = 302,
     }
 
     /// <summary>

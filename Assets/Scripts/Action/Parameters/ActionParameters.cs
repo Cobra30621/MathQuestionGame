@@ -3,6 +3,7 @@ using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Relic;
+using UnityEngine;
 
 namespace NueGames.Parameters
 {
@@ -56,7 +57,6 @@ namespace NueGames.Parameters
         /// 傷害源自哪一個遺物(遺物才需要)
         /// </summary>
         public RelicType SourceRelic;
-        
         /// <summary>
         /// 加成數值
         /// </summary>

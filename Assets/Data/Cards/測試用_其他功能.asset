@@ -24,11 +24,15 @@ MonoBehaviour:
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 1
+  - gameActionType: 302
     powerType: 0
+    answerOutcomeType: 0
     actionValue: 10
     additionValue: 0
     actionDelay: 0
+    SourcePile: 0
+    TargetPile: 1
+    TargetCardData: {fileID: 11400000, guid: 2aad5d5ec9f593b4a99c0373c94e6de3, type: 2}
   cardDescriptionDataList:
   - descriptionText: "\u6E2C\u8A66\u7528_\u5176\u4ED6\u529F\u80FD"
     enableOverrideColor: 0
@@ -57,3 +61,6 @@ MonoBehaviour:
     Time: -1
     SelfCharacter: {fileID: 0}
     TargetCharacter: {fileID: 0}
+  useRandomAction: 0
+  randomActionData:
+    randomActionList: []

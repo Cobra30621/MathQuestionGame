@@ -170,37 +170,66 @@ namespace NueGames.Managers
         public void ChangeCardPile(ChoiceParameter parameter, CardBase targetCard)
         {
             Debug.Log($"ChangeCard{parameter}");
-            switch (parameter.TargetPile)
-            {
-                case PileType.Discard:
-                    // targetCard.Discard();
-                    break;
-                case PileType.Exhaust:
-                    // targetCard.Exhaust();
-                    break;
-                case PileType.Draw:
-                    // throw new System.NotImplementedException();
-                    break;
-                case PileType.Hand:
-                    AddCardOnHand(targetCard.CardData);
-                    break;
-            }
+            // switch (parameter.TargetPile)
+            // {
+            //     case PileType.Discard:
+            //         // targetCard.Discard();
+            //         break;
+            //     case PileType.Exhaust:
+            //         // targetCard.Exhaust();
+            //         break;
+            //     case PileType.Draw:
+            //         // throw new System.NotImplementedException();
+            //         break;
+            //     case PileType.Hand:
+            //         AddCardOnHand(targetCard.CardData);
+            //         break;
+            // }
             
             OnCardChangePile(parameter, targetCard);
         }
+
+        
+        
         
         public void OnCardChangePile(ChoiceParameter parameter, CardBase targetCard)
         {
-            PileDict[parameter.SourcePile].Remove(targetCard.CardData);
-            PileDict[parameter.TargetPile].Add(targetCard.CardData);
+            RemoveCardFromPile(parameter.SourcePile, targetCard.CardData);
+            AddCardToPile(parameter.TargetPile, targetCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
         }
+        
+        /// <summary>
+        /// 新增卡排至牌組
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <param name="targetPile"></param>
+        public void AddCardToPile(PileType targetPile, CardData cardData)
+        {
+            PileDict[targetPile].Add(cardData);
 
+            // 如果是移動到手牌，創造手牌物件
+            if (targetPile == PileType.Hand)
+            {
+                AddCardOnHand(cardData);
+            }
+        }
+
+        /// <summary>
+        /// 從卡組移除卡牌
+        /// </summary>
+        /// <param name="cardData"></param>
+        /// <param name="targetPile"></param>
+        public void RemoveCardFromPile(PileType targetPile, CardData cardData)
+        {
+            PileDict[targetPile].Remove(cardData);
+        }
+        
         /// <summary>
         /// 加入卡牌到手牌
         /// </summary>
         /// <param name="cardData"></param>
-        public void AddCardOnHand(CardData cardData)
+        protected void AddCardOnHand(CardData cardData)
         {
             var clone = GameManager.BuildAndGetCard(cardData, HandController.drawTransform);
             HandController.AddCardToHand(clone);
