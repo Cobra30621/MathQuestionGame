@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u9B54\u6CD5\u8B77\u9813"
   m_EditorClassIdentifier: 
-  id: "\u9B54\u6CD5\u8B77\u9813"
-  cardName: "\u9B54\u6CD5\u8B77\u9813"
+  id: "\u9B54\u6CD5\u8B77\u76FE"
+  cardName: "\u9B54\u6CD5\u8B77\u76FE"
   manaCost: 1
   cardSprite: {fileID: 21300000, guid: f8a54d9f6356386469e9e800120b4512, type: 3}
   rarity: 0
@@ -21,7 +21,7 @@ MonoBehaviour:
   needPowerType: 0
   powerCost: 0
   actionTargetType: 1
-  usableWithoutTarget: 0
+  usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
   - gameActionType: 11

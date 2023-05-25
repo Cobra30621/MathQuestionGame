@@ -21,7 +21,7 @@ MonoBehaviour:
   needPowerType: 41
   powerCost: 1
   actionTargetType: 1
-  usableWithoutTarget: 0
+  usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
   - gameActionType: 11
@@ -30,6 +30,10 @@ MonoBehaviour:
     actionValue: 10
     additionValue: 0
     actionDelay: 0
+    SourcePile: 0
+    TargetPile: 0
+    TargetCardData: {fileID: 0}
+    TriggerActionList: []
   cardDescriptionDataList:
   - descriptionText: "\u6D88\u8017 1 \u9EDE\u6CD5\u529B\n\u7372\u5F97 10 \u9EDE\u683C\u6A94"
     enableOverrideColor: 0

@@ -348,10 +348,12 @@ namespace NueGames.Collection
                 CharacterBase selfCharacter = CombatManager.CurrentMainAlly;
                 CharacterBase targetCharacter = null;
 
-                _canUse = _heldCard.CardData.UsableWithoutTarget ||
-                          _heldCard.CardData.ActionTargetType == ActionTargetType.WithoutTarget ||
-                          _heldCard.CardData.ActionTargetType == ActionTargetType.AllEnemies ||
-                          CheckPlayOnCharacter(mainRay, _canUse, ref selfCharacter, ref targetCharacter);
+
+                bool selectCharacter = CheckPlayOnCharacter(mainRay, ref targetCharacter);
+                _canUse = _heldCard.CardData.UsableWithoutTarget |
+                          _heldCard.CardData.ActionTargetType == ActionTargetType.WithoutTarget |
+                          _heldCard.CardData.ActionTargetType == ActionTargetType.AllEnemies |
+                          selectCharacter;
                 
                 if (_canUse)
                 {
@@ -375,9 +377,9 @@ namespace NueGames.Collection
             _heldCard = null;
         }
 
-        private bool CheckPlayOnCharacter(Ray mainRay, bool _canUse, ref CharacterBase selfCharacter,
-            ref CharacterBase targetCharacter)
+        private bool CheckPlayOnCharacter(Ray mainRay, ref CharacterBase targetCharacter)
         {
+            bool canUse = false;
             RaycastHit hit;
             if (Physics.Raycast(mainRay, out hit, 1000, targetLayer))
             {
@@ -392,20 +394,19 @@ namespace NueGames.Collection
 
                     if (checkEnemy || checkAlly)
                     {
-                        _canUse = true;
-                        selfCharacter = CombatManager.CurrentMainAlly;
+                        canUse = true;
                         targetCharacter = character.GetCharacterBase();
                     }
                 }
             }
 
-            if (_heldCard.CardData.UsableWithoutTarget ||
+            if (_heldCard.CardData.UsableWithoutTarget &&
                 _heldCard.CardData.ActionTargetType == ActionTargetType.Ally)
             {
+                
                 targetCharacter = CombatManager.CurrentMainAlly;
             }
-
-            return _canUse;
+            return canUse;
         }
 
         private void HandleDraggedCardInsideHand(bool mouseButton, int count)
