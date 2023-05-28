@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data;
 using NueGames.Enums;
 using NueGames.Utils;
 using UnityEngine;
@@ -13,15 +14,13 @@ namespace NueGames.Managers
         public FxManager(){}
         public static FxManager Instance { get; private set; }
     
-        [Header("References")] 
-        [SerializeField] private List<FxBundle> fxList;
 
+        [SerializeField] private FXData fxData;
+        
         [Header("Floating Text")]
         [SerializeField] private FloatingText floatingTextPrefab;
         
 
-        public Dictionary<FxType, GameObject> FXDict { get; private set; }= new Dictionary<FxType, GameObject>();
-        public List<FxBundle> FXList => fxList;
 
         #region Setup
         private void Awake()
@@ -36,8 +35,7 @@ namespace NueGames.Managers
                 transform.parent = null;
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-                for (int i = 0; i < Enum.GetValues(typeof(FxType)).Length; i++)
-                    FXDict.Add((FxType)i,FXList.FirstOrDefault(x=>x.FxType == (FxType)i)?.FxPrefab);
+                fxData.Init();
             }
         }
         #endregion
@@ -54,18 +52,11 @@ namespace NueGames.Managers
         }
         public void PlayFx(Transform targetTransform, FxType targetFx)
         {
-            Instantiate(FXDict[targetFx], targetTransform);
+            Instantiate(fxData.GetFX(targetFx), targetTransform);
         }
         #endregion
         
     }
 
-    [Serializable]
-    public class FxBundle
-    {
-        [SerializeField] private FxType fxType;
-        [SerializeField] private GameObject fxPrefab;
-        public FxType FxType => fxType;
-        public GameObject FxPrefab => fxPrefab;
-    }
+    
 }
