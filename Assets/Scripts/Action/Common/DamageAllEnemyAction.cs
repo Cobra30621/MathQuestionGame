@@ -15,32 +15,23 @@ namespace NueGames.Action
     {
         public override GameActionType ActionType => GameActionType.DamageAllEnemy;
         
-        public DamageAllEnemyAction()
-        {
-            FxType = FxType.Attack;
-            AudioActionType = AudioActionType.Attack;
-        }
+
         
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         public override void DoAction()
         {
-            CheckHasSetValue();
-            
             List<EnemyBase> enemyCopy = new List<EnemyBase>(CombatManager.CurrentEnemiesList);
             foreach (EnemyBase enemy in enemyCopy)
             {
                 DamageInfo.Target = enemy;
                 PlaySpawnTextFx($"{DamageInfo.GetAfterBlockDamage()}", enemy);
+                PlayFx(FxType.Attack, enemy.transform);
                 
                 enemy.BeAttacked(DamageInfo);
                 
-                
             }
-            
-            PlayFx();
-            PlayAudio();
         }
     }
 }

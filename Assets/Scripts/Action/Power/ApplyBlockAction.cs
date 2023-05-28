@@ -9,13 +9,11 @@ namespace Action.Power
         public override GameActionType ActionType => GameActionType.ApplyBlock;
         public override void DoAction()
         {
-            CheckHasSetValue();
             if (IsTargetNull()) return;
             
             Target.CharacterStats.ApplyPower(PowerType.Block, AdditionValue);
             
-            PlayFx();
-            PlayAudio();
+            PlayFx(FxType.Block, Target.transform);
         }
     }
 }

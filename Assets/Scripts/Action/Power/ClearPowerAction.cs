@@ -14,25 +14,15 @@ namespace NueGames.Action
     {
         public override GameActionType ActionType => GameActionType.ClearPower;
 
-        public ClearPowerAction()
-        {
-            FxType = FxType.Buff;
-            AudioActionType = AudioActionType.Power;
-        }
-        
-        
+   
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         public override void DoAction()
         {
-            CheckHasSetValue();
             if (IsTargetNull()) return;
             
             Target.CharacterStats.ClearPower(PowerType);
-            
-            PlayFx();
-            PlayAudio();
         }
     }
 }

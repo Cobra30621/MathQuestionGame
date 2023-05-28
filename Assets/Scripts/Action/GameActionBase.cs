@@ -74,18 +74,8 @@ namespace NueGames.Action
         /// </summary>
         protected AnswerOutcomeType AnswerOutcomeType;
 
-        /// <summary>
-        /// 特效出現位置
-        /// </summary>
-        protected Transform FXTransform;
-        /// <summary>
-        /// 特效類型
-        /// </summary>
-        public FxType FxType;
-        /// <summary>
-        /// 音效類型
-        /// </summary>
-        public AudioActionType AudioActionType;
+        protected FxType FxType;
+        protected FxSpawnPosition FxSpawnPosition;
 
 
         private DamageInfo _damageInfo;
@@ -164,6 +154,9 @@ namespace NueGames.Action
             SourcePile = data.SourcePile;
             TargetPile = data.TargetPile;
             TargetCardData = data.TargetCardData;
+            
+            FxType = data.FxType;
+            FxSpawnPosition = data.FxSpawnPosition;
 
             Self = parameters.Self;
             Target = parameters.Target;
@@ -171,7 +164,9 @@ namespace NueGames.Action
             DamageInfo = new DamageInfo(parameters);
 
             TriggerActionList = data.TriggerActionList;
+
             
+
             HasSetValue = true;
         }
 
@@ -216,35 +211,12 @@ namespace NueGames.Action
         /// <summary>
         /// 播放特效
         /// </summary>
-        protected void PlayFx()
+        protected void PlayFx(FxType fxType, Transform spawnPosition)
         {
-            // TODO 設定 FX 預設產生處
-            if (Target != null)
-            {
-                FxManager.PlayFx(Target.transform, FxType);
-            }
-                
+            FxManager.PlayFx(spawnPosition, fxType);
         }
 
-        /// <summary>
-        /// 播放音效
-        /// </summary>
-        protected void PlayAudio()
-        {
-            AudioManager.PlayOneShot(AudioActionType);
-        }
-        
-
-        /// <summary>
-        /// 確認遊戲行為數值是否已經設定
-        /// </summary>
-        protected void CheckHasSetValue()
-        {
-            if (!HasSetValue)
-            {
-                Debug.LogError($"{this.GetType()} hasn't set value.\n Please Call SetValue");
-            }
-        }
+      
 
         /// <summary>
         /// 行為目標是為否空

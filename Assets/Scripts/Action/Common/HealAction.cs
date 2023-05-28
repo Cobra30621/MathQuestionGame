@@ -12,26 +12,19 @@ namespace NueGames.Action
     public class HealAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.Heal;
-        public HealAction()
-        {
-            FxType = FxType.Heal;
-            AudioActionType = AudioActionType.Heal;
-        }
-        
+  
         
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         public override void DoAction()
         {
-            CheckHasSetValue();
             if (IsTargetNull()) return;
             
             Target.CharacterStats.Heal(AdditionValue);
 
-            PlayFx();
+            PlayFx(FxType.Heal, Target.transform);
             PlaySpawnTextFx($"{AdditionValue}", Target);
-            PlayAudio();
         }
     }
 }

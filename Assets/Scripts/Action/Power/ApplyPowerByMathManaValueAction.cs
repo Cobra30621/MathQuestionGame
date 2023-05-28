@@ -16,7 +16,6 @@ namespace Action
         
         public override void DoAction()
         {
-            CheckHasSetValue();
             if (IsTargetNull()) return;
             
             MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerType.MathMana);

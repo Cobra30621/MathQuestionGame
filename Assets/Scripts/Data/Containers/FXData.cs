@@ -19,8 +19,18 @@ namespace Data
         public void Init()
         {
             fxDict = new Dictionary<FxType, GameObject>();
-            for (int i = 0; i < Enum.GetValues(typeof(FxType)).Length; i++)
-                fxDict.Add((FxType)i, fxList.FirstOrDefault(x=>x.FxType == (FxType)i)?.FxPrefab);
+            
+            foreach (var fxBundle in fxList)
+            {
+                if (fxDict.ContainsKey(fxBundle.FxType))
+                {
+                    Debug.LogError($"{fxBundle.FxType} 重複了，請去 fxList 設定");
+                }
+                else
+                {
+                    fxDict.Add(fxBundle.FxType, fxBundle.FxPrefab);
+                }
+            }
         }
 
 

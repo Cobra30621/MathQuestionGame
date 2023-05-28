@@ -23,6 +23,9 @@ namespace NueGames.Data.Encounter
     /// TODO 撰寫單元測試檢查
     public enum EnemyEncounterName
     {
+        // 測試功能
+        ProgrammerTest = 50, // 程式測試敵人
+
         // 測試
         TwoBee = 101, // 兩隻黃蜂
         Wolf = 102, // 狼人

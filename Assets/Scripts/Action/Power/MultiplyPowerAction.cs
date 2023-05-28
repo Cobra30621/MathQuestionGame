@@ -10,12 +10,6 @@ namespace NueGames.Action
     public class MultiplyPowerAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.MultiplyPower;
-
-        public MultiplyPowerAction()
-        {
-            FxType = FxType.Buff;
-            AudioActionType = AudioActionType.Power;
-        }
         
         
         /// <summary>
@@ -23,13 +17,9 @@ namespace NueGames.Action
         /// </summary>
         public override void DoAction()
         {
-            CheckHasSetValue();
             if (IsTargetNull()) return;
             
             Target.CharacterStats.MultiplyPower(PowerType, AdditionValue);
-            
-            PlayFx();
-            PlayAudio();
         }
     }
 }

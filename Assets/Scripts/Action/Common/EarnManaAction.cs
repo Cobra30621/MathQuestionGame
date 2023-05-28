@@ -11,26 +11,19 @@ namespace NueGames.Action
     public class EarnManaAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.EarnMana;
-        public EarnManaAction()
-        {
-            FxType = FxType.Buff;
-            AudioActionType = AudioActionType.Power;
-        }
+   
         
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         public override void DoAction()
         {
-            CheckHasSetValue();
-            
             if (CombatManager != null)
                 CombatManager.IncreaseMana(BaseValue);
             else
                 Debug.LogError("There is no CombatManager");
 
-            PlayFx();
-            PlayAudio();
+            PlayFx(FxType.Buff, CombatManager.GetMainAllyTransform());
         }
     }
 }

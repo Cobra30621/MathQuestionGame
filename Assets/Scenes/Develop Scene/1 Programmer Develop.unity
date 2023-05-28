@@ -468,6 +468,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4738070697433486633, guid: e7a9bde70f4f930459240b323a8fcd77, type: 3}
+      propertyPath: fxData
+      value: 
+      objectReference: {fileID: 11400000, guid: f03fa32c4ab714046bf9c113fd95c9b1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7a9bde70f4f930459240b323a8fcd77, type: 3}
 --- !u!1001 &605257982
@@ -1107,7 +1111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0a2e0289f545d5bf4bbe55735efbd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayOnStart: 1
+  PlayOnStart: 0
   TestEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1341,6 +1345,10 @@ PrefabInstance:
       propertyPath: encounterData
       value: 
       objectReference: {fileID: 11400000, guid: 35bec8ea199d6ee428e6ec0812189364, type: 2}
+    - target: {fileID: 3747954644409722070, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: DefaultEncounter
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c76dd9c3a5406e4b95889e77b60c894, type: 2}
     - target: {fileID: 3747954644409722070, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: isDevelopCombatMode
       value: 1

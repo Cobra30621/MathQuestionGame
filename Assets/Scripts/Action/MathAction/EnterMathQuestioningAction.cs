@@ -15,12 +15,7 @@ namespace NueGames.Action.MathAction
     {
         public override GameActionType ActionType => GameActionType.EnterMathQuestioning;
         private MathQuestioningActionParameters mathParameters;
-        public EnterMathQuestioningAction()
-        {
-            FxType = FxType.Attack;
-            AudioActionType = AudioActionType.Attack;
-        }
-        
+
         public override void SetValue(ActionParameters parameters)
         {
             base.SetValue(parameters);
@@ -45,10 +40,7 @@ namespace NueGames.Action.MathAction
         /// </summary>
         public override void DoAction()
         {
-            Debug.Log("parameters.QuestionCount" + mathParameters.QuestionCount);
             QuestionManager.Instance.EnterQuestionMode(mathParameters);
-
-            PlayAudio();
         }
     }
     

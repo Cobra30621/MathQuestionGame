@@ -14,23 +14,16 @@ namespace NueGames.Action
     {
         public override GameActionType ActionType => GameActionType.Damage;
         
-        public DamageAction()
-        {
-            FxType = FxType.FeedBackTest;
-            AudioActionType = AudioActionType.Attack;
-        }
-        
+   
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         public override void DoAction()
         {
-            CheckHasSetValue();
             if (IsTargetNull()) return;
             
-            PlayFx();
+            PlayFx(FxType.Attack, Target.transform);
             PlaySpawnTextFx($"{DamageInfo.GetAfterBlockDamage()}", Target);
-            PlayAudio();
             
             Target.BeAttacked(DamageInfo);
         }

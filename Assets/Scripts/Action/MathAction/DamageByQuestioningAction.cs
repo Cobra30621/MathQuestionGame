@@ -14,15 +14,11 @@ namespace NueGames.Action.MathAction
     {
         public override GameActionType ActionType => GameActionType.DamageByQuestioning;
         
-        
-        
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         public override void DoAction()
         {
-            CheckHasSetValue();
-            
             DoDamageAction();
         }
 

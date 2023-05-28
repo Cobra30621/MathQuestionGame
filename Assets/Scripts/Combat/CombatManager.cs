@@ -386,6 +386,11 @@ namespace NueGames.Combat
             return CurrentMainAlly.GetPowerDict();
         }
 
+        public Transform GetMainAllyTransform()
+        {
+            return CurrentMainAlly.transform;
+        }
+
         public void SpendPower(PowerType powerType, int value)
         {
             CurrentMainAlly.CharacterStats.ApplyPower(powerType, - value);

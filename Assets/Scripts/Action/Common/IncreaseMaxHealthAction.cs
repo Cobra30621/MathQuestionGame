@@ -12,29 +12,18 @@ namespace NueGames.Action
     public class IncreaseMaxHealthAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.IncreaseMaxHealth;
-        public IncreaseMaxHealthAction()
-        {
-            FxType = FxType.Buff;
-            AudioActionType = AudioActionType.Power;
-        }
 
-        
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         public override void DoAction()
         {
-            CheckHasSetValue();
             if (IsTargetNull()) return;
             
             Target.CharacterStats.IncreaseMaxHealth(AdditionValue);
 
-            if (FxManager != null)
-            {
-                FxManager.PlayFx(Target.transform,FxType.Attack);
-                FxManager.SpawnFloatingText(Target.TextSpawnRoot,AdditionValue.ToString());
-            }
-            PlayAudio();
+            PlayFx(FxType.Buff, Target.transform);
+            PlaySpawnTextFx(AdditionValue.ToString(), Target);
         }
     }
 }

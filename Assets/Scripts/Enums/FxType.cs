@@ -2,13 +2,17 @@
 {
     public enum FxType
     {
-        Attack,
-        Heal,
-        Poison,
-        Block,
-        Str,
-        Buff,
-        Stun,
-        FeedBackTest
+        Null = 0,
+        // Attack
+        Attack = 1,
+        
+        // Buff
+        
+        Buff = 101,
+        Block = 102,
+        
+        // Other
+        Heal = 201,
+        FeedBackTest = 1001
     }
 }

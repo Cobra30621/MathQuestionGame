@@ -32,6 +32,10 @@
         // 71 法力系統
         UnlimitedUseMathManaCard = 71,
         
+        // 101 ~ 其他
+        FX = 101,
+        
+        
         // 301 卡組相關
         GainCardInThisBattle = 302,
     }

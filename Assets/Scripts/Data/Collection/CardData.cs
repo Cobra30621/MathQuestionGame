@@ -185,6 +185,12 @@ namespace NueGames.Data.Collection
         [SerializeField] private int additionValue;
         [Tooltip("行為延遲時間")]
         [SerializeField] private float actionDelay;
+
+        [Tooltip("播放特效(FX)，只有在 FXAction 中使用")] 
+        [SerializeField] private FxType fxType;
+
+        [SerializeField] private FxSpawnPosition fxSpawnPosition;
+        
         
         [Header("卡牌")] 
         /// <summary>
@@ -232,7 +238,14 @@ namespace NueGames.Data.Collection
         /// 行為延遲時間
         /// </summary>
         public float ActionDelay => actionDelay;
-        
+        /// <summary>
+        /// 播放特效(FX)，只有在 FXAction 中使用
+        /// </summary>
+        public FxType FxType => fxType;
+        /// <summary>
+        /// 播放特效產生的位置(FX)，只有在 FXAction 中使用
+        /// </summary>
+        public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
         
         #region Editor
 
