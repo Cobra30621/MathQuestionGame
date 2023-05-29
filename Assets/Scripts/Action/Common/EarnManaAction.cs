@@ -19,7 +19,7 @@ namespace NueGames.Action
         public override void DoAction()
         {
             if (CombatManager != null)
-                CombatManager.IncreaseMana(BaseValue);
+                CombatManager.AddMana(BaseValue);
             else
                 Debug.LogError("There is no CombatManager");
 

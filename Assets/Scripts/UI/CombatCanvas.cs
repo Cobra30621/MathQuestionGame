@@ -1,5 +1,6 @@
 ﻿using System;
 using Feedback;
+using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
 using TMPro;
@@ -22,6 +23,8 @@ namespace NueGames.UI
 
         [Header("FeedBack")] 
         [SerializeField] private IFeedback onMathManaChangeFeedback;
+
+        [SerializeField] private IFeedback onManaChangeFeedback;
  
         public GameObject CombatWinPanel => combatWinPanel;
         public GameObject CombatLosePanel => combatLosePanel;
@@ -32,6 +35,8 @@ namespace NueGames.UI
         {
             CombatWinPanel.SetActive(false);
             CombatLosePanel.SetActive(false);
+            SetMathManaText();
+            CombatManager.ManaManager.OnGainMana += OnManaChange;
         }
 
         #endregion
@@ -47,10 +52,20 @@ namespace NueGames.UI
 
         public void OnMathManaChange()
         {
-            int mathMana = CombatManager.GetMainAllyPowerValue(PowerType.MathMana);
-            
-            mathManaTextTextField.text = $"{mathMana}";
+            SetMathManaText();
             onMathManaChangeFeedback.Play();
+        }
+
+        public void OnManaChange(int value)
+        {
+           onManaChangeFeedback.Play(); 
+           manaTextTextField.text = $"{GameManager.PersistentGameplayData.CurrentMana.ToString()}/{GameManager.PersistentGameplayData.MaxMana}";
+        }
+
+        private void SetMathManaText()
+        {
+            int mathMana = CombatManager.GetMainAllyPowerValue(PowerType.MathMana);
+            mathManaTextTextField.text = $"{mathMana}";
         }
 
         public override void ResetCanvas()

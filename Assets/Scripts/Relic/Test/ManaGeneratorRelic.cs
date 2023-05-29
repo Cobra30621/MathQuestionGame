@@ -28,10 +28,7 @@ namespace NueGames.Relic.Common
         
         protected override void OnAnswerCorrect()
         {
-            var applyMathManaAction = new ApplyMathManaAction();
-            var parameter = new ApplyPowerParameters(CombatManager.Instance.CurrentMainAlly,
-                PowerType.MathMana, 1);
-            applyMathManaAction.SetValue(parameter);
+            var applyMathManaAction = new ApplyMathManaAction(1);
             GameActionExecutor.Instance.AddToBottom(applyMathManaAction);
         }
         

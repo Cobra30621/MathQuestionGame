@@ -95,6 +95,7 @@ namespace NueGames.Card
             HideTooltipInfo(TooltipManager.Instance);
             
             SpendMana( ManaCost);
+            // TODO : 改成只有數學瑪娜
             if(CardData.NeedPowerToPlay)
                 SpendPower(CardData.NeedPowerType, PowerCost);
 
@@ -124,13 +125,14 @@ namespace NueGames.Card
         protected virtual void SpendMana(int value)
         {
             if (!IsPlayable) return;
-            GameManager.PersistentGameplayData.CurrentMana -= value;
+            CombatManager.AddMana(-value);
         }
         
         protected virtual void SpendPower(PowerType powerType, int value)
         {
             if (!IsPlayable) return;
-            CombatManager.SpendPower(powerType, value);
+            // CombatManager.SpendPower(powerType, value);
+            CombatManager.SpendMathMana(value);
         }
         
         public virtual void SetInactiveMaterialState(bool isInactive) 

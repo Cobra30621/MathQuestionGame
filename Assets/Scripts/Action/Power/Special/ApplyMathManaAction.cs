@@ -8,11 +8,16 @@ namespace Action.Power
     public class ApplyMathManaAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.ApplyBlock;
+
+        public ApplyMathManaAction(int value)
+        {
+            BaseValue = value;
+        }
+
+
         public override void DoAction()
         {
-            if (IsTargetNull()) return;
-            
-            Target.CharacterStats.ApplyPower(PowerType.MathMana, AdditionValue);
+            CombatManager.CurrentMainAlly.CharacterStats.ApplyPower(PowerType.MathMana, AdditionValue);
             
             UIManager.Instance.CombatCanvas.OnMathManaChange();
             // PlayFx(FxType.Block, Target.transform);

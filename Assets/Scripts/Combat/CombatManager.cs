@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Action.Power;
 using Managers;
 using NueGames.Characters;
 using NueGames.Characters.Enemies;
@@ -346,14 +347,7 @@ namespace NueGames.Combat
             if (CurrentEnemiesList.Count<=0)
                 WinCombat();
         }
-
-        public void IncreaseMana(int target)
-        {
-            GameManager.PersistentGameplayData.CurrentMana += target;
-            UIManager.CombatCanvas.SetPileTexts();
-        }
-
-
+        
         public CharacterBase EnemyDetermineTargets(CharacterBase enemyCharacter,
             ActionTargetType actionTargetType)
         {
@@ -403,9 +397,14 @@ namespace NueGames.Combat
             return CurrentMainAlly.transform;
         }
 
-        public void SpendPower(PowerType powerType, int value)
+        /// <summary>
+        /// 花費數學瑪娜
+        /// </summary>
+        /// <param name="value"></param>
+        public void SpendMathMana(int value)
         {
-            CurrentMainAlly.CharacterStats.ApplyPower(powerType, - value);
+            var action = new ApplyMathManaAction(- value);
+            GameActionExecutor.Instance.AddToBottom(action);
         }
 
 
