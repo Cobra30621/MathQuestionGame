@@ -1,7 +1,10 @@
-﻿using NueGames.Characters;
+﻿using Action.Power;
+using NueGames.Action;
+using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Combat;
+using NueGames.Parameters;
 
 namespace NueGames.Relic.Common
 {
@@ -25,8 +28,11 @@ namespace NueGames.Relic.Common
         
         protected override void OnAnswerCorrect()
         {
-            CharacterBase ally = CombatManager.Instance.CurrentMainAlly;
-            ally.CharacterStats.ApplyPower(PowerType.MathMana, 1);
+            var applyMathManaAction = new ApplyMathManaAction();
+            var parameter = new ApplyPowerParameters(CombatManager.Instance.CurrentMainAlly,
+                PowerType.MathMana, 1);
+            applyMathManaAction.SetValue(parameter);
+            GameActionExecutor.Instance.AddToBottom(applyMathManaAction);
         }
         
     }

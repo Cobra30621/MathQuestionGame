@@ -19,10 +19,8 @@
         ClearPower = 15,
         ApplyPowerByMathManaValue = 17,
         ApplyBlock = 18,
-        // 21~30 卡組相關
-        EarnMana = 21,
-        DrawCard = 22,
-        Heal = 24,
+        ApplyMathMana = 19,
+        
         // 31~40 永久效果(結束戰鬥持續)
         IncreaseMaxHealth = 31,  
         // 41~50 其他系統
@@ -35,6 +33,11 @@
         // 101 ~ 其他
         FX = 101,
         
+        
+        // 21~30 卡組相關
+        EarnMana = 201,
+        DrawCard = 202,
+        Heal = 203,
         
         // 301 卡組相關
         GainCardInThisBattle = 302,

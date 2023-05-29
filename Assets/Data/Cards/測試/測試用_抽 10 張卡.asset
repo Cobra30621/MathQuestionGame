@@ -24,11 +24,18 @@ MonoBehaviour:
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 22
+  - gameActionType: 202
     powerType: 0
+    answerOutcomeType: 0
     actionValue: 10
     additionValue: 0
     actionDelay: 0
+    fxType: 0
+    fxSpawnPosition: 0
+    SourcePile: 0
+    TargetPile: 0
+    TargetCardData: {fileID: 0}
+    TriggerActionList: []
   cardDescriptionDataList:
   - descriptionText: 'Draw '
     enableOverrideColor: 0
@@ -77,3 +84,6 @@ MonoBehaviour:
     Time: -1
     SelfCharacter: {fileID: 0}
     TargetCharacter: {fileID: 0}
+  useRandomAction: 0
+  randomActionData:
+    randomActionList: []

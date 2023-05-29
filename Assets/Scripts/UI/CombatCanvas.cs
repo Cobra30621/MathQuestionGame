@@ -1,4 +1,6 @@
-﻿using NueGames.Enums;
+﻿using System;
+using Feedback;
+using NueGames.Enums;
 using NueGames.Managers;
 using TMPro;
 using UnityEngine;
@@ -18,13 +20,12 @@ namespace NueGames.UI
         [SerializeField] private GameObject combatWinPanel;
         [SerializeField] private GameObject combatLosePanel;
 
-        public TextMeshProUGUI DrawPileTextField => drawPileTextField;
-        public TextMeshProUGUI DiscardPileTextField => discardPileTextField;
-        public TextMeshProUGUI ManaTextTextField => manaTextTextField;
+        [Header("FeedBack")] 
+        [SerializeField] private IFeedback onMathManaChangeFeedback;
+ 
         public GameObject CombatWinPanel => combatWinPanel;
         public GameObject CombatLosePanel => combatLosePanel;
 
-        public TextMeshProUGUI ExhaustPileTextField => exhaustPileTextField;
 
         #region Setup
         private void Awake()
@@ -32,15 +33,24 @@ namespace NueGames.UI
             CombatWinPanel.SetActive(false);
             CombatLosePanel.SetActive(false);
         }
+
         #endregion
 
         #region Public Methods
         public void SetPileTexts()
         {
-            DrawPileTextField.text = $"{CollectionManager.DrawPile.Count.ToString()}";
-            DiscardPileTextField.text = $"{CollectionManager.DiscardPile.Count.ToString()}";
-            ExhaustPileTextField.text =  $"{CollectionManager.ExhaustPile.Count.ToString()}";
-            ManaTextTextField.text = $"{GameManager.PersistentGameplayData.CurrentMana.ToString()}/{GameManager.PersistentGameplayData.MaxMana}";
+            drawPileTextField.text = $"{CollectionManager.DrawPile.Count.ToString()}";
+            discardPileTextField.text = $"{CollectionManager.DiscardPile.Count.ToString()}";
+            exhaustPileTextField.text =  $"{CollectionManager.ExhaustPile.Count.ToString()}";
+            manaTextTextField.text = $"{GameManager.PersistentGameplayData.CurrentMana.ToString()}/{GameManager.PersistentGameplayData.MaxMana}";
+        }
+
+        public void OnMathManaChange()
+        {
+            int mathMana = CombatManager.GetMainAllyPowerValue(PowerType.MathMana);
+            
+            mathManaTextTextField.text = $"{mathMana}";
+            onMathManaChangeFeedback.Play();
         }
 
         public override void ResetCanvas()

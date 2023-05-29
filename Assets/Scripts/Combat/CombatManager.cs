@@ -212,8 +212,10 @@ namespace NueGames.Combat
             
             CurrentCombatStateType = CombatStateType.RoundStart;
         }
+
         
-        
+
+
         private IEnumerator RoundStartRoutine()
         {
             RoundNumber++;
@@ -386,6 +388,16 @@ namespace NueGames.Combat
             return CurrentMainAlly.GetPowerDict();
         }
 
+        public int GetMainAllyPowerValue(PowerType powerType)
+        {
+            return CurrentMainAlly.GetPowerValue(powerType);
+        }
+
+        public bool IsMainAllyHasPower(PowerType powerType)
+        {
+            return CurrentMainAlly.HasPower(powerType);
+        }
+
         public Transform GetMainAllyTransform()
         {
             return CurrentMainAlly.transform;
@@ -401,15 +413,8 @@ namespace NueGames.Combat
         {
             ManaManager.AddMana(mana);
         }
-/// <summary>
-/// 判斷玩家得到的能力
-/// </summary>
-/// <param name="powerType"></param>
-/// <returns></returns>
-        public bool IsMainAllyHasPower(PowerType powerType)
-        {
-            return CurrentMainAlly.GetPowerDict().ContainsKey(powerType);
-        }
+
+
         #endregion
         
         #region Private Methods
@@ -441,6 +446,7 @@ namespace NueGames.Combat
             }
         }
 
+        
         /// <summary>
         /// 取得玩家/敵人回合資訊
         /// </summary>

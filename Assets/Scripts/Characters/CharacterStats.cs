@@ -70,8 +70,6 @@ namespace NueGames.Characters
         /// </summary>
         public Action<PowerType> OnPowerCleared;
         
-        public System.Action OnShieldGained;
-        
         
         /// <summary>
         /// 持有的能力清單
