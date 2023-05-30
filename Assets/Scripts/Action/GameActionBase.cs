@@ -74,7 +74,7 @@ namespace NueGames.Action
         /// </summary>
         protected AnswerOutcomeType AnswerOutcomeType;
 
-        protected FxType FxType;
+        protected FxName FxName;
         protected FxSpawnPosition FxSpawnPosition;
 
 
@@ -155,7 +155,7 @@ namespace NueGames.Action
             TargetPile = data.TargetPile;
             TargetCardData = data.TargetCardData;
             
-            FxType = data.FxType;
+            FxName = data.FxName;
             FxSpawnPosition = data.FxSpawnPosition;
 
             Self = parameters.Self;
@@ -214,7 +214,7 @@ namespace NueGames.Action
         protected void DoFXAction()
         {
             // 不播放特效
-            if (FxType == FxType.Null)
+            if (FxName == FxName.Null)
             {
                 return;
             }
@@ -224,17 +224,17 @@ namespace NueGames.Action
                 case FxSpawnPosition.EachTarget:
                     foreach (var target in TargetList)
                     {
-                        PlayFx(FxType, target.transform);
+                        PlayFx(FxName, target.transform);
                     };
                     break;
                 case FxSpawnPosition.Ally:
-                    PlayFx(FxType, CombatManager.GetMainAllyTransform());
+                    PlayFx(FxName, CombatManager.GetMainAllyTransform());
                     break;
                 case FxSpawnPosition.EnemyMiddle:
                     throw new System.NotImplementedException();
                     break;
                 case FxSpawnPosition.ScreenMiddle:
-                    PlayFx(FxType, null);
+                    PlayFx(FxName, null);
                     break;
             }
         }
@@ -253,9 +253,9 @@ namespace NueGames.Action
         /// <summary>
         /// 播放特效
         /// </summary>
-        protected void PlayFx(FxType fxType, Transform spawnPosition)
+        protected void PlayFx(FxName fxName, Transform spawnPosition)
         {
-            FxManager.PlayFx(spawnPosition, fxType);
+            FxManager.PlayFx(spawnPosition, fxName);
         }
 
       

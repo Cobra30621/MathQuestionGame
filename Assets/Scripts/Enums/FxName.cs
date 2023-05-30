@@ -1,6 +1,6 @@
 ﻿namespace NueGames.Enums
 {
-    public enum FxType
+    public enum FxName
     {
         Null = 0,
         // Attack

@@ -23,7 +23,7 @@ namespace NueGames.Action
             else
                 Debug.LogError("There is no CombatManager");
 
-            PlayFx(FxType.Buff, CombatManager.GetMainAllyTransform());
+            PlayFx(FxName.Buff, CombatManager.GetMainAllyTransform());
         }
     }
 }

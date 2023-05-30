@@ -30,7 +30,7 @@ namespace NueGames.Action
             foreach (EnemyBase enemy in CombatManager.CurrentEnemiesList)
             {
                 enemy.CharacterStats.ApplyPower(PowerType, AdditionValue);
-                PlayFx(FxType.Buff, enemy.transform);
+                PlayFx(FxName.Buff, enemy.transform);
             }
         }
     }

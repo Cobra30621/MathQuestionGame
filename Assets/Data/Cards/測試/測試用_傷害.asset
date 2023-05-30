@@ -20,30 +20,18 @@ MonoBehaviour:
   needPowerToPlay: 0
   needPowerType: 0
   powerCost: 2
-  actionTargetType: 0
-  usableWithoutTarget: 0
+  actionTargetType: 2
+  usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 1
+  - gameActionType: 2
     powerType: 0
     answerOutcomeType: 0
     actionValue: 10
     additionValue: 0
     actionDelay: 0
-    fxType: 0
+    fxName: 0
     fxSpawnPosition: 0
-    SourcePile: 0
-    TargetPile: 0
-    TargetCardData: {fileID: 0}
-    TriggerActionList: []
-  - gameActionType: 101
-    powerType: 0
-    answerOutcomeType: 0
-    actionValue: 10
-    additionValue: 0
-    actionDelay: 0
-    fxType: 51
-    fxSpawnPosition: 2
     SourcePile: 0
     TargetPile: 0
     TargetCardData: {fileID: 0}
@@ -95,7 +83,8 @@ MonoBehaviour:
     UseTimeCountDown: 0
     Time: -1
     SelfCharacter: {fileID: 0}
-    TargetCharacter: {fileID: 0}
+    TargetCharacter:
+    - {fileID: 0}
   useRandomAction: 0
   randomActionData:
     randomActionList: []

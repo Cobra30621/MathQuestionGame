@@ -22,7 +22,7 @@ MonoBehaviour:
   - name: "\u7279\u6548\u5728\u4E2D\u9593\u6E2C\u8A66"
     intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     hideActionValue: 0
-    actionTargetType: 0
+    actionTargetType: 1
     actionList:
     - gameActionType: 1
       powerType: 0
@@ -30,20 +30,8 @@ MonoBehaviour:
       actionValue: 1
       additionValue: 0
       actionDelay: 0
-      fxType: 1
-      fxSpawnPosition: 0
-      SourcePile: 0
-      TargetPile: 0
-      TargetCardData: {fileID: 0}
-      TriggerActionList: []
-    - gameActionType: 101
-      powerType: 0
-      answerOutcomeType: 0
-      actionValue: 10
-      additionValue: 0
-      actionDelay: 0
-      fxType: 102
-      fxSpawnPosition: 0
+      fxName: 51
+      fxSpawnPosition: 2
       SourcePile: 0
       TargetPile: 0
       TargetCardData: {fileID: 0}
@@ -53,25 +41,13 @@ MonoBehaviour:
     hideActionValue: 0
     actionTargetType: 0
     actionList:
-    - gameActionType: 1
+    - gameActionType: 18
       powerType: 0
       answerOutcomeType: 0
       actionValue: 2
       additionValue: 0
       actionDelay: 0
-      fxType: 1
-      fxSpawnPosition: 0
-      SourcePile: 0
-      TargetPile: 0
-      TargetCardData: {fileID: 0}
-      TriggerActionList: []
-    - gameActionType: 101
-      powerType: 0
-      answerOutcomeType: 0
-      actionValue: 10
-      additionValue: 0
-      actionDelay: 0
-      fxType: 102
+      fxName: 55
       fxSpawnPosition: 1
       SourcePile: 0
       TargetPile: 0
@@ -88,20 +64,8 @@ MonoBehaviour:
       actionValue: 3
       additionValue: 0
       actionDelay: 0
-      fxType: 1
-      fxSpawnPosition: 2
-      SourcePile: 0
-      TargetPile: 0
-      TargetCardData: {fileID: 0}
-      TriggerActionList: []
-    - gameActionType: 101
-      powerType: 0
-      answerOutcomeType: 0
-      actionValue: 10
-      additionValue: 0
-      actionDelay: 0
-      fxType: 102
-      fxSpawnPosition: 2
+      fxName: 51
+      fxSpawnPosition: 0
       SourcePile: 0
       TargetPile: 0
       TargetCardData: {fileID: 0}
@@ -117,20 +81,8 @@ MonoBehaviour:
       actionValue: 4
       additionValue: 0
       actionDelay: 0
-      fxType: 1
-      fxSpawnPosition: 2
-      SourcePile: 0
-      TargetPile: 0
-      TargetCardData: {fileID: 0}
-      TriggerActionList: []
-    - gameActionType: 101
-      powerType: 0
-      answerOutcomeType: 0
-      actionValue: 10
-      additionValue: 0
-      actionDelay: 0
-      fxType: 101
-      fxSpawnPosition: 2
+      fxName: 55
+      fxSpawnPosition: 0
       SourcePile: 0
       TargetPile: 0
       TargetCardData: {fileID: 0}

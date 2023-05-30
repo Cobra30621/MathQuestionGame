@@ -13,7 +13,7 @@ namespace Action.Power
             foreach (var target in TargetList)
             {
                 target.CharacterStats.ApplyPower(PowerType.Block, AdditionValue);
-                PlayFx(FxType.Block, target.transform);
+                PlayFx(FxName.Block, target.transform);
             }
         }
     }

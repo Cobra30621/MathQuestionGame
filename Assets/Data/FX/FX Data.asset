@@ -12,16 +12,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccbe07c813a44b6d81037271f5435f10, type: 3}
   m_Name: FX Data
   m_EditorClassIdentifier: 
-  fxList:
-  - fxType: 51
-    fxPrefab: {fileID: 1275131819952708136, guid: 297b040f1ee07ac488178cd460c85e2e, type: 3}
-  - fxType: 55
-    fxPrefab: {fileID: 5542730973998125453, guid: 516c4b8f0bd0f0749a2d8afc3d3c82a2, type: 3}
-  - fxType: 201
-    fxPrefab: {fileID: 7224451661305855618, guid: a1d31c6911c7d4840b472c3489c4f5b8, type: 3}
-  - fxType: 102
-    fxPrefab: {fileID: 6582740879243116295, guid: 8073c6148b9eaf44995acf9a22331f15, type: 3}
-  - fxType: 101
-    fxPrefab: {fileID: 4399970628791159158, guid: 11a5c265e67f20144a9ec55a3e948415, type: 3}
-  - fxType: 1001
-    fxPrefab: {fileID: 3809111169043240097, guid: b50e0de4fa864c342b595ebaa9379b5f, type: 3}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1275131819952708136, guid: 297b040f1ee07ac488178cd460c85e2e, type: 3}
+    - {fileID: 5542730973998125453, guid: 516c4b8f0bd0f0749a2d8afc3d3c82a2, type: 3}
+    - {fileID: 4399970628791159158, guid: 11a5c265e67f20144a9ec55a3e948415, type: 3}
+    - {fileID: 6582740879243116295, guid: 8073c6148b9eaf44995acf9a22331f15, type: 3}
+    - {fileID: 7224451661305855618, guid: a1d31c6911c7d4840b472c3489c4f5b8, type: 3}
+    - {fileID: 3809111169043240097, guid: b50e0de4fa864c342b595ebaa9379b5f, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: fxDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[NueGames.Enums.FxName, Assembly-CSharp],[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[NueGames.Enums.FxName,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 51
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 55
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 101
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 102
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 201
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1001
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

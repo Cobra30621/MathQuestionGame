@@ -35,7 +35,6 @@ namespace NueGames.Managers
                 transform.parent = null;
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-                fxData.Init();
             }
         }
         #endregion
@@ -50,7 +49,7 @@ namespace NueGames.Managers
                 xDir = Random.value>=0.5f ? 1 : -1;
             cloneText.PlayText(text,xDir,yDir);
         }
-        public void PlayFx(Transform targetTransform, FxType targetFx)
+        public void PlayFx(Transform targetTransform, FxName targetFx)
         {
             Instantiate(fxData.GetFX(targetFx), targetTransform);
         }
