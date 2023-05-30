@@ -10,11 +10,11 @@ namespace Action.Power
 
         protected override void DoMainAction()
         {
-            if (IsTargetNull()) return;
-            
-            Target.CharacterStats.ApplyPower(PowerType.Block, AdditionValue);
-            
-            PlayFx(FxType.Block, Target.transform);
+            foreach (var target in TargetList)
+            {
+                target.CharacterStats.ApplyPower(PowerType.Block, AdditionValue);
+                PlayFx(FxType.Block, target.transform);
+            }
         }
     }
 }

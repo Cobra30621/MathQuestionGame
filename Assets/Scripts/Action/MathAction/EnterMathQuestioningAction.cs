@@ -23,15 +23,15 @@ namespace NueGames.Action.MathAction
             CardData cardData = parameters.CardData;
             
             mathParameters = cardData.MathQuestioningActionParameters;
-            mathParameters.TargetCharacter = parameters.Target;
+            mathParameters.TargetCharacter = parameters.TargetList;
             mathParameters.SelfCharacter  = parameters.Self;
             
             mathParameters.LimitedQuestionAction = GameActionGenerator.GetGameActions(cardData, 
-                parameters.ActionSource, cardData.LimitedQuestionCardActionDataList, Self, Target);
+                parameters.ActionSource, cardData.LimitedQuestionCardActionDataList, Self, TargetList);
             mathParameters.CorrectActions = GameActionGenerator.GetGameActions(cardData, 
-                parameters.ActionSource, cardData.CorrectCardActionDataList , Self, Target);
+                parameters.ActionSource, cardData.CorrectCardActionDataList , Self, TargetList);
             mathParameters.WrongActions = GameActionGenerator.GetGameActions(cardData, 
-                parameters.ActionSource, cardData.WrongCardActionDataList, Self, Target);
+                parameters.ActionSource, cardData.WrongCardActionDataList, Self, TargetList);
         }
 
         

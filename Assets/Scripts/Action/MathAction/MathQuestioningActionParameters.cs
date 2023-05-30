@@ -71,7 +71,7 @@ namespace NueGames.Action.MathAction
         /// <summary>
         /// 目標對象
         /// </summary>
-        public CharacterBase TargetCharacter;
+        public List<CharacterBase> TargetCharacter;
         
         public MathQuestioningActionParameters()
         {
@@ -115,7 +115,7 @@ namespace NueGames.Action.MathAction
             Time = time;
         }
 
-        public void SetCharacter(CharacterBase self, CharacterBase target)
+        public void SetCharacter(CharacterBase self, List<CharacterBase> target)
         {
             SelfCharacter = self;
             TargetCharacter = target;

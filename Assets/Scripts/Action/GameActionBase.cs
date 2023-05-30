@@ -34,7 +34,7 @@ namespace NueGames.Action
         /// <summary>
         /// 行為目標對象
         /// </summary>
-        protected CharacterBase Target;
+        protected List<CharacterBase> TargetList;
         /// <summary>
         /// 行為的發起者
         /// </summary>
@@ -159,7 +159,7 @@ namespace NueGames.Action
             FxSpawnPosition = data.FxSpawnPosition;
 
             Self = parameters.Self;
-            Target = parameters.Target;
+            TargetList = parameters.TargetList;
 
             DamageInfo = new DamageInfo(parameters);
 
@@ -176,8 +176,8 @@ namespace NueGames.Action
             BaseValue = DamageInfo.BaseValue;
             MultiplierValue = DamageInfo.MultiplierValue;
             MultiplierAmount = DamageInfo.MultiplierAmount;
-            
-            Target = info.Target;
+
+            TargetList = new List<CharacterBase>() { info.Target };
 
             HasSetValue = true;
         }
@@ -185,7 +185,7 @@ namespace NueGames.Action
         public virtual void SetValue(ApplyPowerParameters parameters)
         {
             BaseValue = parameters.Value;
-            Target = parameters.Target;
+            TargetList = new List<CharacterBase>() {parameters.Target};
             PowerType = parameters.PowerType;
             
             HasSetValue = true;
@@ -208,29 +208,36 @@ namespace NueGames.Action
         /// </summary>
         protected abstract void DoMainAction();
 
+        /// <summary>
+        /// 執行要撥放的特效
+        /// </summary>
         protected void DoFXAction()
         {
-            if (FxType != FxType.Null)
+            // 不播放特效
+            if (FxType == FxType.Null)
             {
-                PlayFx(FxType, GetFXSpawnPosition(FxSpawnPosition));
+                return;
             }
-        }
-        
-        private Transform GetFXSpawnPosition(FxSpawnPosition fxSpawnPosition)
-        {
-            switch (fxSpawnPosition)
+            
+            switch (FxSpawnPosition)
             {
+                case FxSpawnPosition.EachTarget:
+                    foreach (var target in TargetList)
+                    {
+                        PlayFx(FxType, target.transform);
+                    };
+                    break;
                 case FxSpawnPosition.Ally:
-                    return CombatManager.GetMainAllyTransform();
-                case FxSpawnPosition.Middle:
-                    return null;
-                case FxSpawnPosition.Target:
-                    return Target.transform;
+                    PlayFx(FxType, CombatManager.GetMainAllyTransform());
+                    break;
+                case FxSpawnPosition.EnemyMiddle:
+                    throw new System.NotImplementedException();
+                    break;
+                case FxSpawnPosition.ScreenMiddle:
+                    PlayFx(FxType, null);
+                    break;
             }
-
-            return null;
         }
-        
         
         /// <summary>
         /// 生成文字特效(如收到傷害顯示傷害數值)
@@ -253,19 +260,6 @@ namespace NueGames.Action
 
       
 
-        /// <summary>
-        /// 行為目標是為否空
-        /// </summary>
-        /// <returns></returns>
-        protected bool IsTargetNull()
-        {
-            if (!Target)
-            {
-                Debug.Log($"{GetType()} 找不到Target");
-            }
-
-            return !Target;
-        }
 
         /// <summary>
         /// 執行傷害行動
@@ -293,7 +287,7 @@ namespace NueGames.Action
         
         public override string ToString()
         {
-            return $"{GetType().Name} \n {nameof(Target)}: {Target}, {nameof(Self)}: {Self}, {nameof(AdditionValue)}: {AdditionValue}";
+            return $"{GetType().Name} \n {nameof(TargetList)}: {TargetList}, {nameof(Self)}: {Self}, {nameof(AdditionValue)}: {AdditionValue}";
         }
     }
 }

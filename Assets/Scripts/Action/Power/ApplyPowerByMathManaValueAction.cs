@@ -16,10 +16,11 @@ namespace Action
 
         protected override void DoMainAction()
         {
-            if (IsTargetNull()) return;
-            
-            MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerType.MathMana);
-            Target.CharacterStats.ApplyPower(PowerType, AdditionValue);
+            foreach (var target in TargetList)
+            {
+                MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerType.MathMana);
+                target.CharacterStats.ApplyPower(PowerType, AdditionValue);
+            }
         }
     }
 }

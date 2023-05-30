@@ -27,7 +27,7 @@ namespace NueGames.Relic.Common
         protected override void OnAnswerCorrect()
         {
             CharacterBase enemy = CombatManager.Instance.CurrentSelectedEnemy;
-            enemy.CharacterStats.ApplyPower(PowerType.Fire,1);
+            enemy.ApplyPower(PowerType.Fire,1);
 
             ApplyPowerToAllEnemyAction action = new ApplyPowerToAllEnemyAction();
             // GameActionExecutor.Instance.DoApp

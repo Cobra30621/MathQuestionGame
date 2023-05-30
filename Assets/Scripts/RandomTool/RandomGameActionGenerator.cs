@@ -30,7 +30,7 @@ namespace RandomTool
                         ActionType = actionData.GameActionType,
                         BaseValue = actionData.ActionValue,
                         Self = parameters.Self,
-                        Target = parameters.Target,
+                        TargetList = parameters.TargetList,
                         ActionSource = parameters.ActionSource, 
                         ActionData = actionData,
                         CardData = parameters.CardData

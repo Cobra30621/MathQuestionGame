@@ -42,11 +42,11 @@ namespace NueGames.Action
         /// <param name="actionSource"></param>
         /// <param name="actionDataList"></param>
         /// <param name="self"></param>
-        /// <param name="target"></param>
+        /// <param name="targetList"></param>
         /// <returns></returns>
         public static List<GameActionBase> GetGameActions(CardData cardData, ActionSource actionSource,
             List<ActionData> actionDataList, CharacterBase self,
-            CharacterBase target)
+            List<CharacterBase> targetList)
         {
             List<GameActionBase> gameActionBases = new List<GameActionBase>();
             foreach (var actionData in actionDataList)
@@ -57,7 +57,7 @@ namespace NueGames.Action
                     BaseValue = actionData.ActionValue,
                     MultiplierValue =  actionData.AdditionValue,
                     Self = self,
-                    Target = target,
+                    TargetList = targetList,
                     ActionSource = actionSource, 
                     ActionData = actionData,
                     CardData = cardData

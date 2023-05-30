@@ -105,5 +105,32 @@ namespace NueGames.Characters
         {
             CharacterStats = stats;
         }
+
+
+        #region CharacterStats
+
+        // TODO: 將 CharacterStats 整理上來
+        
+        /// <summary>
+        /// 賦予能力
+        /// </summary>
+        /// <param name="targetPower"></param>
+        /// <param name="value"></param>
+        public void ApplyPower(PowerType targetPower,int value)
+        {
+            CharacterStats.ApplyPower(targetPower, value);
+        }
+        
+        /// <summary>
+        /// 將能力 x 倍數
+        /// </summary>
+        public void MultiplyPower(PowerType targetPower,int value)
+        {
+            CharacterStats.MultiplyPower(targetPower, value);
+        }
+        
+        
+        #endregion
+        
     }
 }

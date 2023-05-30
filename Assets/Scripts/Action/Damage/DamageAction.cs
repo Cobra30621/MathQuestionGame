@@ -20,12 +20,13 @@ namespace NueGames.Action
         /// </summary>
         protected override void DoMainAction()
         {
-            if (IsTargetNull()) return;
+            foreach (var target in TargetList)
+            {
+                PlaySpawnTextFx($"{DamageInfo.GetAfterBlockDamage()}", target);
             
-            // PlayFx(FxType.Attack, Target.transform);
-            PlaySpawnTextFx($"{DamageInfo.GetAfterBlockDamage()}", Target);
+                target.BeAttacked(DamageInfo);
+            }
             
-            Target.BeAttacked(DamageInfo);
         }
     }
 }

@@ -20,9 +20,10 @@ namespace NueGames.Action
         /// </summary>
         protected override void DoMainAction()
         {
-            if (IsTargetNull()) return;
-            
-            Target.CharacterStats.ClearPower(PowerType);
+            foreach (var target in TargetList)
+            {
+                target.CharacterStats.ClearPower(PowerType);
+            }
         }
     }
 }

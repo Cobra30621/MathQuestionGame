@@ -17,7 +17,7 @@ namespace Action.Power
 
         protected override void DoMainAction()
         {
-            CombatManager.CurrentMainAlly.CharacterStats.ApplyPower(PowerType.MathMana, AdditionValue);
+            CombatManager.CurrentMainAlly.ApplyPower(PowerType.MathMana, AdditionValue);
             
             UIManager.Instance.CombatCanvas.OnMathManaChange();
             // PlayFx(FxType.Block, Target.transform);

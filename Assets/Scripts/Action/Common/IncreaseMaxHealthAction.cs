@@ -18,12 +18,11 @@ namespace NueGames.Action
         /// </summary>
         protected override void DoMainAction()
         {
-            if (IsTargetNull()) return;
-            
-            Target.CharacterStats.IncreaseMaxHealth(AdditionValue);
-
-            PlayFx(FxType.Buff, Target.transform);
-            PlaySpawnTextFx(AdditionValue.ToString(), Target);
+            foreach (var target in TargetList)
+            {
+                PlaySpawnTextFx(AdditionValue.ToString(), target);
+                target.CharacterStats.IncreaseMaxHealth(AdditionValue);
+            }
         }
     }
 }

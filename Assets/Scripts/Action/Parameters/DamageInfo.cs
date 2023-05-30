@@ -67,7 +67,8 @@ namespace NueGames.Parameters
         public DamageInfo(ActionParameters parameters)
         {
             ActionSource = parameters.ActionSource;
-            Target = parameters.Target;
+            // TODO TargetList 不一定只有一個元素，有可能更多，也有可能更少
+            Target = parameters.TargetList[0];
             BaseValue = parameters.BaseValue;
             MultiplierValue = parameters.MultiplierValue;
             FixDamage = false; // TODO

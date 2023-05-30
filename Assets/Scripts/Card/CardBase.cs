@@ -88,7 +88,7 @@ namespace NueGames.Card
             return CardData.ActionTargetType == ActionTargetType.Enemy;
         }
         
-        public virtual void Use(CharacterBase self,CharacterBase target, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
+        public virtual void Use(CharacterBase self,List<CharacterBase> targetList)
         {
             if (!IsPlayable) return;
 
@@ -100,7 +100,7 @@ namespace NueGames.Card
                 SpendPower(CardData.NeedPowerType, PowerCost);
 
             List<GameActionBase> gameActions = GameActionGenerator.GetGameActions(CardData,
-                ActionSource.Card, CardData.CardActionDataList, self, target);
+                ActionSource.Card, CardData.CardActionDataList, self, targetList);
             GameActionExecutor.AddToBottom(gameActions);
             CollectionManager.OnCardPlayed(this);
         }

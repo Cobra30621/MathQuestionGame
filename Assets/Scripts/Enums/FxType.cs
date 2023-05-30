@@ -4,7 +4,6 @@
     {
         Null = 0,
         // Attack
-        Attack = 1,
         
         ExplosionAttack = 51,
         TearAttack = 55,

@@ -13,23 +13,16 @@ namespace NueGames.Action
     {
         public override GameActionType ActionType => GameActionType.ApplyPower;
         
-        public void SetValue(int value, CharacterBase target, PowerType powerType)
-        {
-            BaseValue = value;
-            Target = target;
-            PowerType = powerType;
-        }
-        
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         protected override void DoMainAction()
         {
-            if (IsTargetNull()) return;
+            foreach (var target in TargetList)
+            {
+                target.CharacterStats.ApplyPower(PowerType, AdditionValue);
+            }
             
-            Target.CharacterStats.ApplyPower(PowerType, AdditionValue);
-            
-            PlayFx(FxType.Buff, Target.transform);
         }
     }
 }

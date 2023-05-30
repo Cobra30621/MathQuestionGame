@@ -20,14 +20,13 @@ namespace NueGames.Action
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
-        public override void DoAction()
+        protected override void DoMainAction()
         {
-            List<EnemyBase> enemyCopy = new List<EnemyBase>(CombatManager.CurrentEnemiesList);
-            foreach (EnemyBase enemy in enemyCopy)
+            List<CharacterBase> enemyCopy = new List<CharacterBase>(TargetList);
+            foreach (CharacterBase enemy in enemyCopy)
             {
                 DamageInfo.Target = enemy;
                 PlaySpawnTextFx($"{DamageInfo.GetAfterBlockDamage()}", enemy);
-                PlayFx(FxType.Attack, enemy.transform);
                 
                 enemy.BeAttacked(DamageInfo);
                 

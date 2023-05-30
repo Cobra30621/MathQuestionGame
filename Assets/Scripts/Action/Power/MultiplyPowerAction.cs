@@ -17,9 +17,11 @@ namespace NueGames.Action
         /// </summary>
         protected override void DoMainAction()
         {
-            if (IsTargetNull()) return;
-            
-            Target.CharacterStats.MultiplyPower(PowerType, AdditionValue);
+            foreach (var target in TargetList)
+            {
+                target.CharacterStats.MultiplyPower(PowerType, AdditionValue);
+                
+            }
         }
     }
 }

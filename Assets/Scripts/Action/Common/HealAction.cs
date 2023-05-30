@@ -19,12 +19,13 @@ namespace NueGames.Action
         /// </summary>
         protected override void DoMainAction()
         {
-            if (IsTargetNull()) return;
-            
-            Target.CharacterStats.Heal(AdditionValue);
+            foreach (var target in TargetList)
+            {
+                target.CharacterStats.Heal(AdditionValue);
 
-            PlayFx(FxType.Heal, Target.transform);
-            PlaySpawnTextFx($"{AdditionValue}", Target);
+                PlaySpawnTextFx($"{AdditionValue}", target);
+            }
+            
         }
     }
 }

@@ -2,8 +2,9 @@
 {
     public enum FxSpawnPosition
     {
-        Middle = 0, // 畫面中間
+        EachTarget = 0, // 每一個目標
         Ally = 1, // 玩家
-        Target = 2 // 目標
+        ScreenMiddle = 2, // 畫面中間
+        EnemyMiddle = 3, // 敵人中間
     }
 }

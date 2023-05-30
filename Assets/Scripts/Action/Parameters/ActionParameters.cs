@@ -1,4 +1,5 @@
-﻿using NueGames.Characters;
+﻿using System.Collections.Generic;
+using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -25,7 +26,7 @@ namespace NueGames.Parameters
         /// <summary>
         /// 行為目標對象
         /// </summary>
-        public CharacterBase Target;
+        public List<CharacterBase> TargetList;
         /// <summary>
         /// 行為來源
         /// </summary>

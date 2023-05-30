@@ -340,22 +340,12 @@ namespace NueGames.Collection
             characterHighlightController.DeactivateAllHighlights();
             bool backToHand = true;
 
-            if (PlayCardJudgment.CanUseCard(_heldCard)) 
+            if (PlayCardJudgment.CanUseCard(_heldCard))
             {
-                RaycastHit hit;
-                var mainRay = _mainCam.ScreenPointToRay(mousePos);
-                var _canUse = false;
-                CharacterBase selfCharacter = CombatManager.CurrentMainAlly;
-                CharacterBase targetCharacter = null;
-
-
-                bool selectCharacter = CheckPlayOnCharacter(mainRay, ref targetCharacter);
-                _canUse = _heldCard.CardData.UsableWithoutTarget |
-                          _heldCard.CardData.ActionTargetType == ActionTargetType.WithoutTarget |
-                          _heldCard.CardData.ActionTargetType == ActionTargetType.AllEnemies |
-                          selectCharacter;
+                CharacterBase self = CombatManager.CurrentMainAlly;
+                CharacterBase hitCharacter = GetHitCharacter(mousePos);
                 
-                if (_canUse)
+                if (EnablePlayCard(_heldCard.CardData.ActionTargetType, hitCharacter, _heldCard.CardData.UsableWithoutTarget))
                 {
                     backToHand = false;
                     //  Arrow Effect for the card's ActionTarget is single enemy
@@ -363,7 +353,10 @@ namespace NueGames.Collection
                     {
                         RemoveCardFromHand(_usingSelectingEffectCardIndex);
                     }
-                    _heldCard.Use(selfCharacter,targetCharacter,CombatManager.CurrentEnemiesList,CombatManager.CurrentAlliesList);
+
+                    var targetList = GetTargetList(_heldCard.CardData.ActionTargetType, hitCharacter);
+                    
+                    _heldCard.Use(self, targetList);
                     DeactivateSelectingSingleEnemyEffect();
                 }
             }
@@ -377,37 +370,112 @@ namespace NueGames.Collection
             _heldCard = null;
         }
 
-        private bool CheckPlayOnCharacter(Ray mainRay, ref CharacterBase targetCharacter)
+
+        /// <summary>
+        /// 是否能夠使用卡片
+        /// </summary>
+        /// <param name="cardActionTarget"></param>
+        /// <param name="hitCharacter"></param>
+        /// <param name="usableWithoutTarget"></param>
+        /// <returns></returns>
+        private bool EnablePlayCard(ActionTargetType cardActionTarget, CharacterBase hitCharacter, bool usableWithoutTarget)
         {
-            bool canUse = false;
-            RaycastHit hit;
-            if (Physics.Raycast(mainRay, out hit, 1000, targetLayer))
+            // 不需要對象，就能直接使用
+            if (usableWithoutTarget)
             {
-                var character = hit.collider.gameObject.GetComponent<ICharacter>();
+                return true;
+            }
 
-                if (character != null)
+            // 如果 hitCharacter 沒有碰到任何目標，回傳 false
+            if (hitCharacter == null)
+            {
+                return false;
+            }
+            
+            // 目標是玩家時
+            if (cardActionTarget == ActionTargetType.Ally)
+            {
+                if (hitCharacter.GetCharacterType() != CharacterType.Ally)
                 {
-                    var checkEnemy = (_heldCard.CardData.ActionTargetType == ActionTargetType.Enemy &&
-                                      character.GetCharacterType() == CharacterType.Enemy);
-                    var checkAlly = (_heldCard.CardData.ActionTargetType == ActionTargetType.Ally &&
-                                     character.GetCharacterType() == CharacterType.Ally);
-
-                    if (checkEnemy || checkAlly)
-                    {
-                        canUse = true;
-                        targetCharacter = character.GetCharacterBase();
-                    }
+                    return false;
+                }
+            }
+            
+            // 目標是敵人時
+            if (cardActionTarget == ActionTargetType.Enemy)
+            {
+                if (hitCharacter.GetCharacterType() != CharacterType.Enemy)
+                {
+                    return false;
                 }
             }
 
-            if (_heldCard.CardData.UsableWithoutTarget &&
-                _heldCard.CardData.ActionTargetType == ActionTargetType.Ally)
-            {
-                
-                targetCharacter = CombatManager.CurrentMainAlly;
-            }
-            return canUse;
+            // 其他狀況，都可以使用卡片
+            return true;
+
         }
+
+        /// <summary>
+        /// 取得目標對象的清單
+        /// </summary>
+        /// <param name="cardActionTarget"></param>
+        /// <param name="hitTarget"></param>
+        /// <returns></returns>
+        private List<CharacterBase> GetTargetList(ActionTargetType cardActionTarget, CharacterBase hitTarget)
+        {
+            List<CharacterBase> targetList = new List<CharacterBase>();
+            switch (cardActionTarget)
+            {
+                case ActionTargetType.Ally:
+                    targetList.Add(CombatManager.CurrentMainAlly);
+                    break;
+                case ActionTargetType.Enemy:
+                    if (hitTarget.GetCharacterType() == CharacterType.Enemy)
+                    {
+                        targetList.Add(hitTarget);
+                    }
+                    else
+                    {
+                        Debug.LogError($"{hitTarget} 的 {hitTarget.GetCharacterType()} != {CharacterType.Enemy}");
+                    }
+                    break;
+                case ActionTargetType.AllEnemies:
+                    targetList.AddRange(CombatManager.CurrentEnemiesList);
+                    break;
+                case ActionTargetType.RandomEnemy:
+                    throw new System.NotImplementedException();
+                    break;
+
+            }
+
+            return targetList;
+        }
+        
+        
+        /// <summary>
+        /// 取得畫面碰到的角色
+        /// </summary>
+        /// <param name="mousePos"></param>
+        /// <returns></returns>
+        private CharacterBase GetHitCharacter(Vector2 mousePos)
+        {
+            RaycastHit hit;
+            var mainRay = _mainCam.ScreenPointToRay(mousePos);
+            CharacterBase character;
+            if (Physics.Raycast(mainRay, out hit, 1000, targetLayer))
+            {
+                character = hit.collider.gameObject.GetComponent<CharacterBase>();
+            }
+            else
+            {
+                character = null;
+            }
+
+            return character;
+        }
+        
+        
+
 
         private void HandleDraggedCardInsideHand(bool mouseButton, int count)
         {

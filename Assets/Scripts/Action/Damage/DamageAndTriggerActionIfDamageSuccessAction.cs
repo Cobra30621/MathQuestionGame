@@ -13,8 +13,6 @@ namespace NueGames.Action
 
         protected override void DoMainAction()
         {
-            if (IsTargetNull()) return;
-
             if (DamageInfo.HaveDamage())
             {
                 Debug.Log($"攻擊成功，觸發{TriggerActionList}");
@@ -34,7 +32,7 @@ namespace NueGames.Action
         private void DoTriggerAction()
         {
             List<GameActionBase> gameActions =  GameActionGenerator.GetGameActions(null, 
-                ActionSource.Enemy, TriggerActionList, Self, Target);
+                ActionSource.Enemy, TriggerActionList, Self, TargetList);
             GameActionExecutor.AddToBottom(gameActions);
         }
     }
