@@ -10,8 +10,8 @@ namespace Action.MathMana
     public class UnlimitedUseMathManaCardAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.UnlimitedUseMathManaCard;
-        
-        public override void DoAction()
+
+        protected override void DoMainAction()
         {
             CollectionManager.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, true);
             CollectionManager.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, false);

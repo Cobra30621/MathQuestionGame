@@ -7,7 +7,8 @@ namespace Action.Power
     public class ApplyBlockAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.ApplyBlock;
-        public override void DoAction()
+
+        protected override void DoMainAction()
         {
             if (IsTargetNull()) return;
             

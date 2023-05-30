@@ -15,7 +15,7 @@ namespace Action.Power
         }
 
 
-        public override void DoAction()
+        protected override void DoMainAction()
         {
             CombatManager.CurrentMainAlly.CharacterStats.ApplyPower(PowerType.MathMana, AdditionValue);
             

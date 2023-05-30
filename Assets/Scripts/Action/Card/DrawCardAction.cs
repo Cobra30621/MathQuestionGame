@@ -21,7 +21,7 @@ namespace NueGames.Action
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
-        public override void DoAction()
+        protected override void DoMainAction()
         {
             if (CollectionManager != null)
                 CollectionManager.DrawCards(BaseValue);

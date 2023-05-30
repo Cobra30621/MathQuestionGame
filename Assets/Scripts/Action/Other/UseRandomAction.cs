@@ -20,7 +20,7 @@ namespace Action
             _randomActionData = parameters.CardData.RandomActionData;
         }
 
-        public override void DoAction()
+        protected override void DoMainAction()
         {
             GameActionBase action = RandomGameActionGenerator.GetRandomAction(_randomActionData, ActionParameters);
             action.DoAction();

@@ -31,10 +31,9 @@
         UnlimitedUseMathManaCard = 71,
         
         // 101 ~ 其他
-        FX = 101,
         
         
-        // 21~30 卡組相關
+        // 卡組相關
         EarnMana = 201,
         DrawCard = 202,
         Heal = 203,

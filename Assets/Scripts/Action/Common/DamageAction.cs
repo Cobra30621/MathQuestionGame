@@ -18,11 +18,11 @@ namespace NueGames.Action
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
-        public override void DoAction()
+        protected override void DoMainAction()
         {
             if (IsTargetNull()) return;
             
-            PlayFx(FxType.Attack, Target.transform);
+            // PlayFx(FxType.Attack, Target.transform);
             PlaySpawnTextFx($"{DamageInfo.GetAfterBlockDamage()}", Target);
             
             Target.BeAttacked(DamageInfo);

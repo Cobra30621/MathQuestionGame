@@ -13,8 +13,8 @@ namespace Action
     {
         public override GameActionType ActionType => GameActionType.ApplyPowerByMathManaValue;
 
-        
-        public override void DoAction()
+
+        protected override void DoMainAction()
         {
             if (IsTargetNull()) return;
             

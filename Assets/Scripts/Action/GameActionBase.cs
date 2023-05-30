@@ -190,12 +190,47 @@ namespace NueGames.Action
             
             HasSetValue = true;
         }
+
+        /// <summary>
+        /// 執行遊戲行為
+        /// </summary>
+        public void DoAction()
+        {
+            // 執行遊戲主要邏輯
+            DoMainAction(); 
+            // 執行特效撥放
+            DoFXAction();
+        }
         
         
         /// <summary>
-        /// 執行遊戲行為的功能
+        /// 執行遊戲的主要邏輯
         /// </summary>
-        public abstract void DoAction();
+        protected abstract void DoMainAction();
+
+        protected void DoFXAction()
+        {
+            if (FxType != FxType.Null)
+            {
+                PlayFx(FxType, GetFXSpawnPosition(FxSpawnPosition));
+            }
+        }
+        
+        private Transform GetFXSpawnPosition(FxSpawnPosition fxSpawnPosition)
+        {
+            switch (fxSpawnPosition)
+            {
+                case FxSpawnPosition.Ally:
+                    return CombatManager.GetMainAllyTransform();
+                case FxSpawnPosition.Middle:
+                    return null;
+                case FxSpawnPosition.Target:
+                    return Target.transform;
+            }
+
+            return null;
+        }
+        
         
         /// <summary>
         /// 生成文字特效(如收到傷害顯示傷害數值)

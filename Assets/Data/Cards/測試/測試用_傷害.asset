@@ -14,21 +14,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: "\u6E2C\u8A66\u7528_\u50B7\u5BB3"
   cardName: "\u6E2C\u8A66\u7528_\u50B7\u5BB3"
-  manaCost: 0
+  manaCost: 1
   cardSprite: {fileID: 21300000, guid: 1113310f8619a8747b68ee8b7fc7d63d, type: 3}
   rarity: 0
   needPowerToPlay: 0
   needPowerType: 0
   powerCost: 2
-  actionTargetType: 2
+  actionTargetType: 0
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 2
+  - gameActionType: 1
     powerType: 0
+    answerOutcomeType: 0
     actionValue: 10
     additionValue: 0
     actionDelay: 0
+    fxType: 0
+    fxSpawnPosition: 0
+    SourcePile: 0
+    TargetPile: 0
+    TargetCardData: {fileID: 0}
+    TriggerActionList: []
+  - gameActionType: 101
+    powerType: 0
+    answerOutcomeType: 0
+    actionValue: 10
+    additionValue: 0
+    actionDelay: 0
+    fxType: 51
+    fxSpawnPosition: 2
+    SourcePile: 0
+    TargetPile: 0
+    TargetCardData: {fileID: 0}
+    TriggerActionList: []
   cardDescriptionDataList:
   - descriptionText: 'Deal '
     enableOverrideColor: 0
@@ -77,3 +96,6 @@ MonoBehaviour:
     Time: -1
     SelfCharacter: {fileID: 0}
     TargetCharacter: {fileID: 0}
+  useRandomAction: 0
+  randomActionData:
+    randomActionList: []

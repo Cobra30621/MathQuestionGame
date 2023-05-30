@@ -7,7 +7,8 @@ namespace NueGames.Action
         public override GameActionType ActionType { get; }
 
         private float intetval = 1f;
-        public override void DoAction()
+
+        protected override void DoMainAction()
         {
             throw new System.NotImplementedException();
         }

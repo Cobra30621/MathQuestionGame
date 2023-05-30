@@ -9,7 +9,8 @@ namespace NueGames.Action
     public class GainCardInThisBattleAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.GainCardInThisBattle;
-        public override void DoAction()
+
+        protected override void DoMainAction()
         {
             if (CollectionManager != null)
                 CollectionManager.AddCardToPile(TargetPile, TargetCardData);

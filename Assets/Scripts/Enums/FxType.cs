@@ -6,10 +6,18 @@
         // Attack
         Attack = 1,
         
+        ExplosionAttack = 51,
+        TearAttack = 55,
+        
+        
         // Buff
         
         Buff = 101,
         Block = 102,
+        
+        
+        // Character
+        Dead = 501,
         
         // Other
         Heal = 201,

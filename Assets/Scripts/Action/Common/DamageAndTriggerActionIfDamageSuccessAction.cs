@@ -10,7 +10,8 @@ namespace NueGames.Action
     public class DamageAndTriggerActionIfDamageSuccessAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.DamageAndTriggerActionIfDamageSuccess;
-        public override void DoAction()
+
+        protected override void DoMainAction()
         {
             if (IsTargetNull()) return;
 

@@ -17,7 +17,7 @@ namespace NueGames.Action.MathAction
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
-        public override void DoAction()
+        protected override void DoMainAction()
         {
             DoDamageAction();
         }
