@@ -64,7 +64,11 @@ namespace NueGames.Combat
         public void AddMana(int mana)
         {
             GameManager.PersistentGameplayData.CurrentMana += mana;
-            OnGainMana?.Invoke(mana);
+
+            if (mana != 0)
+            {
+                OnGainMana?.Invoke(mana);
+            }
         }
     }
 }

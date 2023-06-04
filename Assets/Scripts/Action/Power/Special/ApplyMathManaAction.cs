@@ -18,8 +18,11 @@ namespace Action.Power
         protected override void DoMainAction()
         {
             CombatManager.CurrentMainAlly.ApplyPower(PowerType.MathMana, AdditionValue);
-            
-            UIManager.Instance.CombatCanvas.OnMathManaChange();
+
+            if (AdditionValue != 0)
+            {
+                UIManager.Instance.CombatCanvas.OnMathManaChange();
+            }
             // PlayFx(FxType.Block, Target.transform);
         }
     }
