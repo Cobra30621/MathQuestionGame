@@ -25,19 +25,31 @@ MonoBehaviour:
     actionTargetType: 1
     actionList:
     - gameActionType: 1
-      powerType: 0
-      answerOutcomeType: 0
       actionValue: 6
       additionValue: 0
       actionDelay: 0
+      powerType: 0
+      answerOutcomeType: 0
+      fxName: 0
+      fxSpawnPosition: 0
+      SourcePile: 0
+      TargetPile: 0
+      TargetCardData: {fileID: 0}
+      TriggerActionList: []
   - name: "\u9632\u79A6"
     intention: {fileID: 11400000, guid: b0b1e7f2f78bb444eb1666e4accf22ee, type: 2}
     hideActionValue: 0
     actionTargetType: 0
     actionList:
-    - gameActionType: 11
-      powerType: 1
-      answerOutcomeType: 0
+    - gameActionType: 18
       actionValue: 4
       additionValue: 0
       actionDelay: 0
+      powerType: 1
+      answerOutcomeType: 0
+      fxName: 0
+      fxSpawnPosition: 0
+      SourcePile: 0
+      TargetPile: 0
+      TargetCardData: {fileID: 0}
+      TriggerActionList: []

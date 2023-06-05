@@ -55,8 +55,8 @@ namespace NueGames.Encounter
         
         public EnemyEncounter GetBossEncounter()
         {
-            EnemyEncounterName encounterName = eliteEnemyList[0];
-            eliteEnemyList.Remove(encounterName);
+            EnemyEncounterName encounterName = bossList[0];
+            bossList.Remove(encounterName);
             
             EnemyEncounter encounter = EncounterManager.Instance.GetEnemyEncounter(encounterName);
             return encounter;

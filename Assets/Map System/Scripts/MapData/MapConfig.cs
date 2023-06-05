@@ -22,17 +22,13 @@ namespace Map
 
         [Tooltip("Increase this number to generate more paths")]
         public int extraPaths;
-        [Reorderable]
-        public ListOfMapLayers layers;
 
+        public List<MapLayer> layers;
+        
         /// <summary>
         /// 遭遇事件
         /// </summary>
         public EncounterStage encounterStage;
 
-        [System.Serializable]
-        public class ListOfMapLayers : ReorderableArray<MapLayer>
-        {
-        }
     }
 }

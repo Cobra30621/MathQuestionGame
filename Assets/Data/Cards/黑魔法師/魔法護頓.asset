@@ -24,12 +24,14 @@ MonoBehaviour:
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 11
-    powerType: 1
-    answerOutcomeType: 0
+  - gameActionType: 18
     actionValue: 5
     additionValue: 0
     actionDelay: 0
+    powerType: 1
+    answerOutcomeType: 0
+    fxName: 0
+    fxSpawnPosition: 0
     SourcePile: 0
     TargetPile: 0
     TargetCardData: {fileID: 0}
@@ -61,7 +63,8 @@ MonoBehaviour:
     UseTimeCountDown: 0
     Time: -1
     SelfCharacter: {fileID: 0}
-    TargetCharacter: {fileID: 0}
+    TargetCharacter:
+    - {fileID: 0}
   useRandomAction: 0
   randomActionData:
     randomActionList: []
