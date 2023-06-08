@@ -30,28 +30,27 @@ MonoBehaviour:
     max: 4
   extraPaths: 1
   layers:
-    array:
-    - nodeType: 0
-      distanceFromPreviousLayer:
-        min: 0
-        max: 0
-      nodesApartDistance: 2
-      randomizePosition: 0
-      randomizeNodes: 0
-    - nodeType: 0
-      distanceFromPreviousLayer:
-        min: 2
-        max: 3
-      nodesApartDistance: 2
-      randomizePosition: 0.587
-      randomizeNodes: 0
-    - nodeType: 5
-      distanceFromPreviousLayer:
-        min: 4
-        max: 5
-      nodesApartDistance: 2
-      randomizePosition: 0.194
-      randomizeNodes: 0
+  - nodeType: 0
+    distanceFromPreviousLayer:
+      min: 0
+      max: 0
+    nodesApartDistance: 2
+    randomizePosition: 0.447
+    randomizeNodes: 0
+  - nodeType: 0
+    distanceFromPreviousLayer:
+      min: 4
+      max: 4
+    nodesApartDistance: 2
+    randomizePosition: 0.26
+    randomizeNodes: 0
+  - nodeType: 5
+    distanceFromPreviousLayer:
+      min: 2
+      max: 2
+    nodesApartDistance: 0
+    randomizePosition: 0
+    randomizeNodes: 0
   encounterStage:
     weakEnemyCount: 1
     weakEnemies:
@@ -65,4 +64,6 @@ MonoBehaviour:
     eliteEnemies:
       weightClip: []
     bossEnemies:
-      weightClip: []
+      weightClip:
+      - encounter: 102
+        weight: 1
