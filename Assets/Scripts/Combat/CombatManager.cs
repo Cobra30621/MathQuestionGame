@@ -211,6 +211,8 @@ namespace NueGames.Combat
             
             yield return new WaitForSeconds(0.1f);
             
+            yield return BattleStartEnemyRoutine();
+
             CurrentCombatStateType = CombatStateType.RoundStart;
         }
 
@@ -243,7 +245,21 @@ namespace NueGames.Combat
                 EndTurn();
             }
         }
-        
+
+        /// <summary>
+        /// 回合開始時，敵人行動
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator BattleStartEnemyRoutine()
+        {
+            var waitDelay = new WaitForSeconds(0.1f);
+
+            foreach (var currentEnemy in CurrentEnemiesList)
+            {
+                yield return currentEnemy.StartCoroutine(nameof(EnemyExample.BattleStartActionRoutine));
+                yield return waitDelay;
+            }
+        }
         
         private IEnumerator EnemyTurnRoutine()
         {

@@ -17,9 +17,10 @@ namespace NueGames.Data.Characters
         [Header("Enemy Defaults")] 
         [SerializeField] private EnemyBase enemyPrefab;
         [SerializeField] private bool followAbilityPattern;
-        // [SerializeField] private EnemyAbilityData 
+        [SerializeField] private EnemyAbilityData battleStartAbility; 
         [SerializeField] private List<EnemyAbilityData> enemyAbilityList;
         public List<EnemyAbilityData> EnemyAbilityList => enemyAbilityList;
+        public EnemyAbilityData BattleStartAbility => battleStartAbility;
 
         public EnemyBase EnemyPrefab => enemyPrefab;
 
