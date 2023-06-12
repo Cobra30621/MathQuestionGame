@@ -5,6 +5,7 @@ using NueGames.Data.Collection;
 using NueGames.Data.Containers;
 using NueGames.Enums;
 using NueGames.NueExtentions;
+using Sirenix.Serialization;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,6 +17,7 @@ namespace NueGames.Data.Characters
         [Header("Enemy Defaults")] 
         [SerializeField] private EnemyBase enemyPrefab;
         [SerializeField] private bool followAbilityPattern;
+        // [SerializeField] private EnemyAbilityData 
         [SerializeField] private List<EnemyAbilityData> enemyAbilityList;
         public List<EnemyAbilityData> EnemyAbilityList => enemyAbilityList;
 
@@ -47,10 +49,14 @@ namespace NueGames.Data.Characters
         [SerializeField] private bool hideActionValue;
         [SerializeField] private ActionTargetType actionTargetType;
         [SerializeField] private List<ActionData> actionList;
+        [SerializeField] private ActionDataClip actionDataClip;
+        
+        
         public string Name => name;
         public EnemyIntentionData Intention => intention;
         public List<ActionData> ActionList => actionList;
         public ActionTargetType ActionTargetType => actionTargetType;
         public bool HideActionValue => hideActionValue;
+        public ActionDataClip ActionDataClip => actionDataClip;
     }
 }

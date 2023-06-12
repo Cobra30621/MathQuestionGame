@@ -62,6 +62,10 @@ namespace NueGames.Parameters
         /// 加成數值
         /// </summary>
         public float MultiplierValue;
+        /// <summary>
+        /// 遊戲資料清單
+        /// </summary>
+        public ActionDataClip ActionDataClip;
 
         #endregion
 

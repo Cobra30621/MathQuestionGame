@@ -55,7 +55,7 @@ namespace NueGames.Action
                 {
                     ActionType = actionData.GameActionType,
                     BaseValue = actionData.ActionValue,
-                    MultiplierValue =  actionData.AdditionValue,
+                    MultiplierValue =  actionData.MultiplierValue,
                     Self = self,
                     TargetList = targetList,
                     ActionSource = actionSource, 

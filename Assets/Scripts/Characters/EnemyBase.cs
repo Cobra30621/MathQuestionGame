@@ -75,6 +75,7 @@ namespace NueGames.Characters
             else
             {
                 EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
+                // EnemyCanvas.NextActionValueText.text = NextAbility.ActionDataClip.ActionList[0].ActionValue.ToString();
                 EnemyCanvas.NextActionValueText.text = NextAbility.ActionList[0].ActionValue.ToString();
             }
 

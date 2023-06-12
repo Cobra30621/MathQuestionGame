@@ -15,7 +15,7 @@ MonoBehaviour:
   characterID: "\u4E2D\u53F2\u840A\u59C6"
   characterName: "\u4E2D\u53F2\u840A\u59C6"
   characterDescription: "\u4E2D\u53F2\u840A\u59C6"
-  maxHealth: 25
+  maxHealth: 30
   enemyPrefab: {fileID: 243822687015991123, guid: 1a6350f58b0c5154daec828458e4b4f5, type: 3}
   followAbilityPattern: 0
   enemyAbilityList:
@@ -25,19 +25,31 @@ MonoBehaviour:
     actionTargetType: 1
     actionList:
     - gameActionType: 1
+      actionValue: 8
+      multiplierValue: 0
+      actionDelay: 0
       powerType: 2
       answerOutcomeType: 0
-      actionValue: 8
-      additionValue: 0
-      actionDelay: 0
+      fxName: 0
+      fxSpawnPosition: 0
+      SourcePile: 0
+      TargetPile: 0
+      TargetCardData: {fileID: 0}
+      TriggerActionList: []
   - name: "\u8214\u8214\uFF0C\u7D66\u4E88\u865B\u5F31"
-    intention: {fileID: 11400000, guid: c70607cffd24871458aaa58871e74ba9, type: 2}
+    intention: {fileID: 11400000, guid: e7deaaa3f01f8f54ab8c29a0ce3c8f31, type: 2}
     hideActionValue: 0
     actionTargetType: 1
     actionList:
     - gameActionType: 11
+      actionValue: 2
+      multiplierValue: 0
+      actionDelay: 0
       powerType: 5
       answerOutcomeType: 0
-      actionValue: 1
-      additionValue: 0
-      actionDelay: 0
+      fxName: 0
+      fxSpawnPosition: 0
+      SourcePile: 0
+      TargetPile: 0
+      TargetCardData: {fileID: 0}
+      TriggerActionList: []

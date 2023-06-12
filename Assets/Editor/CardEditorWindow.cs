@@ -497,7 +497,7 @@ namespace NueGames.NueDeck.Editor
             
             if (newActionType == GameActionType.DamageByQuestioning)
             {
-                var newAdditionValue = EditorGUILayout.IntField("AdditionValue: ",actionData.AdditionValue);
+                var newAdditionValue = EditorGUILayout.IntField("AdditionValue: ",actionData.MultiplierValue);
                 actionData.EditAdditionValue(newAdditionValue);
             }
             

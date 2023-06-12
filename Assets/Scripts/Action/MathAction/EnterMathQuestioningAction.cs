@@ -21,7 +21,7 @@ namespace NueGames.Action.MathAction
             base.SetValue(parameters);
             
             CardData cardData = parameters.CardData;
-            
+
             mathParameters = cardData.MathQuestioningActionParameters;
             mathParameters.TargetCharacter = parameters.TargetList;
             mathParameters.SelfCharacter  = parameters.Self;

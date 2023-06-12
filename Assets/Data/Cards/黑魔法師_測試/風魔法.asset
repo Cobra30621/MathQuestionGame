@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: "\u98A8\u9B54\u6CD5"
+  m_EditorClassIdentifier: 
+  id: "\u98A8\u9B54\u6CD5"
+  cardName: "\u98A8\u9B54\u6CD5"
+  manaCost: 0
+  cardSprite: {fileID: 21300000, guid: 31346933c861a2244ae908024b92cbc1, type: 3}
+  rarity: 0
+  needPowerToPlay: 1
+  needPowerType: 41
+  powerCost: 1
+  actionTargetType: 1
+  usableWithoutTarget: 0
+  exhaustAfterPlay: 0
+  cardActionDataList:
+  - gameActionType: 201
+    actionValue: 2
+    multiplierValue: 0
+    actionDelay: 0
+    powerType: 2
+    answerOutcomeType: 0
+    fxName: 0
+    fxSpawnPosition: 0
+    SourcePile: 0
+    TargetPile: 0
+    TargetCardData: {fileID: 0}
+    TriggerActionList: []
+  - gameActionType: 202
+    actionValue: 2
+    multiplierValue: 0
+    actionDelay: 0
+    powerType: 2
+    answerOutcomeType: 0
+    fxName: 0
+    fxSpawnPosition: 0
+    SourcePile: 0
+    TargetPile: 0
+    TargetCardData: {fileID: 0}
+    TriggerActionList: []
+  cardDescriptionDataList:
+  - descriptionText: "\u6D88\u8017 1 \u9EDE\u6578\u5B78\u746A\u5A1C\uFF0C\u7372\u5F97
+      2 \u9EDE\u9B54\u529B\uFF0C\u62BD 2 \u5F35\u5361"
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  specialKeywordsList: 02000000
+  audioType: 0
+  correctCardActionDataList: []
+  wrongCardActionDataList: []
+  limitedQuestionCardActionDataList: []
+  mathQuestioningActionParameters:
+    UseMathAction: 0
+    QuestioningEndJudgeType: 0
+    QuestionCount: -1
+    UseCorrectAction: 0
+    CorrectActionNeedAnswerCount: -1
+    UseWrongAction: 0
+    WrongActionNeedAnswerCount: -1
+    UseTimeCountDown: 0
+    Time: -1
+    SelfCharacter: {fileID: 0}
+    TargetCharacter:
+    - {fileID: 0}
+  useRandomAction: 0
+  randomActionData:
+    randomActionList: []
