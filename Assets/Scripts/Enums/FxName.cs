@@ -20,6 +20,8 @@
         
         // Other
         Heal = 201,
-        FeedBackTest = 1001
+        FeedBackTest = 1001,
+        
+        MathText = 1020,
     }
 }
