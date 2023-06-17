@@ -15,9 +15,15 @@ MonoBehaviour:
   characterID: "\u4E2D\u53F2\u840A\u59C6"
   characterName: "\u4E2D\u53F2\u840A\u59C6"
   characterDescription: "\u4E2D\u53F2\u840A\u59C6"
-  maxHealth: 30
+  maxHealth: 25
   enemyPrefab: {fileID: 243822687015991123, guid: 1a6350f58b0c5154daec828458e4b4f5, type: 3}
   followAbilityPattern: 0
+  battleStartAbility:
+    name: 
+    intention: {fileID: 0}
+    hideActionValue: 0
+    actionTargetType: 0
+    actionList: []
   enemyAbilityList:
   - name: "\u653B\u64CA"
     intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}

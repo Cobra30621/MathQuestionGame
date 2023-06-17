@@ -26,7 +26,7 @@ MonoBehaviour:
   cardActionDataList:
   - gameActionType: 2
     actionValue: 13
-    additionValue: 0
+    multiplierValue: 0
     actionDelay: 0
     powerType: 0
     answerOutcomeType: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
     TargetCardData: {fileID: 0}
     TriggerActionList: []
   cardDescriptionDataList:
-  - descriptionText: "\u6D88\u8017 1 \u9EDE\u6CD5\u529B\uFF0C\u9020\u6210\u5168\u9AD4\u6575\u4EBA
+  - descriptionText: "\u6D88\u8017 1 \u9EDE\u6578\u5B78\u529B\uFF0C\u9020\u6210\u5168\u9AD4\u6575\u4EBA
       13 \u9EDE\u50B7\u5BB3"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: 
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  specialKeywordsList: 02000000
   audioType: 0
   correctCardActionDataList: []
   wrongCardActionDataList: []
