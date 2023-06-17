@@ -121,9 +121,11 @@ namespace NueGames.Characters
             var self = this;
             var target = CombatManager.EnemyDetermineTargets(this, ability.ActionTargetType);
             DoGameAction(ability, self, target);
-            
+
+      
+
             if (ability.Intention.EnemyIntentionType == EnemyIntentionType.Attack || 
-                ability.Intention.EnemyIntentionType == EnemyIntentionType.Debuff)
+                    ability.Intention.EnemyIntentionType == EnemyIntentionType.Debuff)
             {
                 yield return StartCoroutine(AttackRoutine(ability, target.transform));
             }
