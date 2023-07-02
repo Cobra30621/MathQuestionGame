@@ -1308,7 +1308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1950055916
 Transform:
   m_ObjectHideFlags: 0
@@ -2732,7 +2732,8 @@ MonoBehaviour:
     UseTimeCountDown: 0
     Time: -1
     SelfCharacter: {fileID: 0}
-    TargetCharacter: {fileID: 0}
+    TargetCharacter:
+    - {fileID: 0}
   questionList: []
   isQuestioning: 0
   waitAnswer: 0
