@@ -1,14 +1,13 @@
 ﻿using System;
 using NueGames.Combat;
 using NueGames.Data.Characters;
-using NueGames.Interfaces;
 using NueGames.Managers;
 using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Characters
 {
-    public abstract class AllyBase : CharacterBase,IAlly
+    public abstract class AllyBase : CharacterBase
     {
         [Header("Ally Base Settings")]
         [SerializeField] private AllyCanvas allyCanvas;

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using NueGames.Combat;
 using NueGames.Enums;
-using NueGames.Interfaces;
 using NueGames.Managers;
 using NueGames.Parameters;
 using NueGames.Power;
@@ -12,7 +11,7 @@ namespace NueGames.Characters
     /// <summary>
     /// 角色
     /// </summary>
-    public abstract class CharacterBase : MonoBehaviour, ICharacter
+    public abstract class CharacterBase : MonoBehaviour
     {
         [Header("Base settings")]
         [SerializeField] private CharacterType characterType;
