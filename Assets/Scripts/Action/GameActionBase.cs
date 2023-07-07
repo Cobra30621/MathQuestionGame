@@ -103,7 +103,7 @@ namespace NueGames.Action
         /// </summary>
         public List<ActionData> TriggerActionList;
 
-
+        public ActionDataClip ActionDataClip;
 
         protected FxManager FxManager
         {
@@ -145,7 +145,7 @@ namespace NueGames.Action
             ActionParameters = parameters;
             ActionData data = parameters.ActionData;
             BaseValue = data.ActionValue;
-            MultiplierValue = data.AdditionValue;
+            MultiplierValue = data.MultiplierValue;
             MultiplierAmount = 0;
             PowerType = data.PowerType; 
             Duration = data.ActionDelay;
@@ -154,6 +154,8 @@ namespace NueGames.Action
             SourcePile = data.SourcePile;
             TargetPile = data.TargetPile;
             TargetCardData = data.TargetCardData;
+
+            ActionDataClip = parameters.ActionDataClip;
             
             FxName = data.FxName;
             FxSpawnPosition = data.FxSpawnPosition;
@@ -287,7 +289,9 @@ namespace NueGames.Action
         
         public override string ToString()
         {
-            return $"{GetType().Name} \n {nameof(TargetList)}: {TargetList}, {nameof(Self)}: {Self}, {nameof(AdditionValue)}: {AdditionValue}";
+            return $" {nameof(ActionType)}: {ActionType}, {nameof(TargetList)}: {TargetList}, {nameof(Self)}: {Self}, {nameof(BaseValue)}: {BaseValue}, {nameof(MultiplierValue)}: {MultiplierValue}, {nameof(MultiplierAmount)}: {MultiplierAmount}, {nameof(AdditionValue)}: {AdditionValue}";
         }
+        
+        
     }
 }

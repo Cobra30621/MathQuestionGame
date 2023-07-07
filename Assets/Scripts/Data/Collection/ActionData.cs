@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NueGames.Action.MathAction;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.NueExtentions;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace NueGames.Data.Collection
@@ -22,7 +24,7 @@ namespace NueGames.Data.Collection
         [Tooltip("數值，用於傷害大小、增加異常狀態層數等")]
         [SerializeField] private int actionValue;
         [Tooltip("加成數值\n用於如 DamageByQuestioning(根據答對題數造成傷害) 行動")]
-        [SerializeField] private int additionValue;
+        [SerializeField] private int multiplierValue;
         [Tooltip("行為延遲時間")]
         [SerializeField] private float actionDelay;
 
@@ -57,7 +59,7 @@ namespace NueGames.Data.Collection
         /// 觸發的行動
         /// </summary>
         [Header("觸發的行動")] 
-        [SerializeField] public List<ActionData> TriggerActionList;
+        [OdinSerialize] public List<ActionData> TriggerActionList;
         
         /// <summary>
         /// 遊戲行為類型
@@ -81,7 +83,7 @@ namespace NueGames.Data.Collection
         /// 用於如 DamageByQuestioning(根據答對題數造成傷害) 行動
         /// </summary>
         // TODO 重新命名
-        public int AdditionValue => additionValue;
+        public int MultiplierValue => multiplierValue;
         /// <summary>
         /// 行為延遲時間
         /// </summary>
@@ -101,7 +103,7 @@ namespace NueGames.Data.Collection
         public void EditActionType(GameActionType newType) =>  gameActionType = newType;
         public void EditPower(PowerType newPowerType) => powerType = newPowerType;
         public void EditActionValue(int newValue) => actionValue = newValue;
-        public void EditAdditionValue(int newValue) => additionValue = newValue;
+        public void EditAdditionValue(int newValue) => multiplierValue = newValue;
         public void EditActionDelay(float newValue) => actionDelay = newValue;
 
         

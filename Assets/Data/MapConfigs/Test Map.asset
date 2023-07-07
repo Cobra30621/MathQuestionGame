@@ -44,6 +44,20 @@ MonoBehaviour:
     nodesApartDistance: 2
     randomizePosition: 0.26
     randomizeNodes: 0
+  - nodeType: 0
+    distanceFromPreviousLayer:
+      min: 4
+      max: 4
+    nodesApartDistance: 2
+    randomizePosition: 0.26
+    randomizeNodes: 0
+  - nodeType: 0
+    distanceFromPreviousLayer:
+      min: 4
+      max: 4
+    nodesApartDistance: 2
+    randomizePosition: 0.26
+    randomizeNodes: 0
   - nodeType: 5
     distanceFromPreviousLayer:
       min: 2
@@ -52,18 +66,22 @@ MonoBehaviour:
     randomizePosition: 0
     randomizeNodes: 0
   encounterStage:
-    weakEnemyCount: 1
+    weakEnemyCount: 2
     weakEnemies:
       weightClip:
       - encounter: 101
+        weight: 1
+      - encounter: 1001
         weight: 1
     strongEnemies:
       weightClip:
       - encounter: 102
         weight: 1
+      - encounter: 1011
+        weight: 1
     eliteEnemies:
       weightClip: []
     bossEnemies:
       weightClip:
-      - encounter: 102
+      - encounter: 111
         weight: 1

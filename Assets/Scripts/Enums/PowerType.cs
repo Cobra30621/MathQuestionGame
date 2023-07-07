@@ -29,6 +29,9 @@
         // 測試用
         DamageAllEnemyWhenGainPower = 101,
         
+        MathHappy = 131,
+        MathAngry = 132,
+        
         // 燃燒
         Fire = 201,
         SuperFire = 202,

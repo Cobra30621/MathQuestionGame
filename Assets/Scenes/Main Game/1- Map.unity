@@ -545,10 +545,10 @@ RectTransform:
   m_Father: {fileID: 1296360526}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 840}
+  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMax: {x: 1, y: 0.95}
+  m_AnchoredPosition: {x: 0, y: 27}
+  m_SizeDelta: {x: 0, y: -54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &460050065
 MonoBehaviour:
@@ -1165,6 +1165,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c432081682ce8734dab2332d0f1d5ecc, type: 2}
   - {fileID: 11400000, guid: 49153edabc6433448b6053f9b410d002, type: 2}
   - {fileID: 11400000, guid: 7f700ffeb36011b4fb16eec544a68f91, type: 2}
+  - {fileID: 11400000, guid: 74ca571c5b916964a929f7f1ba987267, type: 2}
 --- !u!4 &686897899
 Transform:
   m_ObjectHideFlags: 0
@@ -1361,7 +1362,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Generate
+  m_Text: "\u91CD\u65B0\u7522\u751F\u5730\u5716"
 --- !u!222 &821742203
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2070,8 +2071,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 1757793414}
+        m_TargetAssemblyTypeName: Map.MapManager, Assembly-CSharp
         m_MethodName: GenerateNewMap
         m_Mode: 1
         m_Arguments:

@@ -12,15 +12,14 @@ namespace NueGames.Action
     public class DamageByAllyPowerValueAction : GameActionBase
     {
         public override GameActionType ActionType => GameActionType.DamageByAllyPowerValue;
-        private PowerType accordingPowerType;
-        
-        
+
+
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         protected override void DoMainAction()
         {
-            BaseValue = CombatManager.CurrentMainAlly.GetPowerValue(accordingPowerType);
+            MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerType);
             
             DoDamageAction();
         }

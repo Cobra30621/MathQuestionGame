@@ -30,6 +30,8 @@ namespace NueGames.Data.Encounter
         TwoBee = 101, // 兩隻黃蜂
         Wolf = 102, // 狼人
         
+        MathStranger = 111, // 數學怪人
+        
         // Slay Of Spire (殺戮尖塔)
         SmallSmiles = 1001, // 小史萊姆
         Cultist = 1002, // 邪教徒

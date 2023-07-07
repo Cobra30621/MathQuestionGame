@@ -75,7 +75,15 @@ namespace NueGames.Characters
             else
             {
                 EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
-                EnemyCanvas.NextActionValueText.text = NextAbility.ActionList[0].ActionValue.ToString();
+                // EnemyCanvas.NextActionValueText.text = NextAbility.ActionDataClip.ActionList[0].ActionValue.ToString();
+                int actionValue = NextAbility.ActionList[0].ActionValue;
+                if (NextAbility.Intention.EnemyIntentionType == EnemyIntentionType.Attack)
+                {
+                    // TODO 串接根據狀態，顯示不同數值
+                    // actionValue = 
+                }
+                
+                EnemyCanvas.NextActionValueText.text = $"{actionValue}";
             }
 
             _usedAbilityCount++;
@@ -84,7 +92,26 @@ namespace NueGames.Characters
         #endregion
         
         #region Action Routines
-        public virtual IEnumerator ActionRoutine()
+
+        /// <summary>
+        /// 回合開始時的行動
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator BattleStartActionRoutine()
+        {
+            return ActionRoutine(EnemyCharacterData.BattleStartAbility);
+        }
+        
+        /// <summary>
+        /// 每回合的行動
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator ActionRoutine()
+        {
+            return ActionRoutine(NextAbility);
+        }
+        
+        public virtual IEnumerator ActionRoutine(EnemyAbilityData ability)
         {
             if (CharacterStats.IsStunned)
                 yield break;
@@ -92,17 +119,19 @@ namespace NueGames.Characters
             EnemyCanvas.IntentImage.gameObject.SetActive(false);
             
             var self = this;
-            var target = CombatManager.EnemyDetermineTargets(this, NextAbility.ActionTargetType);
-            DoGameAction(NextAbility, self, target);
-            
-            if (NextAbility.Intention.EnemyIntentionType == EnemyIntentionType.Attack || 
-                NextAbility.Intention.EnemyIntentionType == EnemyIntentionType.Debuff)
+            var target = CombatManager.EnemyDetermineTargets(this, ability.ActionTargetType);
+            DoGameAction(ability, self, target);
+
+      
+
+            if (ability.Intention.EnemyIntentionType == EnemyIntentionType.Attack || 
+                    ability.Intention.EnemyIntentionType == EnemyIntentionType.Debuff)
             {
-                yield return StartCoroutine(AttackRoutine(NextAbility, target.transform));
+                yield return StartCoroutine(AttackRoutine(ability, target.transform));
             }
             else
             {
-                yield return StartCoroutine(BuffRoutine(NextAbility));
+                yield return StartCoroutine(BuffRoutine(ability));
             }
         }
 
