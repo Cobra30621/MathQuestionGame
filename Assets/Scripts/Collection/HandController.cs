@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Enums;
-using NueGames.Interfaces;
 using NueGames.Managers;
 using UnityEngine;
 using Kalkatos.DottedArrow;

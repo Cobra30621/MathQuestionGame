@@ -7,7 +7,6 @@ using NueGames.Data.Characters;
 using NueGames.Data.Collection;
 using NueGames.Data.Containers;
 using NueGames.Enums;
-using NueGames.Interfaces;
 using NueGames.Managers;
 using NueGames.NueExtentions;
 using NueGames.Parameters;
@@ -15,7 +14,7 @@ using UnityEngine;
 
 namespace NueGames.Characters
 {
-    public class EnemyBase : CharacterBase, IEnemy
+    public class EnemyBase : CharacterBase
     {
         [Header("Enemy Base References")]
         protected EnemyCharacterData enemyCharacterData;

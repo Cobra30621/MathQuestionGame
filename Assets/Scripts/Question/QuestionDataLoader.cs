@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using NueGames.Characters;
-using NueGames.Interfaces;
 using UnityEditor;
 using UnityEngine;
 
