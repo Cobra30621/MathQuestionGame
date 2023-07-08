@@ -2,6 +2,8 @@
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Combat;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 namespace NueGames.Power
 {
@@ -11,6 +13,8 @@ namespace NueGames.Power
     public abstract class ReducePowerAtEndOfTurnPower : PowerBase
     {
         protected abstract PowerType TargetPowerType { get; }
+
+        public Button Button;
 
         public override void SubscribeAllEvent()
         {

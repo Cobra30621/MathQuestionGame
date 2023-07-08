@@ -24,12 +24,18 @@ MonoBehaviour:
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 14
-    powerType: 2
-    answerOutcomeType: 0
+  - gameActionType: 11
     actionValue: 2
-    additionValue: 0
+    multiplierValue: 0
     actionDelay: 0
+    powerType: 21
+    answerOutcomeType: 0
+    fxName: 0
+    fxSpawnPosition: 0
+    SourcePile: 0
+    TargetPile: 0
+    TargetCardData: {fileID: 0}
+    TriggerActionList: []
   cardDescriptionDataList:
   - descriptionText: "\u529B\u91CF_\u529B\u91CF\u7FFB\u500D"
     enableOverrideColor: 0
@@ -57,7 +63,8 @@ MonoBehaviour:
     UseTimeCountDown: 0
     Time: -1
     SelfCharacter: {fileID: 0}
-    TargetCharacter: {fileID: 0}
+    TargetCharacter:
+    - {fileID: 0}
   useRandomAction: 0
   randomActionData:
     randomActionList: []

@@ -25,11 +25,17 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   cardActionDataList:
   - gameActionType: 11
-    powerType: 42
-    answerOutcomeType: 0
     actionValue: 3
-    additionValue: 0
+    multiplierValue: 0
     actionDelay: 0
+    powerType: 21
+    answerOutcomeType: 0
+    fxName: 0
+    fxSpawnPosition: 0
+    SourcePile: 0
+    TargetPile: 0
+    TargetCardData: {fileID: 0}
+    TriggerActionList: []
   cardDescriptionDataList:
   - descriptionText: "\u6E2C\u8A66\u7528_\u7D66\u4E88\u6211\u65B9\u72C0\u614B"
     enableOverrideColor: 0
@@ -57,7 +63,8 @@ MonoBehaviour:
     UseTimeCountDown: 0
     Time: -1
     SelfCharacter: {fileID: 0}
-    TargetCharacter: {fileID: 0}
+    TargetCharacter:
+    - {fileID: 0}
   useRandomAction: 0
   randomActionData:
     randomActionList: []

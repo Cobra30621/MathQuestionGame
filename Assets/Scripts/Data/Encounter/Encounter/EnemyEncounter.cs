@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NueGames.Data.Characters;
 using NueGames.Enums;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace NueGames.Data.Encounter
@@ -14,6 +15,7 @@ namespace NueGames.Data.Encounter
     public class EnemyEncounter : EncounterBase
     {
         public EnemyEncounterName encounterName;
+        [InlineEditor()]
         public List<EnemyCharacterData> enemyList;
     }
 
