@@ -10,20 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01dd2752105b4ecbbc5e92d535616897, type: 3}
-  m_Name: Gameplay Settings
+  m_Name: Nelson GameData
   m_EditorClassIdentifier: 
-  drawCount: 5
+  drawCount: 10
   maxMana: 3
   initalAllyList:
   - {fileID: 2835035829204582327, guid: ea5ea9cb5f227fd46a277c14575dcd69, type: 3}
-  initalDeck: {fileID: 11400000, guid: dfd37284a916376429fc81c521e4d1d1, type: 2}
-  maxCardOnHand: 5
-  allCardsList:
-  - {fileID: 11400000, guid: 8f655889219afa649a967e88e37f98ec, type: 2}
-  - {fileID: 11400000, guid: 7c3fef23d2fb177478906e53364bf7fc, type: 2}
+  initalDeck: {fileID: 11400000, guid: 98916a308c898c342b155ef2bd9fb08a, type: 2}
+  maxCardOnHand: 10
+  allCardsList: []
   cardPrefab: {fileID: 2689473134106589740, guid: a9728682a56595f4989b8f224d934689, type: 3}
   defaultName: Nue
   useStageSystem: 0
   isRandomHand: 0
   randomCardCount: 10
-  initialRelic: 65000000
+  initialRelic: 66000000

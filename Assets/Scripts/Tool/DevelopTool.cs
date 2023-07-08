@@ -7,34 +7,42 @@ using NueGames.Relic;
 using UnityEngine;
 using UnityEngine.Events;
 using NueGames.Combat;
+using NueGames.Data.Encounter;
+using NueGames.Data.Settings;
 
 namespace Tool
 {
     /// <summary>
     /// 給遊戲開發者測試用的創造器
     /// </summary>
-    public class DevelopCreator : MonoBehaviour
+    public class DevelopTool : MonoBehaviour
     {
-        /// <summary>
-        /// 遊戲開始時執行
-        /// </summary>
-        public bool PlayOnStart;
+        [SerializeField] private bool isDevelopMode;
         /// <summary>
         /// 測試的事件
         /// </summary>
         public UnityEvent TestEvent;
-        /// <summary>
-        /// 測試創建的遺物
-        /// </summary>
-        public List<RelicType> createRelicList;
 
+        public GameplayData GameplayData;
+        public EnemyEncounter EnemyEncounter;
+        
         public List<PowerType> allyPowerList;
+
+        void Awake()
+        {
+            if (isDevelopMode)
+            {
+                SetDevelopModeData();
+            }
+        }
 
         void Start()
         {
-            if (PlayOnStart)
+            PlayTest();
+
+            if (isDevelopMode)
             {
-                PlayTest();
+                GenerateAllyPower();
             }
         }
         
@@ -42,23 +50,20 @@ namespace Tool
         public void PlayTest()
         {
             TestEvent.Invoke();
-            GainRelic();
-            GainAllyPower();
-        }
-        
-        /// <summary>
-        /// 取得遺物
-        /// </summary>
-        private void GainRelic()
-        {
-            foreach (var relicType in createRelicList)
-            {
-                RelicManager.Instance.GainRelic(relicType);
-                RelicManager.Instance.PrintCurrentRelicList();
-            }
+            
         }
 
-        private void GainAllyPower()
+        private void SetDevelopModeData()
+        {
+            GameManager.Instance.SetGameplayData(GameplayData);
+            GameManager.Instance.StartRougeLikeGame();
+            
+            GameManager.Instance.SetEnemyEncounter(EnemyEncounter);
+            
+            
+        }
+        
+        private void GenerateAllyPower()
         {
             foreach (var powerType in allyPowerList)
             {

@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4cc2cb8eaf4444790bf3249beca9ed4, type: 3}
-  m_Name: InitalDeck
+  m_Name: Nelson Deck
   m_EditorClassIdentifier: 
-  deckId: deck_default
+  deckId: 
   deckName: 
-  cardList: []
+  cardList:
+  - {fileID: 11400000, guid: cf454e68e26588042a09a0267e46c726, type: 2}
+  - {fileID: 11400000, guid: 9be2808ffbc231145b4073720691d4f5, type: 2}
+  - {fileID: 11400000, guid: 0058cc208c4374b46b97a3bad9fa8dc9, type: 2}

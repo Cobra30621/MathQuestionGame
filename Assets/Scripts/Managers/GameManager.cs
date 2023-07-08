@@ -21,9 +21,6 @@ namespace NueGames.Managers
         [Header("Settings")]
         [SerializeField] private GameplayData gameplayData;
         [SerializeField] private SceneData sceneData;
-        [SerializeField] private bool isDevelopCombatMode;
-        // TODO 預設 Encounter 之後優化
-        public EnemyEncounter DefaultEncounter;
 
         #region Cache
         public SceneData SceneData => sceneData;
@@ -54,20 +51,10 @@ namespace NueGames.Managers
             }
         }
 
-        private void Start()
-        {
-            if (isDevelopCombatMode)
-            {
-                // TODO 一般模式、開發模式串接
-                StartRougeLikeGame();
-            }
-        }
 
         #endregion
         
         #region Public Methods
-
-        
         
         public void StartRougeLikeGame()
         {
@@ -79,7 +66,6 @@ namespace NueGames.Managers
         public void InitGameplayData()
         { 
             PersistentGameplayData = new PersistentGameplayData(gameplayData);
-            PersistentGameplayData.CurrentEnemyEncounter = DefaultEncounter;
             if (UIManager)
                 UIManager.InformationCanvas.ResetCanvas();
            
