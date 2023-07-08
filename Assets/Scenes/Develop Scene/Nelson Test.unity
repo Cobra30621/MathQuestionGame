@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1054,13 +1054,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0a2e0289f545d5bf4bbe55735efbd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDevelopMode: 1
   TestEvent:
     m_PersistentCalls:
       m_Calls: []
   GameplayData: {fileID: 11400000, guid: 2a6d7b05967a34546bb8a9d05aa680b3, type: 2}
   EnemyEncounter: {fileID: 11400000, guid: 41fe7e80be66d1e449a8233314a3d9d1, type: 2}
-  allyPowerList: 
+  allyPowerAtGameStart: 02000000
 --- !u!4 &1571468705
 Transform:
   m_ObjectHideFlags: 0

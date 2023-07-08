@@ -18,7 +18,6 @@ namespace Tool
     /// </summary>
     public class DevelopTool : MonoBehaviour
     {
-        [SerializeField] private bool isDevelopMode;
         /// <summary>
         /// 測試的事件
         /// </summary>
@@ -33,20 +32,15 @@ namespace Tool
 
         void Awake()
         {
-            if (isDevelopMode)
-            {
-                SetDevelopModeData();
-            }
+            SetDevelopModeData();
         }
 
         void Start()
         {
             PlayTest();
 
-            if (isDevelopMode)
-            {
-                GenerateAllyPower();
-            }
+            GenerateAllyPower();
+            
         }
         
         [ContextMenu("使用測試方法")]
