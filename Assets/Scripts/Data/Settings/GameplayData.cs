@@ -3,6 +3,7 @@ using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Relic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace NueGames.Data.Settings
@@ -16,6 +17,7 @@ namespace NueGames.Data.Settings
         [SerializeField] private List<AllyBase> initalAllyList;
         
         [Header("Decks")] 
+        [InlineEditor]
         [SerializeField] private DeckData initalDeck;
         [SerializeField] private int maxCardOnHand;
         

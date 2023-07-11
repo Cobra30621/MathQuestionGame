@@ -138,7 +138,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
 --- !u!1 &608757709825155125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,6 +1346,10 @@ PrefabInstance:
       propertyPath: arrowController
       value: 
       objectReference: {fileID: 190083087211976747}
+    - target: {fileID: 7827608652126751339, guid: a45e8add0d26bd5499f54577a1579ee7, type: 3}
+      propertyPath: targetLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 7827608652126751340, guid: a45e8add0d26bd5499f54577a1579ee7, type: 3}
       propertyPath: m_RootOrder
       value: 0

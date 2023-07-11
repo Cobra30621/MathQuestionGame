@@ -214,7 +214,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 439
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1095,13 +1095,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDevelopMode: 1
-  PlayOnStart: 0
   TestEvent:
     m_PersistentCalls:
       m_Calls: []
   GameplayData: {fileID: 11400000, guid: 699903d0236c43c43964bc88e127de7f, type: 2}
   EnemyEncounter: {fileID: 11400000, guid: 7f700ffeb36011b4fb16eec544a68f91, type: 2}
-  createRelicList: 6500000066000000
   allyPowerList: d3000000
 --- !u!4 &1571468705
 Transform:
