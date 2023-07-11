@@ -328,7 +328,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 439
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -724,13 +724,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0a2e0289f545d5bf4bbe55735efbd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDevelopMode: 1
   TestEvent:
     m_PersistentCalls:
       m_Calls: []
   GameplayData: {fileID: 11400000, guid: aa19e54e8b9bde742bbea58ad7851f6c, type: 2}
   EnemyEncounter: {fileID: 11400000, guid: 7f700ffeb36011b4fb16eec544a68f91, type: 2}
-  allyPowerList: 
+  allyPowerAtGameStart: 
 --- !u!4 &1214518470
 Transform:
   m_ObjectHideFlags: 0
