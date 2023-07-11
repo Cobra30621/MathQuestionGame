@@ -9,6 +9,7 @@ using UnityEngine.Events;
 using NueGames.Combat;
 using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
+using Sirenix.OdinInspector;
 
 namespace Tool
 {
@@ -17,33 +18,29 @@ namespace Tool
     /// </summary>
     public class DevelopTool : MonoBehaviour
     {
-        [SerializeField] private bool isDevelopMode;
         /// <summary>
         /// 測試的事件
         /// </summary>
         public UnityEvent TestEvent;
-
+        
+        [InlineEditor()]
         public GameplayData GameplayData;
+        [InlineEditor()]
         public EnemyEncounter EnemyEncounter;
         
-        public List<PowerType> allyPowerList;
+        public List<PowerType> allyPowerAtGameStart;
 
         void Awake()
         {
-            if (isDevelopMode)
-            {
-                SetDevelopModeData();
-            }
+            SetDevelopModeData();
         }
 
         void Start()
         {
             PlayTest();
 
-            if (isDevelopMode)
-            {
-                GenerateAllyPower();
-            }
+            GenerateAllyPower();
+            
         }
         
         [ContextMenu("使用測試方法")]
@@ -65,7 +62,7 @@ namespace Tool
         
         private void GenerateAllyPower()
         {
-            foreach (var powerType in allyPowerList)
+            foreach (var powerType in allyPowerAtGameStart)
             {
                 var ally = CombatManager.Instance.CurrentMainAlly;
                 var parameter = new ApplyPowerParameters(ally, powerType, 1);

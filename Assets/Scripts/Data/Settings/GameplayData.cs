@@ -11,44 +11,43 @@ namespace NueGames.Data.Settings
     [CreateAssetMenu(fileName = "Gameplay Data", menuName = "NueDeck/Settings/GameplayData", order = 0)]
     public class GameplayData : ScriptableObject
     {
-        [Header("Gameplay Settings")] 
+        [FoldoutGroup("基礎設定")]
+        [PropertyTooltip("初始抽牌數量")]
         [SerializeField] private int drawCount = 4;
-        [SerializeField] private int maxMana = 3;
-        [SerializeField] private List<AllyBase> initalAllyList;
         
-        [Header("Decks")] 
-        [InlineEditor]
-        [SerializeField] private DeckData initalDeck;
+        [FoldoutGroup("基礎設定")]
+        [PropertyTooltip("最大魔力")]
+        [SerializeField] private int maxMana = 3;
+        
+        [FoldoutGroup("基礎設定")]
+        [PropertyTooltip("最大手牌數量")]
         [SerializeField] private int maxCardOnHand;
         
-        [Header("Card Settings")] 
-        [SerializeField] private List<CardData> allCardsList;
-        [SerializeField] private CardBase cardPrefab;
-
-        [Header("Customization Settings")] 
-        [SerializeField] private string defaultName = "Nue";
-        [SerializeField] private bool useStageSystem;
+        [InlineEditor]
+        [FoldoutGroup("卡牌")]
+        [PropertyTooltip("初始卡牌")]
+        [SerializeField] private DeckData initalDeck;
         
-        [Header("Modifiers")]
-        [SerializeField] private bool isRandomHand = false;
-        [SerializeField] private int randomCardCount;
-
-        [Header("Relic")] 
+        [FoldoutGroup("卡牌")]
+        [PropertyTooltip("卡牌的 GameObject")]
+        [SerializeField] private CardBase cardPrefab;
+        
+        [FoldoutGroup("玩家")]
+        [PropertyTooltip("玩家資料")]
+        [InlineEditor()]
+        [SerializeField] private List<AllyBase> initalAllyList;
+        
+        [FoldoutGroup("玩家")]
+        [PropertyTooltip("玩家初始遺物")]
         [SerializeField] private List<RelicType> initialRelic;
         
         #region Encapsulation
         public int DrawCount => drawCount;
         public int MaxMana => maxMana;
-        public bool IsRandomHand => isRandomHand;
         public List<AllyBase> InitalAllyList => initalAllyList;
         public DeckData InitalDeck => initalDeck;
-        public int RandomCardCount => randomCardCount;
         public int MaxCardOnHand => maxCardOnHand;
-        public List<CardData> AllCardsList => allCardsList;
         public CardBase CardPrefab => cardPrefab;
-        public string DefaultName => defaultName;
-        public bool UseStageSystem => useStageSystem;
-
         public List<RelicType> InitialRelic => initialRelic;
 
         #endregion

@@ -7,6 +7,7 @@ using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
 using NueGames.NueExtentions;
 using NueGames.Power;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,12 +20,14 @@ namespace NueGames.Managers
         public static GameManager Instance { get; private set; }
         
         [Header("Settings")]
+        [InlineEditor()]
         [SerializeField] private GameplayData gameplayData;
         [SerializeField] private SceneData sceneData;
 
         #region Cache
         public SceneData SceneData => sceneData;
         public GameplayData GameplayData => gameplayData;
+        [ShowInInspector]
         public PersistentGameplayData PersistentGameplayData { get; private set; }
         
         #endregion
@@ -90,12 +93,9 @@ namespace NueGames.Managers
         {
             PersistentGameplayData.CurrentCardsList.Clear();
             
-            if (PersistentGameplayData.IsRandomHand)
-                for (var i = 0; i < GameplayData.RandomCardCount; i++)
-                    PersistentGameplayData.CurrentCardsList.Add(GameplayData.AllCardsList.RandomItem());
-            else
-                foreach (var cardData in GameplayData.InitalDeck.CardList)
-                    PersistentGameplayData.CurrentCardsList.Add(cardData);
+            foreach (var cardData in GameplayData.InitalDeck.CardList)
+                PersistentGameplayData.CurrentCardsList.Add(cardData);
+                
         }
         
         

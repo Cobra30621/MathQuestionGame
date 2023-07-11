@@ -1,22 +1,13 @@
-﻿using NueGames.Action;
 using NueGames.Combat;
 using NueGames.Enums;
-using NueGames.Managers;
 using NueGames.Parameters;
-using NueGames.UI;
 using UnityEngine;
 
 namespace NueGames.Power
 {
-
-
-    /// <summary>
-    /// 燃燒能力
-    /// </summary>
-    public class FirePower : PowerBase
+    public class PoisonPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Fire;
-        
+        public override PowerType PowerType => PowerType.Poison;
         
         public override void SubscribeAllEvent()
         {
@@ -27,9 +18,6 @@ namespace NueGames.Power
         {
             CombatManager.OnTurnStart -= OnTurnStart;
         }
-        
-        
-
 
         protected override void OnTurnStart(TurnInfo info)
         {
@@ -38,7 +26,7 @@ namespace NueGames.Power
                 int FireAmount = Amount;
                 if (CombatManager.IsMainAllyHasPower(PowerType.Kindle))
                 {
-                   FireAmount = Amount * 2;
+                    FireAmount = Amount * 2;
                 }
 
                 DamageInfo damageInfo = GetDamageInfo(FireAmount, true, true);
@@ -48,5 +36,6 @@ namespace NueGames.Power
                 Owner.CharacterStats.ApplyPower(PowerType, -1); // 燒血後減層數 1 
             }
         }
+        
     }
 }

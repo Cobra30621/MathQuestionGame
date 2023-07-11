@@ -20,7 +20,6 @@ namespace NueGames.Data.Settings
         [SerializeField] private int currentMana;
         [SerializeField] private bool canUseCards;
         [SerializeField] private bool canSelectCards;
-        [SerializeField] private bool isRandomHand;
         [SerializeField] private List<AllyBase> allyList;
         [SerializeField] private int currentStageId;
         [SerializeField] private int currentEncounterId;
@@ -67,7 +66,6 @@ namespace NueGames.Data.Settings
             CurrentMana = MaxMana;
             CanUseCards = true;
             CanSelectCards = true;
-            IsRandomHand = _gameplayData.IsRandomHand;
             AllyList = new List<AllyBase>(_gameplayData.InitalAllyList);
             CurrentEncounterId = 0;
             CurrentStageId = 0;
@@ -109,12 +107,7 @@ namespace NueGames.Data.Settings
             get => canSelectCards;
             set => canSelectCards = value;
         }
-
-        public bool IsRandomHand
-        {
-            get => isRandomHand;
-            set => isRandomHand = value;
-        }
+        
 
         public List<AllyBase> AllyList
         {
