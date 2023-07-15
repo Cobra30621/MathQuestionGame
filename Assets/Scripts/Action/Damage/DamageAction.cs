@@ -1,4 +1,5 @@
-﻿using NueGames.Card;
+﻿using Action.Parameters;
+using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Data.Collection;
@@ -22,9 +23,10 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                PlaySpawnTextFx($"{DamageInfo.GetAfterBlockDamage()}", target);
-            
-                target.BeAttacked(DamageInfo);
+                DamageInfo damageInfo = CreateDamageInfo(target);
+                
+                PlaySpawnTextFx($"{damageInfo}", target);
+                target.BeAttacked(damageInfo);
             }
             
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Action.Parameters;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Data.Collection;
@@ -18,6 +19,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using NueGames.Combat;
+using NueGames.Parameters;
 
 namespace NueGames.Card
 {
@@ -88,7 +90,7 @@ namespace NueGames.Card
             return CardData.ActionTargetType == ActionTargetType.Enemy;
         }
         
-        public virtual void Use(CharacterBase self,List<CharacterBase> targetList)
+        public virtual void Use(List<CharacterBase> targetList)
         {
             if (!IsPlayable) return;
 
@@ -99,8 +101,15 @@ namespace NueGames.Card
             if(CardData.NeedPowerToPlay)
                 SpendPower(CardData.NeedPowerType, PowerCost);
 
+            ActionSource actionSource = new ActionSource()
+            {
+                SourceType = SourceType.Card,
+                SourceCard = this,
+                SourceCharacter = CombatManager.CurrentMainAlly
+            };
+            
             List<GameActionBase> gameActions = GameActionGenerator.GetGameActions(CardData,
-                ActionSource.Card, CardData.CardActionDataList, self, targetList);
+                actionSource, CardData.CardActionDataList, targetList);
             GameActionExecutor.AddToBottom(gameActions);
             CollectionManager.OnCardPlayed(this);
         }

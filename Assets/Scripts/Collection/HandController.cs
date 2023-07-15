@@ -341,7 +341,6 @@ namespace NueGames.Collection
 
             if (PlayCardJudgment.CanUseCard(_heldCard))
             {
-                CharacterBase self = CombatManager.CurrentMainAlly;
                 CharacterBase hitCharacter = GetHitCharacter(mousePos);
                 
                 if (EnablePlayCard(_heldCard.CardData.ActionTargetType, hitCharacter, _heldCard.CardData.UsableWithoutTarget))
@@ -355,7 +354,7 @@ namespace NueGames.Collection
 
                     var targetList = GetTargetList(_heldCard.CardData.ActionTargetType, hitCharacter);
                     
-                    _heldCard.Use(self, targetList);
+                    _heldCard.Use(targetList);
                     DeactivateSelectingSingleEnemyEffect();
                 }
             }

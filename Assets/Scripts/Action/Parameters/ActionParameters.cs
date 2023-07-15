@@ -1,12 +1,8 @@
 ﻿using System.Collections.Generic;
 using NueGames.Characters;
 using NueGames.Data.Collection;
-using NueGames.Enums;
-using NueGames.Managers;
-using NueGames.Relic;
-using UnityEngine;
 
-namespace NueGames.Parameters
+namespace Action.Parameters
 {
     /// <summary>
     /// 遊戲行為(GameAction)所需參數
@@ -19,6 +15,7 @@ namespace NueGames.Parameters
         /// 行為目標對象
         /// </summary>
         public List<CharacterBase> TargetList;
+
         /// <summary>
         /// 行為來源
         /// </summary>
@@ -35,25 +32,11 @@ namespace NueGames.Parameters
         #region 選填
 
         /// <summary>
-        /// 行為產生者
-        /// </summary>
-        public CharacterBase Self;
-        /// <summary>
         /// 卡片資料(卡牌行為才需要)
         /// </summary>
+        // TODO: 移除或是合併到 ActionData
         public CardData CardData;
-        /// <summary>
-        /// 傷害源自哪一個能力(能力才需要)
-        /// </summary>
-        public PowerType SourcePower;
-        /// <summary>
-        /// 傷害源自哪一個遺物(遺物才需要)
-        /// </summary>
-        public RelicType SourceRelic;
-        /// <summary>
-        /// 加成數值
-        /// </summary>
-        public float MultiplierValue;
+        
 
         #endregion
 

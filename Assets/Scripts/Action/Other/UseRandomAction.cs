@@ -1,4 +1,5 @@
-﻿using NueGames.Action;
+﻿using Action.Parameters;
+using NueGames.Action;
 using NueGames.Card;
 using NueGames.Enums;
 using NueGames.Parameters;
@@ -22,7 +23,7 @@ namespace Action
 
         protected override void DoMainAction()
         {
-            GameActionBase action = RandomGameActionGenerator.GetRandomAction(_randomActionData, ActionParameters);
+            GameActionBase action = RandomGameActionGenerator.GetRandomAction(_randomActionData, Parameters);
             action.DoAction();
         }
     }

@@ -7,6 +7,7 @@ using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.NueExtentions;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 

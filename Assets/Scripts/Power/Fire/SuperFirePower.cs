@@ -1,5 +1,8 @@
-﻿using NueGames.Combat;
+﻿using Action.Parameters;
+using NueGames.Action;
+using NueGames.Combat;
 using NueGames.Enums;
+using NueGames.Managers;
 using NueGames.Parameters;
 using UnityEngine;
 
@@ -24,9 +27,15 @@ namespace NueGames.Power
 
         protected override void OnDead(DamageInfo damageInfo)
         {
-            if (damageInfo.ActionSource == ActionSource.Power && damageInfo.SourcePower == PowerType.Fire)
+            if (damageInfo.ActionSource.IsFromPower(PowerType.Fire))
             {
-                GameActionExecutor.DoDamageAllEnemyAction(damageInfo); // 給予所有敵人"燃燒"層數的傷害
+                DamageAllEnemyAction damageAction = new DamageAllEnemyAction();
+                damageAction.SetDamageValue(damageInfo.BaseValue, 
+                    null,
+                    GetActionSource()
+                );
+                GameActionExecutor.Instance.AddToBottom(damageAction);
+                
                 GameActionExecutor.DoApplyPowerToAllEnemyAction( 
                     new ApplyPowerParameters(damageInfo.BaseValue, PowerType.Fire)); // 給予所有敵人"燃燒"層數的"燃燒"
             }

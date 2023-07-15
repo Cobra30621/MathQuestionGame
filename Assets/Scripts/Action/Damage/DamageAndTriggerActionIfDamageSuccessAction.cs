@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using NueGames.Enums;
+using NueGames.Parameters;
 using UnityEngine;
 
 namespace NueGames.Action
@@ -13,15 +14,16 @@ namespace NueGames.Action
 
         protected override void DoMainAction()
         {
-            if (DamageInfo.HaveDamage())
-            {
-                Debug.Log($"攻擊成功，觸發{ActionData.TriggerActionList}");
-                DoTriggerAction();
-            }
-            
-            
+            // TODO : 將功能依據新架構實作
+            // if (damageInfo.HaveDamage())
+            // {
+            //     Debug.Log($"攻擊成功，觸發{ActionData.TriggerActionList}");
+            //     DoTriggerAction();
+            // }
+            //
+            //
             var damageAction = new DamageAction();
-            damageAction.SetValue(ActionParameters);
+            damageAction.SetValue(Parameters);
             
             GameActionExecutor.AddToBottom(damageAction);
         }
@@ -31,8 +33,9 @@ namespace NueGames.Action
         /// </summary>
         private void DoTriggerAction()
         {
+            
             List<GameActionBase> gameActions =  GameActionGenerator.GetGameActions(null, 
-                ActionSource.Enemy, ActionData.TriggerActionList, Self, TargetList);
+                Parameters.ActionSource, ActionData.TriggerActionList, TargetList);
             GameActionExecutor.AddToBottom(gameActions);
         }
     }

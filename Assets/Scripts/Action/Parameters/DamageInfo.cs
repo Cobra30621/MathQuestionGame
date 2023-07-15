@@ -1,20 +1,21 @@
-﻿using NueGames.Card;
-using NueGames.Characters;
+﻿using NueGames.Characters;
 using NueGames.Combat;
-using NueGames.Data.Collection;
 using NueGames.Enums;
+using NueGames.Parameters;
 using NueGames.Relic;
 using UnityEngine;
 
-namespace NueGames.Parameters
+namespace Action.Parameters
 {
     public class DamageInfo
     {
+        public ActionParameters Parameters;
+        
+        
         /// <summary>
         /// 傷害來源
         /// </summary>
-        /// <returns></returns>
-        public ActionSource ActionSource;
+        public ActionSource ActionSource => Parameters.ActionSource;
         /// <summary>
         /// 傷害對象
         /// </summary>
@@ -22,35 +23,23 @@ namespace NueGames.Parameters
         /// <summary>
         /// 基礎傷害數值
         /// </summary>
-        public int BaseValue ;
+        public int BaseValue => Parameters.ActionData.BaseValue;
         /// <summary>
         /// 固定傷害，不受狀態影響
         /// </summary>
-        public bool FixDamage;
+        public bool FixDamage  => Parameters.ActionData.FixDamage;
         /// <summary>
         /// 可以穿甲
         /// </summary>
-        public bool CanPierceArmor;
+        public bool CanPierceArmor => Parameters.ActionData.CanPierceArmor;
 
         #region 選填
 
-        /// <summary>
-        /// 傷害源自哪個角色
-        /// </summary>
-        public CharacterBase Self;
-        /// <summary>
-        /// 傷害源自哪一個能力
-        /// </summary>
-        public PowerType SourcePower;
-        /// <summary>
-        /// 傷害源自哪一個遺物
-        /// </summary>
-        public RelicType SourceRelic;
         
         /// <summary>
         /// 加成數值
         /// </summary>
-        public float MultiplierValue;
+        public float MultiplierValue => Parameters.ActionData.MultiplierValue;
         /// <summary>
         /// 加成數量
         /// </summary>
@@ -60,27 +49,6 @@ namespace NueGames.Parameters
 
         #endregion
 
-        public DamageInfo()
-        {
-        }
-
-        public DamageInfo(ActionParameters parameters)
-        {
-            ActionSource = parameters.ActionSource;
-            // TODO TargetList 不一定只有一個元素，有可能更多，也有可能更少
-            if (parameters.TargetList.Count > 0)
-            {
-                Target = parameters.TargetList[0];
-            }
-            BaseValue = parameters.ActionData.BaseValue;
-            MultiplierValue = parameters.MultiplierValue;
-            FixDamage = false; // TODO
-            CanPierceArmor = false;
-            
-            Self = parameters.Self;
-            SourcePower = parameters.SourcePower;
-            SourceRelic = parameters.SourceRelic;
-        }
 
         /// <summary>
         /// 取得加成數值
@@ -163,11 +131,5 @@ namespace NueGames.Parameters
         }
         
         
-
-
-        public override string ToString()
-        {
-            return $"{nameof(ActionSource)}: {ActionSource}, {nameof(Target)}: {Target}, {nameof(BaseValue)}: {BaseValue}, {nameof(FixDamage)}: {FixDamage}, {nameof(CanPierceArmor)}: {CanPierceArmor}, {nameof(Self)}: {Self}, {nameof(SourcePower)}: {SourcePower}, {nameof(SourceRelic)}: {SourceRelic}, {nameof(MultiplierValue)}: {MultiplierValue}, {nameof(MultiplierAmount)}: {MultiplierAmount}";
-        }
     }
 }

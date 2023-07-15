@@ -1,4 +1,5 @@
-﻿using NueGames.Action;
+﻿using Action.Parameters;
+using NueGames.Action;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Parameters;
@@ -27,11 +28,9 @@ namespace RandomTool
                     ActionData actionData = action.ActionData;
                     ActionParameters newParameters = new ActionParameters()
                     {
-                        Self = parameters.Self,
                         TargetList = parameters.TargetList,
-                        ActionSource = parameters.ActionSource, 
                         ActionData = actionData,
-                        CardData = parameters.CardData
+                        CardData = parameters.CardData,
                     };
                     
                     GameActionBase gameAction = GameActionGenerator.GetGameAction(newParameters);

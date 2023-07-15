@@ -58,6 +58,18 @@ namespace NueGames.Data.Collection
 
         #endregion
         
+        #region 傷害參數
+        [FoldoutGroup("傷害參數")]
+        [PropertyTooltip("固定傷害，不受能力影響")]
+        public bool FixDamage;
+        
+        [FoldoutGroup("傷害參數")]
+        [PropertyTooltip("無視護盾的傷害")]
+        public bool CanPierceArmor;
+        
+
+        #endregion
+        
         #region 能力參數
 
         [InfoBox("用於與能力(Power)相關的遊戲行為")]
@@ -69,7 +81,7 @@ namespace NueGames.Data.Collection
         
 
         #endregion
-
+        
         #region 卡組參數
 
         [InfoBox("用於與卡組相關的遊戲行為")]

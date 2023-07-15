@@ -1,4 +1,6 @@
-﻿using NueGames.Action;
+﻿using System.Collections.Generic;
+using Action.Parameters;
+using NueGames.Action;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -28,10 +30,12 @@ namespace NueGames.Power
         {
             if (powerType == gainPowerType)
             {
-                DamageInfo damageInfo = GetDamageInfo(damageValue * Amount, 
-                    true);
-
-                GameActionExecutor.DoDamageAllEnemyAction(damageInfo);
+                DamageAllEnemyAction damageAction = new DamageAllEnemyAction();
+                damageAction.SetDamageValue(damageValue * Amount, 
+                    null,
+                    GetActionSource()
+                );
+                GameActionExecutor.Instance.AddToBottom(damageAction);
             }
         }
     }

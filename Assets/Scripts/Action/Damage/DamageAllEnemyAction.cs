@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Action.Parameters;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -15,20 +16,18 @@ namespace NueGames.Action
     {
         public override ActionName ActionName => ActionName.DamageAllEnemy;
         
-
-        
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         protected override void DoMainAction()
         {
-            List<CharacterBase> enemyCopy = new List<CharacterBase>(TargetList);
-            foreach (CharacterBase enemy in enemyCopy)
+            List<CharacterBase> targetList = new List<CharacterBase>(TargetList);
+            foreach (CharacterBase target in targetList)
             {
-                DamageInfo.Target = enemy;
-                PlaySpawnTextFx($"{DamageInfo.GetAfterBlockDamage()}", enemy);
+                DamageInfo damageInfo = CreateDamageInfo(target);
+                PlaySpawnTextFx($"{damageInfo.GetAfterBlockDamage()}", target);
                 
-                enemy.BeAttacked(DamageInfo);
+                target.BeAttacked(damageInfo);
                 
             }
         }

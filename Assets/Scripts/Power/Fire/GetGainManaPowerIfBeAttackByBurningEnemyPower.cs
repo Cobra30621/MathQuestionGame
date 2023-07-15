@@ -1,4 +1,5 @@
-﻿using Cinemachine;
+﻿using Action.Parameters;
+using Cinemachine;
 using NueGames.Enums;
 using NueGames.Parameters;
 
@@ -24,8 +25,8 @@ namespace NueGames.Power
 
 
         protected override void OnAttacked(DamageInfo info)
-        {
-            var source = info.Self;
+        {;
+            var source = info.ActionSource.SourceCharacter;
 
             // 攻擊者有燃燒狀態
             if (source != null)

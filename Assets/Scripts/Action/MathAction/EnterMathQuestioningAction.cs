@@ -1,4 +1,5 @@
-﻿using NueGames.Card;
+﻿using Action.Parameters;
+using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -24,14 +25,14 @@ namespace NueGames.Action.MathAction
 
             mathParameters = cardData.MathQuestioningActionParameters;
             mathParameters.TargetCharacter = parameters.TargetList;
-            mathParameters.SelfCharacter  = parameters.Self;
+            mathParameters.SelfCharacter  = parameters.ActionSource.SourceCharacter;
             
-            mathParameters.LimitedQuestionAction = GameActionGenerator.GetGameActions(cardData, 
-                parameters.ActionSource, cardData.LimitedQuestionCardActionDataList, Self, TargetList);
-            mathParameters.CorrectActions = GameActionGenerator.GetGameActions(cardData, 
-                parameters.ActionSource, cardData.CorrectCardActionDataList , Self, TargetList);
-            mathParameters.WrongActions = GameActionGenerator.GetGameActions(cardData, 
-                parameters.ActionSource, cardData.WrongCardActionDataList, Self, TargetList);
+            // mathParameters.LimitedQuestionAction = GameActionGenerator.GetGameActions(cardData, 
+            //     parameters.SourceType, cardData.LimitedQuestionCardActionDataList, Self, TargetList);
+            // mathParameters.CorrectActions = GameActionGenerator.GetGameActions(cardData, 
+            //     parameters.SourceType, cardData.CorrectCardActionDataList , Self, TargetList);
+            // mathParameters.WrongActions = GameActionGenerator.GetGameActions(cardData, 
+            //     parameters.SourceType, cardData.WrongCardActionDataList, Self, TargetList);
         }
 
         

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Action.Parameters;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -24,23 +25,26 @@ namespace NueGames.Action
         /// 行動類型 (用來確保一定會創立 GameActionType)
         /// </summary>
         public abstract ActionName ActionName  { get;}
-        /// <summary>
-        /// 遊戲行為的資料
-        /// </summary>
-        public ActionData ActionData;
+        
+        
         /// <summary>
         /// 行動參數
         /// </summary>
-        protected ActionParameters ActionParameters;
+        protected ActionParameters Parameters;
         
         /// <summary>
         /// 行為目標對象
         /// </summary>
-        protected List<CharacterBase> TargetList;
+        protected List<CharacterBase> TargetList => Parameters.TargetList;
+        /// <summary>
+        /// 遊戲行為的資料
+        /// </summary>
+        public ActionData ActionData => Parameters.ActionData;
+        
         /// <summary>
         /// 行為的發起者
         /// </summary>
-        protected CharacterBase Self;
+        protected CharacterBase SourceCharacter => Parameters.ActionSource.SourceCharacter;
         
         /// <summary>
         /// 加成數量
@@ -50,16 +54,10 @@ namespace NueGames.Action
         /// <summary>
         /// 加乘後的數值
         /// </summary>
-        protected int AdditionValue
-        {
-            get { return Mathf.RoundToInt(ActionData.BaseValue + 
-                                          MultiplierAmount * ActionData.MultiplierValue); }
-        }
-        
-        /// <summary>
-        /// 傷害類型
-        /// </summary>
-        protected DamageInfo DamageInfo;
+        protected int AdditionValue =>
+            Mathf.RoundToInt(ActionData.BaseValue + 
+                             MultiplierAmount * ActionData.MultiplierValue);
+
 
         #endregion
         
@@ -106,37 +104,32 @@ namespace NueGames.Action
         /// <param name="parameters"></param>
         public virtual void SetValue(ActionParameters parameters)
         {
-            ActionParameters = parameters;
-            ActionData =  parameters.ActionData;
+            Parameters = parameters;
             MultiplierAmount = 0;
-            
-            Self = parameters.Self;
-            TargetList = parameters.TargetList;
-
-            DamageInfo = new DamageInfo(parameters);
-
         }
 
-        public virtual void SetValue(DamageInfo info)
+        public virtual void SetDamageValue(int damageValue, List<CharacterBase> targetList, 
+            ActionSource actionSource, bool fixDamage  = false, bool canPierceArmor  = false)
         {
-            DamageInfo = info;
-            ActionData.BaseValue = DamageInfo.BaseValue;
-            ActionData.MultiplierValue = DamageInfo.MultiplierValue;
-            MultiplierAmount = DamageInfo.MultiplierAmount;
+            ActionData.BaseValue = damageValue;
+            ActionData.FixDamage = fixDamage;
+            ActionData.CanPierceArmor = canPierceArmor;
+            Parameters.ActionSource = actionSource;
 
-            TargetList = new List<CharacterBase>() { info.Target };
-
+            Parameters.TargetList = targetList;
         }
 
         public virtual void SetValue(ApplyPowerParameters parameters)
         {
             ActionData.BaseValue = parameters.Value;
-            TargetList = new List<CharacterBase>() {parameters.Target};
+            Parameters.TargetList = new List<CharacterBase>() {parameters.Target};
             ActionData.PowerType = parameters.PowerType;
             
         }
 
         #endregion
+
+        #region 執行遊戲行為
 
         /// <summary>
         /// 執行遊戲行為
@@ -154,7 +147,9 @@ namespace NueGames.Action
         /// 執行遊戲的主要邏輯
         /// </summary>
         protected abstract void DoMainAction();
+        
 
+        #endregion
         #region Play FX
 
         /// <summary>
@@ -210,29 +205,38 @@ namespace NueGames.Action
 
         #endregion
 
-        
+
+        #region 工具：執行傷害行為
+
         /// <summary>
         /// 執行傷害行動
         /// </summary>
         protected void DoDamageAction()
         {
-            DamageAction damageAction = new DamageAction();
-            damageAction.SetValue(GetDamageInfoForDamageAction());
-            GameActionExecutor.AddToBottom(damageAction);
+            foreach (var target in TargetList)
+            {
+                DamageAction damageAction = new DamageAction();
+                damageAction.SetValue(Parameters);
+                GameActionExecutor.AddToBottom(damageAction);
+            }
         }
 
         /// <summary>
         /// 取得傷害行動用的 DamageInfo
         /// </summary>
         /// <returns></returns>
-        protected DamageInfo GetDamageInfoForDamageAction()
+        protected DamageInfo CreateDamageInfo(CharacterBase target)
         {
-            Debug.Log("GetDamageInfoForDamageAction()");
-            DamageInfo.BaseValue = ActionData.BaseValue;
-            DamageInfo.MultiplierValue = ActionData.MultiplierValue;
-            DamageInfo.MultiplierAmount = MultiplierAmount;
-            return DamageInfo;
+            DamageInfo damageInfo = new DamageInfo
+            {
+                Parameters = Parameters,
+                Target = target
+            };
+
+            return damageInfo;
         }
+
+        #endregion
         
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Action.Parameters;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Characters;
@@ -41,21 +42,18 @@ namespace NueGames.Action
         /// <param name="cardData"></param>
         /// <param name="actionSource"></param>
         /// <param name="actionDataList"></param>
-        /// <param name="self"></param>
         /// <param name="targetList"></param>
         /// <returns></returns>
         public static List<GameActionBase> GetGameActions(CardData cardData, ActionSource actionSource,
-            List<ActionData> actionDataList, CharacterBase self,
-            List<CharacterBase> targetList)
+            List<ActionData> actionDataList, List<CharacterBase> targetList)
         {
             List<GameActionBase> gameActionBases = new List<GameActionBase>();
             foreach (var actionData in actionDataList)
             {
                 ActionParameters actionParameters = new ActionParameters()
                 {
-                    Self = self,
                     TargetList = targetList,
-                    ActionSource = actionSource, 
+                    ActionSource =  actionSource,
                     ActionData = actionData,
                     CardData = cardData
                 };

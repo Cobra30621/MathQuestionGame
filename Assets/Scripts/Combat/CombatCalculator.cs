@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Action.Parameters;
 using Kalkatos.DottedArrow;
 using NueGames.Characters;
 using NueGames.Enums;
@@ -49,7 +50,7 @@ namespace NueGames.Combat
                 return info.GetAddictionValue();
             }
             
-            return GetDamageValue(info.GetAddictionValue(), info.Self, info.Target);
+            return GetDamageValue(info.GetAddictionValue(), info.ActionSource.SourceCharacter, info.Target);
         }
         
         /// <summary>

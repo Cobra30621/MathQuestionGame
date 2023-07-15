@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Action.Parameters;
 using NueGames.Action;
 using NueGames.Parameters;
 using NueGames.Power;
@@ -202,27 +203,6 @@ namespace NueGames.Managers
         #endregion
 
         #region 執行常見的遊戲行為
-
-        /// <summary>
-        /// 執行傷害行動
-        /// </summary>
-        /// <param name="damageInfo"></param>
-        public void DoDamageAction(DamageInfo damageInfo)
-        {
-            DamageAction damageAction = new DamageAction();
-            damageAction.SetValue(damageInfo);
-            AddToBottom(damageAction);
-        }
-
-        /// <summary>
-        /// 執行對所有敵人造成傷害的行動
-        /// </summary>
-        public void DoDamageAllEnemyAction(DamageInfo damageInfo)
-        {
-            DamageAllEnemyAction action = new DamageAllEnemyAction();
-            action.SetValue(damageInfo);
-            AddToBottom(action);
-        }
 
         /// <summary>
         /// 給予敵人能力

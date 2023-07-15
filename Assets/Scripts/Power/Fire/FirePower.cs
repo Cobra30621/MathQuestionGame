@@ -1,4 +1,7 @@
-﻿using NueGames.Action;
+﻿using System.Collections.Generic;
+using Action.Parameters;
+using NueGames.Action;
+using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -35,15 +38,19 @@ namespace NueGames.Power
         {
             if (info.CharacterType == GetOwnerCharacterType())
             {
-                int FireAmount = Amount;
+                int fireAmount = Amount;
                 if (CombatManager.IsMainAllyHasPower(PowerType.Kindle))
                 {
-                   FireAmount = Amount * 2;
+                   fireAmount = Amount * 2;
                 }
 
-                DamageInfo damageInfo = GetDamageInfo(FireAmount, true, true);
-                Debug.Log( "Fire" +  damageInfo);
-                GameActionExecutor.DoDamageAction(damageInfo);
+                DamageAction damageAction = new DamageAction();
+                damageAction.SetDamageValue(fireAmount, 
+                    new List<CharacterBase>(){Owner},
+                    GetActionSource(),
+                    true
+                    );
+                GameActionExecutor.Instance.AddToBottom(damageAction);
                 
                 Owner.CharacterStats.ApplyPower(PowerType, -1); // 燒血後減層數 1 
             }

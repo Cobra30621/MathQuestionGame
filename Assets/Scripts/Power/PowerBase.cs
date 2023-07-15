@@ -1,4 +1,5 @@
-﻿using GameListener;
+﻿using Action.Parameters;
+using GameListener;
 using NueGames.Action;
 using NueGames.Card;
 using NueGames.Characters;
@@ -215,30 +216,14 @@ namespace NueGames.Power
         {
             return Owner.CharacterType;
         }
-
         
-        
-
-        /// <summary>
-        /// 取得 DamageInfo
-        /// </summary>
-        /// <param name="damageValue"></param>
-        /// <param name="fixDamage"></param>
-        /// <param name="canPierceArmor"></param>
-        /// <returns></returns>
-        protected DamageInfo GetDamageInfo(int damageValue, bool fixDamage  = false, bool canPierceArmor  = false)
+        protected ActionSource GetActionSource()
         {
-            DamageInfo damageInfo = new DamageInfo()
+            return new ActionSource()
             {
-                BaseValue = damageValue,
-                Target = Owner,
-                FixDamage = fixDamage,
-                CanPierceArmor = canPierceArmor,
-                ActionSource = ActionSource.Power,
+                SourceType = SourceType.Power,
                 SourcePower = PowerType
             };
-
-            return damageInfo;
         }
 
         #endregion

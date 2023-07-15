@@ -1,4 +1,5 @@
-﻿using GameListener;
+﻿using Action.Parameters;
+using GameListener;
 using NueGames.Action;
 using NueGames.Combat;
 using NueGames.Enums;
@@ -60,26 +61,15 @@ namespace NueGames.Relic
         
         #region 工具
         
-        
-        /// <summary>
-        /// 取得 DamageInfo
-        /// </summary>
-        /// <param name="damageValue"></param>
-        /// <param name="fixDamage"></param>
-        /// <returns></returns>
-        protected DamageInfo GetDamageInfo(int damageValue, bool fixDamage)
+        protected ActionSource GetActionSource()
         {
-            DamageInfo damageInfo = new DamageInfo()
+            return new ActionSource()
             {
-                BaseValue = damageValue,
-                Target = CombatManager.CurrentMainAlly,
-                FixDamage = fixDamage,
-                ActionSource = ActionSource.Relic,
+                SourceType = SourceType.Relic,
                 SourceRelic = RelicType
             };
-
-            return damageInfo;
         }
+
 
         #endregion
         

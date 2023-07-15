@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Action.Parameters;
 using NueGames.Action;
 using NueGames.Combat;
 using NueGames.Data.Characters;
@@ -117,9 +118,8 @@ namespace NueGames.Characters
             
             EnemyCanvas.IntentImage.gameObject.SetActive(false);
             
-            var self = this;
             var target = CombatManager.EnemyDetermineTargets(this, ability.ActionTargetType);
-            DoGameAction(ability, self, target);
+            DoGameAction(ability, target);
 
       
 
@@ -134,12 +134,18 @@ namespace NueGames.Characters
             }
         }
 
-        private void DoGameAction(EnemyAbilityData targetAbility, CharacterBase self, CharacterBase target)
+        private void DoGameAction(EnemyAbilityData targetAbility,  CharacterBase target)
         {
             // TODO 敵人取得 Target List
             List<CharacterBase> targetList = new List<CharacterBase>() { target };
+
+            ActionSource actionSource = new ActionSource()
+            {
+                SourceType = SourceType.Enemy,
+                SourceCharacter = this,
+            };
             List<GameActionBase> gameActions =  GameActionGenerator.GetGameActions(null, 
-                ActionSource.Enemy, targetAbility.ActionList, self, targetList);
+                actionSource, targetAbility.ActionList, targetList);
             GameActionExecutor.AddToBottom(gameActions);
         }
         
