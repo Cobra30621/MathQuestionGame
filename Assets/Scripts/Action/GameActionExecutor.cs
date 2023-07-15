@@ -202,32 +202,6 @@ namespace NueGames.Managers
 
         #endregion
 
-        #region 執行常見的遊戲行為
-
-        /// <summary>
-        /// 給予敵人能力
-        /// </summary>
-        /// <param name="parameters"></param>
-        public void DoApplyPowerAction(ApplyPowerParameters parameters)
-        {
-            ApplyPowerAction action = new ApplyPowerAction();
-            action.SetValue(parameters);
-            AddToBottom(action);
-        }
-        
-        
-        /// <summary>
-        /// 給予所有敵人能力
-        /// </summary>
-        /// <param name="parameters"></param>
-        public void DoApplyPowerToAllEnemyAction(ApplyPowerParameters parameters)
-        {
-            ApplyPowerToAllEnemyAction action = new ApplyPowerToAllEnemyAction();
-            action.SetValue(parameters);
-            AddToBottom(action);
-        }
-        
-        #endregion
     }
 
     /// <summary>

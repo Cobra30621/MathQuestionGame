@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Managers;
+using NueGames.Action;
+using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
@@ -65,11 +67,12 @@ namespace Tool
             foreach (var powerType in allyPowerAtGameStart)
             {
                 var ally = CombatManager.Instance.CurrentMainAlly;
-                var parameter = new ApplyPowerParameters(ally, powerType, 1);
-                
-                GameActionExecutor.Instance.DoApplyPowerAction(parameter);
-                
-                
+                ApplyPowerAction action = new ApplyPowerAction();
+                action.SetPowerActionValue(
+                    1, 
+                    powerType, 
+                    new List<CharacterBase>(){ally}, null);
+                GameActionExecutor.Instance.AddToBottom(action);
             }
         }
     }

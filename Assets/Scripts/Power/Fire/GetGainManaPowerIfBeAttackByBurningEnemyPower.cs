@@ -1,5 +1,8 @@
-﻿using Action.Parameters;
+﻿using System.Collections.Generic;
+using Action.Parameters;
 using Cinemachine;
+using NueGames.Action;
+using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Parameters;
 
@@ -33,10 +36,10 @@ namespace NueGames.Power
             {
                 if (source.HasPower(PowerType.Fire))
                 {
-                    // 給予能力持有者回合開始時，獲得瑪娜的能力
-                    var parameter = new ApplyPowerParameters(info.Target, 
-                        PowerType.GainManaAtRoundStart, 1);
-                    GameActionExecutor.DoApplyPowerAction(parameter);
+                    ApplyPowerAction action = new ApplyPowerAction();
+                    action.SetPowerActionValue(1, PowerType.GainManaAtRoundStart, 
+                        new List<CharacterBase>(){info.Target}, GetActionSource());
+                    GameActionExecutor.AddToBottom(action);
                 }
             }
         }

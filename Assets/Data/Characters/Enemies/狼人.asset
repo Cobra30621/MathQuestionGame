@@ -18,18 +18,27 @@ MonoBehaviour:
   maxHealth: 50
   enemyPrefab: {fileID: 243822687015991123, guid: 3dbce5852495ef844a8279708f93b5fe, type: 3}
   followAbilityPattern: 1
+  battleStartAbility:
+    name: 
+    intention: {fileID: 0}
+    hideActionValue: 0
+    actionTargetType: 0
+    actionList: []
   enemyAbilityList:
   - name: "\u653B\u64CA"
     intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     hideActionValue: 0
     actionTargetType: 1
     actionList:
-    - gameActionType: 1
-      powerType: 0
-      answerOutcomeType: 0
-      actionValue: 6
-      additionValue: 0
-      actionDelay: 0
+    - actionName: 1
+      BaseValue: 10
+      MultiplierValue: 0
+      Delay: 0
+      FxName: 0
+      FxSpawnPosition: 0
+      FixDamage: 0
+      CanPierceArmor: 0
+      PowerType: 0
       SourcePile: 0
       TargetPile: 0
       TargetCardData: {fileID: 0}
@@ -39,22 +48,28 @@ MonoBehaviour:
     hideActionValue: 0
     actionTargetType: 1
     actionList:
-    - gameActionType: 7
-      powerType: 0
-      answerOutcomeType: 0
-      actionValue: 9
-      additionValue: 0
-      actionDelay: 0
+    - actionName: 7
+      BaseValue: 12
+      MultiplierValue: 0
+      Delay: 0
+      FxName: 0
+      FxSpawnPosition: 0
+      FixDamage: 0
+      CanPierceArmor: 0
+      PowerType: 0
       SourcePile: 0
       TargetPile: 0
       TargetCardData: {fileID: 0}
       TriggerActionList:
-      - gameActionType: 302
-        powerType: 0
-        answerOutcomeType: 0
-        actionValue: 0
-        additionValue: 0
-        actionDelay: 0
+      - actionName: 0
+        BaseValue: 0
+        MultiplierValue: 0
+        Delay: 0
+        FxName: 0
+        FxSpawnPosition: 0
+        FixDamage: 0
+        CanPierceArmor: 0
+        PowerType: 0
         SourcePile: 0
         TargetPile: 0
         TargetCardData: {fileID: 11400000, guid: d39fdb898cd8da64bb5078cab57e11f7, type: 2}
@@ -64,12 +79,15 @@ MonoBehaviour:
     hideActionValue: 0
     actionTargetType: 0
     actionList:
-    - gameActionType: 18
-      powerType: 0
-      answerOutcomeType: 0
-      actionValue: 6
-      additionValue: 0
-      actionDelay: 0
+    - actionName: 18
+      BaseValue: 10
+      MultiplierValue: 0
+      Delay: 0
+      FxName: 101
+      FxSpawnPosition: 0
+      FixDamage: 0
+      CanPierceArmor: 0
+      PowerType: 0
       SourcePile: 0
       TargetPile: 0
       TargetCardData: {fileID: 0}

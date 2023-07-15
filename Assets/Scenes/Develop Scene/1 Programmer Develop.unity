@@ -1099,7 +1099,7 @@ MonoBehaviour:
       m_Calls: []
   GameplayData: {fileID: 11400000, guid: 699903d0236c43c43964bc88e127de7f, type: 2}
   EnemyEncounter: {fileID: 11400000, guid: 7f700ffeb36011b4fb16eec544a68f91, type: 2}
-  allyPowerAtGameStart: 05000000
+  allyPowerAtGameStart: 0500000002000000
 --- !u!4 &1571468705
 Transform:
   m_ObjectHideFlags: 0
@@ -1274,6 +1274,10 @@ PrefabInstance:
     - target: {fileID: 7048625805859230003, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170335362538848892, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}

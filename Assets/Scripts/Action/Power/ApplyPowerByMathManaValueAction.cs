@@ -18,7 +18,7 @@ namespace Action
         {
             foreach (var target in TargetList)
             {
-                MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerType.MathMana);
+                Parameters.MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerType.MathMana);
                 target.CharacterStats.ApplyPower(ActionData.PowerType, AdditionValue);
             }
         }

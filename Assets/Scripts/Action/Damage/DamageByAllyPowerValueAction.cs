@@ -19,7 +19,7 @@ namespace NueGames.Action
         /// </summary>
         protected override void DoMainAction()
         {
-            MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(ActionData.PowerType);
+            Parameters.MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(ActionData.PowerType);
             
             DoDamageAction();
         }

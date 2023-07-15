@@ -31,7 +31,7 @@ namespace NueGames.Power
             if (powerType == gainPowerType)
             {
                 DamageAllEnemyAction damageAction = new DamageAllEnemyAction();
-                damageAction.SetDamageValue(damageValue * Amount, 
+                damageAction.SetDamageActionValue(damageValue * Amount, 
                     null,
                     GetActionSource()
                 );

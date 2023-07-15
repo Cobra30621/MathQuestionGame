@@ -45,7 +45,7 @@ namespace NueGames.Power
                 }
 
                 DamageAction damageAction = new DamageAction();
-                damageAction.SetDamageValue(fireAmount, 
+                damageAction.SetDamageActionValue(fireAmount, 
                     new List<CharacterBase>(){Owner},
                     GetActionSource(),
                     true

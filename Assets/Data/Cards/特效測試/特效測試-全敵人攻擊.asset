@@ -24,14 +24,15 @@ MonoBehaviour:
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - gameActionType: 2
-    actionValue: 3
-    multiplierValue: 0
-    actionDelay: 0
-    powerType: 0
-    answerOutcomeType: 0
-    fxName: 51
-    fxSpawnPosition: 3
+  - actionName: 2
+    BaseValue: 10
+    MultiplierValue: 0
+    Delay: 0
+    FxName: 55
+    FxSpawnPosition: 0
+    FixDamage: 0
+    CanPierceArmor: 0
+    PowerType: 0
     SourcePile: 0
     TargetPile: 0
     TargetCardData: {fileID: 0}

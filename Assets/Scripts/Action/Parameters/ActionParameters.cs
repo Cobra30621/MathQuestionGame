@@ -32,6 +32,11 @@ namespace Action.Parameters
         #region 選填
 
         /// <summary>
+        /// 加成數量
+        /// </summary>
+        public float MultiplierAmount;
+        
+        /// <summary>
         /// 卡片資料(卡牌行為才需要)
         /// </summary>
         // TODO: 移除或是合併到 ActionData
@@ -42,6 +47,10 @@ namespace Action.Parameters
 
         public ActionParameters()
         {
+            ActionData = new ActionData();
+            ActionSource = new ActionSource();
+            TargetList = new List<CharacterBase>();
+            MultiplierAmount = 0;
         }
 
     }

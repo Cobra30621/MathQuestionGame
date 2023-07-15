@@ -41,22 +41,14 @@ namespace NueGames.Action
         /// </summary>
         public ActionData ActionData => Parameters.ActionData;
         
-        /// <summary>
-        /// 行為的發起者
-        /// </summary>
-        protected CharacterBase SourceCharacter => Parameters.ActionSource.SourceCharacter;
         
-        /// <summary>
-        /// 加成數量
-        /// </summary>
-        protected float MultiplierAmount;
 
         /// <summary>
         /// 加乘後的數值
         /// </summary>
         protected int AdditionValue =>
             Mathf.RoundToInt(ActionData.BaseValue + 
-                             MultiplierAmount * ActionData.MultiplierValue);
+                             Parameters.MultiplierAmount * ActionData.MultiplierValue);
 
 
         #endregion
@@ -98,6 +90,11 @@ namespace NueGames.Action
 
         #region Set Value
 
+        protected GameActionBase()
+        {
+            Parameters = new ActionParameters();
+        }
+
         /// <summary>
         /// 依據參數設定行為數值
         /// </summary>
@@ -105,13 +102,12 @@ namespace NueGames.Action
         public virtual void SetValue(ActionParameters parameters)
         {
             Parameters = parameters;
-            MultiplierAmount = 0;
         }
 
-        public virtual void SetDamageValue(int damageValue, List<CharacterBase> targetList, 
+        public virtual void SetDamageActionValue(int baseValue, List<CharacterBase> targetList, 
             ActionSource actionSource, bool fixDamage  = false, bool canPierceArmor  = false)
         {
-            ActionData.BaseValue = damageValue;
+            ActionData.BaseValue = baseValue;
             ActionData.FixDamage = fixDamage;
             ActionData.CanPierceArmor = canPierceArmor;
             Parameters.ActionSource = actionSource;
@@ -119,11 +115,13 @@ namespace NueGames.Action
             Parameters.TargetList = targetList;
         }
 
-        public virtual void SetValue(ApplyPowerParameters parameters)
+        public virtual void SetPowerActionValue(int baseValue, PowerType powerType, 
+            List<CharacterBase> targetList, ActionSource actionSource)
         {
-            ActionData.BaseValue = parameters.Value;
-            Parameters.TargetList = new List<CharacterBase>() {parameters.Target};
-            ActionData.PowerType = parameters.PowerType;
+            ActionData.BaseValue = baseValue;
+            ActionData.PowerType = powerType;
+            Parameters.TargetList = targetList;
+            Parameters.ActionSource = actionSource;
             
         }
 
