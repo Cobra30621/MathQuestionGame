@@ -1,5 +1,8 @@
-﻿namespace NueGames.Enums
+﻿using System;
+
+namespace NueGames.Enums
 {
+    [Serializable]
     public enum FxSpawnPosition
     {
         EachTarget = 0, // 每一個目標

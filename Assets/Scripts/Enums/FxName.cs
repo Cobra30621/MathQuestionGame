@@ -16,7 +16,7 @@
         
         
         // Character
-        Dead = 501,
+        // Dead = 501,
         
         // Other
         Heal = 201,

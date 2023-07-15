@@ -220,23 +220,25 @@ namespace NueGames.Action
             {
                 return;
             }
-            
+
+            var spawnTransform = FxManager.GetFXSpawnPosition(FxSpawnPosition);
+
             switch (FxSpawnPosition)
             {
                 case FxSpawnPosition.EachTarget:
                     foreach (var target in TargetList)
                     {
-                        PlayFx(FxName, target.transform);
+                        spawnTransform.position = target.transform.position;
+                        PlayFx(FxName, spawnTransform);
                     };
                     break;
                 case FxSpawnPosition.Ally:
-                    PlayFx(FxName, CombatManager.GetMainAllyTransform());
+                    spawnTransform.position = CombatManager.GetMainAllyTransform().position;
+                    PlayFx(FxName, spawnTransform);
                     break;
                 case FxSpawnPosition.EnemyMiddle:
-                    throw new System.NotImplementedException();
-                    break;
                 case FxSpawnPosition.ScreenMiddle:
-                    PlayFx(FxName, null);
+                    PlayFx(FxName, spawnTransform);
                     break;
             }
         }

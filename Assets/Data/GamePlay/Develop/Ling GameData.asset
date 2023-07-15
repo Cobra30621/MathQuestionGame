@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01dd2752105b4ecbbc5e92d535616897, type: 3}
+  m_Name: Ling GameData
+  m_EditorClassIdentifier: 
+  drawCount: 10
+  maxMana: 3
+  maxCardOnHand: 10
+  initalDeck: {fileID: 11400000, guid: bfe316e207ab14efc9a086355664898e, type: 2}
+  cardPrefab: {fileID: 2689473134106589740, guid: a9728682a56595f4989b8f224d934689, type: 3}
+  initalAllyList:
+  - {fileID: 2835035829204582327, guid: ea5ea9cb5f227fd46a277c14575dcd69, type: 3}
+  initialRelic: 66000000

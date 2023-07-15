@@ -4,22 +4,26 @@ using System.Linq;
 using Data;
 using NueGames.Enums;
 using NueGames.Utils;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace NueGames.Managers
 {
-    public class FxManager : MonoBehaviour
+    public class FxManager : SerializedMonoBehaviour
     {
         public FxManager(){}
         public static FxManager Instance { get; private set; }
     
-
+        [InlineEditor()]
         [SerializeField] private FXData fxData;
         
         [Header("Floating Text")]
         [SerializeField] private FloatingText floatingTextPrefab;
         
+        [DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.Foldout)]
+        public Dictionary<FxSpawnPosition, Transform> FXSpawnPositionDictionary;
+
 
 
         #region Setup
@@ -53,6 +57,21 @@ namespace NueGames.Managers
         {
             Instantiate(fxData.GetFX(targetFx), targetTransform);
         }
+
+
+        public Transform GetFXSpawnPosition(FxSpawnPosition fxSpawnPosition)
+        {
+            if (FXSpawnPositionDictionary.ContainsKey(fxSpawnPosition))
+            {
+                return FXSpawnPositionDictionary[fxSpawnPosition];
+            }
+            else
+            {
+                Debug.LogError($"不存在 fx {fxSpawnPosition} spawn position，請去 FXManager 設定");
+                return null;
+            }
+        }
+        
         #endregion
         
     }

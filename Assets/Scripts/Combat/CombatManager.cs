@@ -30,6 +30,7 @@ namespace NueGames.Combat
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
 
+        
 
         public ManaManager ManaManager;
         

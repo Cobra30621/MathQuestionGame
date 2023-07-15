@@ -13,7 +13,6 @@ namespace Data
     [CreateAssetMenu(fileName = "FX Data", menuName = "NueDeck/Containers/FX Data", order = 2)]
     public class FXData : SerializedScriptableObject
     {
-
         [DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.Foldout)]
         public Dictionary<FxName, GameObject> fxDict;
         
