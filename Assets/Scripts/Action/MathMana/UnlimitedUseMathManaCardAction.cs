@@ -9,7 +9,7 @@ namespace Action.MathMana
     /// </summary>
     public class UnlimitedUseMathManaCardAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.UnlimitedUseMathManaCard;
+        public override ActionName ActionName => ActionName.UnlimitedUseMathManaCard;
 
         protected override void DoMainAction()
         {

@@ -11,7 +11,7 @@ namespace NueGames.Action
     /// </summary>
     public class ApplyPowerAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.ApplyPower;
+        public override ActionName ActionName => ActionName.ApplyPower;
         
         /// <summary>
         /// 執行遊戲行為的功能
@@ -20,7 +20,7 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                target.CharacterStats.ApplyPower(PowerType, AdditionValue);
+                target.CharacterStats.ApplyPower(ActionData.PowerType, AdditionValue);
             }
             
         }

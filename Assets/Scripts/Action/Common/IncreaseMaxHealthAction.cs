@@ -11,7 +11,7 @@ namespace NueGames.Action
     /// </summary>
     public class IncreaseMaxHealthAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.IncreaseMaxHealth;
+        public override ActionName ActionName => ActionName.IncreaseMaxHealth;
 
         /// <summary>
         /// 執行遊戲行為的功能

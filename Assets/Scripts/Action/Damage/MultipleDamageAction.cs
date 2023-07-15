@@ -4,7 +4,7 @@ namespace NueGames.Action
 {
     public class MultipleDamageAction : GameActionBase
     {
-        public override GameActionType ActionType { get; }
+        public override ActionName ActionName { get; }
 
         private float intetval = 1f;
 

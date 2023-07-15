@@ -11,7 +11,7 @@ namespace Action
     /// </summary>
     public class ApplyPowerByMathManaValueAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.ApplyPowerByMathManaValue;
+        public override ActionName ActionName => ActionName.ApplyPowerByMathManaValue;
 
 
         protected override void DoMainAction()
@@ -19,7 +19,7 @@ namespace Action
             foreach (var target in TargetList)
             {
                 MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerType.MathMana);
-                target.CharacterStats.ApplyPower(PowerType, AdditionValue);
+                target.CharacterStats.ApplyPower(ActionData.PowerType, AdditionValue);
             }
         }
     }

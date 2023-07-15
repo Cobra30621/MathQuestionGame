@@ -12,7 +12,7 @@ namespace NueGames.Action
     /// </summary>
     public class ClearPowerAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.ClearPower;
+        public override ActionName ActionName => ActionName.ClearPower;
 
    
         /// <summary>
@@ -22,7 +22,7 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                target.CharacterStats.ClearPower(PowerType);
+                target.CharacterStats.ClearPower(ActionData.PowerType);
             }
         }
     }

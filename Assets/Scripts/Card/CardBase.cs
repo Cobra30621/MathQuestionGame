@@ -336,7 +336,7 @@ namespace NueGames.Card
             
             foreach (var cardActionData in CardData.CardActionDataList)
             {
-                if (cardActionData.GameActionType == GameActionType.ApplyPower)
+                if (cardActionData.actionName == ActionName.ApplyPower)
                 {
                     powerTypes.Add(cardActionData.PowerType);
                 }

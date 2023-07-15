@@ -72,7 +72,7 @@ namespace NueGames.Parameters
             {
                 Target = parameters.TargetList[0];
             }
-            BaseValue = parameters.BaseValue;
+            BaseValue = parameters.ActionData.BaseValue;
             MultiplierValue = parameters.MultiplierValue;
             FixDamage = false; // TODO
             CanPierceArmor = false;

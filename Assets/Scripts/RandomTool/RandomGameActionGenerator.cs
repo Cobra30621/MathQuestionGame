@@ -27,8 +27,6 @@ namespace RandomTool
                     ActionData actionData = action.ActionData;
                     ActionParameters newParameters = new ActionParameters()
                     {
-                        ActionType = actionData.GameActionType,
-                        BaseValue = actionData.ActionValue,
                         Self = parameters.Self,
                         TargetList = parameters.TargetList,
                         ActionSource = parameters.ActionSource, 

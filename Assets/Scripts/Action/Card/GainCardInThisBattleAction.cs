@@ -8,12 +8,12 @@ namespace NueGames.Action
     /// </summary>
     public class GainCardInThisBattleAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.GainCardInThisBattle;
+        public override ActionName ActionName => ActionName.GainCardInThisBattle;
 
         protected override void DoMainAction()
         {
             if (CollectionManager != null)
-                CollectionManager.AddCardToPile(TargetPile, TargetCardData);
+                CollectionManager.AddCardToPile(ActionData.TargetPile, ActionData.TargetCardData);
             else
                 Debug.LogError("There is no CollectionManager");
             

@@ -13,7 +13,7 @@ namespace NueGames.Action.MathAction
     /// </summary>
     public class EnterMathQuestioningAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.EnterMathQuestioning;
+        public override ActionName ActionName => ActionName.EnterMathQuestioning;
         private MathQuestioningActionParameters mathParameters;
 
         public override void SetValue(ActionParameters parameters)

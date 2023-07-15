@@ -12,7 +12,7 @@ namespace NueGames.Action.MathAction
     /// </summary>
     public class DamageByQuestioningAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.DamageByQuestioning;
+        public override ActionName ActionName => ActionName.DamageByQuestioning;
         
         /// <summary>
         /// 執行遊戲行為的功能

@@ -9,13 +9,13 @@ namespace NueGames.Action
     /// </summary>
     public class DamageAndTriggerActionIfDamageSuccessAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.DamageAndTriggerActionIfDamageSuccess;
+        public override ActionName ActionName => ActionName.DamageAndTriggerActionIfDamageSuccess;
 
         protected override void DoMainAction()
         {
             if (DamageInfo.HaveDamage())
             {
-                Debug.Log($"攻擊成功，觸發{TriggerActionList}");
+                Debug.Log($"攻擊成功，觸發{ActionData.TriggerActionList}");
                 DoTriggerAction();
             }
             
@@ -32,7 +32,7 @@ namespace NueGames.Action
         private void DoTriggerAction()
         {
             List<GameActionBase> gameActions =  GameActionGenerator.GetGameActions(null, 
-                ActionSource.Enemy, TriggerActionList, Self, TargetList);
+                ActionSource.Enemy, ActionData.TriggerActionList, Self, TargetList);
             GameActionExecutor.AddToBottom(gameActions);
         }
     }

@@ -9,7 +9,7 @@ namespace NueGames.Action
 {
     public class MultiplyPowerAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.MultiplyPower;
+        public override ActionName ActionName => ActionName.MultiplyPower;
         
         
         /// <summary>
@@ -19,7 +19,7 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                target.CharacterStats.MultiplyPower(PowerType, AdditionValue);
+                target.CharacterStats.MultiplyPower(ActionData.PowerType, AdditionValue);
                 
             }
         }

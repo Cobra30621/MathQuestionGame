@@ -6,7 +6,7 @@ namespace Action.Power
 {
     public class ApplyBlockAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.ApplyBlock;
+        public override ActionName ActionName => ActionName.ApplyBlock;
 
         protected override void DoMainAction()
         {

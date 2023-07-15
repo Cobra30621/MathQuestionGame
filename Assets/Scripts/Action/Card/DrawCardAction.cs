@@ -10,12 +10,11 @@ namespace NueGames.Action
     /// </summary>
     public class DrawCardAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.DrawCard;
+        public override ActionName ActionName => ActionName.DrawCard;
         
         public void SetValue(int drawCard)
         {
-            BaseValue = drawCard;
-            HasSetValue = true;
+            ActionData.BaseValue = drawCard;
         }
         
         /// <summary>
@@ -24,7 +23,7 @@ namespace NueGames.Action
         protected override void DoMainAction()
         {
             if (CollectionManager != null)
-                CollectionManager.DrawCards(BaseValue);
+                CollectionManager.DrawCards(ActionData.BaseValue);
             else
                 Debug.LogError("There is no CollectionManager");
             

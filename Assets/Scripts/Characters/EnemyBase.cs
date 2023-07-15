@@ -75,7 +75,7 @@ namespace NueGames.Characters
             {
                 EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
                 // EnemyCanvas.NextActionValueText.text = NextAbility.ActionDataClip.ActionList[0].ActionValue.ToString();
-                int actionValue = NextAbility.ActionList[0].ActionValue;
+                int actionValue = NextAbility.ActionList[0].BaseValue;
                 if (NextAbility.Intention.EnemyIntentionType == EnemyIntentionType.Attack)
                 {
                     // TODO 串接根據狀態，顯示不同數值

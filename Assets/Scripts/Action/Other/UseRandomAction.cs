@@ -11,7 +11,7 @@ namespace Action
     /// </summary>
     public class UseRandomAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.UseRandom;
+        public override ActionName ActionName => ActionName.UseRandom;
         private RandomActionData _randomActionData;
         
         public override void SetValue(ActionParameters parameters)

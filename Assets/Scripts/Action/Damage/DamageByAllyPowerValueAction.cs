@@ -11,7 +11,7 @@ namespace NueGames.Action
     /// </summary>
     public class DamageByAllyPowerValueAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.DamageByAllyPowerValue;
+        public override ActionName ActionName => ActionName.DamageByAllyPowerValue;
 
 
         /// <summary>
@@ -19,7 +19,7 @@ namespace NueGames.Action
         /// </summary>
         protected override void DoMainAction()
         {
-            MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerType);
+            MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(ActionData.PowerType);
             
             DoDamageAction();
         }

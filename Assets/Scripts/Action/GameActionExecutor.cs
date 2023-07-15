@@ -124,7 +124,7 @@ namespace NueGames.Managers
             
             Debug.Log($"Do action {_currentAction.ToString()}");
             actionIsDone = false;
-            StartCoroutine(DoActionRoutine(_currentAction.Duration));
+            StartCoroutine(DoActionRoutine(_currentAction.ActionData.Delay));
         }
 
         /// <summary>

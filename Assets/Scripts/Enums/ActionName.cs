@@ -3,7 +3,7 @@
     /// <summary>
     /// 遊戲行為類型
     /// </summary>
-    public enum GameActionType
+    public enum ActionName
     {
         // 1~10 傷害
         Damage = 1, 

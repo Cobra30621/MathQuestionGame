@@ -18,19 +18,21 @@ namespace NueGames.Action
     /// </summary>
     public abstract class GameActionBase
     {
+        #region Parameters
+
         /// <summary>
         /// 行動類型 (用來確保一定會創立 GameActionType)
         /// </summary>
-        public abstract GameActionType ActionType  { get;}
+        public abstract ActionName ActionName  { get;}
+        /// <summary>
+        /// 遊戲行為的資料
+        /// </summary>
+        public ActionData ActionData;
         /// <summary>
         /// 行動參數
         /// </summary>
         protected ActionParameters ActionParameters;
         
-        /// <summary>
-        /// 遊戲行為數值已經設定
-        /// </summary>
-        protected bool HasSetValue = false;
         /// <summary>
         /// 行為目標對象
         /// </summary>
@@ -41,14 +43,6 @@ namespace NueGames.Action
         protected CharacterBase Self;
         
         /// <summary>
-        /// 基礎數值
-        /// </summary>
-        protected int BaseValue;
-        /// <summary>
-        /// 加成數值
-        /// </summary>
-        protected float MultiplierValue;
-        /// <summary>
         /// 加成數量
         /// </summary>
         protected float MultiplierAmount;
@@ -58,52 +52,18 @@ namespace NueGames.Action
         /// </summary>
         protected int AdditionValue
         {
-            get { return Mathf.RoundToInt(BaseValue + MultiplierAmount * MultiplierValue); }
+            get { return Mathf.RoundToInt(ActionData.BaseValue + 
+                                          MultiplierAmount * ActionData.MultiplierValue); }
         }
-
-        /// <summary>
-        /// 行為所需時間
-        /// </summary>
-        public float Duration = 0;
-        /// <summary>
-        /// 能力類型
-        /// </summary>
-        protected PowerType PowerType;
-        /// <summary>
-        /// 根據答對數，產生不同行動
-        /// </summary>
-        protected AnswerOutcomeType AnswerOutcomeType;
-
-        protected FxName FxName;
-        protected FxSpawnPosition FxSpawnPosition;
-
-
-        private DamageInfo _damageInfo;
-
+        
         /// <summary>
         /// 傷害類型
         /// </summary>
         protected DamageInfo DamageInfo;
+
+        #endregion
         
-        /// <summary>
-        /// 起始的卡組
-        /// </summary>
-        public PileType SourcePile;
-        /// <summary>
-        /// 目標的卡組
-        /// </summary>
-        public PileType TargetPile;
-        /// <summary>
-        /// 目標卡牌
-        /// </summary>
-        public CardData TargetCardData;
-
-        /// <summary>
-        /// 觸發的行動
-        /// </summary>
-        public List<ActionData> TriggerActionList;
-
-        public ActionDataClip ActionDataClip;
+        #region Manager
 
         protected FxManager FxManager
         {
@@ -134,7 +94,11 @@ namespace NueGames.Action
         {
             get { return GameActionExecutor.Instance; }
         }
+        
 
+        #endregion
+
+        #region Set Value
 
         /// <summary>
         /// 依據參數設定行為數值
@@ -143,55 +107,36 @@ namespace NueGames.Action
         public virtual void SetValue(ActionParameters parameters)
         {
             ActionParameters = parameters;
-            ActionData data = parameters.ActionData;
-            BaseValue = data.ActionValue;
-            MultiplierValue = data.MultiplierValue;
+            ActionData =  parameters.ActionData;
             MultiplierAmount = 0;
-            PowerType = data.PowerType; 
-            Duration = data.ActionDelay;
-            AnswerOutcomeType = data.AnswerOutcomeType;
             
-            SourcePile = data.SourcePile;
-            TargetPile = data.TargetPile;
-            TargetCardData = data.TargetCardData;
-
-            ActionDataClip = parameters.ActionDataClip;
-            
-            FxName = data.FxName;
-            FxSpawnPosition = data.FxSpawnPosition;
-
             Self = parameters.Self;
             TargetList = parameters.TargetList;
 
             DamageInfo = new DamageInfo(parameters);
 
-            TriggerActionList = data.TriggerActionList;
-
-            
-
-            HasSetValue = true;
         }
 
         public virtual void SetValue(DamageInfo info)
         {
             DamageInfo = info;
-            BaseValue = DamageInfo.BaseValue;
-            MultiplierValue = DamageInfo.MultiplierValue;
+            ActionData.BaseValue = DamageInfo.BaseValue;
+            ActionData.MultiplierValue = DamageInfo.MultiplierValue;
             MultiplierAmount = DamageInfo.MultiplierAmount;
 
             TargetList = new List<CharacterBase>() { info.Target };
 
-            HasSetValue = true;
         }
 
         public virtual void SetValue(ApplyPowerParameters parameters)
         {
-            BaseValue = parameters.Value;
+            ActionData.BaseValue = parameters.Value;
             TargetList = new List<CharacterBase>() {parameters.Target};
-            PowerType = parameters.PowerType;
+            ActionData.PowerType = parameters.PowerType;
             
-            HasSetValue = true;
         }
+
+        #endregion
 
         /// <summary>
         /// 執行遊戲行為
@@ -210,35 +155,37 @@ namespace NueGames.Action
         /// </summary>
         protected abstract void DoMainAction();
 
+        #region Play FX
+
         /// <summary>
         /// 執行要撥放的特效
         /// </summary>
         protected void DoFXAction()
         {
             // 不播放特效
-            if (FxName == FxName.Null)
+            if (ActionData.FxName == FxName.Null)
             {
                 return;
             }
 
-            var spawnTransform = FxManager.GetFXSpawnPosition(FxSpawnPosition);
+            var spawnTransform = FxManager.GetFXSpawnPosition(ActionData.FxSpawnPosition);
 
-            switch (FxSpawnPosition)
+            switch (ActionData.FxSpawnPosition)
             {
                 case FxSpawnPosition.EachTarget:
                     foreach (var target in TargetList)
                     {
                         spawnTransform.position = target.transform.position;
-                        PlayFx(FxName, spawnTransform);
+                        PlayFx(ActionData.FxName, spawnTransform);
                     };
                     break;
                 case FxSpawnPosition.Ally:
                     spawnTransform.position = CombatManager.GetMainAllyTransform().position;
-                    PlayFx(FxName, spawnTransform);
+                    PlayFx(ActionData.FxName, spawnTransform);
                     break;
                 case FxSpawnPosition.EnemyMiddle:
                 case FxSpawnPosition.ScreenMiddle:
-                    PlayFx(FxName, spawnTransform);
+                    PlayFx(ActionData.FxName, spawnTransform);
                     break;
             }
         }
@@ -251,7 +198,6 @@ namespace NueGames.Action
         {
           
             FxManager.SpawnFloatingText(target.TextSpawnRoot,info);
-            
         }
         
         /// <summary>
@@ -262,9 +208,9 @@ namespace NueGames.Action
             FxManager.PlayFx(spawnPosition, fxName);
         }
 
-      
+        #endregion
 
-
+        
         /// <summary>
         /// 執行傷害行動
         /// </summary>
@@ -282,18 +228,11 @@ namespace NueGames.Action
         protected DamageInfo GetDamageInfoForDamageAction()
         {
             Debug.Log("GetDamageInfoForDamageAction()");
-            DamageInfo.BaseValue = BaseValue;
-            DamageInfo.MultiplierValue = MultiplierValue;
+            DamageInfo.BaseValue = ActionData.BaseValue;
+            DamageInfo.MultiplierValue = ActionData.MultiplierValue;
             DamageInfo.MultiplierAmount = MultiplierAmount;
             return DamageInfo;
         }
-        
-        
-        public override string ToString()
-        {
-            return $" {nameof(ActionType)}: {ActionType}, {nameof(TargetList)}: {TargetList}, {nameof(Self)}: {Self}, {nameof(BaseValue)}: {BaseValue}, {nameof(MultiplierValue)}: {MultiplierValue}, {nameof(MultiplierAmount)}: {MultiplierAmount}, {nameof(AdditionValue)}: {AdditionValue}";
-        }
-        
         
     }
 }

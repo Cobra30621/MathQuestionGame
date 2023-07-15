@@ -53,9 +53,6 @@ namespace NueGames.Action
             {
                 ActionParameters actionParameters = new ActionParameters()
                 {
-                    ActionType = actionData.GameActionType,
-                    BaseValue = actionData.ActionValue,
-                    MultiplierValue =  actionData.MultiplierValue,
                     Self = self,
                     TargetList = targetList,
                     ActionSource = actionSource, 
@@ -77,7 +74,7 @@ namespace NueGames.Action
         /// <returns></returns>
         public static GameActionBase GetGameAction(ActionParameters parameters)
         {
-            GameActionBase gameActionBase = GetGameAction(parameters.ActionType);
+            GameActionBase gameActionBase = GetGameAction(parameters.ActionData.actionName);
             gameActionBase.SetValue(parameters);
             return gameActionBase;
         }
@@ -85,11 +82,11 @@ namespace NueGames.Action
         /// <summary>
         /// 產生遊戲行為(GameAction)
         /// </summary>
-        /// <param name="actionType"></param>
+        /// <param name="actionName"></param>
         /// <returns></returns>
-        private static GameActionBase GetGameAction(GameActionType actionType)
+        private static GameActionBase GetGameAction(ActionName actionName)
         {
-            string gameActionName = actionType.ToString() + "Action";
+            string gameActionName = actionName.ToString() + "Action";
 
             if (_gameActionDict.ContainsKey(gameActionName))
             {

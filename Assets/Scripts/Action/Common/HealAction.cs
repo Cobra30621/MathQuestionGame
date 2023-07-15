@@ -11,7 +11,7 @@ namespace NueGames.Action
     /// </summary>
     public class HealAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.Heal;
+        public override ActionName ActionName => ActionName.Heal;
   
         
         /// <summary>

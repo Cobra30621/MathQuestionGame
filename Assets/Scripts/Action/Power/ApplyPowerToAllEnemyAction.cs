@@ -11,15 +11,7 @@ namespace NueGames.Action
     /// </summary>
     public class ApplyPowerToAllEnemyAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.ApplyPowerToAllEnemy;
-        
-        public void SetValue(int baseValue, PowerType targetPower)
-        {
-            BaseValue = baseValue;
-            PowerType = targetPower;
-
-            HasSetValue = true;
-        }
+        public override ActionName ActionName => ActionName.ApplyPowerToAllEnemy;
         
 
         /// <summary>
@@ -29,7 +21,7 @@ namespace NueGames.Action
         {
             foreach (EnemyBase enemy in CombatManager.CurrentEnemiesList)
             {
-                enemy.CharacterStats.ApplyPower(PowerType, AdditionValue);
+                enemy.CharacterStats.ApplyPower(ActionData.PowerType, AdditionValue);
                 PlayFx(FxName.Buff, enemy.transform);
             }
         }

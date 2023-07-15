@@ -10,7 +10,7 @@ namespace NueGames.Action
     /// </summary>
     public class EarnManaAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.EarnMana;
+        public override ActionName ActionName => ActionName.EarnMana;
    
         
         /// <summary>
@@ -19,7 +19,7 @@ namespace NueGames.Action
         protected override void DoMainAction()
         {
             if (CombatManager != null)
-                CombatManager.AddMana(BaseValue);
+                CombatManager.AddMana(ActionData.BaseValue);
             else
                 Debug.LogError("There is no CombatManager");
 

@@ -7,11 +7,11 @@ namespace Action.Power
 {
     public class ApplyMathManaAction : GameActionBase
     {
-        public override GameActionType ActionType => GameActionType.ApplyBlock;
+        public override ActionName ActionName => ActionName.ApplyBlock;
 
         public ApplyMathManaAction(int value)
         {
-            BaseValue = value;
+            ActionData.BaseValue = value;
         }
 
 
@@ -23,7 +23,6 @@ namespace Action.Power
             {
                 UIManager.Instance.CombatCanvas.OnMathManaChange();
             }
-            // PlayFx(FxType.Block, Target.transform);
         }
     }
 }

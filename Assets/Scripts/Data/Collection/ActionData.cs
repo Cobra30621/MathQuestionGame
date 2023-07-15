@@ -5,6 +5,7 @@ using NueGames.Action.MathAction;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.NueExtentions;
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
 
@@ -17,99 +18,84 @@ namespace NueGames.Data.Collection
     [Serializable]
     public class ActionData
     {
-        [Tooltip("遊戲行為類型")]
-        [SerializeField] private GameActionType gameActionType;
-        
-        [Header("數值")]
-        [Tooltip("數值，用於傷害大小、增加異常狀態層數等")]
-        [SerializeField] private int actionValue;
-        [Tooltip("加成數值\n用於如 DamageByQuestioning(根據答對題數造成傷害) 行動")]
-        [SerializeField] private int multiplierValue;
-        [Tooltip("行為延遲時間")]
-        [SerializeField] private float actionDelay;
+        #region 基礎參數
 
-        [Header("其他")]
-        [Tooltip("能力類型\n用於 ApplyPower(賦予能力), DamageByAllyPowerValue(根據能力造成傷害) 等跟能力有關行動")]
-        [SerializeField] private PowerType powerType;
-        [Tooltip("答題結果類型\n用於 DamageByAnswerCount(根據答題數造成傷害) 等跟答題有關行動")]
-        [SerializeField] private AnswerOutcomeType answerOutcomeType;
+        [FoldoutGroup("基礎參數")]
+        [PropertyTooltip("行為名稱")]
+        public ActionName actionName;
         
-        [Header("特效")]
-        [Tooltip("播放特效(FX)，只有在 FXAction 中使用")] 
-        [SerializeField] private FxName fxName;
-        [SerializeField] private FxSpawnPosition fxSpawnPosition;
+        [DetailedInfoBox("數值計算公式...", 
+            "BaseValue + MultiplierValue * MultiplierAmount" +
+            "\n基礎數值 + 加成數值 * 加成數量" +
+            "\nMultiplierAmount(加成數量) 的參數在 GameAction 中")]
+        
+        [FoldoutGroup("基礎參數")]
+        [PropertyTooltip("基礎數值，用於傷害大小、增加異常狀態層數等")]
+        public int BaseValue;
         
         
-        /// <summary>
-        /// 起始的卡組
-        /// </summary>
-        [Header("卡牌")]
+        [FoldoutGroup("基礎參數")]
+        [PropertyTooltip("加成數值")]
+        public float MultiplierValue;
+        
+
+        [FoldoutGroup("基礎參數")]
+        [PropertyTooltip("行為延遲時間")]
+        public float Delay;
+        
+        #endregion
+        
+        #region 播放特效
+
+        [FoldoutGroup("播放的特效")]
+        [PropertyTooltip("特效名稱")]
+        public FxName FxName;
+        
+        [FoldoutGroup("播放的特效")]
+        [PropertyTooltip("特效產生處")]
+        public FxSpawnPosition FxSpawnPosition;
+        
+
+        #endregion
+        
+        #region 能力參數
+
+        [InfoBox("用於與能力(Power)相關的遊戲行為")]
+        
+        [FoldoutGroup("能力參數")]
+        [PropertyTooltip("用於 ApplyPower(賦予能力), DamageByAllyPowerValue(根據能力造成傷害) 等跟能力有關行動")]
+        public PowerType PowerType;
+
+        
+
+        #endregion
+
+        #region 卡組參數
+
+        [InfoBox("用於與卡組相關的遊戲行為")]
+        [FoldoutGroup("卡組參數")]
+        [PropertyTooltip("起始的卡組")]
         public PileType SourcePile;
-        /// <summary>
-        /// 目標的卡組
-        /// </summary>
+        
+        [FoldoutGroup("卡組參數")]
+        [PropertyTooltip("目標的卡組")]
         public PileType TargetPile;
-        /// <summary>
-        /// 目標卡牌
-        /// </summary>
+        
+        [FoldoutGroup("卡組參數")]
+        [PropertyTooltip("目標卡牌")]
         public CardData TargetCardData;
 
+        #endregion
+
+        #region 觸發遊戲行為
+
         
-        /// <summary>
-        /// 觸發的行動
-        /// </summary>
-        [Header("觸發的行動")] 
+        [FoldoutGroup("觸發的行為")]
+        [InfoBox("用於會觸發其他遊戲行為的遊戲行為")]
+        [PropertyTooltip("觸發的行為")]
         [OdinSerialize] public List<ActionData> TriggerActionList;
         
-        /// <summary>
-        /// 遊戲行為類型
-        /// </summary>
-        public GameActionType GameActionType => gameActionType;
-        /// <summary>
-        /// 能力類型
-        /// 用於 ApplyPower(賦予能力), DamageByAllyPowerValue(根據能力造成傷害) 等跟能力有關行動
-        /// </summary>
-        public PowerType PowerType => powerType;
-        /// <summary>
-        /// 答題結果類型\n用於 DamageByAnswerCount(根據答題數造成傷害) 等跟答題有關行動
-        /// </summary>
-        public AnswerOutcomeType AnswerOutcomeType => answerOutcomeType;
-        /// <summary>
-        /// 數值，用於傷害大小、增加異常狀態層數等
-        /// </summary>
-        public int ActionValue => actionValue;
-        /// <summary>
-        /// 加成數值
-        /// 用於如 DamageByQuestioning(根據答對題數造成傷害) 行動
-        /// </summary>
-        // TODO 重新命名
-        public int MultiplierValue => multiplierValue;
-        /// <summary>
-        /// 行為延遲時間
-        /// </summary>
-        public float ActionDelay => actionDelay;
-        /// <summary>
-        /// 播放特效(FX)，只有在 FXAction 中使用
-        /// </summary>
-        public FxName FxName => fxName;
-        /// <summary>
-        /// 播放特效產生的位置(FX)，只有在 FXAction 中使用
-        /// </summary>
-        public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
         
-        #region Editor
-
-#if UNITY_EDITOR
-        public void EditActionType(GameActionType newType) =>  gameActionType = newType;
-        public void EditPower(PowerType newPowerType) => powerType = newPowerType;
-        public void EditActionValue(int newValue) => actionValue = newValue;
-        public void EditAdditionValue(int newValue) => multiplierValue = newValue;
-        public void EditActionDelay(float newValue) => actionDelay = newValue;
-
-        
-
-#endif
-
 
         #endregion
     }
@@ -170,7 +156,7 @@ namespace NueGames.Data.Collection
                 modifiedActionValueIndex = 0;
             
             var str = new StringBuilder();
-            var value = cardActionDataList[ModifiedActionValueIndex].ActionValue;
+            var value = cardActionDataList[ModifiedActionValueIndex].BaseValue;
             var modifer = 0;
             if (CombatManager)
             {
@@ -180,7 +166,7 @@ namespace NueGames.Data.Collection
                 {
                     // modifer = player.CharacterStats.StatusDict[ModiferStats].Amount;
                     // Amount += modifer;
-                    if(cardActionDataList[ModifiedActionValueIndex].GameActionType == GameActionType.Damage)
+                    if(cardActionDataList[ModifiedActionValueIndex].actionName == ActionName.Damage)
                         value = CombatCalculator.GetDamageValue(value, player);
 
                     // if(cardActionDataList[ModifiedActionValueIndex].GameActionType == GameActionType.Block)
@@ -237,7 +223,7 @@ namespace NueGames.Data.Collection
                 modifiedActionValueIndex = 0;
             
             var str = new StringBuilder();
-            var value = cardActionDataList[ModifiedActionValueIndex].ActionValue;
+            var value = cardActionDataList[ModifiedActionValueIndex].BaseValue;
             if (CombatManager)
             {
                 var player = CombatManager.CurrentMainAlly;

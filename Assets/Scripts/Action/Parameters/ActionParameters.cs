@@ -16,14 +16,6 @@ namespace NueGames.Parameters
         #region 必填
 
         /// <summary>
-        /// 行為類別
-        /// </summary>
-        public GameActionType ActionType;
-        /// <summary>
-        /// 行為基礎數值
-        /// </summary>
-        public int BaseValue;
-        /// <summary>
         /// 行為目標對象
         /// </summary>
         public List<CharacterBase> TargetList;
@@ -62,10 +54,6 @@ namespace NueGames.Parameters
         /// 加成數值
         /// </summary>
         public float MultiplierValue;
-        /// <summary>
-        /// 遊戲資料清單
-        /// </summary>
-        public ActionDataClip ActionDataClip;
 
         #endregion
 
