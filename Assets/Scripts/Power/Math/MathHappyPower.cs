@@ -1,4 +1,5 @@
-﻿using NueGames.Enums;
+﻿using GameListener;
+using NueGames.Enums;
 
 namespace NueGames.Power.Math
 {
@@ -9,7 +10,12 @@ namespace NueGames.Power.Math
     {
         public override PowerType PowerType => PowerType.MathHappy;
 
-        
+        public MathHappyPower()
+        {
+            DamageCalculateOrder = CalculateOrder.MultiplyAndDivide;
+        }
+
+
         public override void SubscribeAllEvent()
         {
             QuestionManager.OnAnswerCorrect += OnAnswerCorrect;

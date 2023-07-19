@@ -1,4 +1,6 @@
-﻿using NueGames.Enums;
+﻿
+using GameListener;
+using NueGames.Enums;
 using UnityEngine;
 
 namespace NueGames.Power
@@ -13,6 +15,7 @@ namespace NueGames.Power
         public WeakPower()
         {
             DecreaseOverTurn = true;
+            DamageCalculateOrder = CalculateOrder.MultiplyAndDivide;
         }
         
         public override float AtDamageGive(float damage)

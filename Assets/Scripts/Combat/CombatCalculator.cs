@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Action.Parameters;
+using GameListener;
 using Kalkatos.DottedArrow;
 using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
 using NueGames.Power;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace NueGames.Combat
@@ -18,28 +21,8 @@ namespace NueGames.Combat
     {
         private static CombatManager CombatManager => CombatManager.Instance;
         private static GameManager GameManager => GameManager.Instance;
-        /// <summary>
-        /// 易傷加乘
-        /// </summary>
-        private static readonly float vulnerableValue = 1.5f;
-        /// <summary>
-        /// 虛弱加成
-        /// </summary>
-        private static readonly float weakValue = 0.75f;
         private static CharacterBase _targetEnemy;
-        
-        /// <summary>
-        /// 獲得戰鬥傷害數值
-        /// </summary>
-        /// <param name="rawValue"></param>
-        /// <param name="selfCharacter"></param>
-        /// <returns></returns>
-        public static int GetDamageValue(float rawValue, CharacterBase selfCharacter)
-        {
-            _targetEnemy = CombatManager.CurrentSelectedEnemy;
-            return GetDamageValue(rawValue, selfCharacter, _targetEnemy);
-        }
-
+   
         /// <summary>
         /// 獲得戰鬥傷害數值
         /// </summary>
@@ -47,47 +30,58 @@ namespace NueGames.Combat
         {
             if (info.FixDamage)
             {
-                return info.GetAddictionValue();
+                return info.AdditionValue;
             }
             
-            return GetDamageValue(info.GetAddictionValue(), info.ActionSource.SourceCharacter, info.Target);
+            return GetDamageValue(info.AdditionValue, info.ActionSource.SourceCharacter, info.Target);
         }
+        
+        
+        
         
         /// <summary>
         /// 獲得戰鬥傷害數值
         /// </summary>
         private static int GetDamageValue(float rawValue, CharacterBase selfCharacter, CharacterBase targetCharacter)
         {
-            // Debug.Log( " GetDamageValue"  + rawValue);
-            float value = rawValue;
-            // 計算使用者能力加成
-            foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
+            List<CalculateOrderClip> orderClips = new List<CalculateOrderClip>();
+            // 使用者能力加成
+            foreach (var powerBase in selfCharacter.GetPowerDict().Values)
             {
-                // TODO 力量、虛弱計算要分開
-                value = powerBase.AtDamageGive(value);
-            }
-
-            // 計算目標對象能力加成
-            if (targetCharacter != null)
-            {
-                foreach (PowerBase powerBase in targetCharacter.GetPowerDict().Values)
-                {
-                    value = powerBase.AtDamageReceive(value);
-                }
+                orderClips.Add(new CalculateOrderClip(powerBase.DamageCalculateOrder, powerBase.AtDamageGive));
             }
             
+            // 目標能力加成
+            if (targetCharacter != null)
+            {
+                foreach (var powerBase in targetCharacter.GetPowerDict().Values)
+                {
+                    orderClips.Add(new CalculateOrderClip(powerBase.DamageCalculateOrder, powerBase.AtDamageReceive));
+                }
+            }
+
             bool selfIsAlly = selfCharacter.CharacterType == CharacterType.Ally;
             // 計算遺物能力加成
             foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
             {
-                if (selfIsAlly)// 傷害發起者是玩家，遺物給予傷害加成
+                if (selfIsAlly)
                 {
-                    value = relicClip.Relic.AtDamageGive(value);
+                    orderClips.Add(new CalculateOrderClip(relicClip.Relic.DamageCalculateOrder, relicClip.Relic.AtDamageGive));
                 }
-                else // 攻擊對象是敵人，遺物給予受到傷害加成
+                else
                 {
-                    value = relicClip.Relic.AtDamageReceive(value);
+                    orderClips.Add(new CalculateOrderClip(relicClip.Relic.DamageCalculateOrder, relicClip.Relic.AtDamageReceive));
                 }
+            }
+            
+            // 依據傷害計算順序，進行排序
+            orderClips.Sort(new CalculateOrderComparer());
+            
+            
+            float value = rawValue;
+            foreach (var orderClip in orderClips)
+            {
+                value = orderClip.CalculateFunction(value);
             }
             
             return Mathf.RoundToInt(value);
@@ -98,38 +92,33 @@ namespace NueGames.Combat
         /// </summary>
         public static int GetBlockValue(float rawValue, CharacterBase selfCharacter)
         {
-            float value = rawValue;
-            // 計算能力加成
-            foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
+            List<CalculateOrderClip> orderClips = new List<CalculateOrderClip>();
+            // 使用者能力加成
+            foreach (var powerBase in selfCharacter.GetPowerDict().Values)
             {
-                value = powerBase.ModifyBlock(value);
+                orderClips.Add(new CalculateOrderClip(powerBase.BlockCalculateOrder, powerBase.ModifyBlock));
             }
             
-            // 計算遺物能力加成
-            bool selfIsAlly = selfCharacter.CharacterType == CharacterType.Ally;
-            foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
-            {
-                if (selfIsAlly)// 格檔發起者是玩家，遺物給予加成
-                {
-                    value = relicClip.Relic.ModifyBlock(value);
-                }
-            }
-            
-            // 計算能力加成
-            foreach (PowerBase powerBase in selfCharacter.GetPowerDict().Values)
-            {
-                value = powerBase.ModifyBlockLast(value);
-            }
-            
-            // 計算遺物能力加成
-            foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
-            {
-                if (selfIsAlly)// 格檔發起者是玩家，遺物給予加成
-                {
-                    value = relicClip.Relic.ModifyBlockLast(value);
-                }
-            }
 
+            bool selfIsAlly = selfCharacter.CharacterType == CharacterType.Ally;
+            // 計算遺物能力加成
+            foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
+            {
+                if (selfIsAlly) // 格檔發起者是玩家，遺物給予加成
+                {
+                    orderClips.Add(new CalculateOrderClip(relicClip.Relic.BlockCalculateOrder, relicClip.Relic.ModifyBlock));
+                }
+            }
+            
+            // 依據計算順序，進行排序
+            orderClips.Sort(new CalculateOrderComparer());
+            
+            float value = rawValue;
+            foreach (var orderClip in orderClips)
+            {
+                value = orderClip.CalculateFunction(value);
+            }
+            
             return Mathf.RoundToInt(value);
         }
 

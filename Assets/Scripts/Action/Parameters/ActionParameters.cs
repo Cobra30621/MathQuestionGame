@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NueGames.Characters;
 using NueGames.Data.Collection;
+using UnityEngine;
 
 namespace Action.Parameters
 {
@@ -45,6 +46,15 @@ namespace Action.Parameters
 
         #endregion
 
+        
+        /// <summary>
+        /// 加乘後的數值
+        /// </summary>
+        public int AdditionValue =>
+            Mathf.RoundToInt(ActionData.BaseValue + 
+                             MultiplierAmount * ActionData.MultiplierValue);
+
+        
         public ActionParameters()
         {
             ActionData = new ActionData();

@@ -21,6 +21,15 @@ namespace GameListener
         protected QuestionManager QuestionManager => QuestionManager.Instance;
 
 
+        #region 戰鬥計算順序 (傷害、格擋)
+
+        public CalculateOrder DamageCalculateOrder = CalculateOrder.None;
+
+        public CalculateOrder BlockCalculateOrder = CalculateOrder.None;
+        
+
+        #endregion
+
         #region 訂閱事件
 
         /// <summary>
@@ -63,15 +72,6 @@ namespace GameListener
         /// <param name="blockAmount"></param>
         /// <returns></returns>
         public virtual float ModifyBlock(float blockAmount) {
-            return blockAmount;
-        }
-
-        /// <summary>
-        /// 賦予格檔時，對格檔的加乘(最後觸發)
-        /// </summary>
-        /// <param name="blockAmount"></param>
-        /// <returns></returns>
-        public virtual float ModifyBlockLast(float blockAmount) {
             return blockAmount;
         }
 
@@ -158,5 +158,7 @@ namespace GameListener
         protected virtual void OnQuestioningModeEnd(int correctCount){}
         
         #endregion
+
+        
     }
 }

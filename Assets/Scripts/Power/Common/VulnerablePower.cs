@@ -1,4 +1,5 @@
-﻿using NueGames.Enums;
+﻿using GameListener;
+using NueGames.Enums;
 using UnityEngine;
 
 namespace NueGames.Power
@@ -13,6 +14,7 @@ namespace NueGames.Power
         public VulnerablePower()
         {
             DecreaseOverTurn = true;
+            DamageCalculateOrder = CalculateOrder.MultiplyAndDivide;
         }
 
         public override float AtDamageReceive(float damage)

@@ -1,4 +1,5 @@
-﻿using NueGames.Enums;
+﻿using GameListener;
+using NueGames.Enums;
 
 namespace NueGames.Power.Math
 {
@@ -8,6 +9,11 @@ namespace NueGames.Power.Math
     public class MathAngryPower : PowerBase
     {
         public override PowerType PowerType => PowerType.MathAngry;
+
+        public MathAngryPower()
+        {
+            DamageCalculateOrder = CalculateOrder.MultiplyAndDivide;
+        }
 
         public override void SubscribeAllEvent()
         {
@@ -20,9 +26,9 @@ namespace NueGames.Power.Math
         }
 
 
-        public override float AtDamageGive(float damage)
+        public override float AtDamageGive(float i)
         {
-            return damage * (1 + (Amount - 1) * 0.2f);
+            return i * (1 + (Amount - 1) * 0.2f);
         }
 
 

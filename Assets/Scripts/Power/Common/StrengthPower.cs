@@ -1,4 +1,5 @@
-﻿using NueGames.Combat;
+﻿using GameListener;
+using NueGames.Combat;
 using NueGames.Enums;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace NueGames.Power
         public StrengthPower()
         {
             CanNegativeStack = true;
+            DamageCalculateOrder = CalculateOrder.AdditionAndSubtraction;
         }
         
         

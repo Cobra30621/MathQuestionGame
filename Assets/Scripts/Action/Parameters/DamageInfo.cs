@@ -9,6 +9,9 @@ namespace Action.Parameters
 {
     public class DamageInfo
     {
+        /// <summary>
+        /// 行動的參數
+        /// </summary>
         public ActionParameters Parameters;
         
         
@@ -34,31 +37,16 @@ namespace Action.Parameters
         public bool CanPierceArmor => Parameters.ActionData.CanPierceArmor;
 
         #region 選填
-
         
         /// <summary>
-        /// 加成數值
+        /// 加乘後的數值
         /// </summary>
-        public float MultiplierValue => Parameters.ActionData.MultiplierValue;
-        /// <summary>
-        /// 加成數量
-        /// </summary>
-        public float MultiplierAmount;
-
-        
+        public int AdditionValue => Parameters.AdditionValue;
 
         #endregion
 
 
-        /// <summary>
-        /// 取得加成數值
-        /// </summary>
-        /// <returns></returns>
-        public int GetAddictionValue()
-        {
-            // Debug.Log( $" GetAddictionValue {BaseValue} + {MultiplierAmount} * {MultiplierValue}"  );
-            return Mathf.RoundToInt(BaseValue + MultiplierAmount * MultiplierValue);
-        }
+   
 
         public int GetDamageValue()
         {
@@ -106,8 +94,6 @@ namespace Action.Parameters
         /// <summary>
         /// 取得格檔後剩下的傷害
         /// </summary>
-        /// <param name="damageInfo"></param>
-        /// <returns></returns>
         public int GetAfterBlockDamage()
         {
             var target = Target;

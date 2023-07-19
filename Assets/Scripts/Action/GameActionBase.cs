@@ -40,16 +40,13 @@ namespace NueGames.Action
         /// 遊戲行為的資料
         /// </summary>
         public ActionData ActionData => Parameters.ActionData;
-        
-        
+
+
 
         /// <summary>
         /// 加乘後的數值
         /// </summary>
-        protected int AdditionValue =>
-            Mathf.RoundToInt(ActionData.BaseValue + 
-                             Parameters.MultiplierAmount * ActionData.MultiplierValue);
-
+        protected int AdditionValue => Parameters.AdditionValue;
 
         #endregion
         

@@ -176,10 +176,11 @@ namespace NueGames.Data.Collection
                
                 if (player)
                 {
+                    // TODO 獲得加成數值
                     // modifer = player.CharacterStats.StatusDict[ModiferStats].Amount;
                     // Amount += modifer;
-                    if(cardActionDataList[ModifiedActionValueIndex].actionName == ActionName.Damage)
-                        value = CombatCalculator.GetDamageValue(value, player);
+                    // if(cardActionDataList[ModifiedActionValueIndex].actionName == ActionName.Damage)
+                    //     value = CombatCalculator.GetDamageValue(value, player);
 
                     // if(cardActionDataList[ModifiedActionValueIndex].GameActionType == GameActionType.Block)
                     //     value = CombatCalculator.GetBlockValue(value, player);
