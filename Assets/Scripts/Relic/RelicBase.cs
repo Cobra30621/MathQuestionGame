@@ -16,7 +16,7 @@ namespace NueGames.Relic
         /// <summary>
         /// 哪一個遺物
         /// </summary>
-        public abstract RelicType RelicType { get; }
+        public abstract RelicName RelicName { get; }
         /// <summary>
         /// 遺物使用計數器
         /// </summary>
@@ -66,7 +66,7 @@ namespace NueGames.Relic
             return new ActionSource()
             {
                 SourceType = SourceType.Relic,
-                SourceRelic = RelicType
+                SourceRelic = RelicName
             };
         }
 
@@ -76,16 +76,9 @@ namespace NueGames.Relic
         
         public override string ToString()
         {
-            return $"{nameof(RelicType)}: {RelicType}, {nameof(NeedCounter)}: {NeedCounter}";
+            return $"{nameof(RelicName)}: {RelicName}, {nameof(NeedCounter)}: {NeedCounter}";
         }
     }
 
-    public enum RelicType
-    {
-        // Test 101 ~
-        ManaGenerator = 101, // 每回產生瑪那
-        DrawCardOnAnswerCorrect = 102,
-        StrengthGenerator = 103,
-        Burning = 104
-    }
+    
 }

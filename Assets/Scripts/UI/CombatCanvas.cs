@@ -3,6 +3,7 @@ using Feedback;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
+using NueGames.Power;
 using TMPro;
 using UnityEngine;
 
@@ -64,7 +65,7 @@ namespace NueGames.UI
 
         private void SetMathManaText()
         {
-            int mathMana = CombatManager.GetMainAllyPowerValue(PowerType.MathMana);
+            int mathMana = CombatManager.GetMainAllyPowerValue(PowerName.MathMana);
             mathManaTextTextField.text = $"{mathMana}";
         }
 

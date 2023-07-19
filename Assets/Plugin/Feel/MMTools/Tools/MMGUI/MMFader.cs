@@ -49,7 +49,7 @@ namespace MoreMountains.Tools
 
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MoreMountains.MMInterface.MMFadeEvent"/> struct.
+		/// Initializes a new instance of the <see cref="MMFadeEvent"/> struct.
 		/// </summary>
 		/// <param name="duration">Duration, in seconds.</param>
 		/// <param name="targetAlpha">Target alpha, from 0 to 1.</param>
@@ -95,7 +95,7 @@ namespace MoreMountains.Tools
 		public Vector3 WorldPosition;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MoreMountains.MMInterface.MMFadeInEvent"/> struct.
+		/// Initializes a new instance of the <see cref="MMFadeInEvent"/> struct.
 		/// </summary>
 		/// <param name="duration">Duration.</param>
 		public MMFadeInEvent(float duration, MMTweenType tween, int id = 0, 
@@ -134,7 +134,7 @@ namespace MoreMountains.Tools
 		public Vector3 WorldPosition;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MoreMountains.MMInterface.MMFadeOutEvent"/> struct.
+		/// Initializes a new instance of the <see cref="MMFadeOutEvent"/> struct.
 		/// </summary>
 		/// <param name="duration">Duration.</param>
 		public MMFadeOutEvent(float duration, MMTweenType tween, int id = 0, 

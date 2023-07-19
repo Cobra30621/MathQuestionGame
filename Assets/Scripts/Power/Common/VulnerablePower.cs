@@ -9,7 +9,7 @@ namespace NueGames.Power
     /// </summary>
     public class VulnerablePower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Vulnerable;
+        public override PowerName PowerName => PowerName.Vulnerable;
 
         public VulnerablePower()
         {

@@ -14,13 +14,13 @@
         Buff = 101,
         Block = 102,
         
-        
         // Character
         // Dead = 501,
         
+        
         // Other
-        Heal = 201,
-        FeedBackTest = 1001,
+        Heal = 1001,
+        FeedBackTest = 1101,
         
         MathText = 1020,
     }

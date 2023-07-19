@@ -12,7 +12,7 @@ namespace NueGames.Power
     /// </summary>
     public abstract class ReducePowerAtEndOfTurnPower : PowerBase
     {
-        protected abstract PowerType TargetPowerType { get; }
+        protected abstract PowerName TargetPowerName { get; }
 
         public Button Button;
 
@@ -29,8 +29,8 @@ namespace NueGames.Power
         protected override void OnRoundEnd(RoundInfo info)
         {
             // 回合結束時，降低使用者的能力
-            Owner.CharacterStats.ApplyPower(TargetPowerType, - Amount);
-            Owner.CharacterStats.ClearPower(PowerType);
+            Owner.CharacterStats.ApplyPower(TargetPowerName, - Amount);
+            Owner.CharacterStats.ClearPower(PowerName);
             
             base.OnRoundEnd(info);
         }

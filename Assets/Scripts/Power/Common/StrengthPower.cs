@@ -10,7 +10,7 @@ namespace NueGames.Power
     /// </summary>
     public class StrengthPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Strength;
+        public override PowerName PowerName => PowerName.Strength;
 
         public StrengthPower()
         {

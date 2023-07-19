@@ -9,7 +9,7 @@ namespace NueGames.Power
     /// </summary>
     public class GainManaAtRoundStartPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.GainManaAtRoundStart;
+        public override PowerName PowerName => PowerName.GainManaAtRoundStart;
 
         public GainManaAtRoundStartPower()
         {

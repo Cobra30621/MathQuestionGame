@@ -21,7 +21,7 @@ namespace NueGames.Power
         /// </summary>
         // TODO 改名成 PowerName
         // PowerType 應該是 Buff, DeBuff
-        public abstract PowerType PowerType  { get;}
+        public abstract PowerName PowerName  { get;}
         /// <summary>
         /// 能力數值
         /// </summary>
@@ -93,19 +93,19 @@ namespace NueGames.Power
             if (IsActive)
             {
                 Amount += stackAmount;
-                Owner?.CharacterStats.OnPowerChanged?.Invoke(PowerType, Amount);
+                Owner?.CharacterStats.OnPowerChanged?.Invoke(PowerName, Amount);
                 
             }
             else
             {
                 Amount = stackAmount;
                 IsActive = true;
-                Owner?.CharacterStats.OnPowerApplied?.Invoke(PowerType, Amount);
+                Owner?.CharacterStats.OnPowerApplied?.Invoke(PowerName, Amount);
             }
 
             if (stackAmount > 0)
             {
-                Owner?.CharacterStats.OnPowerIncrease?.Invoke(PowerType, stackAmount);
+                Owner?.CharacterStats.OnPowerIncrease?.Invoke(PowerName, stackAmount);
             }
 
             CheckClearPower();
@@ -142,8 +142,8 @@ namespace NueGames.Power
         {
             IsActive = false;
             Amount = 0;
-            Owner.CharacterStats.PowerDict.Remove(PowerType);
-            Owner.CharacterStats.OnPowerCleared.Invoke(PowerType);
+            Owner.CharacterStats.PowerDict.Remove(PowerName);
+            Owner.CharacterStats.OnPowerCleared.Invoke(PowerName);
             UnSubscribeAllEvent();
         }
 
@@ -194,7 +194,7 @@ namespace NueGames.Power
         /// <summary>
         /// 事件: 當能力數值增加時觸發
         /// </summary>
-        protected virtual void OnPowerIncrease(PowerType powerType, int value){}
+        protected virtual void OnPowerIncrease(PowerName powerName, int value){}
         
         
         #endregion
@@ -222,7 +222,7 @@ namespace NueGames.Power
             return new ActionSource()
             {
                 SourceType = SourceType.Power,
-                SourcePower = PowerType
+                SourcePower = PowerName
             };
         }
 

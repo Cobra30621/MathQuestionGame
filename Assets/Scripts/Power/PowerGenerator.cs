@@ -28,7 +28,7 @@ namespace NueGames.Power {
         /// </summary>
         /// <param name="targetPower"></param>
         /// <returns></returns>
-        public static PowerBase GetPower(PowerType targetPower)
+        public static PowerBase GetPower(PowerName targetPower)
         {
             if(!IsInitialized)
                 Initialize();

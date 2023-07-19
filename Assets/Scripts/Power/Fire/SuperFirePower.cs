@@ -1,17 +1,14 @@
 ﻿using Action.Parameters;
 using NueGames.Action;
-using NueGames.Combat;
-using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.Parameters;
-using UnityEngine;
+
 
 namespace NueGames.Power
 {
     // 如果對方被消滅時是因為燃燒，則造成全體傷害
     public class SuperFirePower : PowerBase
     {
-        public override PowerType PowerType => PowerType.SuperFire;
+        public override PowerName PowerName => PowerName.SuperFire;
 
 
         public override void SubscribeAllEvent()
@@ -27,7 +24,7 @@ namespace NueGames.Power
 
         protected override void OnDead(DamageInfo damageInfo)
         {
-            if (damageInfo.ActionSource.IsFromPower(PowerType.Fire))
+            if (damageInfo.ActionSource.IsFromPower(PowerName.Fire))
             {
                 DamageAllEnemyAction damageAction = new DamageAllEnemyAction();
                 damageAction.SetDamageActionValue(damageInfo.BaseValue, 
@@ -38,7 +35,7 @@ namespace NueGames.Power
                 
                 // 給予所有敵人"燃燒"層數的"燃燒"
                 ApplyPowerToAllEnemyAction action = new ApplyPowerToAllEnemyAction();
-                action.SetPowerActionValue(1, PowerType.Fire, 
+                action.SetPowerActionValue(1, PowerName.Fire, 
                     null, GetActionSource());
                 GameActionExecutor.AddToBottom(action);
             }

@@ -57,25 +57,25 @@ namespace NueGames.Characters
         /// <summary>
         ///  事件: 當獲得能力時觸發
         /// </summary>
-        public Action<PowerType, int> OnPowerApplied;
+        public Action<PowerName, int> OnPowerApplied;
         /// <summary>
         ///  事件: 當能力數值改變時觸發
         /// </summary>
-        public Action<PowerType, int> OnPowerChanged;
+        public Action<PowerName, int> OnPowerChanged;
         /// <summary>
         /// 事件: 當能力數值增加時觸發
         /// </summary>
-        public Action<PowerType, int> OnPowerIncrease;
+        public Action<PowerName, int> OnPowerIncrease;
         /// <summary>
         ///  事件: 當清除能力時觸發
         /// </summary>
-        public Action<PowerType> OnPowerCleared;
+        public Action<PowerName> OnPowerCleared;
         
         
         /// <summary>
         /// 持有的能力清單
         /// </summary>
-        public readonly Dictionary<PowerType, PowerBase> PowerDict = new Dictionary<PowerType, PowerBase>();
+        public readonly Dictionary<PowerName, PowerBase> PowerDict = new Dictionary<PowerName, PowerBase>();
 
         #region Setup 初始設定
         public CharacterStats(int maxHealth, CharacterBase characterBase)
@@ -104,7 +104,7 @@ namespace NueGames.Characters
         /// </summary>
         /// <param name="targetPower"></param>
         /// <param name="value"></param>
-        public void ApplyPower(PowerType targetPower,int value)
+        public void ApplyPower(PowerName targetPower,int value)
         {
             // Debug.Log($"{owner.name} apply {targetPower} {value}");
             if (PowerDict.ContainsKey(targetPower))
@@ -126,7 +126,7 @@ namespace NueGames.Characters
         /// <summary>
         /// 將能力 x 倍數
         /// </summary>
-        public void MultiplyPower(PowerType targetPower,int value)
+        public void MultiplyPower(PowerName targetPower,int value)
         {
             if(PowerDict.ContainsKey(targetPower))
                 PowerDict[targetPower].MultiplyPower(value);
@@ -138,7 +138,7 @@ namespace NueGames.Characters
         /// </summary>
         public void HandleAllPowerOnRoundEnd(RoundInfo info)
         {
-            var copyPowerDict = new Dictionary<PowerType, PowerBase> (PowerDict);
+            var copyPowerDict = new Dictionary<PowerName, PowerBase> (PowerDict);
             foreach (PowerBase power in copyPowerDict.Values)
             {
                 power.UpdatePowerStatus();
@@ -201,9 +201,9 @@ namespace NueGames.Characters
         /// <param name="damageValue"></param>
         private void ReduceBlock(int damageValue)
         {
-            if (PowerDict.ContainsKey(PowerType.Block))
+            if (PowerDict.ContainsKey(PowerName.Block))
             {
-                ApplyPower(PowerType.Block,- damageValue);
+                ApplyPower(PowerName.Block,- damageValue);
             }
         }
 
@@ -237,7 +237,7 @@ namespace NueGames.Characters
         /// </summary>
         public void ClearAllPower()
         {
-            Dictionary<PowerType, PowerBase> copyPowerDict = new Dictionary<PowerType, PowerBase>(PowerDict);
+            Dictionary<PowerName, PowerBase> copyPowerDict = new Dictionary<PowerName, PowerBase>(PowerDict);
             foreach (var power in copyPowerDict)
                 ClearPower(power.Key);
         }
@@ -246,7 +246,7 @@ namespace NueGames.Characters
         /// 清除能力
         /// </summary>
         /// <param name="targetPower"></param>
-        public void ClearPower(PowerType targetPower)
+        public void ClearPower(PowerName targetPower)
         {
             if (PowerDict.ContainsKey(targetPower))
             {

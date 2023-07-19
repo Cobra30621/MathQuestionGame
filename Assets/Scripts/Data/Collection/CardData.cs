@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NueGames.Action;
 using NueGames.Action.MathAction;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.NueExtentions;
+using NueGames.Power;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
@@ -24,7 +26,7 @@ namespace NueGames.Data.Collection
         [SerializeField] private Sprite cardSprite;
         [SerializeField] private RarityType rarity;
         [SerializeField] private bool needPowerToPlay;
-        [SerializeField] private PowerType needPowerType;
+        [SerializeField] private PowerName needPowerName;
         [SerializeField] private int powerCost;
 
         [Header("Action Settings")] [SerializeField]
@@ -64,7 +66,7 @@ namespace NueGames.Data.Collection
         public ActionTargetType ActionTargetType => actionTargetType;
         public int ManaCost => manaCost;
         public bool NeedPowerToPlay => needPowerToPlay;
-        public PowerType NeedPowerType => needPowerType;
+        public PowerName NeedPowerName => needPowerName;
         public int PowerCost => powerCost;
         public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
@@ -127,7 +129,7 @@ namespace NueGames.Data.Collection
         public void EditId(string newId) => id = newId;
         public void EditManaCost(int newCost) => manaCost = newCost;
         public void EditNeedPowerToPlay(bool newValue) => needPowerToPlay = newValue;
-        public void EditNeedPowerType(PowerType powerType) => needPowerType = powerType;
+        public void EditNeedPowerType(PowerName powerName) => needPowerName = powerName;
         public void EditPowerCost(int newValue) => powerCost = newValue;
         public void EditRarity(RarityType targetRarity) => rarity = targetRarity;
         public void EditCardSprite(Sprite newSprite) => cardSprite = newSprite;

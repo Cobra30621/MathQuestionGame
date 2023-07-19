@@ -12,7 +12,7 @@ namespace Action.Power
         {
             foreach (var target in TargetList)
             {
-                target.CharacterStats.ApplyPower(PowerType.Block, AdditionValue);
+                target.CharacterStats.ApplyPower(PowerName.Block, AdditionValue);
                 PlayFx(FxName.Block, target.transform);
             }
         }

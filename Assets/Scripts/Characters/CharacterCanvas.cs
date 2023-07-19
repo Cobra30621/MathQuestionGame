@@ -13,6 +13,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using NueGames.Combat;
+using NueGames.Power;
 
 namespace NueGames.Characters
 {
@@ -29,7 +30,7 @@ namespace NueGames.Characters
         
         #region Cache
 
-        protected Dictionary<PowerType, PowerIconsBase> StatusDict = new Dictionary<PowerType, PowerIconsBase>();
+        protected Dictionary<PowerName, PowerIconsBase> StatusDict = new Dictionary<PowerName, PowerIconsBase>();
 
         protected Canvas TargetCanvas;
         
@@ -57,11 +58,11 @@ namespace NueGames.Characters
         #endregion
         
         #region Public Methods
-        public void ApplyStatus(PowerType targetPower, int value)
+        public void ApplyStatus(PowerName targetPower, int value)
         {
             if (!StatusDict.ContainsKey(targetPower))
             {
-                var targetData = powersData.PowerList.FirstOrDefault(x => x.PowerType == targetPower);
+                var targetData = powersData.PowerList.FirstOrDefault(x => x.PowerName == targetPower);
                 if (targetData == null)
                 {
                     Debug.LogError($"找不到 Power {targetPower} 的 powerData" +
@@ -77,7 +78,7 @@ namespace NueGames.Characters
             StatusDict[targetPower].SetStatusValue(value);
         }
 
-        public void ClearStatus(PowerType targetPower)
+        public void ClearStatus(PowerName targetPower)
         {
             if (StatusDict.ContainsKey(targetPower))
             {
@@ -86,7 +87,7 @@ namespace NueGames.Characters
             }
         }
         
-        public void UpdateStatusText(PowerType targetPower, int value)
+        public void UpdateStatusText(PowerName targetPower, int value)
         {
             if (!StatusDict.ContainsKey(targetPower)) return;
           

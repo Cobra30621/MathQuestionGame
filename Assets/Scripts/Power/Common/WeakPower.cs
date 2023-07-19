@@ -10,7 +10,7 @@ namespace NueGames.Power
     /// </summary>
     public class WeakPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Weak;
+        public override PowerName PowerName => PowerName.Weak;
 
         public WeakPower()
         {

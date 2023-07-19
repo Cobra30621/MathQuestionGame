@@ -8,7 +8,7 @@ namespace NueGames.Power
     /// </summary>
     public class DexterityPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Dexterity;
+        public override PowerName PowerName => PowerName.Dexterity;
 
         public DexterityPower()
         {

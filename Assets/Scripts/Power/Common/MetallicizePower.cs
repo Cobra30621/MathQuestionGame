@@ -9,7 +9,7 @@ namespace NueGames.Power
     /// </summary>
     public class MetallicizePower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Strength;
+        public override PowerName PowerName => PowerName.Strength;
 
         public MetallicizePower()
         {

@@ -7,7 +7,7 @@ namespace NueGames.Power
     /// </summary>
     public class ReduceStrengthPowerAtEndOfTurnPower : ReducePowerAtEndOfTurnPower
     {
-        public override PowerType PowerType => PowerType.ReduceStrengthPowerAtEndOfTurn;
-        protected override PowerType TargetPowerType => PowerType.Strength;
+        public override PowerName PowerName => PowerName.ReduceStrengthPowerAtEndOfTurn;
+        protected override PowerName TargetPowerName => PowerName.Strength;
     }
 }

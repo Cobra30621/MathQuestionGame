@@ -44,10 +44,10 @@ public class Tester : MonoBehaviour
         CollectionManager.Instance.ShowChoiceCardPanel(ChoiceParameter);
     }
 
-    public RelicType RelicType;
+    public RelicName relicName;
     private void GainRelic()
     {
-        RelicManager.Instance.GainRelic(RelicType);
+        RelicManager.Instance.GainRelic(relicName);
         RelicManager.Instance.PrintCurrentRelicList();
     }
 

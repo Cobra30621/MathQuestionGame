@@ -25,9 +25,9 @@ namespace  NueGames.Data.Containers
         /// </summary>
         public List<RelicData> RelicList => relicList;
 
-        public RelicData GetRelicData(RelicType relicType)
+        public RelicData GetRelicData(RelicName relicName)
         {
-            return RelicList.FirstOrDefault(x => x.RelicType == relicType);
+            return RelicList.FirstOrDefault(x => x.RelicName == relicName);
         }
     }
     
@@ -39,14 +39,14 @@ namespace  NueGames.Data.Containers
         
         [SerializeField][TextArea] private string contentText;
         
-        [SerializeField] private RelicType relicType;
+        [SerializeField] private RelicName relicName;
         
         [SerializeField] private Sprite iconSprite;
         
         /// <summary>
         /// 編號
         /// </summary>
-        public RelicType RelicType => relicType;
+        public RelicName RelicName => relicName;
         /// <summary>
         /// Icon
         /// </summary>
@@ -59,7 +59,7 @@ namespace  NueGames.Data.Containers
         {
             if(titleText != "")
                 return titleText;
-            return string.IsNullOrEmpty(overrideKeywordHeader) ? relicType.ToString() : overrideKeywordHeader;
+            return string.IsNullOrEmpty(overrideKeywordHeader) ? relicName.ToString() : overrideKeywordHeader;
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace  NueGames.Data.Containers
 
         public override string ToString()
         {
-            return $"{nameof(titleText)}: {titleText}, {nameof(contentText)}: {contentText}, {nameof(relicType)}: {relicType}";
+            return $"{nameof(titleText)}: {titleText}, {nameof(contentText)}: {contentText}, {nameof(relicName)}: {relicName}";
         }
     }
 }

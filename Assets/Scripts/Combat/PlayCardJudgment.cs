@@ -23,7 +23,7 @@ namespace NueGames.Combat
             if (cardData.NeedPowerToPlay)
             {
                 return EnoughMana(cardBase.ManaCost) && 
-                       EnoughPower(cardData.NeedPowerType, cardBase.PowerCost, CombatManager.GetMainAllyPowerDict());
+                       EnoughPower(cardData.NeedPowerName, cardBase.PowerCost, CombatManager.GetMainAllyPowerDict());
             }
             else
             {
@@ -37,7 +37,7 @@ namespace NueGames.Combat
         }
         
 
-        private static bool EnoughPower(PowerType needPower, int needCount, Dictionary<PowerType, PowerBase> PowerDict)
+        private static bool EnoughPower(PowerName needPower, int needCount, Dictionary<PowerName, PowerBase> PowerDict)
         {
             bool enoughPower = false;
             if (PowerDict.ContainsKey(needPower))

@@ -39,7 +39,7 @@ namespace NueGames.Data.Settings
         
         [FoldoutGroup("玩家")]
         [PropertyTooltip("玩家初始遺物")]
-        [SerializeField] private List<RelicType> initialRelic;
+        [SerializeField] private List<RelicName> initialRelic;
         
         #region Encapsulation
         public int DrawCount => drawCount;
@@ -48,7 +48,7 @@ namespace NueGames.Data.Settings
         public DeckData InitalDeck => initalDeck;
         public int MaxCardOnHand => maxCardOnHand;
         public CardBase CardPrefab => cardPrefab;
-        public List<RelicType> InitialRelic => initialRelic;
+        public List<RelicName> InitialRelic => initialRelic;
 
         #endregion
     }

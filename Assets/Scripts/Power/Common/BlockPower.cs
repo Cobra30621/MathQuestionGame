@@ -10,7 +10,7 @@ namespace NueGames.Power
     /// </summary>
     public class BlockPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Block;
+        public override PowerName PowerName => PowerName.Block;
 
         public BlockPower()
         {

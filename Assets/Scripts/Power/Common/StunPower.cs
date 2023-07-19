@@ -8,7 +8,7 @@ namespace NueGames.Power
     /// </summary>
     public class StunPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Stun;
+        public override PowerName PowerName => PowerName.Stun;
         
         public StunPower()
         {

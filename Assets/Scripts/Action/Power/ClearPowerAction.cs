@@ -22,7 +22,7 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                target.CharacterStats.ClearPower(ActionData.PowerType);
+                target.CharacterStats.ClearPower(ActionData.powerName);
             }
         }
     }

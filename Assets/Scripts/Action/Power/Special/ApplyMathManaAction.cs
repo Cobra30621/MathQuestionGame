@@ -17,7 +17,7 @@ namespace Action.Power
 
         protected override void DoMainAction()
         {
-            CombatManager.CurrentMainAlly.ApplyPower(PowerType.MathMana, AdditionValue);
+            CombatManager.CurrentMainAlly.ApplyPower(PowerName.MathMana, AdditionValue);
 
             if (AdditionValue != 0)
             {

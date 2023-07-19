@@ -3,6 +3,7 @@ using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Combat;
+using NueGames.Power;
 
 namespace NueGames.Relic.Common
 {
@@ -11,7 +12,7 @@ namespace NueGames.Relic.Common
     /// </summary>
     public class BurningRelic : RelicBase
     {
-        public override RelicType RelicType => RelicType.Burning;
+        public override RelicName RelicName => RelicName.Burning;
 
         public override void SubscribeAllEvent()
         {
@@ -27,7 +28,7 @@ namespace NueGames.Relic.Common
         protected override void OnAnswerCorrect()
         {
             CharacterBase enemy = CombatManager.Instance.CurrentSelectedEnemy;
-            enemy.ApplyPower(PowerType.Fire,1);
+            enemy.ApplyPower(PowerName.Fire,1);
 
             ApplyPowerToAllEnemyAction action = new ApplyPowerToAllEnemyAction();
             // GameActionExecutor.Instance.DoApp

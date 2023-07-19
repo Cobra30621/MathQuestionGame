@@ -8,7 +8,7 @@ namespace NueGames.Power.Math
     /// </summary>
     public class MathHappyPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.MathHappy;
+        public override PowerName PowerName => PowerName.MathHappy;
 
         public MathHappyPower()
         {

@@ -2,6 +2,7 @@ using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Parameters;
+using NueGames.Power;
 using NueGames.Relic;
 
 namespace Action.Parameters
@@ -18,11 +19,11 @@ namespace Action.Parameters
         /// <summary>
         /// 源自哪一個能力(能力才需要)
         /// </summary>
-        public PowerType SourcePower;
+        public PowerName SourcePower;
         /// <summary>
         /// 源自哪一個遺物(遺物才需要)
         /// </summary>
-        public RelicType SourceRelic;
+        public RelicName SourceRelic;
         /// <summary>
         /// 源自哪個角色
         /// </summary>
@@ -32,7 +33,7 @@ namespace Action.Parameters
         /// </summary>
         public CardBase SourceCard;
 
-        public bool IsFromPower(PowerType checkPower)
+        public bool IsFromPower(PowerName checkPower)
         {
             return SourceType == SourceType.Power && SourcePower == checkPower;
         }

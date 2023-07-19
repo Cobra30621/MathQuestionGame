@@ -18,7 +18,7 @@ namespace NueGames.Power
     /// </summary>
     public class FirePower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Fire;
+        public override PowerName PowerName => PowerName.Fire;
         
         
         public override void SubscribeAllEvent()
@@ -39,7 +39,7 @@ namespace NueGames.Power
             if (info.CharacterType == GetOwnerCharacterType())
             {
                 int fireAmount = Amount;
-                if (CombatManager.IsMainAllyHasPower(PowerType.Kindle))
+                if (CombatManager.IsMainAllyHasPower(PowerName.Kindle))
                 {
                    fireAmount = Amount * 2;
                 }
@@ -52,7 +52,7 @@ namespace NueGames.Power
                     );
                 GameActionExecutor.Instance.AddToBottom(damageAction);
                 
-                Owner.CharacterStats.ApplyPower(PowerType, -1); // 燒血後減層數 1 
+                Owner.CharacterStats.ApplyPower(PowerName, -1); // 燒血後減層數 1 
             }
         }
     }

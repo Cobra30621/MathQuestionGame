@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NueGames.Action;
 using NueGames.Action.MathAction;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.NueExtentions;
+using NueGames.Power;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -76,7 +78,7 @@ namespace NueGames.Data.Collection
         
         [FoldoutGroup("能力參數")]
         [PropertyTooltip("用於 ApplyPower(賦予能力), DamageByAllyPowerValue(根據能力造成傷害) 等跟能力有關行動")]
-        public PowerType PowerType;
+        public PowerName powerName;
 
         
 
@@ -125,7 +127,7 @@ namespace NueGames.Data.Collection
 
         [SerializeField] private CardActionDataListType cardActionDataListType;
         [SerializeField] private int modifiedActionValueIndex;
-        [SerializeField] private PowerType modiferStats;
+        [SerializeField] private PowerName modiferStats;
         [SerializeField] private bool usePrefixOnModifiedValue;
         [SerializeField] private string modifiedValuePrefix = "*";
         [SerializeField] private bool overrideColorOnValueScaled;
@@ -136,7 +138,7 @@ namespace NueGames.Data.Collection
         public bool UseModifier => useModifier;
         public CardActionDataListType CardActionDataListType => cardActionDataListType;
         public int ModifiedActionValueIndex => modifiedActionValueIndex;
-        public PowerType ModiferStats => modiferStats;
+        public PowerName ModiferStats => modiferStats;
         public bool UsePrefixOnModifiedValue => usePrefixOnModifiedValue;
         public string ModifiedValuePrefix => modifiedValuePrefix;
         public bool OverrideColorOnValueScaled => overrideColorOnValueScaled;
@@ -263,7 +265,7 @@ namespace NueGames.Data.Collection
         public void EditUseModifier(bool newStatus) => useModifier = newStatus;
         public void EditCardActionDataListType(CardActionDataListType newCardActionDataListType) => cardActionDataListType = newCardActionDataListType;
         public void EditModifiedActionValueIndex(int newIndex) => modifiedActionValueIndex = newIndex;
-        public void EditModiferStats(PowerType newPowerType) => modiferStats = newPowerType;
+        public void EditModiferStats(PowerName newPowerName) => modiferStats = newPowerName;
         public void EditUsePrefixOnModifiedValues(bool newStatus) => usePrefixOnModifiedValue = newStatus;
         public void EditPrefixOnModifiedValues(string newText) => modifiedValuePrefix = newText;
         public void EditOverrideColorOnValueScaled(bool newStatus) => overrideColorOnValueScaled = newStatus;

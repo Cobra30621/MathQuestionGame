@@ -20,7 +20,7 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                target.CharacterStats.ApplyPower(ActionData.PowerType, AdditionValue);
+                target.CharacterStats.ApplyPower(ActionData.powerName, AdditionValue);
             }
             
         }

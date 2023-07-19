@@ -2,6 +2,7 @@
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Enums;
+using NueGames.Power;
 using UnityEngine;
 
 namespace Action
@@ -18,8 +19,8 @@ namespace Action
         {
             foreach (var target in TargetList)
             {
-                Parameters.MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerType.MathMana);
-                target.CharacterStats.ApplyPower(ActionData.PowerType, AdditionValue);
+                Parameters.MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(PowerName.MathMana);
+                target.CharacterStats.ApplyPower(ActionData.powerName, AdditionValue);
             }
         }
     }

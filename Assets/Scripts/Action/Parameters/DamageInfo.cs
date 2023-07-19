@@ -2,6 +2,7 @@
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Parameters;
+using NueGames.Power;
 using NueGames.Relic;
 using UnityEngine;
 
@@ -68,9 +69,9 @@ namespace Action.Parameters
                 return false;
             }
             
-            if (target.HasPower(PowerType.Block))
+            if (target.HasPower(PowerName.Block))
             {
-                var blockValue = target.GetPowerValue(PowerType.Block);
+                var blockValue = target.GetPowerValue(PowerName.Block);
 
                 return blockValue >= damageValue;
             }
@@ -101,9 +102,9 @@ namespace Action.Parameters
             var remainingDamage = damageValue;
             if (!CanPierceArmor)
             {
-                if (target.HasPower(PowerType.Block))
+                if (target.HasPower(PowerName.Block))
                 {
-                    var blockValue = target.GetPowerValue(PowerType.Block);
+                    var blockValue = target.GetPowerValue(PowerName.Block);
                     remainingDamage -= blockValue;
 
                     if (remainingDamage < 0)

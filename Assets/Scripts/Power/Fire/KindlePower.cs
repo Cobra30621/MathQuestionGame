@@ -9,6 +9,6 @@ namespace NueGames.Power
 {
     public class KindlePower : PowerBase
     {
-        public override PowerType PowerType => PowerType.Kindle;
+        public override PowerName PowerName => PowerName.Kindle;
     }
 }

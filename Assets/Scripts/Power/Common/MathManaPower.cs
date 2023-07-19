@@ -8,7 +8,7 @@ namespace NueGames.Power
     /// </summary>
     public class MathManaPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.MathMana;
+        public override PowerName PowerName => PowerName.MathMana;
 
         
     }

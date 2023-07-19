@@ -11,6 +11,7 @@ using UnityEngine.Events;
 using NueGames.Combat;
 using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
+using NueGames.Power;
 using Sirenix.OdinInspector;
 
 namespace Tool
@@ -30,7 +31,7 @@ namespace Tool
         [InlineEditor()]
         public EnemyEncounter EnemyEncounter;
         
-        public List<PowerType> allyPowerAtGameStart;
+        public List<PowerName> allyPowerAtGameStart;
 
         void Awake()
         {
@@ -64,13 +65,13 @@ namespace Tool
         
         private void GenerateAllyPower()
         {
-            foreach (var powerType in allyPowerAtGameStart)
+            foreach (var powerName in allyPowerAtGameStart)
             {
                 var ally = CombatManager.Instance.CurrentMainAlly;
                 ApplyPowerAction action = new ApplyPowerAction();
                 action.SetPowerActionValue(
                     1, 
-                    powerType, 
+                    powerName, 
                     new List<CharacterBase>(){ally}, null);
                 GameActionExecutor.Instance.AddToBottom(action);
             }

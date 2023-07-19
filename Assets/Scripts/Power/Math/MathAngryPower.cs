@@ -8,7 +8,7 @@ namespace NueGames.Power.Math
     /// </summary>
     public class MathAngryPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.MathAngry;
+        public override PowerName PowerName => PowerName.MathAngry;
 
         public MathAngryPower()
         {

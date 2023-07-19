@@ -394,19 +394,19 @@ namespace NueGames.Combat
             CurrentSelectedEnemy = selectedEnemy;
         }
 
-        public Dictionary<PowerType, PowerBase> GetMainAllyPowerDict()
+        public Dictionary<PowerName, PowerBase> GetMainAllyPowerDict()
         {
             return CurrentMainAlly.GetPowerDict();
         }
 
-        public int GetMainAllyPowerValue(PowerType powerType)
+        public int GetMainAllyPowerValue(PowerName powerName)
         {
-            return CurrentMainAlly.GetPowerValue(powerType);
+            return CurrentMainAlly.GetPowerValue(powerName);
         }
 
-        public bool IsMainAllyHasPower(PowerType powerType)
+        public bool IsMainAllyHasPower(PowerName powerName)
         {
-            return CurrentMainAlly.HasPower(powerType);
+            return CurrentMainAlly.HasPower(powerName);
         }
 
         public Transform GetMainAllyTransform()

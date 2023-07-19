@@ -42,10 +42,10 @@ namespace Managers
         /// </summary>
         /// <param name="targetRelic"></param>
         /// <returns></returns>
-        public void GainRelic(RelicType targetRelic)
+        public void GainRelic(RelicName targetRelic)
         {
             RelicBase relicBase = RelicGenerator.GetRelic(targetRelic);
-            RelicData data = relicsData.RelicList.FirstOrDefault(x => x.RelicType == targetRelic);
+            RelicData data = relicsData.RelicList.FirstOrDefault(x => x.RelicName == targetRelic);
             RelicClip relicClip = new RelicClip(relicBase, data);
             
             CurrentRelicList.Add(relicClip);

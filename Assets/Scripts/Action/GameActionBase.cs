@@ -8,6 +8,7 @@ using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
+using NueGames.Power;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -112,11 +113,11 @@ namespace NueGames.Action
             Parameters.TargetList = targetList;
         }
 
-        public virtual void SetPowerActionValue(int baseValue, PowerType powerType, 
+        public virtual void SetPowerActionValue(int baseValue, PowerName powerName, 
             List<CharacterBase> targetList, ActionSource actionSource)
         {
             ActionData.BaseValue = baseValue;
-            ActionData.PowerType = powerType;
+            ActionData.powerName = powerName;
             Parameters.TargetList = targetList;
             Parameters.ActionSource = actionSource;
             

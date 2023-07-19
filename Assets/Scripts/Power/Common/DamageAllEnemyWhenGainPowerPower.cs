@@ -16,8 +16,8 @@ namespace NueGames.Power
     /// </summary>
     public class DamageAllEnemyWhenGainPowerPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.DamageAllEnemyWhenGainPower;
-        public PowerType gainPowerType = PowerType.Strength;
+        public override PowerName PowerName => PowerName.DamageAllEnemyWhenGainPower;
+        public PowerName GainPowerName = PowerName.Strength;
         private int damageValue = 5;
 
         public override void SetOwner(CharacterBase owner)
@@ -26,9 +26,9 @@ namespace NueGames.Power
             Owner.CharacterStats.OnPowerIncrease += OnPowerIncrease;
         }
 
-        protected override void OnPowerIncrease(PowerType powerType, int value)
+        protected override void OnPowerIncrease(PowerName powerName, int value)
         {
-            if (powerType == gainPowerType)
+            if (powerName == GainPowerName)
             {
                 DamageAllEnemyAction damageAction = new DamageAllEnemyAction();
                 damageAction.SetDamageActionValue(damageValue * Amount, 

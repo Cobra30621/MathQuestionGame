@@ -13,7 +13,7 @@ namespace NueGames.Relic.Common
     /// </summary>
     public class ManaGeneratorRelic : RelicBase
     {
-        public override RelicType RelicType => RelicType.ManaGenerator;
+        public override RelicName RelicName => RelicName.ManaGenerator;
 
 
         public override void SubscribeAllEvent()

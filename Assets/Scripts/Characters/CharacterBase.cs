@@ -76,7 +76,7 @@ namespace NueGames.Characters
         }
 
 
-        public Dictionary<PowerType, PowerBase> GetPowerDict()
+        public Dictionary<PowerName, PowerBase> GetPowerDict()
         {
             return CharacterStats.PowerDict;
         }
@@ -84,18 +84,18 @@ namespace NueGames.Characters
         /// <summary>
         /// 持有能力
         /// </summary>
-        /// <param name="powerType"></param>
+        /// <param name="powerName"></param>
         /// <returns></returns>
-        public bool HasPower(PowerType powerType)
+        public bool HasPower(PowerName powerName)
         {
-            return CharacterStats.PowerDict.ContainsKey(powerType);
+            return CharacterStats.PowerDict.ContainsKey(powerName);
         }
 
-        public int GetPowerValue(PowerType powerType)
+        public int GetPowerValue(PowerName powerName)
         {
-            if (CharacterStats.PowerDict.ContainsKey(powerType))
+            if (CharacterStats.PowerDict.ContainsKey(powerName))
             {
-                return CharacterStats.PowerDict[powerType].Amount;
+                return CharacterStats.PowerDict[powerName].Amount;
             }
 
             return 0;
@@ -116,7 +116,7 @@ namespace NueGames.Characters
         /// </summary>
         /// <param name="targetPower"></param>
         /// <param name="value"></param>
-        public void ApplyPower(PowerType targetPower,int value)
+        public void ApplyPower(PowerName targetPower,int value)
         {
             CharacterStats.ApplyPower(targetPower, value);
         }
@@ -124,7 +124,7 @@ namespace NueGames.Characters
         /// <summary>
         /// 將能力 x 倍數
         /// </summary>
-        public void MultiplyPower(PowerType targetPower,int value)
+        public void MultiplyPower(PowerName targetPower,int value)
         {
             CharacterStats.MultiplyPower(targetPower, value);
         }

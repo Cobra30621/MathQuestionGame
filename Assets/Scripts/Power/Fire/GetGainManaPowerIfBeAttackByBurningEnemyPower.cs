@@ -13,7 +13,7 @@ namespace NueGames.Power
     /// </summary>
     public class GetGainManaPowerIfBeAttackByBurningEnemyPower : PowerBase
     {
-        public override PowerType PowerType => PowerType.GetGainManaPowerIfBeAttackByBurningEnemy;
+        public override PowerName PowerName => PowerName.GetGainManaPowerIfBeAttackByBurningEnemy;
 
 
         public override void SubscribeAllEvent()
@@ -34,10 +34,10 @@ namespace NueGames.Power
             // 攻擊者有燃燒狀態
             if (source != null)
             {
-                if (source.HasPower(PowerType.Fire))
+                if (source.HasPower(PowerName.Fire))
                 {
                     ApplyPowerAction action = new ApplyPowerAction();
-                    action.SetPowerActionValue(1, PowerType.GainManaAtRoundStart, 
+                    action.SetPowerActionValue(1, PowerName.GainManaAtRoundStart, 
                         new List<CharacterBase>(){info.Target}, GetActionSource());
                     GameActionExecutor.AddToBottom(action);
                 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NueGames.Enums;
+using NueGames.Power;
 using NueGames.UI;
 using UnityEngine;
 
@@ -25,9 +26,9 @@ namespace NueGames.Data.Containers
         /// </summary>
         public List<PowerData> PowerList => powerList;
 
-        public PowerData GetPowerData(PowerType powerType)
+        public PowerData GetPowerData(PowerName powerName)
         {
-            return PowerList.FirstOrDefault(x => x.PowerType == powerType);
+            return PowerList.FirstOrDefault(x => x.PowerName == powerName);
         }
     }
 
@@ -42,14 +43,14 @@ namespace NueGames.Data.Containers
         
         [SerializeField][TextArea] private string contentText;
         
-        [SerializeField] private PowerType powerType;
+        [SerializeField] private PowerName powerName;
         
         [SerializeField] private Sprite iconSprite;
         
         /// <summary>
         /// 能力類型
         /// </summary>
-        public PowerType PowerType => powerType;
+        public PowerName PowerName => powerName;
         /// <summary>
         /// 能力 Icon
         /// </summary>
@@ -62,7 +63,7 @@ namespace NueGames.Data.Containers
         {
             if(titleText != "")
                 return titleText;
-            return string.IsNullOrEmpty(overrideKeywordHeader) ? powerType.ToString() : overrideKeywordHeader;
+            return string.IsNullOrEmpty(overrideKeywordHeader) ? powerName.ToString() : overrideKeywordHeader;
         }
 
         /// <summary>

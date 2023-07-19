@@ -26,7 +26,7 @@ namespace NueGames.Relic
         /// </summary>
         /// <param name="targetRelic"></param>
         /// <returns></returns>
-        public static RelicBase GetRelic(RelicType targetRelic)
+        public static RelicBase GetRelic(RelicName targetRelic)
         {
             if(!IsInitialized)
                 Initialize();

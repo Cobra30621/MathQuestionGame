@@ -20,6 +20,7 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using NueGames.Combat;
 using NueGames.Parameters;
+using NueGames.Power;
 
 namespace NueGames.Card
 {
@@ -99,7 +100,7 @@ namespace NueGames.Card
             SpendMana( ManaCost);
             // TODO : 改成只有數學瑪娜
             if(CardData.NeedPowerToPlay)
-                SpendPower(CardData.NeedPowerType, PowerCost);
+                SpendPower(CardData.NeedPowerName, PowerCost);
 
             ActionSource actionSource = new ActionSource()
             {
@@ -137,7 +138,7 @@ namespace NueGames.Card
             CombatManager.AddMana(-value);
         }
         
-        protected virtual void SpendPower(PowerType powerType, int value)
+        protected virtual void SpendPower(PowerName powerName, int value)
         {
             if (!IsPlayable) return;
             // CombatManager.SpendPower(powerType, value);
@@ -339,15 +340,15 @@ namespace NueGames.Card
             tooltipManager.HideTooltip();
         }
         
-        private List<PowerType> GetActionsPowerTypes()
+        private List<PowerName> GetActionsPowerTypes()
         {
-            List<PowerType> powerTypes = new List<PowerType>();
+            List<PowerName> powerTypes = new List<PowerName>();
             
             foreach (var cardActionData in CardData.CardActionDataList)
             {
                 if (cardActionData.actionName == ActionName.ApplyPower)
                 {
-                    powerTypes.Add(cardActionData.PowerType);
+                    powerTypes.Add(cardActionData.powerName);
                 }
             }
             return powerTypes;

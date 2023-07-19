@@ -2,6 +2,7 @@
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Combat;
+using NueGames.Power;
 
 namespace NueGames.Relic.Common
 {
@@ -10,7 +11,7 @@ namespace NueGames.Relic.Common
     /// </summary>
     public class StrengthGeneratorRelic : RelicBase
     {
-        public override RelicType RelicType => RelicType.StrengthGenerator;
+        public override RelicName RelicName => RelicName.StrengthGenerator;
 
 
         public override void SubscribeAllEvent()
@@ -25,7 +26,7 @@ namespace NueGames.Relic.Common
         protected override void OnAnswerCorrect()
         {
             CharacterBase ally = CombatManager.Instance.CurrentMainAlly;
-            ally.CharacterStats.ApplyPower(PowerType.Strength, 1);
+            ally.CharacterStats.ApplyPower(PowerName.Strength, 1);
         }
         
     }

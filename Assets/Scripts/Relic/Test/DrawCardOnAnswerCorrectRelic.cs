@@ -5,7 +5,7 @@ namespace NueGames.Relic.Common
 {
     public class DrawCardOnAnswerCorrectRelic : RelicBase
     {
-        public override RelicType RelicType => RelicType.DrawCardOnAnswerCorrect;
+        public override RelicName RelicName => RelicName.DrawCardOnAnswerCorrect;
 
         public int drawAmonut = 1;
 
