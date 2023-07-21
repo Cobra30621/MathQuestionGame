@@ -18,7 +18,7 @@ MonoBehaviour:
   cardSprite: {fileID: 0}
   rarity: 0
   needPowerToPlay: 0
-  needPowerType: 0
+  needPowerName: 2
   powerCost: 0
   actionTargetType: 2
   usableWithoutTarget: 1
@@ -32,7 +32,20 @@ MonoBehaviour:
     FxSpawnPosition: 0
     FixDamage: 0
     CanPierceArmor: 0
-    PowerType: 0
+    powerName: 0
+    SourcePile: 0
+    TargetPile: 0
+    TargetCardData: {fileID: 0}
+    TriggerActionList: []
+  - actionName: 1
+    BaseValue: 0
+    MultiplierValue: 0
+    Delay: 0
+    FxName: 0
+    FxSpawnPosition: 0
+    FixDamage: 0
+    CanPierceArmor: 0
+    powerName: 0
     SourcePile: 0
     TargetPile: 0
     TargetCardData: {fileID: 0}
