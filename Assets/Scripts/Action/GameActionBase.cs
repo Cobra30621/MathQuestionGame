@@ -267,6 +267,10 @@ namespace NueGames.Action
         }
 
         #endregion
-        
+
+        public override string ToString()
+        {
+            return $"{ActionName}\n{Parameters}";
+        }
     }
 }

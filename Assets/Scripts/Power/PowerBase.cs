@@ -227,7 +227,11 @@ namespace NueGames.Power
         }
 
         #endregion
-        
-        
+
+
+        public override string ToString()
+        {
+            return $"{nameof(PowerName)}: {PowerName}, {nameof(Amount)}: {Amount}";
+        }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Action.Parameters;
+using Newtonsoft.Json;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -256,6 +258,12 @@ namespace NueGames.Characters
 
         #endregion
 
+
+        public override string ToString()
+        {
+            return $"{nameof(MaxHealth)}: {MaxHealth}, {nameof(CurrentHealth)}: {CurrentHealth}, {nameof(IsStunned)}: {IsStunned}, {nameof(IsDeath)}: {IsDeath}\n" +
+                   $"{nameof(PowerDict)}: {PowerDict.Aggregate("", (current, pair) => current + $"{pair.Value}, ".ToString())}";
+        }
     }
     
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 using NueGames.Action;
 using NueGames.Action.MathAction;
 using NueGames.Combat;
@@ -112,6 +113,12 @@ namespace NueGames.Data.Collection
         
 
         #endregion
+
+
+        public override string ToString()
+        {
+            return $"{JsonConvert.SerializeObject(this)}";
+        }
     }
 
     [Serializable]

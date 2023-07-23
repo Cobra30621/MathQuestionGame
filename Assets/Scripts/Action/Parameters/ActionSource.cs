@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Enums;
@@ -37,6 +38,11 @@ namespace Action.Parameters
         {
             return SourceType == SourceType.Power && SourcePower == checkPower;
         }
-        
+
+
+        public override string ToString()
+        {
+            return $"{nameof(SourceType)}: {SourceType}, {nameof(SourcePower)}: {SourcePower}, {nameof(SourceRelic)}: {SourceRelic}, {nameof(SourceCharacter)}: {SourceCharacter.name}, {nameof(SourceCard)}: {SourceCard.name}";
+        }
     }
 }

@@ -131,6 +131,11 @@ namespace NueGames.Characters
         
         
         #endregion
-        
+
+
+        public override string ToString()
+        {
+            return $"{nameof(characterType)}: {characterType}\n{nameof(CharacterStats)}: {CharacterStats}";
+        }
     }
 }

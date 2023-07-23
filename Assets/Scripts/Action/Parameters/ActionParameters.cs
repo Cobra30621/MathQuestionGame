@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
 using NueGames.Characters;
 using NueGames.Data.Collection;
 using UnityEngine;
@@ -63,5 +65,13 @@ namespace Action.Parameters
             MultiplierAmount = 0;
         }
 
+
+        public override string ToString()
+        {
+            return $"{nameof(ActionData)}: {ActionData}\n" +
+                   $"{nameof(TargetList)}: {TargetList.Aggregate("", (current, character) => current + character.name + ", ")}\n" +
+                   $"{nameof(ActionSource)}: {ActionSource}\n" +
+                   $"{nameof(MultiplierAmount)}: {MultiplierAmount}";
+        }
     }
 }
