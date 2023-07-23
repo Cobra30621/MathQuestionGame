@@ -53,9 +53,17 @@ namespace NueGames.Managers
                 xDir = Random.value>=0.5f ? 1 : -1;
             cloneText.PlayText(text,xDir,yDir);
         }
-        public void PlayFx(Transform targetTransform, FxName targetFx)
+        
+        
+        public void PlayFx(FxName targetFx, Transform targetTransform)
         {
             Instantiate(fxData.GetFX(targetFx), targetTransform);
+        }
+
+        public void PlayFx(FxName targetFx, Transform targetTransform, Vector3 fxPosition)
+        {
+            var t = Instantiate(fxData.GetFX(targetFx), targetTransform).GetComponent<Transform>();
+            t.position = fxPosition;
         }
 
 

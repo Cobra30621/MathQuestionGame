@@ -26,18 +26,18 @@ namespace NueGames.Power
         {
             if (damageInfo.ActionSource.IsFromPower(PowerName.Fire))
             {
-                DamageAllEnemyAction damageAction = new DamageAllEnemyAction();
-                damageAction.SetDamageActionValue(damageInfo.BaseValue, 
-                    null,
-                    GetActionSource()
-                );
-                GameActionExecutor.Instance.AddToBottom(damageAction);
-                
-                // 給予所有敵人"燃燒"層數的"燃燒"
-                ApplyPowerToAllEnemyAction action = new ApplyPowerToAllEnemyAction();
-                action.SetPowerActionValue(1, PowerName.Fire, 
-                    null, GetActionSource());
-                GameActionExecutor.AddToBottom(action);
+                var targetList = CombatManager.CurrentEnemiesList;
+
+                foreach (var target in targetList)
+                {
+                    var damageAction = new DamageAction();
+                    damageAction.SetDamageActionValue(Amount, target, GetActionSource());
+                    GameActionExecutor.Instance.AddToBottom(damageAction);
+
+                    var applyPowerAction = new ApplyPowerAction();
+                    applyPowerAction.SetPowerActionValue(Amount, PowerName.Fire, target, GetActionSource());
+                    GameActionExecutor.Instance.AddToBottom(applyPowerAction);
+                }
             }
         }
     }

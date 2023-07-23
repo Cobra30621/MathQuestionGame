@@ -102,7 +102,15 @@ namespace NueGames.Action
             Parameters = parameters;
         }
 
-        public virtual void SetDamageActionValue(int baseValue, List<CharacterBase> targetList, 
+        #region Damage
+
+        public void SetDamageActionValue(int baseValue, CharacterBase target,
+            ActionSource actionSource, bool fixDamage = false, bool canPierceArmor = false)
+        {
+            SetDamageActionValue(baseValue,new List<CharacterBase>(){target}, actionSource, fixDamage, canPierceArmor);
+        }
+
+        public void SetDamageActionValue(int baseValue, List<CharacterBase> targetList, 
             ActionSource actionSource, bool fixDamage  = false, bool canPierceArmor  = false)
         {
             ActionData.BaseValue = baseValue;
@@ -112,16 +120,50 @@ namespace NueGames.Action
 
             Parameters.TargetList = targetList;
         }
+        
 
-        public virtual void SetPowerActionValue(int baseValue, PowerName powerName, 
+        #endregion
+
+        #region Power
+
+        public void SetPowerActionValue(int baseValue, PowerName powerName,
+            CharacterBase target, ActionSource actionSource)
+        {
+            SetPowerActionValue(baseValue, powerName, new List<CharacterBase>(){target}, actionSource);
+        }
+
+        public void SetPowerActionValue(int baseValue, PowerName powerName, 
             List<CharacterBase> targetList, ActionSource actionSource)
         {
             ActionData.BaseValue = baseValue;
             ActionData.powerName = powerName;
             Parameters.TargetList = targetList;
             Parameters.ActionSource = actionSource;
-            
         }
+
+        #endregion
+
+        #region Basic
+
+        public void SetBasicAndTargetValue(int baseValue, CharacterBase target, ActionSource actionSource)
+        {
+            SetBasicAndTargetValue(baseValue, new List<CharacterBase>(){target}, actionSource);
+        }
+        
+        public void SetBasicAndTargetValue(int baseValue, List<CharacterBase> targetList, ActionSource actionSource)
+        {
+            ActionData.BaseValue = baseValue;
+            Parameters.TargetList = targetList;
+            Parameters.ActionSource = actionSource;
+        }
+        
+        public void SetBasicValue(int baseValue, ActionSource actionSource)
+        {
+            ActionData.BaseValue = baseValue;
+            Parameters.ActionSource = actionSource;
+        }
+
+        #endregion
 
         #endregion
 
@@ -166,17 +208,16 @@ namespace NueGames.Action
                 case FxSpawnPosition.EachTarget:
                     foreach (var target in TargetList)
                     {
-                        spawnTransform.position = target.transform.position;
-                        PlayFx(ActionData.FxName, spawnTransform);
+                        FxManager.PlayFx(ActionData.FxName, spawnTransform, target.transform.position);
                     };
                     break;
                 case FxSpawnPosition.Ally:
                     spawnTransform.position = CombatManager.GetMainAllyTransform().position;
-                    PlayFx(ActionData.FxName, spawnTransform);
+                    FxManager.PlayFx(ActionData.FxName, spawnTransform);
                     break;
                 case FxSpawnPosition.EnemyMiddle:
                 case FxSpawnPosition.ScreenMiddle:
-                    PlayFx(ActionData.FxName, spawnTransform);
+                    FxManager.PlayFx(ActionData.FxName, spawnTransform);
                     break;
             }
         }
@@ -191,13 +232,6 @@ namespace NueGames.Action
             FxManager.SpawnFloatingText(target.TextSpawnRoot,info);
         }
         
-        /// <summary>
-        /// 播放特效
-        /// </summary>
-        protected void PlayFx(FxName fxName, Transform spawnPosition)
-        {
-            FxManager.PlayFx(spawnPosition, fxName);
-        }
 
         #endregion
 

@@ -24,7 +24,6 @@
         
         
         // 測試用
-        DamageAllEnemyWhenGainPower = 101,
         
         MathHappy = 131,
         MathAngry = 132,

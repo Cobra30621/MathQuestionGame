@@ -30,9 +30,7 @@ namespace NueGames.Relic.Common
             CharacterBase enemy = CombatManager.Instance.CurrentSelectedEnemy;
             enemy.ApplyPower(PowerName.Fire,1);
 
-            ApplyPowerToAllEnemyAction action = new ApplyPowerToAllEnemyAction();
-            // GameActionExecutor.Instance.DoApp
-
+            // TODO 實作遺物
         }
         
     }

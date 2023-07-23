@@ -7,7 +7,6 @@
     {
         // 1~10 傷害
         Damage = 1, 
-        DamageAllEnemy = 2,
         DamageByQuestioning = 4,
         DamageByAllyPowerValue = 5,
         DamageByAnswerCountInThisBattle = 6,
