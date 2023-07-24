@@ -143,6 +143,18 @@ namespace NueGames.Action
 
         #endregion
 
+
+        #region Card Transfer
+
+        public void SetCardTransferActionValue(int baseValue, CardTransfer cardTransfer, ActionSource actionSource)
+        {
+            ActionData.BaseValue = baseValue;
+            ActionData.CardTransfer = cardTransfer;
+            Parameters.ActionSource = actionSource;
+        }
+
+        #endregion
+        
         #region Basic
 
         public void SetBasicAndTargetValue(int baseValue, CharacterBase target, ActionSource actionSource)

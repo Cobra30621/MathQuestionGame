@@ -33,12 +33,29 @@ MonoBehaviour:
     FixDamage: 0
     CanPierceArmor: 0
     powerName: 0
-    SourcePile: 0
-    TargetPile: 0
-    TargetCardData: {fileID: 0}
+    TriggerActionList: []
+  - actionName: 0
+    BaseValue: 0
+    MultiplierValue: 0
+    Delay: 0
+    FxName: 0
+    FxSpawnPosition: 0
+    FixDamage: 0
+    CanPierceArmor: 0
+    powerName: 0
     TriggerActionList: []
   cardDescriptionDataList:
-  - descriptionText: "\u6E2C\u8A66-\u6240\u6709\u6575\u4EBA"
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    cardActionDataListType: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
