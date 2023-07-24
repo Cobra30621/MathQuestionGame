@@ -24,7 +24,7 @@ MonoBehaviour:
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - actionName: 1
+  - actionName: 117
     BaseValue: 10
     MultiplierValue: 0
     Delay: 0
@@ -32,10 +32,17 @@ MonoBehaviour:
     FxSpawnPosition: 0
     FixDamage: 0
     CanPierceArmor: 0
+    powerName: 2
+    TriggerActionList: []
+  - actionName: 1
+    BaseValue: 0
+    MultiplierValue: 0
+    Delay: 0
+    FxName: 0
+    FxSpawnPosition: 0
+    FixDamage: 0
+    CanPierceArmor: 0
     powerName: 0
-    SourcePile: 0
-    TargetPile: 0
-    TargetCardData: {fileID: 0}
     TriggerActionList: []
   cardDescriptionDataList:
   - descriptionText: "\u6E2C\u8A66-\u73A9\u5BB6"

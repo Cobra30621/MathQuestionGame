@@ -13,7 +13,8 @@ namespace NueGames.Action
         protected override void DoMainAction()
         {
             if (CollectionManager != null)
-                CollectionManager.AddCardToPile(ActionData.TargetPile, ActionData.TargetCardData);
+                CollectionManager.AddCardToPile(ActionData.CardTransfer.TargetPile, 
+                    ActionData.CardTransfer.TargetCardData);
             else
                 Debug.LogError("There is no CollectionManager");
             
