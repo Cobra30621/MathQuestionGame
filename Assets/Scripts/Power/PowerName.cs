@@ -10,6 +10,10 @@
         Strength = 2,
         Vulnerable = 4,
         Weak = 5,
+        BloodFury = 6,
+        Hardcore = 7,
+        Miss = 8,
+        Shield = 9,
         
         // 戰鬥相關
         Stun = 22,
@@ -17,7 +21,7 @@
         // 卡牌與魔力相關
         MathMana = 41,
         GainManaAtRoundStart = 42,
-    
+        Overload = 43,
         
         // 能力相關
         ReduceStrengthPowerAtEndOfTurn = 61,

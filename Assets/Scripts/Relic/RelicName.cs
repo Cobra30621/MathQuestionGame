@@ -6,6 +6,7 @@ namespace NueGames.Relic
         ManaGenerator = 101, // 每回產生瑪那
         DrawCardOnAnswerCorrect = 102,
         StrengthGenerator = 103,
-        Burning = 104
+        Burning = 104,
+        MathShield = 105
     }
 }
