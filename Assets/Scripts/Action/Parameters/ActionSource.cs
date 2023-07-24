@@ -42,7 +42,7 @@ namespace Action.Parameters
 
         public override string ToString()
         {
-            return $"{nameof(SourceType)}: {SourceType}, {nameof(SourcePower)}: {SourcePower}, {nameof(SourceRelic)}: {SourceRelic}, {nameof(SourceCharacter)}: {SourceCharacter.name}, {nameof(SourceCard)}: {SourceCard.name}";
+            return $"{nameof(SourceType)}: {SourceType}, {nameof(SourcePower)}: {SourcePower}, {nameof(SourceRelic)}: {SourceRelic}, {nameof(SourceCharacter)}: {SourceCharacter?.name}, {nameof(SourceCard)}: {SourceCard?.name}";
         }
     }
 }
