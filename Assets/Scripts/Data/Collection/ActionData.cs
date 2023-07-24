@@ -131,7 +131,6 @@ namespace NueGames.Data.Collection
         [Header("Modifer")]
         [SerializeField] private bool useModifier;
 
-        [SerializeField] private CardActionDataListType cardActionDataListType;
         [SerializeField] private int modifiedActionValueIndex;
         [SerializeField] private PowerName modiferStats;
         [SerializeField] private bool usePrefixOnModifiedValue;
@@ -142,7 +141,6 @@ namespace NueGames.Data.Collection
         public bool EnableOverrideColor => enableOverrideColor;
         public Color OverrideColor => overrideColor;
         public bool UseModifier => useModifier;
-        public CardActionDataListType CardActionDataListType => cardActionDataListType;
         public int ModifiedActionValueIndex => modifiedActionValueIndex;
         public PowerName ModiferStats => modiferStats;
         public bool UsePrefixOnModifiedValue => usePrefixOnModifiedValue;
@@ -165,7 +163,7 @@ namespace NueGames.Data.Collection
 
         public string GetModifiedValue(CardData cardData)
         {
-            List<ActionData> cardActionDataList = cardData.GetCardActionDataList(cardActionDataListType);
+            List<ActionData> cardActionDataList = cardData.CardActionDataList;
             
             if (cardActionDataList.Count <= 0) return "";
             
@@ -218,65 +216,5 @@ namespace NueGames.Data.Collection
             
             return str.ToString();
         }
-
-        #region Editor
-#if UNITY_EDITOR
-        
-        public string GetDescriptionEditor()
-        {
-            var str = new StringBuilder();
-            
-            str.Append(DescriptionText);
-            
-            return str.ToString();
-        }
-
-        public string GetModifiedValueEditor(CardData cardData)
-        {
-            List<ActionData> cardActionDataList = cardData.GetCardActionDataList(cardActionDataListType);
-            
-            if (cardActionDataList.Count <= 0) return "";
-            
-            if (ModifiedActionValueIndex>=cardActionDataList.Count)
-                modifiedActionValueIndex = cardActionDataList.Count - 1;
-
-            if (ModifiedActionValueIndex<0)
-                modifiedActionValueIndex = 0;
-            
-            var str = new StringBuilder();
-            var value = cardActionDataList[ModifiedActionValueIndex].BaseValue;
-            if (CombatManager)
-            {
-                var player = CombatManager.CurrentMainAlly;
-                if (player)
-                {
-                    // TODO: 修正
-                    // var modifer = player.CharacterStats.StatusDict[ModiferStats].StatusValue;
-                    var modifer = 0;
-                    value += modifer;
-                
-                    if (modifer!= 0)
-                        str.Append("*");
-                }
-            }
-           
-            str.Append(value);
-          
-            return str.ToString();
-        }
-        
-        public void EditDescriptionText(string newText) => descriptionText = newText;
-        public void EditEnableOverrideColor(bool newStatus) => enableOverrideColor = newStatus;
-        public void EditOverrideColor(Color newColor) => overrideColor = newColor;
-        public void EditUseModifier(bool newStatus) => useModifier = newStatus;
-        public void EditCardActionDataListType(CardActionDataListType newCardActionDataListType) => cardActionDataListType = newCardActionDataListType;
-        public void EditModifiedActionValueIndex(int newIndex) => modifiedActionValueIndex = newIndex;
-        public void EditModiferStats(PowerName newPowerName) => modiferStats = newPowerName;
-        public void EditUsePrefixOnModifiedValues(bool newStatus) => usePrefixOnModifiedValue = newStatus;
-        public void EditPrefixOnModifiedValues(string newText) => modifiedValuePrefix = newText;
-        public void EditOverrideColorOnValueScaled(bool newStatus) => overrideColorOnValueScaled = newStatus;
-
-#endif
-        #endregion
     }
 }

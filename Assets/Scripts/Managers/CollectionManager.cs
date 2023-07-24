@@ -242,21 +242,15 @@ namespace NueGames.Managers
         /// <summary>
         /// 根據卡牌的關鍵字，改變卡牌花費
         /// </summary>
-        public void ChangeHandCardManaCost(SpecialKeywords targetKeyword, int cost, bool isPowerCost)
+        public void ChangeHandCardManaCost(SpecialKeywords targetKeyword, int cost)
         {
             foreach (var card in HandController.hand)
             {
                 List<SpecialKeywords> keywordsList = card.CardData.KeywordsList;
                 if (keywordsList.Contains(targetKeyword))
                 {
-                    if (isPowerCost)
-                    {
-                        card.SetManaCost(cost);
-                    }
-                    else
-                    {
-                        card.SetPowerCost(cost);
-                    }
+                    card.SetManaCost(cost);
+           
                 }
             }
         }

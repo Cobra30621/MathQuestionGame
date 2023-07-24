@@ -40,14 +40,4 @@
         // 71 法力系統
         UnlimitedUseMathManaCard = 1051,
     }
-
-    /// <summary>
-    /// 答題後觸發行為的類型
-    /// </summary>
-    public enum CardActionDataListType
-    {
-        Normal,
-        Correct,
-        Wrong
-    }
 }

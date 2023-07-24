@@ -21,11 +21,12 @@ namespace NueGames.Action.MathAction
         {
             base.SetValue(parameters);
             
-            CardData cardData = parameters.CardData;
-
-            mathParameters = cardData.MathQuestioningActionParameters;
-            mathParameters.TargetCharacter = parameters.TargetList;
-            mathParameters.SelfCharacter  = parameters.ActionSource.SourceCharacter;
+            // TODO Add Math Action
+            // CardData cardData = parameters.CardData;
+            //
+            // mathParameters = cardData.MathQuestioningActionParameters;
+            // mathParameters.TargetCharacter = parameters.TargetList;
+            // mathParameters.SelfCharacter  = parameters.ActionSource.SourceCharacter;
             
             // mathParameters.LimitedQuestionAction = GameActionGenerator.GetGameActions(cardData, 
             //     parameters.SourceType, cardData.LimitedQuestionCardActionDataList, Self, TargetList);

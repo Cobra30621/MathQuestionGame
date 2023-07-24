@@ -43,12 +43,8 @@ namespace NueGames.Card
         protected WaitForEndOfFrame CachedWaitFrame { get; set; }
         public bool IsPlayable { get; protected set; } = true;
         public int ManaCost { get; protected set;}
-        public int PowerCost { get; protected set;}
 
         public List<RarityRoot> RarityRootList => rarityRootList;
-        protected FxManager FxManager => FxManager.Instance;
-        protected AudioManager AudioManager => AudioManager.Instance;
-        protected GameManager GameManager => GameManager.Instance;
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;
         protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
@@ -74,7 +70,6 @@ namespace NueGames.Card
             manaTextField.text = CardData.ManaCost.ToString();
             cardImage.sprite = CardData.CardSprite;
             ManaCost = targetProfile.ManaCost;
-            PowerCost = targetProfile.PowerCost;
             foreach (var rarityRoot in RarityRootList)
                 rarityRoot.gameObject.SetActive(rarityRoot.Rarity == CardData.Rarity);
         }
@@ -98,9 +93,6 @@ namespace NueGames.Card
             HideTooltipInfo(TooltipManager.Instance);
             
             SpendMana( ManaCost);
-            // TODO : 改成只有數學瑪娜
-            if(CardData.NeedPowerToPlay)
-                SpendPower(CardData.NeedPowerName, PowerCost);
 
             ActionSource actionSource = new ActionSource()
             {
@@ -189,31 +181,6 @@ namespace NueGames.Card
             ManaCost = cost;
             UpdateCardText();
         }
-        
-        /// <summary>
-        /// 降低能力花費
-        /// </summary>
-        /// <param name="reduceAmount"></param>
-        public void ReducePowerCost(int reduceAmount)
-        {
-            PowerCost -= reduceAmount;
-            if (PowerCost < 0)
-                PowerCost = 0;
-            
-            UpdateCardText();
-        }
-
-        /// <summary>
-        /// 設置能力花費
-        /// </summary>
-        /// <param name="cost"></param>
-        public void SetPowerCost(int cost)
-        {
-            PowerCost = cost;
-            
-            UpdateCardText();
-        }
-        
         
 
         #endregion

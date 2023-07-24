@@ -343,7 +343,7 @@ namespace NueGames.Collection
             {
                 CharacterBase hitCharacter = GetHitCharacter(mousePos);
                 
-                if (EnablePlayCard(_heldCard.CardData.ActionTargetType, hitCharacter, _heldCard.CardData.UsableWithoutTarget))
+                if (EnablePlayCard(_heldCard.CardData.ActionTargetType, hitCharacter))
                 {
                     backToHand = false;
                     //  Arrow Effect for the card's ActionTarget is single enemy
@@ -376,38 +376,23 @@ namespace NueGames.Collection
         /// <param name="hitCharacter"></param>
         /// <param name="usableWithoutTarget"></param>
         /// <returns></returns>
-        private bool EnablePlayCard(ActionTargetType cardActionTarget, CharacterBase hitCharacter, bool usableWithoutTarget)
+        private bool EnablePlayCard(ActionTargetType cardActionTarget, CharacterBase hitCharacter)
         {
-            // 不需要對象，就能直接使用
-            if (usableWithoutTarget)
+            // 只有目標是敵人時，才一定需要碰到目標
+            if (cardActionTarget == ActionTargetType.Enemy)
             {
-                return true;
-            }
-
-            // 如果 hitCharacter 沒有碰到任何目標，回傳 false
-            if (hitCharacter == null)
-            {
-                return false;
-            }
-            
-            // 目標是玩家時
-            if (cardActionTarget == ActionTargetType.Ally)
-            {
-                if (hitCharacter.GetCharacterType() != CharacterType.Ally)
+                // 如果 hitCharacter 沒有碰到任何目標，回傳 false
+                if (hitCharacter == null)
                 {
                     return false;
                 }
-            }
-            
-            // 目標是敵人時
-            if (cardActionTarget == ActionTargetType.Enemy)
-            {
+                
                 if (hitCharacter.GetCharacterType() != CharacterType.Enemy)
                 {
                     return false;
                 }
             }
-
+            
             // 其他狀況，都可以使用卡片
             return true;
 

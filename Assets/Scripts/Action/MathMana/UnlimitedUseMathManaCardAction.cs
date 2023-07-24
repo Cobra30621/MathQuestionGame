@@ -13,8 +13,7 @@ namespace Action.MathMana
 
         protected override void DoMainAction()
         {
-            CollectionManager.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, true);
-            CollectionManager.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, false);
+            CollectionManager.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0);
         }
     }
 }
