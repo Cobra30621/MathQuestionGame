@@ -12,6 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u7279\u6548\u6E2C\u8A66-\u5168\u6575\u4EBA\u653B\u64CA"
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: cardAction
+      Entry: 7
+      Data: 0|CardAction.Common.DamageCard, Assembly-CSharp
+    - Name: damageValue
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
   cardName: "\u7279\u6548\u6E2C\u8A66-\u653B\u64CA\u5168\u6575\u4EBA"
   manaCost: 0
   cardSprite: {fileID: 0}
@@ -39,5 +57,5 @@ MonoBehaviour:
     CanPierceArmor: 0
     powerName: 0
     TriggerActionList: []
-  cardDescriptionDataList: []
+  description: 
   specialKeywordsList: 

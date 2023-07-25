@@ -4,7 +4,6 @@ using System.Text;
 using Action.Parameters;
 using Newtonsoft.Json;
 using NueGames.Action;
-using NueGames.Action.MathAction;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.NueExtentions;
@@ -161,60 +160,60 @@ namespace NueGames.Data.Collection
             return str.ToString();
         }
 
-        public string GetModifiedValue(CardData cardData)
-        {
-            List<ActionData> cardActionDataList = cardData.CardActionDataList;
-            
-            if (cardActionDataList.Count <= 0) return "";
-            
-            if (ModifiedActionValueIndex>=cardActionDataList.Count)
-                modifiedActionValueIndex = cardActionDataList.Count - 1;
-
-            if (ModifiedActionValueIndex<0)
-                modifiedActionValueIndex = 0;
-            
-            var str = new StringBuilder();
-            var value = cardActionDataList[ModifiedActionValueIndex].BaseValue;
-            var modifer = 0;
-            if (CombatManager)
-            {
-                var player = CombatManager.CurrentMainAlly;
-               
-                if (player)
-                {
-                    // TODO 獲得加成數值
-                    // modifer = player.CharacterStats.StatusDict[ModiferStats].Amount;
-                    // Amount += modifer;
-                    // if(cardActionDataList[ModifiedActionValueIndex].actionName == ActionName.Damage)
-                    //     value = CombatCalculator.GetDamageValue(value, player);
-
-                    // if(cardActionDataList[ModifiedActionValueIndex].GameActionType == GameActionType.Block)
-                    //     value = CombatCalculator.GetBlockValue(value, player);
-                    // if (modifer != 0)
-                    // {
-                    //     if (usePrefixOnModifiedValue)
-                    //         str.Append(modifiedValuePrefix);
-                    // }
-                }
-            }
-           
-            str.Append(value);
-
-            if (EnableOverrideColor)
-            {
-                if (OverrideColorOnValueScaled)
-                {
-                    if (modifer != 0)
-                        str.Replace(str.ToString(),ColorExtentions.ColorString(str.ToString(),OverrideColor));
-                }
-                else
-                {
-                    str.Replace(str.ToString(),ColorExtentions.ColorString(str.ToString(),OverrideColor));
-                }
-               
-            }
-            
-            return str.ToString();
-        }
+        // public string GetModifiedValue(CardData cardData)
+        // {
+        //     List<ActionData> cardActionDataList = cardData.CardActionDataList;
+        //     
+        //     if (cardActionDataList.Count <= 0) return "";
+        //     
+        //     if (ModifiedActionValueIndex>=cardActionDataList.Count)
+        //         modifiedActionValueIndex = cardActionDataList.Count - 1;
+        //
+        //     if (ModifiedActionValueIndex<0)
+        //         modifiedActionValueIndex = 0;
+        //     
+        //     var str = new StringBuilder();
+        //     var value = cardActionDataList[ModifiedActionValueIndex].BaseValue;
+        //     var modifer = 0;
+        //     if (CombatManager)
+        //     {
+        //         var player = CombatManager.CurrentMainAlly;
+        //        
+        //         if (player)
+        //         {
+        //             // TODO 獲得加成數值
+        //             // modifer = player.CharacterStats.StatusDict[ModiferStats].Amount;
+        //             // Amount += modifer;
+        //             // if(cardActionDataList[ModifiedActionValueIndex].actionName == ActionName.Damage)
+        //             //     value = CombatCalculator.GetDamageValue(value, player);
+        //
+        //             // if(cardActionDataList[ModifiedActionValueIndex].GameActionType == GameActionType.Block)
+        //             //     value = CombatCalculator.GetBlockValue(value, player);
+        //             // if (modifer != 0)
+        //             // {
+        //             //     if (usePrefixOnModifiedValue)
+        //             //         str.Append(modifiedValuePrefix);
+        //             // }
+        //         }
+        //     }
+        //    
+        //     str.Append(value);
+        //
+        //     if (EnableOverrideColor)
+        //     {
+        //         if (OverrideColorOnValueScaled)
+        //         {
+        //             if (modifer != 0)
+        //                 str.Replace(str.ToString(),ColorExtentions.ColorString(str.ToString(),OverrideColor));
+        //         }
+        //         else
+        //         {
+        //             str.Replace(str.ToString(),ColorExtentions.ColorString(str.ToString(),OverrideColor));
+        //         }
+        //        
+        //     }
+        //     
+        //     return str.ToString();
+        // }
     }
 }

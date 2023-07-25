@@ -177,6 +177,17 @@ namespace NueGames.Action
 
         #endregion
 
+
+        #region FX
+
+        public void SetFXValue(FxName FxName,  FxSpawnPosition FxSpawnPosition)
+        {
+            Parameters.ActionData.FxName = FxName;
+            Parameters.ActionData.FxSpawnPosition = FxSpawnPosition;
+        }
+
+        #endregion
+        
         #endregion
 
         #region 執行遊戲行為

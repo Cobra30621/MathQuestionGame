@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Action.Parameters;
+using CardAction;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Data.Collection;
@@ -101,9 +102,9 @@ namespace NueGames.Card
                 SourceCharacter = CombatManager.CurrentMainAlly
             };
             
-            List<GameActionBase> gameActions = GameActionGenerator.GetGameActions(CardData,
-                actionSource, CardData.CardActionDataList, targetList);
-            GameActionExecutor.AddToBottom(gameActions);
+            CardData.CardAction.SetValue(this, targetList);
+            CardData.CardAction.DoAction();
+            
             CollectionManager.OnCardPlayed(this);
         }
         
@@ -311,13 +312,14 @@ namespace NueGames.Card
         {
             List<PowerName> powerTypes = new List<PowerName>();
             
-            foreach (var cardActionData in CardData.CardActionDataList)
-            {
-                if (cardActionData.actionName == ActionName.ApplyPower)
-                {
-                    powerTypes.Add(cardActionData.powerName);
-                }
-            }
+            // TODO GetActionsPowerTypes()
+            // foreach (var cardActionData in CardData.CardActionDataList)
+            // {
+            //     if (cardActionData.actionName == ActionName.ApplyPower)
+            //     {
+            //         powerTypes.Add(cardActionData.powerName);
+            //     }
+            // }
             return powerTypes;
         }
 
