@@ -40,10 +40,6 @@ namespace Question
 
         #region Public 變數
         /// <summary>
-        /// 數學行動變數
-        /// </summary>
-        public MathQuestioningActionParameters Parameters => parameters;
-        /// <summary>
         /// 已經答題數量
         /// </summary>
         public int HasAnswerCount => answerRecord.AnswerCount;
@@ -65,7 +61,6 @@ namespace Question
         #region 暫存 Cache
         
         
-        [SerializeField] private MathQuestioningActionParameters parameters;
         /// <summary>
         /// 題目清單
         /// </summary>
@@ -130,6 +125,10 @@ namespace Question
 
         #endregion
         
+        
+        public QuestionActionParameters parameters;
+        public QuestionSetting QuestionSetting;
+        
         #region Setup
         private void Awake()
         {
@@ -146,7 +145,6 @@ namespace Question
             
             isQuestioning = false;
             questionController.SetQuestionManager(this);
-            parameters = new MathQuestioningActionParameters();
             DontDestroyOnLoad(this);
         }
 
@@ -206,9 +204,10 @@ namespace Question
         /// 進入答題模式
         /// </summary>
         /// <param name="newParameters"></param>
-        public void EnterQuestionMode(MathQuestioningActionParameters newParameters)
+        public void EnterQuestionMode(QuestionActionParameters questionActionParameters, QuestionSetting questionSetting)
         {
-            parameters = newParameters;
+            parameters = questionActionParameters;
+            QuestionSetting = questionSetting;
             StartCoroutine(QuestionCoroutine());
         }
         
@@ -342,12 +341,12 @@ namespace Question
             }
             else
             {
-                if (parameters.UseCorrectAction && _playCorrectAction)
+                if ( _playCorrectAction)
                 {
                     GameActionExecutor.Instance.AddToBottom(parameters.CorrectActions);
                 }
 
-                if (parameters.UseWrongAction && !_playCorrectAction)
+                if (!_playCorrectAction)
                 {
                     GameActionExecutor.Instance.AddToBottom(parameters.WrongActions);
                 }
@@ -367,15 +366,7 @@ namespace Question
         #region Judge End Questioning Mode Condition
         private void JudgeEndConditions()
         {
-            if (parameters.QuestioningEndJudgeType == QuestioningEndJudgeType.LimitedQuestionCount)
-            {
-                JudgeHasAnsweredQuestionCount();
-            }
-            else if (parameters.QuestioningEndJudgeType == QuestioningEndJudgeType.CorrectOrWrongCount)
-            {
-                JudgeCorrectCount();
-                JudgeWrongCount();
-            }
+            JudgeHasAnsweredQuestionCount();
         }
         
 
@@ -391,7 +382,7 @@ namespace Question
 
         private void JudgeCorrectCount()
         {
-            if (parameters.UseCorrectAction && answerRecord.CorrectCount >= parameters.CorrectActionNeedAnswerCount)
+            if (answerRecord.CorrectCount >= parameters.CorrectActionNeedAnswerCount)
             {
                 _playCorrectAction = true;
                 ExitQuestionMode("魔法詠唱成功，發動好效果");
@@ -401,7 +392,7 @@ namespace Question
         
         private void JudgeWrongCount()
         {
-            if (parameters.UseWrongAction && answerRecord.WrongCount >= parameters.WrongActionNeedAnswerCount)
+            if (answerRecord.WrongCount >= parameters.WrongActionNeedAnswerCount)
             {
                 _playCorrectAction = false;
                 ExitQuestionMode("魔法詠唱失敗，發動壞效果");

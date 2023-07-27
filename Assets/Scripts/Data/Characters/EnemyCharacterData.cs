@@ -50,7 +50,6 @@ namespace NueGames.Data.Characters
         [SerializeField] private bool hideActionValue;
         [SerializeField] private ActionTargetType actionTargetType;
         [SerializeField] private List<ActionData> actionList;
-        [SerializeField] private ActionDataClip actionDataClip;
         
         
         public string Name => name;
@@ -58,6 +57,5 @@ namespace NueGames.Data.Characters
         public List<ActionData> ActionList => actionList;
         public ActionTargetType ActionTargetType => actionTargetType;
         public bool HideActionValue => hideActionValue;
-        public ActionDataClip ActionDataClip => actionDataClip;
     }
 }
