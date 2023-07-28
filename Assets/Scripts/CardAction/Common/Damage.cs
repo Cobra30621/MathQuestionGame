@@ -4,18 +4,15 @@ using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
 
-namespace CardAction.Common
+namespace CardAction
 {
-    public class DamageCard : CardActionBase
+    public class Damage : CardActionBase
     {
         public int damageValue;
-        public override void DoAction()
+        protected override void DoMainAction()
         {
             DamageAction damageAction = new DamageAction();
-            
-            damageAction.SetDamageActionValue(damageValue, TargetList, GetActionSource());
-            damageAction.SetFXValue(FxName.TearAttack, FxSpawnPosition.EachTarget);
-            
+            damageAction.SetValue(damageValue, TargetList, GetActionSource());
             GameActionExecutor.Instance.AddToBottom(damageAction);
         }
     }

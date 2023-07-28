@@ -1,7 +1,10 @@
-﻿using NueGames.Card;
+﻿using System.Collections.Generic;
+using Action.Parameters;
+using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
+using NueGames.Power;
 using UnityEngine;
 
 
@@ -11,6 +14,12 @@ namespace NueGames.Action
     {
         public override ActionName ActionName => ActionName.MultiplyPower;
         
+        
+        public void SetValue(int applyValue, PowerName powerName, 
+            List<CharacterBase> targetList, ActionSource actionSource)
+        {
+            SetPowerActionValue(applyValue, powerName, targetList, actionSource);
+        }
         
         /// <summary>
         /// 執行遊戲行為的功能

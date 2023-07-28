@@ -12,59 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u6E2C\u8A66-\u7121\u76EE\u6A19"
   m_EditorClassIdentifier: 
-  id: 
-  cardName: "\u6E2C\u8A66-\u7121\u76EE\u6A19"
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: cardAction
+      Entry: 7
+      Data: 0|CardAction.DrawCard, Assembly-CSharp
+    - Name: drawCount
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+  actionTargetType: 4
   manaCost: 0
+  exhaustAfterPlay: 0
+  fxName: 0
+  fxSpawnPosition: 0
+  cardName: "\u6E2C\u8A66-\u7121\u76EE\u6A19"
   cardSprite: {fileID: 2108480542600776156, guid: 1fb0c0cb02c616d49815abb7a9a0fc0f, type: 3}
   rarity: 0
-  needPowerToPlay: 0
-  needPowerName: 0
-  powerCost: 0
-  actionTargetType: 4
-  usableWithoutTarget: 1
-  exhaustAfterPlay: 0
-  cardActionDataList:
-  - actionName: 502
-    BaseValue: 10
-    MultiplierValue: 0
-    Delay: 0
-    FxName: 101
-    FxSpawnPosition: 2
-    FixDamage: 0
-    CanPierceArmor: 0
-    powerName: 0
-    SourcePile: 0
-    TargetPile: 0
-    TargetCardData: {fileID: 0}
-    TriggerActionList: []
-  cardDescriptionDataList:
-  - descriptionText: "\u6E2C\u8A66-\u7121\u76EE\u6A19"
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    cardActionDataListType: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  specialKeywordsList: 
-  audioType: 0
-  correctCardActionDataList: []
-  wrongCardActionDataList: []
-  limitedQuestionCardActionDataList: []
-  mathQuestioningActionParameters:
-    UseMathAction: 0
-    QuestioningEndJudgeType: 0
-    QuestionCount: -1
-    UseCorrectAction: 0
-    CorrectActionNeedAnswerCount: -1
-    UseWrongAction: 0
-    WrongActionNeedAnswerCount: -1
-    UseTimeCountDown: 0
-    Time: -1
-    SelfCharacter: {fileID: 0}
-    TargetCharacter: []
-  useRandomAction: 0
-  randomActionData:
-    randomActionList: []
+  description: "\u6E2C\u8A66-\u7121\u76EE\u6A19"

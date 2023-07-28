@@ -131,13 +131,6 @@ namespace NueGames.Card
             CombatManager.AddMana(-value);
         }
         
-        protected virtual void SpendPower(PowerName powerName, int value)
-        {
-            if (!IsPlayable) return;
-            // CombatManager.SpendPower(powerType, value);
-            CombatManager.SpendMathMana(value);
-        }
-        
         public virtual void SetInactiveMaterialState(bool isInactive) 
         {
             if (!IsPlayable) return;

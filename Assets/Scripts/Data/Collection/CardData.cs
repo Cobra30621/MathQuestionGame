@@ -24,21 +24,29 @@ namespace NueGames.Data.Collection
         [Header("卡片行為")]
         [SerializeField] private CardActionBase cardAction;
         
-        [Title("數值參數")]
+        [FoldoutGroup("數值參數")]
         [SerializeField]private ActionTargetType actionTargetType;
+        [FoldoutGroup("數值參數")]
         [SerializeField] private int manaCost;
+        [FoldoutGroup("數值參數")]
         [SerializeField] private bool exhaustAfterPlay;
         
-        [SerializeField] private  FxName FxName;
-        [SerializeField] private FxSpawnPosition FxSpawnPosition;
+        [FoldoutGroup("卡牌播放特效")]
+        [SerializeField] private  FxName  fxName;
+        [FoldoutGroup("卡牌播放特效")]
+        [SerializeField] private FxSpawnPosition fxSpawnPosition;
         
-        [Title("卡牌顯示")]
+        
+        [FoldoutGroup("卡牌顯示")]
         [SerializeField] private string cardName;
+        [FoldoutGroup("卡牌顯示")]
         [SerializeField] private Sprite cardSprite;
+        [FoldoutGroup("卡牌顯示")]
         [SerializeField] private RarityType rarity;
+        [FoldoutGroup("卡牌顯示")]
         [TextArea(4, 10)] [SerializeField] private string description;
 
-        [SerializeField] private List<SpecialKeywords> specialKeywordsList;
+        private List<SpecialKeywords> specialKeywordsList;
 
 
         #region Cache
@@ -49,6 +57,9 @@ namespace NueGames.Data.Collection
         public ActionTargetType ActionTargetType => actionTargetType;
         [TypeFilter("GetFilteredTypeList")]
         public CardActionBase CardAction => cardAction;
+
+        public FxName FxName => fxName;
+        public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
 
         public string Description => description;
         public List<SpecialKeywords> KeywordsList => specialKeywordsList;

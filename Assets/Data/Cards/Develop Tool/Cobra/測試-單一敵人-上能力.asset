@@ -23,20 +23,22 @@ MonoBehaviour:
     SerializationNodes:
     - Name: cardAction
       Entry: 7
-      Data: 0|CardAction.Common.DamageCard, Assembly-CSharp
-    - Name: damageValue
+      Data: 0|CardAction.ApplyPower, Assembly-CSharp
+    - Name: value
       Entry: 3
-      Data: 0
+      Data: 1
+    - Name: powerName
+      Entry: 3
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
   actionTargetType: 0
-  manaCost: 0
+  manaCost: 1
   exhaustAfterPlay: 0
-  FxName: 1001
-  FxSpawnPosition: 0
+  fxName: 55
+  fxSpawnPosition: 0
   cardName: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
   cardSprite: {fileID: 21300000, guid: b5f5839c0c638184d90210de34685b87, type: 3}
   rarity: 0
-  description: "\u7D66\u4E88\u6575\u4EBA 2 \u9EDE\u6613\u50B7"
-  specialKeywordsList: 
+  description: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"

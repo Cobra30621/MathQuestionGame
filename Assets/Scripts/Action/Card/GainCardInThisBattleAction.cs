@@ -1,4 +1,5 @@
-﻿using NueGames.Enums;
+﻿using Action.Parameters;
+using NueGames.Enums;
 using UnityEngine;
 
 namespace NueGames.Action
@@ -10,6 +11,11 @@ namespace NueGames.Action
     {
         public override ActionName ActionName => ActionName.GainCardInThisBattle;
 
+        public void SetValue(int cardCount, CardTransfer cardTransfer, ActionSource actionSource)
+        {
+            SetCardTransferActionValue(cardCount, cardTransfer, actionSource);
+        }
+        
         protected override void DoMainAction()
         {
             if (CollectionManager != null)

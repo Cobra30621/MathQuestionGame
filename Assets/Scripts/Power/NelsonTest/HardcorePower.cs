@@ -33,7 +33,7 @@ namespace NueGames.Power
         protected override void OnAnswerWrong()
         {
             DamageAction action = new DamageAction();
-            action.SetDamageActionValue(99999,
+            action.SetValue(99999,
                 new List<CharacterBase>() {Owner},
                 GetActionSource(),
                 fixDamage:true

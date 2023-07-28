@@ -414,16 +414,6 @@ namespace NueGames.Combat
             return CurrentMainAlly.transform;
         }
 
-        /// <summary>
-        /// 花費數學瑪娜
-        /// </summary>
-        /// <param name="value"></param>
-        public void SpendMathMana(int value)
-        {
-            var action = new ApplyMathManaAction(- value);
-            GameActionExecutor.Instance.AddToBottom(action);
-        }
-
 
         public void AddMana(int mana)
         {

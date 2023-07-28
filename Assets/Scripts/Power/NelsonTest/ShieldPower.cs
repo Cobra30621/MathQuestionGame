@@ -37,7 +37,7 @@ namespace NueGames.Power
             if (info.CharacterType == GetOwnerCharacterType())
             {
                 ApplyPowerAction action = new ApplyPowerAction();
-                action.SetPowerActionValue(3, 
+                action.SetValue(3, 
                     PowerName.Block, 
                     new List<CharacterBase>() {Owner},
                     GetActionSource()

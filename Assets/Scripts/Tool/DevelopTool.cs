@@ -69,7 +69,7 @@ namespace Tool
             {
                 var ally = CombatManager.Instance.CurrentMainAlly;
                 ApplyPowerAction action = new ApplyPowerAction();
-                action.SetPowerActionValue(
+                action.SetValue(
                     1, 
                     powerName, 
                     new List<CharacterBase>(){ally}, null);

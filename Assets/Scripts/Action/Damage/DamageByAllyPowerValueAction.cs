@@ -1,8 +1,11 @@
-﻿using NueGames.Card;
+﻿using System.Collections.Generic;
+using Action.Parameters;
+using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Data.Collection;
 using NueGames.Enums;
+using NueGames.Power;
 
 namespace NueGames.Action
 {
@@ -12,8 +15,24 @@ namespace NueGames.Action
     public class DamageByAllyPowerValueAction : GameActionBase
     {
         public override ActionName ActionName => ActionName.DamageByAllyPowerValue;
-
-
+        
+        /// <summary>
+        /// 設定數值
+        /// </summary>
+        /// <param name="multiplierAmount">給予能力 x 倍的傷害</param>
+        /// <param name="targetList"></param>
+        /// <param name="powerName"></param>
+        /// <param name="actionSource"></param>
+        /// <param name="fixDamage"></param>
+        /// <param name="canPierceArmor"></param>
+        public void SetValue(int multiplierAmount, List<CharacterBase> targetList, PowerName powerName, 
+            ActionSource actionSource, bool fixDamage  = false, bool canPierceArmor  = false)
+        {
+            SetDamageActionValue(0, targetList, actionSource, fixDamage, canPierceArmor);
+            ActionData.powerName = powerName;
+            ActionData.MultiplierValue = multiplierAmount;
+        }
+        
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>

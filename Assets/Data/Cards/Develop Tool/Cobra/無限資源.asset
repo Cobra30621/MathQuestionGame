@@ -12,72 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u7121\u9650\u8CC7\u6E90"
   m_EditorClassIdentifier: 
-  id: 
-  cardName: "\u7121\u9650\u8CC7\u6E90"
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: cardAction
+      Entry: 7
+      Data: 0|CardAction.UnlimitedResources, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  actionTargetType: 4
   manaCost: 0
+  exhaustAfterPlay: 0
+  fxName: 0
+  fxSpawnPosition: 0
+  cardName: "\u7121\u9650\u8CC7\u6E90"
   cardSprite: {fileID: 21300000, guid: 478bbcc6c43ce42e095cfaa3e51898cf, type: 3}
   rarity: 0
-  needPowerToPlay: 0
-  needPowerName: 0
-  powerCost: 0
-  actionTargetType: 4
-  usableWithoutTarget: 1
-  exhaustAfterPlay: 0
-  cardActionDataList:
-  - actionName: 501
-    BaseValue: 100
-    MultiplierValue: 0
-    Delay: 0
-    FxName: 55
-    FxSpawnPosition: 0
-    FixDamage: 0
-    CanPierceArmor: 0
-    powerName: 2
-    SourcePile: 0
-    TargetPile: 0
-    TargetCardData: {fileID: 0}
-    TriggerActionList: []
-  - actionName: 502
-    BaseValue: 100
-    MultiplierValue: 0
-    Delay: 0
-    FxName: 0
-    FxSpawnPosition: 0
-    FixDamage: 0
-    CanPierceArmor: 0
-    powerName: 0
-    SourcePile: 0
-    TargetPile: 0
-    TargetCardData: {fileID: 0}
-    TriggerActionList: []
-  cardDescriptionDataList:
-  - descriptionText: "\u7121\u9650\u8CC7\u6E90"
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    cardActionDataListType: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  specialKeywordsList: 
-  audioType: 0
-  correctCardActionDataList: []
-  wrongCardActionDataList: []
-  limitedQuestionCardActionDataList: []
-  mathQuestioningActionParameters:
-    UseMathAction: 0
-    QuestioningEndJudgeType: 0
-    QuestionCount: -1
-    UseCorrectAction: 0
-    CorrectActionNeedAnswerCount: -1
-    UseWrongAction: 0
-    WrongActionNeedAnswerCount: -1
-    UseTimeCountDown: 0
-    Time: -1
-    SelfCharacter: {fileID: 0}
-    TargetCharacter: []
-  useRandomAction: 0
-  randomActionData:
-    randomActionList: []
+  description: "\u7372\u5F97 999 \u9EDE\u9B54\u529B\uFF0C\u62BD 999 \u5F35\u724C"

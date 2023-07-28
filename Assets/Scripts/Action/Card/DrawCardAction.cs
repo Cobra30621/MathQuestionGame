@@ -1,4 +1,5 @@
-﻿using NueGames.Card;
+﻿using Action.Parameters;
+using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using UnityEngine;
@@ -12,9 +13,10 @@ namespace NueGames.Action
     {
         public override ActionName ActionName => ActionName.DrawCard;
         
-        public void SetValue(int drawCard)
+        public void SetValue(int cardCount, ActionSource source)
         {
-            ActionData.BaseValue = drawCard;
+            ActionData.BaseValue = cardCount;
+            Parameters.ActionSource = source;
         }
         
         /// <summary>
@@ -26,9 +28,6 @@ namespace NueGames.Action
                 CollectionManager.DrawCards(ActionData.BaseValue);
             else
                 Debug.LogError("There is no CollectionManager");
-            
-            // PlayFx();
-            // PlayAudio();
         }
     }
 }

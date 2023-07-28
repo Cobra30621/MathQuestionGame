@@ -1,5 +1,7 @@
-﻿using Action.Parameters;
+﻿using System.Collections.Generic;
+using Action.Parameters;
 using NueGames.Action;
+using NueGames.Characters;
 using NueGames.Managers;
 
 
@@ -31,11 +33,11 @@ namespace NueGames.Power
                 foreach (var target in targetList)
                 {
                     var damageAction = new DamageAction();
-                    damageAction.SetDamageActionValue(Amount, target, GetActionSource());
+                    damageAction.SetValue(Amount, new List<CharacterBase>(){target}, GetActionSource());
                     GameActionExecutor.Instance.AddToBottom(damageAction);
 
                     var applyPowerAction = new ApplyPowerAction();
-                    applyPowerAction.SetPowerActionValue(Amount, PowerName.Fire, target, GetActionSource());
+                    applyPowerAction.SetValue(Amount, PowerName.Fire, new List<CharacterBase>(){target}, GetActionSource());
                     GameActionExecutor.Instance.AddToBottom(applyPowerAction);
                 }
             }

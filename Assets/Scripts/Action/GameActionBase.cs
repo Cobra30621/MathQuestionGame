@@ -53,36 +53,17 @@ namespace NueGames.Action
         
         #region Manager
 
-        protected FxManager FxManager
-        {
-            get { return FxManager.Instance; }
-        }
+        protected FxManager FxManager => FxManager.Instance;
 
-        protected AudioManager AudioManager
-        {
-            get { return AudioManager.Instance; }
-        }
+        protected AudioManager AudioManager => AudioManager.Instance;
 
-        protected GameManager GameManager
-        {
-            get { return GameManager.Instance; }
-        }
+        protected GameManager GameManager => GameManager.Instance;
 
-        protected CombatManager CombatManager
-        {
-            get { return CombatManager.Instance; }
-        }
+        protected CombatManager CombatManager => CombatManager.Instance;
 
-        protected CollectionManager CollectionManager
-        {
-            get { return CollectionManager.Instance; }
-        }
+        protected CollectionManager CollectionManager => CollectionManager.Instance;
 
-        protected GameActionExecutor GameActionExecutor
-        {
-            get { return GameActionExecutor.Instance; }
-        }
-        
+        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
 
         #endregion
 
@@ -104,13 +85,13 @@ namespace NueGames.Action
 
         #region Damage
 
-        public void SetDamageActionValue(int baseValue, CharacterBase target,
+        protected void SetDamageActionValue(int baseValue, CharacterBase target,
             ActionSource actionSource, bool fixDamage = false, bool canPierceArmor = false)
         {
             SetDamageActionValue(baseValue,new List<CharacterBase>(){target}, actionSource, fixDamage, canPierceArmor);
         }
 
-        public void SetDamageActionValue(int baseValue, List<CharacterBase> targetList, 
+        protected void SetDamageActionValue(int baseValue, List<CharacterBase> targetList, 
             ActionSource actionSource, bool fixDamage  = false, bool canPierceArmor  = false)
         {
             ActionData.BaseValue = baseValue;
@@ -126,13 +107,13 @@ namespace NueGames.Action
 
         #region Power
 
-        public void SetPowerActionValue(int baseValue, PowerName powerName,
+        protected void SetPowerActionValue(int baseValue, PowerName powerName,
             CharacterBase target, ActionSource actionSource)
         {
             SetPowerActionValue(baseValue, powerName, new List<CharacterBase>(){target}, actionSource);
         }
 
-        public void SetPowerActionValue(int baseValue, PowerName powerName, 
+        protected void SetPowerActionValue(int baseValue, PowerName powerName, 
             List<CharacterBase> targetList, ActionSource actionSource)
         {
             ActionData.BaseValue = baseValue;
@@ -146,9 +127,9 @@ namespace NueGames.Action
 
         #region Card Transfer
 
-        public void SetCardTransferActionValue(int baseValue, CardTransfer cardTransfer, ActionSource actionSource)
+        protected void SetCardTransferActionValue(int cardCount, CardTransfer cardTransfer, ActionSource actionSource)
         {
-            ActionData.BaseValue = baseValue;
+            ActionData.BaseValue = cardCount;
             ActionData.CardTransfer = cardTransfer;
             Parameters.ActionSource = actionSource;
         }
@@ -157,19 +138,19 @@ namespace NueGames.Action
         
         #region Basic
 
-        public void SetBasicAndTargetValue(int baseValue, CharacterBase target, ActionSource actionSource)
+        protected void SetBasicAndTargetValue(int baseValue, CharacterBase target, ActionSource actionSource)
         {
             SetBasicAndTargetValue(baseValue, new List<CharacterBase>(){target}, actionSource);
         }
-        
-        public void SetBasicAndTargetValue(int baseValue, List<CharacterBase> targetList, ActionSource actionSource)
+
+        protected void SetBasicAndTargetValue(int baseValue, List<CharacterBase> targetList, ActionSource actionSource)
         {
             ActionData.BaseValue = baseValue;
             Parameters.TargetList = targetList;
             Parameters.ActionSource = actionSource;
         }
-        
-        public void SetBasicValue(int baseValue, ActionSource actionSource)
+
+        protected void SetBasicValue(int baseValue, ActionSource actionSource)
         {
             ActionData.BaseValue = baseValue;
             Parameters.ActionSource = actionSource;
@@ -180,10 +161,10 @@ namespace NueGames.Action
 
         #region FX
 
-        public void SetFXValue(FxName FxName,  FxSpawnPosition FxSpawnPosition)
+        public void SetFXValue(FxName fxName,  FxSpawnPosition fxSpawnPosition)
         {
-            Parameters.ActionData.FxName = FxName;
-            Parameters.ActionData.FxSpawnPosition = FxSpawnPosition;
+            Parameters.ActionData.FxName = fxName;
+            Parameters.ActionData.FxSpawnPosition = fxSpawnPosition;
         }
 
         #endregion

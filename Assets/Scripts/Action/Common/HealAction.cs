@@ -1,4 +1,6 @@
-﻿using NueGames.Card;
+﻿using System.Collections.Generic;
+using Action.Parameters;
+using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
@@ -13,6 +15,13 @@ namespace NueGames.Action
     {
         public override ActionName ActionName => ActionName.Heal;
   
+        
+        public void SetValue(int healValue, List<CharacterBase> targetList, ActionSource actionSource)
+        {
+            ActionData.BaseValue = healValue;
+            Parameters.TargetList = targetList;
+            Parameters.ActionSource = actionSource;
+        }
         
         /// <summary>
         /// 執行遊戲行為的功能

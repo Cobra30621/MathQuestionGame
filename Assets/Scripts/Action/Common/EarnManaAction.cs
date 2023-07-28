@@ -1,4 +1,5 @@
-﻿using NueGames.Card;
+﻿using Action.Parameters;
+using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using UnityEngine;
@@ -11,7 +12,12 @@ namespace NueGames.Action
     public class EarnManaAction : GameActionBase
     {
         public override ActionName ActionName => ActionName.EarnMana;
-   
+
+        public void SetValue(int manaCount, ActionSource source)
+        {
+            ActionData.BaseValue = manaCount;
+            Parameters.ActionSource = source;
+        }
         
         /// <summary>
         /// 執行遊戲行為的功能
