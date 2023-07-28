@@ -5,6 +5,7 @@ using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Data.Collection;
 using NueGames.Enums;
+using NueGames.Managers;
 using NueGames.Power;
 
 namespace NueGames.Action
@@ -25,7 +26,7 @@ namespace NueGames.Action
         /// <param name="actionSource"></param>
         /// <param name="fixDamage"></param>
         /// <param name="canPierceArmor"></param>
-        public void SetValue(int multiplierAmount, List<CharacterBase> targetList, PowerName powerName, 
+        public DamageByAllyPowerValueAction(int multiplierAmount, List<CharacterBase> targetList, PowerName powerName, 
             ActionSource actionSource, bool fixDamage  = false, bool canPierceArmor  = false)
         {
             SetDamageActionValue(0, targetList, actionSource, fixDamage, canPierceArmor);
@@ -40,7 +41,8 @@ namespace NueGames.Action
         {
             Parameters.MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(ActionData.powerName);
             
-            DoDamageAction();
+            GameActionExecutor.AddToBottom(new DamageAction(
+                AdditionValue, TargetList, Parameters.ActionSource));
         }
     }
 }

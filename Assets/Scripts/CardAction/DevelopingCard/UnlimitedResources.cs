@@ -7,13 +7,11 @@ namespace CardAction
     {
         protected override void DoMainAction()
         {
-            var drawCardAction = new DrawCardAction();
-            drawCardAction.SetValue(999, GetActionSource());
-            GameActionExecutor.Instance.AddToBottom(drawCardAction);
+            GameActionExecutor.AddToBottom(new DrawCardAction(
+                999, GetActionSource()));
 
-            var earnManaAction = new EarnManaAction();
-            drawCardAction.SetValue(999, GetActionSource());
-            GameActionExecutor.Instance.AddToBottom(earnManaAction);
+            GameActionExecutor.AddToBottom(new EarnManaAction(
+                999, GetActionSource()));
         }
     }
 }

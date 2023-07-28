@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using Action.Parameters;
+using Action.Power;
 using Cinemachine;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Enums;
+using NueGames.Managers;
 using NueGames.Parameters;
 
 namespace NueGames.Power
@@ -36,10 +38,9 @@ namespace NueGames.Power
             {
                 if (source.HasPower(PowerName.Fire))
                 {
-                    ApplyPowerAction action = new ApplyPowerAction();
-                    action.SetValue(1, PowerName.GainManaAtRoundStart, 
-                        new List<CharacterBase>(){info.Target}, GetActionSource());
-                    GameActionExecutor.AddToBottom(action);
+                    GameActionExecutor.AddToBottom (
+                        new ApplyPowerAction(1, PowerName.GainManaAtRoundStart, 
+                        new List<CharacterBase>(){info.Target}, GetActionSource()));
                 }
             }
         }

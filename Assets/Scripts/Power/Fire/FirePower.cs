@@ -44,13 +44,9 @@ namespace NueGames.Power
                    fireAmount = Amount * 2;
                 }
 
-                DamageAction damageAction = new DamageAction();
-                damageAction.SetValue(fireAmount, 
-                    new List<CharacterBase>(){Owner},
-                    GetActionSource(),
-                    true
-                    );
-                GameActionExecutor.Instance.AddToBottom(damageAction);
+                GameActionExecutor.AddToBottom(
+                    new DamageAction(fireAmount, new List<CharacterBase>(){Owner},
+                        GetActionSource(),true));
                 
                 Owner.CharacterStats.ApplyPower(PowerName, -1); // 燒血後減層數 1 
             }

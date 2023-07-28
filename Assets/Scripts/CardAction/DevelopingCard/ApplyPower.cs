@@ -11,9 +11,8 @@ namespace CardAction
         public PowerName powerName;
         protected override void DoMainAction()
         {
-            var applyPowerAction = new ApplyPowerAction();
-            applyPowerAction.SetValue(value, powerName, TargetList, GetActionSource());
-            GameActionExecutor.Instance.AddToBottom(applyPowerAction);
+            GameActionExecutor.AddToBottom(new ApplyPowerAction(
+                value, powerName, TargetList, GetActionSource()));
         }
     }
 }

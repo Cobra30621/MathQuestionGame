@@ -1,3 +1,4 @@
+using Action.Power;
 using NueGames.Action;
 using NueGames.Managers;
 using NueGames.Power;
@@ -9,9 +10,8 @@ namespace CardAction
         public int Value;
         protected override void DoMainAction()
         {
-            var applyPowerAction = new ApplyPowerAction();
-            applyPowerAction.SetValue(Value, PowerName.Block, TargetList, GetActionSource());
-            GameActionExecutor.Instance.AddToBottom(applyPowerAction);
+            GameActionExecutor.AddToBottom(new ApplyBlockAction(
+                Value,  TargetList, GetActionSource()));
         }
     }
 }

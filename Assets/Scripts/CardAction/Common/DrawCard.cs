@@ -10,9 +10,8 @@ namespace CardAction
         
         protected override void DoMainAction()
         {
-            var drawCardAction = new DrawCardAction();
-            drawCardAction.SetValue(drawCount, GetActionSource());
-            GameActionExecutor.Instance.AddToBottom(drawCardAction);
+            GameActionExecutor.AddToBottom(new DrawCardAction(
+                drawCount, GetActionSource()));
         }
     }
 }

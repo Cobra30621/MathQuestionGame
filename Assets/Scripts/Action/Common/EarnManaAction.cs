@@ -13,11 +13,13 @@ namespace NueGames.Action
     {
         public override ActionName ActionName => ActionName.EarnMana;
 
-        public void SetValue(int manaCount, ActionSource source)
+
+        public EarnManaAction(int manaCount, ActionSource source)
         {
             ActionData.BaseValue = manaCount;
             Parameters.ActionSource = source;
         }
+        
         
         /// <summary>
         /// 執行遊戲行為的功能

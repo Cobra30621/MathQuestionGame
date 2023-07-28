@@ -12,13 +12,13 @@ namespace NueGames.Action
     public class DrawCardAction : GameActionBase
     {
         public override ActionName ActionName => ActionName.DrawCard;
-        
-        public void SetValue(int cardCount, ActionSource source)
+
+        public DrawCardAction(int cardCount, ActionSource source)
         {
             ActionData.BaseValue = cardCount;
             Parameters.ActionSource = source;
         }
-        
+
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>

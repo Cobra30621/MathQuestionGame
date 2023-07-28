@@ -338,18 +338,18 @@ namespace Question
         {
             if (parameters.QuestioningEndJudgeType == QuestioningEndJudgeType.LimitedQuestionCount)
             {
-                GameActionExecutor.Instance.AddToBottom(parameters.LimitedQuestionAction);
+                GameActionExecutor.AddToBottom(parameters.LimitedQuestionAction);
             }
             else
             {
                 if (parameters.UseCorrectAction && _playCorrectAction)
                 {
-                    GameActionExecutor.Instance.AddToBottom(parameters.CorrectActions);
+                    GameActionExecutor.AddToBottom(parameters.CorrectActions);
                 }
 
                 if (parameters.UseWrongAction && !_playCorrectAction)
                 {
-                    GameActionExecutor.Instance.AddToBottom(parameters.WrongActions);
+                    GameActionExecutor.AddToBottom(parameters.WrongActions);
                 }
             }
             

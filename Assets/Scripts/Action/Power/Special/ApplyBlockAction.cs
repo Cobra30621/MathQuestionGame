@@ -11,7 +11,7 @@ namespace Action.Power
     {
         public override ActionName ActionName => ActionName.ApplyBlock;
 
-        public void SetValue(int applyValue,
+        public ApplyBlockAction(int applyValue,
             List<CharacterBase> targetList, ActionSource actionSource)
         {
             SetPowerActionValue(applyValue, PowerName.Block, targetList, actionSource);

@@ -173,7 +173,7 @@ namespace NueGames.Managers
         /// 排隊：會等原本的"待執行的遊戲行為清單"遊戲行為執行完，才執行
         /// </summary>
         /// <param name="cardActionDatas"></param>
-        public void AddToBottom(List<GameActionBase> cardActionDatas)
+        public static void AddToBottom(List<GameActionBase> cardActionDatas)
         {
             foreach (var playerAction in cardActionDatas)
             {
@@ -186,18 +186,21 @@ namespace NueGames.Managers
         /// 插隊：優先執行
         /// </summary>
         /// <param name="action"></param>
-        public void AddToTop(GameActionBase action) {
-            _actions.Insert(0, action);
+        public static void AddToTop(GameActionBase action) {
+            Instance._actions.Insert(0, action);
         }
-        
+
         /// <summary>
         /// 將想執行的遊戲行為，加到"待執行的遊戲行為清單"
         /// 排隊：會等原本的"待執行的遊戲行為清單"遊戲行為執行完，才執行
         /// </summary>
         /// <param name="action"></param>
-        public void AddToBottom(GameActionBase action) {
-            _actions.Add(action);
+        public static void AddToBottom(GameActionBase action)
+        {
+            Instance._actions.Add(action);
         }
+        
+        
         
 
         #endregion

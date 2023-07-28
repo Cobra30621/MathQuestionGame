@@ -17,7 +17,7 @@ namespace NueGames.Action
         public override ActionName ActionName => ActionName.ApplyPower;
 
 
-        public void SetValue(int applyValue, PowerName powerName, 
+        public ApplyPowerAction(int applyValue, PowerName powerName, 
             List<CharacterBase> targetList, ActionSource actionSource)
         {
             SetPowerActionValue(applyValue, powerName, targetList, actionSource);

@@ -17,7 +17,7 @@ namespace NueGames.Action
     {
         public override ActionName ActionName => ActionName.ClearPower;
 
-        public void SetValue(PowerName powerName, 
+        public ClearPowerAction(PowerName powerName, 
             List<CharacterBase> targetList, ActionSource actionSource)
         {
             SetPowerActionValue(0, powerName, targetList, actionSource);

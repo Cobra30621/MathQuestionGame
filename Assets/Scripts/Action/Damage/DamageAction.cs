@@ -24,7 +24,7 @@ namespace NueGames.Action
         /// <param name="actionSource"></param>
         /// <param name="fixDamage">固定傷害</param>
         /// <param name="canPierceArmor">可以突破護盾</param>
-        public void SetValue(int baseValue, List<CharacterBase> targetList, 
+        public DamageAction(int baseValue, List<CharacterBase> targetList, 
             ActionSource actionSource, bool fixDamage  = false, bool canPierceArmor  = false)
         {
             SetDamageActionValue(baseValue, targetList, actionSource, fixDamage, canPierceArmor);
@@ -39,7 +39,7 @@ namespace NueGames.Action
             {
                 DamageInfo damageInfo = CreateDamageInfo(target);
                 
-                PlaySpawnTextFx($"{damageInfo}", target);
+                PlaySpawnTextFx($"{damageInfo.GetDamageValue()}", target);
                 target.BeAttacked(damageInfo);
             }
             

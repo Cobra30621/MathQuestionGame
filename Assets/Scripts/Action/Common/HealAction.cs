@@ -14,9 +14,8 @@ namespace NueGames.Action
     public class HealAction : GameActionBase
     {
         public override ActionName ActionName => ActionName.Heal;
-  
         
-        public void SetValue(int healValue, List<CharacterBase> targetList, ActionSource actionSource)
+        public HealAction(int healValue, List<CharacterBase> targetList, ActionSource actionSource)
         {
             ActionData.BaseValue = healValue;
             Parameters.TargetList = targetList;

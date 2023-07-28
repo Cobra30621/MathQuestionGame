@@ -51,9 +51,8 @@ namespace CardAction
         /// </summary>
         protected void DoFXAction()
         {
-            var fxAction = new FXAction();
-            fxAction.SetFXValue(CardData.FxName, CardData.FxSpawnPosition);
-            GameActionExecutor.Instance.AddToBottom(fxAction);
+            GameActionExecutor.AddToBottom(new FXAction(
+                CardData.FxName, CardData.FxSpawnPosition));
         }
         
         #endregion

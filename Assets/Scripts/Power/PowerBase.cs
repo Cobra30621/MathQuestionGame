@@ -59,8 +59,6 @@ namespace NueGames.Power
         /// </summary>
         public int NeedCounter;
         
-        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
-        
         
         #region SetUp
 

@@ -32,13 +32,11 @@ namespace NueGames.Power
 
                 foreach (var target in targetList)
                 {
-                    var damageAction = new DamageAction();
-                    damageAction.SetValue(Amount, new List<CharacterBase>(){target}, GetActionSource());
-                    GameActionExecutor.Instance.AddToBottom(damageAction);
+                    GameActionExecutor.AddToBottom(new DamageAction(
+                        Amount, new List<CharacterBase>(){target}, GetActionSource()));
 
-                    var applyPowerAction = new ApplyPowerAction();
-                    applyPowerAction.SetValue(Amount, PowerName.Fire, new List<CharacterBase>(){target}, GetActionSource());
-                    GameActionExecutor.Instance.AddToBottom(applyPowerAction);
+                    GameActionExecutor.AddToBottom(new ApplyPowerAction(
+                        Amount, PowerName.Fire, new List<CharacterBase>(){target}, GetActionSource()));
                 }
             }
         }

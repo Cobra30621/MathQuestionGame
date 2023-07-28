@@ -11,9 +11,8 @@ namespace CardAction
         public int damageValue;
         protected override void DoMainAction()
         {
-            DamageAction damageAction = new DamageAction();
-            damageAction.SetValue(damageValue, TargetList, GetActionSource());
-            GameActionExecutor.Instance.AddToBottom(damageAction);
+            GameActionExecutor.AddToBottom(new DamageAction(
+                damageValue, TargetList, GetActionSource()));
         }
     }
 }

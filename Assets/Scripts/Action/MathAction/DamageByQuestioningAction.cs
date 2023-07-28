@@ -19,7 +19,7 @@ namespace NueGames.Action.MathAction
         /// </summary>
         protected override void DoMainAction()
         {
-            DoDamageAction();
+            // DoDamageAction();
         }
 
     }

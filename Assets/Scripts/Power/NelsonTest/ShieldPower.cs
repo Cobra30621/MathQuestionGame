@@ -36,14 +36,10 @@ namespace NueGames.Power
         {
             if (info.CharacterType == GetOwnerCharacterType())
             {
-                ApplyPowerAction action = new ApplyPowerAction();
-                action.SetValue(3, 
-                    PowerName.Block, 
-                    new List<CharacterBase>() {Owner},
-                    GetActionSource()
-                );
                 
-                GameActionExecutor.AddToBottom(action);
+                GameActionExecutor.AddToBottom(new ApplyPowerAction(
+                    3, PowerName.Block, new List<CharacterBase>() {Owner},
+                    GetActionSource()));
             }
         }
     }

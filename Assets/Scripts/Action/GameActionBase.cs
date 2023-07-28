@@ -63,7 +63,6 @@ namespace NueGames.Action
 
         protected CollectionManager CollectionManager => CollectionManager.Instance;
 
-        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
 
         #endregion
 
@@ -241,19 +240,6 @@ namespace NueGames.Action
 
 
         #region 工具：執行傷害行為
-
-        /// <summary>
-        /// 執行傷害行動
-        /// </summary>
-        protected void DoDamageAction()
-        {
-            foreach (var target in TargetList)
-            {
-                DamageAction damageAction = new DamageAction();
-                damageAction.SetValue(Parameters);
-                GameActionExecutor.AddToBottom(damageAction);
-            }
-        }
 
         /// <summary>
         /// 取得傷害行動用的 DamageInfo
