@@ -24,7 +24,6 @@ namespace NueGames.Data.Collection
     public class CardData : SerializedScriptableObject
     {
         [FoldoutGroup("卡片行為")]
-        [InfoBox("點擊 CardAction 可以打開並設定自行定義的參數", InfoMessageType.Warning)]
         [DetailedInfoBox("如何創建新的卡片行為(CardAction)...", 
             "如何創建新的卡片行為(CardAction)\n" +
             "請去 Assets/Scripts/CardAction 資料夾中，創建新的 cs 檔。\n" +
