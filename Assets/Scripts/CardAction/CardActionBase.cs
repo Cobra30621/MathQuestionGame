@@ -52,7 +52,7 @@ namespace CardAction
         protected void DoFXAction()
         {
             GameActionExecutor.AddToBottom(new FXAction(
-                CardData.FxName, CardData.FxSpawnPosition));
+                CardData.FxName, CardData.FxSpawnPosition, TargetList));
         }
         
         #endregion

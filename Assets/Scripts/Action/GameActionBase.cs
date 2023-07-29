@@ -205,12 +205,13 @@ namespace NueGames.Action
             }
 
             var spawnTransform = FxManager.GetFXSpawnPosition(ActionData.FxSpawnPosition);
-
+            Debug.Log(spawnTransform);
             switch (ActionData.FxSpawnPosition)
             {
                 case FxSpawnPosition.EachTarget:
                     foreach (var target in TargetList)
                     {
+                        Debug.Log(target);
                         FxManager.PlayFx(ActionData.FxName, spawnTransform, target.transform.position);
                     };
                     break;

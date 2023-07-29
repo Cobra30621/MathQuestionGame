@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using NueGames.Characters;
 using NueGames.Enums;
 
 namespace NueGames.Action
@@ -6,9 +8,10 @@ namespace NueGames.Action
     {
         public override ActionName ActionName => ActionName.FX;
 
-        public FXAction(FxName fxName,  FxSpawnPosition fxSpawnPosition)
+        public FXAction(FxName fxName,  FxSpawnPosition fxSpawnPosition, List<CharacterBase> targetList)
         {
             SetFXValue(fxName, fxSpawnPosition);
+            Parameters.TargetList = targetList;
         }
         
         protected override void DoMainAction()
