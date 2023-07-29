@@ -11,14 +11,17 @@ using NueGames.Parameters;
 
 namespace CardAction
 {
+    /// <summary>
+    /// 卡片行為的基底類別
+    /// 技術文件：https://hackmd.io/@Cobra3279/HJK2qpy9h/%2F1lel1P0IQ9Kw5hrXGgurAg
+    /// </summary>
     public abstract class CardActionBase
     {
+        
         protected CardBase Card;
         protected CardData CardData;
         protected List<CharacterBase> TargetList;
 
-        protected FxManager FxManager => FxManager.Instance;
-        
         public void SetValue(CardBase cardBase, List<CharacterBase> targetList)
         {
             Card = cardBase;

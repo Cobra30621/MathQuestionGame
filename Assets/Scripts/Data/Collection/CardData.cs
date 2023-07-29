@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using NueGames.Managers;
 using NueGames.NueExtentions;
 using NueGames.Power;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using Sirenix.Utilities;
 using UnityEditor;
 using UnityEngine;
@@ -21,9 +23,16 @@ namespace NueGames.Data.Collection
     [CreateAssetMenu(fileName = "Card Data", menuName = "NueDeck/Collection/Card", order = 0)]
     public class CardData : SerializedScriptableObject
     {
-        [Header("卡片行為")]
+        [FoldoutGroup("卡片行為")]
+        [InfoBox("點擊 CardAction 可以打開並設定自行定義的參數", InfoMessageType.Warning)]
+        [DetailedInfoBox("如何創建新的卡片行為(CardAction)...", 
+            "如何創建新的卡片行為(CardAction)\n" +
+            "請去 Assets/Scripts/CardAction 資料夾中，創建新的 cs 檔。\n" +
+            "技術文件放在 Assets/Scripts/CardAction/CardActionBase.cs 的開頭註解" )]
         [SerializeField] private CardActionBase cardAction;
         
+        [FoldoutGroup("數值參數")]
+        [SerializeField] private int value;
         [FoldoutGroup("數值參數")]
         [SerializeField]private ActionTargetType actionTargetType;
         [FoldoutGroup("數值參數")]
@@ -55,7 +64,7 @@ namespace NueGames.Data.Collection
         public Sprite CardSprite => cardSprite;
         public RarityType Rarity => rarity;
         public ActionTargetType ActionTargetType => actionTargetType;
-        [TypeFilter("GetFilteredTypeList")]
+        
         public CardActionBase CardAction => cardAction;
 
         public FxName FxName => fxName;
@@ -71,19 +80,6 @@ namespace NueGames.Data.Collection
         #endregion
 
         #region Methods
-        
-        
-        public IEnumerable<Type> GetFilteredTypeList()
-        {
-            var q = typeof(CardActionBase).Assembly.GetTypes()
-                .Where(x => !x.IsAbstract)                                          // Excludes BaseClass
-                .Where(x => !x.IsGenericTypeDefinition)                             // Excludes C1<>
-                .Where(x => typeof(CardActionBase).IsAssignableFrom(x));                 // Excludes classes not inheriting from BaseClass
-    
-    
-            return q;
-        }
-
         public void UpdateDescription()
         {
             
