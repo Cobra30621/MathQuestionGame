@@ -23,10 +23,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: cardAction
       Entry: 7
-      Data: 0|CardAction.Damage, Assembly-CSharp
-    - Name: damageValue
+      Data: 0|CardAction.DevelopingCard.StraightSlash, Assembly-CSharp
+    - Name: baseDamage
       Entry: 3
-      Data: 3
+      Data: 10
+    - Name: extraDamage
+      Entry: 3
+      Data: 5
     - Name: 
       Entry: 8
       Data: 

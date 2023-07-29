@@ -55,7 +55,6 @@ namespace NueGames.Action
                     TargetList = targetList,
                     ActionSource =  actionSource,
                     ActionData = actionData,
-                    CardData = cardData
                 };
 
                 GameActionBase gameActionBase = GetGameAction(actionParameters);

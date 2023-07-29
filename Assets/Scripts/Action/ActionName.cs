@@ -9,6 +9,7 @@
         Damage = 1, 
         DamageByQuestioning = 4,
         DamageByAllyPowerValue = 5,
+        DamageMoreIfTargetNotContainPowerAction = 7,
         
         // 111~200 角色能力
         ApplyPower = 111, 

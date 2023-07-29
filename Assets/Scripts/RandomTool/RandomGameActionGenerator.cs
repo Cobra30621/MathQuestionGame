@@ -30,7 +30,6 @@ namespace RandomTool
                     {
                         TargetList = parameters.TargetList,
                         ActionData = actionData,
-                        CardData = parameters.CardData,
                     };
                     
                     GameActionBase gameAction = GameActionGenerator.GetGameAction(newParameters);

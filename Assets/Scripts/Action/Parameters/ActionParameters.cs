@@ -31,31 +31,18 @@ namespace Action.Parameters
 
         #endregion
 
-
-        #region 選填
-
         /// <summary>
         /// 加成數量
         /// </summary>
         public float MultiplierAmount;
         
-        /// <summary>
-        /// 卡片資料(卡牌行為才需要)
-        /// </summary>
-        // TODO: 移除或是合併到 ActionData
-        public CardData CardData;
-        
 
-        #endregion
-
-        
         /// <summary>
         /// 加乘後的數值
         /// </summary>
         public int AdditionValue =>
             Mathf.RoundToInt(ActionData.BaseValue + 
                              MultiplierAmount * ActionData.MultiplierValue);
-
         
         public ActionParameters()
         {
