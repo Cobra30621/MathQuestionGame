@@ -39,16 +39,16 @@ namespace NueGames.Characters
                 GameManager.PersistentGameplayData.SetAllyHealthData(AllyCharacterData.CharacterID,CharacterStats.CurrentHealth,CharacterStats.MaxHealth);
             }
             
-            CharacterStats.OnDeath += OnDeath;
+            OnDeath += OnDeathAction;
             CharacterStats.SetCurrentHealth(CharacterStats.CurrentHealth);
             
             if (CombatManager != null)
                 CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
         }
         
-        protected override void OnDeath(DamageInfo damageInfo)
+        protected override void OnDeathAction(DamageInfo damageInfo)
         {
-            base.OnDeath(damageInfo);
+            base.OnDeathAction(damageInfo);
             if (CombatManager != null)
             {
                 CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;

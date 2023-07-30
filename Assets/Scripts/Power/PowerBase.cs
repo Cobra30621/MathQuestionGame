@@ -91,19 +91,19 @@ namespace NueGames.Power
             if (IsActive)
             {
                 Amount += stackAmount;
-                Owner?.GetCharacterStats().OnPowerChanged?.Invoke(PowerName, Amount);
+                Owner.OnPowerChanged?.Invoke(PowerName, Amount);
                 
             }
             else
             {
                 Amount = stackAmount;
                 IsActive = true;
-                Owner?.GetCharacterStats().OnPowerApplied?.Invoke(PowerName, Amount);
+                Owner.OnPowerApplied?.Invoke(PowerName, Amount);
             }
 
             if (stackAmount > 0)
             {
-                Owner?.GetCharacterStats().OnPowerIncrease?.Invoke(PowerName, stackAmount);
+                Owner.OnPowerIncreased?.Invoke(PowerName, stackAmount);
             }
 
             CheckClearPower();
@@ -141,7 +141,7 @@ namespace NueGames.Power
             IsActive = false;
             Amount = 0;
             Owner.GetPowerDict().Remove(PowerName);
-            Owner.GetCharacterStats().OnPowerCleared.Invoke(PowerName);
+            Owner.OnPowerCleared.Invoke(PowerName);
             UnSubscribeAllEvent();
         }
 
@@ -202,17 +202,7 @@ namespace NueGames.Power
 
         public bool IsCharacterTurn(TurnInfo info)
         {
-            return info.CharacterType == GetOwnerCharacterType();
-        }
-        
-        
-        /// <summary>
-        /// 取得能力的持有對象的 CharacterType
-        /// </summary>
-        /// <returns></returns>
-        public CharacterType GetOwnerCharacterType()
-        {
-            return Owner.CharacterType;
+            return Owner.IsCharacterType(info.CharacterType);
         }
         
         protected ActionSource GetActionSource()

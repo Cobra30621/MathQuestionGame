@@ -12,6 +12,7 @@ namespace NueGames.Characters
 {
     /// <summary>
     /// 角色
+    /// 文件：https://hackmd.io/@Cobra3279/HJK2qpy9h/%2FNLPqD8z3QaO6heSAZ-rBXA
     /// </summary>
     public abstract class CharacterBase : MonoBehaviour
     {
@@ -24,11 +25,7 @@ namespace NueGames.Characters
         /// <summary>
         /// 角色數值
         /// </summary>
-        protected CharacterStats CharacterStats;
-        /// <summary>
-        /// 玩家類型
-        /// </summary>
-        public CharacterType CharacterType => characterType;
+        protected CharacterStats CharacterStats; 
         /// <summary>
         /// 文字特效生成處
         /// </summary>
@@ -41,79 +38,75 @@ namespace NueGames.Characters
         protected UIManager UIManager => UIManager.Instance;
 
         #endregion
+        
+        
+        #region 事件
 
+        /// <summary>
+        /// 事件：玩家死亡時觸發
+        /// </summary>
+        public Action<DamageInfo> OnDeath;
 
-        #region Event
-
+        /// <summary>
+        /// 事件：當生命值改變時觸發
+        /// </summary>
+        public Action<int, int> OnHealthChanged;
         
         /// <summary>
         /// 被攻擊時。妳剛剛攻擊我的村莊 ? 我的 Coin Master 村莊 ?
         /// </summary>
-        public Action<DamageInfo> OnAttacked => CharacterStats.OnAttacked;
+        public Action<DamageInfo> OnAttacked;
+        
         /// <summary>
         /// 攻擊時。應該是。妳大老遠跑來，就只因為我攻擊了妳的村莊?
         /// </summary>
-        public Action<DamageInfo> OnAttack => CharacterStats.OnAttack;
+        public Action<DamageInfo> OnAttack;
+        
+        /// <summary>
+        ///  事件: 當獲得能力時觸發
+        /// </summary>
+        public Action<PowerName, int> OnPowerApplied;
+        
+        /// <summary>
+        ///  事件: 當能力數值改變時觸發
+        /// </summary>
+        public Action<PowerName, int> OnPowerChanged;
+        
+        /// <summary>
+        /// 事件: 當能力數值增加時觸發
+        /// </summary>
+        public Action<PowerName, int> OnPowerIncreased;
+        
+        /// <summary>
+        ///  事件: 當清除能力時觸發
+        /// </summary>
+        public Action<PowerName> OnPowerCleared;
 
         #endregion
-        
-        
 
-        public CharacterStats GetCharacterStats()
-        {
-            return CharacterStats;
-        }
 
         public virtual void BuildCharacter()
         {
             
         }
         
-        
-        
-        public CharacterType GetCharacterType()
+        public CharacterStats GetCharacterStats()
         {
-            return CharacterType;
+            return CharacterStats;
         }
 
-
-        public Dictionary<PowerName, PowerBase> GetPowerDict()
-        {
-            return CharacterStats.PowerDict;
-        }
-
+        
         /// <summary>
-        /// 持有能力
+        /// 檢查此玩家是否為指定的類別(Enemy, Ally)
         /// </summary>
-        /// <param name="powerName"></param>
+        /// <param name="checkType"></param>
         /// <returns></returns>
-        public bool HasPower(PowerName powerName)
+        public bool IsCharacterType(CharacterType checkType)
         {
-            return CharacterStats.PowerDict.ContainsKey(powerName);
-        }
-
-        public int GetPowerValue(PowerName powerName)
-        {
-            if (CharacterStats.PowerDict.ContainsKey(powerName))
-            {
-                return CharacterStats.PowerDict[powerName].Amount;
-            }
-
-            return 0;
-        }
-
-        public void SetCharacterStatus(CharacterStats stats)
-        {
-            CharacterStats = stats;
-        }
-
-        #region Damage
-
-        protected virtual void OnDeath(DamageInfo damageInfo)
-        {
-            
+            return characterType == checkType;
         }
         
+        #region Damage
         /// <summary>
         /// 被攻擊
         /// </summary>
@@ -129,8 +122,15 @@ namespace NueGames.Characters
         }
         
         
+        protected virtual void OnDeathAction(DamageInfo damageInfo)
+        {
+            
+        }
+        
 
         #endregion
+        
+        
         #region Power
 
         /// <summary>
@@ -151,14 +151,51 @@ namespace NueGames.Characters
             CharacterStats.MultiplyPower(targetPower, value);
         }
 
+        /// <summary>
+        /// 清除能力
+        /// </summary>
+        /// <param name="targetPower"></param>
         public void ClearPower(PowerName targetPower)
         {
             CharacterStats.ClearPower(targetPower);
         }
 
+        /// <summary>
+        /// 清除所有能力
+        /// </summary>
         public void ClearAllPower()
         {
             CharacterStats.ClearAllPower();
+        }
+        
+        /// <summary>
+        /// 是否持有能力
+        /// </summary>
+        /// <param name="targetPower"></param>
+        /// <returns></returns>
+        public bool HasPower(PowerName targetPower)
+        {
+            return CharacterStats.PowerDict.ContainsKey(targetPower);
+        }
+
+        /// <summary>
+        /// 取得能力的數值
+        /// </summary>
+        /// <param name="targetPower"></param>
+        /// <returns></returns>
+        public int GetPowerValue(PowerName targetPower)
+        {
+            if (CharacterStats.PowerDict.TryGetValue(targetPower, out var value))
+            {
+                return value.Amount;
+            }
+
+            return 0;
+        }
+        
+        public Dictionary<PowerName, PowerBase> GetPowerDict()
+        {
+            return CharacterStats.PowerDict;
         }
         
         #endregion

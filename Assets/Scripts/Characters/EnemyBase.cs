@@ -35,7 +35,7 @@ namespace NueGames.Characters
             EnemyCanvas.InitCanvas();
             CharacterStats = new CharacterStats(EnemyCharacterData.MaxHealth, this);
             CharacterStats.SetCharacterCanvasEvent(EnemyCanvas);
-            CharacterStats.OnDeath += OnDeath;
+            OnDeath += OnDeathAction;
             CharacterStats.SetCurrentHealth(CharacterStats.CurrentHealth);
 
             CombatManager.OnRoundStart += ShowNextAbility;
@@ -47,9 +47,9 @@ namespace NueGames.Characters
             enemyCharacterData = data;
         }
         
-        protected override void OnDeath(DamageInfo damageInfo)
+        protected override void OnDeathAction(DamageInfo damageInfo)
         {
-            base.OnDeath(damageInfo);
+            base.OnDeathAction(damageInfo);
             CombatManager.OnRoundStart -= ShowNextAbility;
             CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
            

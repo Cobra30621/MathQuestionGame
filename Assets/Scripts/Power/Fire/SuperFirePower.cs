@@ -15,12 +15,12 @@ namespace NueGames.Power
 
         public override void SubscribeAllEvent()
         {
-            Owner.GetCharacterStats().OnDeath += OnDead;
+            Owner.OnDeath += OnDead;
         }
 
         public override void UnSubscribeAllEvent()
         {
-            Owner.GetCharacterStats().OnDeath -= OnDead;
+            Owner.OnDeath -= OnDead;
         }
 
 

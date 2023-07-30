@@ -60,7 +60,7 @@ namespace NueGames.Combat
                 }
             }
 
-            bool selfIsAlly = selfCharacter.CharacterType == CharacterType.Ally;
+            bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
             // 計算遺物能力加成
             foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
             {
@@ -100,7 +100,7 @@ namespace NueGames.Combat
             }
             
 
-            bool selfIsAlly = selfCharacter.CharacterType == CharacterType.Ally;
+            bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
             // 計算遺物能力加成
             foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
             {

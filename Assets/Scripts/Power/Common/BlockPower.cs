@@ -30,7 +30,7 @@ namespace NueGames.Power
 
         protected override void OnTurnStart(TurnInfo info)
         {
-            if (info.CharacterType == GetOwnerCharacterType())
+            if (IsCharacterTurn(info))
             {
                 ClearPower();
             }

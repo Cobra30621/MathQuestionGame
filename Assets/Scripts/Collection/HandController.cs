@@ -387,7 +387,7 @@ namespace NueGames.Collection
                     return false;
                 }
                 
-                if (hitCharacter.GetCharacterType() != CharacterType.Enemy)
+                if (!hitCharacter.IsCharacterType(CharacterType.Enemy))
                 {
                     return false;
                 }
@@ -413,13 +413,9 @@ namespace NueGames.Collection
                     targetList.Add(CombatManager.CurrentMainAlly);
                     break;
                 case ActionTargetType.Enemy:
-                    if (hitTarget.GetCharacterType() == CharacterType.Enemy)
+                    if (hitTarget.IsCharacterType(CharacterType.Enemy))
                     {
                         targetList.Add(hitTarget);
-                    }
-                    else
-                    {
-                        Debug.LogError($"{hitTarget} 的 {hitTarget.GetCharacterType()} != {CharacterType.Enemy}");
                     }
                     break;
                 case ActionTargetType.AllEnemies:

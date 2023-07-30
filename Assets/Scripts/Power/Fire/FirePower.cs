@@ -36,7 +36,7 @@ namespace NueGames.Power
 
         protected override void OnTurnStart(TurnInfo info)
         {
-            if (info.CharacterType == GetOwnerCharacterType())
+            if (IsCharacterTurn(info))
             {
                 int fireAmount = Amount;
                 if (CombatManager.IsMainAllyHasPower(PowerName.Kindle))

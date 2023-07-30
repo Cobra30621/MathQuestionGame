@@ -18,12 +18,12 @@ namespace NueGames.Power
 
         public override void SubscribeAllEvent()
         {
-            Owner.GetCharacterStats().OnAttacked += OnAttacked;
+            Owner.OnAttacked += OnAttacked;
         }
 
         public override void UnSubscribeAllEvent()
         {
-            Owner.GetCharacterStats().OnAttacked -= OnAttacked;
+            Owner.OnAttacked -= OnAttacked;
         }
 
 
