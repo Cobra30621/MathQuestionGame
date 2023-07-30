@@ -91,19 +91,19 @@ namespace NueGames.Power
             if (IsActive)
             {
                 Amount += stackAmount;
-                Owner?.CharacterStats.OnPowerChanged?.Invoke(PowerName, Amount);
+                Owner?.GetCharacterStats().OnPowerChanged?.Invoke(PowerName, Amount);
                 
             }
             else
             {
                 Amount = stackAmount;
                 IsActive = true;
-                Owner?.CharacterStats.OnPowerApplied?.Invoke(PowerName, Amount);
+                Owner?.GetCharacterStats().OnPowerApplied?.Invoke(PowerName, Amount);
             }
 
             if (stackAmount > 0)
             {
-                Owner?.CharacterStats.OnPowerIncrease?.Invoke(PowerName, stackAmount);
+                Owner?.GetCharacterStats().OnPowerIncrease?.Invoke(PowerName, stackAmount);
             }
 
             CheckClearPower();
@@ -140,8 +140,8 @@ namespace NueGames.Power
         {
             IsActive = false;
             Amount = 0;
-            Owner.CharacterStats.PowerDict.Remove(PowerName);
-            Owner.CharacterStats.OnPowerCleared.Invoke(PowerName);
+            Owner.GetPowerDict().Remove(PowerName);
+            Owner.GetCharacterStats().OnPowerCleared.Invoke(PowerName);
             UnSubscribeAllEvent();
         }
 

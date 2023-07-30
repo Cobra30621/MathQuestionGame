@@ -1,4 +1,7 @@
-﻿using Kalkatos.DottedArrow;
+﻿using System.Collections.Generic;
+using Kalkatos.DottedArrow;
+using NueGames.Action;
+using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Combat;
@@ -29,8 +32,11 @@ namespace NueGames.Power
         protected override void OnRoundEnd(RoundInfo info)
         {
             // 回合結束時，降低使用者的能力
-            Owner.CharacterStats.ApplyPower(TargetPowerName, - Amount);
-            Owner.CharacterStats.ClearPower(PowerName);
+            GameActionExecutor.AddToBottom(new ApplyPowerAction(
+                -Amount, TargetPowerName, new List<CharacterBase>(){Owner}, GetActionSource()));
+            
+            GameActionExecutor.AddToBottom(new ClearPowerAction(
+                PowerName, new List<CharacterBase>(){Owner}, GetActionSource()));
             
             base.OnRoundEnd(info);
         }

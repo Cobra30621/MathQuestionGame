@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using Action.Parameters;
-using Action.Power;
-using Cinemachine;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Enums;
@@ -20,12 +18,12 @@ namespace NueGames.Power
 
         public override void SubscribeAllEvent()
         {
-            Owner.CharacterStats.OnAttacked += OnAttacked;
+            Owner.GetCharacterStats().OnAttacked += OnAttacked;
         }
 
         public override void UnSubscribeAllEvent()
         {
-            Owner.CharacterStats.OnAttacked -= OnAttacked;
+            Owner.GetCharacterStats().OnAttacked -= OnAttacked;
         }
 
 

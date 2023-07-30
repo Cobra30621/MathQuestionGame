@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Action.Parameters;
 using NueGames.Combat;
 using NueGames.Enums;
@@ -19,10 +20,11 @@ namespace NueGames.Characters
         [SerializeField] private Transform textSpawnRoot;
 
         #region Cache
+
         /// <summary>
         /// 角色數值
         /// </summary>
-        public CharacterStats CharacterStats { get; protected set; }
+        protected CharacterStats CharacterStats;
         /// <summary>
         /// 玩家類型
         /// </summary>
@@ -41,6 +43,22 @@ namespace NueGames.Characters
         #endregion
 
 
+        #region Event
+
+        
+        /// <summary>
+        /// 被攻擊時。妳剛剛攻擊我的村莊 ? 我的 Coin Master 村莊 ?
+        /// </summary>
+        public Action<DamageInfo> OnAttacked => CharacterStats.OnAttacked;
+        /// <summary>
+        /// 攻擊時。應該是。妳大老遠跑來，就只因為我攻擊了妳的村莊?
+        /// </summary>
+        public Action<DamageInfo> OnAttack => CharacterStats.OnAttack;
+
+        #endregion
+        
+        
+
         public CharacterStats GetCharacterStats()
         {
             return CharacterStats;
@@ -51,25 +69,8 @@ namespace NueGames.Characters
             
         }
         
-        protected virtual void OnDeath(DamageInfo damageInfo)
-        {
-            
-        }
         
-        /// <summary>
-        /// 被攻擊
-        /// </summary>
-        /// <param name="damageInfo"></param>
-        public virtual void BeAttacked(DamageInfo damageInfo)
-        {
-            CharacterStats.BeAttacked(damageInfo);
-        }
         
-        public  CharacterBase GetCharacterBase()
-        {
-            return this;
-        }
-
         public CharacterType GetCharacterType()
         {
             return CharacterType;
@@ -106,11 +107,32 @@ namespace NueGames.Characters
             CharacterStats = stats;
         }
 
+        #region Damage
 
-        #region CharacterStats
-
-        // TODO: 將 CharacterStats 整理上來
+        protected virtual void OnDeath(DamageInfo damageInfo)
+        {
+            
+        }
         
+        /// <summary>
+        /// 被攻擊
+        /// </summary>
+        /// <param name="damageInfo"></param>
+        public virtual void BeAttacked(DamageInfo damageInfo)
+        {
+            CharacterStats.BeAttacked(damageInfo);
+        }
+
+        public void Heal(int value)
+        {
+            CharacterStats.Heal(value);
+        }
+        
+        
+
+        #endregion
+        #region Power
+
         /// <summary>
         /// 賦予能力
         /// </summary>
@@ -128,7 +150,16 @@ namespace NueGames.Characters
         {
             CharacterStats.MultiplyPower(targetPower, value);
         }
-        
+
+        public void ClearPower(PowerName targetPower)
+        {
+            CharacterStats.ClearPower(targetPower);
+        }
+
+        public void ClearAllPower()
+        {
+            CharacterStats.ClearAllPower();
+        }
         
         #endregion
 

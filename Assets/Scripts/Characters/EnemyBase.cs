@@ -144,9 +144,10 @@ namespace NueGames.Characters
                 SourceType = SourceType.Enemy,
                 SourceCharacter = this,
             };
-            List<GameActionBase> gameActions =  GameActionGenerator.GetGameActions(null, 
-                actionSource, targetAbility.ActionList, targetList);
-            GameActionExecutor.AddToBottom(gameActions);
+            // List<GameActionBase> gameActions =  GameActionGenerator.GetGameActions(null, 
+            //     actionSource, targetAbility.ActionList, targetList);
+            // GameActionExecutor.AddToBottom(gameActions);
+            // TODO Enemy Action
         }
         
         protected virtual IEnumerator AttackRoutine(EnemyAbilityData targetAbility, Transform targetTransform )

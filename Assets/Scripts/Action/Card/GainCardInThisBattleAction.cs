@@ -9,19 +9,20 @@ namespace NueGames.Action
     /// </summary>
     public class GainCardInThisBattleAction : GameActionBase
     {
-        public override ActionName ActionName => ActionName.GainCardInThisBattle;
+        private CardTransfer _cardTransfer;
 
-        public GainCardInThisBattleAction(int cardCount, CardTransfer cardTransfer, ActionSource actionSource)
+        public GainCardInThisBattleAction(CardTransfer cardTransfer, ActionSource source)
         {
-            SetCardTransferActionValue(cardCount, cardTransfer, actionSource);
+            _cardTransfer = cardTransfer;
+            ActionSource = source;
         }
         
         
         protected override void DoMainAction()
         {
             if (CollectionManager != null)
-                CollectionManager.AddCardToPile(ActionData.CardTransfer.TargetPile, 
-                    ActionData.CardTransfer.TargetCardData);
+                CollectionManager.AddCardToPile(_cardTransfer.TargetPile, 
+                    _cardTransfer.TargetCardData);
             else
                 Debug.LogError("There is no CollectionManager");
             

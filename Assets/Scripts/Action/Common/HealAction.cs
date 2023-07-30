@@ -13,13 +13,13 @@ namespace NueGames.Action
     /// </summary>
     public class HealAction : GameActionBase
     {
-        public override ActionName ActionName => ActionName.Heal;
+        private int _healValue;
         
         public HealAction(int healValue, List<CharacterBase> targetList, ActionSource actionSource)
         {
-            ActionData.BaseValue = healValue;
-            Parameters.TargetList = targetList;
-            Parameters.ActionSource = actionSource;
+            _healValue = healValue;
+            TargetList = targetList;
+            ActionSource = actionSource;
         }
         
         /// <summary>
@@ -29,9 +29,9 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                target.CharacterStats.Heal(AdditionValue);
+                target.Heal(_healValue);
 
-                PlaySpawnTextFx($"{AdditionValue}", target);
+                PlaySpawnTextFx($"{_healValue}", target.TextSpawnRoot);
             }
             
         }

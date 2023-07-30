@@ -1,4 +1,6 @@
-﻿using NueGames.Characters;
+﻿using System.Collections.Generic;
+using NueGames.Action;
+using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Combat;
@@ -7,7 +9,7 @@ using NueGames.Power;
 namespace NueGames.Relic.Common
 {
     /// <summary>
-    /// 答對一題，獲得數學瑪娜
+    /// 答對一題，獲得力量
     /// </summary>
     public class StrengthGeneratorRelic : RelicBase
     {
@@ -26,7 +28,8 @@ namespace NueGames.Relic.Common
         protected override void OnAnswerCorrect()
         {
             CharacterBase ally = CombatManager.Instance.CurrentMainAlly;
-            ally.CharacterStats.ApplyPower(PowerName.Strength, 1);
+            GameActionExecutor.AddToBottom(new ApplyPowerAction(
+                1, PowerName.Strength, new List<CharacterBase>(){ally}, GetActionSource()));
         }
         
     }

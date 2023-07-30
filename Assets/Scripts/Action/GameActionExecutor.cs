@@ -5,6 +5,8 @@ using Action.Parameters;
 using NueGames.Action;
 using NueGames.Parameters;
 using NueGames.Power;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace NueGames.Managers
@@ -13,29 +15,29 @@ namespace NueGames.Managers
     /// 負責執行遊戲行為（GameAction）
     /// 提供 AddToTop, AddToBottom 方法，讓其他人加入想要執行的（GameAction）
     /// </summary>
-    public class GameActionExecutor : MonoBehaviour
+    public class GameActionExecutor : SerializedMonoBehaviour
     {
         /// <summary>
         /// "待執行的遊戲行為清單"
         /// </summary>
-        private List<GameActionBase> _actions;
+        [OdinSerialize] private List<GameActionBase> _actions;
         /// <summary>
         /// 正在執行的遊戲行為
         /// </summary>
-        private GameActionBase _currentAction;
+        [OdinSerialize] private GameActionBase _currentAction;
         /// <summary>
         /// 前一個遊戲行為
         /// </summary>
-        private GameActionBase _previousAction;
+        [OdinSerialize] private GameActionBase _previousAction;
 
         /// <summary>
         /// 階段
         /// </summary>
-        private Phase _phase;
+        [ReadOnly] [OdinSerialize] private Phase _phase;
         /// <summary>
         /// 遊戲行為是否執行完成
         /// </summary>
-        [SerializeField]private bool actionIsDone;
+        [ReadOnly] [OdinSerialize] private bool actionIsDone;
         
      
         /// <summary>
@@ -123,9 +125,9 @@ namespace NueGames.Managers
             _currentAction.DoAction();
             
             
-            Debug.Log($"Do action {_currentAction.ToString()}");
+            Debug.Log($"Do action {_currentAction.GetType()} : {_currentAction}");
             actionIsDone = false;
-            StartCoroutine(DoActionRoutine(_currentAction.ActionData.Delay));
+            StartCoroutine(DoActionRoutine(_currentAction.ActionDelay));
         }
 
         /// <summary>

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Action.Power;
-using Managers;
 using NueGames.Characters;
 using NueGames.Characters.Enemies;
-using NueGames.Data.Containers;
 using NueGames.Data.Encounter;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -241,7 +238,7 @@ namespace NueGames.Combat
             // TODO 改成等 OnTurnStart 結束觸發
             yield return new WaitForSeconds(0.3f);
                     
-            if (CurrentMainAlly.CharacterStats.IsStunned)
+            if (CurrentMainAlly.GetCharacterStats().IsStunned)
             {
                 EndTurn();
             }
@@ -317,7 +314,7 @@ namespace NueGames.Combat
             foreach (var allyBase in CurrentAlliesList)
             {
                 GameManager.PersistentGameplayData.SetAllyHealthData(allyBase.AllyCharacterData.CharacterID,
-                    allyBase.CharacterStats.CurrentHealth, allyBase.CharacterStats.MaxHealth);
+                    allyBase.GetCharacterStats().CurrentHealth, allyBase.GetCharacterStats().MaxHealth);
             }
             
             CollectionManager.ClearPiles();
@@ -330,7 +327,7 @@ namespace NueGames.Combat
             }
             else
             {
-                CurrentMainAlly.CharacterStats.ClearAllPower();
+                CurrentMainAlly.ClearAllPower();
                 GameManager.PersistentGameplayData.CurrentEncounterId++;
                 UIManager.CombatCanvas.gameObject.SetActive(false);
                 UIManager.RewardCanvas.gameObject.SetActive(true);

@@ -11,9 +11,9 @@ namespace NueGames.Action
     /// </summary>
     public class DamageMoreIfTargetNotContainPowerAction : GameActionBase
     {
-        public override ActionName ActionName => ActionName.DamageMoreIfTargetNotContainPowerAction;
         private PowerName _judgePower;
         private int _extraDamage;
+        private readonly DamageInfo _damageInfo;
 
         /// <summary>
         /// 如果對象有 XX 能力，造成額外傷害
@@ -22,16 +22,24 @@ namespace NueGames.Action
         /// <param name="judgePower">判斷是否持有的能力</param>
         /// <param name="extraDamage">額外加乘傷害</param>
         /// <param name="targetList">目標對象</param>
-        /// <param name="actionSource">行為來源</param>
+        /// <param name="source">行為來源</param>
         /// <param name="fixDamage">是否為固定傷害</param>
         /// <param name="canPierceArmor">是否為穿甲傷害</param>
         public DamageMoreIfTargetNotContainPowerAction(
             int baseValue, PowerName judgePower, int extraDamage, List<CharacterBase> targetList,  
-            ActionSource actionSource, bool fixDamage = false, bool canPierceArmor = false)
+            ActionSource source, bool fixDamage = false, bool canPierceArmor = false)
         {
-            SetDamageActionValue(baseValue, targetList, actionSource, fixDamage, canPierceArmor);
+            TargetList = targetList;
             _judgePower = judgePower;
             _extraDamage = extraDamage;
+            
+            _damageInfo = new DamageInfo()
+            {
+                damageValue = baseValue,
+                ActionSource = source,
+                FixDamage = fixDamage,
+                CanPierceArmor = canPierceArmor
+            };
         }
 
 
@@ -39,14 +47,16 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                int totalDamage = ActionData.BaseValue;
+                float totalDamage = _damageInfo.damageValue;
                 if (!target.HasPower(_judgePower))
                 {
                     totalDamage += _extraDamage;
                 }
+
+                _damageInfo.damageValue = totalDamage;
                 
                 GameActionExecutor.AddToBottom(new DamageAction(
-                    totalDamage, new List<CharacterBase>(){target}, Parameters.ActionSource));
+                    _damageInfo, new List<CharacterBase>(){target}));
             }
         }
     }

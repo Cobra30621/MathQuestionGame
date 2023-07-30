@@ -44,11 +44,17 @@ namespace NueGames.Power
                    fireAmount = Amount * 2;
                 }
 
+                // 造成傷害
                 GameActionExecutor.AddToBottom(
                     new DamageAction(fireAmount, new List<CharacterBase>(){Owner},
                         GetActionSource(),true));
                 
-                Owner.CharacterStats.ApplyPower(PowerName, -1); // 燒血後減層數 1 
+                // 燒血後減層數 1 
+                GameActionExecutor.AddToBottom(
+                    new ApplyPowerAction(-1, PowerName, 
+                        new List<CharacterBase>(){Owner}, GetActionSource()));
+                
+                
             }
         }
     }

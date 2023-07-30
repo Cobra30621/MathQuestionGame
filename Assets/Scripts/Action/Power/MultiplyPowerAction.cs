@@ -12,13 +12,16 @@ namespace NueGames.Action
 {
     public class MultiplyPowerAction : GameActionBase
     {
-        public override ActionName ActionName => ActionName.MultiplyPower;
-        
+        private int _applyValue;
+        private PowerName _targetPower;
         
         public MultiplyPowerAction(int applyValue, PowerName powerName, 
             List<CharacterBase> targetList, ActionSource actionSource)
         {
-            SetPowerActionValue(applyValue, powerName, targetList, actionSource);
+            _applyValue = applyValue;
+            _targetPower = powerName;
+            TargetList = targetList;
+            ActionSource = actionSource;
         }
         
         /// <summary>
@@ -28,7 +31,7 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                target.CharacterStats.MultiplyPower(ActionData.powerName, AdditionValue);
+                target.MultiplyPower(_targetPower, _applyValue);
                 
             }
         }

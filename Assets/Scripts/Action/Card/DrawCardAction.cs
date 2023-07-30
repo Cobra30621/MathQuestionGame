@@ -11,12 +11,12 @@ namespace NueGames.Action
     /// </summary>
     public class DrawCardAction : GameActionBase
     {
-        public override ActionName ActionName => ActionName.DrawCard;
+        private int _drawCardCount;
 
-        public DrawCardAction(int cardCount, ActionSource source)
+        public DrawCardAction(int drawCardCount, ActionSource source)
         {
-            ActionData.BaseValue = cardCount;
-            Parameters.ActionSource = source;
+            _drawCardCount = drawCardCount;
+            ActionSource = source;
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace NueGames.Action
         protected override void DoMainAction()
         {
             if (CollectionManager != null)
-                CollectionManager.DrawCards(ActionData.BaseValue);
+                CollectionManager.DrawCards(_drawCardCount);
             else
                 Debug.LogError("There is no CollectionManager");
         }

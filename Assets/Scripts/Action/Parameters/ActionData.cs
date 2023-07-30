@@ -22,10 +22,6 @@ namespace NueGames.Data.Collection
     public class ActionData
     {
         #region 基礎參數
-
-        [FoldoutGroup("基礎參數")]
-        [PropertyTooltip("行為名稱")]
-        public ActionName actionName;
         
         [DetailedInfoBox("數值計算公式...", 
             "BaseValue + MultiplierValue * MultiplierAmount" +

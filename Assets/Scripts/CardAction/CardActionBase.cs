@@ -34,10 +34,10 @@ namespace CardAction
         /// </summary>
         public void DoAction()
         {
-            // 執行遊戲主要邏輯
-            DoMainAction(); 
             // 執行特效撥放
             DoFXAction();
+            // 執行遊戲主要邏輯
+            DoMainAction();
         }
 
         
@@ -55,7 +55,8 @@ namespace CardAction
         protected void DoFXAction()
         {
             GameActionExecutor.AddToBottom(new FXAction(
-                CardData.FxName, CardData.FxSpawnPosition, TargetList));
+                new FxInfo(CardData.FxName, CardData.FxSpawnPosition)
+                , TargetList));
         }
         
         #endregion

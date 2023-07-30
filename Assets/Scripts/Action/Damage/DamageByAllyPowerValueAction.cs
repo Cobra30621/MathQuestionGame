@@ -15,23 +15,43 @@ namespace NueGames.Action
     /// </summary>
     public class DamageByAllyPowerValueAction : GameActionBase
     {
-        public override ActionName ActionName => ActionName.DamageByAllyPowerValue;
+        /// <summary>
+        /// 目標的能力
+        /// </summary>
+        private PowerName _targetPower;
+        /// <summary>
+        /// 傷害資訊
+        /// </summary>
+        private readonly DamageInfo _damageInfo;
+        /// <summary>
+        /// 加成數值
+        /// </summary>
+        private float _multiplierAmount;
         
         /// <summary>
         /// 設定數值
         /// </summary>
-        /// <param name="multiplierAmount">給予能力 x 倍的傷害</param>
+       
         /// <param name="targetList"></param>
-        /// <param name="powerName"></param>
-        /// <param name="actionSource"></param>
+        /// <param name="targetPower"></param>
+        /// <param name="source"></param>
+        /// <param name="multiplierAmount">給予能力 x 倍的傷害</param>
         /// <param name="fixDamage"></param>
         /// <param name="canPierceArmor"></param>
-        public DamageByAllyPowerValueAction(int multiplierAmount, List<CharacterBase> targetList, PowerName powerName, 
-            ActionSource actionSource, bool fixDamage  = false, bool canPierceArmor  = false)
+        public DamageByAllyPowerValueAction(List<CharacterBase> targetList, PowerName targetPower, 
+            ActionSource source, int multiplierAmount = 1, bool fixDamage  = false, bool canPierceArmor  = false)
         {
-            SetDamageActionValue(0, targetList, actionSource, fixDamage, canPierceArmor);
-            ActionData.powerName = powerName;
-            ActionData.MultiplierValue = multiplierAmount;
+            
+            TargetList = targetList;
+            _targetPower = targetPower;
+            _multiplierAmount = multiplierAmount;
+            
+            _damageInfo = new DamageInfo()
+            {
+                ActionSource = source,
+                FixDamage = fixDamage,
+                CanPierceArmor = canPierceArmor
+            };
         }
         
         /// <summary>
@@ -39,10 +59,11 @@ namespace NueGames.Action
         /// </summary>
         protected override void DoMainAction()
         {
-            Parameters.MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(ActionData.powerName);
+            float damageValue = CombatManager.CurrentMainAlly.GetPowerValue(_targetPower) * _multiplierAmount;
+            _damageInfo.damageValue = damageValue;
             
             GameActionExecutor.AddToBottom(new DamageAction(
-                AdditionValue, TargetList, Parameters.ActionSource));
+                _damageInfo, TargetList));
         }
     }
 }

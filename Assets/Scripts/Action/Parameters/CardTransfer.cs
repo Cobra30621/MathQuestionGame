@@ -4,8 +4,13 @@ using Sirenix.OdinInspector;
 
 namespace Action.Parameters
 {
+    /// <summary>
+    /// 卡牌轉移參數
+    /// </summary>
     public class CardTransfer
     {
+        public int CardCount = 1;
+        
         [InfoBox("用於與卡組相關的遊戲行為")]
         [FoldoutGroup("卡組參數")]
         [PropertyTooltip("起始的卡組")]

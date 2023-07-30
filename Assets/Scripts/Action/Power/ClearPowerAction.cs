@@ -15,12 +15,14 @@ namespace NueGames.Action
     /// </summary>
     public class ClearPowerAction : GameActionBase
     {
-        public override ActionName ActionName => ActionName.ClearPower;
+        private readonly PowerName _targetPower;
 
         public ClearPowerAction(PowerName powerName, 
             List<CharacterBase> targetList, ActionSource actionSource)
         {
-            SetPowerActionValue(0, powerName, targetList, actionSource);
+            _targetPower = powerName;
+            TargetList = targetList;
+            ActionSource = actionSource;
         }
         
         
@@ -31,7 +33,7 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                target.CharacterStats.ClearPower(ActionData.powerName);
+                target.ClearPower(_targetPower);
             }
         }
     }

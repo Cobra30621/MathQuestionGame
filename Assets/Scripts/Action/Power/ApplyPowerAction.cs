@@ -14,13 +14,16 @@ namespace NueGames.Action
     /// </summary>
     public class ApplyPowerAction : GameActionBase
     {
-        public override ActionName ActionName => ActionName.ApplyPower;
-
+        private int _applyValue;
+        private PowerName _targetPower;
 
         public ApplyPowerAction(int applyValue, PowerName powerName, 
             List<CharacterBase> targetList, ActionSource actionSource)
         {
-            SetPowerActionValue(applyValue, powerName, targetList, actionSource);
+            _applyValue = applyValue;
+            _targetPower = powerName;
+            TargetList = targetList;
+            ActionSource = actionSource;
         }
         
         /// <summary>
@@ -30,7 +33,7 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                target.CharacterStats.ApplyPower(ActionData.powerName, AdditionValue);
+                target.ApplyPower(_targetPower, _applyValue);
             }
             
         }

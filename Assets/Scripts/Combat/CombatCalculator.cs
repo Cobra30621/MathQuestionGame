@@ -30,10 +30,10 @@ namespace NueGames.Combat
         {
             if (info.FixDamage)
             {
-                return info.AdditionValue;
+                return  Mathf.RoundToInt(info.damageValue);
             }
             
-            return GetDamageValue(info.AdditionValue, info.ActionSource.SourceCharacter, info.Target);
+            return GetDamageValue(info.damageValue, info.ActionSource.SourceCharacter, info.Target);
         }
         
         
