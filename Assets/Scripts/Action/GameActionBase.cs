@@ -21,8 +21,6 @@ namespace NueGames.Action
     public abstract class GameActionBase
     {
         #region Parameters
-
-        
         /// <summary>
         /// 行為目標對象
         /// </summary>
@@ -32,7 +30,7 @@ namespace NueGames.Action
         /// 行為來源
         /// </summary>
         public ActionSource ActionSource;
-
+        
         public float ActionDelay;
         
         #endregion

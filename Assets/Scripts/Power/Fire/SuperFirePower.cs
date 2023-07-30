@@ -28,7 +28,7 @@ namespace NueGames.Power
         {
             if (damageInfo.ActionSource.IsFromPower(PowerName.Fire))
             {
-                var targetList = CombatManager.CurrentEnemiesList;
+                var targetList = CombatManager.Enemies;
 
                 foreach (var target in targetList)
                 {

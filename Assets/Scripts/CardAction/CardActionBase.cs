@@ -67,7 +67,7 @@ namespace CardAction
             {
                 SourceType = SourceType.Card,
                 SourceCard = Card,
-                SourceCharacter = CombatManager.Instance.CurrentMainAlly
+                SourceCharacter = CombatManager.Instance.MainAlly
             };
         }
     }

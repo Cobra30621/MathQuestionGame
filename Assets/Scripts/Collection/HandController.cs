@@ -410,7 +410,7 @@ namespace NueGames.Collection
             switch (cardActionTarget)
             {
                 case ActionTargetType.Ally:
-                    targetList.Add(CombatManager.CurrentMainAlly);
+                    targetList.Add(CombatManager.MainAlly);
                     break;
                 case ActionTargetType.Enemy:
                     if (hitTarget.IsCharacterType(CharacterType.Enemy))
@@ -419,7 +419,7 @@ namespace NueGames.Collection
                     }
                     break;
                 case ActionTargetType.AllEnemies:
-                    targetList.AddRange(CombatManager.CurrentEnemiesList);
+                    targetList.AddRange(CombatManager.Enemies);
                     break;
                 case ActionTargetType.RandomEnemy:
                     throw new System.NotImplementedException();

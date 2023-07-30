@@ -59,7 +59,7 @@ namespace NueGames.Action
         /// </summary>
         protected override void DoMainAction()
         {
-            float damageValue = CombatManager.CurrentMainAlly.GetPowerValue(_targetPower) * _multiplierAmount;
+            float damageValue = CombatManager.MainAlly.GetPowerValue(_targetPower) * _multiplierAmount;
             _damageInfo.damageValue = damageValue;
             
             GameActionExecutor.AddToBottom(new DamageAction(

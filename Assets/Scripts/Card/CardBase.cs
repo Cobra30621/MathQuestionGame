@@ -99,7 +99,7 @@ namespace NueGames.Card
             {
                 SourceType = SourceType.Card,
                 SourceCard = this,
-                SourceCharacter = CombatManager.CurrentMainAlly
+                SourceCharacter = CombatManager.MainAlly
             };
             
             CardData.CardAction.SetValue(this, targetList);

@@ -67,7 +67,7 @@ namespace Tool
         {
             foreach (var powerName in allyPowerAtGameStart)
             {
-                var ally = CombatManager.Instance.CurrentMainAlly;
+                var ally = CombatManager.Instance.MainAlly;
                 
                 GameActionExecutor.AddToBottom(
                     new ApplyPowerAction(1, powerName, 
