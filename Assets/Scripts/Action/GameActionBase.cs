@@ -21,175 +21,47 @@ namespace NueGames.Action
     public abstract class GameActionBase
     {
         #region Parameters
-
-        /// <summary>
-        /// 行動類型 (用來確保一定會創立 GameActionType)
-        /// </summary>
-        public abstract ActionName ActionName  { get;}
-        
-        
-        /// <summary>
-        /// 行動參數
-        /// </summary>
-        protected ActionParameters Parameters;
-        
         /// <summary>
         /// 行為目標對象
         /// </summary>
-        protected List<CharacterBase> TargetList => Parameters.TargetList;
+        protected List<CharacterBase> TargetList;
+        
         /// <summary>
-        /// 遊戲行為的資料
+        /// 行為來源
         /// </summary>
-        public ActionData ActionData => Parameters.ActionData;
-
-
-
-        /// <summary>
-        /// 加乘後的數值
-        /// </summary>
-        protected int AdditionValue => Parameters.AdditionValue;
-
+        public ActionSource ActionSource;
+        
+        public float ActionDelay;
+        
         #endregion
         
         #region Manager
 
-        protected FxManager FxManager
-        {
-            get { return FxManager.Instance; }
-        }
+        protected FxManager FxManager => FxManager.Instance;
 
-        protected AudioManager AudioManager
-        {
-            get { return AudioManager.Instance; }
-        }
+        protected AudioManager AudioManager => AudioManager.Instance;
 
-        protected GameManager GameManager
-        {
-            get { return GameManager.Instance; }
-        }
+        protected GameManager GameManager => GameManager.Instance;
 
-        protected CombatManager CombatManager
-        {
-            get { return CombatManager.Instance; }
-        }
+        protected CombatManager CombatManager => CombatManager.Instance;
 
-        protected CollectionManager CollectionManager
-        {
-            get { return CollectionManager.Instance; }
-        }
+        protected CollectionManager CollectionManager => CollectionManager.Instance;
 
-        protected GameActionExecutor GameActionExecutor
-        {
-            get { return GameActionExecutor.Instance; }
-        }
-        
-
-        #endregion
-
-        #region Set Value
-
-        protected GameActionBase()
-        {
-            Parameters = new ActionParameters();
-        }
-
-        /// <summary>
-        /// 依據參數設定行為數值
-        /// </summary>
-        /// <param name="parameters"></param>
-        public virtual void SetValue(ActionParameters parameters)
-        {
-            Parameters = parameters;
-        }
-
-        #region Damage
-
-        public void SetDamageActionValue(int baseValue, CharacterBase target,
-            ActionSource actionSource, bool fixDamage = false, bool canPierceArmor = false)
-        {
-            SetDamageActionValue(baseValue,new List<CharacterBase>(){target}, actionSource, fixDamage, canPierceArmor);
-        }
-
-        public void SetDamageActionValue(int baseValue, List<CharacterBase> targetList, 
-            ActionSource actionSource, bool fixDamage  = false, bool canPierceArmor  = false)
-        {
-            ActionData.BaseValue = baseValue;
-            ActionData.FixDamage = fixDamage;
-            ActionData.CanPierceArmor = canPierceArmor;
-            Parameters.ActionSource = actionSource;
-
-            Parameters.TargetList = targetList;
-        }
-        
-
-        #endregion
-
-        #region Power
-
-        public void SetPowerActionValue(int baseValue, PowerName powerName,
-            CharacterBase target, ActionSource actionSource)
-        {
-            SetPowerActionValue(baseValue, powerName, new List<CharacterBase>(){target}, actionSource);
-        }
-
-        public void SetPowerActionValue(int baseValue, PowerName powerName, 
-            List<CharacterBase> targetList, ActionSource actionSource)
-        {
-            ActionData.BaseValue = baseValue;
-            ActionData.powerName = powerName;
-            Parameters.TargetList = targetList;
-            Parameters.ActionSource = actionSource;
-        }
 
         #endregion
 
 
-        #region Card Transfer
+        #region SetValue
 
-        public void SetCardTransferActionValue(int baseValue, CardTransfer cardTransfer, ActionSource actionSource)
+
+        public GameActionBase SetActionDelay(float delay)
         {
-            ActionData.BaseValue = baseValue;
-            ActionData.CardTransfer = cardTransfer;
-            Parameters.ActionSource = actionSource;
+            ActionDelay = delay;
+            return this;
         }
 
         #endregion
         
-        #region Basic
-
-        public void SetBasicAndTargetValue(int baseValue, CharacterBase target, ActionSource actionSource)
-        {
-            SetBasicAndTargetValue(baseValue, new List<CharacterBase>(){target}, actionSource);
-        }
-        
-        public void SetBasicAndTargetValue(int baseValue, List<CharacterBase> targetList, ActionSource actionSource)
-        {
-            ActionData.BaseValue = baseValue;
-            Parameters.TargetList = targetList;
-            Parameters.ActionSource = actionSource;
-        }
-        
-        public void SetBasicValue(int baseValue, ActionSource actionSource)
-        {
-            ActionData.BaseValue = baseValue;
-            Parameters.ActionSource = actionSource;
-        }
-
-        #endregion
-
-
-        #region FX
-
-        public void SetFXValue(FxName FxName,  FxSpawnPosition FxSpawnPosition)
-        {
-            Parameters.ActionData.FxName = FxName;
-            Parameters.ActionData.FxSpawnPosition = FxSpawnPosition;
-        }
-
-        #endregion
-        
-        #endregion
-
         #region 執行遊戲行為
 
         /// <summary>
@@ -199,8 +71,6 @@ namespace NueGames.Action
         {
             // 執行遊戲主要邏輯
             DoMainAction(); 
-            // 執行特效撥放
-            DoFXAction();
         }
         
         
@@ -211,89 +81,28 @@ namespace NueGames.Action
         
 
         #endregion
+        
+        
         #region Play FX
 
-        /// <summary>
-        /// 執行要撥放的特效
-        /// </summary>
-        protected void DoFXAction()
-        {
-            // 不播放特效
-            if (ActionData.FxName == FxName.Null)
-            {
-                return;
-            }
-
-            var spawnTransform = FxManager.GetFXSpawnPosition(ActionData.FxSpawnPosition);
-
-            switch (ActionData.FxSpawnPosition)
-            {
-                case FxSpawnPosition.EachTarget:
-                    foreach (var target in TargetList)
-                    {
-                        FxManager.PlayFx(ActionData.FxName, spawnTransform, target.transform.position);
-                    };
-                    break;
-                case FxSpawnPosition.Ally:
-                    spawnTransform.position = CombatManager.GetMainAllyTransform().position;
-                    FxManager.PlayFx(ActionData.FxName, spawnTransform);
-                    break;
-                case FxSpawnPosition.EnemyMiddle:
-                case FxSpawnPosition.ScreenMiddle:
-                    FxManager.PlayFx(ActionData.FxName, spawnTransform);
-                    break;
-            }
-        }
-        
         /// <summary>
         /// 生成文字特效(如收到傷害顯示傷害數值)
         /// </summary>
         /// <param name="info"></param>
-        protected void PlaySpawnTextFx(string info, CharacterBase target)
+        /// <param name="spawmRoot"></param>
+        protected void PlaySpawnTextFx(string info, Transform spawmRoot)
         {
-          
-            FxManager.SpawnFloatingText(target.TextSpawnRoot,info);
+           
+            FxManager.SpawnFloatingText(spawmRoot,info);
         }
         
 
         #endregion
 
 
-        #region 工具：執行傷害行為
-
-        /// <summary>
-        /// 執行傷害行動
-        /// </summary>
-        protected void DoDamageAction()
-        {
-            foreach (var target in TargetList)
-            {
-                DamageAction damageAction = new DamageAction();
-                damageAction.SetValue(Parameters);
-                GameActionExecutor.AddToBottom(damageAction);
-            }
-        }
-
-        /// <summary>
-        /// 取得傷害行動用的 DamageInfo
-        /// </summary>
-        /// <returns></returns>
-        protected DamageInfo CreateDamageInfo(CharacterBase target)
-        {
-            DamageInfo damageInfo = new DamageInfo
-            {
-                Parameters = Parameters,
-                Target = target
-            };
-
-            return damageInfo;
-        }
-
-        #endregion
-
         public override string ToString()
         {
-            return $"{ActionName}\n{Parameters}";
+            return $"{nameof(TargetList)}: {TargetList}, {nameof(ActionSource)}: {ActionSource}, {nameof(ActionDelay)}: {ActionDelay}";
         }
     }
 }

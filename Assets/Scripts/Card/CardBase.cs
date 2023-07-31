@@ -99,7 +99,7 @@ namespace NueGames.Card
             {
                 SourceType = SourceType.Card,
                 SourceCard = this,
-                SourceCharacter = CombatManager.CurrentMainAlly
+                SourceCharacter = CombatManager.MainAlly
             };
             
             CardData.CardAction.SetValue(this, targetList);
@@ -129,13 +129,6 @@ namespace NueGames.Card
         {
             if (!IsPlayable) return;
             CombatManager.AddMana(-value);
-        }
-        
-        protected virtual void SpendPower(PowerName powerName, int value)
-        {
-            if (!IsPlayable) return;
-            // CombatManager.SpendPower(powerType, value);
-            CombatManager.SpendMathMana(value);
         }
         
         public virtual void SetInactiveMaterialState(bool isInactive) 

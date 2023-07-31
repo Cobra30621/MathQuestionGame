@@ -1,4 +1,5 @@
-﻿using NueGames.Card;
+﻿using Action.Parameters;
+using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using UnityEngine;
@@ -10,8 +11,14 @@ namespace NueGames.Action
     /// </summary>
     public class EarnManaAction : GameActionBase
     {
-        public override ActionName ActionName => ActionName.EarnMana;
-   
+        private int _manaCount;
+
+        public EarnManaAction(int manaCount, ActionSource source)
+        {
+            _manaCount = manaCount;
+            ActionSource = source;
+        }
+        
         
         /// <summary>
         /// 執行遊戲行為的功能
@@ -19,7 +26,7 @@ namespace NueGames.Action
         protected override void DoMainAction()
         {
             if (CombatManager != null)
-                CombatManager.AddMana(ActionData.BaseValue);
+                CombatManager.AddMana(_manaCount);
             else
                 Debug.LogError("There is no CombatManager");
         }

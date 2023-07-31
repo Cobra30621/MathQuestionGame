@@ -23,29 +23,19 @@ MonoBehaviour:
     SerializationNodes:
     - Name: cardAction
       Entry: 7
-      Data: 0|CardAction.Common.DamageCard, Assembly-CSharp
+      Data: 0|CardAction.Damage, Assembly-CSharp
     - Name: damageValue
       Entry: 3
-      Data: 2
+      Data: 12
     - Name: 
       Entry: 8
       Data: 
-  cardName: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA"
+  actionTargetType: 0
   manaCost: 0
+  exhaustAfterPlay: 0
+  fxName: 55
+  fxSpawnPosition: 0
+  cardName: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA"
   cardSprite: {fileID: 21300000, guid: 5edd33061732d2b4587c7145881fd109, type: 3}
   rarity: 0
-  actionTargetType: 0
-  exhaustAfterPlay: 0
-  cardActionDataList:
-  - actionName: 1
-    BaseValue: 10
-    MultiplierValue: 0
-    Delay: 0
-    FxName: 55
-    FxSpawnPosition: 0
-    FixDamage: 0
-    CanPierceArmor: 0
-    powerName: 0
-    TriggerActionList: []
-  description: 
-  specialKeywordsList: 
+  description: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA"

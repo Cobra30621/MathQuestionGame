@@ -10,16 +10,11 @@ namespace Action.Parameters
 {
     public class DamageInfo
     {
-        /// <summary>
-        /// 行動的參數
-        /// </summary>
-        public ActionParameters Parameters;
-        
-        
+
         /// <summary>
         /// 傷害來源
         /// </summary>
-        public ActionSource ActionSource => Parameters.ActionSource;
+        public ActionSource ActionSource;
         /// <summary>
         /// 傷害對象
         /// </summary>
@@ -27,25 +22,15 @@ namespace Action.Parameters
         /// <summary>
         /// 基礎傷害數值
         /// </summary>
-        public int BaseValue => Parameters.ActionData.BaseValue;
+        public float damageValue;
         /// <summary>
         /// 固定傷害，不受狀態影響
         /// </summary>
-        public bool FixDamage  => Parameters.ActionData.FixDamage;
+        public bool FixDamage;
         /// <summary>
         /// 可以穿甲
         /// </summary>
-        public bool CanPierceArmor => Parameters.ActionData.CanPierceArmor;
-
-        #region 選填
-        
-        /// <summary>
-        /// 加乘後的數值
-        /// </summary>
-        public int AdditionValue => Parameters.AdditionValue;
-
-        #endregion
-
+        public bool CanPierceArmor;
 
    
 

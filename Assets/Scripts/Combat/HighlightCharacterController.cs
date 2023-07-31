@@ -39,13 +39,13 @@ namespace NueGames.Combat
 
         void ActivateAllEnemyHighlights()
         {
-            foreach (var currentEnemy in CombatManager.CurrentEnemiesList)
+            foreach (var currentEnemy in CombatManager.Enemies)
                 currentEnemy.EnemyCanvas.SetHighlight(true);
         }
 
         void ActivateAllAllyHighlights()
         {
-            foreach (var currentAlly in CombatManager.CurrentAlliesList)
+            foreach (var currentAlly in CombatManager.Allies)
                 currentAlly.AllyCanvas.SetHighlight(true);
         }
         
@@ -57,13 +57,13 @@ namespace NueGames.Combat
         
         public void DeactivateAllyHighlights()
         {
-            foreach (var currentAlly in CombatManager.CurrentAlliesList)
+            foreach (var currentAlly in CombatManager.Allies)
                 currentAlly.AllyCanvas.SetHighlight(false);
         }
         
         public void DeactivateEnemyHighlights()
         {
-            foreach (var currentEnemy in CombatManager.CurrentEnemiesList)
+            foreach (var currentEnemy in CombatManager.Enemies)
                 currentEnemy.EnemyCanvas.SetHighlight(false);
         }
     }

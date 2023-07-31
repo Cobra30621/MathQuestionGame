@@ -387,7 +387,7 @@ namespace NueGames.Collection
                     return false;
                 }
                 
-                if (hitCharacter.GetCharacterType() != CharacterType.Enemy)
+                if (!hitCharacter.IsCharacterType(CharacterType.Enemy))
                 {
                     return false;
                 }
@@ -410,20 +410,16 @@ namespace NueGames.Collection
             switch (cardActionTarget)
             {
                 case ActionTargetType.Ally:
-                    targetList.Add(CombatManager.CurrentMainAlly);
+                    targetList.Add(CombatManager.MainAlly);
                     break;
                 case ActionTargetType.Enemy:
-                    if (hitTarget.GetCharacterType() == CharacterType.Enemy)
+                    if (hitTarget.IsCharacterType(CharacterType.Enemy))
                     {
                         targetList.Add(hitTarget);
                     }
-                    else
-                    {
-                        Debug.LogError($"{hitTarget} 的 {hitTarget.GetCharacterType()} != {CharacterType.Enemy}");
-                    }
                     break;
                 case ActionTargetType.AllEnemies:
-                    targetList.AddRange(CombatManager.CurrentEnemiesList);
+                    targetList.AddRange(CombatManager.Enemies);
                     break;
                 case ActionTargetType.RandomEnemy:
                     throw new System.NotImplementedException();

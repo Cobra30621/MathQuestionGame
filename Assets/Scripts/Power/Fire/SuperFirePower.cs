@@ -1,5 +1,7 @@
-﻿using Action.Parameters;
+﻿using System.Collections.Generic;
+using Action.Parameters;
 using NueGames.Action;
+using NueGames.Characters;
 using NueGames.Managers;
 
 
@@ -13,12 +15,12 @@ namespace NueGames.Power
 
         public override void SubscribeAllEvent()
         {
-            Owner.GetCharacterStats().OnDeath += OnDead;
+            Owner.OnDeath += OnDead;
         }
 
         public override void UnSubscribeAllEvent()
         {
-            Owner.GetCharacterStats().OnDeath -= OnDead;
+            Owner.OnDeath -= OnDead;
         }
 
 
@@ -26,17 +28,15 @@ namespace NueGames.Power
         {
             if (damageInfo.ActionSource.IsFromPower(PowerName.Fire))
             {
-                var targetList = CombatManager.CurrentEnemiesList;
+                var targetList = CombatManager.Enemies;
 
                 foreach (var target in targetList)
                 {
-                    var damageAction = new DamageAction();
-                    damageAction.SetDamageActionValue(Amount, target, GetActionSource());
-                    GameActionExecutor.Instance.AddToBottom(damageAction);
+                    GameActionExecutor.AddToBottom(new DamageAction(
+                        Amount, new List<CharacterBase>(){target}, GetActionSource()));
 
-                    var applyPowerAction = new ApplyPowerAction();
-                    applyPowerAction.SetPowerActionValue(Amount, PowerName.Fire, target, GetActionSource());
-                    GameActionExecutor.Instance.AddToBottom(applyPowerAction);
+                    GameActionExecutor.AddToBottom(new ApplyPowerAction(
+                        Amount, PowerName.Fire, new List<CharacterBase>(){target}, GetActionSource()));
                 }
             }
         }

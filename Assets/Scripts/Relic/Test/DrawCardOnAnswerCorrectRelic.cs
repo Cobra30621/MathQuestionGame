@@ -32,9 +32,8 @@ namespace NueGames.Relic.Common
             
             if (Counter >= NeedCounter)
             {
-                DrawCardAction action = new DrawCardAction();
-                action.SetValue(drawAmonut);
-                GameActionExecutor.Instance.AddToTop(action);
+                GameActionExecutor.AddToTop(new DrawCardAction(
+                    drawAmonut, GetActionSource()));
 
                 Counter = 0;
             }

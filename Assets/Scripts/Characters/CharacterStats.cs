@@ -20,65 +20,35 @@ namespace NueGames.Characters
         /// <summary>
         /// 持有數值的角色
         /// </summary>
-        private readonly CharacterBase owner;
+        private CharacterBase owner;
+
+        #region 參數
+
         /// <summary>
         /// 最大生命值
         /// </summary>
-        public int MaxHealth { get; set; }
+        public int MaxHealth;
         /// <summary>
         /// 現在生命值
         /// </summary>
-        public int CurrentHealth { get; set; }
+        public int CurrentHealth ;
         /// <summary>
         /// 是否暈眩
         /// </summary>
-        public bool IsStunned { get;  set; }
+        public bool IsStunned ;
         /// <summary>
         /// 是否死亡
         /// </summary>
-        public bool IsDeath { get; private set; }
-       
-        /// <summary>
-        /// 事件：玩家死亡時觸發
-        /// </summary>
-        public Action<DamageInfo> OnDeath;
-        /// <summary>
-        /// 事件：當生命值改變時觸發
-        /// </summary>
-        public Action<int, int> OnHealthChanged;
-        
-        /// <summary>
-        /// 被攻擊時。妳剛剛攻擊我的村莊 ? 我的 Coin Master 村莊 ?
-        /// </summary>
-        public Action<DamageInfo> OnAttacked;
-        /// <summary>
-        /// 攻擊時。應該是。妳大老遠跑來，就只因為我攻擊了妳的村莊?
-        /// </summary>
-        public Action<DamageInfo> OnAttack;
-
-        /// <summary>
-        ///  事件: 當獲得能力時觸發
-        /// </summary>
-        public Action<PowerName, int> OnPowerApplied;
-        /// <summary>
-        ///  事件: 當能力數值改變時觸發
-        /// </summary>
-        public Action<PowerName, int> OnPowerChanged;
-        /// <summary>
-        /// 事件: 當能力數值增加時觸發
-        /// </summary>
-        public Action<PowerName, int> OnPowerIncrease;
-        /// <summary>
-        ///  事件: 當清除能力時觸發
-        /// </summary>
-        public Action<PowerName> OnPowerCleared;
-        
+        public bool IsDeath ;
         
         /// <summary>
         /// 持有的能力清單
         /// </summary>
         public readonly Dictionary<PowerName, PowerBase> PowerDict = new Dictionary<PowerName, PowerBase>();
 
+        #endregion
+
+        
         #region Setup 初始設定
         public CharacterStats(int maxHealth, CharacterBase characterBase)
         {
@@ -91,16 +61,16 @@ namespace NueGames.Characters
 
         public void SetCharacterCanvasEvent(CharacterCanvas characterCanvas)
         {
-            OnPowerApplied += characterCanvas.ApplyStatus;
-            OnPowerChanged += characterCanvas.UpdateStatusText;
-            OnPowerCleared += characterCanvas.ClearStatus;
-            OnHealthChanged += characterCanvas.UpdateHealthInfo;
+            owner.OnPowerApplied += characterCanvas.ApplyStatus;
+            owner.OnPowerChanged += characterCanvas.UpdateStatusText;
+            owner.OnPowerCleared += characterCanvas.ClearStatus;
+            owner.OnHealthChanged += characterCanvas.UpdateHealthInfo;
         }
 
         
         #endregion
         
-        #region Public Methods
+        #region Power 能力
         /// <summary>
         /// 賦予能力
         /// </summary>
@@ -109,9 +79,9 @@ namespace NueGames.Characters
         public void ApplyPower(PowerName targetPower,int value)
         {
             // Debug.Log($"{owner.name} apply {targetPower} {value}");
-            if (PowerDict.ContainsKey(targetPower))
+            if (PowerDict.TryGetValue(targetPower, out var power))
             {
-                PowerDict[targetPower].StackPower(value);
+                power.StackPower(value);
             }
             else
             {
@@ -130,13 +100,35 @@ namespace NueGames.Characters
         /// </summary>
         public void MultiplyPower(PowerName targetPower,int value)
         {
-            if(PowerDict.ContainsKey(targetPower))
-                PowerDict[targetPower].MultiplyPower(value);
+            if(PowerDict.TryGetValue(targetPower, out var power))
+                power.MultiplyPower(value);
         }
 
 
         /// <summary>
-        /// 遊戲回合結束時，通知持有的能力
+        /// 清除所有能力
+        /// </summary>
+        public void ClearAllPower()
+        {
+            Dictionary<PowerName, PowerBase> copyPowerDict = new Dictionary<PowerName, PowerBase>(PowerDict);
+            foreach (var power in copyPowerDict)
+                ClearPower(power.Key);
+        }
+        
+        /// <summary>
+        /// 清除能力
+        /// </summary>
+        /// <param name="targetPower"></param>
+        public void ClearPower(PowerName targetPower)
+        {
+            if (PowerDict.TryGetValue(targetPower, out var value))
+            {
+                value.ClearPower();
+            }
+        }
+        
+        /// <summary>
+        /// 遊戲回合結束時，通知持有的能力更新狀態
         /// </summary>
         public void HandleAllPowerOnRoundEnd(RoundInfo info)
         {
@@ -147,6 +139,10 @@ namespace NueGames.Characters
             }
         }
         
+        #endregion
+
+        #region Health and Damage
+        
         /// <summary>
         /// 設置生命值
         /// </summary>
@@ -154,7 +150,7 @@ namespace NueGames.Characters
         public void SetCurrentHealth(int targetCurrentHealth)
         {
             CurrentHealth = targetCurrentHealth <=0 ? 1 : targetCurrentHealth;
-            OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
+            owner.OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
         } 
         
         /// <summary>
@@ -165,7 +161,7 @@ namespace NueGames.Characters
         {
             CurrentHealth += value;
             if (CurrentHealth>MaxHealth)  CurrentHealth = MaxHealth;
-            OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
+            owner.OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
         }
 
         /// <summary>
@@ -175,26 +171,18 @@ namespace NueGames.Characters
         public void BeAttacked(DamageInfo damageInfo)
         {
             if (IsDeath) return;
-            OnAttacked?.Invoke(damageInfo);
+            owner.OnAttacked?.Invoke(damageInfo);
 
             var damageValue = damageInfo.GetDamageValue();
             var afterBlockDamage = damageInfo.GetAfterBlockDamage();
             
-            BeDamaged(afterBlockDamage);
+            CurrentHealth -= afterBlockDamage;
+            if (afterBlockDamage > 0)
+            {
+                owner.OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
+            }
             ReduceBlock(damageValue - afterBlockDamage);
             CheckIsDeath(damageInfo);
-        }
-
-        /// <summary>
-        /// 受到傷害
-        /// </summary>
-        private void BeDamaged(int damage)
-        {
-            CurrentHealth -= damage;
-            if (damage > 0)
-            {
-                OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
-            }
         }
 
         /// <summary>
@@ -218,7 +206,7 @@ namespace NueGames.Characters
             if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
-                OnDeath?.Invoke(damageInfo);
+                owner.OnDeath?.Invoke(damageInfo);
                 IsDeath = true;
             }
         }
@@ -231,30 +219,10 @@ namespace NueGames.Characters
         public void IncreaseMaxHealth(int value)
         {
             MaxHealth += value;
-            OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
+            owner.OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
         }
 
-        /// <summary>
-        /// 清除所有能力
-        /// </summary>
-        public void ClearAllPower()
-        {
-            Dictionary<PowerName, PowerBase> copyPowerDict = new Dictionary<PowerName, PowerBase>(PowerDict);
-            foreach (var power in copyPowerDict)
-                ClearPower(power.Key);
-        }
         
-        /// <summary>
-        /// 清除能力
-        /// </summary>
-        /// <param name="targetPower"></param>
-        public void ClearPower(PowerName targetPower)
-        {
-            if (PowerDict.ContainsKey(targetPower))
-            {
-                PowerDict[targetPower].ClearPower();
-            }
-        }
 
         #endregion
 

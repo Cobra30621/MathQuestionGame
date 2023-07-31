@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Action.Power;
-using Managers;
 using NueGames.Characters;
 using NueGames.Characters.Enemies;
-using NueGames.Data.Containers;
 using NueGames.Data.Encounter;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -29,22 +26,35 @@ namespace NueGames.Combat
         [SerializeField] private BackgroundContainer backgroundContainer;
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
+        public ManaManager ManaManager;
+
+
+        #region Character
+        // 所有敵人清單
+        public List<EnemyBase> Enemies { get; private set; }
+        public List<AllyBase> Allies { get; private set; }
+        // 玩家
+        public AllyBase MainAlly => Allies.Count>0 ? Allies[0] : null;
+        
+        /// <summary>
+        /// 現在正在被選擇中的敵人
+        /// </summary>
+        public EnemyBase CurrentSelectedEnemy;
 
         
-
-        public ManaManager ManaManager;
+        #endregion
+        
+        
         
         #region Cache
-        public List<EnemyBase> CurrentEnemiesList { get; private set; }
-        public List<AllyBase> CurrentAlliesList { get; private set; }
         
+
+
+        private List<Transform> EnemyPosList => enemyPosList;
+
+        private List<Transform> AllyPosList => allyPosList;
+
         
-        public List<Transform> EnemyPosList => enemyPosList;
-
-        public List<Transform> AllyPosList => allyPosList;
-
-        public AllyBase CurrentMainAlly => CurrentAlliesList.Count>0 ? CurrentAlliesList[0] : null;
-        public EnemyBase CurrentSelectedEnemy;
 
         public EnemyEncounter CurrentEncounter { get; private set; }
         
@@ -241,7 +251,7 @@ namespace NueGames.Combat
             // TODO 改成等 OnTurnStart 結束觸發
             yield return new WaitForSeconds(0.3f);
                     
-            if (CurrentMainAlly.CharacterStats.IsStunned)
+            if (MainAlly.GetCharacterStats().IsStunned)
             {
                 EndTurn();
             }
@@ -255,7 +265,7 @@ namespace NueGames.Combat
         {
             var waitDelay = new WaitForSeconds(0.1f);
 
-            foreach (var currentEnemy in CurrentEnemiesList)
+            foreach (var currentEnemy in Enemies)
             {
                 yield return currentEnemy.StartCoroutine(nameof(EnemyExample.BattleStartActionRoutine));
                 yield return waitDelay;
@@ -272,7 +282,7 @@ namespace NueGames.Combat
             
             var waitDelay = new WaitForSeconds(0.1f);
 
-            foreach (var currentEnemy in CurrentEnemiesList)
+            foreach (var currentEnemy in Enemies)
             {
                 yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
                 yield return waitDelay;
@@ -314,10 +324,10 @@ namespace NueGames.Combat
 
         private IEnumerator WinCombatRoutine()
         {
-            foreach (var allyBase in CurrentAlliesList)
+            foreach (var allyBase in Allies)
             {
                 GameManager.PersistentGameplayData.SetAllyHealthData(allyBase.AllyCharacterData.CharacterID,
-                    allyBase.CharacterStats.CurrentHealth, allyBase.CharacterStats.MaxHealth);
+                    allyBase.GetCharacterStats().CurrentHealth, allyBase.GetCharacterStats().MaxHealth);
             }
             
             CollectionManager.ClearPiles();
@@ -330,7 +340,7 @@ namespace NueGames.Combat
             }
             else
             {
-                CurrentMainAlly.CharacterStats.ClearAllPower();
+                MainAlly.ClearAllPower();
                 GameManager.PersistentGameplayData.CurrentEncounterId++;
                 UIManager.CombatCanvas.gameObject.SetActive(false);
                 UIManager.RewardCanvas.gameObject.SetActive(true);
@@ -353,15 +363,15 @@ namespace NueGames.Combat
                 x.AllyCharacterData.CharacterID == targetAlly.AllyCharacterData.CharacterID);
             if (GameManager.PersistentGameplayData.AllyList.Count>1)
                 GameManager.PersistentGameplayData.AllyList.Remove(targetAllyData);
-            CurrentAlliesList.Remove(targetAlly);
+            Allies.Remove(targetAlly);
             UIManager.InformationCanvas.ResetCanvas();
-            if (CurrentAlliesList.Count<=0)
+            if (Allies.Count<=0)
                 LoseCombat();
         }
         public void OnEnemyDeath(EnemyBase targetEnemy)
         {
-            CurrentEnemiesList.Remove(targetEnemy);
-            if (CurrentEnemiesList.Count<=0)
+            Enemies.Remove(targetEnemy);
+            if (Enemies.Count<=0)
                 WinCombat();
         }
         
@@ -376,11 +386,11 @@ namespace NueGames.Combat
                     target = enemyCharacter;
                     break;
                 case ActionTargetType.Ally:
-                    target = CurrentMainAlly;
+                    target = MainAlly;
                     break;
                 case ActionTargetType.RandomEnemy:
-                    if (CurrentEnemiesList.Count>0)
-                        target = CurrentEnemiesList.RandomItem();
+                    if (Enemies.Count>0)
+                        target = Enemies.RandomItem();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -394,34 +404,9 @@ namespace NueGames.Combat
             CurrentSelectedEnemy = selectedEnemy;
         }
 
-        public Dictionary<PowerName, PowerBase> GetMainAllyPowerDict()
-        {
-            return CurrentMainAlly.GetPowerDict();
-        }
-
-        public int GetMainAllyPowerValue(PowerName powerName)
-        {
-            return CurrentMainAlly.GetPowerValue(powerName);
-        }
-
-        public bool IsMainAllyHasPower(PowerName powerName)
-        {
-            return CurrentMainAlly.HasPower(powerName);
-        }
-
         public Transform GetMainAllyTransform()
         {
-            return CurrentMainAlly.transform;
-        }
-
-        /// <summary>
-        /// 花費數學瑪娜
-        /// </summary>
-        /// <param name="value"></param>
-        public void SpendMathMana(int value)
-        {
-            var action = new ApplyMathManaAction(- value);
-            GameActionExecutor.Instance.AddToBottom(action);
+            return MainAlly.transform;
         }
 
 
@@ -438,7 +423,7 @@ namespace NueGames.Combat
         {
             CurrentEncounter = GameManager.PersistentGameplayData.CurrentEnemyEncounter;
             
-            CurrentEnemiesList = new List<EnemyBase>();
+            Enemies = new List<EnemyBase>();
             var enemyList = CurrentEncounter.enemyList;
             for (var i = 0; i < enemyList.Count; i++)
             {
@@ -447,18 +432,18 @@ namespace NueGames.Combat
                 clone.BuildCharacter();
                 
                 
-                CurrentEnemiesList.Add(clone);
+                Enemies.Add(clone);
             }
         }
         private void BuildAllies()
         {
-            CurrentAlliesList = new List<AllyBase>();
+            Allies = new List<AllyBase>();
             for (var i = 0; i < GameManager.PersistentGameplayData.AllyList.Count; i++)
             {
                 var clone = Instantiate(GameManager.PersistentGameplayData.AllyList[i], AllyPosList.Count >= i ? AllyPosList[i] : AllyPosList[0]);
                 clone.BuildCharacter();
                 
-                CurrentAlliesList.Add(clone);
+                Allies.Add(clone);
             }
         }
 

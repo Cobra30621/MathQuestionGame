@@ -30,10 +30,10 @@ namespace NueGames.Combat
         {
             if (info.FixDamage)
             {
-                return info.AdditionValue;
+                return  Mathf.RoundToInt(info.damageValue);
             }
             
-            return GetDamageValue(info.AdditionValue, info.ActionSource.SourceCharacter, info.Target);
+            return GetDamageValue(info.damageValue, info.ActionSource.SourceCharacter, info.Target);
         }
         
         
@@ -60,7 +60,7 @@ namespace NueGames.Combat
                 }
             }
 
-            bool selfIsAlly = selfCharacter.CharacterType == CharacterType.Ally;
+            bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
             // 計算遺物能力加成
             foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
             {
@@ -100,7 +100,7 @@ namespace NueGames.Combat
             }
             
 
-            bool selfIsAlly = selfCharacter.CharacterType == CharacterType.Ally;
+            bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
             // 計算遺物能力加成
             foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
             {

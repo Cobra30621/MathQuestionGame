@@ -65,7 +65,7 @@ namespace NueGames.UI
 
         private void SetMathManaText()
         {
-            int mathMana = CombatManager.GetMainAllyPowerValue(PowerName.MathMana);
+            int mathMana = CombatManager.MainAlly.GetPowerValue(PowerName.MathMana);
             mathManaTextTextField.text = $"{mathMana}";
         }
 

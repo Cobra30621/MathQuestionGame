@@ -32,13 +32,9 @@ namespace NueGames.Power
         }
         protected override void OnAnswerWrong()
         {
-            DamageAction action = new DamageAction();
-            action.SetDamageActionValue(99999,
-                new List<CharacterBase>() {Owner},
-                GetActionSource(),
-                fixDamage:true
-                );
-            GameActionExecutor.Instance.AddToBottom(action);
+            GameActionExecutor.AddToBottom(new DamageAction(
+                99999,new List<CharacterBase>() {Owner},
+                    GetActionSource(), fixDamage:true));
         }
     }
 }

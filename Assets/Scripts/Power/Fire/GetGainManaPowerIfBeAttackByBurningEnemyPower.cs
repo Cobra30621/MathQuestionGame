@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Action.Parameters;
-using Cinemachine;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Enums;
+using NueGames.Managers;
 using NueGames.Parameters;
 
 namespace NueGames.Power
@@ -18,12 +18,12 @@ namespace NueGames.Power
 
         public override void SubscribeAllEvent()
         {
-            Owner.CharacterStats.OnAttacked += OnAttacked;
+            Owner.OnAttacked += OnAttacked;
         }
 
         public override void UnSubscribeAllEvent()
         {
-            Owner.CharacterStats.OnAttacked -= OnAttacked;
+            Owner.OnAttacked -= OnAttacked;
         }
 
 
@@ -36,10 +36,9 @@ namespace NueGames.Power
             {
                 if (source.HasPower(PowerName.Fire))
                 {
-                    ApplyPowerAction action = new ApplyPowerAction();
-                    action.SetPowerActionValue(1, PowerName.GainManaAtRoundStart, 
-                        new List<CharacterBase>(){info.Target}, GetActionSource());
-                    GameActionExecutor.AddToBottom(action);
+                    GameActionExecutor.AddToBottom (
+                        new ApplyPowerAction(1, PowerName.GainManaAtRoundStart, 
+                        new List<CharacterBase>(){info.Target}, GetActionSource()));
                 }
             }
         }

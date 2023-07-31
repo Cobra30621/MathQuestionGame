@@ -1,8 +1,12 @@
-﻿using NueGames.Card;
+﻿using System.Collections.Generic;
+using Action.Parameters;
+using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Data.Collection;
 using NueGames.Enums;
+using NueGames.Managers;
+using NueGames.Power;
 
 namespace NueGames.Action
 {
@@ -11,17 +15,55 @@ namespace NueGames.Action
     /// </summary>
     public class DamageByAllyPowerValueAction : GameActionBase
     {
-        public override ActionName ActionName => ActionName.DamageByAllyPowerValue;
-
-
+        /// <summary>
+        /// 目標的能力
+        /// </summary>
+        private PowerName _targetPower;
+        /// <summary>
+        /// 傷害資訊
+        /// </summary>
+        private readonly DamageInfo _damageInfo;
+        /// <summary>
+        /// 加成數值
+        /// </summary>
+        private float _multiplierAmount;
+        
+        /// <summary>
+        /// 設定數值
+        /// </summary>
+       
+        /// <param name="targetList"></param>
+        /// <param name="targetPower"></param>
+        /// <param name="source"></param>
+        /// <param name="multiplierAmount">給予能力 x 倍的傷害</param>
+        /// <param name="fixDamage"></param>
+        /// <param name="canPierceArmor"></param>
+        public DamageByAllyPowerValueAction(List<CharacterBase> targetList, PowerName targetPower, 
+            ActionSource source, int multiplierAmount = 1, bool fixDamage  = false, bool canPierceArmor  = false)
+        {
+            
+            TargetList = targetList;
+            _targetPower = targetPower;
+            _multiplierAmount = multiplierAmount;
+            
+            _damageInfo = new DamageInfo()
+            {
+                ActionSource = source,
+                FixDamage = fixDamage,
+                CanPierceArmor = canPierceArmor
+            };
+        }
+        
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
         protected override void DoMainAction()
         {
-            Parameters.MultiplierAmount = CombatManager.CurrentMainAlly.GetPowerValue(ActionData.powerName);
+            float damageValue = CombatManager.MainAlly.GetPowerValue(_targetPower) * _multiplierAmount;
+            _damageInfo.damageValue = damageValue;
             
-            DoDamageAction();
+            GameActionExecutor.AddToBottom(new DamageAction(
+                _damageInfo, TargetList));
         }
     }
 }

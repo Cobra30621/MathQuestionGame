@@ -1,4 +1,6 @@
-﻿using NueGames.Card;
+﻿using System.Collections.Generic;
+using Action.Parameters;
+using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
@@ -11,8 +13,14 @@ namespace NueGames.Action
     /// </summary>
     public class HealAction : GameActionBase
     {
-        public override ActionName ActionName => ActionName.Heal;
-  
+        private int _healValue;
+        
+        public HealAction(int healValue, List<CharacterBase> targetList, ActionSource actionSource)
+        {
+            _healValue = healValue;
+            TargetList = targetList;
+            ActionSource = actionSource;
+        }
         
         /// <summary>
         /// 執行遊戲行為的功能
@@ -21,9 +29,9 @@ namespace NueGames.Action
         {
             foreach (var target in TargetList)
             {
-                target.CharacterStats.Heal(AdditionValue);
+                target.Heal(_healValue);
 
-                PlaySpawnTextFx($"{AdditionValue}", target);
+                PlaySpawnTextFx($"{_healValue}", target.TextSpawnRoot);
             }
             
         }

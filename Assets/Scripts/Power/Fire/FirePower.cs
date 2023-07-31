@@ -36,23 +36,25 @@ namespace NueGames.Power
 
         protected override void OnTurnStart(TurnInfo info)
         {
-            if (info.CharacterType == GetOwnerCharacterType())
+            if (IsCharacterTurn(info))
             {
                 int fireAmount = Amount;
-                if (CombatManager.IsMainAllyHasPower(PowerName.Kindle))
+                if (CombatManager.MainAlly.HasPower(PowerName.Kindle))
                 {
                    fireAmount = Amount * 2;
                 }
 
-                DamageAction damageAction = new DamageAction();
-                damageAction.SetDamageActionValue(fireAmount, 
-                    new List<CharacterBase>(){Owner},
-                    GetActionSource(),
-                    true
-                    );
-                GameActionExecutor.Instance.AddToBottom(damageAction);
+                // 造成傷害
+                GameActionExecutor.AddToBottom(
+                    new DamageAction(fireAmount, new List<CharacterBase>(){Owner},
+                        GetActionSource(),true));
                 
-                Owner.CharacterStats.ApplyPower(PowerName, -1); // 燒血後減層數 1 
+                // 燒血後減層數 1 
+                GameActionExecutor.AddToBottom(
+                    new ApplyPowerAction(-1, PowerName, 
+                        new List<CharacterBase>(){Owner}, GetActionSource()));
+                
+                
             }
         }
     }

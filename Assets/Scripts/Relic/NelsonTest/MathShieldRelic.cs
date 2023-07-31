@@ -1,4 +1,3 @@
-using Action.Power;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Enums;

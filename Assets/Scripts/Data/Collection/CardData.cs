@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using NueGames.Managers;
 using NueGames.NueExtentions;
 using NueGames.Power;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using Sirenix.Utilities;
 using UnityEditor;
 using UnityEngine;
@@ -21,24 +23,38 @@ namespace NueGames.Data.Collection
     [CreateAssetMenu(fileName = "Card Data", menuName = "NueDeck/Collection/Card", order = 0)]
     public class CardData : SerializedScriptableObject
     {
-        [Header("卡片行為")]
+        [FoldoutGroup("卡片行為")]
+        [DetailedInfoBox("如何創建新的卡片行為(CardAction)...", 
+            "如何創建新的卡片行為(CardAction)\n" +
+            "請去 Assets/Scripts/CardAction 資料夾中，創建新的 cs 檔。\n" +
+            "技術文件放在 Assets/Scripts/CardAction/CardActionBase.cs 的開頭註解" )]
         [SerializeField] private CardActionBase cardAction;
         
-        [Title("數值參數")]
+        [FoldoutGroup("數值參數")]
+        [SerializeField] private int value;
+        [FoldoutGroup("數值參數")]
         [SerializeField]private ActionTargetType actionTargetType;
+        [FoldoutGroup("數值參數")]
         [SerializeField] private int manaCost;
+        [FoldoutGroup("數值參數")]
         [SerializeField] private bool exhaustAfterPlay;
         
-        [SerializeField] private  FxName FxName;
-        [SerializeField] private FxSpawnPosition FxSpawnPosition;
+        [FoldoutGroup("卡牌播放特效")]
+        [SerializeField] private  FxName  fxName;
+        [FoldoutGroup("卡牌播放特效")]
+        [SerializeField] private FxSpawnPosition fxSpawnPosition;
         
-        [Title("卡牌顯示")]
+        
+        [FoldoutGroup("卡牌顯示")]
         [SerializeField] private string cardName;
+        [FoldoutGroup("卡牌顯示")]
         [SerializeField] private Sprite cardSprite;
+        [FoldoutGroup("卡牌顯示")]
         [SerializeField] private RarityType rarity;
+        [FoldoutGroup("卡牌顯示")]
         [TextArea(4, 10)] [SerializeField] private string description;
 
-        [SerializeField] private List<SpecialKeywords> specialKeywordsList;
+        private List<SpecialKeywords> specialKeywordsList;
 
 
         #region Cache
@@ -47,8 +63,11 @@ namespace NueGames.Data.Collection
         public Sprite CardSprite => cardSprite;
         public RarityType Rarity => rarity;
         public ActionTargetType ActionTargetType => actionTargetType;
-        [TypeFilter("GetFilteredTypeList")]
+        
         public CardActionBase CardAction => cardAction;
+
+        public FxName FxName => fxName;
+        public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
 
         public string Description => description;
         public List<SpecialKeywords> KeywordsList => specialKeywordsList;
@@ -60,19 +79,6 @@ namespace NueGames.Data.Collection
         #endregion
 
         #region Methods
-        
-        
-        public IEnumerable<Type> GetFilteredTypeList()
-        {
-            var q = typeof(CardActionBase).Assembly.GetTypes()
-                .Where(x => !x.IsAbstract)                                          // Excludes BaseClass
-                .Where(x => !x.IsGenericTypeDefinition)                             // Excludes C1<>
-                .Where(x => typeof(CardActionBase).IsAssignableFrom(x));                 // Excludes classes not inheriting from BaseClass
-    
-    
-            return q;
-        }
-
         public void UpdateDescription()
         {
             

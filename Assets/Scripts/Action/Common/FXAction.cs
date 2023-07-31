@@ -1,0 +1,49 @@
+using System.Collections.Generic;
+using Action.Parameters;
+using NueGames.Characters;
+using NueGames.Enums;
+using UnityEngine;
+
+namespace NueGames.Action
+{
+    public class FXAction : GameActionBase
+    {
+        private FxInfo _fxInfo;
+
+        public FXAction(FxInfo fxInfo, List<CharacterBase> targetList)
+        {
+            _fxInfo = fxInfo;
+            TargetList = targetList;
+        }
+        
+        protected override void DoMainAction()
+        {
+            // 不播放特效
+            if (_fxInfo.FxName == FxName.Null)
+            {
+                return;
+            }
+
+            var spawnTransform = FxManager.GetFXSpawnPosition(_fxInfo.FxSpawnPosition);
+            Debug.Log(spawnTransform);
+            switch (_fxInfo.FxSpawnPosition)
+            {
+                case FxSpawnPosition.EachTarget:
+                    foreach (var target in TargetList)
+                    {
+                        Debug.Log(target);
+                        FxManager.PlayFx(_fxInfo.FxName, spawnTransform, target.transform.position);
+                    };
+                    break;
+                case FxSpawnPosition.Ally:
+                    spawnTransform.position = CombatManager.GetMainAllyTransform().position;
+                    FxManager.PlayFx(_fxInfo.FxName, spawnTransform);
+                    break;
+                case FxSpawnPosition.EnemyMiddle:
+                case FxSpawnPosition.ScreenMiddle:
+                    FxManager.PlayFx(_fxInfo.FxName, spawnTransform);
+                    break;
+            }
+        }
+    }
+}

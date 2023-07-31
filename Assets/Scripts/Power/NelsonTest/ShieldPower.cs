@@ -34,16 +34,12 @@ namespace NueGames.Power
 
         protected override void OnTurnStart(TurnInfo info)
         {
-            if (info.CharacterType == GetOwnerCharacterType())
+            if (IsCharacterTurn(info))
             {
-                ApplyPowerAction action = new ApplyPowerAction();
-                action.SetPowerActionValue(3, 
-                    PowerName.Block, 
-                    new List<CharacterBase>() {Owner},
-                    GetActionSource()
-                );
                 
-                GameActionExecutor.AddToBottom(action);
+                GameActionExecutor.AddToBottom(new ApplyPowerAction(
+                    3, PowerName.Block, new List<CharacterBase>() {Owner},
+                    GetActionSource()));
             }
         }
     }
