@@ -53,23 +53,23 @@ namespace Question
             int questionCount = _questionManager.Parameters.QuestionCount;
             int leastQuestionCount = questionCount - _questionManager.HasAnswerCount;
             needAnswerCount.text = $"{leastQuestionCount}";
-            if (_questionManager.Parameters.UseCorrectAction)
-            {
-                correctBar.UpdateUI(_questionManager.CorrectAnswerCount, _questionManager.Parameters.CorrectActionNeedAnswerCount);
-            }
-            else
-            {
-                correctBar.UpdateUI(_questionManager.CorrectAnswerCount, questionCount);
-            }
-            
-            if (_questionManager.Parameters.UseWrongAction)
-            {
-                wrongBar.UpdateUI(_questionManager.WrongAnswerCount, _questionManager.Parameters.WrongActionNeedAnswerCount);
-            }
-            else
-            {
-                wrongBar.UpdateUI(_questionManager.WrongAnswerCount, questionCount);
-            }
+            // if (_questionManager.Parameters.UseCorrectAction)
+            // {
+            //     correctBar.UpdateUI(_questionManager.CorrectAnswerCount, _questionManager.Parameters.CorrectActionNeedAnswerCount);
+            // }
+            // else
+            // {
+            //     correctBar.UpdateUI(_questionManager.CorrectAnswerCount, questionCount);
+            // }
+            //
+            // if (_questionManager.Parameters.UseWrongAction)
+            // {
+            //     wrongBar.UpdateUI(_questionManager.WrongAnswerCount, _questionManager.Parameters.WrongActionNeedAnswerCount);
+            // }
+            // else
+            // {
+            //     wrongBar.UpdateUI(_questionManager.WrongAnswerCount, questionCount);
+            // }
             
             
             

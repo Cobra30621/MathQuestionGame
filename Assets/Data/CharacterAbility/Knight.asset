@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4966661d3fc14cedb3801f9df5acf0b6, type: 3}
+  m_Name: Knight
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: QuestionActionParameters
+      Entry: 7
+      Data: 0|NueGames.Action.MathAction.QuestionActionParameters, Assembly-CSharp
+    - Name: QuestionCount
+      Entry: 3
+      Data: 1
+    - Name: NeedAnswerCount
+      Entry: 3
+      Data: 1
+    - Name: QuestionAction
+      Entry: 7
+      Data: 1|Question.QuestionAction.KnightAbility, Assembly-CSharp
+    - Name: BlockValue
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  abilityName: "\u9A0E\u58EB\u80FD\u529B"
+  abilityDescription: "\u6BCF\u5834\u6230\u9B25\u6709\u4E00\u6B21\u6A5F\u6703\uFF0C\u53EF\u4EE5\u900F\u904E\u5BEB\u4E00\u984C\u6578\u5B78\u984C\u7372\u5F9720\u9EDE\u8B77\u76FE "
+  enablePlayCount: 1

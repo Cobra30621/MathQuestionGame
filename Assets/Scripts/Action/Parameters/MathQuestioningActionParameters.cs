@@ -4,6 +4,7 @@ using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using Question;
+using Question.QuestionAction;
 
 namespace NueGames.Action.MathAction
 {
@@ -16,20 +17,11 @@ namespace NueGames.Action.MathAction
         /// <summary>
         /// 需要答對的題數
         /// </summary>
-        public int CorrectActionNeedAnswerCount;
-        /// <summary>
-        /// 答對題數達標發動的效果
-        /// </summary>
-        public List<ActionData> CorrectActions;
+        public int NeedAnswerCount;
 
-        /// <summary>
-        /// 需要答錯的題數
-        /// </summary>
-        public int WrongActionNeedAnswerCount;
-        /// <summary>
-        /// 答錯題數達標發動的效果
-        /// </summary>
-        public List<GameActionBase> WrongActions;
+        public QuestionActionBase QuestionAction;
+        
+        
     }
 
     public class QuestionSetting

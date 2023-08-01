@@ -51,10 +51,7 @@ namespace Question
         /// 答錯數量
         /// </summary>
         public int WrongAnswerCount => answerRecord.WrongCount;
-        /// <summary>
-        /// 正在答題中
-        /// </summary>
-        public bool IsQuestioning => isQuestioning;
+        
 
         #endregion
 
@@ -69,10 +66,25 @@ namespace Question
         /// 正在回答的題目
         /// </summary>
         private MultipleChoiceQuestion _currentQuestion;
+        
+        
         /// <summary>
-        /// 正確題目
+        /// 這次進入答題介面的答題紀錄
         /// </summary>
-        private int _correctAnswer;
+        [SerializeField]  private AnswerRecord answerRecord;
+        /// <summary>
+        /// 這場戰鬥的答題記錄
+        /// </summary>
+        [SerializeField] private AnswerRecord combatAnswerRecord;
+
+        
+        #endregion
+        
+        
+        /// <summary>
+        /// 正在答題中
+        /// </summary>
+        public bool IsQuestioning => isQuestioning;
         /// <summary>
         /// 正在答題中
         /// </summary>
@@ -85,24 +97,8 @@ namespace Question
         /// 等待動畫撥放
         /// </summary>
         [SerializeField] private bool waitPlayingAnimation;
-        
-        
-        /// <summary>
-        /// 這次進入答題介面的答題紀錄
-        /// </summary>
-        [SerializeField]  private AnswerRecord answerRecord;
-        /// <summary>
-        /// 這場戰鬥的答題記錄
-        /// </summary>
-        [SerializeField] private AnswerRecord combatAnswerRecord;
 
-        /// <summary>
-        /// 是否播放答題正確的行動
-        /// </summary>
-        private bool _playCorrectAction;
-        
 
-        #endregion
         
         #region 事件
 
@@ -126,7 +122,7 @@ namespace Question
         #endregion
         
         
-        public QuestionActionParameters parameters;
+        public QuestionActionParameters Parameters;
         public QuestionSetting QuestionSetting;
         
         #region Setup
@@ -169,9 +165,9 @@ namespace Question
             EnableAnswer(false);
             OnAnswerQuestion?.Invoke();
             
-            Debug.Log($"option {option } correctAnswer {_correctAnswer}");
+            Debug.Log($"option {option } correctAnswer {_currentQuestion.Answer}");
             
-            if (option == _correctAnswer)
+            if (option == _currentQuestion.Answer)
             {
                 answerRecord.CorrectCount++;
                 combatAnswerRecord.CorrectCount++;
@@ -206,7 +202,7 @@ namespace Question
         /// <param name="newParameters"></param>
         public void EnterQuestionMode(QuestionActionParameters questionActionParameters, QuestionSetting questionSetting)
         {
-            parameters = questionActionParameters;
+            Parameters = questionActionParameters;
             QuestionSetting = questionSetting;
             StartCoroutine(QuestionCoroutine());
         }
@@ -324,7 +320,6 @@ namespace Question
             
             int index = new System.Random().Next(questionList.Count);
             _currentQuestion = questionList[index];
-            _correctAnswer = _currentQuestion.Answer;
             questionList.RemoveAt(index);
         }
 
@@ -335,23 +330,14 @@ namespace Question
         
         private void PlayAfterQuestioningAction()
         {
-            if (parameters.QuestioningEndJudgeType == QuestioningEndJudgeType.LimitedQuestionCount)
+            if (answerRecord.CorrectCount >= Parameters.NeedAnswerCount)
             {
-                GameActionExecutor.AddToBottom(parameters.LimitedQuestionAction);
+                Parameters.QuestionAction.DoCorrectAction();
             }
             else
             {
-                if ( _playCorrectAction)
-                {
-                    GameActionExecutor.AddToBottom(parameters.CorrectActions);
-                }
-
-                if (!_playCorrectAction)
-                {
-                    GameActionExecutor.AddToBottom(parameters.WrongActions);
-                }
+                Parameters.QuestionAction.DoWrongAction();
             }
-            
         }
         
         private void EnableDragging()
@@ -366,38 +352,12 @@ namespace Question
         #region Judge End Questioning Mode Condition
         private void JudgeEndConditions()
         {
-            JudgeHasAnsweredQuestionCount();
-        }
-        
-
-        private void JudgeHasAnsweredQuestionCount()
-        {
-            
-            if (answerRecord.AnswerCount >= parameters.QuestionCount)
+            if (answerRecord.AnswerCount >= Parameters.QuestionCount)
             {
                 ExitQuestionMode("魔法詠唱結束");
             }
-            
         }
 
-        private void JudgeCorrectCount()
-        {
-            if (answerRecord.CorrectCount >= parameters.CorrectActionNeedAnswerCount)
-            {
-                _playCorrectAction = true;
-                ExitQuestionMode("魔法詠唱成功，發動好效果");
-
-            }
-        }
-        
-        private void JudgeWrongCount()
-        {
-            if (answerRecord.WrongCount >= parameters.WrongActionNeedAnswerCount)
-            {
-                _playCorrectAction = false;
-                ExitQuestionMode("魔法詠唱失敗，發動壞效果");
-            }
-        }
         
         void ExitQuestionMode(string info)
         {
