@@ -336,6 +336,7 @@ namespace Question
         {
             if (answerRecord.CorrectCount >= QuestionAction.NeedCorrectCount)
             {
+                Debug.Log($"correct{answerRecord.CorrectCount}, need {QuestionAction.NeedCorrectCount}");
                 QuestionAction.DoCorrectAction();
             }
             else
