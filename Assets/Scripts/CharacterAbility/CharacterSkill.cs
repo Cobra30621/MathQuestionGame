@@ -5,12 +5,12 @@ using UnityEngine;
 namespace NueGames.CharacterAbility
 {
     [CreateAssetMenu(fileName = "Character Ability", menuName = "NueDeck/CharacterAbility", order = 0)]
-    public class CharacterAbility : SerializedScriptableObject
+    public class CharacterSkill : SerializedScriptableObject
     {
         public string abilityName;
         public string abilityDescription;
 
-        public int enablePlayCount;
+        public int skillCount;
         public QuestionActionParameters QuestionActionParameters;
     }
 }

@@ -45,8 +45,7 @@ namespace NueGames.Combat
 
         void ActivateAllAllyHighlights()
         {
-            foreach (var currentAlly in CombatManager.Allies)
-                currentAlly.AllyCanvas.SetHighlight(true);
+            CombatManager.MainAlly.AllyCanvas.SetHighlight(true);
         }
         
         public void DeactivateAllHighlights()
@@ -57,8 +56,7 @@ namespace NueGames.Combat
         
         public void DeactivateAllyHighlights()
         {
-            foreach (var currentAlly in CombatManager.Allies)
-                currentAlly.AllyCanvas.SetHighlight(false);
+            CombatManager.MainAlly.AllyCanvas.SetHighlight(false);
         }
         
         public void DeactivateEnemyHighlights()

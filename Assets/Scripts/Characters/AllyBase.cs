@@ -4,6 +4,7 @@ using NueGames.Combat;
 using NueGames.Data.Characters;
 using NueGames.Managers;
 using NueGames.Parameters;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace NueGames.Characters
@@ -12,6 +13,7 @@ namespace NueGames.Characters
     {
         [Header("Ally Base Settings")]
         [SerializeField] private AllyCanvas allyCanvas;
+        [InlineEditor()]
         [SerializeField] private AllyCharacterData allyCharacterData;
         public AllyCanvas AllyCanvas => allyCanvas;
         public AllyCharacterData AllyCharacterData => allyCharacterData;

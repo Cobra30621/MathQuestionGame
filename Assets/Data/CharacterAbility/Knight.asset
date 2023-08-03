@@ -33,6 +33,18 @@ MonoBehaviour:
     - Name: QuestionAction
       Entry: 7
       Data: 1|Question.QuestionAction.KnightAbility, Assembly-CSharp
+    - Name: CorrectFx
+      Entry: 7
+      Data: 2|Action.Parameters.FxInfo, Assembly-CSharp
+    - Name: FxName
+      Entry: 3
+      Data: 102
+    - Name: FxSpawnPosition
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: BlockValue
       Entry: 3
       Data: 20
@@ -44,4 +56,4 @@ MonoBehaviour:
       Data: 
   abilityName: "\u9A0E\u58EB\u80FD\u529B"
   abilityDescription: "\u6BCF\u5834\u6230\u9B25\u6709\u4E00\u6B21\u6A5F\u6703\uFF0C\u53EF\u4EE5\u900F\u904E\u5BEB\u4E00\u984C\u6578\u5B78\u984C\u7372\u5F9720\u9EDE\u8B77\u76FE "
-  enablePlayCount: 1
+  skillCount: 1

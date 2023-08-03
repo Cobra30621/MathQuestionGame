@@ -35,7 +35,7 @@ namespace NueGames.Data.Settings
         [FoldoutGroup("玩家")]
         [PropertyTooltip("玩家資料")]
         [InlineEditor()]
-        [SerializeField] private List<AllyBase> initalAllyList;
+        [SerializeField] private AllyBase initialAlly;
         
         [FoldoutGroup("玩家")]
         [PropertyTooltip("玩家初始遺物")]
@@ -44,7 +44,7 @@ namespace NueGames.Data.Settings
         #region Encapsulation
         public int DrawCount => drawCount;
         public int MaxMana => maxMana;
-        public List<AllyBase> InitalAllyList => initalAllyList;
+        public AllyBase InitialAlly => initialAlly;
         public DeckData InitalDeck => initalDeck;
         public int MaxCardOnHand => maxCardOnHand;
         public CardBase CardPrefab => cardPrefab;
