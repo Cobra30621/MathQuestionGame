@@ -28,8 +28,8 @@ namespace NueGames.CharacterAbility
 
         private void UpdateUI()
         {
-            abilityName.text = CharacterSkillManager.Instance.CharacterSkill.abilityName;
-            description.text = CharacterSkillManager.Instance.CharacterSkill.abilityDescription;
+            abilityName.text = CharacterSkillManager.Instance.CharacterSkill.skillName;
+            description.text = CharacterSkillManager.Instance.CharacterSkill.skillDescription;
             playSkillButton.interactable = CharacterSkillManager.Instance.EnablePlaySkill();
         }
 

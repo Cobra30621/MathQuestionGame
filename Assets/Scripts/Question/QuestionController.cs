@@ -50,7 +50,7 @@ namespace Question
         public void UpdateUI()
         {
             // answerBar.UpdateUI(_questionManager.HasAnswerCount, _questionManager.Parameters.QuestionCount);
-            int questionCount = _questionManager.Parameters.QuestionCount;
+            int questionCount = _questionManager. QuestionCount;
             int leastQuestionCount = questionCount - _questionManager.HasAnswerCount;
             needAnswerCount.text = $"{leastQuestionCount}";
             // if (_questionManager.Parameters.UseCorrectAction)

@@ -8,6 +8,7 @@ using MoreMountains.Feedbacks;
 using NueGames.Action.MathAction;
 using NueGames.Enums;
 using NueGames.Managers;
+using Question.QuestionAction;
 
 namespace Question
 {
@@ -120,10 +121,13 @@ namespace Question
         public Action<int> OnQuestioningModeEnd;
 
         #endregion
+
         
         
-        public QuestionActionParameters Parameters;
+        private QuestionActionBase QuestionAction;
         public QuestionSetting QuestionSetting;
+
+        public int QuestionCount => QuestionAction.QuestionCount;
         
         #region Setup
         private void Awake()
@@ -200,9 +204,9 @@ namespace Question
         /// 進入答題模式
         /// </summary>
         /// <param name="newParameters"></param>
-        public void EnterQuestionMode(QuestionActionParameters questionActionParameters, QuestionSetting questionSetting)
+        public void EnterQuestionMode(QuestionActionBase questionAction, QuestionSetting questionSetting)
         {
-            Parameters = questionActionParameters;
+            QuestionAction = questionAction;
             QuestionSetting = questionSetting;
             StartCoroutine(QuestionCoroutine());
         }
@@ -330,13 +334,13 @@ namespace Question
         
         private void PlayAfterQuestioningAction()
         {
-            if (answerRecord.CorrectCount >= Parameters.NeedAnswerCount)
+            if (answerRecord.CorrectCount >= QuestionAction.NeedCorrectCount)
             {
-                Parameters.QuestionAction.DoCorrectAction();
+                QuestionAction.DoCorrectAction();
             }
             else
             {
-                Parameters.QuestionAction.DoWrongAction();
+                QuestionAction.DoWrongAction();
             }
         }
         
@@ -352,7 +356,7 @@ namespace Question
         #region Judge End Questioning Mode Condition
         private void JudgeEndConditions()
         {
-            if (answerRecord.AnswerCount >= Parameters.QuestionCount)
+            if (answerRecord.AnswerCount >= QuestionAction.QuestionCount)
             {
                 ExitQuestionMode("魔法詠唱結束");
             }

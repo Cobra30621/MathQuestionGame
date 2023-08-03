@@ -5,6 +5,7 @@ using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
 using Question;
+using Question.QuestionAction;
 using UnityEngine;
 
 namespace NueGames.Action.MathAction
@@ -14,12 +15,12 @@ namespace NueGames.Action.MathAction
     /// </summary>
     public class EnterMathQuestioningAction : GameActionBase
     {
-        private readonly QuestionActionParameters _questionActionParameters;
+        private readonly QuestionActionBase _questionAction;
         private QuestionSetting _questionSetting;
 
-        public EnterMathQuestioningAction(QuestionActionParameters questionActionParameters, QuestionSetting questionSetting)
+        public EnterMathQuestioningAction(QuestionActionBase questionAction, QuestionSetting questionSetting)
         {
-            _questionActionParameters = questionActionParameters;
+            _questionAction = questionAction;
             _questionSetting = questionSetting;
         }
 
@@ -29,7 +30,7 @@ namespace NueGames.Action.MathAction
         /// </summary>
         protected override void DoMainAction()
         {
-            QuestionManager.Instance.EnterQuestionMode(_questionActionParameters, _questionSetting);
+            QuestionManager.Instance.EnterQuestionMode(_questionAction, _questionSetting);
         }
     }
     

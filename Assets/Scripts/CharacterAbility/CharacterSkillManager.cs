@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace NueGames.CharacterAbility
 {
+    /// <summary>
+    /// 角色能力管理器
+    /// </summary>
     public class CharacterSkillManager : SerializedMonoBehaviour
     {
         #region Instance(Singleton)
@@ -49,16 +52,21 @@ namespace NueGames.CharacterAbility
 
 
         #region Event
-
+        /// <summary>
+        /// 當角色使用能力時
+        /// </summary>
         public static System.Action OnPlaySkill;
-
+        /// <summary>
+        /// 當技能使用次數改變時
+        /// </summary>
         public static Action<int> OnSkillCountChange;
         
 
         #endregion
-        
-        
-        
+
+        #region 參數
+
+
         public QuestionSetting QuestionSetting;
 
         public CharacterSkill CharacterSkill => _characterSkill;
@@ -67,6 +75,8 @@ namespace NueGames.CharacterAbility
         public int SkillCount => skillCount;
         private int skillCount;
         
+
+        #endregion
         
 
         public void SetCharacterSkill(CharacterSkill characterSkill)
@@ -81,16 +91,13 @@ namespace NueGames.CharacterAbility
         [ContextMenu("Play Skill")]
         public void PlaySkill()
         {
-
             if (EnablePlaySkill())
             {
-                ChangeSkillCount(-1);
+                AddSkillCount(-1);
                 GameActionExecutor.AddToBottom(new EnterMathQuestioningAction(
-                    _characterSkill.QuestionActionParameters, QuestionSetting));
-                
+                    _characterSkill.QuestionAction, QuestionSetting));
+                OnPlaySkill?.Invoke();
             }
-            
-            
         }
 
         #region Skill Count
@@ -100,13 +107,21 @@ namespace NueGames.CharacterAbility
             return skillCount > 0;
         }
 
+        /// <summary>
+        /// 設定能力使用次數
+        /// </summary>
+        /// <param name="count"></param>
         public void SetSkillCount(int count)
         {
             skillCount = count;
             OnSkillCountChange?.Invoke(skillCount);
         }
         
-        public void ChangeSkillCount(int addCount)
+        /// <summary>
+        /// 增加能力使用次數
+        /// </summary>
+        /// <param name="addCount"></param>
+        public void AddSkillCount(int addCount)
         {
             skillCount += addCount;
             OnSkillCountChange?.Invoke(skillCount);

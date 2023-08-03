@@ -8,25 +8,19 @@ using Question.QuestionAction;
 
 namespace NueGames.Action.MathAction
 {
-   
-
-    public class QuestionActionParameters
-    {
-        public int QuestionCount;
-        
-        /// <summary>
-        /// 需要答對的題數
-        /// </summary>
-        public int NeedAnswerCount;
-
-        public QuestionActionBase QuestionAction;
-        
-        
-    }
-
+    
+    /// <summary>
+    /// 數學題目的設定
+    /// </summary>
     public class QuestionSetting
     {
+        /// <summary>
+        /// 年級
+        /// </summary>
         public int Grade;
+        /// <summary>
+        /// 題目類型
+        /// </summary>
         public MathType MathType; 
     }
 

@@ -1,16 +1,28 @@
 using NueGames.Action.MathAction;
+using Question.QuestionAction;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace NueGames.CharacterAbility
 {
-    [CreateAssetMenu(fileName = "Character Ability", menuName = "NueDeck/CharacterAbility", order = 0)]
+    [CreateAssetMenu(fileName = "Character Skill", menuName = "NueDeck/CharacterSkill", order = 0)]
     public class CharacterSkill : SerializedScriptableObject
     {
-        public string abilityName;
-        public string abilityDescription;
-
+        /// <summary>
+        /// 技能名稱
+        /// </summary>
+        public string skillName;
+        /// <summary>
+        /// 技能描述
+        /// </summary>
+        public string skillDescription;
+        /// <summary>
+        /// 技能使用次數
+        /// </summary>
         public int skillCount;
-        public QuestionActionParameters QuestionActionParameters;
+        /// <summary>
+        /// 數學行為
+        /// </summary>
+        public QuestionActionBase QuestionAction;
     }
 }
