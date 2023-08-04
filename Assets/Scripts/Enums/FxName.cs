@@ -7,7 +7,10 @@
         
         ExplosionAttack = 51,
         TearAttack = 55,
-        
+        ThumderballAttack = 59,
+        SwordHitAttack = 60,
+        GunHitAttack = 61,
+         
         
         // Buff
         
