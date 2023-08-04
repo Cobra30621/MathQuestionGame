@@ -8,6 +8,7 @@ using MoreMountains.Feedbacks;
 using NueGames.Action.MathAction;
 using NueGames.Enums;
 using NueGames.Managers;
+using Question.QuestionAction;
 
 namespace Question
 {
@@ -40,10 +41,6 @@ namespace Question
 
         #region Public 變數
         /// <summary>
-        /// 數學行動變數
-        /// </summary>
-        public MathQuestioningActionParameters Parameters => parameters;
-        /// <summary>
         /// 已經答題數量
         /// </summary>
         public int HasAnswerCount => answerRecord.AnswerCount;
@@ -55,17 +52,13 @@ namespace Question
         /// 答錯數量
         /// </summary>
         public int WrongAnswerCount => answerRecord.WrongCount;
-        /// <summary>
-        /// 正在答題中
-        /// </summary>
-        public bool IsQuestioning => isQuestioning;
+        
 
         #endregion
 
         #region 暫存 Cache
         
         
-        [SerializeField] private MathQuestioningActionParameters parameters;
         /// <summary>
         /// 題目清單
         /// </summary>
@@ -74,10 +67,25 @@ namespace Question
         /// 正在回答的題目
         /// </summary>
         private MultipleChoiceQuestion _currentQuestion;
+        
+        
         /// <summary>
-        /// 正確題目
+        /// 這次進入答題介面的答題紀錄
         /// </summary>
-        private int _correctAnswer;
+        [SerializeField]  private AnswerRecord answerRecord;
+        /// <summary>
+        /// 這場戰鬥的答題記錄
+        /// </summary>
+        [SerializeField] private AnswerRecord combatAnswerRecord;
+
+        
+        #endregion
+        
+        
+        /// <summary>
+        /// 正在答題中
+        /// </summary>
+        public bool IsQuestioning => isQuestioning;
         /// <summary>
         /// 正在答題中
         /// </summary>
@@ -90,24 +98,8 @@ namespace Question
         /// 等待動畫撥放
         /// </summary>
         [SerializeField] private bool waitPlayingAnimation;
-        
-        
-        /// <summary>
-        /// 這次進入答題介面的答題紀錄
-        /// </summary>
-        [SerializeField]  private AnswerRecord answerRecord;
-        /// <summary>
-        /// 這場戰鬥的答題記錄
-        /// </summary>
-        [SerializeField] private AnswerRecord combatAnswerRecord;
 
-        /// <summary>
-        /// 是否播放答題正確的行動
-        /// </summary>
-        private bool _playCorrectAction;
-        
 
-        #endregion
         
         #region 事件
 
@@ -129,6 +121,13 @@ namespace Question
         public Action<int> OnQuestioningModeEnd;
 
         #endregion
+
+        
+        
+        private QuestionActionBase QuestionAction;
+        public QuestionSetting QuestionSetting;
+
+        public int QuestionCount => QuestionAction.QuestionCount;
         
         #region Setup
         private void Awake()
@@ -146,7 +145,6 @@ namespace Question
             
             isQuestioning = false;
             questionController.SetQuestionManager(this);
-            parameters = new MathQuestioningActionParameters();
             DontDestroyOnLoad(this);
         }
 
@@ -171,9 +169,9 @@ namespace Question
             EnableAnswer(false);
             OnAnswerQuestion?.Invoke();
             
-            Debug.Log($"option {option } correctAnswer {_correctAnswer}");
+            Debug.Log($"option {option } correctAnswer {_currentQuestion.Answer}");
             
-            if (option == _correctAnswer)
+            if (option == _currentQuestion.Answer)
             {
                 answerRecord.CorrectCount++;
                 combatAnswerRecord.CorrectCount++;
@@ -206,9 +204,10 @@ namespace Question
         /// 進入答題模式
         /// </summary>
         /// <param name="newParameters"></param>
-        public void EnterQuestionMode(MathQuestioningActionParameters newParameters)
+        public void EnterQuestionMode(QuestionActionBase questionAction, QuestionSetting questionSetting)
         {
-            parameters = newParameters;
+            QuestionAction = questionAction;
+            QuestionSetting = questionSetting;
             StartCoroutine(QuestionCoroutine());
         }
         
@@ -325,7 +324,6 @@ namespace Question
             
             int index = new System.Random().Next(questionList.Count);
             _currentQuestion = questionList[index];
-            _correctAnswer = _currentQuestion.Answer;
             questionList.RemoveAt(index);
         }
 
@@ -336,23 +334,15 @@ namespace Question
         
         private void PlayAfterQuestioningAction()
         {
-            if (parameters.QuestioningEndJudgeType == QuestioningEndJudgeType.LimitedQuestionCount)
+            if (answerRecord.CorrectCount >= QuestionAction.NeedCorrectCount)
             {
-                GameActionExecutor.AddToBottom(parameters.LimitedQuestionAction);
+                Debug.Log($"correct{answerRecord.CorrectCount}, need {QuestionAction.NeedCorrectCount}");
+                QuestionAction.DoCorrectAction();
             }
             else
             {
-                if (parameters.UseCorrectAction && _playCorrectAction)
-                {
-                    GameActionExecutor.AddToBottom(parameters.CorrectActions);
-                }
-
-                if (parameters.UseWrongAction && !_playCorrectAction)
-                {
-                    GameActionExecutor.AddToBottom(parameters.WrongActions);
-                }
+                QuestionAction.DoWrongAction();
             }
-            
         }
         
         private void EnableDragging()
@@ -367,46 +357,12 @@ namespace Question
         #region Judge End Questioning Mode Condition
         private void JudgeEndConditions()
         {
-            if (parameters.QuestioningEndJudgeType == QuestioningEndJudgeType.LimitedQuestionCount)
-            {
-                JudgeHasAnsweredQuestionCount();
-            }
-            else if (parameters.QuestioningEndJudgeType == QuestioningEndJudgeType.CorrectOrWrongCount)
-            {
-                JudgeCorrectCount();
-                JudgeWrongCount();
-            }
-        }
-        
-
-        private void JudgeHasAnsweredQuestionCount()
-        {
-            
-            if (answerRecord.AnswerCount >= parameters.QuestionCount)
+            if (answerRecord.AnswerCount >= QuestionAction.QuestionCount)
             {
                 ExitQuestionMode("魔法詠唱結束");
             }
-            
         }
 
-        private void JudgeCorrectCount()
-        {
-            if (parameters.UseCorrectAction && answerRecord.CorrectCount >= parameters.CorrectActionNeedAnswerCount)
-            {
-                _playCorrectAction = true;
-                ExitQuestionMode("魔法詠唱成功，發動好效果");
-
-            }
-        }
-        
-        private void JudgeWrongCount()
-        {
-            if (parameters.UseWrongAction && answerRecord.WrongCount >= parameters.WrongActionNeedAnswerCount)
-            {
-                _playCorrectAction = false;
-                ExitQuestionMode("魔法詠唱失敗，發動壞效果");
-            }
-        }
         
         void ExitQuestionMode(string info)
         {

@@ -20,7 +20,7 @@ namespace NueGames.Data.Settings
         [SerializeField] private int currentMana;
         [SerializeField] private bool canUseCards;
         [SerializeField] private bool canSelectCards;
-        [SerializeField] private List<AllyBase> allyList;
+        [SerializeField] private AllyBase mainAlly;
         [SerializeField] private int currentStageId;
         [SerializeField] private int currentEncounterId;
         [SerializeField] private bool isFinalEncounter;
@@ -66,7 +66,7 @@ namespace NueGames.Data.Settings
             CurrentMana = MaxMana;
             CanUseCards = true;
             CanSelectCards = true;
-            AllyList = new List<AllyBase>(_gameplayData.InitalAllyList);
+            MainAlly = _gameplayData.InitialAlly;
             CurrentEncounterId = 0;
             CurrentStageId = 0;
             CurrentGold = 0;
@@ -107,12 +107,12 @@ namespace NueGames.Data.Settings
             get => canSelectCards;
             set => canSelectCards = value;
         }
-        
 
-        public List<AllyBase> AllyList
+
+        public AllyBase MainAlly
         {
-            get => allyList;
-            set => allyList = value;
+            get => mainAlly;
+            set => mainAlly = value;
         }
 
         public int CurrentStageId

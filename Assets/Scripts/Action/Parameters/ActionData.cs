@@ -89,12 +89,6 @@ namespace NueGames.Data.Collection
         #endregion
 
 
-        #region 數學答題
-
-        [FoldoutGroup("數學答題參數")]
-        public QuestionModeParameters QuestionModeParameters;
-
-        #endregion
         
 
 

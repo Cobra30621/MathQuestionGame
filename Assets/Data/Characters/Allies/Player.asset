@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d037adff9e04706b4a24a2529895710, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   characterID: player_example
   characterName: Player
   characterDescription: Player Description
   maxHealth: 75
+  CharacterSkill: {fileID: 11400000, guid: 0121c025a29c4488a9d6cdc2b8546eaa, type: 2}

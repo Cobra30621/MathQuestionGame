@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace NueGames.Data.Characters
 {
-    public abstract class CharacterDataBase : ScriptableObject
+    public abstract class CharacterDataBase : SerializedScriptableObject
     {
         [Header("Base")]
         [SerializeField] protected string characterID;

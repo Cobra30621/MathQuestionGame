@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using NueGames.CharacterAbility;
 using NueGames.Characters;
 using NueGames.Characters.Enemies;
 using NueGames.Data.Encounter;
@@ -32,9 +33,8 @@ namespace NueGames.Combat
         #region Character
         // 所有敵人清單
         public List<EnemyBase> Enemies { get; private set; }
-        public List<AllyBase> Allies { get; private set; }
         // 玩家
-        public AllyBase MainAlly => Allies.Count>0 ? Allies[0] : null;
+        public AllyBase MainAlly;
         
         /// <summary>
         /// 現在正在被選擇中的敵人
@@ -210,6 +210,8 @@ namespace NueGames.Combat
         {
             BuildEnemies();
             BuildAllies();
+            SetCharacterSkill();
+
             backgroundContainer.OpenSelectedBackground();
 
             RoundNumber = 0;
@@ -228,7 +230,6 @@ namespace NueGames.Combat
         }
 
         
-
 
         private IEnumerator RoundStartRoutine()
         {
@@ -324,11 +325,8 @@ namespace NueGames.Combat
 
         private IEnumerator WinCombatRoutine()
         {
-            foreach (var allyBase in Allies)
-            {
-                GameManager.PersistentGameplayData.SetAllyHealthData(allyBase.AllyCharacterData.CharacterID,
-                    allyBase.GetCharacterStats().CurrentHealth, allyBase.GetCharacterStats().MaxHealth);
-            }
+            GameManager.PersistentGameplayData.SetAllyHealthData(MainAlly.AllyCharacterData.CharacterID,
+                MainAlly.GetCharacterStats().CurrentHealth, MainAlly.GetCharacterStats().MaxHealth);
             
             CollectionManager.ClearPiles();
             
@@ -359,14 +357,8 @@ namespace NueGames.Combat
         
         public void OnAllyDeath(AllyBase targetAlly)
         {
-            var targetAllyData = GameManager.PersistentGameplayData.AllyList.Find(x =>
-                x.AllyCharacterData.CharacterID == targetAlly.AllyCharacterData.CharacterID);
-            if (GameManager.PersistentGameplayData.AllyList.Count>1)
-                GameManager.PersistentGameplayData.AllyList.Remove(targetAllyData);
-            Allies.Remove(targetAlly);
             UIManager.InformationCanvas.ResetCanvas();
-            if (Allies.Count<=0)
-                LoseCombat();
+            LoseCombat();
         }
         public void OnEnemyDeath(EnemyBase targetEnemy)
         {
@@ -437,15 +429,16 @@ namespace NueGames.Combat
         }
         private void BuildAllies()
         {
-            Allies = new List<AllyBase>();
-            for (var i = 0; i < GameManager.PersistentGameplayData.AllyList.Count; i++)
-            {
-                var clone = Instantiate(GameManager.PersistentGameplayData.AllyList[i], AllyPosList.Count >= i ? AllyPosList[i] : AllyPosList[0]);
-                clone.BuildCharacter();
-                
-                Allies.Add(clone);
-            }
+            var clone = Instantiate(GameManager.PersistentGameplayData.MainAlly, AllyPosList[0]);
+            clone.BuildCharacter();
+            MainAlly = clone;
         }
+        
+        private void SetCharacterSkill()
+        {
+            CharacterSkillManager.Instance.SetCharacterSkill(MainAlly.AllyCharacterData.CharacterSkill);
+        }
+
 
         
         /// <summary>
