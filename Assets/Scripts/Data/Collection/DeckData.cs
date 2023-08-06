@@ -15,6 +15,7 @@ namespace NueGames.Data.Collection
         [InlineEditor]
         [SerializeField] private List<CardData> cardList;
         public List<CardData> CardList => cardList;
+        
 
         public string DeckId => deckId;
 

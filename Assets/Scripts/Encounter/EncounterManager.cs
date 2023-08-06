@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Map;
 using Newtonsoft.Json;
 using NueGames.Data.Encounter;
+using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Utils;
 using UnityEngine;
@@ -77,6 +79,7 @@ namespace NueGames.Encounter
                 case NodeType.RestSite:
                     break;
                 case NodeType.Treasure:
+                    EnterRewardRoom(RewardType.Card);
                     break;
                 case NodeType.Store:
                     break;
@@ -89,13 +92,21 @@ namespace NueGames.Encounter
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        private void EnterRewardRoom(RewardType rewardType)
+        {
+            UIManager.Instance.RewardCanvas.ShowReward(new List<RewardType>()
+            {
+                rewardType
+            });
+        }
         
         private void EnterCombatRoom(EnemyEncounter encounter)
         {
             GameManager.Instance.SetEnemyEncounter(encounter);
             SaveEncounter();
             
-            // 進入戰鬥場警
+            // 進入戰鬥場景
             sceneChanger.OpenCombatScene();
         }
 

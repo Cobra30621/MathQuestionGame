@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using NueGames.Data.Encounter;
+using NueGames.Enums;
 using UnityEngine;
 
 namespace NueGames.Encounter
@@ -15,7 +17,7 @@ namespace NueGames.Encounter
         public List<EnemyEncounterName> enemyList;
         public List<EnemyEncounterName> eliteEnemyList;
         public List<EnemyEncounterName> bossList;
-        
+
         public int addCount = 10;
         
         public void GeneratorStageData(EncounterStage stage)
@@ -25,9 +27,7 @@ namespace NueGames.Encounter
             int weakEnemyCount = stage.weakEnemyCount;
             enemyList.AddRange(stage.weakEnemies.GetEncounterListByWeight(weakEnemyCount));
             enemyList.AddRange(stage.strongEnemies.GetEncounterListByWeight(addCount));
-
             eliteEnemyList = stage.eliteEnemies.GetEncounterListByWeight(addCount);
-
             bossList = stage.bossEnemies.GetEncounterListByWeight(1);
         }
         

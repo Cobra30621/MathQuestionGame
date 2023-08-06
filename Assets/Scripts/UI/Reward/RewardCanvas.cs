@@ -29,6 +29,17 @@ namespace NueGames.UI.Reward
         
         #region Public Methods
 
+        public void ShowReward(List<RewardType> rewardTypes)
+        {
+            UIManager.RewardCanvas.gameObject.SetActive(true);
+            UIManager.RewardCanvas.PrepareCanvas();
+            
+            foreach (var rewardType in rewardTypes)
+            {
+                UIManager.RewardCanvas.BuildReward(rewardType);
+            }
+        }
+
         public void PrepareCanvas()
         {
             rewardPanelRoot.gameObject.SetActive(true);

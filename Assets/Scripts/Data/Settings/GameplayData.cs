@@ -28,6 +28,11 @@ namespace NueGames.Data.Settings
         [PropertyTooltip("初始卡牌")]
         [SerializeField] private DeckData initalDeck;
         
+        [InlineEditor]
+        [FoldoutGroup("卡牌")]
+        [PropertyTooltip("獎賞的卡牌")]
+        [SerializeField] private DeckData rewardDeck;
+        
         [FoldoutGroup("卡牌")]
         [PropertyTooltip("卡牌的 GameObject")]
         [SerializeField] private CardBase cardPrefab;

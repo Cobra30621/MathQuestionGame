@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.Encounter.EncounterList;
 using Newtonsoft.Json;
 using NueGames.Characters;
 using NueGames.Data.Characters;
@@ -30,6 +31,8 @@ namespace NueGames.Data.Encounter
         public EnemyEncounterList eliteEnemies;
         [Tooltip("4.王")] 
         public EnemyEncounterList bossEnemies;
+
+        public RewardEncounterList rewards;
 
         [ContextMenu("Test")]
         public void Test()

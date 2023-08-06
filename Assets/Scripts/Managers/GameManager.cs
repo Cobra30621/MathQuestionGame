@@ -61,6 +61,7 @@ namespace NueGames.Managers
         
         public void StartRougeLikeGame()
         {
+            Debug.Log("Start RougeLikeGame");
             InitGameplayData();
             SetInitalHand();
             InitialRelic();

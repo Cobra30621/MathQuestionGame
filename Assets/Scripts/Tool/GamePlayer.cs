@@ -2,22 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using NueGames.Data.Settings;
 using NueGames.Managers;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class GamePlayer : MonoBehaviour
 {
+    [InlineEditor()]
     public GameplayData GameplayData ;
-    GameManager GameManager = GameManager.Instance;
-    
-    void Awake()
-    {
-        SetGameplayDataAndStartGame();
-    }
 
-    private void SetGameplayDataAndStartGame()
+    public void SetGameplayDataAndStartGame()
     {
-        GameManager.SetGameplayData(GameplayData);
-        GameManager.StartRougeLikeGame();
+        GameManager.Instance.SetGameplayData(GameplayData);
+        GameManager.Instance.StartRougeLikeGame();
     }
 
     

@@ -341,10 +341,10 @@ namespace NueGames.Combat
                 MainAlly.ClearAllPower();
                 GameManager.PersistentGameplayData.CurrentEncounterId++;
                 UIManager.CombatCanvas.gameObject.SetActive(false);
-                UIManager.RewardCanvas.gameObject.SetActive(true);
-                UIManager.RewardCanvas.PrepareCanvas();
-                UIManager.RewardCanvas.BuildReward(RewardType.Gold);
-                UIManager.RewardCanvas.BuildReward(RewardType.Card);
+                UIManager.RewardCanvas.ShowReward(new List<RewardType>()
+                {
+                    RewardType.Card, RewardType.Gold
+                });
             }
             
         }
