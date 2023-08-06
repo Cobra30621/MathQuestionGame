@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using NueGames.Data.Collection;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace NueGames.Data.Encounter
 {
     public class EncounterGenerator : MonoBehaviour
     {
+        [ValueDropdown("GetAssets", IsUniqueList = true)]
         [SerializeField] private List<EnemyEncounter> EnemyEncounters;
         public Dictionary<EnemyEncounterName, EnemyEncounter> EnemyEncounterDict;
 
@@ -45,5 +49,12 @@ namespace NueGames.Data.Encounter
                 return null;
             }
         }
+        
+#if UNITY_EDITOR // Editor-related code must be excluded from builds
+        private IEnumerable GetAssets()
+        {
+            return AssetGetter.GetAssets(AssetGetter.DataName.EnemyEncounter);
+        }
+#endif
     }
 }

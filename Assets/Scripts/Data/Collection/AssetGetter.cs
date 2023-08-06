@@ -13,14 +13,16 @@ namespace NueGames.Data.Collection
     {
         public enum DataName
         {
-            Card
+            Card,
+            EnemyEncounter
         }
 
         [ShowInInspector]
         [DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.Foldout)]
         public static Dictionary<DataName, string> dataPaths = new Dictionary<DataName, string>()
         {
-            { DataName.Card , "Assets/Data/Cards"}
+            { DataName.Card , "Assets/Data/Cards"},
+            { DataName.EnemyEncounter , "Assets/Data/EnemyEncounter"}
         };
 
 #if UNITY_EDITOR // Editor-related code must be excluded from builds
