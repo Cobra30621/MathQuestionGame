@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using NueGames.Encounter;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Map
@@ -8,6 +9,10 @@ namespace Map
     [Serializable]
     public class NodeData
     {
+        [GUIColor(0.3f, 0.8f, 0.8f)]
+        [VerticalGroup("單一節點事件-機率設定")]
+        [Title("此節點事件清單-機率設定")]
+        [TableList(ShowIndexLabels = true, AlwaysExpanded = true)]
         [SerializeField] private List<NodeTypeClip> nodeTypeClips;
         
         /// <summary>
@@ -31,7 +36,9 @@ namespace Map
     [Serializable]
     public class NodeTypeClip : IWeightedObject{
         
+        [ VerticalGroup("事件類型")]
         [SerializeField] private NodeType nodeType;
+        [ VerticalGroup("出現機率")]
         [SerializeField] private int weight = 1;
         public NodeType NodeType => nodeType;
         public int Weight => weight;

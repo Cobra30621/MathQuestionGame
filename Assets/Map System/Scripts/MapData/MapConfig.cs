@@ -13,10 +13,13 @@ namespace Map
     [CreateAssetMenu(fileName = "MapConfig", menuName = "NueDeck/Map/MapConfig")]
     public class MapConfig : SerializedScriptableObject
     {
+        [Title("地圖層數設計")]
+        [TableList(ShowIndexLabels = true)]
         public List<MapLayer> layers;
         /// <summary>
         /// 遭遇事件
         /// </summary>
+        [Title("地圖遭遇事件")]
         public EncounterStage encounterStage;
         
         public List<NodeBlueprint> nodeBlueprints;
