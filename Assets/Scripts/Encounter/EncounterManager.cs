@@ -76,7 +76,8 @@ namespace NueGames.Encounter
                 case NodeType.EliteEnemy:
                     EnterCombatRoom(mapEncounter.GetEliteEncounter());
                     break;
-                case NodeType.RestSite:
+                case NodeType.CampFire:
+                    EnterCampFire();
                     break;
                 case NodeType.Treasure:
                     EnterRewardRoom(RewardType.Card);
@@ -91,6 +92,11 @@ namespace NueGames.Encounter
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        private void EnterCampFire()
+        {
+            UIManager.Instance.CampFireCanvas.OpenCanvas();
         }
 
         private void EnterRewardRoom(RewardType rewardType)

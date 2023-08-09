@@ -115,6 +115,15 @@ namespace NueGames.Managers
         {
             PersistentGameplayData.CurrentEnemyEncounter  = encounter;
         }
+
+        public void HealAlly(float percent)
+        {
+            var healthData = PersistentGameplayData.AllyHealthData;
+            int heal = Mathf.CeilToInt(healthData.MaxHealth * percent);
+
+            PersistentGameplayData.SetHealth(
+                healthData.CurrentHealth + heal,healthData.MaxHealth);
+        }
         #endregion
       
 

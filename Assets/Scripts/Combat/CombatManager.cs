@@ -325,7 +325,7 @@ namespace NueGames.Combat
 
         private IEnumerator WinCombatRoutine()
         {
-            GameManager.PersistentGameplayData.SetAllyHealthData(MainAlly.AllyCharacterData.CharacterID,
+            GameManager.PersistentGameplayData.SetHealth(
                 MainAlly.GetCharacterStats().CurrentHealth, MainAlly.GetCharacterStats().MaxHealth);
             
             CollectionManager.ClearPiles();

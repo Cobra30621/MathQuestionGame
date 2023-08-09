@@ -33,15 +33,15 @@ MonoBehaviour:
     randomizePosition: 0.447
   - nodeDatas:
     - nodeTypeClips:
-      - nodeType: 3
+      - nodeType: 11
         weight: 1
     - nodeTypeClips:
-      - nodeType: 0
+      - nodeType: 11
         weight: 1
     distanceFromPreviousLayer:
       min: 4
       max: 4
-    nodesApartDistance: 8
+    nodesApartDistance: -2
     randomizePosition: 0.26
   - nodeDatas:
     - nodeTypeClips:
@@ -54,22 +54,10 @@ MonoBehaviour:
     randomizePosition: 0.26
   - nodeDatas:
     - nodeTypeClips:
-      - nodeType: 3
+      - nodeType: 11
         weight: 1
     - nodeTypeClips:
-      - nodeType: 4
-        weight: 1
-    distanceFromPreviousLayer:
-      min: 4
-      max: 4
-    nodesApartDistance: 2
-    randomizePosition: 0.26
-  - nodeDatas:
-    - nodeTypeClips:
-      - nodeType: 3
-        weight: 1
-    - nodeTypeClips:
-      - nodeType: 4
+      - nodeType: 0
         weight: 1
     distanceFromPreviousLayer:
       min: 4
@@ -78,7 +66,19 @@ MonoBehaviour:
     randomizePosition: 0.26
   - nodeDatas:
     - nodeTypeClips:
-      - nodeType: 5
+      - nodeType: 0
+        weight: 1
+    - nodeTypeClips:
+      - nodeType: 11
+        weight: 1
+    distanceFromPreviousLayer:
+      min: 4
+      max: 4
+    nodesApartDistance: 2
+    randomizePosition: 0.26
+  - nodeDatas:
+    - nodeTypeClips:
+      - nodeType: 2
         weight: 1
     distanceFromPreviousLayer:
       min: 2
@@ -105,6 +105,7 @@ MonoBehaviour:
       weightClip:
       - encounter: 111
         weight: 1
+    rewards: {fileID: 0}
   nodeBlueprints:
   - {fileID: 11400000, guid: f09a895d243765545b867adcb10cd13e, type: 2}
   - {fileID: 11400000, guid: f369b9255d8081740905a1ada3e1b72d, type: 2}

@@ -25,7 +25,7 @@ namespace NueGames.Data.Settings
         [SerializeField] private int currentEncounterId;
         [SerializeField] private bool isFinalEncounter;
         [SerializeField] private List<CardData> currentCardsList;
-        [SerializeField] private List<AllyHealthData> allyHealthDataDataList;
+        [SerializeField] private AllyHealthData allyHealthData;
         /// <summary>
         /// 玩家持有的遺物
         /// </summary>
@@ -41,24 +41,13 @@ namespace NueGames.Data.Settings
 
             InitData();
         }
-        
-        public void SetAllyHealthData(string id,int newCurrentHealth, int newMaxHealth)
+
+        public void SetHealth(int newCurrentHealth, int newMaxHealth)
         {
-            var data = allyHealthDataDataList.Find(x => x.CharacterId == id);
-            var newData = new AllyHealthData();
-            newData.CharacterId = id;
-            newData.CurrentHealth = newCurrentHealth;
-            newData.MaxHealth = newMaxHealth;
-            if (data != null)
-            {
-                allyHealthDataDataList.Remove(data);
-                allyHealthDataDataList.Add(newData);
-            }
-            else
-            {
-                allyHealthDataDataList.Add(newData);
-            }
-        } 
+            allyHealthData.CurrentHealth = newCurrentHealth;
+            allyHealthData.MaxHealth = newMaxHealth;
+        }
+        
         private void InitData()
         {
             DrawCount = _gameplayData.DrawCount;
@@ -72,7 +61,7 @@ namespace NueGames.Data.Settings
             CurrentGold = 0;
             CurrentCardsList = new List<CardData>();
             IsFinalEncounter = false;
-            allyHealthDataDataList = new List<AllyHealthData>();
+            allyHealthData = new AllyHealthData();
             currentRelicList = new List<RelicClip>();
         }
 
@@ -139,11 +128,6 @@ namespace NueGames.Data.Settings
             set => currentCardsList = value;
         }
 
-        public List<AllyHealthData> AllyHealthDataList
-        {
-            get => allyHealthDataDataList;
-            set => allyHealthDataDataList = value;
-        }
         public int CurrentGold
         {
             get => currentGold;
@@ -162,6 +146,13 @@ namespace NueGames.Data.Settings
             set => currentEnemyEncounter = value;
         }
         
+
+        public AllyHealthData AllyHealthData
+        {
+            get => allyHealthData;
+            set => allyHealthData = value;
+        }
+
         #endregion
     }
 }

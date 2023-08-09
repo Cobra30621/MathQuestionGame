@@ -28,8 +28,7 @@ namespace NueGames.Characters
             if (!GameManager)
                 throw new Exception("There is no GameManager");
             
-            var data = GameManager.PersistentGameplayData.AllyHealthDataList.Find(x =>
-                x.CharacterId == AllyCharacterData.CharacterID);
+            var data = GameManager.PersistentGameplayData.AllyHealthData;
             
             if (data != null)
             {
@@ -38,7 +37,7 @@ namespace NueGames.Characters
             }
             else
             {
-                GameManager.PersistentGameplayData.SetAllyHealthData(AllyCharacterData.CharacterID,CharacterStats.CurrentHealth,CharacterStats.MaxHealth);
+                GameManager.PersistentGameplayData.SetHealth(CharacterStats.CurrentHealth,CharacterStats.MaxHealth);
             }
             
             OnDeath += OnDeathAction;

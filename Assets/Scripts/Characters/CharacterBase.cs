@@ -126,7 +126,12 @@ namespace NueGames.Characters
         {
             
         }
-        
+
+
+        public int GetMaxHealth()
+        {
+            return CharacterStats.MaxHealth;
+        }
 
         #endregion
         
