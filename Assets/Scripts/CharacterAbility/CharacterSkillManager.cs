@@ -59,7 +59,7 @@ namespace NueGames.CharacterAbility
         /// <summary>
         /// 當技能使用次數改變時
         /// </summary>
-        public static Action<int> OnSkillCountChange;
+        public static Action<int> OnSkillCountChange ;
         
 
         #endregion
@@ -115,6 +115,7 @@ namespace NueGames.CharacterAbility
         {
             skillCount = count;
             OnSkillCountChange?.Invoke(skillCount);
+            Debug.Log($"skillCount {count}");
         }
         
         /// <summary>

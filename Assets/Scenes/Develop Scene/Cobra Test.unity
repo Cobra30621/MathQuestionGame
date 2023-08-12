@@ -1145,7 +1145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1918447358286545606, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2108644384677363944, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1223,6 +1223,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -11.299999
       objectReference: {fileID: 0}
+    - target: {fileID: 7156832370861324696, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7156832370861324696, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
 --- !u!1001 &1761982622
@@ -1469,6 +1473,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 607283629099232314, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: allyPowerAtGameStart.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using CampFire;
+using NueGames.CharacterAbility;
 using NueGames.Data.Collection;
 using NueGames.UI;
 using NueGames.UI.Reward;
@@ -22,6 +23,7 @@ namespace NueGames.Managers
         [SerializeField] private InventoryCanvas inventoryCanvas;
         [SerializeField] private RelicCanvas relicCanvas;
         [SerializeField] private CampFireCanvas campFireCanvas;
+        [SerializeField] private CharacterSkillUI characterSkillUI;
         
 
         [Header("Fader")]
@@ -36,6 +38,8 @@ namespace NueGames.Managers
         public InventoryCanvas InventoryCanvas => inventoryCanvas;
         public RelicCanvas RelicCanvas => relicCanvas;
         public CampFireCanvas CampFireCanvas => campFireCanvas;
+        public CharacterSkillUI CharacterSkillUI => characterSkillUI;
+        
         #endregion
 
         #region Setup

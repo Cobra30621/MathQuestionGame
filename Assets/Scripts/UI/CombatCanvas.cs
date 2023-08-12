@@ -16,7 +16,6 @@ namespace NueGames.UI
         [SerializeField] private TextMeshProUGUI discardPileTextField;
         [SerializeField] private TextMeshProUGUI exhaustPileTextField;
         [SerializeField] private TextMeshProUGUI manaTextTextField;
-        [SerializeField] private TextMeshProUGUI mathManaTextTextField;
         
         [Header("Panels")]
         [SerializeField] private GameObject combatWinPanel;
@@ -36,7 +35,6 @@ namespace NueGames.UI
         {
             CombatWinPanel.SetActive(false);
             CombatLosePanel.SetActive(false);
-            SetMathManaText();
             CombatManager.ManaManager.OnGainMana += OnManaChange;
         }
 
@@ -53,7 +51,6 @@ namespace NueGames.UI
 
         public void OnMathManaChange()
         {
-            SetMathManaText();
             onMathManaChangeFeedback.Play();
         }
 
@@ -61,12 +58,6 @@ namespace NueGames.UI
         {
            onManaChangeFeedback.Play(); 
            manaTextTextField.text = $"{GameManager.PersistentGameplayData.CurrentMana.ToString()}/{GameManager.PersistentGameplayData.MaxMana}";
-        }
-
-        private void SetMathManaText()
-        {
-            int mathMana = CombatManager.MainAlly.GetPowerValue(PowerName.MathMana);
-            mathManaTextTextField.text = $"{mathMana}";
         }
 
         public override void ResetCanvas()

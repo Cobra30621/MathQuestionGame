@@ -7,35 +7,36 @@ namespace NueGames.CharacterAbility
 {
     public class CharacterSkillUI : SerializedMonoBehaviour
     {
+        [SerializeField] private GameObject infoPanel;
+        
         [SerializeField] private Text abilityName, description, skillCount;
         [SerializeField] private Button playSkillButton;
 
 
-        private void OnEnable()
+        private void Awake()
         {
             CharacterSkillManager.OnSkillCountChange += UpdateSkillInfo;
+            Debug.Log("subscribe OnSkillCountChange");
         }
 
-        private void OnDisable()
+
+        public void ToggleInfoPanel()
         {
-            CharacterSkillManager.OnSkillCountChange -= UpdateSkillInfo;
+            SetInfoPanelActive(!infoPanel.activeSelf);
         }
 
-        private void Update()
+        public void SetInfoPanelActive(bool active)
         {
-            UpdateUI();
-        }
-
-        private void UpdateUI()
-        {
+            infoPanel.SetActive(active);
             abilityName.text = CharacterSkillManager.Instance.CharacterSkill.skillName;
             description.text = CharacterSkillManager.Instance.CharacterSkill.skillDescription;
-            playSkillButton.interactable = CharacterSkillManager.Instance.EnablePlaySkill();
         }
 
         private void UpdateSkillInfo(int count)
         {
+            Debug.Log($"count {count}");
             skillCount.text = $"剩餘次數：{count}";
+            playSkillButton.interactable = CharacterSkillManager.Instance.EnablePlaySkill();
         }
 
         public void PlayCharacterAbility()
