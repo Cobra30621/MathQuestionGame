@@ -67,8 +67,6 @@ namespace NueGames.CharacterAbility
         #region 參數
 
 
-        public QuestionSetting QuestionSetting;
-
         public CharacterSkill CharacterSkill => _characterSkill;
         [SerializeField] private CharacterSkill _characterSkill;
         
@@ -95,7 +93,7 @@ namespace NueGames.CharacterAbility
             {
                 AddSkillCount(-1);
                 GameActionExecutor.AddToBottom(new EnterMathQuestioningAction(
-                    _characterSkill.QuestionAction, QuestionSetting));
+                    _characterSkill.QuestionAction));
                 OnPlaySkill?.Invoke();
             }
         }

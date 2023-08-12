@@ -16,12 +16,10 @@ namespace NueGames.Action.MathAction
     public class EnterMathQuestioningAction : GameActionBase
     {
         private readonly QuestionActionBase _questionAction;
-        private QuestionSetting _questionSetting;
 
-        public EnterMathQuestioningAction(QuestionActionBase questionAction, QuestionSetting questionSetting)
+        public EnterMathQuestioningAction(QuestionActionBase questionAction)
         {
             _questionAction = questionAction;
-            _questionSetting = questionSetting;
         }
 
 
@@ -30,7 +28,7 @@ namespace NueGames.Action.MathAction
         /// </summary>
         protected override void DoMainAction()
         {
-            QuestionManager.Instance.EnterQuestionMode(_questionAction, _questionSetting);
+            QuestionManager.Instance.EnterQuestionMode(_questionAction);
         }
     }
     

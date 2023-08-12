@@ -9,13 +9,11 @@ namespace Question
 {
     public class QuestionController : MonoBehaviour
     {
-        private QuestionManager _questionManager;
         [SerializeField] private Image qeustionImage;
         [SerializeField] private Image optionImage;
 
         [SerializeField] private TextMeshProUGUI needAnswerCount;
-        [SerializeField] private MathActionBar correctBar;
-        [SerializeField] private MathActionBar wrongBar;
+
         
         [SerializeField] private TextMeshProUGUI infoText;
         [SerializeField] private MMF_Player onEnterQuestionModeFeedback;
@@ -41,7 +39,7 @@ namespace Question
             // float timeRate = _questionManager.Timer / _questionManager.StartTime;
             // timeBar.fillAmount = timeRate;
 
-            if (_questionManager.IsQuestioning)
+            if (QuestionManager.Instance.IsQuestioning)
             {
                 UpdateUI();
             }
@@ -50,35 +48,11 @@ namespace Question
         public void UpdateUI()
         {
             // answerBar.UpdateUI(_questionManager.HasAnswerCount, _questionManager.Parameters.QuestionCount);
-            int questionCount = _questionManager. QuestionCount;
-            int leastQuestionCount = questionCount - _questionManager.HasAnswerCount;
+            int questionCount = QuestionManager.Instance.QuestionCount;
+            int leastQuestionCount = questionCount - QuestionManager.Instance.HasAnswerCount;
             needAnswerCount.text = $"{leastQuestionCount}";
-            // if (_questionManager.Parameters.UseCorrectAction)
-            // {
-            //     correctBar.UpdateUI(_questionManager.CorrectAnswerCount, _questionManager.Parameters.CorrectActionNeedAnswerCount);
-            // }
-            // else
-            // {
-            //     correctBar.UpdateUI(_questionManager.CorrectAnswerCount, questionCount);
-            // }
-            //
-            // if (_questionManager.Parameters.UseWrongAction)
-            // {
-            //     wrongBar.UpdateUI(_questionManager.WrongAnswerCount, _questionManager.Parameters.WrongActionNeedAnswerCount);
-            // }
-            // else
-            // {
-            //     wrongBar.UpdateUI(_questionManager.WrongAnswerCount, questionCount);
-            // }
-            
-            
-            
         }
         
-        public void SetQuestionManager(QuestionManager manager)
-        {
-            _questionManager = manager;
-        }
 
         public void EnterQuestionMode()
         {
@@ -96,10 +70,10 @@ namespace Question
             // onExitQuestionModeFeedback.PlayFeedbacks();
         }
 
-        public void SetNextQuestion(MultipleChoiceQuestion multipleChoiceQuestion)
+        public void SetNextQuestion(Question question)
         {
-            qeustionImage.sprite = multipleChoiceQuestion.QuestionSprite;
-            optionImage.sprite = multipleChoiceQuestion.OptionSprite;
+            qeustionImage.sprite = question.QuestionSprite;
+            // optionImage.sprite = question.OptionSprite;
             
             StartPlayAnimation();
             animator.SetTrigger(ShowQuestion);
@@ -111,7 +85,7 @@ namespace Question
         {
             StartPlayAnimation();
             animator.SetTrigger(OnAnswerQuestion);
-            _questionManager.GetAnswerButton(option)?.PlayOnAnswerAnimation(correct);
+            QuestionManager.Instance.GetAnswerButton(option)?.PlayOnAnswerAnimation(correct);
             
             // onAnswerFeedback.GetFeedbackOfType<MMF_Feedbacks>().TargetFeedbacks =
             //     _questionManager.GetAnswerFeedback(correct, option);

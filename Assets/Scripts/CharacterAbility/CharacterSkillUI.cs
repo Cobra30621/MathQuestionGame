@@ -34,7 +34,6 @@ namespace NueGames.CharacterAbility
 
         private void UpdateSkillInfo(int count)
         {
-            Debug.Log($"count {count}");
             skillCount.text = $"剩餘次數：{count}";
             playSkillButton.interactable = CharacterSkillManager.Instance.EnablePlaySkill();
         }

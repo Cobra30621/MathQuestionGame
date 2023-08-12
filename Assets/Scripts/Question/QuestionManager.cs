@@ -9,13 +9,14 @@ using NueGames.Action.MathAction;
 using NueGames.Enums;
 using NueGames.Managers;
 using Question.QuestionAction;
+using Sirenix.OdinInspector;
 
 namespace Question
 {
     /// <summary>
     /// 答題模式管理器
     /// </summary>
-    public class QuestionManager : MonoBehaviour
+    public class QuestionManager : SerializedMonoBehaviour
     {
         private QuestionManager(){}
         public static QuestionManager Instance { get; private set; }
@@ -25,9 +26,9 @@ namespace Question
         /// </summary>
         [SerializeField] private QuestionController questionController;
         /// <summary>
-        /// 答題資料
+        /// 題目產生器
         /// </summary>
-        [SerializeField] private QuestionsData questionsData;
+        [SerializeField] private IQuestionGenerator questionGenerator;
         /// <summary>
         /// 答題按鈕
         /// </summary>
@@ -62,11 +63,11 @@ namespace Question
         /// <summary>
         /// 題目清單
         /// </summary>
-        [SerializeField] private List<MultipleChoiceQuestion> questionList;
+        [SerializeField] private List<Question> questionList;
         /// <summary>
         /// 正在回答的題目
         /// </summary>
-        private MultipleChoiceQuestion _currentQuestion;
+        private Question _currentQuestion;
         
         
         /// <summary>
@@ -125,7 +126,7 @@ namespace Question
         
         
         private QuestionActionBase QuestionAction;
-        public QuestionSetting QuestionSetting;
+        public GetQuestionsRequest GetQuestionsRequest;
 
         public int QuestionCount => QuestionAction.QuestionCount;
         
@@ -142,9 +143,9 @@ namespace Question
                 transform.parent = null;
                 Instance = this;
             }
-            
+
+            GenerateQuestions();
             isQuestioning = false;
-            questionController.SetQuestionManager(this);
             DontDestroyOnLoad(this);
         }
 
@@ -204,10 +205,9 @@ namespace Question
         /// 進入答題模式
         /// </summary>
         /// <param name="newParameters"></param>
-        public void EnterQuestionMode(QuestionActionBase questionAction, QuestionSetting questionSetting)
+        public void EnterQuestionMode(QuestionActionBase questionAction)
         {
             QuestionAction = questionAction;
-            QuestionSetting = questionSetting;
             StartCoroutine(QuestionCoroutine());
         }
         
@@ -251,7 +251,6 @@ namespace Question
             answerRecord.Clear();
             isQuestioning = true;
             
-            GenerateQuestions();
             if (CollectionManager)
                 CollectionManager.HandController.DisableDragging();
 
@@ -329,7 +328,7 @@ namespace Question
 
         void GenerateQuestions()
         {
-            questionList = new List<MultipleChoiceQuestion>(questionsData.MultipleChoiceQuestions);
+            questionList = questionGenerator.GetQuestions(GetQuestionsRequest);
         }
         
         private void PlayAfterQuestioningAction()
