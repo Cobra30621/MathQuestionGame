@@ -5,7 +5,7 @@ namespace Question
 {
     public abstract class IQuestionGenerator : SerializedMonoBehaviour
     {
-        public abstract List<Question> GetQuestions(GetQuestionsRequest request);
+        public abstract List<Question> GetQuestions(QuestionSetting request);
     }
 
     

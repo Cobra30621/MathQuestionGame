@@ -8,7 +8,7 @@ namespace Question
         /// <summary>
         /// 子由
         /// </summary>
-        Ziyu, 
+        Ziyou, 
         
         /// <summary>
         /// 翰林
@@ -18,7 +18,7 @@ namespace Question
         /// <summary>
         /// 康軒
         /// </summary>
-        Kangxuan,
+        KangHsuan,
         
         /// <summary>
         /// 南一

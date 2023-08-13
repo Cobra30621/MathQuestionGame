@@ -7,6 +7,7 @@ using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
 using NueGames.NueExtentions;
 using NueGames.Power;
+using Question;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -29,6 +30,12 @@ namespace NueGames.Managers
         public GameplayData GameplayData => gameplayData;
         [ShowInInspector]
         public PersistentGameplayData PersistentGameplayData { get; private set; }
+
+        /// <summary>
+        /// 取得數學設定的資料
+        /// </summary>
+        [SerializeField] private QuestionSetting _questionSetting;
+        
         
         #endregion
         
@@ -65,6 +72,7 @@ namespace NueGames.Managers
             InitGameplayData();
             SetInitalHand();
             InitialRelic();
+            QuestionManager.Instance.GenerateQuestions();
         }
         
         public void InitGameplayData()
@@ -108,6 +116,16 @@ namespace NueGames.Managers
         public void SetGameplayData(GameplayData gameplayData)
         {
             this.gameplayData = gameplayData;
+        }
+
+        public void SetQuestionSetting(QuestionSetting request)
+        {
+            _questionSetting = request;
+        }
+
+        public QuestionSetting GetQuestionSetting()
+        {
+            return _questionSetting;
         }
         
         

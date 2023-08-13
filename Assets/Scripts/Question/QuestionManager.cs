@@ -123,10 +123,15 @@ namespace Question
 
         #endregion
 
-        
+        /// <summary>
+        /// 數學行動
+        /// </summary>
         
         private QuestionActionBase QuestionAction;
-        public GetQuestionsRequest GetQuestionsRequest;
+        /// <summary>
+        /// 數學參數
+        /// </summary>
+        public QuestionSetting QuestionSetting;
 
         public int QuestionCount => QuestionAction.QuestionCount;
         
@@ -144,7 +149,6 @@ namespace Question
                 Instance = this;
             }
 
-            GenerateQuestions();
             isQuestioning = false;
             DontDestroyOnLoad(this);
         }
@@ -326,9 +330,10 @@ namespace Question
             questionList.RemoveAt(index);
         }
 
-        void GenerateQuestions()
+        public void GenerateQuestions()
         {
-            questionList = questionGenerator.GetQuestions(GetQuestionsRequest);
+            QuestionSetting = GameManager.Instance.GetQuestionSetting();
+            questionList = questionGenerator.GetQuestions(QuestionSetting);
         }
         
         private void PlayAfterQuestioningAction()

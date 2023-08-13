@@ -5,6 +5,7 @@ using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Data.Encounter;
 using NueGames.Relic;
+using Question;
 using UnityEngine;
 
 namespace NueGames.Data.Settings
@@ -34,6 +35,7 @@ namespace NueGames.Data.Settings
         /// 現在戰鬥敵人
         /// </summary>
         [SerializeField] private EnemyEncounter currentEnemyEncounter;
+        
 
         public PersistentGameplayData(GameplayData gameplayData)
         {
@@ -152,7 +154,6 @@ namespace NueGames.Data.Settings
             get => allyHealthData;
             set => allyHealthData = value;
         }
-
         #endregion
     }
 }

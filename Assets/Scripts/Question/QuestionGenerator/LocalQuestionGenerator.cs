@@ -15,32 +15,38 @@ namespace Question
         private readonly CsvLoader _csvLoader = new CsvLoader();
         [InlineEditor()]
         [SerializeField] private LoadQuestionsData loadQuestionsData;
+
+        private readonly int generateQuestionCount = 10;
         
         /// <summary>
         /// 取得數學題目清單
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public override List<Question> GetQuestions(GetQuestionsRequest request)
+        public override List<Question> GetQuestions(QuestionSetting request)
         {
             // Get QuestionClip
-            var questionsClips = new List<LoadQuestionsParameter>();
-            foreach (var questionsClip in loadQuestionsData.Parameters)
+            var loadQuestionsParameters = new List<LoadQuestionsParameter>();
+            
+            foreach (var publisher in request.Publishers)
             {
-                if (request.Grades.Contains(questionsClip.Grade) && request.Publishers.Contains(questionsClip.Publisher))
+                foreach (var grade in request.Grades)
                 {
-                    questionsClips.Add(questionsClip);
+                    var parameter = loadQuestionsData.GetParameter(publisher, grade);
+                    loadQuestionsParameters.Add(parameter);
                 }
             }
-            
-            Debug.Log($"questionsClips.Count {questionsClips.Count}");
-            
+
+
+            if (loadQuestionsParameters.Count == 0)
+            {
+                Debug.LogError($"loadQuestionsParameters.Count = {loadQuestionsParameters.Count}");
+            }
             // GetQuestion
             var questions = new List<Question>();
-            int eachClipGenerateCount = request.GetCount / questionsClips.Count;
-            foreach (var clip in questionsClips)
+            foreach (var clip in loadQuestionsParameters)
             {
-                questions.AddRange(GetQuestions(clip, eachClipGenerateCount));
+                questions.AddRange(GetQuestions(clip, generateQuestionCount));
             }
 
             return questions;

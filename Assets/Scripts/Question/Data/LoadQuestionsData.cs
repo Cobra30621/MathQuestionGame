@@ -14,5 +14,21 @@ namespace Question
     public class LoadQuestionsData  : SerializedScriptableObject
     {
         public List<LoadQuestionsParameter> Parameters;
+        
+        public LoadQuestionsParameter GetParameter(Publisher publisher, Grade grade)
+        {
+            foreach (var parameter in Parameters)
+            {
+                if (parameter.Grade == grade && parameter.Publisher == publisher)
+                {
+                    return parameter;
+                }
+            }
+
+            Debug.LogError($"不存在 Grade:{grade}, Publisher:{publisher}的讀題參數\n" +
+                           $"請去 Assets/Data/Questions/LoadQuestionData.asset 設定");
+            
+            return Parameters[0];
+        }
     }
 }
