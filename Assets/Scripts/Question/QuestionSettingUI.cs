@@ -19,7 +19,7 @@ namespace Question
 
             var questionSetting = new QuestionSetting(grade, publisher);
 
-            GameManager.Instance.SetQuestionSetting(questionSetting);
+            QuestionManager.Instance.SetQuestionSetting(questionSetting);
         }
     }
 }

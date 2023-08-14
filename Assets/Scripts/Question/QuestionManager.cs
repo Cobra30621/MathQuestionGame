@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Data;
 using MoreMountains.Feedbacks;
 using NueGames.Action.MathAction;
 using NueGames.Enums;
@@ -16,7 +17,7 @@ namespace Question
     /// <summary>
     /// 答題模式管理器
     /// </summary>
-    public class QuestionManager : SerializedMonoBehaviour
+    public class QuestionManager : SerializedMonoBehaviour, IDataPersistence
     {
         private QuestionManager(){}
         public static QuestionManager Instance { get; private set; }
@@ -245,6 +246,12 @@ namespace Question
             return 0;
         }
 
+        public void SetQuestionSetting(QuestionSetting setting)
+        {
+            QuestionSetting = setting;
+            
+        }
+
         #endregion
         
         #region Questioning Coroutine
@@ -332,7 +339,6 @@ namespace Question
 
         public void GenerateQuestions()
         {
-            QuestionSetting = GameManager.Instance.GetQuestionSetting();
             questionList = questionGenerator.GetQuestions(QuestionSetting);
         }
         
@@ -375,6 +381,18 @@ namespace Question
         }
         
         #endregion
+
+        public void LoadData(GameData data)
+        {
+            Debug.Log($"Load Question {data.QuestionSetting}");
+            QuestionSetting = data.QuestionSetting;
+        }
+
+        public void SaveData(GameData data)
+        {
+            Debug.Log($"Save Question {QuestionSetting}");
+            data.QuestionSetting = QuestionSetting;
+        }
     }
 
     /// <summary>

@@ -80,7 +80,6 @@ namespace NueGames.Utils
         }
         public void ExitApp()
         {
-            GameManager.OnExitApp();
             Application.Quit();
         }
     }

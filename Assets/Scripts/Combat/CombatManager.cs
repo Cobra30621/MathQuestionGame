@@ -27,8 +27,14 @@ namespace NueGames.Combat
         [SerializeField] private BackgroundContainer backgroundContainer;
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
-        public ManaManager ManaManager;
+        private ManaManager _manaManager;
 
+        public int CurrentMana => _manaManager.CurrentMana;
+        public Action<int> OnGainMana
+        {
+            get => _manaManager.OnGainMana;
+            set => _manaManager.OnGainMana = value;
+        }
 
         #region Character
         // 所有敵人清單
@@ -121,7 +127,7 @@ namespace NueGames.Combat
             else
             {
                 Instance = this;
-                ManaManager = new ManaManager();
+                _manaManager = new ManaManager();
                 CurrentCombatStateType = CombatStateType.PrepareCombat;
             }
         }
@@ -198,7 +204,7 @@ namespace NueGames.Combat
                     
                     break;
                 case CombatStateType.EndCombat:
-                    GameManager.PersistentGameplayData.CanSelectCards = false;
+                    GameManager.PlayerData.CanSelectCards = false;
                     
                     break;
                 default:
@@ -235,9 +241,9 @@ namespace NueGames.Combat
         {
             RoundNumber++;
             
-            ManaManager.HandleAtTurnStartMana();
-            CollectionManager.DrawCards(GameManager.PersistentGameplayData.DrawCount);
-            GameManager.PersistentGameplayData.CanSelectCards = true;
+            _manaManager.HandleAtTurnStartMana();
+            CollectionManager.DrawCards(GameManager.PlayerData.DrawCount);
+            GameManager.PlayerData.CanSelectCards = true;
             
             OnRoundStart.Invoke(GetRoundInfo());
             yield return new WaitForSeconds(0.1f);
@@ -289,7 +295,7 @@ namespace NueGames.Combat
                 yield return waitDelay;
             }
             
-            GameManager.PersistentGameplayData.CanSelectCards = false;
+            GameManager.PlayerData.CanSelectCards = false;
 
             if (CurrentCombatStateType != CombatStateType.EndCombat)
             {
@@ -325,21 +331,20 @@ namespace NueGames.Combat
 
         private IEnumerator WinCombatRoutine()
         {
-            GameManager.PersistentGameplayData.SetHealth(
+            GameManager.PlayerData.SetHealth(
                 MainAlly.GetCharacterStats().CurrentHealth, MainAlly.GetCharacterStats().MaxHealth);
             
             CollectionManager.ClearPiles();
             
             yield return new WaitForSeconds(1.5f);
            
-            if (GameManager.PersistentGameplayData.IsFinalEncounter)
+            if (GameManager.PlayerData.IsFinalEncounter)
             {
                 UIManager.CombatCanvas.CombatWinPanel.SetActive(true);
             }
             else
             {
                 MainAlly.ClearAllPower();
-                GameManager.PersistentGameplayData.CurrentEncounterId++;
                 UIManager.CombatCanvas.gameObject.SetActive(false);
                 UIManager.RewardCanvas.ShowReward(new List<RewardType>()
                 {
@@ -404,7 +409,7 @@ namespace NueGames.Combat
 
         public void AddMana(int mana)
         {
-            ManaManager.AddMana(mana);
+            _manaManager.AddMana(mana);
         }
 
 
@@ -413,7 +418,7 @@ namespace NueGames.Combat
         #region Private Methods
         private void BuildEnemies()
         {
-            CurrentEncounter = GameManager.PersistentGameplayData.CurrentEnemyEncounter;
+            CurrentEncounter = GameManager.CurrentEnemyEncounter;
             
             Enemies = new List<EnemyBase>();
             var enemyList = CurrentEncounter.enemyList;
@@ -429,7 +434,7 @@ namespace NueGames.Combat
         }
         private void BuildAllies()
         {
-            var clone = Instantiate(GameManager.PersistentGameplayData.MainAlly, AllyPosList[0]);
+            var clone = Instantiate(GameManager.MainAlly, AllyPosList[0]);
             clone.BuildCharacter();
             MainAlly = clone;
         }

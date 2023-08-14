@@ -1,43 +1,20 @@
 ﻿using System.Linq;
+using Data;
 using UnityEngine;
 using Newtonsoft.Json;
 using NueGames.Encounter;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
 namespace Map
 {
-    public class MapManager : MonoBehaviour
+    public class MapManager : SerializedMonoBehaviour, IDataPersistence
     {
         public MapConfig config;
         public MapView view;
         public EncounterManager encounterManager;
 
-        public Map CurrentMap { get; private set; }
-
-        private void Start()
-        {
-            if (PlayerPrefs.HasKey("Map"))
-            {
-                var mapJson = PlayerPrefs.GetString("Map");
-                var map = JsonConvert.DeserializeObject<Map>(mapJson);
-                // using this instead of .Contains()
-                if (map.path.Any(p => p.Equals(map.GetBossNode().point)))
-                {
-                    // payer has already reached the boss, generate a new map
-                    GenerateNewMap();
-                }
-                else
-                {
-                    CurrentMap = map;
-                    encounterManager.LoadEncounter();
-                    // player has not reached the boss yet, load the current map
-                    view.ShowMap(map);
-                }
-            }
-            else
-            {
-                GenerateNewMap();
-            }
-        }
+        public Map CurrentMap;
 
         public void GenerateNewMap()
         {
@@ -49,21 +26,45 @@ namespace Map
             view.ShowMap(map);
         }
 
-        public void SaveMap()
-        {
-            if (CurrentMap == null) return;
+        // public void SaveMap()
+        // {
+        //     if (CurrentMap == null) return;
+        //
+        //     var json = JsonConvert.SerializeObject(CurrentMap, Formatting.Indented,
+        //         new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
+        //     PlayerPrefs.SetString("Map", json);
+        //     PlayerPrefs.Save();
+        //     
+        //     encounterManager.SaveEncounter();
+        // }
 
-            var json = JsonConvert.SerializeObject(CurrentMap, Formatting.Indented,
-                new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
-            PlayerPrefs.SetString("Map", json);
-            PlayerPrefs.Save();
+
+        public void LoadData(GameData data)
+        {
+            CurrentMap = data.Map;
+
+            Debug.Log($"Load CurrentMap {CurrentMap}");
+            if (CurrentMap == null)
+            {
+                GenerateNewMap();
+            }
             
-            encounterManager.SaveEncounter();
+            if (CurrentMap.path.Any(p => p.Equals(CurrentMap.GetBossNode().point)))
+            {
+                // payer has already reached the boss, generate a new map
+                GenerateNewMap();
+            }
+            else
+            {
+                // player has not reached the boss yet, load the current map
+                view.ShowMap(CurrentMap);
+            }
         }
 
-        private void OnApplicationQuit()
+        public void SaveData(GameData data)
         {
-            SaveMap();
+            Debug.Log($"Save Map {CurrentMap}");
+            data.Map = CurrentMap;
         }
     }
 }

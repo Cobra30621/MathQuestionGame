@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Question
@@ -5,6 +6,7 @@ namespace Question
     /// <summary>
     /// 取的數學題目的參數
     /// </summary>
+    [Serializable]
     public class QuestionSetting
     {
         /// <summary>
@@ -17,6 +19,12 @@ namespace Question
         public List<Publisher> Publishers;
 
 
+        public QuestionSetting()
+        {
+            Grades = new List<Grade>();
+            Publishers = new List<Publisher>();
+        }
+
         public QuestionSetting(List<Grade> grades, List<Publisher> publishers)
         {
             Grades = grades;
@@ -27,6 +35,11 @@ namespace Question
         {
             Grades = new List<Grade>() { grade };
             Publishers = new List<Publisher>() { publisher };
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(Grades)}: {Grades.Count}, {nameof(Publishers)}: {Publishers.Count}";
         }
     }
 }

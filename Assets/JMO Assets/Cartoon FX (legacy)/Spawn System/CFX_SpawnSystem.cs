@@ -46,12 +46,12 @@ public class CFX_SpawnSystem : MonoBehaviour
 				if(returnObj != null && !returnObj.activeSelf)
 					break;
 
-				//complete loop: no active instance available
+				//complete loop: no active Instance available
 				if(cursor == loop)
 				{
 					if(instance.instantiateIfNeeded)
 					{
-						Debug.Log("[CFX_SpawnSystem.GetNextObject()] A new instance has been created for \"" + sourceObj.name + "\" because no active instance were found in the pool.\n", instance);
+						Debug.Log("[CFX_SpawnSystem.GetNextObject()] A new Instance has been created for \"" + sourceObj.name + "\" because no active Instance were found in the pool.\n", instance);
 						PreloadObject(sourceObj);
 						var list = instance.instantiatedObjects[uniqueId];
 						returnObj = list[list.Count-1];
@@ -209,7 +209,7 @@ public class CFX_SpawnSystem : MonoBehaviour
 	void Awake()
 	{
 		if(instance != null)
-			Debug.LogWarning("CFX_SpawnSystem: There should only be one instance of CFX_SpawnSystem per Scene!\n", this.gameObject);
+			Debug.LogWarning("CFX_SpawnSystem: There should only be one Instance of CFX_SpawnSystem per Scene!\n", this.gameObject);
 		
 		instance = this;
 	}

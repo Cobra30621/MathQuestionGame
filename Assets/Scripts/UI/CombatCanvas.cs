@@ -35,7 +35,7 @@ namespace NueGames.UI
         {
             CombatWinPanel.SetActive(false);
             CombatLosePanel.SetActive(false);
-            CombatManager.ManaManager.OnGainMana += OnManaChange;
+            CombatManager.OnGainMana += OnManaChange;
         }
 
         #endregion
@@ -46,7 +46,7 @@ namespace NueGames.UI
             drawPileTextField.text = $"{CollectionManager.DrawPile.Count.ToString()}";
             discardPileTextField.text = $"{CollectionManager.DiscardPile.Count.ToString()}";
             exhaustPileTextField.text =  $"{CollectionManager.ExhaustPile.Count.ToString()}";
-            manaTextTextField.text = $"{GameManager.PersistentGameplayData.CurrentMana.ToString()}/{GameManager.PersistentGameplayData.MaxMana}";
+            manaTextTextField.text = $"{CombatManager.CurrentMana}/{GameManager.PlayerData.MaxMana}";
         }
 
         public void OnMathManaChange()
@@ -57,7 +57,8 @@ namespace NueGames.UI
         public void OnManaChange(int value)
         {
            onManaChangeFeedback.Play(); 
-           manaTextTextField.text = $"{GameManager.PersistentGameplayData.CurrentMana.ToString()}/{GameManager.PersistentGameplayData.MaxMana}";
+           manaTextTextField.text = $"{CombatManager.CurrentMana}/" +
+                                    $"{GameManager.PlayerData.MaxMana}";
         }
 
         public override void ResetCanvas()

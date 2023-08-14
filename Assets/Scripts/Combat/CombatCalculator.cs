@@ -62,7 +62,7 @@ namespace NueGames.Combat
 
             bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
             // 計算遺物能力加成
-            foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
+            foreach (var relicClip in GameManager.PlayerData.CurrentRelicList)
             {
                 if (selfIsAlly)
                 {
@@ -102,7 +102,7 @@ namespace NueGames.Combat
 
             bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
             // 計算遺物能力加成
-            foreach (var relicClip in GameManager.PersistentGameplayData.CurrentRelicList)
+            foreach (var relicClip in GameManager.PlayerData.CurrentRelicList)
             {
                 if (selfIsAlly) // 格檔發起者是玩家，遺物給予加成
                 {

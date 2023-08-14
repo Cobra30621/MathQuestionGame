@@ -27,7 +27,7 @@ namespace NueGames.Card
         private void OnChoice()
         {
             if (GameManager != null)
-                GameManager.PersistentGameplayData.CurrentCardsList.Add(_cardBase.CardData);
+                GameManager.CurrentCardsList.Add(_cardBase.CardData);
 
             if (UIManager != null)
                 UIManager.RewardCanvas.ChoicePanel.DisablePanel();

@@ -1,21 +1,20 @@
 using System;
+using System.Collections.Generic;
+using Data;
 using Managers;
 using NueGames.Card;
+using NueGames.Characters;
 using NueGames.Data.Collection;
-using NueGames.Data.Containers;
 using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
-using NueGames.NueExtentions;
-using NueGames.Power;
 using Question;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace NueGames.Managers
 {
     [DefaultExecutionOrder(-10)]
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour, IDataPersistence
     { 
         public GameManager(){}
         public static GameManager Instance { get; private set; }
@@ -29,13 +28,13 @@ namespace NueGames.Managers
         public SceneData SceneData => sceneData;
         public GameplayData GameplayData => gameplayData;
         [ShowInInspector]
-        public PersistentGameplayData PersistentGameplayData { get; private set; }
-
-        /// <summary>
-        /// 取得數學設定的資料
-        /// </summary>
-        [SerializeField] private QuestionSetting _questionSetting;
+        public PlayerData PlayerData { get; private set; }
         
+        public List<CardData> CurrentCardsList;
+        
+        public AllyBase MainAlly;
+        public EnemyEncounter CurrentEnemyEncounter;
+
         
         #endregion
         
@@ -77,7 +76,9 @@ namespace NueGames.Managers
         
         public void InitGameplayData()
         { 
-            PersistentGameplayData = new PersistentGameplayData(gameplayData);
+            PlayerData = new PlayerData(gameplayData);
+            MainAlly = gameplayData.InitialAlly;
+            
             if (UIManager)
                 UIManager.InformationCanvas.ResetCanvas();
            
@@ -100,50 +101,43 @@ namespace NueGames.Managers
         }
         public void SetInitalHand()
         {
-            PersistentGameplayData.CurrentCardsList.Clear();
+            CurrentCardsList.Clear();
             
             foreach (var cardData in GameplayData.InitalDeck.CardList)
-                PersistentGameplayData.CurrentCardsList.Add(cardData);
+                CurrentCardsList.Add(cardData);
                 
         }
         
-        
-        public void OnExitApp()
-        {
-            
-        }
-
         public void SetGameplayData(GameplayData gameplayData)
         {
             this.gameplayData = gameplayData;
         }
 
-        public void SetQuestionSetting(QuestionSetting request)
-        {
-            _questionSetting = request;
-        }
-
-        public QuestionSetting GetQuestionSetting()
-        {
-            return _questionSetting;
-        }
-        
         
         public void SetEnemyEncounter(EnemyEncounter encounter)
         {
-            PersistentGameplayData.CurrentEnemyEncounter  = encounter;
+            CurrentEnemyEncounter  = encounter;
         }
 
         public void HealAlly(float percent)
         {
-            var healthData = PersistentGameplayData.AllyHealthData;
+            var healthData = PlayerData.AllyHealthData;
             int heal = Mathf.CeilToInt(healthData.MaxHealth * percent);
 
-            PersistentGameplayData.SetHealth(
+            PlayerData.SetHealth(
                 healthData.CurrentHealth + heal,healthData.MaxHealth);
         }
         #endregion
-      
 
+
+        public void LoadData(GameData data)
+        {
+            PlayerData = data.PlayerData;
+        }
+
+        public void SaveData(GameData data)
+        {
+            data.PlayerData = PlayerData;
+        }
     }
 }

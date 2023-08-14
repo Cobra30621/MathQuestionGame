@@ -19,6 +19,8 @@ namespace NueGames.Combat
         /// 當獲得瑪娜時
         /// </summary>
         public Action<int> OnGainMana;
+
+        public int CurrentMana;
         
         
         /// <summary>
@@ -26,7 +28,7 @@ namespace NueGames.Combat
         /// </summary>
         public void HandleAtTurnStartMana()
         {
-            int gainValue = GameManager.PersistentGameplayData.MaxMana;
+            int gainValue = GameManager.PlayerData.MaxMana;
             var allyPowers = CombatManager.MainAlly.GetPowerDict();
             
             // 能力系統瑪娜加成
@@ -36,7 +38,7 @@ namespace NueGames.Combat
             }
 
             // 遺物系統瑪娜加成
-            var relics = GameManager.PersistentGameplayData.CurrentRelicList;
+            var relics = GameManager.PlayerData.CurrentRelicList;
             foreach (var relicClip in relics)
             {
                 gainValue = relicClip.Relic.AtGainTurnStartMana(gainValue);
@@ -54,7 +56,7 @@ namespace NueGames.Combat
         /// </summary>
         public void ReSetMana()
         {
-            GameManager.PersistentGameplayData.CurrentMana = 0;
+            CurrentMana = 0;
         }
 
         /// <summary>
@@ -63,7 +65,7 @@ namespace NueGames.Combat
         /// <param name="mana"></param>
         public void AddMana(int mana)
         {
-            GameManager.PersistentGameplayData.CurrentMana += mana;
+            CurrentMana += mana;
 
             if (mana != 0)
             {

@@ -137,7 +137,7 @@ namespace NueGames.Managers
         }
         public void SetGameDeck()
         {
-            foreach (var i in GameManager.PersistentGameplayData.CurrentCardsList) 
+            foreach (var i in GameManager.CurrentCardsList) 
                 DrawPile.Add(i);
         }
 

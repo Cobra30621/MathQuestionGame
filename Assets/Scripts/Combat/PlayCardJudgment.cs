@@ -14,7 +14,7 @@ namespace NueGames.Combat
 
         public static bool CanUseCard(CardBase cardBase)
         {
-            return GameManager.PersistentGameplayData.CanUseCards && EnoughResourceToUseCard(cardBase);
+            return EnoughResourceToUseCard(cardBase);
         }
 
         public static bool EnoughResourceToUseCard(CardBase cardBase)
@@ -24,7 +24,7 @@ namespace NueGames.Combat
         
         private static bool EnoughMana(int needMana)
         {
-            return GameManager.PersistentGameplayData.CurrentMana >= needMana;
+            return CombatManager.CurrentMana >= needMana;
         }
     }
 }

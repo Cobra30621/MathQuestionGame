@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
@@ -6,6 +7,7 @@ using UnityEngine;
 
 namespace Map
 {
+    [Serializable]
     public class Node
     {
         public readonly Point point;

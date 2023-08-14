@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Data;
 using Map;
 using Newtonsoft.Json;
 using NueGames.Data.Encounter;
@@ -12,7 +13,7 @@ using UnityEngine.SceneManagement;
 
 namespace NueGames.Encounter
 {
-    public class EncounterManager : MonoBehaviour
+    public class EncounterManager : MonoBehaviour, IDataPersistence
     {
         public MapManager mapManager;
 
@@ -49,21 +50,6 @@ namespace NueGames.Encounter
             Debug.Log(mapEncounter.ToJson());
         }
 
-
-        public void LoadEncounter()
-        {
-            var mapJson = PlayerPrefs.GetString("MapEncounter");
-            var mapEncounter = JsonConvert.DeserializeObject<MapEncounter>(mapJson);
-
-            this.mapEncounter = mapEncounter;
-        }
-
-        public void SaveEncounter()
-        {
-            var json = mapEncounter.ToJson();
-            PlayerPrefs.SetString("MapEncounter", json);
-            PlayerPrefs.Save();
-        }
 
 
         public void EnterNode(NodeType nodeType)
@@ -110,7 +96,6 @@ namespace NueGames.Encounter
         private void EnterCombatRoom(EnemyEncounter encounter)
         {
             GameManager.Instance.SetEnemyEncounter(encounter);
-            SaveEncounter();
             
             // 進入戰鬥場景
             sceneChanger.OpenCombatScene();
@@ -120,6 +105,16 @@ namespace NueGames.Encounter
         public EnemyEncounter GetEnemyEncounter(EnemyEncounterName encounterName)
         {
             return encounterGenerator.GetEnemyEncounter(encounterName);
+        }
+
+        public void LoadData(GameData data)
+        {
+            mapEncounter = data.MapEncounter;
+        }
+
+        public void SaveData(GameData data)
+        {
+            data.MapEncounter = mapEncounter;
         }
     }
 }

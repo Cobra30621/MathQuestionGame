@@ -12,7 +12,7 @@ namespace Managers
         public static RelicManager Instance { get; private set; }
         private GameManager GameManager => GameManager.Instance;
         protected UIManager UIManager => UIManager.Instance;
-        public List<RelicClip> CurrentRelicList => GameManager.PersistentGameplayData.CurrentRelicList;
+        public List<RelicClip> CurrentRelicList => GameManager.PlayerData.CurrentRelicList;
         public RelicsData relicsData;
         
         #region SetUp (初始化)

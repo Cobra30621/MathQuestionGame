@@ -246,7 +246,7 @@ namespace NueGames.Collection
                 }
 
                 // Get Selected Card
-                if (GameManager.PersistentGameplayData.CanSelectCards)
+                if (GameManager.PlayerData.CanSelectCards)
                 {
                     //float d = (p - mouseWorldPos).sqrMagnitude;
                     if (d < sqrDistance)
@@ -301,7 +301,7 @@ namespace NueGames.Collection
                 ActionTargetType actionTargetType = _heldCard.CardData.ActionTargetType;
                 characterHighlightController.OnDraggedCardOutsideHand(actionTargetType);
 
-                if (!GameManager.PersistentGameplayData.CanSelectCards || _mouseInsideHand)
+                if (!GameManager.PlayerData.CanSelectCards || _mouseInsideHand)
                 {
                     OnCardDragedInsideHand();
                     return;

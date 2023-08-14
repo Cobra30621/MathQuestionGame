@@ -1,15 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 
 namespace Map
 {
+    [Serializable]
     public class Map
     {
         public List<Node> nodes;
         public List<Point> path;
         public string bossNodeName;
         public string configName; // similar to the act name in Slay the Spire
+
+        public Map()
+        {
+            nodes = new List<Node>();
+            path = new List<Point>();
+        }
 
         public Map(string configName, string bossNodeName, List<Node> nodes, List<Point> path)
         {
