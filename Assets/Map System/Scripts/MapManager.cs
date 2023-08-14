@@ -41,13 +41,8 @@ namespace Map
 
         public void LoadData(GameData data)
         {
-            CurrentMap = data.Map;
-
-            Debug.Log($"Load CurrentMap {CurrentMap}");
-            if (CurrentMap == null)
-            {
-                GenerateNewMap();
-            }
+            CurrentMap = JsonConvert.DeserializeObject<Map>(data.MapJson, 
+                new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
             
             if (CurrentMap.path.Any(p => p.Equals(CurrentMap.GetBossNode().point)))
             {
@@ -63,8 +58,10 @@ namespace Map
 
         public void SaveData(GameData data)
         {
-            Debug.Log($"Save Map {CurrentMap}");
-            data.Map = CurrentMap;
+            var json = JsonConvert.SerializeObject(CurrentMap, Formatting.Indented,
+                new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
+            
+            data.MapJson = json;
         }
     }
 }

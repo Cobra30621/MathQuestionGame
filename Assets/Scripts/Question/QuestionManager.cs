@@ -384,13 +384,13 @@ namespace Question
 
         public void LoadData(GameData data)
         {
-            Debug.Log($"Load Question {data.QuestionSetting}");
+            // Debug.Log($"Load Question {data.QuestionSetting}");
             QuestionSetting = data.QuestionSetting;
         }
 
         public void SaveData(GameData data)
         {
-            Debug.Log($"Save Question {QuestionSetting}");
+            // Debug.Log($"Save Question {QuestionSetting}");
             data.QuestionSetting = QuestionSetting;
         }
     }

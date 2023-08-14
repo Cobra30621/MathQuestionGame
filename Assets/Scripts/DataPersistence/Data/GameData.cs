@@ -7,7 +7,8 @@ namespace Data
     public class GameData
     {
         public PlayerData PlayerData;
-        public Map.Map Map;
+
+        public string MapJson;
         public MapEncounter MapEncounter;
 
         public QuestionSetting QuestionSetting;

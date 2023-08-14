@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Data;
+using DataPersistence;
 using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
 
@@ -21,7 +22,6 @@ public class DataPersistenceManager : SerializedMonoBehaviour
 
     [ShowInInspector] private GameData _gameData;
     [ShowInInspector] [ReadOnly] private List<IDataPersistence> dataPersistenceObjects;
-    private FileDataHandler dataHandler;
 
     public static DataPersistenceManager Instance { get; private set; }
 
@@ -36,7 +36,6 @@ public class DataPersistenceManager : SerializedMonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
 
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
     }
 
     private void OnEnable() 
@@ -71,7 +70,8 @@ public class DataPersistenceManager : SerializedMonoBehaviour
     {
         Debug.Log("Load Game");
         // load any saved data from a file using the data handler
-        this._gameData = dataHandler.Load();
+        // this._gameData = dataHandler.Load();
+        this._gameData = ES3Handler.Load();
 
         // start a new game if the data is null and we're configured to initialize data for debugging purposes
         if (this._gameData == null && initializeDataIfNull) 
@@ -110,7 +110,8 @@ public class DataPersistenceManager : SerializedMonoBehaviour
         }
 
         // save that data to a file using the data handler
-        dataHandler.Save(_gameData);
+        ES3Handler.Save(_gameData);
+        // dataHandler.Save(_gameData);
     }
 
     private void OnApplicationQuit() 

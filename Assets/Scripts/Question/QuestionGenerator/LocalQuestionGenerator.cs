@@ -75,7 +75,7 @@ namespace Question
                 int answer = Convert.ToInt32(row[1]);
 
                 string path = loadQuestionsParameter.FolderPath + spriteName;
-                Debug.Log($"path {path}");
+                // Debug.Log($"path {path}");
                 Sprite questionSprite =  Resources.Load<Sprite> (path);
 
                 Question question = new Question()
