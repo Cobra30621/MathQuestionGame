@@ -51,7 +51,7 @@ namespace Map
         {
             Locked = lockAfterSelecting;
             mapManager.CurrentMap.path.Add(mapNode.Node.point);
-            DataPersistenceManager.Instance.SaveGame();
+            SaveManager.Instance.SaveGame();
             view.SetAttainableNodes();
             view.SetLineColors();
             mapNode.ShowSwirlAnimation();

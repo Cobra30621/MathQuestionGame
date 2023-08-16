@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using NueGames.Encounter;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Sirenix.Utilities;
 
 namespace Map
 {
@@ -26,33 +27,28 @@ namespace Map
             view.ShowMap(map);
         }
 
-        // public void SaveMap()
-        // {
-        //     if (CurrentMap == null) return;
-        //
-        //     var json = JsonConvert.SerializeObject(CurrentMap, Formatting.Indented,
-        //         new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
-        //     PlayerPrefs.SetString("Map", json);
-        //     PlayerPrefs.Save();
-        //     
-        //     encounterManager.SaveEncounter();
-        // }
-
-
         public void LoadData(GameData data)
         {
-            CurrentMap = JsonConvert.DeserializeObject<Map>(data.MapJson, 
-                new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
+            Debug.Log($"map {data.MapJson}");
             
-            if (CurrentMap.path.Any(p => p.Equals(CurrentMap.GetBossNode().point)))
+            if (data.MapJson.IsNullOrWhitespace())
             {
-                // payer has already reached the boss, generate a new map
                 GenerateNewMap();
             }
             else
             {
-                // player has not reached the boss yet, load the current map
-                view.ShowMap(CurrentMap);
+                CurrentMap = JsonConvert.DeserializeObject<Map>(data.MapJson, 
+                    new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
+                if (CurrentMap.path.Any(p => p.Equals(CurrentMap.GetBossNode().point)))
+                {
+                    // payer has already reached the boss, generate a new map
+                    GenerateNewMap();
+                }
+                else
+                {
+                    // player has not reached the boss yet, load the current map
+                    view.ShowMap(CurrentMap);
+                }
             }
         }
 

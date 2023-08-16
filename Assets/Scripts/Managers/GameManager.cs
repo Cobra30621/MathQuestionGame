@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Data;
+using DataPersistence;
 using Managers;
+using Map;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Collection;
@@ -18,6 +20,8 @@ namespace NueGames.Managers
     { 
         public GameManager(){}
         public static GameManager Instance { get; private set; }
+        
+        [SerializeField] private CardDataFileHandler cardDataFileHandler;
         
         [Header("Settings")]
         [InlineEditor()]
@@ -65,33 +69,31 @@ namespace NueGames.Managers
         
         #region Public Methods
         
-        public void StartRougeLikeGame()
+        public void NewGame()
         {
+            SaveManager.Instance.NewGame();
+            
             Debug.Log("Start RougeLikeGame");
-            InitGameplayData();
-            SetInitalHand();
-            InitialRelic();
-            QuestionManager.Instance.GenerateQuestions();
-        }
-        
-        public void InitGameplayData()
-        { 
             PlayerData = new PlayerData(gameplayData);
             MainAlly = gameplayData.InitialAlly;
             
-            if (UIManager)
-                UIManager.InformationCanvas.ResetCanvas();
-           
-        }
-
-        private void InitialRelic()
-        {
             foreach (var relicType in gameplayData.InitialRelic)
             {
                 RelicManager.Instance.GainRelic(relicType);
             }
+            
+            CurrentCardsList = new List<CardData>();
+            
+            foreach (var cardData in GameplayData.InitalDeck.CardList)
+                CurrentCardsList.Add(cardData);
+            
+            QuestionManager.Instance.GenerateQuestions();
         }
-        
+
+        public void ContinueGame()
+        {
+            QuestionManager.Instance.GenerateQuestions();
+        }
         
         public CardBase BuildAndGetCard(CardData targetData, Transform parent)
         {
@@ -99,14 +101,7 @@ namespace NueGames.Managers
             clone.SetCard(targetData);
             return clone;
         }
-        public void SetInitalHand()
-        {
-            CurrentCardsList.Clear();
-            
-            foreach (var cardData in GameplayData.InitalDeck.CardList)
-                CurrentCardsList.Add(cardData);
-                
-        }
+        
         
         public void SetGameplayData(GameplayData gameplayData)
         {
@@ -129,15 +124,18 @@ namespace NueGames.Managers
         }
         #endregion
 
-
+        
         public void LoadData(GameData data)
         {
             PlayerData = data.PlayerData;
+            CurrentCardsList = cardDataFileHandler.GuidToData(data.CardDataGuids);
         }
 
         public void SaveData(GameData data)
         {
             data.PlayerData = PlayerData;
+            data.CardDataGuids =  cardDataFileHandler.DataToGuid(CurrentCardsList);
+            
         }
     }
 }

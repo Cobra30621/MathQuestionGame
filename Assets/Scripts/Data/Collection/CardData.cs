@@ -21,7 +21,7 @@ using UnityEngine;
 namespace NueGames.Data.Collection
 {
     [CreateAssetMenu(fileName = "Card Data", menuName = "NueDeck/Collection/Card", order = 0)]
-    public class CardData : SerializedScriptableObject
+    public class CardData : SerializedScriptableObject ,ISerializeReferenceByAssetGuid
     {
         [FoldoutGroup("卡片行為")]
         [DetailedInfoBox("如何創建新的卡片行為(CardAction)...", 

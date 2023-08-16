@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// 參考影片：https://www.youtube.com/watch?v=aUi9aijvpgs
 /// </summary>
-public class DataPersistenceManager : SerializedMonoBehaviour
+public class SaveManager : SerializedMonoBehaviour
 {
     [Header("Debugging")]
     [SerializeField] private bool initializeDataIfNull = false;
@@ -23,7 +23,7 @@ public class DataPersistenceManager : SerializedMonoBehaviour
     [ShowInInspector] private GameData _gameData;
     [ShowInInspector] [ReadOnly] private List<IDataPersistence> dataPersistenceObjects;
 
-    public static DataPersistenceManager Instance { get; private set; }
+    public static SaveManager Instance { get; private set; }
 
     private void Awake() 
     {
@@ -61,9 +61,12 @@ public class DataPersistenceManager : SerializedMonoBehaviour
         SaveGame();
     }
 
-    public void NewGame() 
+    
+    [Button]
+    public void NewGame()
     {
-        this._gameData = new GameData();
+        _gameData = new GameData();
+        ES3Handler.Clear();
     }
 
     public void LoadGame()
@@ -76,7 +79,7 @@ public class DataPersistenceManager : SerializedMonoBehaviour
         // start a new game if the data is null and we're configured to initialize data for debugging purposes
         if (this._gameData == null && initializeDataIfNull) 
         {
-            NewGame();
+            this._gameData = new GameData();
         }
 
         // if no data can be loaded, don't continue

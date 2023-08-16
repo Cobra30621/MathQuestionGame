@@ -35,8 +35,6 @@ namespace NueGames.Utils
                     UIManager.SetCanvas(UIManager.InformationCanvas,false,true);
                     UIManager.SetCanvas(UIManager.RewardCanvas,false,true);
                    
-                    GameManager.InitGameplayData();
-                    GameManager.SetInitalHand();
                     break;
                 case SceneType.Map:
                     UIManager.ChangeScene(GameManager.SceneData.mapSceneIndex);

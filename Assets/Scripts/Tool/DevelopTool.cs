@@ -56,7 +56,7 @@ namespace Tool
         private void SetDevelopModeData()
         {
             GameManager.Instance.SetGameplayData(GameplayData);
-            GameManager.Instance.StartRougeLikeGame();
+            GameManager.Instance.NewGame();
             
             GameManager.Instance.SetEnemyEncounter(EnemyEncounter);
             

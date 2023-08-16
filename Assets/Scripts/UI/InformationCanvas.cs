@@ -40,11 +40,11 @@ namespace NueGames.UI
         public override void ResetCanvas()
         {
             // RandomizedDeckObject.SetActive(GameManager.PlayerData.IsRandomHand);
-            SetHealthText(GameManager.MainAlly.AllyCharacterData.MaxHealth,
-                GameManager.MainAlly.AllyCharacterData.MaxHealth);
+            // SetHealthText(GameManager.MainAlly.AllyCharacterData.MaxHealth,
+            //     GameManager.MainAlly.AllyCharacterData.MaxHealth);
             // SetNameText(GameManager.GameplayData.DefaultName);
             // SetRoomText(GameManager.PlayerData.CurrentEncounterId+1,GameManager.GameplayData.UseStageSystem,GameManager.PlayerData.CurrentStageId+1);
-            UIManager.InformationCanvas.SetGoldText(GameManager.PlayerData.CurrentGold);
+            // UIManager.InformationCanvas.SetGoldText(GameManager.PlayerData.CurrentGold);
         }
         #endregion
         

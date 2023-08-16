@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Data;
+using NueGames.Data.Collection;
 using NueGames.Encounter;
 using Question;
 
@@ -13,5 +15,7 @@ namespace Data
 
         public QuestionSetting QuestionSetting;
         
+
+        public List<string> CardDataGuids;
     }
 }
