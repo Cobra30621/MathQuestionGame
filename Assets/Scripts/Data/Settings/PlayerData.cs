@@ -6,31 +6,32 @@ using NueGames.Relic;
 
 namespace Data
 {
+    /// <summary>
+    /// 玩家資料(存檔用)
+    /// </summary>
     [Serializable]
     public class PlayerData
     {
         public int DrawCount;
         public int MaxMana;
-        
         public int CurrentGold;
-        public List<RelicClip> CurrentRelicList;
         
+        public string AllyPrefabGuid;
         public AllyHealthData AllyHealthData;
         
-        public List<int> currentCards;
 
-        #region 需要刪除
-
-        public bool CanSelectCards;
+        /// <summary>
+        /// 卡牌資料
+        /// </summary>
+        public List<string> CardDataGuids;
         
-        public bool IsFinalEncounter;
-        
-        
-        #endregion
+        /// <summary>
+        /// 遺物資料
+        /// </summary>
+        public List<RelicName> Relics;
 
         public PlayerData()
         {
-            CurrentRelicList = new List<RelicClip>();
             AllyHealthData = new AllyHealthData();
         }
         
@@ -38,10 +39,7 @@ namespace Data
         {
             DrawCount = gameplayData.DrawCount;
             MaxMana = gameplayData.MaxMana;
-            CanSelectCards = true;
             CurrentGold = 0;
-            IsFinalEncounter = false;
-            CurrentRelicList = new List<RelicClip>();
             AllyHealthData = new AllyHealthData();
         }
 

@@ -204,7 +204,7 @@ namespace NueGames.Combat
                     
                     break;
                 case CombatStateType.EndCombat:
-                    GameManager.PlayerData.CanSelectCards = false;
+                    GameManager.CanSelectCards = false;
                     
                     break;
                 default:
@@ -243,7 +243,7 @@ namespace NueGames.Combat
             
             _manaManager.HandleAtTurnStartMana();
             CollectionManager.DrawCards(GameManager.PlayerData.DrawCount);
-            GameManager.PlayerData.CanSelectCards = true;
+            GameManager.CanSelectCards = true;
             
             OnRoundStart.Invoke(GetRoundInfo());
             yield return new WaitForSeconds(0.1f);
@@ -295,7 +295,7 @@ namespace NueGames.Combat
                 yield return waitDelay;
             }
             
-            GameManager.PlayerData.CanSelectCards = false;
+            GameManager.CanSelectCards = false;
 
             if (CurrentCombatStateType != CombatStateType.EndCombat)
             {
@@ -338,19 +338,12 @@ namespace NueGames.Combat
             
             yield return new WaitForSeconds(1.5f);
            
-            if (GameManager.PlayerData.IsFinalEncounter)
+            MainAlly.ClearAllPower();
+            UIManager.CombatCanvas.gameObject.SetActive(false);
+            UIManager.RewardCanvas.ShowReward(new List<RewardType>()
             {
-                UIManager.CombatCanvas.CombatWinPanel.SetActive(true);
-            }
-            else
-            {
-                MainAlly.ClearAllPower();
-                UIManager.CombatCanvas.gameObject.SetActive(false);
-                UIManager.RewardCanvas.ShowReward(new List<RewardType>()
-                {
-                    RewardType.Card, RewardType.Gold
-                });
-            }
+                RewardType.Card, RewardType.Gold
+            });
             
         }
         

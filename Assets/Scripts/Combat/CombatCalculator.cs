@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Action.Parameters;
 using GameListener;
 using Kalkatos.DottedArrow;
+using Managers;
 using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -62,7 +63,7 @@ namespace NueGames.Combat
 
             bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
             // 計算遺物能力加成
-            foreach (var relicClip in GameManager.PlayerData.CurrentRelicList)
+            foreach (var relicClip in RelicManager.Instance.CurrentRelicList)
             {
                 if (selfIsAlly)
                 {
@@ -102,7 +103,7 @@ namespace NueGames.Combat
 
             bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
             // 計算遺物能力加成
-            foreach (var relicClip in GameManager.PlayerData.CurrentRelicList)
+            foreach (var relicClip in RelicManager.Instance.CurrentRelicList)
             {
                 if (selfIsAlly) // 格檔發起者是玩家，遺物給予加成
                 {

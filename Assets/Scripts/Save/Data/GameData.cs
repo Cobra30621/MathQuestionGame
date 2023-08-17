@@ -8,14 +8,21 @@ namespace Data
 {
     public class GameData
     {
+        /// <summary>
+        /// 玩家資訊
+        /// </summary>
         public PlayerData PlayerData;
-
+        /// <summary>
+        /// 地圖資訊
+        /// </summary>
         public string MapJson;
+        /// <summary>
+        /// 地圖事件
+        /// </summary>
         public MapEncounter MapEncounter;
-
+        /// <summary>
+        /// 問題設定
+        /// </summary>
         public QuestionSetting QuestionSetting;
-        
-
-        public List<string> CardDataGuids;
     }
 }

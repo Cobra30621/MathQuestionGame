@@ -9,6 +9,7 @@ using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
+using NueGames.Relic;
 using Question;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -18,7 +19,6 @@ namespace NueGames.Managers
     [DefaultExecutionOrder(-10)]
     public class GameManager : MonoBehaviour, IDataPersistence
     { 
-        public GameManager(){}
         public static GameManager Instance { get; private set; }
         
         [SerializeField] private CardDataFileHandler cardDataFileHandler;
@@ -31,20 +31,20 @@ namespace NueGames.Managers
         #region Cache
         public SceneData SceneData => sceneData;
         public GameplayData GameplayData => gameplayData;
+        
         [ShowInInspector]
         public PlayerData PlayerData { get; private set; }
         
         public List<CardData> CurrentCardsList;
         
         public AllyBase MainAlly;
+        
         public EnemyEncounter CurrentEnemyEncounter;
 
+        public bool CanSelectCards;
         
         #endregion
         
-        // TODO　整合並去除
-        // ReSharper disable once MemberCanBePrivate.Global
-        protected UIManager UIManager => UIManager.Instance;
         
         #region Setup
         private void Awake()
@@ -66,24 +66,41 @@ namespace NueGames.Managers
 
 
         #endregion
+
+
+
+        #region Save, Load Data
+
+        public void LoadData(GameData data)
+        {
+            PlayerData = data.PlayerData;
+            CurrentCardsList = cardDataFileHandler.GuidToData(data.PlayerData.CardDataGuids);
+            SetRelicList(data.PlayerData.Relics);
+        }
+
+        public void SaveData(GameData data)
+        {
+            data.PlayerData = PlayerData;
+            data.PlayerData.CardDataGuids =  cardDataFileHandler.DataToGuid(CurrentCardsList);
+            data.PlayerData.Relics = RelicManager.Instance.GetRelicNames();
+        }
         
-        #region Public Methods
-        
+        #endregion
+
+
+
+        #region Start Game
+
         public void NewGame()
         {
             SaveManager.Instance.NewGame();
             
             Debug.Log("Start RougeLikeGame");
             PlayerData = new PlayerData(gameplayData);
+            
             MainAlly = gameplayData.InitialAlly;
-            
-            foreach (var relicType in gameplayData.InitialRelic)
-            {
-                RelicManager.Instance.GainRelic(relicType);
-            }
-            
+            SetRelicList(gameplayData.InitialRelic);
             CurrentCardsList = new List<CardData>();
-            
             foreach (var cardData in GameplayData.InitalDeck.CardList)
                 CurrentCardsList.Add(cardData);
             
@@ -94,6 +111,11 @@ namespace NueGames.Managers
         {
             QuestionManager.Instance.GenerateQuestions();
         }
+
+        #endregion
+        
+        
+        #region Public Methods
         
         public CardBase BuildAndGetCard(CardData targetData, Transform parent)
         {
@@ -101,7 +123,7 @@ namespace NueGames.Managers
             clone.SetCard(targetData);
             return clone;
         }
-        
+
         
         public void SetGameplayData(GameplayData gameplayData)
         {
@@ -122,20 +144,16 @@ namespace NueGames.Managers
             PlayerData.SetHealth(
                 healthData.CurrentHealth + heal,healthData.MaxHealth);
         }
+        
+        private void SetRelicList(List<RelicName> relicNames)
+        {
+            RelicManager.Instance.GainRelic(relicNames);
+        }
         #endregion
 
         
-        public void LoadData(GameData data)
-        {
-            PlayerData = data.PlayerData;
-            CurrentCardsList = cardDataFileHandler.GuidToData(data.CardDataGuids);
-        }
-
-        public void SaveData(GameData data)
-        {
-            data.PlayerData = PlayerData;
-            data.CardDataGuids =  cardDataFileHandler.DataToGuid(CurrentCardsList);
-            
-        }
+        
+        
+        
     }
 }
