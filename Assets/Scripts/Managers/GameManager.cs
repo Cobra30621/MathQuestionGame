@@ -105,6 +105,8 @@ namespace NueGames.Managers
                 CurrentCardsList.Add(cardData);
             
             QuestionManager.Instance.GenerateQuestions();
+            
+            SaveManager.Instance.SaveGame();
         }
 
         public void ContinueGame()

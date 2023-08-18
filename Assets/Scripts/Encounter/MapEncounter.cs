@@ -14,15 +14,15 @@ namespace NueGames.Encounter
     [Serializable]
     public class MapEncounter
     {
-        public List<EnemyEncounterName> enemyList;
-        public List<EnemyEncounterName> eliteEnemyList;
-        public List<EnemyEncounterName> bossList;
+        public List<string> enemyList;
+        public List<string> eliteEnemyList;
+        public List<string> bossList;
 
         public int addCount = 10;
         
         public void GeneratorStageData(EncounterStage stage)
         {
-            enemyList = new List<EnemyEncounterName>();
+            enemyList = new List<string>();
             Debug.Log($"stage {stage}");
             int weakEnemyCount = stage.weakEnemyCount;
             enemyList.AddRange(stage.weakEnemies.GetEncounterListByWeight(weakEnemyCount));
@@ -37,7 +37,7 @@ namespace NueGames.Encounter
         /// <returns></returns>
         public EnemyEncounter GetEnemyEncounter()
         {
-            EnemyEncounterName encounterName = enemyList[0];
+            string encounterName = enemyList[0];
             enemyList.Remove(encounterName);
             
             EnemyEncounter encounter = EncounterManager.Instance.GetEnemyEncounter(encounterName);
@@ -46,7 +46,7 @@ namespace NueGames.Encounter
 
         public EnemyEncounter GetEliteEncounter()
         {
-            EnemyEncounterName encounterName = eliteEnemyList[0];
+            string encounterName = eliteEnemyList[0];
             eliteEnemyList.Remove(encounterName);
             
             EnemyEncounter encounter = EncounterManager.Instance.GetEnemyEncounter(encounterName);
@@ -55,7 +55,7 @@ namespace NueGames.Encounter
         
         public EnemyEncounter GetBossEncounter()
         {
-            EnemyEncounterName encounterName = bossList[0];
+            string encounterName = bossList[0];
             bossList.Remove(encounterName);
             
             EnemyEncounter encounter = EncounterManager.Instance.GetEnemyEncounter(encounterName);

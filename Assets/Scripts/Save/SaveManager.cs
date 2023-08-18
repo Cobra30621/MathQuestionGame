@@ -20,9 +20,13 @@ public class SaveManager : SerializedMonoBehaviour
     [SerializeField] private string fileName;
     [SerializeField] private bool useEncryption;
 
+    
+
+    [SerializeField] private List<string> needSaveScenes;
+
     [ShowInInspector] private GameData _gameData;
     [ShowInInspector] [ReadOnly] private List<IDataPersistence> dataPersistenceObjects;
-
+    
     public static SaveManager Instance { get; private set; }
 
     private void Awake() 
@@ -52,13 +56,20 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        LoadGame();
+        Debug.Log($"needSaveScenes.Contains(scene.name) {needSaveScenes.Contains(scene.name)}");
+        if (needSaveScenes.Contains(scene.name))
+        {
+            LoadGame();
+        }
     }
 
     public void OnSceneUnloaded(Scene scene)
     {
-        SaveGame();
+        Debug.Log($"needSaveScenes.Contains(scene.name) {needSaveScenes.Contains(scene.name)}");
+        if (needSaveScenes.Contains(scene.name))
+        {
+            SaveGame();
+        }
     }
 
     
@@ -71,6 +82,7 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void LoadGame()
     {
+        dataPersistenceObjects = FindAllDataPersistenceObjects();
         Debug.Log("Load Game");
         // load any saved data from a file using the data handler
         // this._gameData = dataHandler.Load();
@@ -98,6 +110,7 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void SaveGame()
     {
+        dataPersistenceObjects = FindAllDataPersistenceObjects();
         Debug.Log($"Save Game");
         // if we don't have any data to save, log a warning here
         if (this._gameData == null) 

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ba5bd41e2949adac0f03de32229b65, type: 3}
+  m_Name: EnemyEncounterData
+  m_EditorClassIdentifier: 
+  foldersToSearchIn:
+  - Assets/Data/EnemyEncounter
+  autoFetchInPlaymode: 1
+  cachedReferences:
+  - guid: 74ca571c5b916964a929f7f1ba987267
+    scriptableObject: {fileID: 11400000, guid: 74ca571c5b916964a929f7f1ba987267, type: 2}
+  - guid: 5a05759c7bb10ea4bbee03f1d939100c
+    scriptableObject: {fileID: 11400000, guid: 5a05759c7bb10ea4bbee03f1d939100c, type: 2}
+  - guid: 26664d9702dcbff47870d7876ca1f4cd
+    scriptableObject: {fileID: 11400000, guid: 26664d9702dcbff47870d7876ca1f4cd, type: 2}
+  - guid: e7301c4a413e7d347a6f92c5bd865308
+    scriptableObject: {fileID: 11400000, guid: e7301c4a413e7d347a6f92c5bd865308, type: 2}
+  - guid: c432081682ce8734dab2332d0f1d5ecc
+    scriptableObject: {fileID: 11400000, guid: c432081682ce8734dab2332d0f1d5ecc, type: 2}
+  - guid: 41fe7e80be66d1e449a8233314a3d9d1
+    scriptableObject: {fileID: 11400000, guid: 41fe7e80be66d1e449a8233314a3d9d1, type: 2}
+  - guid: 384e758af60f7c24e86240200322a5bb
+    scriptableObject: {fileID: 11400000, guid: 384e758af60f7c24e86240200322a5bb, type: 2}
+  - guid: 2c76dd9c3a5406e4b95889e77b60c894
+    scriptableObject: {fileID: 11400000, guid: 2c76dd9c3a5406e4b95889e77b60c894, type: 2}
+  - guid: 001c14a7566e143bb98b07c7c8ffa189
+    scriptableObject: {fileID: 11400000, guid: 001c14a7566e143bb98b07c7c8ffa189, type: 2}
+  - guid: 7f700ffeb36011b4fb16eec544a68f91
+    scriptableObject: {fileID: 11400000, guid: 7f700ffeb36011b4fb16eec544a68f91, type: 2}
+  - guid: 49153edabc6433448b6053f9b410d002
+    scriptableObject: {fileID: 11400000, guid: 49153edabc6433448b6053f9b410d002, type: 2}

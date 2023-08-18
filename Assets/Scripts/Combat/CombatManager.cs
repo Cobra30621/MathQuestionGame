@@ -414,6 +414,7 @@ namespace NueGames.Combat
             CurrentEncounter = GameManager.CurrentEnemyEncounter;
             
             Enemies = new List<EnemyBase>();
+            Debug.Log(CurrentEncounter.name);
             var enemyList = CurrentEncounter.enemyList;
             for (var i = 0; i < enemyList.Count; i++)
             {

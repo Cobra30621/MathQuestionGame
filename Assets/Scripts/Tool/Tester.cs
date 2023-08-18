@@ -29,8 +29,6 @@ public class Tester : MonoBehaviour
     {
         testEvent.Invoke();
         
-        MapConfig.encounterStage.Test();
-        
         
         // CollectionManager.Instance.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, false);
         // CardChoice();

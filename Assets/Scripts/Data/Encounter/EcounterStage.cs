@@ -34,20 +34,6 @@ namespace NueGames.Data.Encounter
 
         public RewardEncounterList rewards;
 
-        [ContextMenu("Test")]
-        public void Test()
-        {
-            // List<EnemyEncounter> encounterList = GetEnemyEncounterList(1000);
-
-            List<EnemyEncounterName> encounterList = weakEnemies.GetEncounterListByWeight(10);
-
-
-            for (var i = 0; i < encounterList.Count; i++)
-            {
-                Debug.Log($"{encounterList[i]}");
-            }
-        }
-        
         
     }
 

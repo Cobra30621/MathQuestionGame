@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Data;
+using DataPersistence;
 using Map;
 using Newtonsoft.Json;
 using NueGames.Data.Encounter;
@@ -15,11 +16,12 @@ namespace NueGames.Encounter
 {
     public class EncounterManager : MonoBehaviour, IDataPersistence
     {
+        [SerializeField] private ScriptableObjectFileHandler fileHandler;
+        
         public MapManager mapManager;
 
         public MapEncounter mapEncounter;
 
-        public EncounterGenerator encounterGenerator;
         public SceneChanger sceneChanger;
         
         #region 單例模式
@@ -101,10 +103,20 @@ namespace NueGames.Encounter
             sceneChanger.OpenCombatScene();
         }
 
-
-        public EnemyEncounter GetEnemyEncounter(EnemyEncounterName encounterName)
+        
+        public EnemyEncounter GetEnemyEncounter(string guid)
         {
-            return encounterGenerator.GetEnemyEncounter(encounterName);
+            return fileHandler.GuidToData<EnemyEncounter>(guid);
+        }
+
+        public List<string> EnemyEncounterToGuid(List<EnemyEncounter> dataList)
+        {
+            return fileHandler.DataToGuid(dataList);
+        }
+
+        public string GetGuid(EnemyEncounter enemyEncounter)
+        {
+            return fileHandler.DataToGuid<EnemyEncounter>(enemyEncounter);
         }
 
         public void LoadData(GameData data)
