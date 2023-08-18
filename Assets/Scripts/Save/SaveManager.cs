@@ -56,7 +56,8 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
-        Debug.Log($"needSaveScenes.Contains(scene.name) {needSaveScenes.Contains(scene.name)}");
+        dataPersistenceObjects = FindAllDataPersistenceObjects();
+        Debug.Log($"Load scene {scene.name}, {needSaveScenes.Contains(scene.name)}");
         if (needSaveScenes.Contains(scene.name))
         {
             LoadGame();
@@ -65,7 +66,7 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void OnSceneUnloaded(Scene scene)
     {
-        Debug.Log($"needSaveScenes.Contains(scene.name) {needSaveScenes.Contains(scene.name)}");
+        Debug.Log($"Unload scene {scene.name}, {needSaveScenes.Contains(scene.name)}");
         if (needSaveScenes.Contains(scene.name))
         {
             SaveGame();
@@ -82,8 +83,7 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void LoadGame()
     {
-        dataPersistenceObjects = FindAllDataPersistenceObjects();
-        Debug.Log("Load Game");
+        
         // load any saved data from a file using the data handler
         // this._gameData = dataHandler.Load();
         this._gameData = ES3Handler.Load();
@@ -110,8 +110,6 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void SaveGame()
     {
-        dataPersistenceObjects = FindAllDataPersistenceObjects();
-        Debug.Log($"Save Game");
         // if we don't have any data to save, log a warning here
         if (this._gameData == null) 
         {
@@ -119,9 +117,11 @@ public class SaveManager : SerializedMonoBehaviour
             return;
         }
 
+        Debug.Log($"dataPersistenceObjects count {dataPersistenceObjects.Count}");
+        
         // pass the data to other scripts so they can update it
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) 
-        {
+        { 
             dataPersistenceObj.SaveData(_gameData);
         }
 

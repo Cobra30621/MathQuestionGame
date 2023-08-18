@@ -89,21 +89,23 @@ MonoBehaviour:
     weakEnemyCount: 2
     weakEnemies:
       weightClip:
-      - encounter: 101
+      - encounter: {fileID: 11400000, guid: 384e758af60f7c24e86240200322a5bb, type: 2}
         weight: 1
-      - encounter: 1001
+      - encounter: {fileID: 11400000, guid: 5a05759c7bb10ea4bbee03f1d939100c, type: 2}
         weight: 1
     strongEnemies:
       weightClip:
-      - encounter: 102
+      - encounter: {fileID: 11400000, guid: 7f700ffeb36011b4fb16eec544a68f91, type: 2}
         weight: 1
-      - encounter: 1011
+      - encounter: {fileID: 11400000, guid: 26664d9702dcbff47870d7876ca1f4cd, type: 2}
         weight: 1
     eliteEnemies:
-      weightClip: []
+      weightClip:
+      - encounter: {fileID: 11400000, guid: c432081682ce8734dab2332d0f1d5ecc, type: 2}
+        weight: 1
     bossEnemies:
       weightClip:
-      - encounter: 111
+      - encounter: {fileID: 11400000, guid: 74ca571c5b916964a929f7f1ba987267, type: 2}
         weight: 1
     rewards: {fileID: 0}
   nodeBlueprints:

@@ -21,7 +21,7 @@ namespace NueGames.Managers
     { 
         public static GameManager Instance { get; private set; }
         
-        [SerializeField] private CardDataFileHandler cardDataFileHandler;
+        [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler;
         
         [Header("Settings")]
         [InlineEditor()]
@@ -74,13 +74,15 @@ namespace NueGames.Managers
         public void LoadData(GameData data)
         {
             PlayerData = data.PlayerData;
-            CurrentCardsList = cardDataFileHandler.GuidToData(data.PlayerData.CardDataGuids);
+            CurrentCardsList = cardDataFileHandler.GuidToData<CardData>(data.PlayerData.CardDataGuids);
+            // Debug.Log($"Load Card {CurrentCardsList.Count}");
             SetRelicList(data.PlayerData.Relics);
         }
 
         public void SaveData(GameData data)
         {
             data.PlayerData = PlayerData;
+            // Debug.Log($"Save Card {CurrentCardsList.Count}");
             data.PlayerData.CardDataGuids =  cardDataFileHandler.DataToGuid(CurrentCardsList);
             data.PlayerData.Relics = RelicManager.Instance.GetRelicNames();
         }
@@ -136,7 +138,6 @@ namespace NueGames.Managers
         public void SetEnemyEncounter(EnemyEncounter encounter)
         {
             CurrentEnemyEncounter  = encounter;
-            Debug.Log($"Set Encounter {encounter}");
         }
 
         public void HealAlly(float percent)

@@ -45,12 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d01e58d87e6d574296ea3c2b3d6f1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardDataFileHandler: {fileID: 975806491830183042}
   gameplayData: {fileID: 11400000, guid: 1ff5bb128064a2d449207d35299f803a, type: 2}
   sceneData: {fileID: 11400000, guid: 5ae2ae3ff5f3b8349b31eea9f8fd748e, type: 2}
   CurrentCardsList: []
   MainAlly: {fileID: 0}
   CurrentEnemyEncounter: {fileID: 0}
-  cardDataFileHandler: {fileID: 5311600076705142505}
+  CanSelectCards: 0
 --- !u!1 &6065209682066806550
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +61,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7404480640121284348}
-  - component: {fileID: 5311600076705142505}
+  - component: {fileID: 975806491830183042}
   m_Layer: 0
   m_Name: Card Data File Handler
   m_TagString: Untagged
@@ -83,7 +84,7 @@ Transform:
   m_Father: {fileID: 3747954644409722057}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5311600076705142505
+--- !u!114 &975806491830183042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +93,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6065209682066806550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8c3dcb12d8347beb9d5ba1fba9b00ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 912f235a7ee44a5bbea93b23cbf2a6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -104,4 +105,4 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  CardDataReference: {fileID: 11400000, guid: 4c6e57eef9f084eff8b27b456663c8df, type: 2}
+  dataReference: {fileID: 11400000, guid: 4c6e57eef9f084eff8b27b456663c8df, type: 2}
