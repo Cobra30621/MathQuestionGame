@@ -136,6 +136,7 @@ namespace NueGames.Managers
         public void SetEnemyEncounter(EnemyEncounter encounter)
         {
             CurrentEnemyEncounter  = encounter;
+            Debug.Log($"Set Encounter {encounter}");
         }
 
         public void HealAlly(float percent)

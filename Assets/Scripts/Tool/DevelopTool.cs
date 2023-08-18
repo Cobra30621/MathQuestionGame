@@ -12,6 +12,7 @@ using NueGames.Combat;
 using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
 using NueGames.Power;
+using Question;
 using Sirenix.OdinInspector;
 
 namespace Tool
@@ -30,17 +31,21 @@ namespace Tool
         public GameplayData GameplayData;
         [InlineEditor()]
         public EnemyEncounter EnemyEncounter;
+
+        public QuestionSetting QuestionSetting;
         
         public List<PowerName> allyPowerAtGameStart;
+        
+        
 
         void Awake()
         {
-            
+            SetDevelopModeData();
         }
 
         void Start()
         {
-            SetDevelopModeData();
+            
             PlayTest();
 
             GenerateAllyPower();
@@ -57,9 +62,10 @@ namespace Tool
         private void SetDevelopModeData()
         {
             GameManager.Instance.SetGameplayData(GameplayData);
-            GameManager.Instance.NewGame();
             GameManager.Instance.SetEnemyEncounter(EnemyEncounter);
-           
+            QuestionManager.Instance.SetQuestionSetting(QuestionSetting); 
+            
+            GameManager.Instance.NewGame();
         }
         
         private void GenerateAllyPower()

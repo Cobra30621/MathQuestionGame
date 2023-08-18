@@ -34,7 +34,7 @@ namespace DataPersistence
                 }
                 else
                 {
-                    Debug.Log($"{nameof(T)} 無法轉換");
+                    Debug.Log($"{data} 無法轉換");
                 }
             }
 

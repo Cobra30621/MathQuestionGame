@@ -12,7 +12,7 @@ using UnityEngine;
 /// Reference: https://odininspector.com/community-tools/58A/serializing-references-to-scriptable-objects-at-runtime
 /// </summary>
 [CreateAssetMenu]
-public class ScriptableObjectReferenceCache : ScriptableObject, IExternalStringReferenceResolver
+public class ScriptableObjectReferenceCache : SerializedScriptableObject, IExternalStringReferenceResolver
 {
     [FolderPath(RequireExistingPath = true)]
     [SerializeField] private string[] foldersToSearchIn;
@@ -23,8 +23,10 @@ public class ScriptableObjectReferenceCache : ScriptableObject, IExternalStringR
     [ReadOnly]
     [SerializeField] private List<SOCacheEntry> cachedReferences;
 
-    private Dictionary<string, ScriptableObject> guidToSoDict;
-    private Dictionary<ScriptableObject, string> soToGuidDict;
+    [ReadOnly]
+    [SerializeField]private Dictionary<string, ScriptableObject> guidToSoDict;
+    [ReadOnly]
+    [SerializeField]private Dictionary<ScriptableObject, string> soToGuidDict;
     
     [ShowInInspector][HideInEditorMode]
     public bool IsInitialized => guidToSoDict != null && soToGuidDict != null;
