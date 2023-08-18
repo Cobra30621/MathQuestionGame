@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawCount: 5
   maxMana: 3
-  initalAllyList:
-  - {fileID: 2835035829204582327, guid: ea5ea9cb5f227fd46a277c14575dcd69, type: 3}
-  initalDeck: {fileID: 11400000, guid: 0ca98636dd7b43645a0e498f0f3ef381, type: 2}
   maxCardOnHand: 10
-  allCardsList:
-  - {fileID: 11400000, guid: 8f655889219afa649a967e88e37f98ec, type: 2}
-  - {fileID: 11400000, guid: 7c3fef23d2fb177478906e53364bf7fc, type: 2}
+  initalDeck: {fileID: 11400000, guid: 0ca98636dd7b43645a0e498f0f3ef381, type: 2}
+  rewardDeck: {fileID: 0}
   cardPrefab: {fileID: 2689473134106589740, guid: a9728682a56595f4989b8f224d934689, type: 3}
-  defaultName: Nue
-  useStageSystem: 0
-  isRandomHand: 0
-  randomCardCount: 10
+  initialAllyDataData: {fileID: 11400000, guid: fc1a85bb53bd2694ea1143c9b9a6baf3, type: 2}
+  initialRelic: 

@@ -6,6 +6,7 @@ using Managers;
 using Map;
 using NueGames.Card;
 using NueGames.Characters;
+using NueGames.Data.Characters;
 using NueGames.Data.Collection;
 using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
@@ -21,7 +22,7 @@ namespace NueGames.Managers
     { 
         public static GameManager Instance { get; private set; }
         
-        [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler;
+        [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler, allyDataFileHandler;
         
         [Header("Settings")]
         [InlineEditor()]
@@ -37,7 +38,7 @@ namespace NueGames.Managers
         
         public List<CardData> CurrentCardsList;
         
-        public AllyBase MainAlly;
+        public AllyData MainAllyData;
         
         public EnemyEncounter CurrentEnemyEncounter;
 
@@ -75,6 +76,7 @@ namespace NueGames.Managers
         {
             PlayerData = data.PlayerData;
             CurrentCardsList = cardDataFileHandler.GuidToData<CardData>(data.PlayerData.CardDataGuids);
+            MainAllyData = allyDataFileHandler.GuidToData<AllyData>(data.PlayerData.AllyDataGuid);
             // Debug.Log($"Load Card {CurrentCardsList.Count}");
             SetRelicList(data.PlayerData.Relics);
         }
@@ -84,6 +86,7 @@ namespace NueGames.Managers
             data.PlayerData = PlayerData;
             // Debug.Log($"Save Card {CurrentCardsList.Count}");
             data.PlayerData.CardDataGuids =  cardDataFileHandler.DataToGuid(CurrentCardsList);
+            data.PlayerData.AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData);
             data.PlayerData.Relics = RelicManager.Instance.GetRelicNames();
         }
         
@@ -97,17 +100,22 @@ namespace NueGames.Managers
         {
             SaveManager.Instance.NewGame();
             
-            Debug.Log("Start RougeLikeGame");
-            PlayerData = new PlayerData(gameplayData);
+            Debug.Log("New Game");
             
-            MainAlly = gameplayData.InitialAlly;
+            MainAllyData = gameplayData.InitialAllyData;
             SetRelicList(gameplayData.InitialRelic);
             CurrentCardsList = new List<CardData>();
             foreach (var cardData in GameplayData.InitalDeck.CardList)
                 CurrentCardsList.Add(cardData);
             
+            PlayerData = new PlayerData(gameplayData)
+            {
+                CardDataGuids = cardDataFileHandler.DataToGuid(CurrentCardsList),
+                AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData),
+                Relics = RelicManager.Instance.GetRelicNames()
+            };
+
             QuestionManager.Instance.GenerateQuestions();
-            
             SaveManager.Instance.SaveGame();
         }
 

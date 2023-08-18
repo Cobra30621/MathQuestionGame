@@ -23,13 +23,13 @@ namespace DataPersistence
         {
             if (data == null)
             {
-                Debug.Log($"輸入的 ScriptableObject 為 null");
+                Debug.LogError($"輸入的 ScriptableObject 為 null");
                 return "";
             } 
             
             if (!dataReference.CanReference(data, out string guid))
             {
-                Debug.Log($"無法取得 ScriptableObject {data} 的 guid");
+                Debug.LogError($"無法取得 ScriptableObject {data} 的 guid");
             }
             
             return guid;
@@ -49,7 +49,7 @@ namespace DataPersistence
             {
                 if (data == null)
                 {
-                    Debug.Log($"輸入的 ScriptableObject 為 null");
+                    Debug.LogError($"輸入的 ScriptableObject 為 null");
                 }
                 else
                 {
@@ -59,7 +59,7 @@ namespace DataPersistence
                     }
                     else
                     {
-                        Debug.Log($"無法取得 ScriptableObject {data} 的 guid");
+                        Debug.LogError($"無法取得 ScriptableObject {data} 的 guid");
                     }
                 }
             }

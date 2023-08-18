@@ -12,6 +12,1180 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ba5bd41e2949adac0f03de32229b65, type: 3}
   m_Name: CardData Reference Cache
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 2d4acd70fdfb0d04486c0d01bbf76d86, type: 2}
+    - {fileID: 11400000, guid: 9846ca212021b8144b3f942ca0f46cf2, type: 2}
+    - {fileID: 11400000, guid: cf454e68e26588042a09a0267e46c726, type: 2}
+    - {fileID: 11400000, guid: f78813c4483e2554ea1462eff7f28570, type: 2}
+    - {fileID: 11400000, guid: e08aaf2cf4afc5a4ba322a69ae07e115, type: 2}
+    - {fileID: 11400000, guid: 3413a4ef9fb7f06458adccfda011aec4, type: 2}
+    - {fileID: 11400000, guid: 9cb79c54312e7484ead0b1414f801918, type: 2}
+    - {fileID: 11400000, guid: 69fd1662976019044bbacd8b7763ef81, type: 2}
+    - {fileID: 11400000, guid: 3f6af3eaf730cdd40a08bf4b9db6b617, type: 2}
+    - {fileID: 11400000, guid: b699aed0886ac44edb37f559599d8bf9, type: 2}
+    - {fileID: 11400000, guid: 2ff51bfc2d05747eab09c91559ccd2db, type: 2}
+    - {fileID: 11400000, guid: 0674de16afc5543c79c6587e4ac6646d, type: 2}
+    - {fileID: 11400000, guid: a8ad2c2cc9d774b1fa4c3f9525d5e82c, type: 2}
+    - {fileID: 11400000, guid: 388faade038044ec6979feb18f4c37fb, type: 2}
+    - {fileID: 11400000, guid: 683b7b5a15c7a458c8d057725c80d500, type: 2}
+    - {fileID: 11400000, guid: c13f1859f207b4ba6a9a7d41e0de80ec, type: 2}
+    - {fileID: 11400000, guid: a46c7b10817e94ee89a904bc24d4b8a7, type: 2}
+    - {fileID: 11400000, guid: d61f5cfa728c9431f9840739b3f42261, type: 2}
+    - {fileID: 11400000, guid: f6f809371e185430291a6a9227462b49, type: 2}
+    - {fileID: 11400000, guid: 89612c2594c564c9199e14bdd934d093, type: 2}
+    - {fileID: 11400000, guid: 9274989cd51104c1ea59f72de98b0f54, type: 2}
+    - {fileID: 11400000, guid: 5bccb151ac50f42abb611a785ba4a616, type: 2}
+    - {fileID: 11400000, guid: 8827d907f9cca456cbf8c58cf77b8842, type: 2}
+    - {fileID: 11400000, guid: de8465afff36c4d63bebc88e3cedb02a, type: 2}
+    - {fileID: 11400000, guid: eb34bea7c04ca47479a17bfaf92c20c9, type: 2}
+    - {fileID: 11400000, guid: e30a76d2e67946c40b727a6a4d0db0f9, type: 2}
+    - {fileID: 11400000, guid: d847feb0b2dc68148868ea9a9399dd5c, type: 2}
+    - {fileID: 11400000, guid: 9be2808ffbc231145b4073720691d4f5, type: 2}
+    - {fileID: 11400000, guid: 0058cc208c4374b46b97a3bad9fa8dc9, type: 2}
+    - {fileID: 11400000, guid: 2aad5d5ec9f593b4a99c0373c94e6de3, type: 2}
+    - {fileID: 11400000, guid: 7190bd9348c4009488e4f45183ca08f3, type: 2}
+    - {fileID: 11400000, guid: f672bae07509f404a8ef995b894716e2, type: 2}
+    - {fileID: 11400000, guid: ffda29e6273ac57448cbde9938a19cb6, type: 2}
+    - {fileID: 11400000, guid: 940ca4b8265b05f4da876285d19da618, type: 2}
+    - {fileID: 11400000, guid: f01c69208615ce541964d4fef2baf9a5, type: 2}
+    - {fileID: 11400000, guid: 3929867f63b13254c9d1a8992a742154, type: 2}
+    - {fileID: 11400000, guid: 8f655889219afa649a967e88e37f98ec, type: 2}
+    - {fileID: 11400000, guid: 8597a12ecc4d92f4ab4ddc590fc8f7c1, type: 2}
+    - {fileID: 11400000, guid: 7c3fef23d2fb177478906e53364bf7fc, type: 2}
+    - {fileID: 11400000, guid: 2b1fa8611fd80584984ffe5e3e1c81bd, type: 2}
+    - {fileID: 11400000, guid: 8036edd338db28241acdac23fd5311d8, type: 2}
+    - {fileID: 11400000, guid: 8c1b81b7d9d03784999774e7837f801e, type: 2}
+    - {fileID: 11400000, guid: 972c409719ce9744aae66d51afae2b47, type: 2}
+    - {fileID: 11400000, guid: d39fdb898cd8da64bb5078cab57e11f7, type: 2}
+    - {fileID: 11400000, guid: d95f374202ea2674a9ccd17534c8296b, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: guidToSoDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.ScriptableObject,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 45
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 2d4acd70fdfb0d04486c0d01bbf76d86
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9846ca212021b8144b3f942ca0f46cf2
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: cf454e68e26588042a09a0267e46c726
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: f78813c4483e2554ea1462eff7f28570
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: e08aaf2cf4afc5a4ba322a69ae07e115
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 3413a4ef9fb7f06458adccfda011aec4
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9cb79c54312e7484ead0b1414f801918
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 69fd1662976019044bbacd8b7763ef81
+    - Name: $v
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 3f6af3eaf730cdd40a08bf4b9db6b617
+    - Name: $v
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: b699aed0886ac44edb37f559599d8bf9
+    - Name: $v
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 2ff51bfc2d05747eab09c91559ccd2db
+    - Name: $v
+      Entry: 10
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 0674de16afc5543c79c6587e4ac6646d
+    - Name: $v
+      Entry: 10
+      Data: 11
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: a8ad2c2cc9d774b1fa4c3f9525d5e82c
+    - Name: $v
+      Entry: 10
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 388faade038044ec6979feb18f4c37fb
+    - Name: $v
+      Entry: 10
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 683b7b5a15c7a458c8d057725c80d500
+    - Name: $v
+      Entry: 10
+      Data: 14
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: c13f1859f207b4ba6a9a7d41e0de80ec
+    - Name: $v
+      Entry: 10
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: a46c7b10817e94ee89a904bc24d4b8a7
+    - Name: $v
+      Entry: 10
+      Data: 16
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: d61f5cfa728c9431f9840739b3f42261
+    - Name: $v
+      Entry: 10
+      Data: 17
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: f6f809371e185430291a6a9227462b49
+    - Name: $v
+      Entry: 10
+      Data: 18
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 89612c2594c564c9199e14bdd934d093
+    - Name: $v
+      Entry: 10
+      Data: 19
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9274989cd51104c1ea59f72de98b0f54
+    - Name: $v
+      Entry: 10
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5bccb151ac50f42abb611a785ba4a616
+    - Name: $v
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 8827d907f9cca456cbf8c58cf77b8842
+    - Name: $v
+      Entry: 10
+      Data: 22
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: de8465afff36c4d63bebc88e3cedb02a
+    - Name: $v
+      Entry: 10
+      Data: 23
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: eb34bea7c04ca47479a17bfaf92c20c9
+    - Name: $v
+      Entry: 10
+      Data: 24
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: e30a76d2e67946c40b727a6a4d0db0f9
+    - Name: $v
+      Entry: 10
+      Data: 25
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: d847feb0b2dc68148868ea9a9399dd5c
+    - Name: $v
+      Entry: 10
+      Data: 26
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9be2808ffbc231145b4073720691d4f5
+    - Name: $v
+      Entry: 10
+      Data: 27
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 0058cc208c4374b46b97a3bad9fa8dc9
+    - Name: $v
+      Entry: 10
+      Data: 28
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 2aad5d5ec9f593b4a99c0373c94e6de3
+    - Name: $v
+      Entry: 10
+      Data: 29
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 7190bd9348c4009488e4f45183ca08f3
+    - Name: $v
+      Entry: 10
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: f672bae07509f404a8ef995b894716e2
+    - Name: $v
+      Entry: 10
+      Data: 31
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: ffda29e6273ac57448cbde9938a19cb6
+    - Name: $v
+      Entry: 10
+      Data: 32
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 940ca4b8265b05f4da876285d19da618
+    - Name: $v
+      Entry: 10
+      Data: 33
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: f01c69208615ce541964d4fef2baf9a5
+    - Name: $v
+      Entry: 10
+      Data: 34
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 3929867f63b13254c9d1a8992a742154
+    - Name: $v
+      Entry: 10
+      Data: 35
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 8f655889219afa649a967e88e37f98ec
+    - Name: $v
+      Entry: 10
+      Data: 36
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 8597a12ecc4d92f4ab4ddc590fc8f7c1
+    - Name: $v
+      Entry: 10
+      Data: 37
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 7c3fef23d2fb177478906e53364bf7fc
+    - Name: $v
+      Entry: 10
+      Data: 38
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 2b1fa8611fd80584984ffe5e3e1c81bd
+    - Name: $v
+      Entry: 10
+      Data: 39
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 8036edd338db28241acdac23fd5311d8
+    - Name: $v
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 8c1b81b7d9d03784999774e7837f801e
+    - Name: $v
+      Entry: 10
+      Data: 41
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 972c409719ce9744aae66d51afae2b47
+    - Name: $v
+      Entry: 10
+      Data: 42
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: d39fdb898cd8da64bb5078cab57e11f7
+    - Name: $v
+      Entry: 10
+      Data: 43
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: d95f374202ea2674a9ccd17534c8296b
+    - Name: $v
+      Entry: 10
+      Data: 44
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: soToGuidDict
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[UnityEngine.ScriptableObject,
+        UnityEngine.CoreModule],[System.String, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.ScriptableObject,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 45
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 0
+    - Name: $v
+      Entry: 1
+      Data: 2d4acd70fdfb0d04486c0d01bbf76d86
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 1
+    - Name: $v
+      Entry: 1
+      Data: 9846ca212021b8144b3f942ca0f46cf2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 2
+    - Name: $v
+      Entry: 1
+      Data: cf454e68e26588042a09a0267e46c726
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 3
+    - Name: $v
+      Entry: 1
+      Data: f78813c4483e2554ea1462eff7f28570
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 4
+    - Name: $v
+      Entry: 1
+      Data: e08aaf2cf4afc5a4ba322a69ae07e115
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 5
+    - Name: $v
+      Entry: 1
+      Data: 3413a4ef9fb7f06458adccfda011aec4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 6
+    - Name: $v
+      Entry: 1
+      Data: 9cb79c54312e7484ead0b1414f801918
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 7
+    - Name: $v
+      Entry: 1
+      Data: 69fd1662976019044bbacd8b7763ef81
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 8
+    - Name: $v
+      Entry: 1
+      Data: 3f6af3eaf730cdd40a08bf4b9db6b617
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 9
+    - Name: $v
+      Entry: 1
+      Data: b699aed0886ac44edb37f559599d8bf9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 10
+    - Name: $v
+      Entry: 1
+      Data: 2ff51bfc2d05747eab09c91559ccd2db
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 11
+    - Name: $v
+      Entry: 1
+      Data: 0674de16afc5543c79c6587e4ac6646d
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 12
+    - Name: $v
+      Entry: 1
+      Data: a8ad2c2cc9d774b1fa4c3f9525d5e82c
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 13
+    - Name: $v
+      Entry: 1
+      Data: 388faade038044ec6979feb18f4c37fb
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 14
+    - Name: $v
+      Entry: 1
+      Data: 683b7b5a15c7a458c8d057725c80d500
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 15
+    - Name: $v
+      Entry: 1
+      Data: c13f1859f207b4ba6a9a7d41e0de80ec
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 16
+    - Name: $v
+      Entry: 1
+      Data: a46c7b10817e94ee89a904bc24d4b8a7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 17
+    - Name: $v
+      Entry: 1
+      Data: d61f5cfa728c9431f9840739b3f42261
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 18
+    - Name: $v
+      Entry: 1
+      Data: f6f809371e185430291a6a9227462b49
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 19
+    - Name: $v
+      Entry: 1
+      Data: 89612c2594c564c9199e14bdd934d093
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 20
+    - Name: $v
+      Entry: 1
+      Data: 9274989cd51104c1ea59f72de98b0f54
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 21
+    - Name: $v
+      Entry: 1
+      Data: 5bccb151ac50f42abb611a785ba4a616
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 22
+    - Name: $v
+      Entry: 1
+      Data: 8827d907f9cca456cbf8c58cf77b8842
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 23
+    - Name: $v
+      Entry: 1
+      Data: de8465afff36c4d63bebc88e3cedb02a
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 24
+    - Name: $v
+      Entry: 1
+      Data: eb34bea7c04ca47479a17bfaf92c20c9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 25
+    - Name: $v
+      Entry: 1
+      Data: e30a76d2e67946c40b727a6a4d0db0f9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 26
+    - Name: $v
+      Entry: 1
+      Data: d847feb0b2dc68148868ea9a9399dd5c
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 27
+    - Name: $v
+      Entry: 1
+      Data: 9be2808ffbc231145b4073720691d4f5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 28
+    - Name: $v
+      Entry: 1
+      Data: 0058cc208c4374b46b97a3bad9fa8dc9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 29
+    - Name: $v
+      Entry: 1
+      Data: 2aad5d5ec9f593b4a99c0373c94e6de3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 30
+    - Name: $v
+      Entry: 1
+      Data: 7190bd9348c4009488e4f45183ca08f3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 31
+    - Name: $v
+      Entry: 1
+      Data: f672bae07509f404a8ef995b894716e2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 32
+    - Name: $v
+      Entry: 1
+      Data: ffda29e6273ac57448cbde9938a19cb6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 33
+    - Name: $v
+      Entry: 1
+      Data: 940ca4b8265b05f4da876285d19da618
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 34
+    - Name: $v
+      Entry: 1
+      Data: f01c69208615ce541964d4fef2baf9a5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 35
+    - Name: $v
+      Entry: 1
+      Data: 3929867f63b13254c9d1a8992a742154
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 36
+    - Name: $v
+      Entry: 1
+      Data: 8f655889219afa649a967e88e37f98ec
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 37
+    - Name: $v
+      Entry: 1
+      Data: 8597a12ecc4d92f4ab4ddc590fc8f7c1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 38
+    - Name: $v
+      Entry: 1
+      Data: 7c3fef23d2fb177478906e53364bf7fc
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 39
+    - Name: $v
+      Entry: 1
+      Data: 2b1fa8611fd80584984ffe5e3e1c81bd
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 40
+    - Name: $v
+      Entry: 1
+      Data: 8036edd338db28241acdac23fd5311d8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 41
+    - Name: $v
+      Entry: 1
+      Data: 8c1b81b7d9d03784999774e7837f801e
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 42
+    - Name: $v
+      Entry: 1
+      Data: 972c409719ce9744aae66d51afae2b47
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 43
+    - Name: $v
+      Entry: 1
+      Data: d39fdb898cd8da64bb5078cab57e11f7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 44
+    - Name: $v
+      Entry: 1
+      Data: d95f374202ea2674a9ccd17534c8296b
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   foldersToSearchIn:
   - Assets/Data/Cards
   autoFetchInPlaymode: 1

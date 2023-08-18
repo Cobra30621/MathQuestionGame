@@ -16,10 +16,10 @@ namespace Data
         public int MaxMana;
         public int CurrentGold;
         
-        public string AllyPrefabGuid;
         public AllyHealthData AllyHealthData;
         
-
+        public string AllyDataGuid;
+        
         /// <summary>
         /// 卡牌資料
         /// </summary>

@@ -19,7 +19,7 @@ namespace DataPersistence
         public static GameData Load()
         {
             var gameData = ES3.Load("gameData", new GameData());
-            Debug.Log($"Save {JsonUtility.ToJson(gameData)}");
+            Debug.Log($"Load {JsonUtility.ToJson(gameData)}");
             return gameData;
         }
     }
