@@ -73,7 +73,6 @@ namespace NueGames.Characters
     [Serializable]
     public class AllyHealthData
     {
-        [SerializeField] private string characterId;
         [SerializeField] private int maxHealth;
         [SerializeField] private int currentHealth;
         
@@ -87,12 +86,6 @@ namespace NueGames.Characters
         {
             get => currentHealth;
             set => currentHealth = value;
-        }
-
-        public string CharacterId
-        {
-            get => characterId;
-            set => characterId = value;
         }
     }
 }

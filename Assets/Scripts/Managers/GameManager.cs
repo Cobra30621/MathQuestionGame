@@ -98,8 +98,7 @@ namespace NueGames.Managers
 
         public void NewGame()
         {
-            SaveManager.Instance.NewGame();
-            
+            SaveManager.Instance.ClearGameData();
             Debug.Log("New Game");
             
             MainAllyData = gameplayData.InitialAllyData;
@@ -112,7 +111,7 @@ namespace NueGames.Managers
             {
                 CardDataGuids = cardDataFileHandler.DataToGuid(CurrentCardsList),
                 AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData),
-                Relics = RelicManager.Instance.GetRelicNames()
+                Relics = RelicManager.Instance.GetRelicNames(),
             };
 
             QuestionManager.Instance.GenerateQuestions();
@@ -153,8 +152,10 @@ namespace NueGames.Managers
             var healthData = PlayerData.AllyHealthData;
             int heal = Mathf.CeilToInt(healthData.MaxHealth * percent);
 
-            PlayerData.SetHealth(
-                healthData.CurrentHealth + heal,healthData.MaxHealth);
+            int afterHealHp = Math.Min(healthData.CurrentHealth + heal, healthData.MaxHealth);
+            
+            PlayerData.SetHealth(afterHealHp
+                ,healthData.MaxHealth);
         }
         
         private void SetRelicList(List<RelicName> relicNames)

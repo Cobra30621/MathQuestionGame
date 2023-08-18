@@ -13,34 +13,55 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SaveManager : SerializedMonoBehaviour
 {
-    [Header("Debugging")]
-    [SerializeField] private bool initializeDataIfNull = false;
-
-    [Header("File Storage Config")]
-    [SerializeField] private string fileName;
-    [SerializeField] private bool useEncryption;
-
     
-
-    [SerializeField] private List<string> needSaveScenes;
+    [SerializeField] private List<string> needSaveDataScenes;
+    [SerializeField] private List<string> needLoadDataScenes;
 
     [ShowInInspector] private GameData _gameData;
     [ShowInInspector] [ReadOnly] private List<IDataPersistence> dataPersistenceObjects;
     
-    public static SaveManager Instance { get; private set; }
-
-    private void Awake() 
+    #region Instance (Singleton)
+    private static SaveManager instance;
+        
+    /// <summary>
+    /// Singleton instance of the SelectedMachineManager.
+    /// </summary>
+    public static SaveManager Instance
     {
-        if (Instance != null) 
+        get
         {
-            Debug.Log("Found more than one Data Persistence Manager in the scene. Destroying the newest one.");
-            Destroy(this.gameObject);
-            return;
+            if (instance == null)
+            {
+                instance = FindObjectOfType<SaveManager>();
+    
+                if (instance == null)
+                {
+                    Debug.LogError($"The GameObject of type {typeof(SaveManager)} is not present in the scene, " +
+                                   $"yet its method is being called. Please add {typeof(SaveManager)} to the scene.");
+                }
+                DontDestroyOnLoad(instance);
+            }
+    
+            return instance;
         }
-        Instance = this;
-        DontDestroyOnLoad(this.gameObject);
-
     }
+        
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+        
+    #endregion
+
 
     private void OnEnable() 
     {
@@ -54,20 +75,20 @@ public class SaveManager : SerializedMonoBehaviour
         SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
         dataPersistenceObjects = FindAllDataPersistenceObjects();
-        Debug.Log($"Load scene {scene.name}, {needSaveScenes.Contains(scene.name)}");
-        if (needSaveScenes.Contains(scene.name))
+        // Debug.Log($"Load scene {scene.name}, {needSaveDataScenes.Contains(scene.name)}");
+        if (needLoadDataScenes.Contains(scene.name))
         {
             LoadGame();
         }
     }
 
-    public void OnSceneUnloaded(Scene scene)
+    private void OnSceneUnloaded(Scene scene)
     {
-        Debug.Log($"Unload scene {scene.name}, {needSaveScenes.Contains(scene.name)}");
-        if (needSaveScenes.Contains(scene.name))
+        // Debug.Log($"Unload scene {scene.name}, {needSaveDataScenes.Contains(scene.name)}");
+        if (needSaveDataScenes.Contains(scene.name))
         {
             SaveGame();
         }
@@ -75,7 +96,7 @@ public class SaveManager : SerializedMonoBehaviour
 
     
     [Button]
-    public void NewGame()
+    public void ClearGameData()
     {
         _gameData = new GameData();
         ES3Handler.Clear();
@@ -83,24 +104,16 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void LoadGame()
     {
-        
         // load any saved data from a file using the data handler
         // this._gameData = dataHandler.Load();
         this._gameData = ES3Handler.Load();
 
         // start a new game if the data is null and we're configured to initialize data for debugging purposes
-        if (this._gameData == null && initializeDataIfNull) 
+        if (this._gameData == null ) 
         {
             this._gameData = new GameData();
         }
-
-        // if no data can be loaded, don't continue
-        if (this._gameData == null) 
-        {
-            Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
-            return;
-        }
-
+        
         // push the loaded data to all other scripts that need it
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) 
         {
@@ -117,8 +130,6 @@ public class SaveManager : SerializedMonoBehaviour
             return;
         }
 
-        Debug.Log($"dataPersistenceObjects count {dataPersistenceObjects.Count}");
-        
         // pass the data to other scripts so they can update it
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) 
         { 
@@ -127,7 +138,6 @@ public class SaveManager : SerializedMonoBehaviour
 
         // save that data to a file using the data handler
         ES3Handler.Save(_gameData);
-        // dataHandler.Save(_gameData);
     }
 
     private void OnApplicationQuit() 
@@ -142,5 +152,4 @@ public class SaveManager : SerializedMonoBehaviour
 
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
-
 }
