@@ -28,9 +28,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6052025653860248968}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -84,7 +85,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2689473134106589730, guid: a9728682a56595f4989b8f224d934689, type: 3}
       propertyPath: m_Name
-      value: CardChoice
+      value: Card3D_Choice
       objectReference: {fileID: 0}
     - target: {fileID: 2689473134106589741, guid: a9728682a56595f4989b8f224d934689, type: 3}
       propertyPath: m_RootOrder
@@ -137,11 +138,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2689473134106589730, guid: a9728682a56595f4989b8f224d934689, type: 3}
   m_PrefabInstance: {fileID: 2701886634380031146}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &6052025653860248968 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8539417325386651938, guid: a9728682a56595f4989b8f224d934689, type: 3}
-  m_PrefabInstance: {fileID: 2701886634380031146}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7257024235002004488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,3 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showScaleRate: 1.15
+--- !u!224 &6052025653860248968 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8539417325386651938, guid: a9728682a56595f4989b8f224d934689, type: 3}
+  m_PrefabInstance: {fileID: 2701886634380031146}
+  m_PrefabAsset: {fileID: 0}
