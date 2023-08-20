@@ -18,10 +18,8 @@ using UnityEngine;
 namespace NueGames.Managers
 {
     [DefaultExecutionOrder(-10)]
-    public class GameManager : MonoBehaviour, IDataPersistence
-    { 
-        public static GameManager Instance { get; private set; }
-        
+    public class GameManager : Singleton<GameManager>, IDataPersistence
+    {
         [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler, allyDataFileHandler;
         
         [Header("Settings")]
@@ -46,29 +44,6 @@ namespace NueGames.Managers
         
         #endregion
         
-        
-        #region Setup
-        private void Awake()
-        {
-            if (Instance)
-            {
-                Destroy(gameObject);
-                return;
-               
-            }
-            else
-            {
-                transform.parent = null;
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-                
-            }
-        }
-
-
-        #endregion
-
-
 
         #region Save, Load Data
 
@@ -164,9 +139,7 @@ namespace NueGames.Managers
         }
         #endregion
 
-        
-        
-        
+
         
     }
 }

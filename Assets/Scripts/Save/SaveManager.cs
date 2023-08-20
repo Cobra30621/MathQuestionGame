@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// 參考影片：https://www.youtube.com/watch?v=aUi9aijvpgs
 /// </summary>
-public class SaveManager : SerializedMonoBehaviour
+public class SaveManager : Singleton<SaveManager>
 {
     
     [SerializeField] private List<string> needSaveDataScenes;
@@ -20,48 +20,6 @@ public class SaveManager : SerializedMonoBehaviour
     [ShowInInspector] private GameData _gameData;
     [ShowInInspector] [ReadOnly] private List<IDataPersistence> dataPersistenceObjects;
     
-    #region Instance (Singleton)
-    private static SaveManager instance;
-        
-    /// <summary>
-    /// Singleton instance of the SelectedMachineManager.
-    /// </summary>
-    public static SaveManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<SaveManager>();
-    
-                if (instance == null)
-                {
-                    Debug.LogError($"The GameObject of type {typeof(SaveManager)} is not present in the scene, " +
-                                   $"yet its method is being called. Please add {typeof(SaveManager)} to the scene.");
-                }
-                DontDestroyOnLoad(instance);
-            }
-    
-            return instance;
-        }
-    }
-        
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-        
-    #endregion
-
 
     private void OnEnable() 
     {

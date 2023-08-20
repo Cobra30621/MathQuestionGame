@@ -7,10 +7,8 @@ using UnityEngine;
 
 namespace NueGames.Managers
 {
-    public class AudioManager : MonoBehaviour
+    public class AudioManager : Singleton<AudioManager>
     {
-        private AudioManager(){}
-        public static AudioManager Instance { get; private set; }
 
         [SerializeField]private AudioSource musicSource;
         [SerializeField]private AudioSource sfxSource;
@@ -20,26 +18,11 @@ namespace NueGames.Managers
         
         private Dictionary<AudioActionType, SoundProfileData> _audioDict = new Dictionary<AudioActionType, SoundProfileData>();
         
-        #region Setup
-        private void Awake()
+        protected override void DoAtAwake()
         {
-            if (Instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            else
-            {
-                transform.parent = null;
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-                
-                for (int i = 0; i < Enum.GetValues(typeof(AudioActionType)).Length; i++)
-                    _audioDict.Add((AudioActionType)i,soundProfileDataList.FirstOrDefault(x=>x.AudioType == (AudioActionType)i));
-            }
+            for (int i = 0; i < Enum.GetValues(typeof(AudioActionType)).Length; i++)
+                _audioDict.Add((AudioActionType)i,soundProfileDataList.FirstOrDefault(x=>x.AudioType == (AudioActionType)i));
         }
-
-        #endregion
         
         #region Public Methods
 

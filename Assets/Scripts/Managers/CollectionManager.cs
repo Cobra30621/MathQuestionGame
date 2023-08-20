@@ -9,7 +9,7 @@ using NueGames.Combat;
 
 namespace NueGames.Managers
 {
-    public class CollectionManager : MonoBehaviour
+    public class CollectionManager : SingletonDestroyOnLoad<CollectionManager>
     {
         public CollectionManager(){}
       

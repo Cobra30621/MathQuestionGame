@@ -7,37 +7,13 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class RelicManager : MonoBehaviour
+    public class RelicManager : Singleton<RelicManager>
     {
-        public static RelicManager Instance { get; private set; }
         private GameManager GameManager => GameManager.Instance;
         protected UIManager UIManager => UIManager.Instance;
         public List<RelicClip> CurrentRelicList = new List<RelicClip>();
         public RelicsData relicsData;
         
-        #region SetUp (初始化)
-        private void Awake()
-        {
-            if (Instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            else
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-
-            Initialize();
-        }
-
-        void Initialize()
-        {
-        }
-
-        #endregion
-
         /// <summary>
         /// 玩家獲得遺物
         /// </summary>

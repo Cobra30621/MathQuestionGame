@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 
 namespace NueGames.Encounter
 {
-    public class EncounterManager : MonoBehaviour, IDataPersistence
+    public class EncounterManager : SingletonDestroyOnLoad<EncounterManager> ,IDataPersistence
     {
         [SerializeField] private ScriptableObjectFileHandler fileHandler;
         
@@ -22,25 +22,6 @@ namespace NueGames.Encounter
 
         public SceneChanger sceneChanger;
         
-        #region 單例模式
-
-        public static EncounterManager Instance;
-        
-        private void Awake()
-        {
-            if (Instance)
-            {
-                Destroy(gameObject);
-                return;
-            } 
-            else
-            {
-                Instance = this;
-            }
-        }
-        
-
-        #endregion
         
         public void GenerateNewMapEncounter(EncounterStage stage)
         {

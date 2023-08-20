@@ -11,11 +11,8 @@ using UnityEngine.SceneManagement;
 namespace NueGames.Managers
 {
     [DefaultExecutionOrder(-4)]
-    public class UIManager : MonoBehaviour
+    public class UIManager : Singleton<UIManager>
     {
-        public UIManager() {}
-        public static UIManager Instance { get; private set; }
-
         [Header("Canvases")]
         [SerializeField] private CombatCanvas combatCanvas;
         [SerializeField] private InformationCanvas informationCanvas;
@@ -40,23 +37,6 @@ namespace NueGames.Managers
         public CampFireCanvas CampFireCanvas => campFireCanvas;
         public CharacterSkillUI CharacterSkillUI => characterSkillUI;
         
-        #endregion
-
-        #region Setup
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                transform.parent = null;
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-           
-        }
         #endregion
 
         #region Public Methods
