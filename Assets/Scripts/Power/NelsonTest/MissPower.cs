@@ -1,3 +1,4 @@
+using GameListener;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -29,6 +30,11 @@ namespace NueGames.Power
         public override float AtDamageGive(float damage)
         {
             return damage * 0;
+        }
+
+        public MissPower()
+        {
+            DamageCalculateOrder = CalculateOrder.FinalChange;
         }
     }
 }

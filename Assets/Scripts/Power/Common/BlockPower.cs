@@ -32,6 +32,14 @@ namespace NueGames.Power
         {
             if (IsCharacterTurn(info))
             {
+                // if (CombatManager.MainAlly.HasPower(PowerName.ＸＸＸ))
+                // {
+                //     
+                // }
+                // else
+                // {
+                //     ClearPower();
+                // }
                 ClearPower();
             }
         }

@@ -38,7 +38,7 @@ namespace NueGames.Power
             {
                 
                 GameActionExecutor.AddToBottom(new ApplyPowerAction(
-                    3, PowerName.Block, new List<CharacterBase>() {Owner},
+                    3 * Amount, PowerName.Block, new List<CharacterBase>() {Owner},
                     GetActionSource()));
             }
         }
