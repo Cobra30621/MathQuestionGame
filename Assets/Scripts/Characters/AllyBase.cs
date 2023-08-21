@@ -1,5 +1,6 @@
 ﻿using System;
 using Action.Parameters;
+using NueGames.CharacterAbility;
 using NueGames.Combat;
 using NueGames.Data.Characters;
 using NueGames.Managers;
@@ -13,16 +14,25 @@ namespace NueGames.Characters
     {
         [Header("Ally Base Settings")]
         [SerializeField] private AllyCanvas allyCanvas;
-        [InlineEditor()]
-        [SerializeField] private AllyCharacterData allyCharacterData;
+        private AllyData _allyData;
         public AllyCanvas AllyCanvas => allyCanvas;
-        public AllyCharacterData AllyCharacterData => allyCharacterData;
+
+
+        public void SetCharacterData(AllyData data)
+        {
+            _allyData = data;
+        }
+
+        public CharacterSkill GetCharacterSkill()
+        {
+            return _allyData.CharacterSkill;
+        }
         
         public override void BuildCharacter()
         {
             base.BuildCharacter();
             allyCanvas.InitCanvas();
-            CharacterStats = new CharacterStats(allyCharacterData.MaxHealth, this);
+            CharacterStats = new CharacterStats(_allyData.MaxHealth, this);
             CharacterStats.SetCharacterCanvasEvent(allyCanvas);
 
             if (!GameManager)
@@ -63,7 +73,6 @@ namespace NueGames.Characters
     [Serializable]
     public class AllyHealthData
     {
-        [SerializeField] private string characterId;
         [SerializeField] private int maxHealth;
         [SerializeField] private int currentHealth;
         
@@ -77,12 +86,6 @@ namespace NueGames.Characters
         {
             get => currentHealth;
             set => currentHealth = value;
-        }
-
-        public string CharacterId
-        {
-            get => characterId;
-            set => characterId = value;
         }
     }
 }

@@ -17,10 +17,8 @@ namespace Question
     /// <summary>
     /// 答題模式管理器
     /// </summary>
-    public class QuestionManager : SerializedMonoBehaviour, IDataPersistence
+    public class QuestionManager : Singleton<QuestionManager>, IDataPersistence
     {
-        private QuestionManager(){}
-        public static QuestionManager Instance { get; private set; }
         
         /// <summary>
         /// 答題介面
@@ -136,25 +134,13 @@ namespace Question
 
         public int QuestionCount => QuestionAction.QuestionCount;
         
-        #region Setup
-        private void Awake()
-        {
-            if (Instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            else
-            {
-                transform.parent = null;
-                Instance = this;
-            }
+       
 
+        protected override void DoAtAwake()
+        {
             isQuestioning = false;
-            DontDestroyOnLoad(this);
         }
 
-        #endregion
 
 
         #region 事件

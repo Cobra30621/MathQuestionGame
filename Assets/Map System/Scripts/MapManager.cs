@@ -29,8 +29,6 @@ namespace Map
 
         public void LoadData(GameData data)
         {
-            Debug.Log($"map {data.MapJson}");
-            
             if (data.MapJson.IsNullOrWhitespace())
             {
                 GenerateNewMap();

@@ -23,7 +23,6 @@ namespace NueGames.Encounter
         public void GeneratorStageData(EncounterStage stage)
         {
             enemyList = new List<string>();
-            Debug.Log($"stage {stage}");
             int weakEnemyCount = stage.weakEnemyCount;
             enemyList.AddRange(stage.weakEnemies.GetEncounterListByWeight(weakEnemyCount));
             enemyList.AddRange(stage.strongEnemies.GetEncounterListByWeight(addCount));
@@ -63,11 +62,5 @@ namespace NueGames.Encounter
         }
 
 
-        
-        public string ToJson()
-        {
-            Debug.Log("enemyList" +  JsonConvert.SerializeObject(enemyList));
-            return JsonConvert.SerializeObject(this);
-        }
     }
 }

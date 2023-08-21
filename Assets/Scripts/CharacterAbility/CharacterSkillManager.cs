@@ -9,46 +9,8 @@ namespace NueGames.CharacterAbility
     /// <summary>
     /// 角色能力管理器
     /// </summary>
-    public class CharacterSkillManager : SerializedMonoBehaviour
+    public class CharacterSkillManager : Singleton<CharacterSkillManager>
     {
-        #region Instance(Singleton)
-        private static CharacterSkillManager instance;
-        
-        public static CharacterSkillManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = FindObjectOfType<CharacterSkillManager>();
-    
-                    if (instance == null)
-                    {
-                        Debug.LogError($"The GameObject with {typeof(CharacterSkillManager)} does not exist in the scene, " +
-                                       $"yet its method is being called.\n" +
-                                       $"Please add {typeof(CharacterSkillManager)} to the scene.");
-                    }
-                }
-    
-                return instance;
-            }
-        }
-        
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-
-        
-        #endregion
 
 
         #region Event

@@ -30,10 +30,12 @@ namespace NueGames.Utils
             switch (type)
             {
                 case SceneType.MainMenu:
+                    SaveManager.Instance.SaveGame();
                     UIManager.ChangeScene(GameManager.SceneData.mainMenuSceneIndex);
                     UIManager.SetCanvas(UIManager.CombatCanvas,false,true);
-                    UIManager.SetCanvas(UIManager.InformationCanvas,false,true);
+                    UIManager.SetCanvas(UIManager.InformationCanvas,false,false);
                     UIManager.SetCanvas(UIManager.RewardCanvas,false,true);
+                    UIManager.SetCanvas(UIManager.RelicCanvas, false, false);
                    
                     break;
                 case SceneType.Map:
@@ -41,6 +43,7 @@ namespace NueGames.Utils
                     UIManager.SetCanvas(UIManager.CombatCanvas,false,true);
                     UIManager.SetCanvas(UIManager.InformationCanvas,true,false);
                     UIManager.SetCanvas(UIManager.RewardCanvas,false,true);
+                    UIManager.SetCanvas(UIManager.RelicCanvas, true, true);
                    
                     break;
                 case SceneType.Combat:
@@ -48,6 +51,7 @@ namespace NueGames.Utils
                     UIManager.SetCanvas(UIManager.CombatCanvas,false,true);
                     UIManager.SetCanvas(UIManager.InformationCanvas,true,false);
                     UIManager.SetCanvas(UIManager.RewardCanvas,false,true);
+                    UIManager.SetCanvas(UIManager.RelicCanvas, true, true);
                     
                     break;
                 default:

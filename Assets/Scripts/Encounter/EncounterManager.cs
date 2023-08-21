@@ -14,46 +14,22 @@ using UnityEngine.SceneManagement;
 
 namespace NueGames.Encounter
 {
-    public class EncounterManager : MonoBehaviour, IDataPersistence
+    public class EncounterManager : SingletonDestroyOnLoad<EncounterManager> ,IDataPersistence
     {
         [SerializeField] private ScriptableObjectFileHandler fileHandler;
         
-        public MapManager mapManager;
-
         public MapEncounter mapEncounter;
 
         public SceneChanger sceneChanger;
         
-        #region 單例模式
-
-        public static EncounterManager Instance;
-        
-        private void Awake()
-        {
-            if (Instance)
-            {
-                Destroy(gameObject);
-                return;
-            } 
-            else
-            {
-                Instance = this;
-            }
-        }
-        
-
-        #endregion
         
         public void GenerateNewMapEncounter(EncounterStage stage)
         {
             mapEncounter = new MapEncounter();
             mapEncounter.GeneratorStageData(stage);
-            
-            Debug.Log(mapEncounter.ToJson());
         }
 
-
-
+        #region Enter Room
         public void EnterNode(NodeType nodeType)
         {
             switch (nodeType)
@@ -103,7 +79,10 @@ namespace NueGames.Encounter
             sceneChanger.OpenCombatScene();
         }
 
-        
+        #endregion
+
+        #region Data to guid
+
         public EnemyEncounter GetEnemyEncounter(string guid)
         {
             return fileHandler.GuidToData<EnemyEncounter>(guid);
@@ -118,6 +97,11 @@ namespace NueGames.Encounter
         {
             return fileHandler.DataToGuid<EnemyEncounter>(enemyEncounter);
         }
+        
+
+        #endregion
+
+        #region Save and Load
 
         public void LoadData(GameData data)
         {
@@ -128,5 +112,7 @@ namespace NueGames.Encounter
         {
             data.MapEncounter = mapEncounter;
         }
+
+        #endregion
     }
 }

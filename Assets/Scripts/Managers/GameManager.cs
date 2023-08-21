@@ -6,6 +6,7 @@ using Managers;
 using Map;
 using NueGames.Card;
 using NueGames.Characters;
+using NueGames.Data.Characters;
 using NueGames.Data.Collection;
 using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
@@ -17,11 +18,9 @@ using UnityEngine;
 namespace NueGames.Managers
 {
     [DefaultExecutionOrder(-10)]
-    public class GameManager : MonoBehaviour, IDataPersistence
-    { 
-        public static GameManager Instance { get; private set; }
-        
-        [SerializeField] private CardDataFileHandler cardDataFileHandler;
+    public class GameManager : Singleton<GameManager>, IDataPersistence
+    {
+        [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler, allyDataFileHandler;
         
         [Header("Settings")]
         [InlineEditor()]
@@ -37,7 +36,7 @@ namespace NueGames.Managers
         
         public List<CardData> CurrentCardsList;
         
-        public AllyBase MainAlly;
+        public AllyData MainAllyData;
         
         public EnemyEncounter CurrentEnemyEncounter;
 
@@ -45,43 +44,24 @@ namespace NueGames.Managers
         
         #endregion
         
-        
-        #region Setup
-        private void Awake()
-        {
-            if (Instance)
-            {
-                Destroy(gameObject);
-                return;
-               
-            }
-            else
-            {
-                transform.parent = null;
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-                
-            }
-        }
-
-
-        #endregion
-
-
 
         #region Save, Load Data
 
         public void LoadData(GameData data)
         {
             PlayerData = data.PlayerData;
-            CurrentCardsList = cardDataFileHandler.GuidToData(data.PlayerData.CardDataGuids);
+            CurrentCardsList = cardDataFileHandler.GuidToData<CardData>(data.PlayerData.CardDataGuids);
+            MainAllyData = allyDataFileHandler.GuidToData<AllyData>(data.PlayerData.AllyDataGuid);
+            // Debug.Log($"Load Card {CurrentCardsList.Count}");
             SetRelicList(data.PlayerData.Relics);
         }
 
         public void SaveData(GameData data)
         {
             data.PlayerData = PlayerData;
+            // Debug.Log($"Save Card {CurrentCardsList.Count}");
             data.PlayerData.CardDataGuids =  cardDataFileHandler.DataToGuid(CurrentCardsList);
+            data.PlayerData.AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData);
             data.PlayerData.Relics = RelicManager.Instance.GetRelicNames();
         }
         
@@ -93,19 +73,23 @@ namespace NueGames.Managers
 
         public void NewGame()
         {
-            SaveManager.Instance.NewGame();
+            SaveManager.Instance.ClearGameData();
+            Debug.Log("New Game");
             
-            Debug.Log("Start RougeLikeGame");
-            PlayerData = new PlayerData(gameplayData);
-            
-            MainAlly = gameplayData.InitialAlly;
+            MainAllyData = gameplayData.InitialAllyData;
             SetRelicList(gameplayData.InitialRelic);
             CurrentCardsList = new List<CardData>();
             foreach (var cardData in GameplayData.InitalDeck.CardList)
                 CurrentCardsList.Add(cardData);
             
+            PlayerData = new PlayerData(gameplayData)
+            {
+                CardDataGuids = cardDataFileHandler.DataToGuid(CurrentCardsList),
+                AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData),
+                Relics = RelicManager.Instance.GetRelicNames(),
+            };
+
             QuestionManager.Instance.GenerateQuestions();
-            
             SaveManager.Instance.SaveGame();
         }
 
@@ -136,7 +120,6 @@ namespace NueGames.Managers
         public void SetEnemyEncounter(EnemyEncounter encounter)
         {
             CurrentEnemyEncounter  = encounter;
-            Debug.Log($"Set Encounter {encounter}");
         }
 
         public void HealAlly(float percent)
@@ -144,8 +127,10 @@ namespace NueGames.Managers
             var healthData = PlayerData.AllyHealthData;
             int heal = Mathf.CeilToInt(healthData.MaxHealth * percent);
 
-            PlayerData.SetHealth(
-                healthData.CurrentHealth + heal,healthData.MaxHealth);
+            int afterHealHp = Math.Min(healthData.CurrentHealth + heal, healthData.MaxHealth);
+            
+            PlayerData.SetHealth(afterHealHp
+                ,healthData.MaxHealth);
         }
         
         private void SetRelicList(List<RelicName> relicNames)
@@ -154,9 +139,7 @@ namespace NueGames.Managers
         }
         #endregion
 
-        
-        
-        
+
         
     }
 }

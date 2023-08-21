@@ -18,7 +18,9 @@ namespace DataPersistence
 
         public static GameData Load()
         {
-            return ES3.Load("gameData", new GameData());
+            var gameData = ES3.Load("gameData", new GameData());
+            Debug.Log($"Load {JsonUtility.ToJson(gameData)}");
+            return gameData;
         }
     }
 }

@@ -21,8 +21,6 @@ namespace NueGames.Data.Collection
 
         public string DeckName => deckName;
 
-        private string cardDataPath = "";
-
 #if UNITY_EDITOR // Editor-related code must be excluded from builds
         private IEnumerable GetAssets()
         {

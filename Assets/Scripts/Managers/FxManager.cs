@@ -10,11 +10,8 @@ using Random = UnityEngine.Random;
 
 namespace NueGames.Managers
 {
-    public class FxManager : SerializedMonoBehaviour
+    public class FxManager : Singleton<FxManager>
     {
-        public FxManager(){}
-        public static FxManager Instance { get; private set; }
-    
         [InlineEditor()]
         [SerializeField] private FXData fxData;
         
@@ -25,23 +22,6 @@ namespace NueGames.Managers
         public Dictionary<FxSpawnPosition, Transform> FXSpawnPositionDictionary;
 
 
-
-        #region Setup
-        private void Awake()
-        {
-            if (Instance)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            else
-            {
-                transform.parent = null;
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-        }
-        #endregion
 
         #region Public Methods
 

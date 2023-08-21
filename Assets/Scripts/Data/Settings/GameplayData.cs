@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NueGames.Card;
 using NueGames.Characters;
+using NueGames.Data.Characters;
 using NueGames.Data.Collection;
 using NueGames.Relic;
 using Sirenix.OdinInspector;
@@ -36,11 +37,10 @@ namespace NueGames.Data.Settings
         [FoldoutGroup("卡牌")]
         [PropertyTooltip("卡牌的 GameObject")]
         [SerializeField] private CardBase cardPrefab;
-        
-        [FoldoutGroup("玩家")]
-        [PropertyTooltip("玩家資料")]
-        [InlineEditor()]
-        [SerializeField] private AllyBase initialAlly;
+
+        [FoldoutGroup("玩家")] 
+        [PropertyTooltip("玩家資料")] [InlineEditor()] [SerializeField]
+        private AllyData initialAllyDataData;
         
         [FoldoutGroup("玩家")]
         [PropertyTooltip("玩家初始遺物")]
@@ -49,7 +49,7 @@ namespace NueGames.Data.Settings
         #region Encapsulation
         public int DrawCount => drawCount;
         public int MaxMana => maxMana;
-        public AllyBase InitialAlly => initialAlly;
+        public AllyData InitialAllyData => initialAllyDataData;
         public DeckData InitalDeck => initalDeck;
         public int MaxCardOnHand => maxCardOnHand;
         public CardBase CardPrefab => cardPrefab;
