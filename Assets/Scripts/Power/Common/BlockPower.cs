@@ -19,12 +19,12 @@ namespace NueGames.Power
 
         public override void SubscribeAllEvent()
         {
-            CombatManager.Instance.OnTurnStart += OnTurnStart;
+            CombatManager.OnTurnStart += OnTurnStart;
         }
 
         public override void UnSubscribeAllEvent()
         {
-            CombatManager.Instance.OnTurnStart -= OnTurnStart;
+            CombatManager.OnTurnStart -= OnTurnStart;
         }
 
 
@@ -32,7 +32,7 @@ namespace NueGames.Power
         {
             if (IsCharacterTurn(info))
             {
-                if (CombatManager.MainAlly.HasPower(PowerName.Solid))
+                if (CombatManager.Instance.MainAlly.HasPower(PowerName.Solid))
                 {
                     
                 }

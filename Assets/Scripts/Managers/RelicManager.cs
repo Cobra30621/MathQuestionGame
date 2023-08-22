@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NueGames.Data.Containers;
 using NueGames.Managers;
@@ -9,11 +10,16 @@ namespace Managers
 {
     public class RelicManager : Singleton<RelicManager>
     {
-        private GameManager GameManager => GameManager.Instance;
         protected UIManager UIManager => UIManager.Instance;
         public List<RelicClip> CurrentRelicList = new List<RelicClip>();
         public RelicsData relicsData;
-        
+
+
+        private void OnDestroy()
+        {
+            Debug.Log("OnDestroy");
+        }
+
         /// <summary>
         /// 玩家獲得遺物
         /// </summary>

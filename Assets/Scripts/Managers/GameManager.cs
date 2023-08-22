@@ -75,7 +75,18 @@ namespace NueGames.Managers
         {
             SaveManager.Instance.ClearGameData();
             Debug.Log("New Game");
-            
+
+            SetInitData();
+            SaveManager.Instance.SaveGame();
+        }
+
+        public void StartDevelopMode()
+        {
+            SetInitData();
+        }
+
+        private void SetInitData()
+        {
             MainAllyData = gameplayData.InitialAllyData;
             SetRelicList(gameplayData.InitialRelic);
             CurrentCardsList = new List<CardData>();
@@ -90,7 +101,6 @@ namespace NueGames.Managers
             };
 
             QuestionManager.Instance.GenerateQuestions();
-            SaveManager.Instance.SaveGame();
         }
 
         public void ContinueGame()
@@ -120,6 +130,7 @@ namespace NueGames.Managers
         public void SetEnemyEncounter(EnemyEncounter encounter)
         {
             CurrentEnemyEncounter  = encounter;
+            Debug.Log($"CurrentEnemyEncounter {CurrentEnemyEncounter.name}");
         }
 
         public void HealAlly(float percent)

@@ -40,12 +40,12 @@ namespace Tool
 
         void Awake()
         {
-            
+            SetDevelopModeData();
         }
 
         void Start()
         {
-            SetDevelopModeData();
+           
             PlayTest();
 
             GenerateAllyPower();
@@ -65,7 +65,7 @@ namespace Tool
             GameManager.Instance.SetEnemyEncounter(EnemyEncounter);
             QuestionManager.Instance.SetQuestionSetting(QuestionSetting); 
             
-            GameManager.Instance.NewGame();
+            GameManager.Instance.StartDevelopMode();
         }
         
         private void GenerateAllyPower()
