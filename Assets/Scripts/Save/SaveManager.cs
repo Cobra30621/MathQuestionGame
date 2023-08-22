@@ -11,36 +11,15 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// 參考影片：https://www.youtube.com/watch?v=aUi9aijvpgs
 /// </summary>
-public class SaveManager : SerializedMonoBehaviour
+public class SaveManager : Singleton<SaveManager>
 {
-    [Header("Debugging")]
-    [SerializeField] private bool initializeDataIfNull = false;
-
-    [Header("File Storage Config")]
-    [SerializeField] private string fileName;
-    [SerializeField] private bool useEncryption;
-
     
-
-    [SerializeField] private List<string> needSaveScenes;
+    [SerializeField] private List<string> needSaveDataScenes;
+    [SerializeField] private List<string> needLoadDataScenes;
 
     [ShowInInspector] private GameData _gameData;
     [ShowInInspector] [ReadOnly] private List<IDataPersistence> dataPersistenceObjects;
     
-    public static SaveManager Instance { get; private set; }
-
-    private void Awake() 
-    {
-        if (Instance != null) 
-        {
-            Debug.Log("Found more than one Data Persistence Manager in the scene. Destroying the newest one.");
-            Destroy(this.gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(this.gameObject);
-
-    }
 
     private void OnEnable() 
     {
@@ -54,19 +33,20 @@ public class SaveManager : SerializedMonoBehaviour
         SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
-        Debug.Log($"needSaveScenes.Contains(scene.name) {needSaveScenes.Contains(scene.name)}");
-        if (needSaveScenes.Contains(scene.name))
+        dataPersistenceObjects = FindAllDataPersistenceObjects();
+        // Debug.Log($"Load scene {scene.name}, {needSaveDataScenes.Contains(scene.name)}");
+        if (needLoadDataScenes.Contains(scene.name))
         {
             LoadGame();
         }
     }
 
-    public void OnSceneUnloaded(Scene scene)
+    private void OnSceneUnloaded(Scene scene)
     {
-        Debug.Log($"needSaveScenes.Contains(scene.name) {needSaveScenes.Contains(scene.name)}");
-        if (needSaveScenes.Contains(scene.name))
+        // Debug.Log($"Unload scene {scene.name}, {needSaveDataScenes.Contains(scene.name)}");
+        if (needSaveDataScenes.Contains(scene.name))
         {
             SaveGame();
         }
@@ -74,7 +54,7 @@ public class SaveManager : SerializedMonoBehaviour
 
     
     [Button]
-    public void NewGame()
+    public void ClearGameData()
     {
         _gameData = new GameData();
         ES3Handler.Clear();
@@ -82,25 +62,16 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void LoadGame()
     {
-        dataPersistenceObjects = FindAllDataPersistenceObjects();
-        Debug.Log("Load Game");
         // load any saved data from a file using the data handler
         // this._gameData = dataHandler.Load();
         this._gameData = ES3Handler.Load();
 
         // start a new game if the data is null and we're configured to initialize data for debugging purposes
-        if (this._gameData == null && initializeDataIfNull) 
+        if (this._gameData == null ) 
         {
             this._gameData = new GameData();
         }
-
-        // if no data can be loaded, don't continue
-        if (this._gameData == null) 
-        {
-            Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
-            return;
-        }
-
+        
         // push the loaded data to all other scripts that need it
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) 
         {
@@ -110,8 +81,6 @@ public class SaveManager : SerializedMonoBehaviour
 
     public void SaveGame()
     {
-        dataPersistenceObjects = FindAllDataPersistenceObjects();
-        Debug.Log($"Save Game");
         // if we don't have any data to save, log a warning here
         if (this._gameData == null) 
         {
@@ -121,13 +90,12 @@ public class SaveManager : SerializedMonoBehaviour
 
         // pass the data to other scripts so they can update it
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) 
-        {
+        { 
             dataPersistenceObj.SaveData(_gameData);
         }
 
         // save that data to a file using the data handler
         ES3Handler.Save(_gameData);
-        // dataHandler.Save(_gameData);
     }
 
     private void OnApplicationQuit() 
@@ -142,5 +110,4 @@ public class SaveManager : SerializedMonoBehaviour
 
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
-
 }

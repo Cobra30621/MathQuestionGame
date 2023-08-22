@@ -23,10 +23,8 @@ public class ScriptableObjectReferenceCache : SerializedScriptableObject, IExter
     [ReadOnly]
     [SerializeField] private List<SOCacheEntry> cachedReferences;
 
-    [ReadOnly]
-    [SerializeField]private Dictionary<string, ScriptableObject> guidToSoDict;
-    [ReadOnly]
-    [SerializeField]private Dictionary<ScriptableObject, string> soToGuidDict;
+    private Dictionary<string, ScriptableObject> guidToSoDict;
+    private Dictionary<ScriptableObject, string> soToGuidDict;
     
     [ShowInInspector][HideInEditorMode]
     public bool IsInitialized => guidToSoDict != null && soToGuidDict != null;

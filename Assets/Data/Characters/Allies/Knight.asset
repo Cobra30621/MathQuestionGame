@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d037adff9e04706b4a24a2529895710, type: 3}
-  m_Name: Player
+  m_Name: Knight
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -25,4 +25,5 @@ MonoBehaviour:
   characterName: Player
   characterDescription: Player Description
   maxHealth: 75
+  prefab: {fileID: 2835035829204582327, guid: ea5ea9cb5f227fd46a277c14575dcd69, type: 3}
   CharacterSkill: {fileID: 11400000, guid: 0121c025a29c4488a9d6cdc2b8546eaa, type: 2}

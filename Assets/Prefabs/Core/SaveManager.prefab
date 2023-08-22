@@ -53,6 +53,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  initializeDataIfNull: 1
-  fileName: game
-  useEncryption: 0
+  needSaveDataScenes:
+  - 2- Combat Scene
+  needLoadDataScenes:
+  - 1- Map
+  - 2- Combat Scene

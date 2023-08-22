@@ -89,7 +89,7 @@ namespace Question
                 questions.Add(question);
             }
 
-            Debug.Log($"{loadQuestionsParameter}'s questions :{questions.Count}");
+            // Debug.Log($"{loadQuestionsParameter}'s questions :{questions.Count}");
 
             return questions;
         }

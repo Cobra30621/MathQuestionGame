@@ -40,12 +40,12 @@ namespace Tool
 
         void Awake()
         {
-            SetDevelopModeData();
+            
         }
 
         void Start()
         {
-            
+            SetDevelopModeData();
             PlayTest();
 
             GenerateAllyPower();

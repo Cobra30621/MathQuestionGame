@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 5537364333610588083}
   - component: {fileID: 8632026957544182332}
   - component: {fileID: 8394161840588673666}
+  - component: {fileID: 3848446278533330466}
   m_Layer: 5
   m_Name: CombatLosePanel
   m_TagString: Untagged
@@ -555,6 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bb2d224b794ebb91ca684fc9e7d76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneChanger: {fileID: 3848446278533330466}
 --- !u!223 &8632026957544182332
 Canvas:
   m_ObjectHideFlags: 0
@@ -593,6 +595,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
+--- !u!114 &3848446278533330466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808517178820924314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7e3f294a7c2c44eb6cffeb9f94b306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6860730290068915154
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,9 +807,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1467042113226791601}
-        m_TargetAssemblyTypeName: NueDeck.Scripts.Utils.SceneChanger, Assembly-CSharp
-        m_MethodName: OpenMainMenuScene
+      - m_Target: {fileID: 5537364333610588083}
+        m_TargetAssemblyTypeName: NueGames.UI.CombatLosePanel, Assembly-CSharp
+        m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

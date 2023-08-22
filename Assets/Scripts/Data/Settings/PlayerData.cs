@@ -16,10 +16,10 @@ namespace Data
         public int MaxMana;
         public int CurrentGold;
         
-        public string AllyPrefabGuid;
         public AllyHealthData AllyHealthData;
         
-
+        public string AllyDataGuid;
+        
         /// <summary>
         /// 卡牌資料
         /// </summary>
@@ -40,7 +40,11 @@ namespace Data
             DrawCount = gameplayData.DrawCount;
             MaxMana = gameplayData.MaxMana;
             CurrentGold = 0;
-            AllyHealthData = new AllyHealthData();
+            AllyHealthData = new AllyHealthData()
+            {
+                CurrentHealth = gameplayData.InitialAllyData.MaxHealth,
+                MaxHealth = gameplayData.InitialAllyData.MaxHealth
+            };
         }
 
         public void SetHealth(int newCurrentHealth, int newMaxHealth)

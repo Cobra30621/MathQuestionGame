@@ -1,12 +1,14 @@
 ﻿using NueGames.CharacterAbility;
+using NueGames.Characters;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace NueGames.Data.Characters
 {
     [CreateAssetMenu(fileName = "Ally Character Data ",menuName = "NueDeck/Characters/Ally",order = 0)]
-    public class AllyCharacterData : CharacterDataBase
+    public class AllyData : CharacterDataBase, ISerializeReferenceByAssetGuid
     {
+        public AllyBase prefab;
         [InlineEditor()]
         public CharacterSkill CharacterSkill;
     }

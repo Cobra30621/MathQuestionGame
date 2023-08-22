@@ -428,17 +428,16 @@ namespace NueGames.Combat
         }
         private void BuildAllies()
         {
-            var clone = Instantiate(GameManager.MainAlly, AllyPosList[0]);
+            var clone = Instantiate(GameManager.MainAllyData.prefab, AllyPosList[0]);
+            clone.SetCharacterData(GameManager.MainAllyData);
             clone.BuildCharacter();
             MainAlly = clone;
         }
         
         private void SetCharacterSkill()
         {
-            CharacterSkillManager.Instance.SetCharacterSkill(MainAlly.AllyCharacterData.CharacterSkill);
+            CharacterSkillManager.Instance.SetCharacterSkill(MainAlly.GetCharacterSkill());
         }
-
-
         
         /// <summary>
         /// 取得玩家/敵人回合資訊
