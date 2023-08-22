@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: ShieldBash
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: cardAction
+      Entry: 7
+      Data: 0|CardAction.KnightCard.ShieldBash, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  value: 0
+  actionTargetType: 0
+  manaCost: 1
+  exhaustAfterPlay: 0
+  fxName: 0
+  fxSpawnPosition: 0
+  cardName: "\u76FE\u64CA"
+  cardSprite: {fileID: 21300000, guid: df37094116f93493ab33a754137b7715, type: 3}
+  rarity: 0
+  description: "\u5C0D\u5168\u9AD4\u9020\u6210\u7576\u524D\u8B77\u76FE\u503C\u7684\u50B7\u5BB3 "

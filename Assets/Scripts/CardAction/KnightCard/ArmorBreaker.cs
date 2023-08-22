@@ -9,20 +9,12 @@ namespace CardAction.KnightCard
 {
     public class ArmorBreaker : CardActionBase
     {
-        // protected void OnTurnStart(TurnInfo info)
-        // {
-        //     if (IsCharacterTurn(info))
-        //     {
-        //         
-        //         GameActionExecutor.AddToBottom(new ApplyPowerAction(
-        //             3, PowerName.Block, new List<CharacterBase>() {Owner},
-        //             GetActionSource()));
-        //     }
-        // }
         protected override void DoMainAction()
         {
             GameActionExecutor.AddToBottom(new ApplyPowerAction(
                 2, PowerName.Shield, TargetList, GetActionSource()));
+            GameActionExecutor.AddToBottom(new ApplyPowerAction(
+                1, PowerName.Bleed, TargetList, GetActionSource()));
         }
     }
 }

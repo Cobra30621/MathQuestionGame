@@ -15,8 +15,9 @@ namespace CardAction.KnightCard
     {
         protected override void DoMainAction()
         {
-            // int healValue = CombatManager.MainAlly.GetPowerValue(PowerName.Block);
-            // GameActionExecutor.AddToBottom(new HealAction(healValue, TargetList, GetActionSource()));
+            int healValue = CombatManager.Instance.MainAlly.GetPowerValue(PowerName.Block);
+            GameActionExecutor.AddToBottom(new HealAction(healValue,TargetList, GetActionSource()));
+            GameActionExecutor.AddToBottom(new ClearPowerAction(PowerName.Block,TargetList, GetActionSource()));
         }
     }
 }

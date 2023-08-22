@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e4698fb3b4f4afa83aa9bb2201ae796, type: 3}
-  m_Name: "\u90AA\u6559\u5F92"
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: Conversion
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -20,7 +20,20 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
-  targetBackgroundType: 1
-  enemyList:
-  - {fileID: 11400000, guid: 7c8637a012b58a142b68385675a26e79, type: 2}
+    SerializationNodes:
+    - Name: cardAction
+      Entry: 7
+      Data: 0|CardAction.KnightCard.Conversion, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  value: 1
+  actionTargetType: 1
+  manaCost: 0
+  exhaustAfterPlay: 0
+  fxName: 0
+  fxSpawnPosition: 0
+  cardName: 
+  cardSprite: {fileID: 0}
+  rarity: 0
+  description: 
