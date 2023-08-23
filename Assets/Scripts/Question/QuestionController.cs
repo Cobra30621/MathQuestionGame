@@ -73,7 +73,7 @@ namespace Question
         public void SetNextQuestion(Question question)
         {
             qeustionImage.sprite = question.QuestionSprite;
-            // optionImage.sprite = question.OptionSprite;
+            optionImage.sprite = question.OptionSprite;
             
             StartPlayAnimation();
             animator.SetTrigger(ShowQuestion);

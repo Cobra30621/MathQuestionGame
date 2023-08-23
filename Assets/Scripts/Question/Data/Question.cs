@@ -14,6 +14,11 @@ namespace Question
         /// The sprite representing the question.
         /// </summary>
         public Sprite QuestionSprite;
+        
+        /// <summary>
+        /// The sprite representing the option.
+        /// </summary>
+        public Sprite OptionSprite;
 
         /// <summary>
         /// The correct answer to the question.

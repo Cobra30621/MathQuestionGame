@@ -91,6 +91,9 @@ public class QuestionDownloader : MonoBehaviour
                 {
                     string problemLink = values[0];
                     yield return DownloadImage(problemLink);
+                    
+                    string answerLink = values[1];
+                    yield return DownloadImage(answerLink);
                 }
             }
         }

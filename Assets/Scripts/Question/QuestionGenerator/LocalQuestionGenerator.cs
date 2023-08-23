@@ -71,12 +71,13 @@ namespace Question
             foreach (var index in indexes)
             {
                 string[] row = datas[index];
-                string spriteName = row[0];
-                int answer = Convert.ToInt32(row[1]);
+                string questionName = row[0];
+                string optionName = row[1];
+                int answer = Convert.ToInt32(row[2]);
 
-                string path = loadQuestionsParameter.FolderPath + spriteName;
                 // Debug.Log($"path {path}");
-                Sprite questionSprite =  Resources.Load<Sprite> (path);
+                Sprite questionSprite =  Resources.Load<Sprite> ( loadQuestionsParameter.FolderPath + questionName);
+                Sprite optionSprite =  Resources.Load<Sprite> ( loadQuestionsParameter.FolderPath + optionName);
 
                 Question question = new Question()
                 {
@@ -85,6 +86,7 @@ namespace Question
                     
                     Answer = answer,
                     QuestionSprite = questionSprite,
+                    OptionSprite = optionSprite
                 };
                 questions.Add(question);
             }
