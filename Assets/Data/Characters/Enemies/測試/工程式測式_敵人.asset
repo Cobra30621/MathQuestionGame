@@ -12,78 +12,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2612027158f847538279f7d8f10dff91, type: 3}
   m_Name: "\u5DE5\u7A0B\u5F0F\u6E2C\u5F0F_\u6575\u4EBA"
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   characterID: enemy_example
   characterName: Enemy Example
   characterDescription: "\u5DE5\u7A0B\u5E2B\u6E2C\u8A66_\u6575\u4EBA"
   maxHealth: 1000
-  enemyPrefab: {fileID: 243822687015991123, guid: 36d8b1640cc4b9146b1bdcae06c505a1, type: 3}
+  enemyPrefab: {fileID: 6958531390484743391, guid: 243d839b2445948f29367f43fe561517, type: 3}
   followAbilityPattern: 1
+  battleStartAbility:
+    name: 
+    intention: {fileID: 0}
+    hideActionValue: 0
+    actionTargetType: 0
+    actionList: []
   enemyAbilityList:
   - name: "\u7279\u6548\u5728\u4E2D\u9593\u6E2C\u8A66"
     intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     hideActionValue: 0
     actionTargetType: 1
     actionList:
-    - gameActionType: 1
-      powerType: 0
-      answerOutcomeType: 0
-      actionValue: 1
-      additionValue: 0
-      actionDelay: 0
-      fxName: 51
-      fxSpawnPosition: 2
-      SourcePile: 0
-      TargetPile: 0
-      TargetCardData: {fileID: 0}
-      TriggerActionList: []
+    - BaseValue: 0
+      MultiplierValue: 0
+      Delay: 0
+      FxName: 0
+      FxSpawnPosition: 0
+      FixDamage: 0
+      CanPierceArmor: 0
+      powerName: 0
   - name: "\u7279\u6548\u5728\u73A9\u5BB6\u6E2C\u8A66"
     intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     hideActionValue: 0
     actionTargetType: 0
     actionList:
-    - gameActionType: 18
-      powerType: 0
-      answerOutcomeType: 0
-      actionValue: 2
-      additionValue: 0
-      actionDelay: 0
-      fxName: 55
-      fxSpawnPosition: 1
-      SourcePile: 0
-      TargetPile: 0
-      TargetCardData: {fileID: 0}
-      TriggerActionList: []
+    - BaseValue: 0
+      MultiplierValue: 0
+      Delay: 0
+      FxName: 0
+      FxSpawnPosition: 0
+      FixDamage: 0
+      CanPierceArmor: 0
+      powerName: 0
   - name: "\u7279\u6548\u5728\u76EE\u6A19(\u73A9\u5BB6)\u6E2C\u8A66"
     intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     hideActionValue: 0
     actionTargetType: 1
     actionList:
-    - gameActionType: 1
-      powerType: 0
-      answerOutcomeType: 0
-      actionValue: 3
-      additionValue: 0
-      actionDelay: 0
-      fxName: 51
-      fxSpawnPosition: 0
-      SourcePile: 0
-      TargetPile: 0
-      TargetCardData: {fileID: 0}
-      TriggerActionList: []
+    - BaseValue: 0
+      MultiplierValue: 0
+      Delay: 0
+      FxName: 0
+      FxSpawnPosition: 0
+      FixDamage: 0
+      CanPierceArmor: 0
+      powerName: 0
   - name: "\u7279\u6548\u5728\u76EE\u6A19(\u6575\u4EBA)\u6E2C\u8A66"
     intention: {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     hideActionValue: 0
     actionTargetType: 0
     actionList:
-    - gameActionType: 18
-      powerType: 0
-      answerOutcomeType: 0
-      actionValue: 4
-      additionValue: 0
-      actionDelay: 0
-      fxName: 55
-      fxSpawnPosition: 0
-      SourcePile: 0
-      TargetPile: 0
-      TargetCardData: {fileID: 0}
-      TriggerActionList: []
+    - BaseValue: 0
+      MultiplierValue: 0
+      Delay: 0
+      FxName: 0
+      FxSpawnPosition: 0
+      FixDamage: 0
+      CanPierceArmor: 0
+      powerName: 0
