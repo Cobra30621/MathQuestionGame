@@ -91,7 +91,7 @@ namespace NueGames.Characters
 
         [SerializeField] protected  IFeedback defaultAttackFeedback;
         [SerializeField] protected IFeedback beAttackFeedback;
-        [SerializeField] protected IFeedback gainBuffFeedback;
+        [SerializeField] protected PowerFeedback gainPowerFeedback;
         [SerializeField] protected IFeedback onDeadFeedback;
 
         [ReadOnly]
@@ -202,7 +202,7 @@ namespace NueGames.Characters
         public void ApplyPower(PowerName targetPower,int value)
         {
             CharacterStats.ApplyPower(targetPower, value);
-            gainBuffFeedback?.Play();
+            gainPowerFeedback?.Play(targetPower, value > 0);
         }
         
         /// <summary>
@@ -211,6 +211,7 @@ namespace NueGames.Characters
         public void MultiplyPower(PowerName targetPower,int value)
         {
             CharacterStats.MultiplyPower(targetPower, value);
+            gainPowerFeedback?.Play(targetPower, true);
         }
 
         /// <summary>
@@ -220,6 +221,7 @@ namespace NueGames.Characters
         public void ClearPower(PowerName targetPower)
         {
             CharacterStats.ClearPower(targetPower);
+            gainPowerFeedback?.Play(targetPower, false);
         }
 
         /// <summary>

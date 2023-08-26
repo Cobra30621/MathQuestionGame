@@ -123,12 +123,12 @@ namespace NueGames.Power
                 if (CanNegativeStack)
                 {
                     if (Amount == 0 && !IsPermanent)
-                        ClearPower();
+                        Owner.ClearPower(PowerName);
                 }
                 else
                 {
                     if (!IsPermanent)
-                        ClearPower();
+                        Owner.ClearPower(PowerName);
                 }
             }
         }
@@ -160,7 +160,7 @@ namespace NueGames.Power
             //One turn only statuses
             if (ClearAtNextTurn)
             {
-                ClearPower();
+                Owner.ClearPower(PowerName);
                 return;
             }
             
@@ -173,12 +173,12 @@ namespace NueGames.Power
                 if (CanNegativeStack)
                 {
                     if (Amount == 0 && !IsPermanent)
-                        ClearPower();
+                        Owner.ClearPower(PowerName);
                 }
                 else
                 {
                     if (!IsPermanent)
-                        ClearPower();
+                        Owner.ClearPower(PowerName);
                 }
             }
         }

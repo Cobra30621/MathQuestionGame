@@ -62,14 +62,7 @@ namespace NueGames.Characters
         {
             if (!StatusDict.ContainsKey(targetPower))
             {
-                var targetData = powersData.PowerList.FirstOrDefault(x => x.PowerName == targetPower);
-                if (targetData == null)
-                {
-                    Debug.LogError($"找不到 Power {targetPower} 的 powerData" +
-                                   $"請去 Assets/NueGames/NueDeck/Data/Containers/Powers.asset設定");
-                    return;
-                }
-                
+                var targetData = powersData.GetPowerData(targetPower);
                 var clone = Instantiate(powersData.PowerBasePrefab, statusIconRoot);
                 clone.SetStatus(targetData);
                 StatusDict.Add(targetPower, clone);

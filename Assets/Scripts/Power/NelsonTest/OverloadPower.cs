@@ -26,7 +26,7 @@ namespace NueGames.Power
         {
             if (IsCharacterTurn(info))
             {
-                ClearPower();
+                Owner.ClearPower(PowerName);
             }
         }
         public override int AtGainTurnStartMana(int rawValue)

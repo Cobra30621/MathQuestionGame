@@ -26,9 +26,17 @@ namespace NueGames.Data.Containers
         /// </summary>
         public List<PowerData> PowerList => powerList;
 
-        public PowerData GetPowerData(PowerName powerName)
+        public PowerData GetPowerData(PowerName targetPower)
         {
-            return PowerList.FirstOrDefault(x => x.PowerName == powerName);
+            var targetData = PowerList.FirstOrDefault(x => x.PowerName == targetPower);
+            if (targetData == null)
+            {
+                Debug.LogError($"找不到 Power {targetPower} 的 powerData" +
+                               $"請去 Assets/NueGames/NueDeck/Data/Containers/Powers.asset設定");
+            }
+            
+            
+            return targetData;
         }
     }
 

@@ -124,10 +124,6 @@ namespace NueGames.Characters
             {
                 defaultAttackFeedback.Play();
             }
-            else
-            {
-                gainBuffFeedback.Play();
-            }
         }
 
         private void DoGameAction(EnemyAbilityData targetAbility,  CharacterBase target)

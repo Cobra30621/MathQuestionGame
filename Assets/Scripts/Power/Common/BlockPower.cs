@@ -38,7 +38,7 @@ namespace NueGames.Power
                 }
                 else
                 {
-                    ClearPower();
+                    Owner.ClearPower(PowerName);
                 }
             }
         }

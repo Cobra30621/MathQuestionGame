@@ -24,10 +24,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: cardAction
       Entry: 7
-      Data: 0|CardAction.Damage, Assembly-CSharp
-    - Name: damageValue
+      Data: 0|CardAction.ApplyPower, Assembly-CSharp
+    - Name: value
       Entry: 3
-      Data: 5
+      Data: 3
+    - Name: powerName
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -49,7 +52,7 @@ MonoBehaviour:
   actionTargetType: 1
   manaCost: 0
   exhaustAfterPlay: 0
-  fxName: 51
+  fxName: 0
   fxSpawnPosition: 2
   useDefaultAttackFeedback: 0
   cardName: "\u6E2C\u8A66-\u73A9\u5BB6"

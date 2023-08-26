@@ -105,6 +105,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a531535fdf794e4893297aa72798b93, type: 3}
+--- !u!114 &43409116805015192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1953698504643925998, guid: 4a531535fdf794e4893297aa72798b93, type: 3}
+  m_PrefabInstance: {fileID: 1983508173804171638}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206cb1147eb440038cda9853d5d1e174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5019493528056418207 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6786367083920932585, guid: 4a531535fdf794e4893297aa72798b93, type: 3}
@@ -243,17 +254,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -6125400583728412266, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
   m_PrefabInstance: {fileID: 7233930414211009961}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5689517087457960891 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3067282058478054930, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
-  m_PrefabInstance: {fileID: 7233930414211009961}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e22c850f364456814cabf656008416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6998382408650455714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8828415525500291317, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
@@ -271,12 +271,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0264cae29c8404d836d9743c7f21ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: OnDeath
+      Entry: 6
+      Data: 
+    - Name: OnHealthChanged
+      Entry: 6
+      Data: 
+    - Name: OnAttacked
+      Entry: 6
+      Data: 
+    - Name: OnAttack
+      Entry: 6
+      Data: 
+    - Name: OnPowerApplied
+      Entry: 6
+      Data: 
+    - Name: OnPowerChanged
+      Entry: 6
+      Data: 
+    - Name: OnPowerIncreased
+      Entry: 6
+      Data: 
+    - Name: OnPowerCleared
+      Entry: 6
+      Data: 
+    - Name: feedbackDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Feedback.IFeedback,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   characterType: 1
   textSpawnRoot: {fileID: 8949777140957529120}
   defaultAttackFeedback: {fileID: 4612060079910384303}
   beAttackFeedback: {fileID: 27906365873426670}
-  gainBuffFeedback: {fileID: 5689517087457960891}
+  gainPowerFeedback: {fileID: 43409116805015192}
   onDeadFeedback: {fileID: 3293349063477261312}
+  Feedbacks: []
   enemyCanvas: {fileID: 5019493528056418207}
   deathSoundProfileData: {fileID: 11400000, guid: 7e15e2a10065ab54c8eaf26154af0156, type: 2}
 --- !u!4 &8949777140957529120 stripped

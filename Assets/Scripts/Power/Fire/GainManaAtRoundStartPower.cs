@@ -30,7 +30,7 @@ namespace NueGames.Power
         {
             if (IsCharacterTurn(info))
             {
-                ClearPower();
+                Owner.ClearPower(PowerName);
             }
         }
 
