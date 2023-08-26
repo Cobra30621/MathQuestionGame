@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using UnityEngine;
+
+namespace NueGames.Characters
+{
+    /// <summary>
+    /// 在卡牌, 敵人行動設計，指定播放的角色 Feedback
+    /// </summary>
+    public class CustomerFeedbackSetting
+    {
+        public bool useCustomFeedback;
+        
+        [ShowIf("useCustomFeedback")]
+        [InfoBox("請前往 Assets/Prefabs/Characters，加入想播放客製化 Feedback 的角色")]
+        [SerializeField] private CharacterBase targetCharacter;
+        
+        [ShowIf("ShowCustomFeedbackKey")]
+        [ValueDropdown("GetFeedbackKeys")]
+        public string customFeedbackKey;
+        
+        private List<string> GetFeedbackKeys()
+        {
+            var keys = targetCharacter?.GetCustomFeedbackList();
+            
+            if (!(keys?.Count > 0))
+            {
+                customFeedbackKey = "";
+            }
+            return keys;
+        }
+
+
+        private bool ShowCustomFeedbackKey()
+        {
+            return (targetCharacter != null) && useCustomFeedback;
+        }
+
+    }
+}

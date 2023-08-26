@@ -91,8 +91,6 @@ namespace NueGames.Characters
         }
         #endregion
         
-        #region Action Routines
-
         /// <summary>
         /// 回合開始時的行動
         /// </summary>
@@ -120,17 +118,15 @@ namespace NueGames.Characters
             
             var target = CombatManager.EnemyDetermineTargets(this, ability.ActionTargetType);
             DoGameAction(ability, target);
-
-      
-
+            
             if (ability.Intention.EnemyIntentionType == EnemyIntentionType.Attack || 
                     ability.Intention.EnemyIntentionType == EnemyIntentionType.Debuff)
             {
-                yield return StartCoroutine(AttackRoutine(ability, target.transform));
+                defaultAttackFeedback.Play();
             }
             else
             {
-                yield return StartCoroutine(BuffRoutine(ability));
+                gainBuffFeedback.Play();
             }
         }
 
@@ -149,60 +145,6 @@ namespace NueGames.Characters
             // GameActionExecutor.AddToBottom(gameActions);
             // TODO Enemy Action
         }
-        
-        protected virtual IEnumerator AttackRoutine(EnemyAbilityData targetAbility, Transform targetTransform )
-        {
-            var waitFrame = new WaitForEndOfFrame();
 
-            if (CombatManager == null) yield break;
-            
-            
-            var startPos = transform.position;
-            var endPos = targetTransform.transform.position;
-
-            var startRot = transform.localRotation;
-            var endRot = Quaternion.Euler(60, 0, 60);
-            
-            yield return StartCoroutine(MoveToTargetRoutine(waitFrame, startPos, endPos, startRot, endRot, 5));
-            yield return StartCoroutine(MoveToTargetRoutine(waitFrame, endPos, startPos, endRot, startRot, 5));
-        }
-        
-        protected virtual IEnumerator BuffRoutine(EnemyAbilityData targetAbility)
-        {
-            var waitFrame = new WaitForEndOfFrame();
-            
-            var startPos = transform.position;
-            var endPos = startPos+new Vector3(0,0.2f,0);
-            
-            var startRot = transform.localRotation;
-            var endRot = transform.localRotation;
-            
-            yield return StartCoroutine(MoveToTargetRoutine(waitFrame, startPos, endPos, startRot, endRot, 5));
-            yield return StartCoroutine(MoveToTargetRoutine(waitFrame, endPos, startPos, endRot, startRot, 5));
-        }
-        
-
-        #endregion
-        
-        #region Other Routines
-        private IEnumerator MoveToTargetRoutine(WaitForEndOfFrame waitFrame,Vector3 startPos, Vector3 endPos, Quaternion startRot, Quaternion endRot, float speed)
-        {
-            var timer = 0f;
-            while (true)
-            {
-                timer += Time.deltaTime*speed;
-
-                transform.position = Vector3.Lerp(startPos, endPos, timer);
-                transform.localRotation = Quaternion.Lerp(startRot,endRot,timer);
-                if (timer>=1f)
-                {
-                    break;
-                }
-
-                yield return waitFrame;
-            }
-        }
-
-        #endregion
     }
 }

@@ -29,9 +29,7 @@ namespace NueGames.Data.Collection
             "請去 Assets/Scripts/CardAction 資料夾中，創建新的 cs 檔。\n" +
             "技術文件放在 Assets/Scripts/CardAction/CardActionBase.cs 的開頭註解" )]
         [SerializeField] private CardActionBase cardAction;
-        
-        [FoldoutGroup("數值參數")]
-        [SerializeField] private int value;
+     
         [FoldoutGroup("數值參數")]
         [SerializeField]private ActionTargetType actionTargetType;
         [FoldoutGroup("數值參數")]
@@ -39,10 +37,15 @@ namespace NueGames.Data.Collection
         [FoldoutGroup("數值參數")]
         [SerializeField] private bool exhaustAfterPlay;
         
-        [FoldoutGroup("卡牌播放特效")]
+        [FoldoutGroup("卡牌特效")]
         [SerializeField] private  FxName  fxName;
-        [FoldoutGroup("卡牌播放特效")]
+        [FoldoutGroup("卡牌特效")]
         [SerializeField] private FxSpawnPosition fxSpawnPosition;
+
+        [FoldoutGroup("角色動畫")] 
+        [SerializeField] private bool useDefaultAttackFeedback;
+        [FoldoutGroup("角色動畫")] 
+        [SerializeField] private CustomerFeedbackSetting customerFeedback = new CustomerFeedbackSetting();
         
         
         [FoldoutGroup("卡牌顯示")]
@@ -68,6 +71,26 @@ namespace NueGames.Data.Collection
 
         public FxName FxName => fxName;
         public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
+        public bool UseDefaultAttackFeedback => useDefaultAttackFeedback;
+        public bool UseCustomFeedback
+        {
+            get
+            {
+                if (customerFeedback == null)
+                    return false;
+                return customerFeedback.useCustomFeedback;
+            }
+        }
+
+        public string CustomFeedbackKey
+        {
+            get
+            {
+                if (customerFeedback == null)
+                    return "";
+                return customerFeedback.customFeedbackKey;
+            }
+        }
 
         public string Description => description;
         public List<SpecialKeywords> KeywordsList => specialKeywordsList;
@@ -84,6 +107,7 @@ namespace NueGames.Data.Collection
             
             MyDescription = description;
         }
+
 
         #endregion
         

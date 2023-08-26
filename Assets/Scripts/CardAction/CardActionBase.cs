@@ -57,6 +57,16 @@ namespace CardAction
             GameActionExecutor.AddToBottom(new FXAction(
                 new FxInfo(CardData.FxName, CardData.FxSpawnPosition)
                 , TargetList));
+
+            if (CardData.UseDefaultAttackFeedback)
+            {
+                CombatManager.Instance.MainAlly.PlayDefaultAttackFeedback();
+            }
+
+            if (CardData.UseCustomFeedback)
+            {
+                CombatManager.Instance.MainAlly.PlayFeedback(CardData.CustomFeedbackKey);
+            }
         }
         
         #endregion

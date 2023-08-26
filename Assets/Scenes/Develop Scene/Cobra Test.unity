@@ -1288,6 +1288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2388636854935074175, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2388636854935074175, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
     - target: {fileID: 3902459897956553874, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 47.94507
@@ -1296,10 +1300,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -11.299999
       objectReference: {fileID: 0}
+    - target: {fileID: 5021511864690338890, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5021511864690338890, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
     - target: {fileID: 7156832370861324696, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 7156832370861324696, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+    - target: {fileID: 8022956807865189030, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8022956807865189030, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
 --- !u!1 &1757930517
@@ -1331,6 +1343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d4b369a2e9542bb910ef82418d7eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generateCount: 0
+  saveFolder: 
+  data:
+    problem: []
 --- !u!4 &1757930519
 Transform:
   m_ObjectHideFlags: 0
