@@ -346,7 +346,7 @@ namespace NueGames.Collection
                 if (EnablePlayCard(_heldCard.CardData.ActionTargetType, hitCharacter))
                 {
                     backToHand = false;
-                    //  Arrow Effect for the card's ActionTarget is single enemy
+                    //  Arrow Effect for the card's ActionTargetType is single enemy
                     if (_heldCard.ActionTargetIsSingleEnemy())
                     {
                         RemoveCardFromHand(_usingSelectingEffectCardIndex);

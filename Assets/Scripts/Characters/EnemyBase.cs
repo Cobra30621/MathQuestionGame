@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Action.Parameters;
+using EnemyAbility;
 using NueGames.Action;
 using NueGames.Combat;
 using NueGames.Data.Characters;
@@ -11,46 +13,64 @@ using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.NueExtentions;
 using NueGames.Parameters;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace NueGames.Characters
 {
     public class EnemyBase : CharacterBase
     {
-        [Header("Enemy Base References")]
-        protected EnemyCharacterData enemyCharacterData;
         [SerializeField] protected EnemyCanvas enemyCanvas;
         [SerializeField] protected SoundProfileData deathSoundProfileData;
-        protected EnemyAbilityData NextAbility;
         
-        public EnemyCharacterData EnemyCharacterData => enemyCharacterData;
         public EnemyCanvas EnemyCanvas => enemyCanvas;
         public SoundProfileData DeathSoundProfileData => deathSoundProfileData;
         protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
+
+        [Sirenix.OdinInspector.ReadOnly]
+        [SerializeField] private EnemyData _enemyData;
+        [Sirenix.OdinInspector.ReadOnly]
+        [SerializeField] private EnemyAbility.EnemyAbility _enemyAbility;
+        [Sirenix.OdinInspector.ReadOnly]
+        [SerializeField] private EnemySkill currentSkill;
 
         #region Setup
         public override void BuildCharacter()
         {
             base.BuildCharacter();
             EnemyCanvas.InitCanvas();
-            CharacterStats = new CharacterStats(EnemyCharacterData.MaxHealth, this);
+            CharacterStats = new CharacterStats(_enemyData.MaxHealth, this);
             CharacterStats.SetCharacterCanvasEvent(EnemyCanvas);
             OnDeath += OnDeathAction;
             CharacterStats.SetCurrentHealth(CharacterStats.CurrentHealth);
 
-            CombatManager.OnRoundStart += ShowNextAbility;
+            CombatManager.OnRoundStart += SetThisRoundSkill;
             CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
         }
 
-        public void SetEnemyData(EnemyCharacterData data)
+        public void SetEnemyData(EnemyData enemyData)
         {
-            enemyCharacterData = data;
+            _enemyData = enemyData;
+            _enemyAbility = enemyData.EnemyAbility;
+            _enemyAbility.SetEnemy(this);
+            _enemyAbility.OnBattleStart();
         }
-        
+
+        public EnemyAbility.EnemyAbility GetAbility()
+        {
+            return _enemyAbility;
+        }
+
+        public EnemySkill GetCurrentSkill()
+        {
+            return currentSkill;
+        }
+
+
         protected override void OnDeathAction(DamageInfo damageInfo)
         {
             base.OnDeathAction(damageInfo);
-            CombatManager.OnRoundStart -= ShowNextAbility;
+            CombatManager.OnRoundStart -= SetThisRoundSkill;
             CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
            
             CombatManager.OnEnemyDeath(this);
@@ -61,43 +81,45 @@ namespace NueGames.Characters
         
         #region Private Methods
 
-        private int _usedAbilityCount;
-        private void ShowNextAbility(RoundInfo info)
+        private void SetThisRoundSkill(RoundInfo info)
         {
-            NextAbility = EnemyCharacterData.GetAbility(_usedAbilityCount);
-            EnemyCanvas.IntentImage.sprite = NextAbility.Intention.IntentionSprite;
-            EnemyCanvas.IntentionData = NextAbility.Intention;
+            currentSkill = _enemyAbility.GetNextSkill();
+            _enemyAbility.UpdateSkillsCd();
             
-            if (NextAbility.HideActionValue)
-            {
-                EnemyCanvas.NextActionValueText.gameObject.SetActive(false);
-            }
-            else
-            {
-                EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
-                // EnemyCanvas.NextActionValueText.text = NextAbility.ActionDataClip.ActionList[0].ActionValue.ToString();
-                int actionValue = NextAbility.ActionList[0].BaseValue;
-                if (NextAbility.Intention.EnemyIntentionType == EnemyIntentionType.Attack)
-                {
-                    // TODO 串接根據狀態，顯示不同數值
-                    // actionValue = 
-                }
-                
-                EnemyCanvas.NextActionValueText.text = $"{actionValue}";
-            }
-
-            _usedAbilityCount++;
+            EnemyCanvas.IntentImage.sprite = currentSkill.Intention.IntentionSprite;
+            EnemyCanvas.IntentionData = currentSkill.Intention;
+            EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
+            int actionValue = 48763;
+            EnemyCanvas.NextActionValueText.text = $"{actionValue}";
+            
             EnemyCanvas.IntentImage.gameObject.SetActive(true);
         }
         #endregion
         
         /// <summary>
-        /// 回合開始時的行動
+        /// 戰鬥開始時的行動
         /// </summary>
         /// <returns></returns>
         public IEnumerator BattleStartActionRoutine()
         {
-            return ActionRoutine(EnemyCharacterData.BattleStartAbility);
+            // PlayStartBattle Skill
+            if (_enemyAbility.UseStartBattleSkill)
+            {
+                if (_enemyAbility.startBattleSkill != null)
+                {
+                    yield return ActionRoutine(_enemyAbility.startBattleSkill);
+                }
+                else
+                {
+                    Debug.LogError($"Enemy {name} 沒有設置 StartBattleSkill");
+                }
+                
+            }
+            else
+            {
+                yield return null;
+            }
+
         }
         
         /// <summary>
@@ -106,40 +128,18 @@ namespace NueGames.Characters
         /// <returns></returns>
         public IEnumerator ActionRoutine()
         {
-            return ActionRoutine(NextAbility);
+            return ActionRoutine(currentSkill);
         }
         
-        public virtual IEnumerator ActionRoutine(EnemyAbilityData ability)
+        public virtual IEnumerator ActionRoutine(EnemySkill skill)
         {
             if (CharacterStats.IsStunned)
                 yield break;
             
             EnemyCanvas.IntentImage.gameObject.SetActive(false);
             
-            var target = CombatManager.EnemyDetermineTargets(this, ability.ActionTargetType);
-            DoGameAction(ability, target);
-            
-            if (ability.Intention.EnemyIntentionType == EnemyIntentionType.Attack || 
-                    ability.Intention.EnemyIntentionType == EnemyIntentionType.Debuff)
-            {
-                defaultAttackFeedback.Play();
-            }
-        }
-
-        private void DoGameAction(EnemyAbilityData targetAbility,  CharacterBase target)
-        {
-            // TODO 敵人取得 Target List
-            List<CharacterBase> targetList = new List<CharacterBase>() { target };
-
-            ActionSource actionSource = new ActionSource()
-            {
-                SourceType = SourceType.Enemy,
-                SourceCharacter = this,
-            };
-            // List<GameActionBase> gameActions =  GameActionGenerator.GetGameActions(null, 
-            //     actionSource, targetAbility.ActionList, targetList);
-            // GameActionExecutor.AddToBottom(gameActions);
-            // TODO Enemy Action
+            var targetList = CombatManager.EnemyDetermineTargets(this, skill.ActionTargetType);
+            skill.PlaySkill(targetList);
         }
 
     }

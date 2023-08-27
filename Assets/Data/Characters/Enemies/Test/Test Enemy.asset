@@ -1,0 +1,238 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c394f48d80c4225850662561e77be4c, type: 3}
+  m_Name: Test Enemy
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: c70607cffd24871458aaa58871e74ba9, type: 2}
+    - {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: EnemyAbility
+      Entry: 7
+      Data: 0|EnemyAbility.EnemyAbility, Assembly-CSharp
+    - Name: enemySkills
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[EnemyAbility.EnemySkill, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 2|EnemyAbility.EnemySkill, Assembly-CSharp
+    - Name: name
+      Entry: 1
+      Data: Gain Strength
+    - Name: condition
+      Entry: 6
+      Data: 
+    - Name: skillCd
+      Entry: 3
+      Data: 0
+    - Name: maxUseCount
+      Entry: 3
+      Data: 1
+    - Name: intention
+      Entry: 10
+      Data: 0
+    - Name: actionTargetType
+      Entry: 3
+      Data: 0
+    - Name: enemyAction
+      Entry: 7
+      Data: 3|EnemyAbility.EnemyAction.GainStrength, Assembly-CSharp
+    - Name: value
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fxName
+      Entry: 3
+      Data: 0
+    - Name: fxSpawnPosition
+      Entry: 3
+      Data: 0
+    - Name: useDefaultAttackFeedback
+      Entry: 5
+      Data: false
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|EnemyAbility.EnemySkill, Assembly-CSharp
+    - Name: name
+      Entry: 1
+      Data: Super Attack
+    - Name: condition
+      Entry: 7
+      Data: 5|EnemyAbility.EnemyHealthCondition, Assembly-CSharp
+    - Name: condition
+      Entry: 3
+      Data: 1
+    - Name: healthPercentage
+      Entry: 4
+      Data: 0.8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: skillCd
+      Entry: 3
+      Data: 1
+    - Name: maxUseCount
+      Entry: 3
+      Data: -1
+    - Name: intention
+      Entry: 10
+      Data: 1
+    - Name: actionTargetType
+      Entry: 3
+      Data: 1
+    - Name: enemyAction
+      Entry: 7
+      Data: 6|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+    - Name: damageValue
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fxName
+      Entry: 3
+      Data: 55
+    - Name: fxSpawnPosition
+      Entry: 3
+      Data: 0
+    - Name: useDefaultAttackFeedback
+      Entry: 5
+      Data: true
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|EnemyAbility.EnemySkill, Assembly-CSharp
+    - Name: name
+      Entry: 1
+      Data: Attack
+    - Name: condition
+      Entry: 6
+      Data: 
+    - Name: skillCd
+      Entry: 3
+      Data: 0
+    - Name: maxUseCount
+      Entry: 3
+      Data: -1
+    - Name: intention
+      Entry: 10
+      Data: 1
+    - Name: actionTargetType
+      Entry: 3
+      Data: 1
+    - Name: enemyAction
+      Entry: 7
+      Data: 8|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+    - Name: damageValue
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fxName
+      Entry: 3
+      Data: 55
+    - Name: fxSpawnPosition
+      Entry: 3
+      Data: 0
+    - Name: useDefaultAttackFeedback
+      Entry: 5
+      Data: true
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: UseStartBattleSkill
+      Entry: 5
+      Data: true
+    - Name: startBattleSkill
+      Entry: 7
+      Data: 9|EnemyAbility.EnemySkill, Assembly-CSharp
+    - Name: name
+      Entry: 1
+      Data: Gain Strength
+    - Name: condition
+      Entry: 6
+      Data: 
+    - Name: skillCd
+      Entry: 3
+      Data: 0
+    - Name: maxUseCount
+      Entry: 3
+      Data: 1
+    - Name: intention
+      Entry: 10
+      Data: 0
+    - Name: actionTargetType
+      Entry: 3
+      Data: 0
+    - Name: enemyAction
+      Entry: 7
+      Data: 10|EnemyAbility.EnemyAction.GainStrength, Assembly-CSharp
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fxName
+      Entry: 3
+      Data: 0
+    - Name: fxSpawnPosition
+      Entry: 3
+      Data: 0
+    - Name: useDefaultAttackFeedback
+      Entry: 5
+      Data: false
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  MaxHealth: 70
+  EnemyPrefab: {fileID: 6958531390484743391, guid: 243d839b2445948f29367f43fe561517, type: 3}

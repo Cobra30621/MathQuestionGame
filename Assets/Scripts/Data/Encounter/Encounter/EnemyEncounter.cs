@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EnemyAbility;
 using NueGames.Data.Characters;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
@@ -15,6 +16,6 @@ namespace NueGames.Data.Encounter
     public class EnemyEncounter : EncounterBase
     {
         [InlineEditor()]
-        public List<EnemyCharacterData> enemyList;
+        public List<EnemyData> enemyList;
     }
 }

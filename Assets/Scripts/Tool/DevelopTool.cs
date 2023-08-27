@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Managers;
 using NueGames.Action;
 using NueGames.Characters;
@@ -14,6 +15,7 @@ using NueGames.Data.Settings;
 using NueGames.Power;
 using Question;
 using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
 
 namespace Tool
 {
@@ -50,6 +52,21 @@ namespace Tool
 
             GenerateAllyPower();
             
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ReloadScene();
+            }
+        }
+
+        [Button]
+        public void ReloadScene()
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentSceneIndex);
         }
         
         [ContextMenu("使用測試方法")]

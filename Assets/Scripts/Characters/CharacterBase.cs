@@ -27,6 +27,7 @@ namespace NueGames.Characters
         /// <summary>
         /// 角色數值
         /// </summary>
+        [SerializeField]
         protected CharacterStats CharacterStats; 
         /// <summary>
         /// 文字特效生成處
@@ -187,6 +188,11 @@ namespace NueGames.Characters
         public int GetMaxHealth()
         {
             return CharacterStats.MaxHealth;
+        }
+
+        public int GetHealth()
+        {
+            return CharacterStats.CurrentHealth;
         }
 
         #endregion

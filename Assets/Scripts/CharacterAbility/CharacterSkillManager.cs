@@ -75,7 +75,6 @@ namespace NueGames.CharacterAbility
         {
             skillCount = count;
             OnSkillCountChange?.Invoke(skillCount);
-            Debug.Log($"skillCount {count}");
         }
         
         /// <summary>

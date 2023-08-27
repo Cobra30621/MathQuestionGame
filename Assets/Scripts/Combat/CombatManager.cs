@@ -344,28 +344,30 @@ namespace NueGames.Combat
                 WinCombat();
         }
         
-        public CharacterBase EnemyDetermineTargets(CharacterBase enemyCharacter,
+        public List<CharacterBase> EnemyDetermineTargets(CharacterBase enemyCharacter,
             ActionTargetType actionTargetType)
         {
-           CharacterBase target = null;
+            List<CharacterBase> targetList = new List<CharacterBase>();
             switch (actionTargetType)
             {
                 case ActionTargetType.AllEnemies:
+                    targetList = new List<CharacterBase>(Enemies);
+                    break;
                 case ActionTargetType.Enemy:
-                    target = enemyCharacter;
+                    targetList.Add(enemyCharacter);
                     break;
                 case ActionTargetType.Ally:
-                    target = MainAlly;
+                    targetList.Add(MainAlly);
                     break;
                 case ActionTargetType.RandomEnemy:
                     if (Enemies.Count>0)
-                        target = Enemies.RandomItem();
+                        targetList.Add(Enemies.RandomItem());
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
-            return target;
+            return targetList;
         }
         
         public void SetSelectedEnemy(EnemyBase selectedEnemy)
