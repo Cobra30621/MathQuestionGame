@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using NueGames.Data.Collection;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -9,9 +11,6 @@ namespace NueGames.Characters
     /// </summary>
     public class CustomerFeedbackSetting
     {
-        public bool useCustomFeedback;
-        
-        [ShowIf("useCustomFeedback")]
         [InfoBox("請前往 Assets/Prefabs/Characters，加入想播放客製化 Feedback 的角色")]
         [SerializeField] private CharacterBase targetCharacter;
         
@@ -33,8 +32,19 @@ namespace NueGames.Characters
 
         private bool ShowCustomFeedbackKey()
         {
-            return (targetCharacter != null) && useCustomFeedback;
+            return (targetCharacter != null);
         }
 
+        
+#if UNITY_EDITOR // Editor-related code must be excluded from builds
+        private IEnumerable GetAssets()
+        {
+            var asset = AssetGetter.GetAssets(AssetGetter.DataName.Character);
+            
+            Debug.Log($"asset {asset}");
+            // Debug.Log($"asset {(List<CharacterBase>)asset}");
+            return asset;
+        }
+#endif
     }
 }

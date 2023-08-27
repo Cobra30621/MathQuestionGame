@@ -13,6 +13,7 @@ namespace EnemyAbility
         /// <summary>
         /// List of enemy skills.
         /// </summary>
+        [TableList(AlwaysExpanded = true, DrawScrollView = false)]
         public List<EnemySkill> enemySkills;
 
         /// <summary>

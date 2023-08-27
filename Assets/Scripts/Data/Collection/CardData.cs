@@ -45,7 +45,11 @@ namespace NueGames.Data.Collection
         [FoldoutGroup("角色動畫")] 
         [SerializeField] private bool useDefaultAttackFeedback;
         [FoldoutGroup("角色動畫")] 
-        [SerializeField] private CustomerFeedbackSetting customerFeedback = new CustomerFeedbackSetting();
+        [SerializeField] private bool useCustomFeedback;
+
+        [FoldoutGroup("角色動畫")] 
+        [ShowIf("useCustomFeedback")] 
+        [SerializeField] private CustomerFeedbackSetting customerFeedback;
         
         
         [FoldoutGroup("卡牌顯示")]
@@ -78,7 +82,7 @@ namespace NueGames.Data.Collection
             {
                 if (customerFeedback == null)
                     return false;
-                return customerFeedback.useCustomFeedback;
+                return useCustomFeedback;
             }
         }
 

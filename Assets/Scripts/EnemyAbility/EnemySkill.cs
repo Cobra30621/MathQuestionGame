@@ -22,61 +22,83 @@ namespace EnemyAbility
         /// <summary>
         /// The name of the skill.
         /// </summary>
+        [VerticalGroup("基本")]
         [SerializeField] private string name;
 
         /// <summary>
-        /// The condition that determines when the skill can be used.
+        /// The intention data for the skill.
         /// </summary>
-        [SerializeField] private ConditionBase condition;
+        [VerticalGroup("基本")]
+        [SerializeField] private EnemyIntentionData intention;
+        
+        
+        
 
         /// <summary>
         /// The cooldown of the skill.
         /// </summary>
+        [VerticalGroup("發動條件")]
         [SerializeField] private int skillCd;
 
         /// <summary>
         /// The maximum number of times the skill can be used.
         /// </summary>
+        [VerticalGroup("發動條件")]
         [SerializeField] private int maxUseCount = -1;
 
 
+        [VerticalGroup("發動條件")] 
+        [SerializeField]
+        private bool useCondition;
+
         /// <summary>
-        /// The intention data for the skill.
+        /// The condition that determines when the skill can be used.
         /// </summary>
-        [SerializeField] private EnemyIntentionData intention;
+        [VerticalGroup("發動條件")]
+        [ShowIf("useCondition")]
+        [SerializeField] private ConditionBase condition;
 
         /// <summary>
         /// The target type for the skill's action.
         /// </summary>
+        [VerticalGroup("執行行動")]
         [SerializeField] private ActionTargetType actionTargetType;
 
         /// <summary>
         /// The action to be performed by the skill.
         /// </summary>
+        [VerticalGroup("執行行動")]
         [SerializeField] private EnemyActionBase enemyAction;
 
+        
+        
         /// <summary>
         /// The name of the effect.
         /// </summary>
-        [FoldoutGroup("特效")]
+        
+        [VerticalGroup("特效")]
         [SerializeField] private FxName fxName;
 
         /// <summary>
         /// The spawn position of the effect.
         /// </summary>
-        [FoldoutGroup("特效")]
+        [VerticalGroup("特效")]
         [SerializeField] private FxSpawnPosition fxSpawnPosition;
 
         /// <summary>
         /// Indicates whether to use the default attack feedback.
         /// </summary>
-        [FoldoutGroup("角色動畫")]
+        [VerticalGroup("角色動畫")]
         [SerializeField] private bool useDefaultAttackFeedback;
 
+        
+        [VerticalGroup("角色動畫")] 
+        [SerializeField] private bool useCustomFeedback;
         /// <summary>
         /// The custom feedback settings.
         /// </summary>
-        [FoldoutGroup("角色動畫")]
+        [VerticalGroup("角色動畫")]
+        [ShowIf("useCustomFeedback")]
         [SerializeField] private CustomerFeedbackSetting customerFeedback;
 
         public EnemyIntentionData Intention => intention;
@@ -95,7 +117,7 @@ namespace EnemyAbility
             {
                 if (customerFeedback == null)
                     return false;
-                return customerFeedback.useCustomFeedback;
+                return useCustomFeedback;
             }
         }
 
