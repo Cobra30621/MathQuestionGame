@@ -85,15 +85,27 @@ namespace NueGames.Characters
         {
             currentSkill = _enemyAbility.GetNextSkill();
             _enemyAbility.UpdateSkillsCd();
+            SetIntentionUI();
+        }
+
+        public void SetIntentionUI()
+        {
+            if (currentSkill.GetIntentionValue(out int value))
+            {
+                EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
+                EnemyCanvas.NextActionValueText.text = $"{value}";
+            }
+            else
+            {
+                EnemyCanvas.NextActionValueText.gameObject.SetActive(false);
+            }
             
             EnemyCanvas.IntentImage.sprite = currentSkill.Intention.IntentionSprite;
             EnemyCanvas.IntentionData = currentSkill.Intention;
-            EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
-            int actionValue = 48763;
-            EnemyCanvas.NextActionValueText.text = $"{actionValue}";
-            
             EnemyCanvas.IntentImage.gameObject.SetActive(true);
         }
+        
+        
         #endregion
         
         /// <summary>

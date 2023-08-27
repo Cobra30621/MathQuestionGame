@@ -12,6 +12,10 @@ namespace EnemyAbility.EnemyAction
     /// </summary>
     public abstract class EnemyActionBase
     {
+        public abstract int DamageValueForIntention { get; }
+        public abstract bool IsDamageAction { get; }
+
+
         protected EnemyBase _enemy;
         protected EnemyAbility _ability;
         protected EnemySkill _skill;
@@ -71,7 +75,7 @@ namespace EnemyAbility.EnemyAction
         /// <summary>
         /// Get the source of the action.
         /// </summary>
-        protected ActionSource GetActionSource()
+        public ActionSource GetActionSource()
         {
             return new ActionSource()
             {

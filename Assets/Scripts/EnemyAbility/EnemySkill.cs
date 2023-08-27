@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Action.Parameters;
 using EnemyAbility.EnemyAction;
 using NueGames.Characters;
+using NueGames.Combat;
 using NueGames.Data.Containers;
 using NueGames.Enums;
+using NueGames.Parameters;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -35,6 +38,7 @@ namespace EnemyAbility
         /// The maximum number of times the skill can be used.
         /// </summary>
         [SerializeField] private int maxUseCount = -1;
+
 
         /// <summary>
         /// The intention data for the skill.
@@ -75,9 +79,6 @@ namespace EnemyAbility
         [FoldoutGroup("角色動畫")]
         [SerializeField] private CustomerFeedbackSetting customerFeedback;
 
-        public int SkillCd => skillCd;
-        public int MaxUseCount => maxUseCount;
-        public ConditionBase Condition => condition;
         public EnemyIntentionData Intention => intention;
         public FxName FxName => fxName;
         public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
@@ -163,6 +164,33 @@ namespace EnemyAbility
                 currentCd = 0;
             }
         }
+
+
+        public bool GetIntentionValue(out int value)
+        {
+            if (Intention.ShowIntentionValue)
+            {
+                value = -1;
+                if (!enemyAction.IsDamageAction) return false;
+                
+                var damageInfo = new DamageInfo()
+                {
+                    Target = CombatManager.Instance.MainAlly,
+                    damageValue = enemyAction.DamageValueForIntention,
+                    ActionSource = new ActionSource()
+                    {
+                        SourceType = SourceType.Enemy,
+                        SourceCharacter = _enemy
+                    }
+                };
+                value = CombatCalculator.GetDamageValue(damageInfo);
+                return true;
+            }
+
+            value = -1;
+            return false;
+        }
+
 
         /// <summary>
         /// Checks if the skill can be played.

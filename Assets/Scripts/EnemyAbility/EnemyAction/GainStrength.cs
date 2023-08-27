@@ -9,6 +9,9 @@ namespace EnemyAbility.EnemyAction
     /// </summary>
     public class GainStrength : EnemyActionBase
     {
+        public override int DamageValueForIntention => -1;
+        public override bool IsDamageAction => false;
+
         /// <summary>
         /// The value of strength to be gained.
         /// </summary>

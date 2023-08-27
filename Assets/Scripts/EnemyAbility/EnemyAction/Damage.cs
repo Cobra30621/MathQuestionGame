@@ -8,6 +8,9 @@ namespace EnemyAbility.EnemyAction
     /// </summary>
     public class Damage : EnemyActionBase
     {
+        public override int DamageValueForIntention => damageValue;
+        public override bool IsDamageAction => true;
+
         /// <summary>
         /// The value of damage to be inflicted.
         /// </summary>
