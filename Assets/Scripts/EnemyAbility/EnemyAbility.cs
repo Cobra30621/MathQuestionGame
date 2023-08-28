@@ -11,12 +11,6 @@ namespace EnemyAbility
     public class EnemyAbility
     {
         /// <summary>
-        /// List of enemy skills.
-        /// </summary>
-        [TableList(AlwaysExpanded = true, DrawScrollView = false)]
-        public List<EnemySkill> enemySkills;
-
-        /// <summary>
         /// Indicates whether to use the start battle skill.
         /// </summary>
         public bool UseStartBattleSkill;
@@ -26,6 +20,14 @@ namespace EnemyAbility
         /// </summary>
         [ShowIf("UseStartBattleSkill")]
         public EnemySkill startBattleSkill;
+        
+        /// <summary>
+        /// List of enemy skills.
+        /// </summary>
+        [TableList(AlwaysExpanded = true, DrawScrollView = false)]
+        public List<EnemySkill> enemySkills;
+
+        
 
         private EnemyBase _enemyBase;
 

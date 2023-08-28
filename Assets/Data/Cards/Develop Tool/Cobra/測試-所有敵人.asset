@@ -15,7 +15,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 4481275099794884273, guid: 54f755eb3b85d4532b7cfe2db4176b6a, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -33,11 +34,25 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: customerFeedback
+      Entry: 7
+      Data: 1|NueGames.Characters.CustomerFeedbackSetting, Assembly-CSharp
+    - Name: targetCharacter
+      Entry: 10
+      Data: 0
+    - Name: customFeedbackKey
+      Entry: 1
+      Data: Special Attack
+    - Name: 
+      Entry: 8
+      Data: 
   actionTargetType: 2
   manaCost: 0
   exhaustAfterPlay: 0
   fxName: 55
   fxSpawnPosition: 0
+  useDefaultAttackFeedback: 0
+  useCustomFeedback: 1
   cardName: "\u6E2C\u8A66-\u6240\u6709\u6575\u4EBA"
   cardSprite: {fileID: 21300000, guid: 42a9d99a05c894875b345211a9d1f648, type: 3}
   rarity: 0
