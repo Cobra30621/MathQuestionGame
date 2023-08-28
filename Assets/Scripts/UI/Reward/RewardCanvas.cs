@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NueGames.Card;
 using NueGames.Data.Collection;
+using NueGames.Data.Collection.RewardData;
 using NueGames.Data.Containers;
 using NueGames.Enums;
 using NueGames.NueExtentions;
@@ -28,6 +29,11 @@ namespace NueGames.UI.Reward
         public ChoicePanel ChoicePanel => choicePanel;
         
         #region Public Methods
+
+        public void SetCardReward(CardRewardData cardRewardData)
+        {
+            rewardContainerData.SetCardRewardData(cardRewardData);
+        }
 
         public void ShowReward(List<RewardType> rewardTypes)
         {
@@ -57,7 +63,8 @@ namespace NueGames.UI.Reward
                     rewardClone.RewardButton.onClick.AddListener(()=>GetGoldReward(rewardClone,rewardGold));
                     break;
                 case RewardType.Card:
-                    var rewardCardList = rewardContainerData.GetRandomCardRewardList(out var cardRewardData);
+                    var cardRewardData = rewardContainerData.CardRewardData;
+                    var rewardCardList = cardRewardData.RewardCardList;
                     _cardRewardList.Clear();
                     foreach (var cardData in rewardCardList)
                         _cardRewardList.Add(cardData);
