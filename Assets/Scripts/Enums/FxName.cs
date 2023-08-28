@@ -10,6 +10,8 @@
         ThumderballAttack = 59,
         SwordHitAttack = 60,
         GunHitAttack = 61,
+        SoldierHitAttack = 62,
+        AntAttack = 63,
          
         
         // Buff
