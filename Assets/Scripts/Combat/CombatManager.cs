@@ -15,25 +15,19 @@ using UnityEngine;
 
 namespace NueGames.Combat
 {
-    public class CombatManager : MonoBehaviour
+    public class CombatManager : SingletonDestroyOnLoad<CombatManager>
     {
-        private CombatManager(Action<TurnInfo> onTurnStart)
-        {
-            OnTurnStart = onTurnStart;
-        }
-        public static CombatManager Instance { get; private set; }
-
         [Header("References")] 
         [SerializeField] private BackgroundContainer backgroundContainer;
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
-        private ManaManager _manaManager;
+        [SerializeField] private ManaManager _manaManager;
 
         public int CurrentMana => _manaManager.CurrentMana;
         public Action<int> OnGainMana
         {
-            get => _manaManager.OnGainMana;
-            set => _manaManager.OnGainMana = value;
+            get => ManaManager.OnGainMana;
+            set => ManaManager.OnGainMana = value;
         }
 
         #region Character
@@ -60,9 +54,9 @@ namespace NueGames.Combat
 
         private List<Transform> AllyPosList => allyPosList;
 
-        
 
-        public EnemyEncounter CurrentEncounter { get; private set; }
+
+        public EnemyEncounter CurrentEncounter;
         
         public CombatStateType CurrentCombatStateType
         {
@@ -96,40 +90,31 @@ namespace NueGames.Combat
         /// <summary>
         /// 遊戲回合開始
         /// </summary>
-        public Action<RoundInfo> OnRoundStart;
+        public static Action<RoundInfo> OnRoundStart;
         /// <summary>
         /// 遊戲回合結束
         /// </summary>
-        public Action<RoundInfo> OnRoundEnd;
+        public static Action<RoundInfo> OnRoundEnd;
         
         /// <summary>
         /// 玩家/敵人回合開始時觸發
         /// </summary>
-        public Action<TurnInfo> OnTurnStart;
+        public static Action<TurnInfo> OnTurnStart;
         
         /// <summary>
         /// 玩家/敵人回合結束時觸發
         /// </summary>
-        public Action<TurnInfo> OnTurnEnd;
+        public static  Action<TurnInfo> OnTurnEnd;
         
 
         #endregion
         
         
-        #region Setup
-        private void Awake()
+        protected override void DoAtAwake()
         {
-            if (Instance)
-            {
-                Destroy(gameObject);
-                return;
-            } 
-            else
-            {
-                Instance = this;
-                _manaManager = new ManaManager();
-                CurrentCombatStateType = CombatStateType.PrepareCombat;
-            }
+            Debug.Log("DoAtAwake()");
+            _manaManager = new ManaManager();
+            CurrentCombatStateType = CombatStateType.PrepareCombat;
         }
 
         private void Start()
@@ -138,12 +123,6 @@ namespace NueGames.Combat
         }
 
         
-        
-        
-        #endregion
-
-
-
         #region 會更改 Routines 的方法
 
         public void StartCombat()
@@ -365,28 +344,30 @@ namespace NueGames.Combat
                 WinCombat();
         }
         
-        public CharacterBase EnemyDetermineTargets(CharacterBase enemyCharacter,
+        public List<CharacterBase> EnemyDetermineTargets(CharacterBase enemyCharacter,
             ActionTargetType actionTargetType)
         {
-           CharacterBase target = null;
+            List<CharacterBase> targetList = new List<CharacterBase>();
             switch (actionTargetType)
             {
                 case ActionTargetType.AllEnemies:
+                    targetList = new List<CharacterBase>(Enemies);
+                    break;
                 case ActionTargetType.Enemy:
-                    target = enemyCharacter;
+                    targetList.Add(enemyCharacter);
                     break;
                 case ActionTargetType.Ally:
-                    target = MainAlly;
+                    targetList.Add(MainAlly);
                     break;
                 case ActionTargetType.RandomEnemy:
                     if (Enemies.Count>0)
-                        target = Enemies.RandomItem();
+                        targetList.Add(Enemies.RandomItem());
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
-            return target;
+            return targetList;
         }
         
         public void SetSelectedEnemy(EnemyBase selectedEnemy)

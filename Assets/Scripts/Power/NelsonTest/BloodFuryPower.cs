@@ -11,12 +11,12 @@ namespace NueGames.Power
         public override PowerName PowerName => PowerName.BloodFury;
         public override void SubscribeAllEvent()
         {
-            CombatManager.Instance.OnTurnStart += OnTurnStart;
+            CombatManager.OnTurnStart += OnTurnStart;
         }
 
         public override void UnSubscribeAllEvent()
         {
-            CombatManager.Instance.OnTurnStart -= OnTurnStart;
+            CombatManager.OnTurnStart -= OnTurnStart;
         }
 
         protected override void OnTurnStart(TurnInfo info)

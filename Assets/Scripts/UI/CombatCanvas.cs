@@ -35,7 +35,23 @@ namespace NueGames.UI
         {
             CombatWinPanel.SetActive(false);
             CombatLosePanel.SetActive(false);
-            CombatManager.OnGainMana += OnManaChange;
+            
+        }
+
+        // private void OnEnable()
+        // {
+        //     CombatManager.OnGainMana += OnManaChange;
+        // }
+        //
+        // private void OnDisable()
+        // {
+        //     CombatManager.OnGainMana -= OnManaChange;
+        // }
+
+
+        private void Start()
+        {
+            ManaManager.OnGainMana += OnManaChange;
         }
 
         #endregion

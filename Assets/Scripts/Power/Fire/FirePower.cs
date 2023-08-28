@@ -39,7 +39,7 @@ namespace NueGames.Power
             if (IsCharacterTurn(info))
             {
                 int fireAmount = Amount;
-                if (CombatManager.MainAlly.HasPower(PowerName.Kindle))
+                if (CombatManager.Instance.MainAlly.HasPower(PowerName.Kindle))
                 {
                    fireAmount = Amount * 2;
                 }

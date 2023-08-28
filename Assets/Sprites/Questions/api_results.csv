@@ -1,0 +1,14 @@
+﻿我有以下格式的 csv 檔案
+
+problemLink,ansLink,answer
+3a027df47f46c284279269e715d574ec,ead74e98705c8f1aac4b83d4d750f406,1
+1b5e38058a4580208a6a2121ea7a5c3f,4e5ea2f6497216e6e6a7d981374ca5f7,4
+90a5ff0aa9d934d25692b861143d3fe7,2a3870f4c36628bcf6ee89f068a45160,1
+a560c61d866d0ec19b5a96fe2ec5a627,9bfa10469761b03b8a177b9a616431a6,1
+98ab00c4d18663770e4e19e3aa80df20,9cc516bce056194fb30e714d66cb9c96,3
+
+請在 Unity 中撰寫以下方法
+請讀取 csv 檔，並用以下連結下載圖片至 Unity 中，並儲存在資料夾
+
+https://api.emath.math.ncu.edu.tw/problem/{problemLink}
+

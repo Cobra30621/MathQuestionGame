@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using Action.Parameters;
+using Feedback;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
 using NueGames.Power;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace NueGames.Characters
@@ -14,7 +16,7 @@ namespace NueGames.Characters
     /// 角色
     /// 文件：https://hackmd.io/@Cobra3279/HJK2qpy9h/%2FNLPqD8z3QaO6heSAZ-rBXA
     /// </summary>
-    public abstract class CharacterBase : MonoBehaviour
+    public abstract class CharacterBase : SerializedMonoBehaviour
     {
         [Header("Base settings")]
         [SerializeField] private CharacterType characterType;
@@ -25,6 +27,7 @@ namespace NueGames.Characters
         /// <summary>
         /// 角色數值
         /// </summary>
+        [SerializeField]
         protected CharacterStats CharacterStats; 
         /// <summary>
         /// 文字特效生成處
@@ -85,9 +88,62 @@ namespace NueGames.Characters
         #endregion
 
 
+        #region 特效
+
+        [SerializeField] protected  IFeedback defaultAttackFeedback;
+        [SerializeField] protected IFeedback beAttackFeedback;
+        [SerializeField] protected PowerFeedback gainPowerFeedback;
+        [SerializeField] protected IFeedback onDeadFeedback;
+
+        [ReadOnly]
+        [SerializeField] private  Dictionary<string, IFeedback> feedbackDict = new Dictionary<string, IFeedback>();
+        [SerializeField] protected List<IFeedback> Feedbacks;
+
+        private void SetUpFeedbackDict()
+        {
+            feedbackDict = new Dictionary<string, IFeedback>();
+            foreach (var feedBack in Feedbacks)
+            {
+                feedbackDict.Add(feedBack.name, feedBack);
+            }
+        }
+
+
+        public void PlayFeedback(string key)
+        {
+            if (feedbackDict.ContainsKey(key))
+            {
+                feedbackDict[key].Play();
+            }
+            else
+            {
+                Debug.LogError($"Character {name} does contain feedback {key}");
+            }
+        }
+        
+        public void PlayDefaultAttackFeedback()
+        {
+            defaultAttackFeedback?.Play();
+        }
+
+        public List<string> GetCustomFeedbackList()
+        {
+            var keys = new List<string>();
+  
+            foreach (var feedback in Feedbacks)
+            {
+                keys.Add(feedback.name);
+            }
+
+            return keys;
+        }
+
+        #endregion
+        
+        
         public virtual void BuildCharacter()
         {
-            
+            SetUpFeedbackDict();
         }
         
         public CharacterStats GetCharacterStats()
@@ -114,6 +170,7 @@ namespace NueGames.Characters
         public virtual void BeAttacked(DamageInfo damageInfo)
         {
             CharacterStats.BeAttacked(damageInfo);
+            beAttackFeedback?.Play();
         }
 
         public void Heal(int value)
@@ -124,13 +181,18 @@ namespace NueGames.Characters
         
         protected virtual void OnDeathAction(DamageInfo damageInfo)
         {
-            
+            onDeadFeedback?.Play();
         }
 
 
         public int GetMaxHealth()
         {
             return CharacterStats.MaxHealth;
+        }
+
+        public int GetHealth()
+        {
+            return CharacterStats.CurrentHealth;
         }
 
         #endregion
@@ -146,6 +208,7 @@ namespace NueGames.Characters
         public void ApplyPower(PowerName targetPower,int value)
         {
             CharacterStats.ApplyPower(targetPower, value);
+            gainPowerFeedback?.Play(targetPower, value > 0);
         }
         
         /// <summary>
@@ -154,6 +217,7 @@ namespace NueGames.Characters
         public void MultiplyPower(PowerName targetPower,int value)
         {
             CharacterStats.MultiplyPower(targetPower, value);
+            gainPowerFeedback?.Play(targetPower, true);
         }
 
         /// <summary>
@@ -163,6 +227,7 @@ namespace NueGames.Characters
         public void ClearPower(PowerName targetPower)
         {
             CharacterStats.ClearPower(targetPower);
+            gainPowerFeedback?.Play(targetPower, false);
         }
 
         /// <summary>

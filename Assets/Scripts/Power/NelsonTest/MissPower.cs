@@ -1,3 +1,4 @@
+using GameListener;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -11,12 +12,12 @@ namespace NueGames.Power
         public override PowerName PowerName => PowerName.Miss;
         public override void SubscribeAllEvent()
         {
-            CombatManager.Instance.OnTurnStart += OnTurnStart;
+            CombatManager.OnTurnStart += OnTurnStart;
         }
 
         public override void UnSubscribeAllEvent()
         {
-            CombatManager.Instance.OnTurnStart -= OnTurnStart;
+            CombatManager.OnTurnStart -= OnTurnStart;
         }
 
         protected override void OnTurnStart(TurnInfo info)
@@ -29,6 +30,11 @@ namespace NueGames.Power
         public override float AtDamageGive(float damage)
         {
             return damage * 0;
+        }
+
+        public MissPower()
+        {
+            DamageCalculateOrder = CalculateOrder.FinalChange;
         }
     }
 }

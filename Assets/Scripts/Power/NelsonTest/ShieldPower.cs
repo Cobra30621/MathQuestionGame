@@ -24,12 +24,12 @@ namespace NueGames.Power
 
         public override void SubscribeAllEvent()
         {
-            CombatManager.Instance.OnTurnStart += OnTurnStart;
+            CombatManager.OnTurnStart += OnTurnStart;
         }
 
         public override void UnSubscribeAllEvent()
         {
-            CombatManager.Instance.OnTurnStart -= OnTurnStart;
+            CombatManager.OnTurnStart -= OnTurnStart;
         }
 
         protected override void OnTurnStart(TurnInfo info)
@@ -38,7 +38,7 @@ namespace NueGames.Power
             {
                 
                 GameActionExecutor.AddToBottom(new ApplyPowerAction(
-                    3, PowerName.Block, new List<CharacterBase>() {Owner},
+                    3 * Amount, PowerName.Block, new List<CharacterBase>() {Owner},
                     GetActionSource()));
             }
         }

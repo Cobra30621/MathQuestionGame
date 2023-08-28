@@ -2,6 +2,7 @@
 using Action.Parameters;
 using NueGames.Action;
 using NueGames.Characters;
+using NueGames.Combat;
 using NueGames.Managers;
 
 
@@ -28,7 +29,7 @@ namespace NueGames.Power
         {
             if (damageInfo.ActionSource.IsFromPower(PowerName.Fire))
             {
-                var targetList = CombatManager.Enemies;
+                var targetList = CombatManager.Instance.Enemies;
 
                 foreach (var target in targetList)
                 {

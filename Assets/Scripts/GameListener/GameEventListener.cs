@@ -12,10 +12,6 @@ namespace GameListener
     public class GameEventListener
     {
         /// <summary>
-        /// 戰鬥管理器
-        /// </summary>
-        protected CombatManager CombatManager => CombatManager.Instance;
-        /// <summary>
         /// 答題管理器
         /// </summary>
         protected QuestionManager QuestionManager => QuestionManager.Instance;

@@ -19,7 +19,7 @@ namespace NueGames.Combat
         /// <summary>
         /// 當獲得瑪娜時
         /// </summary>
-        public Action<int> OnGainMana;
+        public static Action<int> OnGainMana;
 
         public int CurrentMana;
         

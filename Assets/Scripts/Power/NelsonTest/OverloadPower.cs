@@ -14,19 +14,19 @@ namespace NueGames.Power
 
         public override void SubscribeAllEvent()
         {
-            CombatManager.Instance.OnTurnStart += OnTurnStart;
+            CombatManager.OnTurnStart += OnTurnStart;
         }
 
         public override void UnSubscribeAllEvent()
         {
-            CombatManager.Instance.OnTurnStart -= OnTurnStart;
+            CombatManager.OnTurnStart -= OnTurnStart;
         }
 
         protected override void OnTurnStart(TurnInfo info)
         {
             if (IsCharacterTurn(info))
             {
-                ClearPower();
+                Owner.ClearPower(PowerName);
             }
         }
         public override int AtGainTurnStartMana(int rawValue)

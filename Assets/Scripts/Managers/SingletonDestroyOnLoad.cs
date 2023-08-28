@@ -39,7 +39,10 @@ public abstract class SingletonDestroyOnLoad<T> : SerializedMonoBehaviour where 
         else
         {
             // If instance is already assigned, destroy this instance.
-            Destroy(gameObject);
+            if (instance != this)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

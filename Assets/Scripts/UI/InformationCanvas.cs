@@ -39,11 +39,11 @@ namespace NueGames.UI
 
         public override void ResetCanvas()
         {
-            SetHealthText(GameManager.PlayerData.AllyHealthData.CurrentHealth,
-                GameManager.PlayerData.AllyHealthData.MaxHealth);
+            // SetHealthText(GameManager.PlayerData.AllyHealthData.CurrentHealth,
+            //     GameManager.PlayerData.AllyHealthData.MaxHealth);
             // SetNameText(GameManager.GameplayData.DefaultName);
             // SetRoomText(GameManager.PlayerData.CurrentEncounterId+1,GameManager.GameplayData.UseStageSystem,GameManager.PlayerData.CurrentStageId+1);
-            UIManager.InformationCanvas.SetGoldText(GameManager.PlayerData.CurrentGold);
+            // UIManager.InformationCanvas.SetGoldText(GameManager.PlayerData.CurrentGold);
         }
         #endregion
         

@@ -14,6 +14,8 @@
         Hardcore = 7,
         Miss = 8,
         Shield = 9,
+        Solid = 10,
+        Bleed = 11,
         
         // 戰鬥相關
         Stun = 22,
