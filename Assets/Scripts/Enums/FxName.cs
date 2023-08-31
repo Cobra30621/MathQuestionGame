@@ -12,6 +12,17 @@
         GunHitAttack = 61,
         SoldierHitAttack = 62,
         AntAttack = 63,
+        
+        
+        // Card
+        
+        Again = 70,
+        ArmorBreaker = 71,
+        Attack = 72,
+        Defense = 73,
+        solid = 74,
+        
+        
          
         
         // Buff
