@@ -17,7 +17,7 @@ public class ScriptableObjectReferenceCache : SerializedScriptableObject, IExter
     [FolderPath(RequireExistingPath = true)]
     [SerializeField] private string[] foldersToSearchIn;
 
-    [InlineButton(nameof(ClearReferences))] [InlineButton(nameof(FetchReferences))] [LabelWidth(140)] [PropertySpace(10)]
+    
     [SerializeField] private bool autoFetchInPlaymode = true;
     
     [ReadOnly]
@@ -51,6 +51,7 @@ public class ScriptableObjectReferenceCache : SerializedScriptableObject, IExter
     }
 
 #if UNITY_EDITOR
+    [Button]
     private void ClearReferences()
     {
         cachedReferences.Clear();
@@ -59,6 +60,7 @@ public class ScriptableObjectReferenceCache : SerializedScriptableObject, IExter
     /// <summary>
     /// Searches for all scriptable objects that implement ISerializeReferenceByAssetGuid or ISerializeReferenceByAssetGuid and saves them in a list together with their guid
     /// </summary>
+    [Button]
     private void FetchReferences()
     {
         cachedReferences = new List<SOCacheEntry>();
