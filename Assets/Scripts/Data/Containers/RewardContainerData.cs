@@ -11,22 +11,16 @@ namespace NueGames.Data.Containers
     [CreateAssetMenu(fileName = "Reward Container", menuName = "NueDeck/Containers/Reward", order = 4)]
     public class RewardContainerData : ScriptableObject
     {
-        [SerializeField] private List<CardRewardData> cardRewardDataList;
+        [SerializeField] private CardRewardData cardRewardData;
         [SerializeField] private List<GoldRewardData> goldRewardDataList;
-        public List<CardRewardData> CardRewardDataList => cardRewardDataList;
+        public CardRewardData CardRewardData => cardRewardData;
         public List<GoldRewardData> GoldRewardDataList => goldRewardDataList;
 
-        public List<CardData> GetRandomCardRewardList(out CardRewardData rewardData)
+        public void SetCardRewardData(CardRewardData data)
         {
-            rewardData = CardRewardDataList.RandomItem();
-            
-            List<CardData> cardList = new List<CardData>();
-            
-            foreach (var cardData in rewardData.RewardCardList)
-                cardList.Add(cardData);
-
-            return cardList;
-        } 
+            cardRewardData = data;
+        }
+        
         public int GetRandomGoldReward(out GoldRewardData rewardData)
         { 
             rewardData = GoldRewardDataList.RandomItem();

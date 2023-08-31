@@ -3,6 +3,7 @@ using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Characters;
 using NueGames.Data.Collection;
+using NueGames.Data.Collection.RewardData;
 using NueGames.Relic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -32,7 +33,7 @@ namespace NueGames.Data.Settings
         [InlineEditor]
         [FoldoutGroup("卡牌")]
         [PropertyTooltip("獎賞的卡牌")]
-        [SerializeField] private DeckData rewardDeck;
+        [SerializeField] private CardRewardData cardRewardData;
         
         [FoldoutGroup("卡牌")]
         [PropertyTooltip("卡牌的 GameObject")]
@@ -51,6 +52,7 @@ namespace NueGames.Data.Settings
         public int MaxMana => maxMana;
         public AllyData InitialAllyData => initialAllyDataData;
         public DeckData InitalDeck => initalDeck;
+        public CardRewardData CardRewardData => cardRewardData;
         public int MaxCardOnHand => maxCardOnHand;
         public CardBase CardPrefab => cardPrefab;
         public List<RelicName> InitialRelic => initialRelic;

@@ -34,9 +34,6 @@ MonoBehaviour:
     - Name: customerFeedback
       Entry: 7
       Data: 1|NueGames.Characters.CustomerFeedbackSetting, Assembly-CSharp
-    - Name: useCustomFeedback
-      Entry: 5
-      Data: true
     - Name: targetCharacter
       Entry: 10
       Data: 0
@@ -51,7 +48,8 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   fxName: 55
   fxSpawnPosition: 0
-  useDefaultAttackFeedback: 0
+  useDefaultAttackFeedback: 1
+  useCustomFeedback: 0
   cardName: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA"
   cardSprite: {fileID: 21300000, guid: 5edd33061732d2b4587c7145881fd109, type: 3}
   rarity: 0

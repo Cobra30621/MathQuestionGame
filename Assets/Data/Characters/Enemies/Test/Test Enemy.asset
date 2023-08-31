@@ -27,16 +27,70 @@ MonoBehaviour:
     - Name: EnemyAbility
       Entry: 7
       Data: 0|EnemyAbility.EnemyAbility, Assembly-CSharp
+    - Name: UseStartBattleSkill
+      Entry: 5
+      Data: true
+    - Name: startBattleSkill
+      Entry: 7
+      Data: 1|EnemyAbility.EnemySkill, Assembly-CSharp
+    - Name: name
+      Entry: 1
+      Data: Gain Strength
+    - Name: intention
+      Entry: 10
+      Data: 0
+    - Name: skillCd
+      Entry: 3
+      Data: 0
+    - Name: maxUseCount
+      Entry: 3
+      Data: 1
+    - Name: useCondition
+      Entry: 5
+      Data: false
+    - Name: condition
+      Entry: 6
+      Data: 
+    - Name: actionTargetType
+      Entry: 3
+      Data: 0
+    - Name: enemyAction
+      Entry: 7
+      Data: 2|EnemyAbility.EnemyAction.GainStrength, Assembly-CSharp
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fxName
+      Entry: 3
+      Data: 60
+    - Name: fxSpawnPosition
+      Entry: 3
+      Data: 0
+    - Name: useDefaultAttackFeedback
+      Entry: 5
+      Data: false
+    - Name: useCustomFeedback
+      Entry: 5
+      Data: false
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: enemySkills
       Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[EnemyAbility.EnemySkill, Assembly-CSharp]],
+      Data: 3|System.Collections.Generic.List`1[[EnemyAbility.EnemySkill, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 3
     - Name: 
       Entry: 7
-      Data: 2|EnemyAbility.EnemySkill, Assembly-CSharp
+      Data: 4|EnemyAbility.EnemySkill, Assembly-CSharp
     - Name: name
       Entry: 1
       Data: "\u529B\u91CF"
@@ -60,7 +114,7 @@ MonoBehaviour:
       Data: 0
     - Name: enemyAction
       Entry: 7
-      Data: 3|EnemyAbility.EnemyAction.GainStrength, Assembly-CSharp
+      Data: 5|EnemyAbility.EnemyAction.GainStrength, Assembly-CSharp
     - Name: value
       Entry: 3
       Data: 3
@@ -87,7 +141,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|EnemyAbility.EnemySkill, Assembly-CSharp
+      Data: 6|EnemyAbility.EnemySkill, Assembly-CSharp
     - Name: name
       Entry: 1
       Data: "\u98DB\u7FD4\u653B\u64CA"
@@ -102,10 +156,10 @@ MonoBehaviour:
       Data: -1
     - Name: useCondition
       Entry: 5
-      Data: false
+      Data: true
     - Name: condition
       Entry: 7
-      Data: 5|EnemyAbility.EnemyHealthCondition, Assembly-CSharp
+      Data: 7|EnemyAbility.EnemyHealthCondition, Assembly-CSharp
     - Name: condition
       Entry: 3
       Data: 1
@@ -120,10 +174,10 @@ MonoBehaviour:
       Data: 1
     - Name: enemyAction
       Entry: 7
-      Data: 6|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
-    - Name: damageValue
+      Data: 8|EnemyAbility.EnemyAction.GainStrength, Assembly-CSharp
+    - Name: value
       Entry: 3
-      Data: 6
+      Data: -1
     - Name: 
       Entry: 8
       Data: 
@@ -141,7 +195,7 @@ MonoBehaviour:
       Data: true
     - Name: customerFeedback
       Entry: 7
-      Data: 7|NueGames.Characters.CustomerFeedbackSetting, Assembly-CSharp
+      Data: 9|NueGames.Characters.CustomerFeedbackSetting, Assembly-CSharp
     - Name: targetCharacter
       Entry: 10
       Data: 2
@@ -156,7 +210,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 8|EnemyAbility.EnemySkill, Assembly-CSharp
+      Data: 10|EnemyAbility.EnemySkill, Assembly-CSharp
     - Name: name
       Entry: 1
       Data: "\u653B\u64CA"
@@ -180,7 +234,7 @@ MonoBehaviour:
       Data: 1
     - Name: enemyAction
       Entry: 7
-      Data: 9|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+      Data: 11|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
     - Name: damageValue
       Entry: 3
       Data: 3
@@ -201,7 +255,7 @@ MonoBehaviour:
       Data: false
     - Name: customerFeedback
       Entry: 7
-      Data: 10|NueGames.Characters.CustomerFeedbackSetting, Assembly-CSharp
+      Data: 12|NueGames.Characters.CustomerFeedbackSetting, Assembly-CSharp
     - Name: targetCharacter
       Entry: 6
       Data: 
@@ -216,60 +270,6 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: UseStartBattleSkill
-      Entry: 5
-      Data: true
-    - Name: startBattleSkill
-      Entry: 7
-      Data: 11|EnemyAbility.EnemySkill, Assembly-CSharp
-    - Name: name
-      Entry: 1
-      Data: Gain Strength
-    - Name: intention
-      Entry: 10
-      Data: 0
-    - Name: skillCd
-      Entry: 3
-      Data: 0
-    - Name: maxUseCount
-      Entry: 3
-      Data: 1
-    - Name: useCondition
-      Entry: 5
-      Data: false
-    - Name: condition
-      Entry: 6
-      Data: 
-    - Name: actionTargetType
-      Entry: 3
-      Data: 0
-    - Name: enemyAction
-      Entry: 7
-      Data: 12|EnemyAbility.EnemyAction.GainStrength, Assembly-CSharp
-    - Name: value
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: fxName
-      Entry: 3
-      Data: 60
-    - Name: fxSpawnPosition
-      Entry: 3
-      Data: 0
-    - Name: useDefaultAttackFeedback
-      Entry: 5
-      Data: false
-    - Name: useCustomFeedback
-      Entry: 5
-      Data: false
-    - Name: customerFeedback
-      Entry: 6
       Data: 
     - Name: 
       Entry: 8

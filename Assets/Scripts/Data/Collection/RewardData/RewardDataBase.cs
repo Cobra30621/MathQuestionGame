@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace NueGames.Data.Collection.RewardData
 {
-    public class RewardDataBase : ScriptableObject
+    public class RewardDataBase : SerializedScriptableObject
     {
         [SerializeField] private Sprite rewardSprite;
         [TextArea] [SerializeField] private string rewardDescription;

@@ -99,6 +99,8 @@ namespace NueGames.Managers
                 AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData),
                 Relics = RelicManager.Instance.GetRelicNames(),
             };
+            
+            UIManager.Instance.RewardCanvas.SetCardReward(gameplayData.CardRewardData);
 
             QuestionManager.Instance.GenerateQuestions();
         }
