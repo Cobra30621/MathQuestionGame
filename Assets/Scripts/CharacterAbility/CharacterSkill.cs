@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace NueGames.CharacterAbility
 {
-    [CreateAssetMenu(fileName = "Character Skill", menuName = "NueDeck/CharacterSkill", order = 0)]
+    [CreateAssetMenu(fileName = "Character Skill", menuName = "Character/CharacterSkill", order = 0)]
     public class CharacterSkill : SerializedScriptableObject
     {
         /// <summary>

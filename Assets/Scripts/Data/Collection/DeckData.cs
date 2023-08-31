@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace NueGames.Data.Collection
 {
-    [CreateAssetMenu(fileName = "Deck Data", menuName = "NueDeck/Collection/Deck", order = 1)]
+    [CreateAssetMenu(fileName = "Deck Data", menuName = "Collection/Deck", order = 1)]
     public class DeckData : ScriptableObject
     {
         [SerializeField] private string deckId;

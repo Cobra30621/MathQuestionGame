@@ -61,8 +61,8 @@ namespace EnemyAbility
             {
                 skill.SetEnemy(enemyBase);
             }
-            
-            startBattleSkill.SetEnemy(enemyBase);
+
+            startBattleSkill?.SetEnemy(enemyBase);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace EnemyAbility
                 skill.OnBattleStart();
             }
 
-            startBattleSkill.OnBattleStart();
+            startBattleSkill?.OnBattleStart();
         }
 
         /// <summary>
