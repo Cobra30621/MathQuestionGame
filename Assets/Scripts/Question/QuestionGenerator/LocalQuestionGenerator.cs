@@ -16,6 +16,7 @@ namespace Question
         [InlineEditor()]
         [SerializeField] private LoadQuestionsData loadQuestionsData;
 
+        [SerializeField] private QuestionData questionData;
         private readonly int generateQuestionCount = 10;
         
         /// <summary>
@@ -25,31 +26,7 @@ namespace Question
         /// <returns></returns>
         public override List<Question> GetQuestions(QuestionSetting request)
         {
-            // Get QuestionClip
-            var loadQuestionsParameters = new List<LoadQuestionsParameter>();
-            
-            foreach (var publisher in request.Publishers)
-            {
-                foreach (var grade in request.Grades)
-                {
-                    var parameter = loadQuestionsData.GetParameter(publisher, grade);
-                    loadQuestionsParameters.Add(parameter);
-                }
-            }
-
-
-            if (loadQuestionsParameters.Count == 0)
-            {
-                Debug.LogError($"loadQuestionsParameters.Count = {loadQuestionsParameters.Count}");
-            }
-            // GetQuestion
-            var questions = new List<Question>();
-            foreach (var clip in loadQuestionsParameters)
-            {
-                questions.AddRange(GetQuestions(clip, generateQuestionCount));
-            }
-
-            return questions;
+            return questionData.questionClip[0].questions;
         }
 
         /// <summary>

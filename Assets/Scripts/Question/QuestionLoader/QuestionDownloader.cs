@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -7,11 +9,15 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Text;
+using Question;
 using Sirenix.OdinInspector;
 using UnityEngine.Networking;
 
 public class QuestionDownloader : MonoBehaviour
 {
+    private Sprite DownloadSprite;
+    [InlineEditor()]
+    public QuestionData QuestionData;
     public int generateCount;
     
     private const string first_api_url = "https://api.emath.math.ncu.edu.tw/problem/serial/111011002/";
@@ -24,6 +30,7 @@ public class QuestionDownloader : MonoBehaviour
     private string csv_filename = "api_results.csv";
 
     public ProblemData data;
+
     
 
     [Button]
@@ -50,13 +57,45 @@ public class QuestionDownloader : MonoBehaviour
             Debug.Log($"response {json}");
             data = JsonUtility.FromJson<ProblemData>(json);
             Debug.Log($"data {data}");
-
-            using (StreamWriter writer = new StreamWriter(Path.Combine(saveFolder, csv_filename), true, Encoding.UTF8))
+            QuestionData.questionClip = new List<QuestionClip>();
+            foreach (Publisher publisher in Enum.GetValues(typeof(Publisher)))
             {
-                for (int i = 0; i < generateCount; i++)
+                foreach (Grade grade in Enum.GetValues(typeof(Grade)))
                 {
-                    Problem problem = data.problem[i];
-                    writer.WriteLine($"{problem.problemLink},{problem.ansLink},{problem.answer}");
+                    using (StreamWriter writer =
+                           new StreamWriter(Path.Combine(saveFolder, csv_filename), true, Encoding.UTF8))
+                    {
+                        
+                        var questionClip = new QuestionClip()
+                        {
+                            publisher = publisher,
+                            grade = grade,
+                            questions = new List<Question.Question>()
+                        };
+                        for (int i = 0; i < generateCount; i++)
+                        {
+                            Problem problem = data.problem[i];
+                            writer.WriteLine($"{problem.problemLink},{problem.ansLink},{problem.answer}");
+                            var question = new Question.Question()
+                            {
+                                Answer = int.Parse(problem.answer),
+                                Publisher = publisher,
+                                Grade = grade
+                            };
+                            yield return DownloadImage(problem.problemLink);
+                            question.QuestionSprite = DownloadSprite;
+                            
+                            
+                            yield return DownloadImage(problem.ansLink);
+                            question.OptionSprite = DownloadSprite;
+                            
+                            
+                            
+                            questionClip.questions.Add(question);
+                        }
+
+                        QuestionData.questionClip.Add(questionClip);
+                    }
                 }
             }
         }
@@ -70,7 +109,7 @@ public class QuestionDownloader : MonoBehaviour
     }
 
     [Button]
-    public void DownLoadImage()
+    public void DownloadImage()
     {
         StartCoroutine(ProcessCsv());
     }
@@ -119,6 +158,7 @@ public class QuestionDownloader : MonoBehaviour
 
             File.WriteAllBytes(savePath, imageBytes);
             Debug.Log($"Image downloaded and saved: {savePath}");
+            DownloadSprite = CreateSpriteFromTexture(texture);
         }
         else
         {
@@ -127,7 +167,17 @@ public class QuestionDownloader : MonoBehaviour
 
         www.Dispose();
     }
-    
+
+    private Sprite CreateSpriteFromTexture(Texture2D texture)
+    {
+        Sprite sprite = Sprite.Create(
+            texture,
+            new Rect(0, 0, texture.width, texture.height),
+            new Vector2(0.5f, 0.5f),
+            100); // Set the pixels per unit appropriately
+        return sprite;
+    }
+
     [System.Serializable]
     public class ProblemData
     {
