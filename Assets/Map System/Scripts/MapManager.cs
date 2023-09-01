@@ -11,6 +11,7 @@ namespace Map
 {
     public class MapManager : SerializedMonoBehaviour, IDataPersistence
     {
+        [InlineEditor()]
         public MapConfig config;
         public MapView view;
         public EncounterManager encounterManager;

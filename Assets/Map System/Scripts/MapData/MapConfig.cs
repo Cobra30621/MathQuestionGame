@@ -22,6 +22,8 @@ namespace Map
         [Title("地圖遭遇事件")]
         public EncounterStage encounterStage;
         
+        [TableList(ShowIndexLabels = true)]
+        [InlineEditor()]
         public List<NodeBlueprint> nodeBlueprints;
         public int GridWidth => 2;
         // public int GridWidth => Mathf.Max(numOfPreBossNodes.max, numOfStartingNodes.max);
