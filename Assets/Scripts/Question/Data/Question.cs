@@ -39,5 +39,8 @@ namespace Question
         /// The mathematical type or subject of the question.
         /// </summary>
         public MathType MathType;
+
+        public string questionName;
+        public string optionsName;
     }
 }

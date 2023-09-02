@@ -205,7 +205,7 @@ namespace Question
 
         public AnswerButtonBase GetAnswerButton(int option)
         {
-            if (option >= answerButtons.Length)
+            if (option-1 >= answerButtons.Length)
             {
                 Debug.LogError($"{option} 超過 answerbuttons 數量");
                 return null;
