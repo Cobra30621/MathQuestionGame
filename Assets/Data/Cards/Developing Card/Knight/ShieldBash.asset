@@ -27,13 +27,17 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  value: 0
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
   actionTargetType: 0
   manaCost: 1
   exhaustAfterPlay: 0
   fxName: 0
   fxSpawnPosition: 0
+  useDefaultAttackFeedback: 0
+  useCustomFeedback: 0
   cardName: "\u76FE\u64CA"
-  cardSprite: {fileID: 21300000, guid: df37094116f93493ab33a754137b7715, type: 3}
+  cardSprite: {fileID: 21300000, guid: 5fbf04f77ba724ff587d466deccb149c, type: 3}
   rarity: 0
   description: "\u5C0D\u5168\u9AD4\u9020\u6210\u7576\u524D\u8B77\u76FE\u503C\u7684\u50B7\u5BB3 "
