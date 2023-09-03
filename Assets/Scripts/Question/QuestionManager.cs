@@ -211,7 +211,7 @@ namespace Question
                 return null;
             }
 
-            return answerButtons[option];
+            return answerButtons[option-1];
         }
 
         
