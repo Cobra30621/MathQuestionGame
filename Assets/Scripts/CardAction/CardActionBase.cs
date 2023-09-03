@@ -55,7 +55,7 @@ namespace CardAction
         protected void DoFXAction()
         {
             GameActionExecutor.AddToBottom(new FXAction(
-                new FxInfo(CardData.FxName, CardData.FxSpawnPosition)
+                new FxInfo(CardData.FxGo, CardData.FxSpawnPosition)
                 , TargetList));
 
             if (CardData.UseDefaultAttackFeedback)

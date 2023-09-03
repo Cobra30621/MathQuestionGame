@@ -17,6 +17,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: c70607cffd24871458aaa58871e74ba9, type: 2}
+    - {fileID: 7854155729650428448, guid: e979b9b6c0fe342e6a788419734c2fe1, type: 3}
     - {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     - {fileID: 6958531390484743391, guid: 243d839b2445948f29367f43fe561517, type: 3}
     SerializedBytesString: 
@@ -63,9 +64,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: fxName
-      Entry: 3
-      Data: 60
+    - Name: fxGo
+      Entry: 6
+      Data: 
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0
@@ -121,9 +122,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: fxName
-      Entry: 3
-      Data: 101
+    - Name: fxGo
+      Entry: 10
+      Data: 1
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0
@@ -147,7 +148,7 @@ MonoBehaviour:
       Data: "\u98DB\u7FD4\u653B\u64CA"
     - Name: intention
       Entry: 10
-      Data: 1
+      Data: 2
     - Name: skillCd
       Entry: 3
       Data: 1
@@ -181,9 +182,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: fxName
-      Entry: 3
-      Data: 55
+    - Name: fxGo
+      Entry: 6
+      Data: 
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0
@@ -198,7 +199,7 @@ MonoBehaviour:
       Data: 9|NueGames.Characters.CustomerFeedbackSetting, Assembly-CSharp
     - Name: targetCharacter
       Entry: 10
-      Data: 2
+      Data: 3
     - Name: customFeedbackKey
       Entry: 1
       Data: Fly
@@ -216,7 +217,7 @@ MonoBehaviour:
       Data: "\u653B\u64CA"
     - Name: intention
       Entry: 10
-      Data: 1
+      Data: 2
     - Name: skillCd
       Entry: 3
       Data: 0
@@ -241,9 +242,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: fxName
-      Entry: 3
-      Data: 55
+    - Name: fxGo
+      Entry: 6
+      Data: 
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0

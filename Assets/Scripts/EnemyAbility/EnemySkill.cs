@@ -4,6 +4,7 @@ using Action.Parameters;
 using EnemyAbility.EnemyAction;
 using NueGames.Characters;
 using NueGames.Combat;
+using NueGames.Data.Collection;
 using NueGames.Data.Containers;
 using NueGames.Enums;
 using NueGames.Parameters;
@@ -70,15 +71,9 @@ namespace EnemyAbility
         [VerticalGroup("執行行動")]
         [SerializeField] private EnemyActionBase enemyAction;
 
-        
-        
-        /// <summary>
-        /// The name of the effect.
-        /// </summary>
-        
         [VerticalGroup("特效")]
-        [SerializeField] private FxName fxName;
-
+        [ValueDropdown("GetAssets")]
+        [SerializeField] private GameObject fxGo;
         /// <summary>
         /// The spawn position of the effect.
         /// </summary>
@@ -102,7 +97,7 @@ namespace EnemyAbility
         [SerializeField] private CustomerFeedbackSetting customerFeedback;
 
         public EnemyIntentionData Intention => intention;
-        public FxName FxName => fxName;
+        public GameObject FxGo => fxGo;
         public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
         public bool UseDefaultAttackFeedback => useDefaultAttackFeedback;
         public CustomerFeedbackSetting CustomerFeedbackSetting => customerFeedback;
@@ -240,6 +235,14 @@ namespace EnemyAbility
         {
             return (hasUsedCount < maxUseCount) || (maxUseCount == -1);
         }
+        
+#if UNITY_EDITOR // Editor-related code must be excluded from builds
+        private IEnumerable GetAssets()
+        {
+            return AssetGetter.GetAssets(AssetGetter.DataName.Fx);
+        }
+#endif
+
     }
 }
 

@@ -1,5 +1,6 @@
 using NueGames.Enums;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Action.Parameters
 {
@@ -8,17 +9,18 @@ namespace Action.Parameters
     /// </summary>
     public class FxInfo
     {
+
         [FoldoutGroup("播放的特效")]
-        [PropertyTooltip("特效名稱")]
-        public FxName FxName;
+        [PropertyTooltip("特效物件")]
+        public GameObject FxGo;
         
         [FoldoutGroup("播放的特效")]
         [PropertyTooltip("特效產生處")]
         public FxSpawnPosition FxSpawnPosition;
 
-        public FxInfo(FxName fxName, FxSpawnPosition fxSpawnPosition)
+        public FxInfo(GameObject fxGo, FxSpawnPosition fxSpawnPosition)
         {
-            FxName = fxName;
+            FxGo = fxGo;
             FxSpawnPosition = fxSpawnPosition;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CardAction;
 using Data;
 using NueGames.Enums;
 using NueGames.Utils;
@@ -12,9 +13,6 @@ namespace NueGames.Managers
 {
     public class FxManager : Singleton<FxManager>
     {
-        [InlineEditor()]
-        [SerializeField] private FXData fxData;
-        
         [Header("Floating Text")]
         [SerializeField] private FloatingText floatingTextPrefab;
         
@@ -35,17 +33,20 @@ namespace NueGames.Managers
         }
         
         
-        public void PlayFx(FxName targetFx, Transform targetTransform)
+        public void PlayFx(GameObject fxGo, Transform targetTransform)
         {
-            Instantiate(fxData.GetFX(targetFx), targetTransform);
+            Debug.Log($"fxGo {fxGo}");
+            Instantiate(fxGo, targetTransform);
         }
 
-        public void PlayFx(FxName targetFx, Transform targetTransform, Vector3 fxPosition)
+        public void PlayFx(GameObject fxGo, Transform targetTransform, Vector3 fxPosition)
         {
-            var t = Instantiate(fxData.GetFX(targetFx), targetTransform).GetComponent<Transform>();
+            Debug.Log($"fxGo {fxGo}");
+            var t = Instantiate(fxGo, targetTransform).GetComponent<Transform>();
             t.position = fxPosition;
         }
-
+        
+ 
 
         public Transform GetFXSpawnPosition(FxSpawnPosition fxSpawnPosition)
         {

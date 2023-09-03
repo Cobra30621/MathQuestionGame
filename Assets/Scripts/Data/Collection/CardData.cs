@@ -38,7 +38,11 @@ namespace NueGames.Data.Collection
         [SerializeField] private bool exhaustAfterPlay;
         
         [FoldoutGroup("卡牌特效")]
-        [SerializeField] private  FxName  fxName;
+        [ValueDropdown("GetAssets")]
+        [SerializeField] private GameObject fxGo;
+
+        [ReadOnly]
+        [SerializeField] private GameObject fxShow => fxGo;
         [FoldoutGroup("卡牌特效")]
         [SerializeField] private FxSpawnPosition fxSpawnPosition;
 
@@ -73,7 +77,7 @@ namespace NueGames.Data.Collection
         
         public CardActionBase CardAction => cardAction;
 
-        public FxName FxName => fxName;
+        public GameObject FxGo => fxGo;
         public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
         public bool UseDefaultAttackFeedback => useDefaultAttackFeedback;
         public bool UseCustomFeedback
@@ -112,6 +116,12 @@ namespace NueGames.Data.Collection
             MyDescription = description;
         }
 
+#if UNITY_EDITOR // Editor-related code must be excluded from builds
+        private IEnumerable GetAssets()
+        {
+            return AssetGetter.GetAssets(AssetGetter.DataName.Fx);
+        }
+#endif
 
         #endregion
         
