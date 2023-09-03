@@ -2165,7 +2165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7360581301539448314
 Transform:
   m_ObjectHideFlags: 0
@@ -2893,14 +2893,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 2d01100000004f006e0041006e0073007700650072005100750065007300740069006f006e002d010f0000004f006e0041006e00730077006500720043006f00720072006500630074002d010d0000004f006e0041006e007300770065007200570072006f006e0067002d01140000004f006e005100750065007300740069006f006e0069006e0067004d006f006400650045006e006400
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: OnAnswerQuestion
+      Entry: 6
+      Data: 
+    - Name: OnAnswerCorrect
+      Entry: 6
+      Data: 
+    - Name: OnAnswerWrong
+      Entry: 6
+      Data: 
+    - Name: OnQuestioningModeEnd
+      Entry: 6
+      Data: 
   questionController: {fileID: 6933779548279769729}
   questionGenerator: {fileID: 631274316755946036}
   answerButtons:
@@ -5454,7 +5466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 

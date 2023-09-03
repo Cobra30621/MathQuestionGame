@@ -848,6 +848,18 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 7648598638887970589, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+    - target: {fileID: 7648598638887970589, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: QuestionSetting.Grades.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648598638887970589, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: QuestionSetting.Publishers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648598638887970589, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: QuestionSetting.Publishers.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8265142725606537008, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1665,6 +1677,26 @@ PrefabInstance:
     - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: allyPowerAtGameStart.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: QuestionSetting.Grades.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: QuestionSetting.Publishers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: QuestionSetting.Publishers.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: QuestionSetting.Publishers.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: QuestionSetting.Publishers.Array.data[3]
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b042899817880484eab426b811071a88, type: 3}
