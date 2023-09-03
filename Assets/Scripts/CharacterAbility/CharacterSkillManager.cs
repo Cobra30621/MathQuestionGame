@@ -33,7 +33,7 @@ namespace NueGames.CharacterAbility
         [SerializeField] private CharacterSkill _characterSkill;
         
         public int SkillCount => skillCount;
-        private int skillCount;
+        [SerializeField]private int skillCount;
         
 
         #endregion

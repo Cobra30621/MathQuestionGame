@@ -32,7 +32,7 @@ namespace NueGames.Data.Encounter
         [Tooltip("4.王")] 
         public EnemyEncounterList bossEnemies;
 
-        public RewardEncounterList rewards;
+        // public RewardEncounterList rewards;
 
         
     }

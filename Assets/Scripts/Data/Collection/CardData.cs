@@ -20,7 +20,7 @@ using UnityEngine;
 
 namespace NueGames.Data.Collection
 {
-    [CreateAssetMenu(fileName = "Card Data", menuName = "NueDeck/Collection/Card", order = 0)]
+    [CreateAssetMenu(fileName = "Card Data", menuName = "Collection/Card", order = 0)]
     public class CardData : SerializedScriptableObject ,ISerializeReferenceByAssetGuid
     {
         [FoldoutGroup("卡片行為")]

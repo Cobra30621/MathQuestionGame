@@ -7,7 +7,7 @@ namespace EnemyAbility
     /// <summary>
     /// Represents data for an enemy.
     /// </summary>
-    [CreateAssetMenu(fileName = "Enemy Data", menuName = "NueDeck/Enemy Data", order = 1)]
+    [CreateAssetMenu(fileName = "Enemy Data", menuName = "Enemy/Enemy Data", order = 1)]
     public class EnemyData : SerializedScriptableObject
     {
         /// <summary>

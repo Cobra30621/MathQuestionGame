@@ -12,7 +12,7 @@ namespace NueGames.Data.Encounter
     /// 遭遇一場戰鬥的敵人清單
     /// </summary>
     [Serializable]
-    [CreateAssetMenu(fileName = "Enemy Encounter", menuName = "NueDeck/Encounter/EnemyEncounter")]
+    [CreateAssetMenu(fileName = "Enemy Encounter", menuName = "Enemy/EnemyEncounter")]
     public class EnemyEncounter : EncounterBase
     {
         [InlineEditor()]

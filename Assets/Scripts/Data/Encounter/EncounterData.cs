@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace NueGames.Data.Encounter
 {
-    [CreateAssetMenu(fileName = "Encounter Data", menuName = "NueDeck/Containers/EncounterData", order = 4)]
+    [CreateAssetMenu(fileName = "Encounter Data", menuName = "Map/EncounterData", order = 4)]
     public class EncounterData : ScriptableObject
     {
         [Header("Settings")] 

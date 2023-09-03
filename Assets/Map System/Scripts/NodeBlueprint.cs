@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Map
 {
@@ -19,6 +20,8 @@ namespace Map
     [CreateAssetMenu]
     public class NodeBlueprint : ScriptableObject
     {
+        [TableColumnWidth(57, Resizable = false)]
+        [PreviewField(Alignment = ObjectFieldAlignment.Center)]
         public Sprite sprite;
         public NodeType nodeType;
     }
