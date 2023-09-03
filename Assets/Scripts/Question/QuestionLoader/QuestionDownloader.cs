@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Text;
 using Question;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine.Networking;
 
 public class QuestionDownloader : MonoBehaviour
@@ -79,7 +80,7 @@ public class QuestionDownloader : MonoBehaviour
         {
             string url = GetURL(publisher, grade, chapter, generateCountForEachChapter);
         
-            using UnityWebRequest www = UnityWebRequest.Get(url + generateCountForEachChapter);
+            using UnityWebRequest www = UnityWebRequest.Get(url);
             www.SetRequestHeader("Authorization", $"{auth_token}");
             yield return www.SendWebRequest();
 
@@ -180,6 +181,9 @@ public class QuestionDownloader : MonoBehaviour
                 question.OptionSprite = answerSprite;
             }
         }
+        
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
         
     }
     
