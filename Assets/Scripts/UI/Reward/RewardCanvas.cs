@@ -35,6 +35,7 @@ namespace NueGames.UI.Reward
             rewardContainerData.SetCardRewardData(cardRewardData);
         }
 
+
         public void ShowReward(List<RewardType> rewardTypes)
         {
             UIManager.RewardCanvas.gameObject.SetActive(true);
