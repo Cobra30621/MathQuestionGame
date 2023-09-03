@@ -7,13 +7,11 @@ namespace NueGames.UI
     public class InformationCanvas : CanvasBase
     {
         [Header("Settings")] 
-        [SerializeField] private GameObject randomizedDeckObject;
         [SerializeField] private TextMeshProUGUI roomTextField;
         [SerializeField] private TextMeshProUGUI goldTextField;
         [SerializeField] private TextMeshProUGUI nameTextField;
         [SerializeField] private TextMeshProUGUI healthTextField;
 
-        public GameObject RandomizedDeckObject => randomizedDeckObject;
         public TextMeshProUGUI RoomTextField => roomTextField;
         public TextMeshProUGUI GoldTextField => goldTextField;
         public TextMeshProUGUI NameTextField => nameTextField;
@@ -39,11 +37,14 @@ namespace NueGames.UI
 
         public override void ResetCanvas()
         {
-            // SetHealthText(GameManager.PlayerData.AllyHealthData.CurrentHealth,
-            //     GameManager.PlayerData.AllyHealthData.MaxHealth);
-            // SetNameText(GameManager.GameplayData.DefaultName);
-            // SetRoomText(GameManager.PlayerData.CurrentEncounterId+1,GameManager.GameplayData.UseStageSystem,GameManager.PlayerData.CurrentStageId+1);
-            // UIManager.InformationCanvas.SetGoldText(GameManager.PlayerData.CurrentGold);
+            if (GameManager.PlayerData == null)
+            {
+                return;
+            }
+            
+            SetHealthText(GameManager.PlayerData.AllyHealthData.CurrentHealth,
+                GameManager.PlayerData.AllyHealthData.MaxHealth);
+            UIManager.InformationCanvas.SetGoldText(GameManager.PlayerData.CurrentGold);
         }
         #endregion
         

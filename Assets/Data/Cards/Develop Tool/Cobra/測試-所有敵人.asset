@@ -26,20 +26,24 @@ MonoBehaviour:
       Data: 0|CardAction.DevelopingCard.StraightSlash, Assembly-CSharp
     - Name: baseDamage
       Entry: 3
-      Data: 10
+      Data: 100
     - Name: extraDamage
       Entry: 3
       Data: 5
     - Name: 
       Entry: 8
       Data: 
-  value: 0
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
   actionTargetType: 2
   manaCost: 0
   exhaustAfterPlay: 0
-  fxName: 63
+  fxGo: {fileID: 7010805399001825214, guid: 4b2a490122c284130bac51fa97189c8c, type: 3}
   fxSpawnPosition: 0
+  useDefaultAttackFeedback: 0
+  useCustomFeedback: 0
   cardName: "\u6E2C\u8A66-\u6240\u6709\u6575\u4EBA"
   cardSprite: {fileID: 21300000, guid: 42a9d99a05c894875b345211a9d1f648, type: 3}
-  rarity: 0
+  rarity: 1
   description: "\u6E2C\u8A66-\u6240\u6709\u6575\u4EBA"

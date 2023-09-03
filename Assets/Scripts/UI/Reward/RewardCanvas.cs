@@ -19,11 +19,11 @@ namespace NueGames.UI.Reward
         [SerializeField] private Transform rewardPanelRoot;
         [Header("Choice")]
         [SerializeField] private Transform choice2DCardSpawnRoot;
-        [SerializeField] private ChoiceCard choiceCardUIPrefab;
+        [SerializeField] private RewardChoiceCard rewardChoiceCardUIPrefab;
         [SerializeField] private ChoicePanel choicePanel;
         
         private readonly List<RewardContainer> _currentRewardsList = new List<RewardContainer>();
-        private readonly List<ChoiceCard> _spawnedChoiceList = new List<ChoiceCard>();
+        private readonly List<RewardChoiceCard> _spawnedChoiceList = new List<RewardChoiceCard>();
         private readonly List<CardData> _cardRewardList = new List<CardData>();
 
         public ChoicePanel ChoicePanel => choicePanel;
@@ -34,6 +34,7 @@ namespace NueGames.UI.Reward
         {
             rewardContainerData.SetCardRewardData(cardRewardData);
         }
+
 
         public void ShowReward(List<RewardType> rewardTypes)
         {
@@ -123,7 +124,7 @@ namespace NueGames.UI.Reward
             {
                 Transform spawnTransform = choice2DCardSpawnRoot;
               
-                var choice = Instantiate(choiceCardUIPrefab, spawnTransform);
+                var choice = Instantiate(rewardChoiceCardUIPrefab, spawnTransform);
                 
                 var reward = _cardRewardList.RandomItem();
                 choice.BuildReward(reward);

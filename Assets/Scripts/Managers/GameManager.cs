@@ -25,10 +25,9 @@ namespace NueGames.Managers
         [Header("Settings")]
         [InlineEditor()]
         [SerializeField] private GameplayData gameplayData;
-        [SerializeField] private SceneData sceneData;
+
 
         #region Cache
-        public SceneData SceneData => sceneData;
         public GameplayData GameplayData => gameplayData;
         
         [ShowInInspector]

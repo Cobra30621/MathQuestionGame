@@ -16,10 +16,12 @@ namespace NueGames.Action
             TargetList = targetList;
         }
         
+        
         protected override void DoMainAction()
         {
+            Debug.Log($"_fxInfo.FxGo{_fxInfo.FxGo}");
             // 不播放特效
-            if (_fxInfo.FxName == FxName.Null)
+            if (_fxInfo.FxGo == null)
             {
                 return;
             }
@@ -30,16 +32,16 @@ namespace NueGames.Action
                 case FxSpawnPosition.EachTarget:
                     foreach (var target in TargetList)
                     {
-                        FxManager.PlayFx(_fxInfo.FxName, spawnTransform, target.transform.position);
+                        FxManager.PlayFx(_fxInfo.FxGo, spawnTransform, target.transform.position);
                     };
                     break;
                 case FxSpawnPosition.Ally:
                     spawnTransform.position = CombatManager.GetMainAllyTransform().position;
-                    FxManager.PlayFx(_fxInfo.FxName, spawnTransform);
+                    FxManager.PlayFx(_fxInfo.FxGo, spawnTransform);
                     break;
                 case FxSpawnPosition.EnemyMiddle:
                 case FxSpawnPosition.ScreenMiddle:
-                    FxManager.PlayFx(_fxInfo.FxName, spawnTransform);
+                    FxManager.PlayFx(_fxInfo.FxGo, spawnTransform);
                     break;
             }
         }

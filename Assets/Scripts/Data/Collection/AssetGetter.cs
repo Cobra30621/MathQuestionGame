@@ -15,7 +15,8 @@ namespace NueGames.Data.Collection
         {
             Card,
             EnemyEncounter,
-            Character
+            Character,
+            Fx
         }
 
         [ShowInInspector]
@@ -24,7 +25,8 @@ namespace NueGames.Data.Collection
         {
             { DataName.Card , "Assets/Data/Cards"},
             { DataName.EnemyEncounter , "Assets/Data/EnemyEncounter"},
-            { DataName.Character, "Assets/Prefabs/Characters"}
+            { DataName.Character, "Assets/Prefabs/Characters"},
+            { DataName.Fx ,"Assets/Prefabs/FX"}
         };
 
 #if UNITY_EDITOR // Editor-related code must be excluded from builds
