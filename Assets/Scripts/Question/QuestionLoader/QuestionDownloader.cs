@@ -173,6 +173,7 @@ public class QuestionDownloader : MonoBehaviour
             foreach (var question in clip.questions)
             {
                 Sprite questionSprite = Resources.Load<Sprite>($"Question/{question.questionName}");
+                Debug.Log($"questionSprite {questionSprite}");
                 question.QuestionSprite = questionSprite;
                 
                 Sprite answerSprite = Resources.Load<Sprite>($"Question/{question.optionsName}");

@@ -22,20 +22,18 @@ using Random = UnityEngine.Random;
 using NueGames.Combat;
 using NueGames.Parameters;
 using NueGames.Power;
+using Sirenix.OdinInspector;
 
 namespace NueGames.Card
 {
-    public class CardBase : MonoBehaviour,I2DTooltipTarget, IPointerDownHandler, IPointerUpHandler
+    public class CardBase : SerializedMonoBehaviour,I2DTooltipTarget, IPointerDownHandler, IPointerUpHandler
     {
         [Header("Base References")]
         [SerializeField] protected Transform descriptionRoot;
-        [SerializeField] protected Image cardImage;
-        [SerializeField] protected Image passiveImage;
-        [SerializeField] protected TextMeshProUGUI nameTextField;
-        [SerializeField] protected TextMeshProUGUI descTextField;
-        [SerializeField] protected TextMeshProUGUI manaTextField;
-        [SerializeField] protected List<RarityRoot> rarityRootList;
         
+        [SerializeField] protected Dictionary<RarityType, CardUI> cardUIDictionary;
+        protected CardUI currentCard;
+
 
         #region Cache
         public CardData CardData { get; private set; }
@@ -45,11 +43,8 @@ namespace NueGames.Card
         public bool IsPlayable { get; protected set; } = true;
         public int ManaCost { get; protected set;}
 
-        public List<RarityRoot> RarityRootList => rarityRootList;
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;
-        protected GameActionExecutor GameActionExecutor => GameActionExecutor.Instance;
-        
         public bool IsExhausted { get; private set; }
         
 
@@ -62,17 +57,18 @@ namespace NueGames.Card
             CachedWaitFrame = new WaitForEndOfFrame();
         }
 
-        public virtual void SetCard(CardData targetProfile,bool isPlayable = true)
+        public virtual void SetCard(CardData cardData,bool isPlayable = true)
         {
-            CardData = targetProfile;
+            CardData = cardData;
             IsPlayable = isPlayable;
-            nameTextField.text = CardData.CardName;
-            descTextField.text = CardData.MyDescription;
-            manaTextField.text = CardData.ManaCost.ToString();
-            cardImage.sprite = CardData.CardSprite;
-            ManaCost = targetProfile.ManaCost;
-            foreach (var rarityRoot in RarityRootList)
-                rarityRoot.gameObject.SetActive(rarityRoot.Rarity == CardData.Rarity);
+            
+            foreach (var pair in cardUIDictionary)
+            {
+                pair.Value.gameObject.SetActive(false);
+            }
+            currentCard = cardUIDictionary[CardData.Rarity];
+            currentCard.gameObject.SetActive(true);
+            UpdateCardText();
         }
         
         #endregion
@@ -137,15 +133,14 @@ namespace NueGames.Card
             if (isInactive == this.IsInactive) return; 
             
             IsInactive = isInactive;
-            passiveImage.gameObject.SetActive(isInactive);
+            currentCard.SetPlayable(isInactive);
         }
         
         public virtual void UpdateCardText()
         {
             CardData.UpdateDescription();
-            nameTextField.text = CardData.CardName;
-            descTextField.text = CardData.MyDescription;
-            manaTextField.text = ManaCost.ToString();
+            currentCard.UpdateUI(CardData, ManaCost);
+            
         }
 
         

@@ -26,7 +26,7 @@ MonoBehaviour:
       Data: 0|CardAction.DevelopingCard.StraightSlash, Assembly-CSharp
     - Name: baseDamage
       Entry: 3
-      Data: 10
+      Data: 100
     - Name: extraDamage
       Entry: 3
       Data: 5
@@ -45,5 +45,5 @@ MonoBehaviour:
   useCustomFeedback: 0
   cardName: "\u6E2C\u8A66-\u6240\u6709\u6575\u4EBA"
   cardSprite: {fileID: 21300000, guid: 42a9d99a05c894875b345211a9d1f648, type: 3}
-  rarity: 0
+  rarity: 1
   description: "\u6E2C\u8A66-\u6240\u6709\u6575\u4EBA"

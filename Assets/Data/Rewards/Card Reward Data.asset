@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c4f39c13d642f6985cca3f815566cb, type: 3}
   m_Name: Card Reward Data
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   rewardCardList:
-  - {fileID: 11400000, guid: 8f655889219afa649a967e88e37f98ec, type: 2}
-  - {fileID: 11400000, guid: 7c3fef23d2fb177478906e53364bf7fc, type: 2}
+  - {fileID: 11400000, guid: 25e3c4903b5d34bcdbc93a974f4d9ba1, type: 2}
+  - {fileID: 11400000, guid: 803993305638b4d3db48be353dc3944f, type: 2}
+  - {fileID: 11400000, guid: 24b8777d17e1441feba6ca455ef19de0, type: 2}
