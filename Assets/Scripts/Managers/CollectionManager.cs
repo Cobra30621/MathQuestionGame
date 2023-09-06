@@ -106,8 +106,17 @@ namespace NueGames.Managers
         }
         public void DiscardHand()
         {
-            foreach (var cardBase in HandController.hand) 
-                cardBase.Discard();
+            foreach (var cardBase in HandController.hand)
+            {
+                if (cardBase.CardData.ExhaustIfNotPlay)
+                {
+                    cardBase.Exhaust();
+                }
+                else
+                {
+                    cardBase.Discard();
+                }
+            }
             
             HandController.hand.Clear();
         }

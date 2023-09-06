@@ -14,7 +14,7 @@ namespace NueGames.Combat
 
         public static bool CanUseCard(CardBase cardBase)
         {
-            return EnoughResourceToUseCard(cardBase);
+            return EnoughResourceToUseCard(cardBase) && !cardBase.CardData.CanNotPlay;
         }
 
         public static bool EnoughResourceToUseCard(CardBase cardBase)
