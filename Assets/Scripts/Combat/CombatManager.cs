@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using EnemyAbility;
+using Feedback;
 using NueGames.CharacterAbility;
 using NueGames.Characters;
 using NueGames.Characters.Enemies;
@@ -42,6 +43,8 @@ namespace NueGames.Combat
         /// 現在正在被選擇中的敵人
         /// </summary>
         public EnemyBase CurrentSelectedEnemy;
+
+        [SerializeField] private IFeedback allyTurnStartFeedback, enemyTurnStartFeedback;
 
         
         #endregion
@@ -224,7 +227,7 @@ namespace NueGames.Combat
             
             _manaManager.HandleAtTurnStartMana();
             CollectionManager.DrawCards(GameManager.PlayerData.DrawCount);
-            GameManager.CanSelectCards = true;
+            GameManager.CanSelectCards = false;
             
             OnRoundStart.Invoke(GetRoundInfo());
             yield return new WaitForSeconds(0.1f);
@@ -236,9 +239,10 @@ namespace NueGames.Combat
         {
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Ally));
             
-            // TODO 改成等 OnTurnStart 結束觸發
-            yield return new WaitForSeconds(0.3f);
-                    
+            allyTurnStartFeedback.Play();
+            yield return new WaitForSeconds(allyTurnStartFeedback.FeedbackDuration());
+            GameManager.CanSelectCards = true;
+            
             if (MainAlly.GetCharacterStats().IsStunned)
             {
                 EndTurn();
@@ -265,10 +269,10 @@ namespace NueGames.Combat
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Enemy));
             CollectionManager.DiscardHand();
 
-            // TODO 改成等 OnTurnStart 結束觸發
-            yield return new WaitForSeconds(0.3f);
+            enemyTurnStartFeedback.Play();
+            yield return new WaitForSeconds(enemyTurnStartFeedback.FeedbackDuration());
             
-            var waitDelay = new WaitForSeconds(0.1f);
+            var waitDelay = new WaitForSeconds(0.5f);
 
             var CoroutineEnemies = new List<EnemyBase>(Enemies) {  };
             
@@ -278,7 +282,9 @@ namespace NueGames.Combat
                 yield return waitDelay;
             }
             
+            yield return new WaitForSeconds(0.5f);
             GameManager.CanSelectCards = false;
+            
 
             if (CurrentCombatStateType != CombatStateType.EndCombat)
             {

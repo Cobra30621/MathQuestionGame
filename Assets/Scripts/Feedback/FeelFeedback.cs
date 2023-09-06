@@ -14,6 +14,11 @@ namespace Feedback
             _mmfPlayer = GetComponent<MMF_Player>();
         }
 
+        public override float FeedbackDuration()
+        {
+            return _mmfPlayer.TotalDuration;
+        }
+
         public override void Play()
         {
             _mmfPlayer.PlayFeedbacks();
