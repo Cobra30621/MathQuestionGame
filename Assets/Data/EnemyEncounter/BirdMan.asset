@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e4698fb3b4f4afa83aa9bb2201ae796, type: 3}
-  m_Name: TwoAnt
+  m_Name: BirdMan
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -23,5 +23,4 @@ MonoBehaviour:
     SerializationNodes: []
   targetBackgroundType: 0
   enemyList:
-  - {fileID: 11400000, guid: e5dd1cfbeab1c47d49cb152b13ca2ba9, type: 2}
-  - {fileID: 11400000, guid: e5dd1cfbeab1c47d49cb152b13ca2ba9, type: 2}
+  - {fileID: 11400000, guid: a57852986bc384911948dfe24cc05ba1, type: 2}

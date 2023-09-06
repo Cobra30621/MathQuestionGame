@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c394f48d80c4225850662561e77be4c, type: 3}
-  m_Name: Birdman
+  m_Name: Bee_AttackFirst
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: e7deaaa3f01f8f54ab8c29a0ce3c8f31, type: 2}
     - {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
+    - {fileID: 11400000, guid: e7deaaa3f01f8f54ab8c29a0ce3c8f31, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -44,13 +44,13 @@ MonoBehaviour:
       Data: 2|EnemyAbility.EnemySkill, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: "\u7D66\u5C0D\u65B9\u9020\u62101\u5C64\u6613\u50B7\u72C0\u614B"
+      Data: "\u653B\u64CA"
     - Name: intention
       Entry: 10
       Data: 0
     - Name: skillCd
       Entry: 3
-      Data: 2
+      Data: 1
     - Name: maxUseCount
       Entry: 3
       Data: -1
@@ -65,13 +65,10 @@ MonoBehaviour:
       Data: 1
     - Name: enemyAction
       Entry: 7
-      Data: 3|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
-    - Name: PowerName
+      Data: 3|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+    - Name: damageValue
       Entry: 3
-      Data: 4
-    - Name: PowerAmount
-      Entry: 3
-      Data: 1
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -98,7 +95,7 @@ MonoBehaviour:
       Data: 4|EnemyAbility.EnemySkill, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: "\u653B\u64CA"
+      Data: "\u707C\u50B7"
     - Name: intention
       Entry: 10
       Data: 1
@@ -119,10 +116,13 @@ MonoBehaviour:
       Data: 1
     - Name: enemyAction
       Entry: 7
-      Data: 5|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
-    - Name: damageValue
+      Data: 5|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
+    - Name: PowerName
       Entry: 3
-      Data: 10
+      Data: 201
+    - Name: PowerAmount
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -153,5 +153,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  MaxHealth: 30
-  EnemyPrefab: {fileID: 5342786170131770746, guid: b1fb41ada38c94d6785989c331bad20f, type: 3}
+  MaxHealth: 15
+  EnemyPrefab: {fileID: 5342786170131770746, guid: eac7e3582052d4fcba38511d03657c45, type: 3}
