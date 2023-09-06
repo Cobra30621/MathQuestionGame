@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using EnemyAbility;
 using NueGames.CharacterAbility;
 using NueGames.Characters;
 using NueGames.Characters.Enemies;
@@ -268,7 +270,9 @@ namespace NueGames.Combat
             
             var waitDelay = new WaitForSeconds(0.1f);
 
-            foreach (var currentEnemy in Enemies)
+            var CoroutineEnemies = new List<EnemyBase>(Enemies) {  };
+            
+            foreach (var currentEnemy in CoroutineEnemies)
             {
                 yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
                 yield return waitDelay;
@@ -363,6 +367,8 @@ namespace NueGames.Combat
                     if (Enemies.Count>0)
                         targetList.Add(Enemies.RandomItem());
                     break;
+                case ActionTargetType.WithoutTarget:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -397,16 +403,35 @@ namespace NueGames.Combat
             Enemies = new List<EnemyBase>();
             Debug.Log(CurrentEncounter);
             var enemyList = CurrentEncounter.enemyList;
-            for (var i = 0; i < enemyList.Count; i++)
+            foreach (var enemyData in enemyList)
             {
-                var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
-                clone.SetEnemyData(enemyList[i]);
-                clone.BuildCharacter();
-                
-                
-                Enemies.Add(clone);
+                BuildEnemy(enemyData);
             }
         }
+
+        public void BuildEnemy(EnemyData enemyData)
+        {
+            var clone = Instantiate(enemyData.EnemyPrefab, GetEnemyPos());
+            clone.SetEnemyData(enemyData);
+            clone.BuildCharacter();
+            
+            Enemies.Add(clone);
+        }
+
+        private Transform GetEnemyPos()
+        {
+            Debug.Log($"EnemyPost {enemyPosList.Count} Enemy {Enemies.Count}");
+            if (EnemyPosList.Count > Enemies.Count)
+            {
+                return enemyPosList[Enemies.Count ];
+            }
+            else
+            {
+                Debug.LogError($"敵人數量超過限制{Enemies.Count + 1}");
+                return EnemyPosList[0];
+            }
+        }
+        
         private void BuildAllies()
         {
             var clone = Instantiate(GameManager.MainAllyData.prefab, AllyPosList[0]);

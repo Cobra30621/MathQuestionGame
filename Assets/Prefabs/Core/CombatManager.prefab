@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &24964797332021689
+--- !u!1 &810663025895178329
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,28 +8,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7260925355206061662}
+  - component: {fileID: 5186193697303132503}
   m_Layer: 0
-  m_Name: AllyPos 2
+  m_Name: EnemyPos 4
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7260925355206061662
+--- !u!4 &5186193697303132503
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24964797332021689}
+  m_GameObject: {fileID: 810663025895178329}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7, y: -0.13, z: 0}
+  m_LocalPosition: {x: 0.087, y: -0.134, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4305065158797223213}
-  m_RootOrder: 1
+  m_Father: {fileID: 4885188498238871481}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1665571907524489993
 GameObject:
@@ -74,7 +74,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPos 3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -105,7 +105,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPos 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -153,8 +153,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 719666315382614374}
-  - {fileID: 7260925355206061662}
-  - {fileID: 536588906474977264}
   m_Father: {fileID: 8708447814713431381}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -203,7 +201,7 @@ GameObject:
   m_Layer: 0
   m_Name: AllyPos 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -253,39 +251,9 @@ Transform:
   - {fileID: 4305065158385358273}
   - {fileID: 2452178601341196022}
   - {fileID: 4975396874289159475}
+  - {fileID: 5186193697303132503}
   m_Father: {fileID: 8708447814713431381}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7174403140946202781
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 536588906474977264}
-  m_Layer: 0
-  m_Name: AllyPos 3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &536588906474977264
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7174403140946202781}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7, y: -0.13, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4305065158797223213}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8142573475331178482
 GameObject:
@@ -299,7 +267,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPos 2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -397,16 +365,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cae673e7ab49caaa3b5e206671c2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _manaManager
+      Entry: 6
+      Data: 
   backgroundContainer: {fileID: 2922147483016735578}
   enemyPosList:
   - {fileID: 4305065158385358273}
   - {fileID: 2452178601341196022}
   - {fileID: 4975396874289159475}
+  - {fileID: 5186193697303132503}
   allyPosList:
   - {fileID: 719666315382614374}
-  - {fileID: 7260925355206061662}
-  - {fileID: 536588906474977264}
+  MainAlly: {fileID: 0}
   CurrentSelectedEnemy: {fileID: 0}
+  CurrentEncounter: {fileID: 0}
   RoundNumber: 0
 --- !u!1001 &215259642284000854
 PrefabInstance:
