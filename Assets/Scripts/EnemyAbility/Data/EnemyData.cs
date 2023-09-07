@@ -5,7 +5,7 @@ using UnityEngine;
 namespace EnemyAbility
 {
     /// <summary>
-    /// Represents data for an enemy.
+    /// Represents Skill for an enemy.
     /// </summary>
     [CreateAssetMenu(fileName = "Enemy Data", menuName = "Enemy/Enemy Data", order = 1)]
     public class EnemyData : SerializedScriptableObject
@@ -18,7 +18,7 @@ namespace EnemyAbility
         /// <summary>
         /// The abilities of the enemy.
         /// </summary>
-        public EnemyAbility EnemyAbility;
+        public EnemyAbilityData EnemyAbilityData;
 
         /// <summary>
         /// The prefab representing the enemy in the game.

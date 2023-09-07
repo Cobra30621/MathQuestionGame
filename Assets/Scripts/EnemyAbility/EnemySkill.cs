@@ -1,177 +1,68 @@
-using System.Collections;
 using System.Collections.Generic;
 using Action.Parameters;
-using EnemyAbility.EnemyAction;
 using NueGames.Characters;
 using NueGames.Combat;
-using NueGames.Data.Collection;
 using NueGames.Data.Containers;
 using NueGames.Enums;
 using NueGames.Parameters;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace EnemyAbility
 {
-    /// <summary>
-    /// Represents an enemy's skill.
-    /// </summary>
     public class EnemySkill
     {
-        #region Setting
+        #region Skill Data
 
-        /// <summary>
-        /// The name of the skill.
-        /// </summary>
-        [VerticalGroup("基本")]
-        [SerializeField] private string name;
+        private EnemySkillData _skillData;
 
-        /// <summary>
-        /// The intention data for the skill.
-        /// </summary>
-        [VerticalGroup("基本")]
-        [SerializeField] private EnemyIntentionData intention;
+        public ActionTargetType ActionTargetType => _skillData.ActionTargetType;
+        public bool UseDefaultAttackFeedback => _skillData.UseDefaultAttackFeedback;
+        public bool UseCustomFeedback => _skillData.UseCustomFeedback;
+        public string CustomFeedbackKey => _skillData.CustomFeedbackKey;
+        public GameObject FxGo => _skillData.FxGo;
+        public FxSpawnPosition FxSpawnPosition => _skillData.FxSpawnPosition;
+        public EnemyIntentionData Intention => _skillData.Intention;
         
-        
-        
-
-        /// <summary>
-        /// The cooldown of the skill.
-        /// </summary>
-        [VerticalGroup("發動條件")]
-        [SerializeField] private int skillCd;
-
-        /// <summary>
-        /// The maximum number of times the skill can be used.
-        /// </summary>
-        [VerticalGroup("發動條件")]
-        [SerializeField] private int maxUseCount = -1;
-
-
-        [VerticalGroup("發動條件")] 
-        [SerializeField]
-        private bool useCondition;
-
-        /// <summary>
-        /// The condition that determines when the skill can be used.
-        /// </summary>
-        [VerticalGroup("發動條件")]
-        [ShowIf("useCondition")]
-        [SerializeField] private ConditionBase condition;
-
-        /// <summary>
-        /// The target type for the skill's action.
-        /// </summary>
-        [VerticalGroup("執行行動")]
-        [SerializeField] private ActionTargetType actionTargetType;
-
-        /// <summary>
-        /// The action to be performed by the skill.
-        /// </summary>
-        [VerticalGroup("執行行動")]
-        [SerializeField] private EnemyActionBase enemyAction;
-
-        [VerticalGroup("特效")]
-        [ValueDropdown("GetAssets")]
-        [SerializeField] private GameObject fxGo;
-        /// <summary>
-        /// The spawn position of the effect.
-        /// </summary>
-        [VerticalGroup("特效")]
-        [SerializeField] private FxSpawnPosition fxSpawnPosition;
-
-        /// <summary>
-        /// Indicates whether to use the default attack feedback.
-        /// </summary>
-        [VerticalGroup("角色動畫")]
-        [SerializeField] private bool useDefaultAttackFeedback;
-
-        
-        [VerticalGroup("角色動畫")] 
-        [SerializeField] private bool useCustomFeedback;
-        /// <summary>
-        /// The custom feedback settings.
-        /// </summary>
-        [VerticalGroup("角色動畫")]
-        [ShowIf("useCustomFeedback")]
-        [SerializeField] private CustomerFeedbackSetting customerFeedback;
-
-        public EnemyIntentionData Intention => intention;
-        public GameObject FxGo => fxGo;
-        public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
-        public bool UseDefaultAttackFeedback => useDefaultAttackFeedback;
-        public CustomerFeedbackSetting CustomerFeedbackSetting => customerFeedback;
-        public ActionTargetType ActionTargetType => actionTargetType;
-
-        /// <summary>
-        /// Indicates whether to use custom feedback.
-        /// </summary>
-        public bool UseCustomFeedback
-        {
-            get
-            {
-                if (customerFeedback == null)
-                    return false;
-                return useCustomFeedback;
-            }
-        }
-
-        /// <summary>
-        /// The key for the custom feedback.
-        /// </summary>
-        public string CustomFeedbackKey
-        {
-            get
-            {
-                if (customerFeedback == null)
-                    return "";
-                return customerFeedback.customFeedbackKey;
-            }
-        }
 
         #endregion
+        
+         #region Variable
 
-        #region Variable
+         private ConditionBase _condition;
+         private int currentCd;
+         private int hasUsedCount;
+         private EnemyBase _enemy;
 
-        private int currentCd;
-        private int hasUsedCount;
-        private EnemyBase _enemy;
+         #endregion
 
-        #endregion
+         public EnemySkill(EnemySkillData skillData, EnemyBase enemyBase)
+         {
+             _skillData = skillData;
+             _enemy = enemyBase;
+             
+             _condition = _skillData.GetCopyCondition();
+             _condition?.SetEnemy(enemyBase);
+             
+             currentCd = 0;
+             hasUsedCount = 0;
+         }
 
-        /// <summary>
-        /// Executed when the battle starts.
-        /// </summary>
-        public void OnBattleStart()
-        {
-            currentCd = 0;
-            hasUsedCount = 0;
-        }
 
-        /// <summary>
-        /// Sets the associated enemy for this skill.
-        /// </summary>
-        /// <param name="enemyBase">The enemy base to set.</param>
-        public void SetEnemy(EnemyBase enemyBase)
-        {
-            _enemy = enemyBase;
-            condition?.SetEnemy(enemyBase);
-        }
 
         /// <summary>
-        /// Plays the skill on the provided target list.
+        /// Plays the skillData on the provided target list.
         /// </summary>
         /// <param name="targetList">The list of target characters.</param>
         public void PlaySkill(List<CharacterBase> targetList)
         {
-            currentCd = skillCd;
+            currentCd = _skillData.SkillCd;
             hasUsedCount++;
-            enemyAction.SetValue(_enemy, this, targetList);
-            enemyAction.DoAction();
+            _skillData.EnemyAction.SetValue(_enemy, this, targetList);
+            _skillData.EnemyAction.DoAction();
         }
 
         /// <summary>
-        /// Updates the cooldown of the skill.
+        /// Updates the cooldown of the skillData.
         /// </summary>
         public void UpdateSkillCd()
         {
@@ -185,15 +76,15 @@ namespace EnemyAbility
 
         public bool GetIntentionValue(out int value)
         {
-            if (Intention.ShowIntentionValue)
+            if (_skillData.Intention.ShowIntentionValue)
             {
                 value = -1;
-                if (!enemyAction.IsDamageAction) return false;
+                if (!_skillData.EnemyAction.IsDamageAction) return false;
                 
                 var damageInfo = new DamageInfo()
                 {
                     Target = CombatManager.Instance.MainAlly,
-                    damageValue = enemyAction.DamageValueForIntention,
+                    damageValue = _skillData.EnemyAction.DamageValueForIntention,
                     ActionSource = new ActionSource()
                     {
                         SourceType = SourceType.Enemy,
@@ -210,39 +101,30 @@ namespace EnemyAbility
 
 
         /// <summary>
-        /// Checks if the skill can be played.
+        /// Checks if the skillData can be played.
         /// </summary>
-        /// <returns>True if the skill can be played, otherwise false.</returns>
+        /// <returns>True if the skillData can be played, otherwise false.</returns>
         public bool CanPlay()
         {
             return currentCd <= 0 && CheckCondition() && CheckUseCount();
         }
 
         /// <summary>
-        /// Checks the condition for using the skill.
+        /// Checks the condition for using the skillData.
         /// </summary>
         /// <returns>True if the condition is met, otherwise false.</returns>
         private bool CheckCondition()
         {
-            return (condition?.Judge() ?? true);
+            return (_condition?.Judge() ?? true);
         }
 
         /// <summary>
-        /// Checks the use count of the skill.
+        /// Checks the use count of the skillData.
         /// </summary>
         /// <returns>True if the use count condition is met, otherwise false.</returns>
         private bool CheckUseCount()
         {
-            return (hasUsedCount < maxUseCount) || (maxUseCount == -1);
+            return (hasUsedCount <_skillData.MaxUseCount) || (_skillData.MaxUseCount == -1);
         }
-        
-#if UNITY_EDITOR // Editor-related code must be excluded from builds
-        private IEnumerable GetAssets()
-        {
-            return AssetGetter.GetAssets(AssetGetter.DataName.Fx);
-        }
-#endif
-
     }
 }
-

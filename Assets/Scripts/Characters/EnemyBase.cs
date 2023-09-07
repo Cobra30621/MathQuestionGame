@@ -32,7 +32,7 @@ namespace NueGames.Characters
         [Sirenix.OdinInspector.ReadOnly]
         [SerializeField] private EnemyAbility.EnemyAbility _enemyAbility;
         [Sirenix.OdinInspector.ReadOnly]
-        [SerializeField] private EnemySkill currentSkill;
+        [SerializeField] private EnemySkill _currentSkill;
 
         #region Setup
         public override void BuildCharacter()
@@ -51,9 +51,7 @@ namespace NueGames.Characters
         public void SetEnemyData(EnemyData enemyData)
         {
             _enemyData = enemyData;
-            _enemyAbility = enemyData.EnemyAbility;
-            _enemyAbility.SetEnemy(this);
-            _enemyAbility.OnBattleStart();
+            _enemyAbility = new EnemyAbility.EnemyAbility(enemyData.EnemyAbilityData, this);
         }
 
         public EnemyAbility.EnemyAbility GetAbility()
@@ -63,7 +61,7 @@ namespace NueGames.Characters
 
         public EnemySkill GetCurrentSkill()
         {
-            return currentSkill;
+            return _currentSkill;
         }
 
 
@@ -83,14 +81,14 @@ namespace NueGames.Characters
 
         private void SetThisRoundSkill(RoundInfo info)
         {
-            currentSkill = _enemyAbility.GetNextSkill();
+            _currentSkill = _enemyAbility.GetNextSkill();
             _enemyAbility.UpdateSkillsCd();
             SetIntentionUI();
         }
 
         public void SetIntentionUI()
         {
-            if (currentSkill.GetIntentionValue(out int value))
+            if (_currentSkill.GetIntentionValue(out int value))
             {
                 EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
                 EnemyCanvas.NextActionValueText.text = $"{value}";
@@ -100,8 +98,8 @@ namespace NueGames.Characters
                 EnemyCanvas.NextActionValueText.gameObject.SetActive(false);
             }
             
-            EnemyCanvas.IntentImage.sprite = currentSkill.Intention.IntentionSprite;
-            EnemyCanvas.IntentionData = currentSkill.Intention;
+            EnemyCanvas.IntentImage.sprite = _currentSkill.Intention.IntentionSprite;
+            EnemyCanvas.IntentionData = _currentSkill.Intention;
             EnemyCanvas.IntentImage.gameObject.SetActive(true);
         }
         
@@ -115,16 +113,9 @@ namespace NueGames.Characters
         public IEnumerator BattleStartActionRoutine()
         {
             // PlayStartBattle Skill
-            if (_enemyAbility.UseStartBattleSkill)
+            if (_enemyAbility.UseStartBattleSkill())
             {
-                if (_enemyAbility.startBattleSkill != null)
-                {
-                    yield return ActionRoutine(_enemyAbility.startBattleSkill);
-                }
-                else
-                {
-                    Debug.LogError($"Enemy {name} 沒有設置 StartBattleSkill");
-                }
+                yield return ActionRoutine(_enemyAbility.GetStartBattleSkill());
                 
             }
             else
@@ -140,7 +131,7 @@ namespace NueGames.Characters
         /// <returns></returns>
         public IEnumerator ActionRoutine()
         {
-            return ActionRoutine(currentSkill);
+            return ActionRoutine(_currentSkill);
         }
         
         public virtual IEnumerator ActionRoutine(EnemySkill skill)

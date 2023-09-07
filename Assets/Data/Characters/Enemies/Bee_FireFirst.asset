@@ -17,31 +17,33 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: e7deaaa3f01f8f54ab8c29a0ce3c8f31, type: 2}
+    - {fileID: 2863932577946354716, guid: 355db53ba35d74d849dd546e6de5b3a0, type: 3}
     - {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
+    - {fileID: 5542730973998125453, guid: 516c4b8f0bd0f0749a2d8afc3d3c82a2, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: EnemyAbility
+    - Name: EnemyAbilityData
       Entry: 7
-      Data: 0|EnemyAbility.EnemyAbility, Assembly-CSharp
+      Data: 0|EnemyAbility.EnemyAbilityData, Assembly-CSharp
     - Name: UseStartBattleSkill
       Entry: 5
       Data: false
-    - Name: startBattleSkill
+    - Name: StartBattleSkillData
       Entry: 6
       Data: 
     - Name: enemySkills
       Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[EnemyAbility.EnemySkill, Assembly-CSharp]],
+      Data: 1|System.Collections.Generic.List`1[[EnemyAbility.EnemySkillData, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 2|EnemyAbility.EnemySkill, Assembly-CSharp
+      Data: 2|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
       Data: "\u707C\u50B7"
@@ -71,13 +73,13 @@ MonoBehaviour:
       Data: 201
     - Name: PowerAmount
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
     - Name: fxGo
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 1
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0
@@ -95,13 +97,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|EnemyAbility.EnemySkill, Assembly-CSharp
+      Data: 4|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
       Data: "\u653B\u64CA"
     - Name: intention
       Entry: 10
-      Data: 1
+      Data: 2
     - Name: skillCd
       Entry: 3
       Data: 0
@@ -127,8 +129,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: fxGo
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 3
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0

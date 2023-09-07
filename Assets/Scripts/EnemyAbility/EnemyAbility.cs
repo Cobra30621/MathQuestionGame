@@ -1,43 +1,42 @@
 using System.Collections.Generic;
 using NueGames.Characters;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace EnemyAbility
 {
-    /// <summary>
-    /// Represents an enemy's abilities.
-    /// </summary>
     public class EnemyAbility
     {
-        /// <summary>
-        /// Indicates whether to use the start battle skill.
-        /// </summary>
-        public bool UseStartBattleSkill;
-
-        /// <summary>
-        /// The start battle skill.
-        /// </summary>
-        [ShowIf("UseStartBattleSkill")]
-        public EnemySkill startBattleSkill;
+        private EnemyAbilityData _abilityData;
+        private List<EnemySkill> _enemySkills;
+        private EnemySkill _startBattleSkill;
         
-        /// <summary>
-        /// List of enemy skills.
-        /// </summary>
-        [TableList(AlwaysExpanded = true)]
-        public List<EnemySkill> enemySkills;
-
-        
-
         private EnemyBase _enemyBase;
 
+        public EnemyAbility(EnemyAbilityData abilityData, EnemyBase enemyBase)
+        {
+            _abilityData = abilityData;
+            _enemyBase = enemyBase;
+
+            _enemySkills = new List<EnemySkill>();
+            foreach (var skillData in _abilityData.enemySkills)
+            {
+                var enemySkill = new EnemySkill(skillData, enemyBase);
+                _enemySkills.Add(enemySkill);
+            }
+
+            if (_abilityData.UseStartBattleSkill && _abilityData.StartBattleSkillData != null)
+            {
+                _startBattleSkill = new EnemySkill(_abilityData.StartBattleSkillData, enemyBase);
+            }
+        }
+
         /// <summary>
-        /// Gets the next available skill to play.
+        /// Gets the next available skillData to play.
         /// </summary>
-        /// <returns>The next available enemy skill.</returns>
+        /// <returns>The next available enemy skillData.</returns>
         public EnemySkill GetNextSkill()
         {
-            foreach (var enemySkill in enemySkills)
+            foreach (var enemySkill in _enemySkills)
             {
                 if (enemySkill.CanPlay())
                 {
@@ -45,45 +44,28 @@ namespace EnemyAbility
                 }
             }
 
-            Debug.LogError($"{_enemyBase.name} cannot get a skill for this turn, enemySkill count: {enemySkills.Count}");
+            Debug.LogError($"{_enemyBase.name} cannot get a skillData for this turn, enemySkillData count: {_enemySkills.Count}");
             
             return null;
         }
 
-        /// <summary>
-        /// Sets the associated enemy for this ability.
-        /// </summary>
-        /// <param name="enemyBase">The enemy base to set.</param>
-        public void SetEnemy(EnemyBase enemyBase)
+        public bool UseStartBattleSkill()
         {
-            _enemyBase = enemyBase;
-            foreach (var skill in enemySkills)
-            {
-                skill.SetEnemy(enemyBase);
-            }
-
-            startBattleSkill?.SetEnemy(enemyBase);
+            return _abilityData.UseStartBattleSkill && _startBattleSkill != null;
+        }
+        
+        public EnemySkill GetStartBattleSkill()
+        {
+            return _startBattleSkill;
         }
 
-        /// <summary>
-        /// Executes actions when the battle starts.
-        /// </summary>
-        public void OnBattleStart()
-        {
-            foreach (var skill in enemySkills)
-            {
-                skill.OnBattleStart();
-            }
-
-            startBattleSkill?.OnBattleStart();
-        }
 
         /// <summary>
         /// Updates the cooldowns of the skills.
         /// </summary>
         public void UpdateSkillsCd()
         {
-            foreach (var skill in enemySkills)
+            foreach (var skill in _enemySkills)
             {
                 skill.UpdateSkillCd();
             }
