@@ -14,6 +14,8 @@ using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine.Networking;
 
+
+#if UNITY_EDITOR
 public class QuestionDownloader : MonoBehaviour
 {
    
@@ -176,12 +178,12 @@ public class QuestionDownloader : MonoBehaviour
                 Sprite questionSprite = Resources.Load<Sprite>($"Question/{question.questionName}");
                 Debug.Log($"questionSprite {questionSprite}");
                 question.QuestionSprite = questionSprite;
-                
+
                 Sprite answerSprite = Resources.Load<Sprite>($"Question/{question.optionsName}");
                 question.OptionSprite = answerSprite;
             }
         }
-        
+
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         
@@ -202,3 +204,4 @@ public class QuestionDownloader : MonoBehaviour
         public string answer;
     }
 }
+#endif
