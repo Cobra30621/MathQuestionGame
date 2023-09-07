@@ -18,11 +18,13 @@ namespace NueGames.Collection
         
         [Header("Hand Settings")]
         [SerializeField] [Range(0, 5)] private float selectionSpacing = 1;
-        [SerializeField] private Vector3 curveStart = new Vector3(2f, -0.7f, 0);
-        [SerializeField] private Vector3 curveEnd = new Vector3(-2f, -0.7f, 0);
-        [SerializeField] private Vector2 handOffset = new Vector2(0, -0.3f);
+        [SerializeField] private Vector3 curveStart = new Vector3(2f, -0.2f, 0);
+        [SerializeField] private Vector3 curveEnd = new Vector3(-2f, -0.2f, 0);
+        [SerializeField] private Vector2 handOffset = new Vector2(0, 0.3f);
         [SerializeField] private Vector2 handSize = new Vector2(9, 1.7f);
-
+        [SerializeField] private float selectedCardSize = 1.5f;
+        [SerializeField] private float selectedCardOffsetY, cardOffsetY;
+        
         [Header("References")]
         public Transform discardTransform;
         public Transform exhaustTransform;
@@ -207,13 +209,14 @@ namespace NueGames.Collection
                     // When selected bring card to front
                     if (cardUprightWhenSelected) cardUp = Vector3.up;
                     
-                    cardTransform.localScale = 1.2f * Vector3.one;
-                    cardPos.z = transform.position.z - 0.2f;
+                    cardTransform.localScale = selectedCardSize * Vector3.one;
+                    cardPos.z = transform.position.z;
+                    cardPos.y += selectedCardOffsetY;
                 }
                 else
                 {
                     cardTransform.localScale = Vector3.one;
-                    cardPos.z = transform.position.z + t * 0.5f;
+                    cardPos.z = transform.position.z + t * 0.5f ;
                 }
 
                 // Rotation

@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -520,6 +520,14 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 273317408543663707, guid: 956d4f225049cd24d8615ca52e47f520, type: 2}
+    - target: {fileID: 4486141251182824968, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 47.944946
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486141251182824968, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.299999
+      objectReference: {fileID: 0}
     - target: {fileID: 4629050936817657982, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
       propertyPath: m_BlockingMask.m_Bits
       value: 55
@@ -632,6 +640,10 @@ PrefabInstance:
     - target: {fileID: 5185741467476391225, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
       propertyPath: m_SizeDelta.x
       value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508104215148150844, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: cardUIPrefab
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7205827195889848825, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
       propertyPath: m_BlockingMask.m_Bits
@@ -902,10 +914,10 @@ PrefabInstance:
     - target: {fileID: 2356518916475114016, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 2356518916475114016, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2356518916475114016, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: serializationData.SerializedFormat
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3016247209875197677, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: m_Sprite
@@ -1159,6 +1171,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8260870226904216364, guid: c1c32a49312804dc1a4389f3bc0f96ce, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260870226904216364, guid: c1c32a49312804dc1a4389f3bc0f96ce, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260870226904216364, guid: c1c32a49312804dc1a4389f3bc0f96ce, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 8671482143397110351, guid: c1c32a49312804dc1a4389f3bc0f96ce, type: 3}
       propertyPath: m_Name
       value: CampFireCanvas
@@ -1321,7 +1345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 852821489812356341, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1089707494249811275, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
       propertyPath: m_Pivot.x
@@ -1413,7 +1437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3123785898381164822, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3241063751532164165, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
       propertyPath: m_Name
@@ -1437,11 +1461,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656575557257933270, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8656575557257933270, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}

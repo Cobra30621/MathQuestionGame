@@ -268,16 +268,18 @@ namespace NueGames.Card
         protected virtual void ShowTooltipInfo()
         {
             if (!descriptionRoot) return;
-            if (CardData.KeywordsList.Count<=0) return;
+            if (CardData.KeywordsList == null) return;
            
             var tooltipManager = TooltipManager.Instance;
+            Debug.Log($"CardData.KeywordsList{CardData.KeywordsList.Count}");
             foreach (var cardDataSpecialKeyword in CardData.KeywordsList)
             {
                 var specialKeyword = tooltipManager.SpecialKeywordData.SpecialKeywordBaseList.Find(x=>x.SpecialKeyword == cardDataSpecialKeyword);
                 if (specialKeyword != null)
                     ShowTooltipInfo(tooltipManager,specialKeyword.GetContent(),specialKeyword.GetHeader(),descriptionRoot,CursorType.Default,CollectionManager ? CollectionManager.HandController.cam : Camera.main);
             }
-
+            
+            Debug.Log($"GetActionsPowerTypes(){GetActionsPowerTypes()}");
             foreach (var powerType in GetActionsPowerTypes())
             {
                 PowerData powerData = tooltipManager.PowersData.GetPowerData(powerType);

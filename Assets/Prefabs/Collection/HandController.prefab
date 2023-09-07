@@ -253,10 +253,13 @@ MonoBehaviour:
   cardUprightWhenSelected: 1
   cardTilt: 1
   selectionSpacing: 1
-  curveStart: {x: 2, y: -0.7, z: 0}
-  curveEnd: {x: -2, y: -0.7, z: 0}
-  handOffset: {x: 0, y: -0.3}
-  handSize: {x: 9, y: 1.7}
+  curveStart: {x: 2, y: -0.6, z: 0}
+  curveEnd: {x: -2, y: -0.6, z: 0}
+  handOffset: {x: 0, y: 0.16}
+  handSize: {x: 11, y: 1.2}
+  selectedCardSize: 1.7
+  selectedCardOffsetY: 1
+  cardOffsetY: 0
   discardTransform: {fileID: 1301813272609245044}
   exhaustTransform: {fileID: 7325747974993925843}
   drawTransform: {fileID: 236058445813137690}
@@ -269,3 +272,6 @@ MonoBehaviour:
   cam: {fileID: 7048625804953322726}
   hand: []
   arrowController: {fileID: 0}
+  _a: {x: 0, y: 0, z: 0}
+  _b: {x: 0, y: 0, z: 0}
+  _c: {x: 0, y: 0, z: 0}
