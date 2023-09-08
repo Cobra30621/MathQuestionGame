@@ -67,6 +67,7 @@ namespace NueGames.Card
                 pair.Value.gameObject.SetActive(false);
             }
             currentCard = cardUIDictionary[CardData.Rarity];
+            ManaCost = cardData.ManaCost;
             currentCard.gameObject.SetActive(true);
             UpdateCardText();
         }
