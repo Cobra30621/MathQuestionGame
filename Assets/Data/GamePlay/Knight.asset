@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01dd2752105b4ecbbc5e92d535616897, type: 3}
+  m_Name: Knight
+  m_EditorClassIdentifier: 
+  drawCount: 4
+  maxMana: 3
+  maxCardOnHand: 10
+  initalDeck: {fileID: 11400000, guid: ddbbd9cf737b843e88df2d1a048d68ee, type: 2}
+  cardRewardData: {fileID: 11400000, guid: d032bbaa522744b3e86d3e61324dd930, type: 2}
+  cardPrefab: {fileID: 2689473134106589740, guid: a9728682a56595f4989b8f224d934689, type: 3}
+  initialAllyDataData: {fileID: 11400000, guid: fc1a85bb53bd2694ea1143c9b9a6baf3, type: 2}
+  initialRelic: 
