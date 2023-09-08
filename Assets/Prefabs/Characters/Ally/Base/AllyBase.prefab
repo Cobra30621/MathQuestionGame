@@ -129,7 +129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7403306221996175226, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7403306221996175226, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: FeedbacksList.Array.size
@@ -172,6 +172,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7403306221996175226, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
+      propertyPath: managedReferences[7392774806525444105].Active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403306221996175226, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: managedReferences[4322679458501492774].Channel
       value: 0
       objectReference: {fileID: 0}
@@ -201,19 +205,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7403306221996175226, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: managedReferences[7392774806525444104].Duration
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7403306221996175226, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: managedReferences[7392774806525444106].Duration
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7403306221996175226, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: managedReferences[7392774806525444112].Duration
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7403306221996175226, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: managedReferences[7392774806525444113].Duration
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7403306221996175226, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: managedReferences[4322679458501492774].MaxVolume
@@ -249,7 +253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7403306221996175226, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: managedReferences[7392774806525444105].PauseDuration
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7403306221996175226, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: managedReferences[7392774806525444112].TargetTMPText
@@ -540,7 +544,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 280376303279759396}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
   m_Name: 
@@ -617,19 +621,19 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 4c6503d12cac245d386e9c334bddf0b4, type: 3}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: FeedbacksList.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: FeedbacksList.Array.data[1]
-      value: 4322679411541540865
+      value: 4322679411541540868
       objectReference: {fileID: 0}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: FeedbacksList.Array.data[2]
-      value: 4322679411541540871
+      value: 4322679411541540870
       objectReference: {fileID: 0}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: FeedbacksList.Array.data[3]
-      value: 4322679411541540872
+      value: 4322679503032942598
       objectReference: {fileID: 0}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[4322679411541540865]
@@ -705,7 +709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[7392774806525444098].Active
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[4322679411541540865].Channel
@@ -770,6 +774,10 @@ PrefabInstance:
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[4322679411541540872].AutoResume
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: managedReferences[4322679503032942598].PlayMethod
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[4322679411541540865].ChannelMode
@@ -1072,6 +1080,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: managedReferences[4322679411541540868].DestinationAngles.z
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[4322679411541540871].MMChannelDefinition
       value: 
       objectReference: {fileID: 0}
@@ -1107,6 +1119,10 @@ PrefabInstance:
       propertyPath: managedReferences[4322679411541540872].Timing.InitialDelay
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: managedReferences[4322679503032942599].BoundSpriteRenderer
+      value: 
+      objectReference: {fileID: 8483408137900920699}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[4322679411541540865].Timing.PlayDirection
       value: 0
@@ -1147,6 +1163,18 @@ PrefabInstance:
       propertyPath: managedReferences[4322679411541540865].AnimateRotationTarget
       value: 
       objectReference: {fileID: 6015855534478974643}
+    - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: managedReferences[4322679411541540868].AnimateRotationTarget
+      value: 
+      objectReference: {fileID: 6015855534478974643}
+    - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: managedReferences[4322679411541540870].AnimatePositionTarget
+      value: 
+      objectReference: {fileID: 6047022812047411459}
+    - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: managedReferences[4322679411541540870].DestinationPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[4322679411541540871].AnimatePositionTarget
       value: 
@@ -2894,6 +2922,11 @@ MonoBehaviour:
   onDeadFeedback: {fileID: 1959991856480674582}
   Feedbacks: []
   allyCanvas: {fileID: 8767614188676878785}
+--- !u!212 &8483408137900920699 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2835035829201671620, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+  m_PrefabInstance: {fileID: 5972631625919109823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8540598986645202361 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2622574197869674246, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
