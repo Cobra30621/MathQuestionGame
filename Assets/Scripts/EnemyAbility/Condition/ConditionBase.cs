@@ -7,6 +7,12 @@ namespace EnemyAbility
     public abstract class ConditionBase
     {
         protected EnemyBase enemy; // A reference to the EnemyBase class for this condition
+
+        /// <summary>
+        /// 建立 object 的副本
+        /// </summary>
+        /// <returns></returns>
+        public abstract ConditionBase GetCopy();
         
         // Method to set the enemy for this condition
         public void SetEnemy(EnemyBase enemyBase)

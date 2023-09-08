@@ -530,7 +530,7 @@ public class CFXEasyEditor : EditorWindow
 		{
 			GUILayout.Space(4);
 
-			EditorGUILayout.HelpBox("Copy selected modules from a Particle System to others!", MessageType.Info);
+			EditorGUILayout.HelpBox("GetCopy selected modules from a Particle System to others!", MessageType.Info);
 			
 			GUILayout.Label("Source Particle System to copy from:");
 			GUILayout.BeginHorizontal();
@@ -559,7 +559,7 @@ public class CFXEasyEditor : EditorWindow
 			}
 			GUILayout.EndHorizontal();
 			
-			EditorGUILayout.LabelField("Modules to Copy:");
+			EditorGUILayout.LabelField("Modules to GetCopy:");
 			
 			GUILayout.Space(4);
 
@@ -646,7 +646,7 @@ public class CFXEasyEditor : EditorWindow
 			GUILayout.BeginHorizontal();
 			{
 				GUILayout.FlexibleSpace();
-				if (GUILayout.Button("Copy properties to\nselected Object(s)", GUILayout.Height(Mathf.Ceil(EditorGUIUtility.singleLineHeight * 2.1f))))
+				if (GUILayout.Button("GetCopy properties to\nselected Object(s)", GUILayout.Height(Mathf.Ceil(EditorGUIUtility.singleLineHeight * 2.1f))))
 				{
 					bool foundPs = false;
 					foreach (GameObject go in Selection.gameObjects)
@@ -1488,7 +1488,7 @@ public class CFXEasyEditor : EditorWindow
 		}
 	}
 	
-	//Copy Selected Modules
+	//GetCopy Selected Modules
 	private void CopyModules(ParticleSystem source, ParticleSystem dest)
 	{
 		if(source == null)

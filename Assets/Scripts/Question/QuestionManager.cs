@@ -370,7 +370,7 @@ namespace Question
 
         public void LoadData(GameData data)
         {
-            // Debug.Log($"Load Question {data.QuestionSetting}");
+            // Debug.Log($"Load Question {Skill.QuestionSetting}");
             QuestionSetting = data.QuestionSetting;
         }
 

@@ -14,7 +14,7 @@ namespace OneLine {
          * Optimization
          * To avoid creating separate drawers for each array element
          */
-        private static readonly Regex REGEXP_ARRAY_INDEX = new Regex(".data\\[\\d+\\]");
+        private static readonly Regex REGEXP_ARRAY_INDEX = new Regex(".Skill\\[\\d+\\]");
 
         private static CustomDrawerTypesCache types = new CustomDrawerTypesCache();
         private readonly Dictionary<string, PropertyDrawer> drawers = new Dictionary<string, PropertyDrawer>();

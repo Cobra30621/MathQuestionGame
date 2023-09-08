@@ -16,37 +16,148 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 11400000, guid: b0b1e7f2f78bb444eb1666e4accf22ee, type: 2}
+    - {fileID: 11400000, guid: e7deaaa3f01f8f54ab8c29a0ce3c8f31, type: 2}
+    - {fileID: 7010805399001825214, guid: 4b2a490122c284130bac51fa97189c8c, type: 3}
     - {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: EnemyAbility
+    - Name: EnemyAbilityData
       Entry: 7
-      Data: 0|EnemyAbility.EnemyAbility, Assembly-CSharp
+      Data: 0|EnemyAbility.EnemyAbilityData, Assembly-CSharp
     - Name: UseStartBattleSkill
       Entry: 5
       Data: false
-    - Name: startBattleSkill
+    - Name: StartBattleSkillData
       Entry: 6
       Data: 
     - Name: enemySkills
       Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[EnemyAbility.EnemySkill, Assembly-CSharp]],
+      Data: 1|System.Collections.Generic.List`1[[EnemyAbility.EnemySkillData, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 7
-      Data: 2|EnemyAbility.EnemySkill, Assembly-CSharp
+      Data: 2|EnemyAbility.EnemySkillData, Assembly-CSharp
+    - Name: name
+      Entry: 1
+      Data: "\u63D0\u53476\u8B77\u76FE"
+    - Name: intention
+      Entry: 10
+      Data: 0
+    - Name: skillCd
+      Entry: 3
+      Data: 3
+    - Name: maxUseCount
+      Entry: 3
+      Data: -1
+    - Name: useCondition
+      Entry: 5
+      Data: false
+    - Name: condition
+      Entry: 6
+      Data: 
+    - Name: actionTargetType
+      Entry: 3
+      Data: 0
+    - Name: enemyAction
+      Entry: 7
+      Data: 3|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
+    - Name: PowerName
+      Entry: 3
+      Data: 1
+    - Name: PowerAmount
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fxGo
+      Entry: 6
+      Data: 
+    - Name: fxSpawnPosition
+      Entry: 3
+      Data: 0
+    - Name: useDefaultAttackFeedback
+      Entry: 5
+      Data: false
+    - Name: useCustomFeedback
+      Entry: 5
+      Data: false
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|EnemyAbility.EnemySkillData, Assembly-CSharp
+    - Name: name
+      Entry: 1
+      Data: "\u7D66\u5C0D\u65B9\u9020\u62101\u5C64\u865B\u5F31\u72C0\u614B"
+    - Name: intention
+      Entry: 10
+      Data: 1
+    - Name: skillCd
+      Entry: 3
+      Data: 2
+    - Name: maxUseCount
+      Entry: 3
+      Data: -1
+    - Name: useCondition
+      Entry: 5
+      Data: false
+    - Name: condition
+      Entry: 6
+      Data: 
+    - Name: actionTargetType
+      Entry: 3
+      Data: 1
+    - Name: enemyAction
+      Entry: 7
+      Data: 5|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
+    - Name: PowerName
+      Entry: 3
+      Data: 5
+    - Name: PowerAmount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fxGo
+      Entry: 10
+      Data: 2
+    - Name: fxSpawnPosition
+      Entry: 3
+      Data: 0
+    - Name: useDefaultAttackFeedback
+      Entry: 5
+      Data: true
+    - Name: useCustomFeedback
+      Entry: 5
+      Data: false
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
       Data: "\u653B\u64CA"
     - Name: intention
       Entry: 10
-      Data: 0
+      Data: 3
     - Name: skillCd
       Entry: 3
       Data: 0
@@ -64,22 +175,22 @@ MonoBehaviour:
       Data: 1
     - Name: enemyAction
       Entry: 7
-      Data: 3|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+      Data: 7|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
     - Name: damageValue
       Entry: 3
-      Data: 10
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
-    - Name: fxName
-      Entry: 3
-      Data: 0
+    - Name: fxGo
+      Entry: 10
+      Data: 2
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0
     - Name: useDefaultAttackFeedback
       Entry: 5
-      Data: false
+      Data: true
     - Name: useCustomFeedback
       Entry: 5
       Data: false

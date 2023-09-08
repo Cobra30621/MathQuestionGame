@@ -62,17 +62,17 @@ public class SaveManager : Singleton<SaveManager>
 
     public void LoadGame()
     {
-        // load any saved data from a file using the data handler
+        // load any saved Skill from a file using the Skill handler
         // this._gameData = dataHandler.Load();
         this._gameData = ES3Handler.Load();
 
-        // start a new game if the data is null and we're configured to initialize data for debugging purposes
+        // start a new game if the Skill is null and we're configured to initialize Skill for debugging purposes
         if (this._gameData == null ) 
         {
             this._gameData = new GameData();
         }
         
-        // push the loaded data to all other scripts that need it
+        // push the loaded Skill to all other scripts that need it
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) 
         {
             dataPersistenceObj.LoadData(_gameData);
@@ -81,20 +81,20 @@ public class SaveManager : Singleton<SaveManager>
 
     public void SaveGame()
     {
-        // if we don't have any data to save, log a warning here
+        // if we don't have any gameData to save, log a warning here
         if (this._gameData == null) 
         {
-            Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
+            Debug.LogWarning("No gameData was found. A New Game needs to be started before gameData can be saved.");
             return;
         }
 
-        // pass the data to other scripts so they can update it
+        // pass the Skill to other scripts so they can update it
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) 
         { 
             dataPersistenceObj.SaveData(_gameData);
         }
 
-        // save that data to a file using the data handler
+        // save that Skill to a file using the Skill handler
         ES3Handler.Save(_gameData);
     }
 

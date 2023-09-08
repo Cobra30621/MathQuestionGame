@@ -36,6 +36,10 @@ namespace NueGames.Data.Collection
         [SerializeField] private int manaCost;
         [FoldoutGroup("數值參數")]
         [SerializeField] private bool exhaustAfterPlay;
+        [FoldoutGroup("數值參數")]
+        [SerializeField] private bool canNotPlay;
+        [FoldoutGroup("數值參數")]
+        [SerializeField] private bool exhaustIfNotPlay;
         
         [FoldoutGroup("卡牌特效")]
         [ValueDropdown("GetAssets")]
@@ -79,6 +83,9 @@ namespace NueGames.Data.Collection
 
         public GameObject FxGo => fxGo;
         public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
+        public bool CanNotPlay => canNotPlay;
+        public bool ExhaustIfNotPlay => exhaustAfterPlay;
+        
         public bool UseDefaultAttackFeedback => useDefaultAttackFeedback;
         public bool UseCustomFeedback
         {

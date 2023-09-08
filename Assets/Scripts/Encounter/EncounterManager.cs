@@ -56,6 +56,8 @@ namespace NueGames.Encounter
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            
+            SaveManager.Instance.SaveGame();
         }
 
         private void EnterCampFire()

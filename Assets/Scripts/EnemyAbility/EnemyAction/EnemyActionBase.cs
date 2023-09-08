@@ -17,8 +17,8 @@ namespace EnemyAbility.EnemyAction
 
 
         protected EnemyBase _enemy;
-        protected EnemyAbility _ability;
-        protected EnemySkill _skill;
+        protected EnemyAbility Ability;
+        protected EnemySkill Skill;
         protected List<CharacterBase> TargetList;
 
         /// <summary>
@@ -27,8 +27,8 @@ namespace EnemyAbility.EnemyAction
         public void SetValue(EnemyBase enemy, EnemySkill enemySkill, List<CharacterBase> targetList)
         {
             _enemy = enemy;
-            _ability = enemy.GetAbility();
-            _skill = enemySkill;
+            Ability = enemy.GetAbility();
+            Skill = enemySkill;
             TargetList = targetList;
         }
 
@@ -56,17 +56,17 @@ namespace EnemyAbility.EnemyAction
         protected void DoFXAction()
         {
             GameActionExecutor.AddToBottom(new FXAction(
-                new FxInfo(_skill.FxGo, _skill.FxSpawnPosition)
+                new FxInfo(Skill.FxGo, Skill.FxSpawnPosition)
                 , TargetList));
 
-            if (_skill.UseDefaultAttackFeedback)
+            if (Skill.UseDefaultAttackFeedback)
             {
                 _enemy.PlayDefaultAttackFeedback();
             }
 
-            if (_skill.UseCustomFeedback)
+            if (Skill.UseCustomFeedback)
             {
-                _enemy.PlayFeedback(_skill.CustomFeedbackKey);
+                _enemy.PlayFeedback(Skill.CustomFeedbackKey);
             }
         }
 

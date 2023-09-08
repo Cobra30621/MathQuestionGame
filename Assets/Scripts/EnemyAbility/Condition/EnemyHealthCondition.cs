@@ -12,14 +12,21 @@ namespace EnemyAbility
         [Range(0f,1f)]
         [SerializeField] private float healthPercentage;
         
-        private float variableToCompare;
-        private float valueToCompare;
-        
+        public override ConditionBase GetCopy()
+        {
+            return new EnemyHealthCondition()
+            {
+                condition = condition,
+                healthPercentage = healthPercentage,
+                enemy = enemy
+            };
+        }
+
         public override bool Judge()
         {
             Debug.Log($"Enemy {enemy}");
-            variableToCompare = enemy.GetHealth();
-            valueToCompare = healthPercentage * enemy.GetMaxHealth();
+            float variableToCompare = enemy.GetHealth();
+            float valueToCompare = healthPercentage * enemy.GetMaxHealth();
             
             switch (condition)
             {
