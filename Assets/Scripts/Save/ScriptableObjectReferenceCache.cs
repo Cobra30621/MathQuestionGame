@@ -36,10 +36,10 @@ public class ScriptableObjectReferenceCache : SerializedScriptableObject, IExter
     {
         if (IsInitialized) return;
         
-// #if UNITY_EDITOR
-//         if(autoFetchInPlaymode)
-//             FetchReferences();
-// #endif
+#if UNITY_EDITOR
+        if(autoFetchInPlaymode)
+            FetchReferences();
+#endif
 
         guidToSoDict = new Dictionary<string, ScriptableObject>();
         soToGuidDict = new Dictionary<ScriptableObject, string>();

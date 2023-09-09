@@ -11,7 +11,7 @@ namespace NueGames.Data.Collection
         [SerializeField] private string deckId;
         [SerializeField] private string deckName;
         
-        [ValueDropdown("GetAssets", IsUniqueList = true)]
+        [ValueDropdown("GetAssets", IsUniqueList = false)]
         [InlineEditor]
         [SerializeField] private List<CardData> cardList;
         public List<CardData> CardList => cardList;
