@@ -61,21 +61,25 @@ namespace NueGames.Managers
                     SetCanvas(InformationCanvas, false, false);
                     SetCanvas(RewardCanvas, false, true);
                     SetCanvas(RelicCanvas, false, false);
-
                     break;
                 case "1- Map":
                     SetCanvas(CombatCanvas, false, true);
                     SetCanvas(InformationCanvas, true, false);
                     SetCanvas(RewardCanvas, false, true);
                     SetCanvas(RelicCanvas, true, true);
-
                     break;
                 case "2- Combat Scene":
                     SetCanvas(CombatCanvas, false, true);
                     SetCanvas(InformationCanvas, true, false);
                     SetCanvas(RewardCanvas, false, true);
                     SetCanvas(RelicCanvas, true, true);
-
+                    break;
+                case "3-CompleteMap":
+                case "4-Win":
+                    SetCanvas(CombatCanvas, false, true);
+                    SetCanvas(InformationCanvas, false, false);
+                    SetCanvas(RewardCanvas, false, true);
+                    SetCanvas(RelicCanvas, false, true);
                     break;
             }
         }

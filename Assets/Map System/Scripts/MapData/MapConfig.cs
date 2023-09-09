@@ -13,6 +13,7 @@ namespace Map
     [CreateAssetMenu(fileName = "MapConfig", menuName = "NueDeck/Map/MapConfig")]
     public class MapConfig : SerializedScriptableObject
     {
+        public string mapName;
         [Title("地圖層數設計")]
         [TableList(ShowIndexLabels = true)]
         public List<MapLayer> layers;

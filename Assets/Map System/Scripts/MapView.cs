@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 namespace Map
@@ -15,7 +16,7 @@ namespace Map
             LeftToRight
         }
 
-        public MapManager mapManager;
+        public MapManager mapManager => MapManager.Instance;
         public MapOrientation orientation;
 
         [Tooltip(
@@ -57,6 +58,7 @@ namespace Map
         protected readonly List<LineConnection> lineConnections = new List<LineConnection>();
 
         public static MapView Instance;
+        [SerializeField] private TextMeshProUGUI mapName;
 
         public Map Map { get; protected set; }
 
@@ -64,6 +66,8 @@ namespace Map
         {
             Instance = this;
             cam = Camera.main;
+
+            MapManager.Instance.showMap.AddListener(ShowMap);
         }
 
         protected virtual void ClearMap()
@@ -102,6 +106,8 @@ namespace Map
             SetLineColors();
 
             CreateMapBackground(m);
+            
+            SetMapName(m);
         }
 
         protected virtual void CreateMapBackground(Map m)
@@ -119,6 +125,11 @@ namespace Map
             sr.drawMode = SpriteDrawMode.Sliced;
             sr.sprite = background;
             sr.size = new Vector2(xSize, span + yOffset * 2f);
+        }
+
+        protected virtual void SetMapName(Map m)
+        {
+            mapName.text = $"{m.configName}";
         }
 
         protected virtual void CreateMapParent()

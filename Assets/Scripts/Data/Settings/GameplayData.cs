@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Map;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Characters;
@@ -46,6 +47,9 @@ namespace NueGames.Data.Settings
         [FoldoutGroup("玩家")]
         [PropertyTooltip("玩家初始遺物")]
         [SerializeField] private List<RelicName> initialRelic;
+
+        [FoldoutGroup("地圖")]
+        [SerializeField] private MapConfig[] _mapConfigs;
         
         #region Encapsulation
         public int DrawCount => drawCount;
@@ -56,6 +60,7 @@ namespace NueGames.Data.Settings
         public int MaxCardOnHand => maxCardOnHand;
         public CardBase CardPrefab => cardPrefab;
         public List<RelicName> InitialRelic => initialRelic;
+        public MapConfig[] MapConfigs => _mapConfigs;
 
         #endregion
     }

@@ -21,6 +21,10 @@ namespace Data
         /// </summary>
         public MapEncounter MapEncounter;
         /// <summary>
+        /// 現在在第幾個地圖
+        /// </summary>
+        public int CurrentMapIndex;
+        /// <summary>
         /// 問題設定
         /// </summary>
         public QuestionSetting QuestionSetting;

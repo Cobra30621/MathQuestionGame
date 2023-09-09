@@ -28,6 +28,16 @@ namespace NueGames.Utils
         {
             StartCoroutine(DelaySceneChange(SceneType.Combat));
         }
+
+        public void OpenCompleteMapScene()
+        {
+            StartCoroutine(DelaySceneChange(SceneType.CompleteMap));
+        }
+
+        public void OpenWinMapScene()
+        {
+            StartCoroutine(DelaySceneChange(SceneType.Win));
+        }
         
         private IEnumerator DelaySceneChange(SceneType type)
         {

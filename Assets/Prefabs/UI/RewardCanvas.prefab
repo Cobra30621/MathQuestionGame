@@ -721,10 +721,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6913786397352984962}
-        m_TargetAssemblyTypeName: NueDeck.Scripts.Utils.SceneChanger, Assembly-CSharp
-        m_MethodName: OpenMapScene
-        m_Mode: 1
+      - m_Target: {fileID: 3942680032353351596}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -772,6 +772,7 @@ GameObject:
   - component: {fileID: 1960091423992165413}
   - component: {fileID: 528851263815729151}
   - component: {fileID: 5160966767101886050}
+  - component: {fileID: 1887347665638486300}
   m_Layer: 0
   m_Name: NextButton
   m_TagString: Untagged
@@ -882,9 +883,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5160966767101886050}
-        m_TargetAssemblyTypeName: NueDeck.Scripts.Utils.SceneChanger, Assembly-CSharp
-        m_MethodName: OpenMapScene
+      - m_Target: {fileID: 1887347665638486300}
+        m_TargetAssemblyTypeName: NueGames.Encounter.LeaveBattleButton, Assembly-CSharp
+        m_MethodName: LeaveBattle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -919,6 +920,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7e3f294a7c2c44eb6cffeb9f94b306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1887347665638486300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5904982284142632224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7306d716cb79412f83f28ab490cd9a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
 --- !u!1 &6622826289790236740
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,9 @@ namespace NueGames.Utils
     {
         MainMenu,
         Map,
-        Combat
+        Combat,
+        CompleteMap,
+        Win
     }
     
 }

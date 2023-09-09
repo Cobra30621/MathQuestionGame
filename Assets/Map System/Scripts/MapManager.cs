@@ -3,60 +3,75 @@ using Data;
 using UnityEngine;
 using Newtonsoft.Json;
 using NueGames.Encounter;
+using NueGames.Managers;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Sirenix.Utilities;
+using UnityEngine.Events;
 
 namespace Map
 {
-    public class MapManager : SerializedMonoBehaviour, IDataPersistence
+    public class MapManager : Singleton<MapManager>
     {
-        [InlineEditor()]
-        public MapConfig config;
-        public MapView view;
-        public EncounterManager encounterManager;
-
+        [ReadOnly]
+        [SerializeField] private MapConfig[] maps;
+        private int CurrentMapIndex => GameManager.Instance.CurrentMapIndex;
+        
         public Map CurrentMap;
 
+        public UnityEvent<Map> showMap;
+
+        public bool needInitializedMap;
+        
+
+        public void Initialized(MapConfig[] maps)
+        {
+            this.maps = maps;
+            GameManager.Instance.ResetCurrentMapIndex();
+            needInitializedMap = true;
+        }
+
+        public void InitializedMap()
+        {
+            Debug.Log("InitializedMap()");
+            GenerateNewMap();
+            needInitializedMap = false;
+        }
+        
+        [Button]
         public void GenerateNewMap()
         {
-            var map = MapGenerator.GetMap(config);
+            if(CurrentMapIndex < 0 || CurrentMapIndex >= maps.Length) {
+                Debug.LogError($"{new System.ArgumentOutOfRangeException(nameof(CurrentMapIndex))}");
+                return;
+            }
+            
+            var mapConfig = maps[CurrentMapIndex];
+            var map = MapGenerator.GetMap(mapConfig);
             CurrentMap = map;
             Debug.Log(map.ToJson());
 
-            encounterManager.GenerateNewMapEncounter(config.encounterStage);
-            view.ShowMap(map);
+            EncounterManager.Instance.GenerateNewMapEncounter(mapConfig.encounterStage);
+            showMap.Invoke(map);
         }
 
-        public void LoadData(GameData data)
+       
+        
+        
+        [Button]
+        public bool IsLastRoom()
         {
-            if (data.MapJson.IsNullOrWhitespace())
-            {
-                GenerateNewMap();
-            }
-            else
-            {
-                CurrentMap = JsonConvert.DeserializeObject<Map>(data.MapJson, 
-                    new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
-                if (CurrentMap.path.Any(p => p.Equals(CurrentMap.GetBossNode().point)))
-                {
-                    // payer has already reached the boss, generate a new map
-                    GenerateNewMap();
-                }
-                else
-                {
-                    // player has not reached the boss yet, load the current map
-                    view.ShowMap(CurrentMap);
-                }
-            }
+            var lastRoom = CurrentMap.path.Any(p => p.Equals(CurrentMap.GetBossNode().point));
+            Debug.Log($"lastRoom{lastRoom}");
+            return lastRoom;
         }
 
-        public void SaveData(GameData data)
+        [Button]
+        public bool IsLastMap()
         {
-            var json = JsonConvert.SerializeObject(CurrentMap, Formatting.Indented,
-                new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
-            
-            data.MapJson = json;
+            var lastMap = CurrentMapIndex == maps.Length - 1;
+            Debug.Log($"lastMap{lastMap}");
+            return lastMap;
         }
     }
 }

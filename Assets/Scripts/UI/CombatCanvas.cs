@@ -18,22 +18,18 @@ namespace NueGames.UI
         [SerializeField] private TextMeshProUGUI manaTextTextField;
         
         [Header("Panels")]
-        [SerializeField] private GameObject combatWinPanel;
         [SerializeField] private GameObject combatLosePanel;
 
         [Header("FeedBack")] 
         [SerializeField] private IFeedback onMathManaChangeFeedback;
 
         [SerializeField] private IFeedback onManaChangeFeedback;
- 
-        public GameObject CombatWinPanel => combatWinPanel;
         public GameObject CombatLosePanel => combatLosePanel;
 
 
         #region Setup
         private void Awake()
         {
-            CombatWinPanel.SetActive(false);
             CombatLosePanel.SetActive(false);
             
         }
@@ -80,7 +76,6 @@ namespace NueGames.UI
         public override void ResetCanvas()
         {
             base.ResetCanvas();
-            CombatWinPanel.SetActive(false);
             CombatLosePanel.SetActive(false);
         }
 

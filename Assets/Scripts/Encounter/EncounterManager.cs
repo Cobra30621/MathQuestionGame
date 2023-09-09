@@ -21,12 +21,15 @@ namespace NueGames.Encounter
         public MapEncounter mapEncounter;
 
         public SceneChanger sceneChanger;
-        
+
+        private bool needGenerateNewMapEncounter;
+        private EncounterStage _encounterStage;
         
         public void GenerateNewMapEncounter(EncounterStage stage)
         {
-            mapEncounter = new MapEncounter();
-            mapEncounter.GeneratorStageData(stage);
+            needGenerateNewMapEncounter = true;
+            _encounterStage = stage;
+            
         }
 
         #region Enter Room
@@ -56,6 +59,7 @@ namespace NueGames.Encounter
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            Debug.Log($"EnterNode {nodeType}");
             
             SaveManager.Instance.SaveGame();
         }
@@ -107,6 +111,14 @@ namespace NueGames.Encounter
 
         public void LoadData(GameData data)
         {
+            if (needGenerateNewMapEncounter)
+            {
+                mapEncounter = new MapEncounter();
+                mapEncounter.GeneratorStageData(_encounterStage);
+                needGenerateNewMapEncounter = false;
+                return;
+            }
+            
             mapEncounter = data.MapEncounter;
         }
 

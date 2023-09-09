@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -778,6 +778,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2388636854935074172}
     m_Modifications:
+    - target: {fileID: 453108967529844751, guid: ffd67f0562e69264b8c1b92677886e9f, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 453108967529844751, guid: ffd67f0562e69264b8c1b92677886e9f, type: 3}
     - target: {fileID: 1348999898596760135, guid: ffd67f0562e69264b8c1b92677886e9f, type: 3}
       propertyPath: m_BlockingMask.m_Bits
       value: 55
@@ -866,10 +870,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1887347665638486300, guid: ffd67f0562e69264b8c1b92677886e9f, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 1887347665638486300, guid: ffd67f0562e69264b8c1b92677886e9f, type: 3}
     - target: {fileID: 3898378851536909489, guid: ffd67f0562e69264b8c1b92677886e9f, type: 3}
       propertyPath: choiceCardUIPrefab
       value: 
       objectReference: {fileID: 1578089549520129830, guid: bb6c303568dc346b8a7bb3c00e6b21fc, type: 3}
+    - target: {fileID: 3942680032353351596, guid: ffd67f0562e69264b8c1b92677886e9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7733704880889306847, guid: ffd67f0562e69264b8c1b92677886e9f, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -907,6 +919,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2388636854935074172}
     m_Modifications:
+    - target: {fileID: 643153608213486218, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 973998050907216772, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1208855678951845582, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -914,10 +934,10 @@ PrefabInstance:
     - target: {fileID: 2356518916475114016, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2356518916475114016, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
     - target: {fileID: 2356518916475114016, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: serializationData.SerializedFormat
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3016247209875197677, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: m_Sprite
@@ -1037,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6447349071978735998, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8630211603250925542, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: m_IsActive
@@ -1345,7 +1365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 852821489812356341, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1089707494249811275, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
       propertyPath: m_Pivot.x
@@ -1461,11 +1481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656575557257933270, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8656575557257933270, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}

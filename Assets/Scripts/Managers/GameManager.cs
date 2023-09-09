@@ -40,6 +40,11 @@ namespace NueGames.Managers
         public EnemyEncounter CurrentEnemyEncounter;
 
         public bool CanSelectCards;
+
+        [Title("Map")]
+        [SerializeField] private int currentMapIndex;
+
+        public int CurrentMapIndex => currentMapIndex;
         
         #endregion
         
@@ -101,6 +106,9 @@ namespace NueGames.Managers
             
             UIManager.Instance.RewardCanvas.SetCardReward(gameplayData.CardRewardData);
 
+            currentMapIndex = 0;
+
+            MapManager.Instance.Initialized(gameplayData.MapConfigs);
             QuestionManager.Instance.GenerateQuestions();
         }
 
@@ -148,6 +156,16 @@ namespace NueGames.Managers
         private void SetRelicList(List<RelicName> relicNames)
         {
             RelicManager.Instance.GainRelic(relicNames);
+        }
+
+        public void ResetCurrentMapIndex()
+        {
+            currentMapIndex = 0;
+        }
+        
+        public void AddCurrentMapIndex()
+        {
+            currentMapIndex++;
         }
         #endregion
 

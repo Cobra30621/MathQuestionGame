@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using DG.Tweening;
+using NueGames.Encounter;
 using UnityEngine;
 
 namespace Map
@@ -9,7 +10,7 @@ namespace Map
     {
         public bool lockAfterSelecting = false;
         public float enterNodeDelay = 1f;
-        public MapManager mapManager;
+        public MapManager mapManager=> MapManager.Instance;
         public MapView view;
 
         public static MapPlayerTracker Instance;
@@ -67,7 +68,7 @@ namespace Map
             // or show appropriate GUI over the map: 
             // if you choose to show GUI in some of these cases, do not forget to set "Locked" in MapPlayerTracker back to false
             
-            mapManager.encounterManager.EnterNode(mapNode.Node.nodeType);
+            EncounterManager.Instance.EnterNode(mapNode.Node.nodeType);
         }
 
         private void PlayWarningThatNodeCannotBeAccessed()

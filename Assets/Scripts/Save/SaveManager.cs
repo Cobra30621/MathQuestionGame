@@ -91,6 +91,7 @@ public class SaveManager : Singleton<SaveManager>
         // pass the Skill to other scripts so they can update it
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) 
         { 
+            // Debug.Log($"dataPersistenceObj {dataPersistenceObj}");
             dataPersistenceObj.SaveData(_gameData);
         }
 
