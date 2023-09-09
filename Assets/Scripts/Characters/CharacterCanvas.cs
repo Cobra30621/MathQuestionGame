@@ -35,7 +35,6 @@ namespace NueGames.Characters
         protected Canvas TargetCanvas;
         
         protected FxManager FxManager => FxManager.Instance;
-        protected AudioManager AudioManager => AudioManager.Instance;
         protected GameManager GameManager => GameManager.Instance;
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;

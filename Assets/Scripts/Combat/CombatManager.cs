@@ -81,7 +81,6 @@ namespace NueGames.Combat
         
         private CombatStateType _currentCombatStateType;
         protected FxManager FxManager => FxManager.Instance;
-        protected AudioManager AudioManager => AudioManager.Instance;
         protected GameManager GameManager => GameManager.Instance;
         protected UIManager UIManager => UIManager.Instance;
 

@@ -72,7 +72,6 @@ namespace NueGames.Characters
             CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
            
             CombatManager.OnEnemyDeath(this);
-            AudioManager.PlayOneShot(DeathSoundProfileData.GetRandomClip());
             Destroy(gameObject);
         }
         #endregion
