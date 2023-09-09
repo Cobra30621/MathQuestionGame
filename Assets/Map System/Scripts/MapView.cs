@@ -67,7 +67,7 @@ namespace Map
             Instance = this;
             cam = Camera.main;
 
-            MapManager.Instance.showMap.AddListener(ShowMap);
+            MapManager.Instance.showMapEvent.AddListener(ShowMap);
         }
 
         protected virtual void ClearMap()

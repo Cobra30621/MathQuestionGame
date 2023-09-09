@@ -111,6 +111,7 @@ namespace NueGames.Encounter
 
         public void LoadData(GameData data)
         {
+            // 如果需要生成新的敵人資料，便生成
             if (needGenerateNewMapEncounter)
             {
                 mapEncounter = new MapEncounter();

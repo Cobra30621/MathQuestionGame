@@ -6,13 +6,16 @@ using UnityEngine;
 
 namespace Map
 {
+    /// <summary>
+    /// 負責儲存地圖資料
+    /// </summary>
     public class MapSaver : SerializedMonoBehaviour, IDataPersistence
     {
         private MapManager _manager => MapManager.Instance;
         
-        
         public void LoadData(GameData data)
         {
+            // 如果需要初始化（開新的遊戲），便建立新的地圖
             if (_manager.needInitializedMap)
             {
                 _manager.InitializedMap();
@@ -21,16 +24,15 @@ namespace Map
             
             _manager.CurrentMap = JsonConvert.DeserializeObject<Map>(data.MapJson, 
                 new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
+            // 為本地圖的最後房間，換下一張地圖後，產生新地圖
             if (_manager.IsLastRoom())
             {
-                // payer has already reached the boss, generate a new map
-                GameManager.Instance.AddCurrentMapIndex();
-                _manager.GenerateNewMap();
+                _manager.GenerateNextMap();
             }
             else
             {
-                // player has not reached the boss yet, load the current map
-                _manager.showMap.Invoke(_manager.CurrentMap);
+                // 請 UI 顯示地圖資料
+                _manager.showMapEvent.Invoke(_manager.CurrentMap);
             }
         }
         
