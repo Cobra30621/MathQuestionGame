@@ -29,7 +29,7 @@ MonoBehaviour:
       Data: 1
     - Name: powerName
       Entry: 3
-      Data: 4
+      Data: 22
     - Name: 
       Entry: 8
       Data: 
@@ -39,6 +39,8 @@ MonoBehaviour:
   actionTargetType: 0
   manaCost: 1
   exhaustAfterPlay: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
   fxGo: {fileID: 5403046535671323747, guid: 58987db4057af416da36d5e3e8f7683d, type: 3}
   fxSpawnPosition: 0
   useDefaultAttackFeedback: 0

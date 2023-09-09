@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Action.Parameters;
@@ -122,11 +123,17 @@ namespace NueGames.Managers
         /// </summary>
         private void DoCurrentAction()
         {
-            _currentAction.DoAction();
-            
-            
-            Debug.Log($"Do action {_currentAction.GetType()} : {_currentAction}");
             actionIsDone = false;
+            try
+            {
+                Debug.Log($"Do action {_currentAction.GetType()} : {_currentAction}");
+                _currentAction.DoAction();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Do Action {_currentAction.GetType()} Fail.\n Error {e}");
+            }
+            
             StartCoroutine(DoActionRoutine(_currentAction.ActionDelay));
         }
 
