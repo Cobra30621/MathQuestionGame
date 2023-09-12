@@ -13,7 +13,6 @@ namespace NueGames.Managers
     {
         public CollectionManager(){}
       
-        public static CollectionManager Instance { get; private set; }
 
         [Header("Controllers")] 
         [SerializeField] private HandController handController;
@@ -38,18 +37,9 @@ namespace NueGames.Managers
         #endregion
        
         #region Setup
-        private void Awake()
+        protected override void DoAtAwake()
         {
             SetupPileDict();
-            if (Instance)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            else
-            {
-                Instance = this;
-            }
         }
 
         /// <summary>
