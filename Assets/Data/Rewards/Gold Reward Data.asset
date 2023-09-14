@@ -12,7 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b334db8796c452484543bb144328230, type: 3}
   m_Name: Gold Reward Data
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   rewardSprite: {fileID: 4322673043527013044, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
-  rewardDescription: Earn some gold
+  rewardDescription: "\u91D1\u5E63"
   minGold: 10
   maxGold: 100

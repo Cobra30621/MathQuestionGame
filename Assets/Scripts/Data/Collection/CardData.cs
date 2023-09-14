@@ -45,8 +45,6 @@ namespace NueGames.Data.Collection
         [ValueDropdown("GetAssets")]
         [SerializeField] private GameObject fxGo;
 
-        [ReadOnly]
-        [SerializeField] private GameObject fxShow => fxGo;
         [FoldoutGroup("卡牌特效")]
         [SerializeField] private FxSpawnPosition fxSpawnPosition;
 
@@ -69,6 +67,7 @@ namespace NueGames.Data.Collection
         [FoldoutGroup("卡牌顯示")]
         [TextArea(4, 10)] [SerializeField] private string description;
 
+        [FoldoutGroup("顯示提示字")]
         private List<SpecialKeywords> specialKeywordsList;
 
 
