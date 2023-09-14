@@ -26,7 +26,7 @@ namespace NueGames.Managers
         [InlineEditor()]
         [SerializeField] private GameplayData gameplayData;
 
-
+        
         #region Cache
         public GameplayData GameplayData => gameplayData;
         
@@ -44,7 +44,7 @@ namespace NueGames.Managers
         
         #endregion
         
-
+        
         #region Save, Load Data
 
         public void LoadData(GameData data)

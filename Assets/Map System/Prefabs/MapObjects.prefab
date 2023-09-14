@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 38306197627197040}
   m_RootOrder: 2
@@ -43,9 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41edfa9cd46e12b4389c9a79ec3ae0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockAfterSelecting: 0
+  lockAfterSelecting: 1
   enterNodeDelay: 1
-  mapManager: {fileID: 5337413451174954175}
   view: {fileID: 5337413451386887161}
 --- !u!1 &5337413451174954174
 GameObject:
@@ -74,6 +74,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 38306197627197040}
   m_RootOrder: 1
@@ -90,8 +91,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37f4ff1d9fdcca4ea7c9bab9e16f0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 19bf411c79e522b4b8e54f82b0140314, type: 2}
-  view: {fileID: 5337413451386887161}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _maps: []
+  CurrentMap:
+    nodes: []
+    path: []
+    bossNodeName: 
+    configName: 
+    mapName: 
+  showMapEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  needInitializedMap: 0
 --- !u!1 &5337413451386887166
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +138,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 38306197627197040}
   m_RootOrder: 0
@@ -135,12 +155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 283c6e244bb85494f804ab4653f4ce11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapManager: {fileID: 5337413451174954175}
   orientation: 3
   allMapConfigs:
   - {fileID: 11400000, guid: 19bf411c79e522b4b8e54f82b0140314, type: 2}
-  nodePrefab: {fileID: 6746199761131337685, guid: 621ccae6afb8e8949ba963674577578a,
-    type: 3}
+  nodePrefab: {fileID: 6746199761131337685, guid: 621ccae6afb8e8949ba963674577578a, type: 3}
   orientationOffset: -4
   background: {fileID: 21300000, guid: 154be9da94274494592f60439cfd560e, type: 3}
   backgroundColor:
@@ -148,8 +166,7 @@ MonoBehaviour:
     rgba: 4294967295
   xSize: 11.5
   yOffset: 2
-  linePrefab: {fileID: 5857439060437771865, guid: 71ba31cc6fc8c2748afbb475b9f1307a,
-    type: 3}
+  linePrefab: {fileID: 5857439060437771865, guid: 71ba31cc6fc8c2748afbb475b9f1307a, type: 3}
   linePointsCount: 10
   offsetFromNodes: 0.5
   visitedColor:
@@ -164,6 +181,7 @@ MonoBehaviour:
   lineLockedColor:
     serializedVersion: 2
     rgba: 4281216558
+  mapName: {fileID: 0}
 --- !u!1 &6173653652465991376
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +208,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5337413451386887160}
   - {fileID: 5337413451174954168}

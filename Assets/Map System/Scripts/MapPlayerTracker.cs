@@ -8,7 +8,7 @@ namespace Map
 {
     public class MapPlayerTracker : MonoBehaviour
     {
-        public bool lockAfterSelecting = false;
+        public bool lockAfterSelecting = true;
         public float enterNodeDelay = 1f;
         public MapManager mapManager=> MapManager.Instance;
         public MapView view;
@@ -20,6 +20,11 @@ namespace Map
         private void Awake()
         {
             Instance = this;
+        }
+
+        public void UnLockNode()
+        {
+            Locked = false;
         }
 
         public void SelectNode(MapNode mapNode)

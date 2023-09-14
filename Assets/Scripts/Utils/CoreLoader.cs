@@ -12,7 +12,7 @@ namespace NueGames.Utils
         {
             try
             {
-                if (!GameManager.Instance)
+                if (!GameManager.HasInstance())
                     SceneManager.LoadScene("NueCore", LoadSceneMode.Additive);
                 Destroy(gameObject);
             }

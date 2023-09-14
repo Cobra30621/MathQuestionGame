@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NueGames.Managers;
 using TMPro;
 using UnityEngine;
 
@@ -58,7 +59,6 @@ namespace Map
         protected readonly List<LineConnection> lineConnections = new List<LineConnection>();
 
         public static MapView Instance;
-        [SerializeField] private TextMeshProUGUI mapName;
 
         public Map Map { get; protected set; }
 
@@ -129,7 +129,7 @@ namespace Map
 
         protected virtual void SetMapName(Map m)
         {
-            mapName.text = $"{m.configName}";
+            UIManager.Instance.InformationCanvas.SetRoomText($"{m.configName}");
         }
 
         protected virtual void CreateMapParent()

@@ -89,6 +89,7 @@ namespace NueGames.Characters
         {
             if (_currentSkill.GetIntentionValue(out int value))
             {
+                Debug.Log($"Enemy Canvas{EnemyCanvas}");
                 EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
                 EnemyCanvas.NextActionValueText.text = $"{value}";
             }

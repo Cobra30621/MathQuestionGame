@@ -57,14 +57,14 @@ namespace NueGames.UI
         public override void OpenCanvas()
         {
             base.OpenCanvas();
-            if (CollectionManager)
+            if (CollectionManager.HasInstance())
                 CollectionManager.HandController.DisableDragging();
         }
 
         public override void CloseCanvas()
         {
             base.CloseCanvas();
-            if (CollectionManager)
+            if (CollectionManager.HasInstance())
                 CollectionManager.HandController.EnableDragging();
         }
 

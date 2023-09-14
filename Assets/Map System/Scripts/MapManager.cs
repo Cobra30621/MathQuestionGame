@@ -19,6 +19,7 @@ namespace Map
 
         public bool needInitializedMap;
 
+
         // 初始化地圖管理器，設定地圖配置數組
         public void Initialized(MapConfig[] maps)
         {

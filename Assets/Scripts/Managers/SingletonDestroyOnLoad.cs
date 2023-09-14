@@ -51,4 +51,9 @@ public abstract class SingletonDestroyOnLoad<T> : SerializedMonoBehaviour where 
     {
         // Implement any specific behavior at Awake if needed.
     }
+    
+    public static bool HasInstance()
+    {
+        return instance != null;
+    }
 }

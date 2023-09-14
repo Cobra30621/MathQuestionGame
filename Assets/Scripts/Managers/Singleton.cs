@@ -57,4 +57,9 @@ public abstract class Singleton<T> : SerializedMonoBehaviour where T : Serialize
     {
         // Implement any specific behavior at Awake if needed.
     }
+
+    public static bool HasInstance()
+    {
+        return instance != null;
+    }
 }

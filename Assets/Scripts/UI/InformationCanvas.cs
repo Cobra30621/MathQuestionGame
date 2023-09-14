@@ -26,8 +26,8 @@ namespace NueGames.UI
         #endregion
         
         #region Public Methods
-        public void SetRoomText(int roomNumber,bool useStage = false, int stageNumber = -1) => 
-            RoomTextField.text = useStage ? $"Room {stageNumber}/{roomNumber}" : $"Room {roomNumber}";
+        public void SetRoomText(string mapName) => 
+            RoomTextField.text = $"{mapName}";
 
         public void SetGoldText(int value)=>GoldTextField.text = $"{value}";
 
@@ -44,7 +44,8 @@ namespace NueGames.UI
             
             SetHealthText(GameManager.PlayerData.AllyHealthData.CurrentHealth,
                 GameManager.PlayerData.AllyHealthData.MaxHealth);
-            UIManager.InformationCanvas.SetGoldText(GameManager.PlayerData.CurrentGold);
+            SetGoldText(GameManager.PlayerData.CurrentGold);
+            SetNameText(GameManager.MainAllyData.CharacterName);
         }
         #endregion
         
