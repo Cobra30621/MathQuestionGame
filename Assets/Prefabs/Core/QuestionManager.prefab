@@ -2223,7 +2223,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2324826957799525115}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
   m_Name: 
@@ -2298,6 +2298,7 @@ MonoBehaviour:
         m_Calls: []
   DebugActive: 0
   FeedbacksList:
+  - rid: 4322679627597479952
   - rid: 7392774806525444112
   - rid: 4322679458501492761
   - rid: 4322679458501492770
@@ -2469,7 +2470,7 @@ MonoBehaviour:
         AllowAdditivePlays: 0
         DisableOnStop: 0
         OnlyPlayIfTargetIsActive: 0
-        TargetTMPText: {fileID: 0}
+        TargetTMPText: {fileID: 5303506621261761849}
         FontSizeCurve:
           MMTweenDefinitionType: 1
           MMTweenCurve: 4
@@ -2510,6 +2511,76 @@ MonoBehaviour:
         RemapZero: -10
         RemapOne: 20
         InstantFontSize: 0
+    - rid: 4322679627597479952
+      type: {class: MMF_TMPText, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks.TextMeshPro}
+      data:
+        Active: 1
+        UniqueID: -1341301690
+        Label: TMP Text
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        Owner: {fileID: 782514471000418405}
+        DebugActive: 0
+        TargetTMPText: {fileID: 5303506621261761849}
+        NewText: "\u6B63\u78BA"
     - rid: 7392774806525444104
       type: {class: MMF_ImageAlpha, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks.MMTools}
       data:
@@ -2864,7 +2935,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 782514471000418405}
         DebugActive: 0
-        TargetTMPText: {fileID: 0}
+        TargetTMPText: {fileID: 5303506621261761849}
         AlphaMode: 1
         Duration: 0.2
         InstantAlpha: 1
@@ -2968,7 +3039,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 782514471000418405}
         DebugActive: 0
-        TargetTMPText: {fileID: 0}
+        TargetTMPText: {fileID: 5303506621261761849}
         AlphaMode: 1
         Duration: 0.05
         InstantAlpha: 1
@@ -3353,7 +3424,7 @@ MonoBehaviour:
   mainPanel: {fileID: 3528570657698693409}
 --- !u!95 &7805969782776372664
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3370,7 +3441,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3528570657698693409
 GameObject:
   m_ObjectHideFlags: 0
@@ -5475,7 +5547,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5820428798044470067}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
   m_Name: 
@@ -5715,7 +5787,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 4422231502059460395}
         DebugActive: 0
-        TargetTMPText: {fileID: 0}
+        TargetTMPText: {fileID: 5303506621261761849}
         NewText: "\u932F\u8AA4"
     - rid: 4322679458501492770
       type: {class: MMF_TMPFontSize, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks.TextMeshPro}
@@ -5792,7 +5864,7 @@ MonoBehaviour:
         AllowAdditivePlays: 0
         DisableOnStop: 0
         OnlyPlayIfTargetIsActive: 0
-        TargetTMPText: {fileID: 0}
+        TargetTMPText: {fileID: 5303506621261761849}
         FontSizeCurve:
           MMTweenDefinitionType: 1
           MMTweenCurve: 4
@@ -6187,7 +6259,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 4422231502059460395}
         DebugActive: 0
-        TargetTMPText: {fileID: 0}
+        TargetTMPText: {fileID: 5303506621261761849}
         AlphaMode: 1
         Duration: 0.2
         InstantAlpha: 1
@@ -6291,7 +6363,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 4422231502059460395}
         DebugActive: 0
-        TargetTMPText: {fileID: 0}
+        TargetTMPText: {fileID: 5303506621261761849}
         AlphaMode: 1
         Duration: 0.05
         InstantAlpha: 1
@@ -7136,7 +7208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u6B63\u78BA"
+  m_text: "\u932F\u8AA4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98d46c4683ea0234ebf11bbd86f9a823, type: 2}
   m_sharedMaterial: {fileID: -5983068599249183672, guid: 98d46c4683ea0234ebf11bbd86f9a823, type: 2}
@@ -7145,8 +7217,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 0
-  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
+    rgba: 3338665984
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0.7810404}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7163,8 +7235,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
-  m_fontSizeBase: 200
+  m_fontSize: 212.83481
+  m_fontSizeBase: 212.83481
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -464,8 +464,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 5, y: 5}
-  m_SizeDelta: {x: 37.5, y: 37.5}
+  m_AnchoredPosition: {x: 17.0613, y: 14.8683}
+  m_SizeDelta: {x: 61.6226, y: 57.2366}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &867513523689228484
 CanvasRenderer:
@@ -544,8 +544,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -75, y: 262}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -80.82727, y: 269.5}
+  m_SizeDelta: {x: 111.6545, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3520390445455457991
 CanvasRenderer:
@@ -950,7 +950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -13.6, y: 8.3}
+  m_AnchoredPosition: {x: -15, y: 32}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1876198588788948729
@@ -1314,8 +1314,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 956d4f225049cd24d8615ca52e47f520, type: 2}
+  m_sharedMaterial: {fileID: 273317408543663707, guid: 956d4f225049cd24d8615ca52e47f520, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1339,7 +1339,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.6
+  m_fontSize: 32.6
   m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2842,7 +2842,6 @@ MonoBehaviour:
   discardPileTextField: {fileID: 1672331920338653766}
   exhaustPileTextField: {fileID: 8145780709065603063}
   manaTextTextField: {fileID: 9048364840229743796}
-  combatWinPanel: {fileID: 0}
   combatLosePanel: {fileID: 973998050907216772}
   onMathManaChangeFeedback: {fileID: 453132969290139634}
   onManaChangeFeedback: {fileID: 3220461667394726174}
@@ -3340,8 +3339,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -5677451655352235763, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
-    m_PressedSprite: {fileID: -1710845047738627229, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 40a70029e65b2407ebc2ee9e3b2bfb6e, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 40a70029e65b2407ebc2ee9e3b2bfb6e, type: 3}
     m_SelectedSprite: {fileID: -5677451655352235763, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
     m_DisabledSprite: {fileID: 8231418172065189440, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   m_AnimationTriggers:
