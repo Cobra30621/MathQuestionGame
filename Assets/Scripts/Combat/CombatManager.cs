@@ -416,6 +416,7 @@ namespace NueGames.Combat
 
         public void BuildEnemy(EnemyData enemyData)
         {
+            Debug.Log($"enemydata {enemyData}");
             var clone = Instantiate(enemyData.EnemyPrefab, GetEnemyPos());
             clone.SetEnemyData(enemyData);
             clone.BuildCharacter();
@@ -425,7 +426,6 @@ namespace NueGames.Combat
 
         private Transform GetEnemyPos()
         {
-            Debug.Log($"EnemyPost {enemyPosList.Count} Enemy {Enemies.Count}");
             if (EnemyPosList.Count > Enemies.Count)
             {
                 return enemyPosList[Enemies.Count ];

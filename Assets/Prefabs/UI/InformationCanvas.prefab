@@ -170,8 +170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 64.34601, y: 0.000000953908}
-  m_SizeDelta: {x: 128.69202, y: 75}
+  m_AnchoredPosition: {x: 79.54907, y: 0.000000953908}
+  m_SizeDelta: {x: 159.0982, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7759957698981101294
 CanvasRenderer:
@@ -228,8 +228,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -400,8 +400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -150.7, y: 0.000012398}
-  m_SizeDelta: {x: 92.67102, y: 30.803}
+  m_AnchoredPosition: {x: -219.7474, y: -0.0001}
+  m_SizeDelta: {x: 254.8374, y: 59.9423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &373599440470181761
 CanvasRenderer:
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -688,7 +688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3df0112d3fb450e8fc0a3662d053b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomizedDeckObject: {fileID: 7710481754293286358}
   roomTextField: {fileID: 2627394894104042102}
   goldTextField: {fileID: 518337495935948590}
   nameTextField: {fileID: 5293955611471582949}
@@ -889,6 +888,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2340710150756601082}
+        m_TargetAssemblyTypeName: NueGames.Utils.SceneChanger, Assembly-CSharp
+        m_MethodName: SaveData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &420347503122436816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,7 +960,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 47.945, y: -11.3}
+  m_AnchoredPosition: {x: 47.944946, y: -11.299999}
   m_SizeDelta: {x: 95.891, y: 12.816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4764778476628963279

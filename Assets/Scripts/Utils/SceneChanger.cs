@@ -19,6 +19,11 @@ namespace NueGames.Utils
         {
             StartCoroutine(DelaySceneChange(SceneType.MainMenu));
         }
+
+        public void SaveGame()
+        {
+            SaveManager.Instance.SaveGame();
+        }
         
         public void OpenMapScene()
         {

@@ -48,7 +48,7 @@ namespace NueGames.CharacterAbility
 
         
         
-        [ContextMenu("Play Skill")]
+        [Button]
         public void PlaySkill()
         {
             if (EnablePlaySkill())
@@ -62,6 +62,12 @@ namespace NueGames.CharacterAbility
 
         #region Skill Count
 
+        [Button]
+        public void AddSkillCount()
+        {
+            AddSkillCount(1);
+        }
+        
         public bool EnablePlaySkill()
         {
             return skillCount > 0;
