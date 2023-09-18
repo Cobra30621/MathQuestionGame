@@ -2264,8 +2264,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5869213596930137934}
-        m_TargetAssemblyTypeName: NueGames.UI.CanvasBase, Assembly-CSharp
-        m_MethodName: CloseCanvas
+        m_TargetAssemblyTypeName: CampFire.CampFireCanvas, Assembly-CSharp
+        m_MethodName: Leave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2577,6 +2577,7 @@ GameObject:
   - component: {fileID: 8260870226904216364}
   - component: {fileID: 8133839998375231673}
   - component: {fileID: 5869213596930137934}
+  - component: {fileID: 4516328751188628578}
   m_Layer: 0
   m_Name: CampFireCanvas
   m_TagString: Untagged
@@ -2683,6 +2684,18 @@ MonoBehaviour:
   optionPanel: {fileID: 8110164035611099408}
   characterSkillLevelUpPanel: {fileID: 8110164036326898587}
   throwCardSelectPanel: {fileID: 8110164036783922500}
+--- !u!114 &4516328751188628578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671482143397110351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7e3f294a7c2c44eb6cffeb9f94b306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9097868473584144331
 GameObject:
   m_ObjectHideFlags: 0

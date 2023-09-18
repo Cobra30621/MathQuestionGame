@@ -13,45 +13,15 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SaveManager : Singleton<SaveManager>
 {
-    
-    [SerializeField] private List<string> needSaveDataScenes;
-    [SerializeField] private List<string> needLoadDataScenes;
-
     [ShowInInspector] private GameData _gameData;
     [ShowInInspector] [ReadOnly] private List<IDataPersistence> dataPersistenceObjects;
-    
 
-    private void OnEnable() 
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.sceneUnloaded += OnSceneUnloaded;
-    }
 
-    private void OnDisable() 
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneUnloaded -= OnSceneUnloaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
+    protected override void DoAtAwake()
     {
         dataPersistenceObjects = FindAllDataPersistenceObjects();
-        // Debug.Log($"Load scene {scene.name}, {needSaveDataScenes.Contains(scene.name)}");
-        if (needLoadDataScenes.Contains(scene.name))
-        {
-            LoadGame();
-        }
+        base.DoAtAwake();
     }
-
-    private void OnSceneUnloaded(Scene scene)
-    {
-        // Debug.Log($"Unload scene {scene.name}, {needSaveDataScenes.Contains(scene.name)}");
-        if (needSaveDataScenes.Contains(scene.name))
-        {
-            SaveGame();
-        }
-    }
-
     
     [Button]
     public void ClearGameData()
@@ -62,6 +32,7 @@ public class SaveManager : Singleton<SaveManager>
 
     public void LoadGame()
     {
+        dataPersistenceObjects = FindAllDataPersistenceObjects();
         // load any saved Skill from a file using the Skill handler
         // this._gameData = dataHandler.Load();
         this._gameData = ES3Handler.Load();
@@ -81,6 +52,7 @@ public class SaveManager : Singleton<SaveManager>
 
     public void SaveGame()
     {
+        dataPersistenceObjects = FindAllDataPersistenceObjects();
         // if we don't have any gameData to save, log a warning here
         if (this._gameData == null) 
         {

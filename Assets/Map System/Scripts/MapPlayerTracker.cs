@@ -15,21 +15,16 @@ namespace Map
 
         public static MapPlayerTracker Instance;
 
-        public bool Locked { get; set; }
 
         private void Awake()
         {
             Instance = this;
         }
 
-        public void UnLockNode()
-        {
-            Locked = false;
-        }
 
         public void SelectNode(MapNode mapNode)
         {
-            if (Locked) return;
+            if (mapManager.Locked) return;
 
             // Debug.Log("Selected node: " + mapNode.Node.point);
 
@@ -55,11 +50,12 @@ namespace Map
 
         private void SendPlayerToNode(MapNode mapNode)
         {
-            Locked = lockAfterSelecting;
-            mapManager.CurrentMap.path.Add(mapNode.Node.point);
+            mapManager.Locked = lockAfterSelecting;
+            mapManager.SelectedNode(mapNode);
             
-            view.SetAttainableNodes();
-            view.SetLineColors();
+            mapNode.SetState(NodeStates.Visited);
+            // view.SetAttainableNodes();
+            // view.SetLineColors();
             mapNode.ShowSwirlAnimation();
 
             DOTween.Sequence().AppendInterval(enterNodeDelay).OnComplete(() => EnterNode(mapNode));
