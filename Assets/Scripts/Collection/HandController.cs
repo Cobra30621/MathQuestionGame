@@ -48,27 +48,28 @@ namespace NueGames.Collection
         private Plane _plane; // world XY plane, used for mouse position raycasts
         private Vector3 _a, _b, _c; // Used for shaping hand into curve
        
-        private int _selected = -1; // Card index that is nearest to mouse
-        private int _dragged = -1; // Card index that is held by mouse (inside of hand)
+        [SerializeField] private int _selected = -1; // Card index that is nearest to mouse
+        [SerializeField] private int _dragged = -1; // Card index that is held by mouse (inside of hand)
         private CardBase _heldCard; // Card that is held by mouse (when outside of hand)
-        private Vector3 _heldCardOffset;
-        private Vector2 _heldCardTilt;
-        private Vector2 _force;
-        private Vector3 _mouseWorldPos;
-        private Vector2 _prevMousePos;
-        private Vector2 _mousePosDelta;
+        [SerializeField] private Vector3 _heldCardOffset;
+        [SerializeField] private Vector2 _heldCardTilt;
+        [SerializeField] private Vector2 _force;
+        [SerializeField] private Vector3 _mouseWorldPos;
+        [SerializeField] private Vector2 _prevMousePos;
+        [SerializeField]  private Vector2 _mousePosDelta;
 
         private Rect _handBounds;
-        private bool _mouseInsideHand;
+        [SerializeField] private bool _mouseInsideHand;
         
         private bool updateHierarchyOrder = false;
         private bool showDebugGizmos = true;
         
         private Camera _mainCam;
         
-        private int _usingSelectingEffectCardIndex = -1; 
-        private bool _isUsingSelectingEffectCard;
-        private bool _enemyIsBeingSelected;
+        [SerializeField] private int _usingSelectingEffectCardIndex = -1; 
+        [SerializeField] private bool _isUsingSelectingEffectCard;
+        [SerializeField] private bool _enemyIsBeingSelected;
+        [SerializeField] private Vector3 selectingEffectCardPos;
         
         public bool IsDraggingActive { get; private set; } = true;
 
@@ -196,12 +197,9 @@ namespace NueGames.Collection
                 var cardPos = p + (mouseHoveringOnSelected ? cardTransform.up * 0.3f : Vector3.zero);
                 var cardForward = Vector3.forward;
 
-                /* Card Tilt is disabled when in hand as they can clip through eachother :(
-                if (cardTilt && onSelectedCard && mouseButton) {
-                    cardForward -= new Vector3(heldCardOffset.x, heldCardOffset.y, 0);
-                }*/
+          
 
-                // Sorting Order // 當滑鼠移動到卡片時顯示
+                // Show Selected Card
                 if (mouseHoveringOnSelected || onDraggedCard)
                 {
                     // When selected bring card to front
@@ -216,7 +214,6 @@ namespace NueGames.Collection
                     cardTransform.localScale = Vector3.one;
                     cardPos.z = transform.position.z + t * 0.5f ;
                 }
-
                 // Rotation
                 cardTransform.rotation = Quaternion.RotateTowards(cardTransform.rotation,
                     Quaternion.LookRotation(cardForward, cardUp), 80f * Time.deltaTime);
@@ -224,7 +221,7 @@ namespace NueGames.Collection
                 // Handle Start Dragging
                 if (mouseHoveringOnSelected)
                 {
-                    var mouseButtonDown = Input.GetMouseButtonDown(0);
+                    var mouseButtonDown = Input.GetMouseButton(0);
                     if (mouseButtonDown)
                     {
                         _dragged = i;
@@ -282,22 +279,26 @@ namespace NueGames.Collection
             if (_heldCard != null)
             {
                 var cardTransform = _heldCard.transform;
+                Debug.Log($"cardTransform.position { cardTransform.position}");
                 var cardUp = Vector3.up;
                 var cardPos = _mouseWorldPos + _heldCardOffset;
                 var cardForward = Vector3.forward;
                 if (cardTilt && mouseButton) cardForward -= new Vector3(_heldCardTilt.x, _heldCardTilt.y, 0);
                 
-                // Bring card to front
-                cardPos.z = transform.position.z - 0.2f;
-                
-                
-                if (!_isUsingSelectingEffectCard)
+                // Handle Position & Rotation
+                // cardTransform.rotation = Quaternion.RotateTowards(cardTransform.rotation,
+                //     Quaternion.LookRotation(cardForward, cardUp), 80f * Time.deltaTime);
+                if (_isUsingSelectingEffectCard)
                 {
-                    // Handle Position & Rotation
-                    cardTransform.rotation = Quaternion.RotateTowards(cardTransform.rotation,
-                        Quaternion.LookRotation(cardForward, cardUp), 80f * Time.deltaTime);
-                    cardTransform.position = cardPos;
+                    cardTransform.localScale = selectedCardSize * Vector3.one;
+                    
+                    cardPos.x = selectingEffectCardPos.x;
+                    cardPos.y = selectingEffectCardPos.y;
                 }
+                
+                Debug.Log($"CardPos {cardPos}");
+                cardTransform.position = cardPos;
+                
 
                 ActionTargetType actionTargetType = _heldCard.CardData.ActionTargetType;
                 characterHighlightController.OnDraggedCardOutsideHand(actionTargetType);
@@ -323,10 +324,12 @@ namespace NueGames.Collection
             }
             else
             {
-                AddCardToHand(_heldCard, _selected);
                 _dragged = _selected;
                 _selected = -1;
+                AddCardToHand(_heldCard, _selected);
             }
+            
+            
             _heldCard = null;
         }
 
@@ -347,11 +350,11 @@ namespace NueGames.Collection
                 if (EnablePlayCard(_heldCard.CardData.ActionTargetType, hitCharacter))
                 {
                     backToHand = false;
-                    //  Arrow Effect for the card's ActionTargetType is single enemy
-                    if (_heldCard.ActionTargetIsSingleEnemy())
-                    {
-                        RemoveCardFromHand(_usingSelectingEffectCardIndex);
-                    }
+                    // //  Arrow Effect for the card's ActionTargetType is single enemy
+                    // if (_heldCard.ActionTargetIsSingleEnemy())
+                    // {
+                    //     RemoveCardFromHand(_usingSelectingEffectCardIndex);
+                    // }
 
                     var targetList = GetTargetList(_heldCard.CardData.ActionTargetType, hitCharacter);
                     
@@ -363,7 +366,7 @@ namespace NueGames.Collection
             arrowController.Deactivate();
 
             // Cannot use card / Not enough mana! / Not the card use arrow effect Return card to hand!
-            if (backToHand && (!_heldCard.ActionTargetIsSingleEnemy())) 
+            if (backToHand ) 
                 AddCardToHand(_heldCard, _selected);
 
             _heldCard = null;
@@ -492,11 +495,9 @@ namespace NueGames.Collection
                 _usingSelectingEffectCardIndex = _dragged;
                 arrowController.SetupAndActivate(_heldCard.transform);
             }
-            else
-            {
-                // Remove from hand, so that cards in hand fill the hole that the card left
-                RemoveCardFromHand(_dragged);
-            }
+            
+            // Remove from hand, so that cards in hand fill the hole that the card left
+            RemoveCardFromHand(_dragged);
             
             _dragged = -1;
         }
