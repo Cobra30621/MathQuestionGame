@@ -279,7 +279,7 @@ namespace NueGames.Collection
             if (_heldCard != null)
             {
                 var cardTransform = _heldCard.transform;
-                Debug.Log($"cardTransform.position { cardTransform.position}");
+                // Debug.Log($"cardTransform.position { cardTransform.position}");
                 var cardUp = Vector3.up;
                 var cardPos = _mouseWorldPos + _heldCardOffset;
                 var cardForward = Vector3.forward;
@@ -296,7 +296,7 @@ namespace NueGames.Collection
                     cardPos.y = selectingEffectCardPos.y;
                 }
                 
-                Debug.Log($"CardPos {cardPos}");
+                // Debug.Log($"CardPos {cardPos}");
                 cardTransform.position = cardPos;
                 
 
@@ -326,8 +326,8 @@ namespace NueGames.Collection
             {
                 _dragged = _selected;
                 _selected = -1;
-                AddCardToHand(_heldCard, _selected);
             }
+            AddCardToHand(_heldCard, _dragged);
             
             
             _heldCard = null;
