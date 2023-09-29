@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 
 namespace NueGames.Encounter
 {
-    public class EncounterManager : SingletonDestroyOnLoad<EncounterManager> ,IDataPersistence
+    public class EncounterManager : Singleton<EncounterManager> ,IDataPersistence
     {
         [SerializeField] private ScriptableObjectFileHandler fileHandler;
         
@@ -22,14 +22,14 @@ namespace NueGames.Encounter
 
         public SceneChanger sceneChanger;
 
-        private bool needGenerateNewMapEncounter;
         private EncounterStage _encounterStage;
         
         public void GenerateNewMapEncounter(EncounterStage stage)
         {
-            needGenerateNewMapEncounter = true;
             _encounterStage = stage;
             
+            mapEncounter = new MapEncounter();
+            mapEncounter.GeneratorStageData(_encounterStage);
         }
 
         #region Enter Room
@@ -87,6 +87,11 @@ namespace NueGames.Encounter
 
         #endregion
 
+        public void OnRoomCompleted()
+        {
+            MapManager.Instance.OnRoomCompleted();
+        }
+        
         #region Data to guid
 
         public EnemyEncounter GetEnemyEncounter(string guid)
@@ -103,7 +108,7 @@ namespace NueGames.Encounter
         {
             return fileHandler.DataToGuid<EnemyEncounter>(enemyEncounter);
         }
-        
+
 
         #endregion
 
@@ -111,14 +116,7 @@ namespace NueGames.Encounter
 
         public void LoadData(GameData data)
         {
-            // 如果需要生成新的敵人資料，便生成
-            if (needGenerateNewMapEncounter)
-            {
-                mapEncounter = new MapEncounter();
-                mapEncounter.GeneratorStageData(_encounterStage);
-                needGenerateNewMapEncounter = false;
-                return;
-            }
+            
             
             mapEncounter = data.MapEncounter;
         }

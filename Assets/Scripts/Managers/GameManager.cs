@@ -10,6 +10,7 @@ using NueGames.Data.Characters;
 using NueGames.Data.Collection;
 using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
+using NueGames.Encounter;
 using NueGames.Relic;
 using Question;
 using Sirenix.OdinInspector;
@@ -20,7 +21,7 @@ namespace NueGames.Managers
     [DefaultExecutionOrder(-10)]
     public class GameManager : Singleton<GameManager>, IDataPersistence
     {
-        [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler, allyDataFileHandler;
+        [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler, allyDataFileHandler, gameplayDataFileHandler;
         
         [Header("Settings")]
         [InlineEditor()]
@@ -50,16 +51,16 @@ namespace NueGames.Managers
         public void LoadData(GameData data)
         {
             PlayerData = data.PlayerData;
+            gameplayData = gameplayDataFileHandler.GuidToData<GameplayData>(data.GamePlayDataId);
             CurrentCardsList = cardDataFileHandler.GuidToData<CardData>(data.PlayerData.CardDataGuids);
             MainAllyData = allyDataFileHandler.GuidToData<AllyData>(data.PlayerData.AllyDataGuid);
-            // Debug.Log($"Load Card {CurrentCardsList.Count}");
             SetRelicList(data.PlayerData.Relics);
         }
 
         public void SaveData(GameData data)
         {
             data.PlayerData = PlayerData;
-            // Debug.Log($"Save Card {CurrentCardsList.Count}");
+            data.GamePlayDataId = gameplayDataFileHandler.DataToGuid(gameplayData);
             data.PlayerData.CardDataGuids =  cardDataFileHandler.DataToGuid(CurrentCardsList);
             data.PlayerData.AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData);
             data.PlayerData.Relics = RelicManager.Instance.GetRelicNames();
@@ -108,7 +109,9 @@ namespace NueGames.Managers
 
         public void ContinueGame()
         {
-            QuestionManager.Instance.GenerateQuestions();
+            SaveManager.Instance.LoadGame();
+            
+            UIManager.Instance.RewardCanvas.SetCardReward(gameplayData.CardRewardData);
         }
 
         #endregion

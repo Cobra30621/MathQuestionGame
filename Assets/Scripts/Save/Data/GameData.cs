@@ -9,6 +9,10 @@ namespace Data
     public class GameData
     {
         /// <summary>
+        /// 遊戲初始設定資料的 id
+        /// </summary>
+        public string GamePlayDataId;
+        /// <summary>
         /// 玩家資訊
         /// </summary>
         public PlayerData PlayerData;

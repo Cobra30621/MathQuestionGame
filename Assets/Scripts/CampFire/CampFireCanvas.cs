@@ -1,8 +1,11 @@
+using NueGames.Encounter;
 using NueGames.UI;
+using NueGames.Utils;
 using UnityEngine;
 
 namespace CampFire
 {
+    [RequireComponent(typeof(SceneChanger))]
     public class CampFireCanvas : CanvasBase
     {
         [SerializeField] private GameObject optionPanel;
@@ -10,12 +13,27 @@ namespace CampFire
         [SerializeField] private CharacterSkillLevelUpPanel characterSkillLevelUpPanel;
         [SerializeField] private ThrowCardSelectPanel throwCardSelectPanel;
 
-
+        
+        private SceneChanger _sceneChanger;
+        private void Awake()
+        {
+            _sceneChanger = GetComponent<SceneChanger>();
+        }
+        
         public override void OpenCanvas()
         {
             base.OpenCanvas();
             optionPanel.SetActive(true);
         }
+
+        public void Leave()
+        {
+            
+            EncounterManager.Instance.OnRoomCompleted();
+            _sceneChanger.OpenMapScene();
+        }
+        
+        
 
 
         #region Options

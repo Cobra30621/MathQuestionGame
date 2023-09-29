@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Feedback;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,10 +17,8 @@ namespace Question
 
         
         [SerializeField] private TextMeshProUGUI infoText;
-        [SerializeField] private MMF_Player onEnterQuestionModeFeedback;
-        [SerializeField] private MMF_Player onQuestionShowFeedback;
-        [SerializeField] private MMF_Player onAnswerFeedback;
-        [SerializeField] private MMF_Player onExitQuestionModeFeedback;
+        [SerializeField] private IFeedback onAnswerCorrectFeedback;
+        [SerializeField] private IFeedback onAnswerWrongFeedback;
         
         [SerializeField] private Animator animator;
         [SerializeField] private GameObject mainPanel;
@@ -28,17 +27,8 @@ namespace Question
         private static readonly int ShowQuestion = Animator.StringToHash("Show Question");
         private static readonly int OnAnswerQuestion = Animator.StringToHash("On Answer");
 
-        void Awake()
-        {
-            // DisablePanel();
-        }
-
         void Update()
         {
-            // timeText.text = $"{Mathf.Ceil(_questionManager.Timer)}";
-            // float timeRate = _questionManager.Timer / _questionManager.StartTime;
-            // timeBar.fillAmount = timeRate;
-
             if (QuestionManager.Instance.IsQuestioning)
             {
                 UpdateUI();
@@ -47,7 +37,6 @@ namespace Question
 
         public void UpdateUI()
         {
-            // answerBar.UpdateUI(_questionManager.HasAnswerCount, _questionManager.Parameters.QuestionCount);
             int questionCount = QuestionManager.Instance.QuestionCount;
             int leastQuestionCount = questionCount - QuestionManager.Instance.HasAnswerCount;
             needAnswerCount.text = $"{leastQuestionCount}";
@@ -59,7 +48,6 @@ namespace Question
             mainPanel.SetActive(true);
             StartPlayAnimation();
             animator.SetBool(InQuestioningMode, true);
-            // onEnterQuestionModeFeedback.PlayFeedbacks();
         }
 
         public void ExitQuestionMode(string info)
@@ -67,7 +55,6 @@ namespace Question
             infoText.text = info;
             StartPlayAnimation();
             animator.SetBool(InQuestioningMode, false);
-            // onExitQuestionModeFeedback.PlayFeedbacks();
         }
 
         public void SetNextQuestion(Question question)
@@ -77,7 +64,6 @@ namespace Question
             
             StartPlayAnimation();
             animator.SetTrigger(ShowQuestion);
-            // onQuestionShowFeedback.PlayFeedbacks();
         }
         
 
@@ -86,10 +72,15 @@ namespace Question
             StartPlayAnimation();
             animator.SetTrigger(OnAnswerQuestion);
             QuestionManager.Instance.GetAnswerButton(option)?.PlayOnAnswerAnimation(correct);
-            
-            // onAnswerFeedback.GetFeedbackOfType<MMF_Feedbacks>().TargetFeedbacks =
-            //     _questionManager.GetAnswerFeedback(correct, option);
-            // onAnswerFeedback.PlayFeedbacks();
+
+            if (correct)
+            {
+                onAnswerCorrectFeedback.Play();
+            }
+            else
+            {
+                onAnswerWrongFeedback.Play();
+            }
         }
 
         public void ClosePanel()

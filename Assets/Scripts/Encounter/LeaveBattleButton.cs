@@ -18,6 +18,7 @@ namespace NueGames.Encounter
 
         public void LeaveBattle()
         {
+            EncounterManager.Instance.OnRoomCompleted();
             if (MapManager.Instance.IsLastRoom())
             {
                 if (MapManager.Instance.IsLastMap())
