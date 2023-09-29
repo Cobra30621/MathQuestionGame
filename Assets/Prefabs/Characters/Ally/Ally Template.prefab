@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 834198542197754162, guid: c245de36d21624537955572f83373e66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1278425035985745647, guid: c245de36d21624537955572f83373e66, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -59,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 049d957b3aa6a48f78fd5212c9b6f0ce, type: 3}
+    - target: {fileID: 6432820957407506796, guid: c245de36d21624537955572f83373e66, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6769378099666621905, guid: c245de36d21624537955572f83373e66, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -42.29
@@ -66,6 +74,10 @@ PrefabInstance:
     - target: {fileID: 7303091523122892638, guid: c245de36d21624537955572f83373e66, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303091523122892638, guid: c245de36d21624537955572f83373e66, type: 3}
+      propertyPath: managedReferences[-2]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7303091523122892638, guid: c245de36d21624537955572f83373e66, type: 3}
       propertyPath: FeedbacksList.Array.size
@@ -77,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7303091523122892638, guid: c245de36d21624537955572f83373e66, type: 3}
       propertyPath: FeedbacksList.Array.data[4]
-      value: 7392774806525444106
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7303091523122892638, guid: c245de36d21624537955572f83373e66, type: 3}
       propertyPath: FeedbacksList.Array.data[5]
