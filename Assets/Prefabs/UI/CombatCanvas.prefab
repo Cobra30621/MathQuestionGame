@@ -597,8 +597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9e0fdc1e8c48d0973b6c0e35b15e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headerText: Discard Pile
-  contentText: 
+  headerText: "\u68C4\u7F6E\u5340"
+  contentText: "\u7121\u6CD5\u518D\u4F7F\u7528\u7684\u724C\u6703\u653E\u5728\u9019\u88E1"
   tooltipStaticTargetTransform: {fileID: 0}
   cursorType: 0
   delayShowDuration: 0.2
@@ -1822,8 +1822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9e0fdc1e8c48d0973b6c0e35b15e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headerText: Draw Pile
-  contentText: 
+  headerText: "\u62BD\u724C\u5806"
+  contentText: "\u6BCF\u56DE\u5408\u958B\u59CB\u6642\u5F9E\u9019\u88E1\u62BD5\u5F35\u724C"
   tooltipStaticTargetTransform: {fileID: 0}
   cursorType: 0
   delayShowDuration: 0.2
@@ -2364,6 +2364,7 @@ GameObject:
   - component: {fileID: 8443577997774900011}
   - component: {fileID: 8881059643530355110}
   - component: {fileID: 4067004337490495187}
+  - component: {fileID: 3083628369850173912}
   m_Layer: 0
   m_Name: Character Skill Button (Legacy)
   m_TagString: Untagged
@@ -2487,6 +2488,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3083628369850173912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5509036719566678822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9e0fdc1e8c48d0973b6c0e35b15e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: "\u5929\u8CE6"
+  contentText: "\u6BCF\u5834\u6230\u9B25\u53EF\u4EE5\u4F7F\u7528\u4E00\u6B21\u5929\u8CE6\uFF0C\u6309\u4E0B\u6309\u9215\u5F8C\u6703\u51FA\u73FE\u4E00\u984C\u6578\u5B78\u984C\uFF0C\u7B54\u5C0D\u5373\u53EF\u7372\u5F97\u73A9\u5BB6\u7684\u8077\u696D\u6548\u679C"
+  tooltipStaticTargetTransform: {fileID: 0}
+  cursorType: 0
+  delayShowDuration: 0
 --- !u!1 &5521158078857835948
 GameObject:
   m_ObjectHideFlags: 0
@@ -3184,8 +3202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9e0fdc1e8c48d0973b6c0e35b15e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headerText: Discard Pile
-  contentText: 
+  headerText: "\u68C4\u724C\u5806"
+  contentText: "\u5982\u679C\u4F60\u7684\u724C\u5806\u7A7A\u4E86\uFF0C\u4F60\u7684\u68C4\u724C\u5806\u6703\u5728\u6D17\u724C\u5F8C\u91CD\u65B0\u653E\u5165\u62BD\u724C\u5806\u3002"
   tooltipStaticTargetTransform: {fileID: 0}
   cursorType: 0
   delayShowDuration: 0.2
@@ -3244,6 +3262,7 @@ GameObject:
   - component: {fileID: 8960214296027007303}
   - component: {fileID: 4397124434526578403}
   - component: {fileID: 2405140796223434041}
+  - component: {fileID: 823967910672409940}
   m_Layer: 0
   m_Name: EndTurnButton
   m_TagString: Untagged
@@ -3379,6 +3398,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundProfileData: {fileID: 11400000, guid: 2d30565e54caf3e40a21dfdac091b79e, type: 2}
+--- !u!114 &823967910672409940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630211603250925542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9e0fdc1e8c48d0973b6c0e35b15e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: "\u7D50\u675F\u56DE\u5408"
+  contentText: "\u6309\u4E0B\u6309\u9215\u4EE5\u7D50\u675F\u56DE\u5408\n\n\u4F60\u6703\u628A\u624B\u724C\u79FB\u5165\u68C4\u724C\u5806\uFF0C\u6575\u4EBA\u5C07\u9032\u884C\u4ED6\u5011\u7684\u56DE\u5408\uFF0C\u7136\u5F8C\u4F60\u6703\u91CD\u65B0\u62BD5\u5F35\u724C\u4E26\u9032\u884C\u4E0B\u4E00\u56DE\u5408\u3002"
+  tooltipStaticTargetTransform: {fileID: 0}
+  cursorType: 0
+  delayShowDuration: 0
 --- !u!1 &9069999821265480322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3445,7 +3481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: End Turn
+  m_text: "\u7D50\u675F\u56DE\u5408"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 956d4f225049cd24d8615ca52e47f520, type: 2}
   m_sharedMaterial: {fileID: 273317408543663707, guid: 956d4f225049cd24d8615ca52e47f520, type: 2}
