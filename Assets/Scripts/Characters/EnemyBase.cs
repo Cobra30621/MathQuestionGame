@@ -142,8 +142,8 @@ namespace NueGames.Characters
             
             EnemyCanvas.IntentImage.gameObject.SetActive(false);
             
-            var targetList = CombatManager.EnemyDetermineTargets(this, skill.ActionTargetType);
-            skill.PlaySkill(targetList);
+            
+            skill.PlaySkill();
         }
 
     }

@@ -60,14 +60,15 @@ namespace EnemyAbility
         [SerializeField] private ConditionBase condition;
 
         /// <summary>
-        /// The target type for the skillData's action.
+        /// The actions to be performed by the skillData.
         /// </summary>
         [VerticalGroup("執行行動")]
-        [SerializeField] private ActionTargetType actionTargetType;
+        [SerializeField] private List<EnemyActionBase> enemyActions;
 
         /// <summary>
         /// The action to be performed by the skillData.
         /// </summary>
+        [InfoBox("之後 enemyAction 會刪除", InfoMessageType.Warning)]
         [VerticalGroup("執行行動")]
         [SerializeField] private EnemyActionBase enemyAction;
 
@@ -96,13 +97,14 @@ namespace EnemyAbility
         [ShowIf("useCustomFeedback")]
         [SerializeField] private CustomerFeedbackSetting customerFeedback;
 
+        public string Name => name;
         public EnemyIntentionData Intention => intention;
         public GameObject FxGo => fxGo;
         public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
         public bool UseDefaultAttackFeedback => useDefaultAttackFeedback;
         public CustomerFeedbackSetting CustomerFeedbackSetting => customerFeedback;
+        public List<EnemyActionBase> EnemyActions => enemyActions;
         public EnemyActionBase EnemyAction => enemyAction;
-        public ActionTargetType ActionTargetType => actionTargetType;
         public int SkillCd => skillCd;
         public int MaxUseCount => maxUseCount;
 

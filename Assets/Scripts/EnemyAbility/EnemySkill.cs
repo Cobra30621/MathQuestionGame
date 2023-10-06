@@ -15,7 +15,6 @@ namespace EnemyAbility
 
         private EnemySkillData _skillData;
 
-        public ActionTargetType ActionTargetType => _skillData.ActionTargetType;
         public bool UseDefaultAttackFeedback => _skillData.UseDefaultAttackFeedback;
         public bool UseCustomFeedback => _skillData.UseCustomFeedback;
         public string CustomFeedbackKey => _skillData.CustomFeedbackKey;
@@ -53,12 +52,25 @@ namespace EnemyAbility
         /// Plays the skillData on the provided target list.
         /// </summary>
         /// <param name="targetList">The list of target characters.</param>
-        public void PlaySkill(List<CharacterBase> targetList)
+        public void PlaySkill()
         {
             currentCd = _skillData.SkillCd;
             hasUsedCount++;
-            _skillData.EnemyAction.SetValue(_enemy, this, targetList);
-            _skillData.EnemyAction.DoAction();
+
+            if (_skillData.EnemyActions == null)
+            {
+                Debug.LogError($"Enemy {_enemy.name} 的技能 {_skillData.Name} 的 EnemyActions 為空的" +
+                               $"請去設定");
+                return;
+            }
+            
+            foreach (var enemyAction in _skillData.EnemyActions)
+            {
+                var targetList = CombatManager.Instance.EnemyDetermineTargets(
+                    _enemy, enemyAction.ActionTargetType);
+                enemyAction.SetValue(_enemy, this, targetList);
+                enemyAction.DoAction();
+            }
         }
 
         /// <summary>
@@ -79,12 +91,16 @@ namespace EnemyAbility
             if (_skillData.Intention.ShowIntentionValue)
             {
                 value = -1;
-                if (!_skillData.EnemyAction.IsDamageAction) return false;
+                if (_skillData.EnemyActions.Count == 0)
+                {
+                    return false;
+                }
+                if (!_skillData.EnemyActions[0].IsDamageAction) return false;
                 
                 var damageInfo = new DamageInfo()
                 {
                     Target = CombatManager.Instance.MainAlly,
-                    damageValue = _skillData.EnemyAction.DamageValueForIntention,
+                    damageValue = _skillData.EnemyActions[0].DamageValueForIntention,
                     ActionSource = new ActionSource()
                     {
                         SourceType = SourceType.Enemy,

@@ -2,8 +2,11 @@ using System.Collections.Generic;
 using Action.Parameters;
 using NueGames.Action;
 using NueGames.Characters;
+using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
+using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace EnemyAbility.EnemyAction
 {
@@ -15,6 +18,13 @@ namespace EnemyAbility.EnemyAction
         public abstract int DamageValueForIntention { get; }
         public abstract bool IsDamageAction { get; }
 
+        /// <summary>
+        /// The target type for the skillData's action.
+        /// </summary>
+        [VerticalGroup("執行行動")]
+        [SerializeField] private ActionTargetType actionTargetType;
+
+        public ActionTargetType ActionTargetType => actionTargetType;
 
         protected EnemyBase _enemy;
         protected EnemyAbility Ability;
