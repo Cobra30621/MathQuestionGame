@@ -1,3 +1,4 @@
+using System.Collections;
 using MoreMountains.Feedbacks;
 using NueGames.Data.Containers;
 using NueGames.Power;
@@ -22,11 +23,16 @@ namespace Feedback
 
         public void Play(PowerName targetPower, bool gainPower)
         {
+            StartCoroutine(PlayFeedBack(targetPower, gainPower));
+        }
+
+        private IEnumerator PlayFeedBack(PowerName targetPower, bool gainPower)
+        {
+            yield return new WaitUntil(() => !_mmfPlayer.IsPlaying);
+            
             var targetData = powersData.GetPowerData(targetPower);
             powerIcon.sprite = targetData.IconSprite;
             powerName.text = gainPower ? $"+ {targetData.GetHeader()}" : $"- {targetData.GetHeader()}";
-           
-            
             _mmfPlayer.PlayFeedbacks();
         }
     }

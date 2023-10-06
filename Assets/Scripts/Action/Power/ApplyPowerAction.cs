@@ -24,6 +24,8 @@ namespace NueGames.Action
             _targetPower = powerName;
             TargetList = targetList;
             ActionSource = actionSource;
+
+            SetActionDelay(1f);
         }
         
         /// <summary>
