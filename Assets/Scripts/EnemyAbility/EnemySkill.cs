@@ -64,8 +64,10 @@ namespace EnemyAbility
                 return;
             }
             
+            Debug.Log($"_skillData.EnemyActions {_skillData.EnemyActions.Count}");
             foreach (var enemyAction in _skillData.EnemyActions)
             {
+                Debug.Log($"enemyAction {enemyAction} {enemyAction.ActionTargetType}");
                 var targetList = CombatManager.Instance.EnemyDetermineTargets(
                     _enemy, enemyAction.ActionTargetType);
                 enemyAction.SetValue(_enemy, this, targetList);

@@ -73,26 +73,33 @@ namespace NueGames.Managers
 
         #endregion
 
-        void Update()
+
+        private void Start()
         {
-            HandleGameActions();
+            StartCoroutine(HandleGameActions());
         }
 
         #region Action Coroutine
         /// <summary>
         /// 處理遊戲行為執行
         /// </summary>
-        private void HandleGameActions()
+        private IEnumerator HandleGameActions()
         {
-            switch (_phase)
+            while (true)
             {
-                case Phase.WaitingOnUser:
-                    HandleWaitingOnUser();
-                    break;
-                case Phase.ExecutingAction:
-                    HandleExecutingAction();
-                    break;
+                switch (_phase)
+                {
+                    case Phase.WaitingOnUser:
+                        HandleWaitingOnUser();
+                        break;
+                    case Phase.ExecutingAction:
+                        yield return HandleExecutingAction();
+                        break;
+                }
+
+                yield return new WaitForSeconds(0.1f);
             }
+            
         }
 
         /// <summary>
@@ -106,22 +113,21 @@ namespace NueGames.Managers
         /// <summary>
         /// 處理：執行遊戲行為階段
         /// </summary>
-        private void HandleExecutingAction()
+        private IEnumerator HandleExecutingAction()
         {
             if (actionIsDone && _currentAction != null)
             {
-                DoCurrentAction();
-            }
-            else
-            {
-                GetNextAction();
+                yield return DoActionRoutine(_currentAction.ActionDelay);
             }
         }
         
+
         /// <summary>
         /// 執行現在的遊戲行為
         /// </summary>
-        private void DoCurrentAction()
+        /// <param name="wait"></param>
+        /// <returns></returns>
+        private IEnumerator DoActionRoutine(float wait)
         {
             actionIsDone = false;
             try
@@ -134,17 +140,8 @@ namespace NueGames.Managers
                 Debug.LogError($"Do Action {_currentAction.GetType()} Fail.\n Error {e}");
             }
             
-            StartCoroutine(DoActionRoutine(_currentAction.ActionDelay));
-        }
-
-        /// <summary>
-        /// TODO 註解
-        /// </summary>
-        /// <param name="wait"></param>
-        /// <returns></returns>
-        private IEnumerator DoActionRoutine(float wait)
-        {
             yield return new WaitForSeconds(wait);
+            GetNextAction();
             actionIsDone = true;
         }
         

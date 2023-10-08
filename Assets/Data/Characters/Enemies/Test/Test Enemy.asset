@@ -68,13 +68,16 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 7
-      Data: 4|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+      Data: 4|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
     - Name: actionTargetType
       Entry: 3
-      Data: 1
-    - Name: damageValue
+      Data: 0
+    - Name: PowerName
       Entry: 3
-      Data: 10
+      Data: 1
+    - Name: PowerAmount
+      Entry: 3
+      Data: 22
     - Name: 
       Entry: 8
       Data: 
@@ -83,10 +86,10 @@ MonoBehaviour:
       Data: 5|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
     - Name: actionTargetType
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: PowerName
       Entry: 3
-      Data: 9
+      Data: 5
     - Name: PowerAmount
       Entry: 3
       Data: 5

@@ -113,13 +113,13 @@ namespace NueGames.Card
             StartCoroutine(DiscardRoutine());
         }
         
-        public virtual void Exhaust(bool destroy = true)
+        public virtual void Exhaust()
         {
             if (IsExhausted) return;
             if (!IsPlayable) return;
             IsExhausted = true;
             CollectionManager.OnCardExhausted(this);
-            StartCoroutine(ExhaustRoutine(destroy));
+            StartCoroutine(ExhaustRoutine());
         }
 
         protected virtual void SpendMana(int value)
@@ -177,7 +177,7 @@ namespace NueGames.Card
         
         
         #region Routines
-        protected virtual IEnumerator DiscardRoutine(bool destroy = true)
+        protected virtual IEnumerator DiscardRoutine()
         {
             var timer = 0f;
             transform.SetParent(CollectionManager.HandController.discardTransform);
@@ -203,13 +203,15 @@ namespace NueGames.Card
                 
                 yield return CachedWaitFrame;
             }
+            
+            gameObject.SetActive(false);
 
-            if (destroy)
-                Destroy(gameObject);
+            // if (destroy)
+            //     Destroy(gameObject);
            
         }
         
-        protected virtual IEnumerator ExhaustRoutine(bool destroy = true)
+        protected virtual IEnumerator ExhaustRoutine()
         {
             var timer = 0f;
             transform.SetParent(CollectionManager.HandController.exhaustTransform);
@@ -236,8 +238,9 @@ namespace NueGames.Card
                 yield return CachedWaitFrame;
             }
 
-            if (destroy)
-                Destroy(gameObject);
+            gameObject.SetActive(false);
+            // if (destroy)
+            //     Destroy(gameObject);
            
         }
 

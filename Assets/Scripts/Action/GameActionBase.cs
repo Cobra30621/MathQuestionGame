@@ -31,7 +31,7 @@ namespace NueGames.Action
         /// </summary>
         public ActionSource ActionSource;
         
-        public float ActionDelay;
+        public float ActionDelay = 0.1f;
         
         #endregion
         

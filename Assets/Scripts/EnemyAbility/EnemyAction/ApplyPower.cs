@@ -1,6 +1,7 @@
 using NueGames.Action;
 using NueGames.Managers;
 using NueGames.Power;
+using UnityEngine;
 
 namespace EnemyAbility.EnemyAction
 {
@@ -14,6 +15,7 @@ namespace EnemyAbility.EnemyAction
         public int PowerAmount;
         protected override void DoMainAction()
         {
+            Debug.Log($"Do {PowerName} {PowerAmount}");
             GameActionExecutor.AddToBottom(new ApplyPowerAction(
                 PowerAmount, PowerName, TargetList, GetActionSource()));
         }
