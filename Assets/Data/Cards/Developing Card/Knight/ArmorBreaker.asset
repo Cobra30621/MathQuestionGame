@@ -33,7 +33,9 @@ MonoBehaviour:
   actionTargetType: 1
   manaCost: 1
   exhaustAfterPlay: 0
-  fxName: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxGo: {fileID: 1620147875121314511, guid: 43cd2caf0ae1a4f068f1ac84c068f54f, type: 3}
   fxSpawnPosition: 0
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
