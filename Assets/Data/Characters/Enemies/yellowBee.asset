@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c394f48d80c4225850662561e77be4c, type: 3}
-  m_Name: Hive
+  m_Name: yellowBee
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: eecc6882d35f9934685f994e4d81867b, type: 2}
-    - {fileID: 11400000, guid: ddc5055458e604eae87ca6f2976a17fb, type: 2}
-    - {fileID: 11400000, guid: 95539e82801174bcfb28dddf21039c7a, type: 2}
-    - {fileID: 11400000, guid: 3e9192eef784a465bbfac6fa6fafca6c, type: 2}
-    - {fileID: 7182288824328528252, guid: 78831ada5f34540aa9488207b5fd59dd, type: 3}
-    - {fileID: 11400000, guid: b0b1e7f2f78bb444eb1666e4accf22ee, type: 2}
+    - {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
+    - {fileID: 5542730973998125453, guid: 516c4b8f0bd0f0749a2d8afc3d3c82a2, type: 3}
+    - {fileID: 11400000, guid: e7deaaa3f01f8f54ab8c29a0ce3c8f31, type: 2}
+    - {fileID: 8002341394409619148, guid: ed4f83b21d8784bddbbf367c12b57953, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -48,16 +46,16 @@ MonoBehaviour:
       Data: 2|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: "\u62DB\u559A\u871C\u8702"
+      Data: "\u81EA\u6BC0"
     - Name: intention
       Entry: 10
       Data: 0
     - Name: skillCd
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: maxUseCount
       Entry: 3
-      Data: -1
+      Data: 1
     - Name: useCondition
       Entry: 5
       Data: true
@@ -66,7 +64,7 @@ MonoBehaviour:
       Data: 3|EnemyAbility.EnemyCountCondition, Assembly-CSharp
     - Name: lessOrEqualCount
       Entry: 3
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -79,32 +77,13 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 5|EnemyAbility.EnemyAction.SpawnEnemy, Assembly-CSharp
+      Data: 5|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
     - Name: actionTargetType
       Entry: 3
       Data: 0
-    - Name: EnemyDataList
-      Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[EnemyAbility.EnemyData, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    - Name: damageValue
+      Entry: 3
+      Data: 100
     - Name: 
       Entry: 8
       Data: 
@@ -116,32 +95,19 @@ MonoBehaviour:
       Data: 
     - Name: enemyAction
       Entry: 7
-      Data: 7|EnemyAbility.EnemyAction.SpawnEnemy, Assembly-CSharp
+      Data: 6|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
     - Name: actionTargetType
       Entry: 3
       Data: 0
-    - Name: EnemyDataList
-      Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[EnemyAbility.EnemyData, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    - Name: damageValue
+      Entry: 3
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
     - Name: fxGo
       Entry: 10
-      Data: 4
+      Data: 1
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0
@@ -159,16 +125,16 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 9|EnemyAbility.EnemySkillData, Assembly-CSharp
+      Data: 7|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: "\u8B77\u76FE(12) "
+      Data: "\u707C\u50B7"
     - Name: intention
       Entry: 10
-      Data: 5
+      Data: 2
     - Name: skillCd
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: maxUseCount
       Entry: 3
       Data: -1
@@ -183,28 +149,28 @@ MonoBehaviour:
       Data: 
     - Name: enemyAction
       Entry: 7
-      Data: 10|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
+      Data: 8|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
     - Name: actionTargetType
       Entry: 3
       Data: 0
     - Name: PowerName
       Entry: 3
-      Data: 1
+      Data: 201
     - Name: PowerAmount
       Entry: 3
-      Data: 12
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
     - Name: fxGo
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 3
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0
     - Name: useDefaultAttackFeedback
       Entry: 5
-      Data: false
+      Data: true
     - Name: useCustomFeedback
       Entry: 5
       Data: false
@@ -223,5 +189,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  MaxHealth: 50
-  EnemyPrefab: {fileID: 5342786170131770746, guid: 29b3c8266004a4db99186f42b60e4a09, type: 3}
+  MaxHealth: 25
+  EnemyPrefab: {fileID: 5342786170131770746, guid: eac7e3582052d4fcba38511d03657c45, type: 3}

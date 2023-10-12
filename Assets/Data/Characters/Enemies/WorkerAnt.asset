@@ -40,13 +40,13 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 7
       Data: 2|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: " \u6D17\u51652\u5F35 \u6688\u7729 \u9032\u5165\u724C\u5EAB"
+      Data: "\u6BD2\u54AC"
     - Name: intention
       Entry: 10
       Data: 0
@@ -62,15 +62,56 @@ MonoBehaviour:
     - Name: condition
       Entry: 6
       Data: 
+    - Name: enemyActions
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[EnemyAbility.EnemyAction.EnemyActionBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 4|EnemyAbility.EnemyAction.AddCardToDraw, Assembly-CSharp
     - Name: actionTargetType
       Entry: 3
       Data: 1
-    - Name: enemyAction
-      Entry: 7
-      Data: 3|EnemyAbility.EnemyAction.AddCardToDraw, Assembly-CSharp
     - Name: addCards
       Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[NueGames.Data.Collection.CardData,
+      Data: 5|System.Collections.Generic.List`1[[NueGames.Data.Collection.CardData,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: enemyAction
+      Entry: 7
+      Data: 6|EnemyAbility.EnemyAction.AddCardToDraw, Assembly-CSharp
+    - Name: actionTargetType
+      Entry: 3
+      Data: 1
+    - Name: addCards
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[NueGames.Data.Collection.CardData,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -110,7 +151,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 5|EnemyAbility.EnemySkillData, Assembly-CSharp
+      Data: 8|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
       Data: " \u653B\u64CA"
@@ -119,7 +160,7 @@ MonoBehaviour:
       Data: 3
     - Name: skillCd
       Entry: 3
-      Data: 1
+      Data: -1
     - Name: maxUseCount
       Entry: 3
       Data: -1
@@ -129,12 +170,37 @@ MonoBehaviour:
     - Name: condition
       Entry: 6
       Data: 
+    - Name: enemyActions
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[EnemyAbility.EnemyAction.EnemyActionBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 10|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
     - Name: actionTargetType
       Entry: 3
       Data: 1
+    - Name: damageValue
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: enemyAction
       Entry: 7
-      Data: 6|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+      Data: 11|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+    - Name: actionTargetType
+      Entry: 3
+      Data: 0
     - Name: damageValue
       Entry: 3
       Data: 15
@@ -142,59 +208,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: fxGo
-      Entry: 6
-      Data: 
-    - Name: fxSpawnPosition
-      Entry: 3
-      Data: 0
-    - Name: useDefaultAttackFeedback
-      Entry: 5
-      Data: true
-    - Name: useCustomFeedback
-      Entry: 5
-      Data: false
-    - Name: customerFeedback
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 7|EnemyAbility.EnemySkillData, Assembly-CSharp
-    - Name: name
-      Entry: 1
-      Data: " \u653B\u64CA x 2"
-    - Name: intention
       Entry: 10
-      Data: 3
-    - Name: skillCd
-      Entry: 3
-      Data: 1
-    - Name: maxUseCount
-      Entry: 3
-      Data: -1
-    - Name: useCondition
-      Entry: 5
-      Data: false
-    - Name: condition
-      Entry: 6
-      Data: 
-    - Name: actionTargetType
-      Entry: 3
-      Data: 1
-    - Name: enemyAction
-      Entry: 7
-      Data: 8|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
-    - Name: damageValue
-      Entry: 3
-      Data: 30
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: fxGo
-      Entry: 6
-      Data: 
+      Data: 2
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0
