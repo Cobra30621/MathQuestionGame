@@ -15,7 +15,7 @@ namespace EnemyAbility.EnemyAction
         public List<EnemyData> EnemyDataList;
         protected override void DoMainAction()
         {
-            GameActionExecutor.AddToBottom(new SpawnEnemyAction(EnemyDataList));
+            GameActionExecutor.AddToBottom(new HiveSpawnBeeAction(EnemyDataList));
         }
     }
 }
