@@ -76,6 +76,11 @@ namespace NueGames.Characters
             Destroy(gameObject);
         }
         #endregion
+
+        public string GetDataName()
+        {
+            return _enemyData.name;
+        }
         
         #region Private Methods
 

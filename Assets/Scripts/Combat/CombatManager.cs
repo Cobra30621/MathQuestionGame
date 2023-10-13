@@ -340,7 +340,17 @@ namespace NueGames.Combat
         
         
         #region Public Methods
-        
+
+        public int GetEnemyCount(EnemyData enemyData)
+        {
+            int counter = 0;
+            foreach (var enemy in Enemies)
+            {
+                if (enemy.GetDataName() == enemyData.name) counter++;
+            }
+            Debug.Log(counter);
+            return counter;
+        }
         public void OnAllyDeath(AllyBase targetAlly)
         {
             UIManager.InformationCanvas.ResetCanvas();

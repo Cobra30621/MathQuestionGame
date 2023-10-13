@@ -19,6 +19,7 @@
         
         // 戰鬥相關
         Stun = 22,
+        SelfDestruct = 23,
         
         // 卡牌與魔力相關
         MathMana = 41,

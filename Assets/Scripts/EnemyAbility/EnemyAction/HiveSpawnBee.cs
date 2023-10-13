@@ -7,7 +7,7 @@ namespace EnemyAbility.EnemyAction
     /// <summary>
     /// 生成敵人
     /// </summary>
-    public class SpawnEnemy : EnemyActionBase
+    public class HiveSpawnBee : EnemyActionBase
     {
         public override int DamageValueForIntention => -1;
         public override bool IsDamageAction => false;
@@ -15,7 +15,7 @@ namespace EnemyAbility.EnemyAction
         public List<EnemyData> EnemyDataList;
         protected override void DoMainAction()
         {
-            GameActionExecutor.AddToBottom(new SpawnEnemyAction(EnemyDataList));
+            GameActionExecutor.AddToBottom(new HiveSpawnBeeAction(EnemyDataList));
         }
     }
 }

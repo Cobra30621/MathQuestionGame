@@ -17,9 +17,10 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: e7deaaa3f01f8f54ab8c29a0ce3c8f31, type: 2}
-    - {fileID: 2863932577946354716, guid: 355db53ba35d74d849dd546e6de5b3a0, type: 3}
+    - {fileID: 11400000, guid: f53f401a68c9f4fd488ee86d1475f33f, type: 2}
+    - {fileID: 1275131819952708136, guid: 297b040f1ee07ac488178cd460c85e2e, type: 3}
     - {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
-    - {fileID: 5542730973998125453, guid: 516c4b8f0bd0f0749a2d8afc3d3c82a2, type: 3}
+    - {fileID: 8002341394409619148, guid: ed4f83b21d8784bddbbf367c12b57953, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -46,28 +47,62 @@ MonoBehaviour:
       Data: 2|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: "\u707C\u50B7"
+      Data: "\u81EA\u6BC0"
     - Name: intention
       Entry: 10
       Data: 0
     - Name: skillCd
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: maxUseCount
       Entry: 3
-      Data: -1
+      Data: 1
     - Name: useCondition
       Entry: 5
-      Data: false
+      Data: true
     - Name: condition
-      Entry: 6
+      Entry: 7
+      Data: 3|EnemyAbility.SpecificEnemyCountCondition, Assembly-CSharp
+    - Name: lessOrEqualCount
+      Entry: 3
+      Data: 0
+    - Name: EnemyData
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
       Data: 
+    - Name: enemyActions
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[EnemyAbility.EnemyAction.EnemyActionBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 5|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
     - Name: actionTargetType
       Entry: 3
-      Data: 1
+      Data: 0
+    - Name: damageValue
+      Entry: 3
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: enemyAction
       Entry: 7
-      Data: 3|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
+      Data: 6|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
+    - Name: actionTargetType
+      Entry: 3
+      Data: 0
     - Name: PowerName
       Entry: 3
       Data: 201
@@ -79,13 +114,13 @@ MonoBehaviour:
       Data: 
     - Name: fxGo
       Entry: 10
-      Data: 1
+      Data: 2
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0
     - Name: useDefaultAttackFeedback
       Entry: 5
-      Data: true
+      Data: false
     - Name: useCustomFeedback
       Entry: 5
       Data: false
@@ -97,13 +132,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|EnemyAbility.EnemySkillData, Assembly-CSharp
+      Data: 7|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: "\u653B\u64CA"
+      Data: "\u8D8A\u6230\u8D8A\u5F37"
     - Name: intention
       Entry: 10
-      Data: 2
+      Data: 3
     - Name: skillCd
       Entry: 3
       Data: 0
@@ -116,12 +151,37 @@ MonoBehaviour:
     - Name: condition
       Entry: 6
       Data: 
+    - Name: enemyActions
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[EnemyAbility.EnemyAction.EnemyActionBase,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 9|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
     - Name: actionTargetType
       Entry: 3
       Data: 1
+    - Name: damageValue
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: enemyAction
       Entry: 7
-      Data: 5|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+      Data: 10|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+    - Name: actionTargetType
+      Entry: 3
+      Data: 0
     - Name: damageValue
       Entry: 3
       Data: 5
@@ -130,7 +190,7 @@ MonoBehaviour:
       Data: 
     - Name: fxGo
       Entry: 10
-      Data: 3
+      Data: 4
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0
@@ -155,5 +215,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  MaxHealth: 15
+  MaxHealth: 30
   EnemyPrefab: {fileID: 5342786170131770746, guid: eac7e3582052d4fcba38511d03657c45, type: 3}
