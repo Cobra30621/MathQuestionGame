@@ -148,11 +148,17 @@ namespace NueGames.Managers
             
             PlayerData.SetHealth(afterHealHp
                 ,healthData.MaxHealth);
+            UIManager.Instance.InformationCanvas.ResetCanvas();
         }
         
         private void SetRelicList(List<RelicName> relicNames)
         {
             RelicManager.Instance.GainRelic(relicNames);
+        }
+
+        public void ThrowCard(CardData cardData)
+        {
+            CurrentCardsList.Remove(cardData);
         }
 
         

@@ -11,7 +11,7 @@ namespace CampFire
         [SerializeField] private GameObject optionPanel;
 
         [SerializeField] private CharacterSkillLevelUpPanel characterSkillLevelUpPanel;
-        [SerializeField] private ThrowCardSelectPanel throwCardSelectPanel;
+        [SerializeField] private ThrowCardPanel throwCardPanel;
 
         
         private SceneChanger _sceneChanger;
@@ -52,8 +52,8 @@ namespace CampFire
 
         public void ThrowCard()
         {
-            Debug.Log("ThrowCard");
-            throwCardSelectPanel.Open();
+            Debug.Log("ThrowCardUI");
+            throwCardPanel.Open();
         }
         
         public void OnSelectOption()

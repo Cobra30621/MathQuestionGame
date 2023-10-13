@@ -63,7 +63,7 @@ namespace CampFire
 
         public void ThrowCard()
         {
-            Debug.Log("ThrowCard");
+            Debug.Log("ThrowCardUI");
         }
     }
 }

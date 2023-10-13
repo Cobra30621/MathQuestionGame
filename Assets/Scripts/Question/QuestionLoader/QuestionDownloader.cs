@@ -102,8 +102,8 @@ public class QuestionDownloader : MonoBehaviour
                         questionName = problem.problemLink,
                         optionsName =  problem.ansLink
                     };
-                    yield return DownloadImage(problem.problemLink);
-                    yield return DownloadImage(problem.ansLink);
+                    StartCoroutine(DownloadImage(problem.problemLink));
+                    StartCoroutine(DownloadImage(problem.ansLink));
                 
                     questionClip.questions.Add(question);
                 }
