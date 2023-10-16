@@ -97,7 +97,16 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: enemyAction
-      Entry: 6
+      Entry: 7
+      Data: 6|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+    - Name: actionTargetType
+      Entry: 3
+      Data: 0
+    - Name: damageValue
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
       Data: 
     - Name: fxGo
       Entry: 10
@@ -119,13 +128,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 6|EnemyAbility.EnemySkillData, Assembly-CSharp
+      Data: 7|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
       Data: "\u53EE\u54AC"
     - Name: intention
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: skillCd
       Entry: 3
       Data: 0
@@ -140,14 +149,14 @@ MonoBehaviour:
       Data: 
     - Name: enemyActions
       Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[EnemyAbility.EnemyAction.EnemyActionBase,
+      Data: 8|System.Collections.Generic.List`1[[EnemyAbility.EnemyAction.EnemyActionBase,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 8|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
+      Data: 9|EnemyAbility.EnemyAction.ApplyPower, Assembly-CSharp
     - Name: actionTargetType
       Entry: 3
       Data: 1
@@ -167,7 +176,16 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: enemyAction
-      Entry: 6
+      Entry: 7
+      Data: 10|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
+    - Name: actionTargetType
+      Entry: 3
+      Data: 0
+    - Name: damageValue
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
       Data: 
     - Name: fxGo
       Entry: 10

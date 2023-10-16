@@ -25,7 +25,7 @@ MonoBehaviour:
   layers:
   - nodeDatas:
     - nodeTypeClips:
-      - nodeType: 11
+      - nodeType: 0
         weight: 1
     distanceFromPreviousLayer:
       min: 0
@@ -90,24 +90,16 @@ MonoBehaviour:
     weakEnemyCount: 1
     weakEnemies:
       weightClip:
-      - encounter: {fileID: 11400000, guid: 850303fa2d3104dca8a54141cb13a9fc, type: 2}
-        weight: 1
-      - encounter: {fileID: 11400000, guid: 029ab133ef63145f694678d79cd634a7, type: 2}
+      - encounter: {fileID: 11400000, guid: 2bba6c625436f487c82e3113eb76ff25, type: 2}
         weight: 1
     strongEnemies:
       weightClip:
-      - encounter: {fileID: 11400000, guid: 64fb12e8e12104da7bb3bf293fcc83e3, type: 2}
-        weight: 1
       - encounter: {fileID: 11400000, guid: 2bba6c625436f487c82e3113eb76ff25, type: 2}
         weight: 1
       - encounter: {fileID: 11400000, guid: 93c9c7f8a3b374ff49b28a7b6d606cfb, type: 2}
         weight: 1
-      - encounter: {fileID: 11400000, guid: 029ab133ef63145f694678d79cd634a7, type: 2}
-        weight: 0
     eliteEnemies:
-      weightClip:
-      - encounter: {fileID: 11400000, guid: a98bdd8349c66492e84573047c60899a, type: 2}
-        weight: 1
+      weightClip: []
     bossEnemies:
       weightClip:
       - encounter: {fileID: 11400000, guid: a98bdd8349c66492e84573047c60899a, type: 2}
