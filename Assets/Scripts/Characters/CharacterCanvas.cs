@@ -25,6 +25,7 @@ namespace NueGames.Characters
         [SerializeField] protected Transform highlightRoot;
         [SerializeField] protected Transform descriptionRoot;
         [SerializeField] protected PowersData powersData;
+        [SerializeField] protected GameObject intentionGO;
         [SerializeField] protected TextMeshProUGUI currentHealthText;
         [SerializeField] protected Image currentHealthBar;
         

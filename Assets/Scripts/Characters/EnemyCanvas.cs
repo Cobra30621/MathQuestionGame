@@ -12,6 +12,7 @@ namespace NueGames.Characters
         [SerializeField] private Image intentImage;
         [SerializeField] private TextMeshProUGUI nextActionValueText;
         public EnemyIntentionData IntentionData;
+        public GameObject IntentionGO => intentionGO;
         public Image IntentImage => intentImage;
         public TextMeshProUGUI NextActionValueText => nextActionValueText;
 

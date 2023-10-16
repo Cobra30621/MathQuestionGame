@@ -106,7 +106,7 @@ namespace NueGames.Characters
             
             EnemyCanvas.IntentImage.sprite = _currentSkill.Intention.IntentionSprite;
             EnemyCanvas.IntentionData = _currentSkill.Intention;
-            EnemyCanvas.IntentImage.gameObject.SetActive(true);
+            EnemyCanvas.IntentionGO.gameObject.SetActive(true);
         }
         
         
