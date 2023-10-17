@@ -16,10 +16,11 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: e7deaaa3f01f8f54ab8c29a0ce3c8f31, type: 2}
-    - {fileID: 11400000, guid: f53f401a68c9f4fd488ee86d1475f33f, type: 2}
-    - {fileID: 1275131819952708136, guid: 297b040f1ee07ac488178cd460c85e2e, type: 3}
     - {fileID: 11400000, guid: 2af475f5121b73d4c99b67551230aa48, type: 2}
+    - {fileID: 11400000, guid: f53f401a68c9f4fd488ee86d1475f33f, type: 2}
+    - {fileID: 8002341394409619148, guid: ed4f83b21d8784bddbbf367c12b57953, type: 3}
+    - {fileID: 11400000, guid: b0b1e7f2f78bb444eb1666e4accf22ee, type: 2}
+    - {fileID: 8726335890349686034, guid: d62838506ae6e4216a6cd4ed3756e6ec, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -46,7 +47,7 @@ MonoBehaviour:
       Data: 2|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: "\u81EA\u6BC0"
+      Data: "\u653B\u64CA"
     - Name: intention
       Entry: 10
       Data: 0
@@ -55,10 +56,10 @@ MonoBehaviour:
       Data: 0
     - Name: maxUseCount
       Entry: 3
-      Data: 1
+      Data: -1
     - Name: useCondition
       Entry: 5
-      Data: true
+      Data: false
     - Name: condition
       Entry: 7
       Data: 3|EnemyAbility.SpecificEnemyCountCondition, Assembly-CSharp
@@ -83,10 +84,10 @@ MonoBehaviour:
       Data: 5|EnemyAbility.EnemyAction.Damage, Assembly-CSharp
     - Name: actionTargetType
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: damageValue
       Entry: 3
-      Data: 100
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -116,7 +117,7 @@ MonoBehaviour:
       Data: 0
     - Name: useDefaultAttackFeedback
       Entry: 5
-      Data: false
+      Data: true
     - Name: useCustomFeedback
       Entry: 5
       Data: false
@@ -131,16 +132,16 @@ MonoBehaviour:
       Data: 7|EnemyAbility.EnemySkillData, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: "\u5927\u7206\u70B8"
+      Data: "\u9632\u79A6"
     - Name: intention
       Entry: 10
       Data: 3
     - Name: skillCd
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: maxUseCount
       Entry: 3
-      Data: 1
+      Data: -1
     - Name: useCondition
       Entry: 5
       Data: false
@@ -162,7 +163,7 @@ MonoBehaviour:
       Data: 0
     - Name: PowerName
       Entry: 3
-      Data: 23
+      Data: 1
     - Name: PowerAmount
       Entry: 3
       Data: 1
@@ -192,13 +193,13 @@ MonoBehaviour:
       Data: 
     - Name: fxGo
       Entry: 10
-      Data: 2
+      Data: 4
     - Name: fxSpawnPosition
       Entry: 3
       Data: 0
     - Name: useDefaultAttackFeedback
       Entry: 5
-      Data: true
+      Data: false
     - Name: useCustomFeedback
       Entry: 5
       Data: false
@@ -217,5 +218,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  MaxHealth: 25
+  MaxHealth: 15
   EnemyPrefab: {fileID: 5342786170131770746, guid: eac7e3582052d4fcba38511d03657c45, type: 3}
