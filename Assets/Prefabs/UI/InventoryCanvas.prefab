@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleTextField: {fileID: 9127871942361017765}
-  cardSpawnRoot: {fileID: 6337880491568560953}
-  cardUIPrefab: {fileID: 5016427365736861950, guid: 15c40b92815524e8eabea1026c196e06, type: 3}
+  cardSpawnRoot: {fileID: 4437318933109815386}
+  cardUIPrefab: {fileID: 593423258, guid: 5d5009aa9a8f2401ebf7d842d4785e30, type: 3}
 --- !u!1 &1235933608894134585
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3809305726062590911}
   m_HandleRect: {fileID: 1979365935293887311}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -696,67 +696,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &3474121019914837228
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6348848255647474300}
-  - component: {fileID: 6337880491568560953}
-  m_Layer: 5
-  m_Name: CardSpawnRoot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6348848255647474300
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3474121019914837228}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 969933884834585910}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -581.6134}
-  m_SizeDelta: {x: 0, y: 963.2268}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6337880491568560953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3474121019914837228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 120, y: 164}
-  m_Spacing: {x: 120, y: 164}
-  m_Constraint: 1
-  m_ConstraintCount: 5
 --- !u!1 &3623740886485514667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,8 +1240,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -600, y: 0}
+  m_AnchoredPosition: {x: 1.6917725, y: -76.13312}
+  m_SizeDelta: {x: -596.6163, y: -152.2662}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5252155663402360300
 CanvasRenderer:
@@ -1352,6 +1291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 969933884834585910}
   - component: {fileID: 8374696699201368246}
+  - component: {fileID: 4437318933109815386}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1370,8 +1310,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6348848255647474300}
+  m_Children: []
   m_Father: {fileID: 5185741467476391225}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1394,6 +1333,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &4437318933109815386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5341123584491814329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 82
+    m_Bottom: 82
+  m_ChildAlignment: 4
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 120, y: 164}
+  m_Spacing: {x: 120, y: 164}
+  m_Constraint: 1
+  m_ConstraintCount: 5
 --- !u!1 &7651523760373190808
 GameObject:
   m_ObjectHideFlags: 0
