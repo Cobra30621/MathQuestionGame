@@ -145,7 +145,7 @@ namespace NueGames.Characters
             if (CharacterStats.IsStunned)
                 yield break;
             
-            EnemyCanvas.IntentImage.gameObject.SetActive(false);
+            EnemyCanvas.IntentionGO.SetActive(false);
             
             
             skill.PlaySkill();
