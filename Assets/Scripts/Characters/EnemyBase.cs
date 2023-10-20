@@ -29,9 +29,9 @@ namespace NueGames.Characters
 
         [Sirenix.OdinInspector.ReadOnly]
         [SerializeField] private EnemyData _enemyData;
-        [Sirenix.OdinInspector.ReadOnly]
+        // [Sirenix.OdinInspector.ReadOnly]
         [SerializeField] private EnemyAbility.EnemyAbility _enemyAbility;
-        [Sirenix.OdinInspector.ReadOnly]
+        // [Sirenix.OdinInspector.ReadOnly]
         [SerializeField] private EnemySkill _currentSkill;
 
         #region Setup

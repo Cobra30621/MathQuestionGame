@@ -107,6 +107,7 @@ namespace EnemyAbility
         public EnemyActionBase EnemyAction => enemyAction;
         public int SkillCd => skillCd;
         public int MaxUseCount => maxUseCount;
+        public bool UseCondition => useCondition;
 
         /// <summary>
         /// Indicates whether to use custom feedback.

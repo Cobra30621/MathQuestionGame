@@ -6,9 +6,9 @@ namespace EnemyAbility
 {
     public class EnemyAbility
     {
-        private EnemyAbilityData _abilityData;
-        private List<EnemySkill> _enemySkills;
-        private EnemySkill _startBattleSkill;
+        [SerializeField] private EnemyAbilityData _abilityData;
+        [SerializeField] private List<EnemySkill> _enemySkills;
+        [SerializeField] private EnemySkill _startBattleSkill;
         
         private EnemyBase _enemyBase;
 

@@ -9,6 +9,7 @@ using UnityEngine;
 
 namespace EnemyAbility
 {
+    [SelectionBase]
     public class EnemySkill
     {
         #region Skill Data
@@ -27,9 +28,9 @@ namespace EnemyAbility
         
          #region Variable
 
-         private ConditionBase _condition;
-         private int currentCd;
-         private int hasUsedCount;
+         [SerializeField] private ConditionBase _condition;
+         [SerializeField] private int currentCd;
+         [SerializeField] private int hasUsedCount;
          private EnemyBase _enemy;
 
          #endregion
@@ -134,7 +135,7 @@ namespace EnemyAbility
         /// <returns>True if the condition is met, otherwise false.</returns>
         private bool CheckCondition()
         {
-            return (_condition?.Judge() ?? true);
+            return !_skillData.UseCondition || (_condition?.Judge() ?? true);
         }
 
         /// <summary>
