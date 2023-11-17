@@ -23,7 +23,6 @@ namespace NueGames.Managers
         [SerializeField] private CampFireCanvas campFireCanvas;
         [SerializeField] private CharacterSkillUI characterSkillUI;
 
-
         [Header("Fader")] [SerializeField] private CanvasGroup fader;
         [SerializeField] private float fadeSpeed = 1f;
 
@@ -36,6 +35,7 @@ namespace NueGames.Managers
         public RelicCanvas RelicCanvas => relicCanvas;
         public CampFireCanvas CampFireCanvas => campFireCanvas;
         public CharacterSkillUI CharacterSkillUI => characterSkillUI;
+        
 
         #endregion
 
