@@ -11,11 +11,9 @@ using System.Threading.Tasks;
 using System.Text;
 using Question;
 using Sirenix.OdinInspector;
-using UnityEditor;
 using UnityEngine.Networking;
 
 
-#if UNITY_EDITOR
 public class OnlineQuestionDownloader : MonoBehaviour
 {
    
@@ -162,8 +160,8 @@ public class OnlineQuestionDownloader : MonoBehaviour
         {
             Debug.LogError($"Image download failed. Error: {www.error}");
         }
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
+        /*AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();*/
         www.Dispose();
 
         // yield return new WaitForSeconds(0.1f);
@@ -183,4 +181,3 @@ public class OnlineQuestionDownloader : MonoBehaviour
         public string answer;
     }
 }
-#endif
