@@ -14,16 +14,21 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField] private QuestionSettingUI questionSettingUI;
     [SerializeField] private SceneChanger sceneChanger;
-    
+    [SerializeField] private OnlineQuestionDownloader onlineQuestionDownloader;
     public void NewGame()
     {
         GameManager.Instance.SetGameplayData(GameplayData);
         questionSettingUI.SetQuestionSetting();
         GameManager.Instance.NewGame();
-        
-        sceneChanger.OpenMapScene();
+        StartCoroutine(StartGameCoroutine());
     }
 
+    private IEnumerator StartGameCoroutine()
+    {
+        onlineQuestionDownloader.GetQuestion();
+        yield return new WaitForSeconds(5);
+        sceneChanger.OpenMapScene();
+    }
     public void ContinueGame()
     {
         GameManager.Instance.ContinueGame();

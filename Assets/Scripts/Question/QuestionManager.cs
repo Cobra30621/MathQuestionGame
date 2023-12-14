@@ -191,6 +191,12 @@ namespace Question
         
 
         #region Public Method
+
+        [Button("Enter Question")]
+        public void EnterQuestion()
+        {
+            
+        }
         
         /// <summary>
         /// 進入答題模式
@@ -323,6 +329,7 @@ namespace Question
             questionList.RemoveAt(index);
         }
 
+        [Button("GenerateQuestions")]
         public void GenerateQuestions()
         {
             questionList = questionGenerator.GetQuestions(QuestionSetting);
