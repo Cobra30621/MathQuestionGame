@@ -46,7 +46,7 @@ namespace EnemyAbility
 
             Debug.LogError($"{_enemyBase.name} cannot get a skillData for this turn, enemySkillData count: {_enemySkills.Count}");
             
-            return null;
+            return _enemySkills[^1];
         }
 
         public bool UseStartBattleSkill()

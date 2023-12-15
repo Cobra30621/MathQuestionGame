@@ -646,6 +646,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 31.173828
       objectReference: {fileID: 0}
+    - target: {fileID: 631274316755946036, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: questionData
+      value: 
+      objectReference: {fileID: 11400000, guid: e3611fad9cf8f4f4a88eafafbf5bbc73, type: 2}
+    - target: {fileID: 631274316755946036, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 686758793060690353, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -906,6 +914,18 @@ PrefabInstance:
       propertyPath: questionsData
       value: 
       objectReference: {fileID: 11400000, guid: 27c0d3d54de343e48881c1e623ebd64f, type: 2}
+    - target: {fileID: 7648598638887970589, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7648598638887970589, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+    - target: {fileID: 7648598638887970589, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: QuestionSetting.Grades.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648598638887970589, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: QuestionSetting.Publishers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8265142725606537008, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1290,8 +1310,8 @@ MonoBehaviour:
   GameplayData: {fileID: 11400000, guid: dd29da37b58a7496a90ee015e332876f, type: 2}
   EnemyEncounter: {fileID: 11400000, guid: eaee9a854df58436da0c56926dda32e6, type: 2}
   QuestionSetting:
-    Grades: 
-    Publishers: 
+    Grades: 05000000
+    Publishers: 00000000
   allyPowerAtGameStart: 01000000
 --- !u!4 &1571468705
 Transform:
@@ -1307,6 +1327,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1574020836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1574020838}
+  - component: {fileID: 1574020837}
+  m_Layer: 0
+  m_Name: Question
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1574020837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574020836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd340eefc6b4eedbd09d92ec409822b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestionData: {fileID: 11400000, guid: e3611fad9cf8f4f4a88eafafbf5bbc73, type: 2}
+  generateCountForEachChapter: 1
+  hard: 1
+  maxChapter: 2
+  data:
+    problem:
+    - problemLink: cc348eedeece967f1cca6fcff80a68ca
+      ansLink: 6601499ba2f7e0897dc718c22eb0eed2
+      answer: 2
+--- !u!4 &1574020838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574020836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1620978269
 PrefabInstance:
