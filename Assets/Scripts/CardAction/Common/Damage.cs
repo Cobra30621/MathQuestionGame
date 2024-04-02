@@ -14,5 +14,10 @@ namespace CardAction
             GameActionExecutor.AddToBottom(new DamageAction(
                 damageValue, TargetList, GetActionSource()));
         }
+
+        // protected virtual int update()
+        // {
+        //     return damageValue;
+        // }
     }
 }

@@ -32,5 +32,7 @@ namespace Data
         /// 問題設定
         /// </summary>
         public QuestionSetting QuestionSetting;
+        // 卡片等級字典
+        public Dictionary<string, int> cardLevels;
     }
 }

@@ -30,6 +30,7 @@ public class SaveManager : Singleton<SaveManager>
         ES3Handler.Clear();
     }
 
+    [Button("讀檔")]
     public void LoadGame()
     {
         dataPersistenceObjects = FindAllDataPersistenceObjects();
@@ -49,7 +50,7 @@ public class SaveManager : Singleton<SaveManager>
             dataPersistenceObj.LoadData(_gameData);
         }
     }
-
+[Button("存檔")]
     public void SaveGame()
     {
         dataPersistenceObjects = FindAllDataPersistenceObjects();
