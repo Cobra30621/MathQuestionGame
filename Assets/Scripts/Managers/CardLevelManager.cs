@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Card.Data;
 using Cinemachine;
 using Data;
 using NueGames.Data.Collection;

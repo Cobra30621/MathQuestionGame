@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6189203452410003451}
+  - component: {fileID: 5005468080887527471}
   m_Layer: 9
   m_Name: Card Base
   m_TagString: Untagged
@@ -25,7 +26,7 @@ RectTransform:
   m_GameObject: {fileID: 7492014500962260421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.01}
+  m_LocalScale: {x: 2, y: 2, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1847845095251408669}
@@ -40,6 +41,103 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 120, y: 164}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5005468080887527471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492014500962260421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56df2368ed8e4291a9b61f2ca42e59b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 8689830433381596573}
+    - {fileID: 6212870104228035088}
+    - {fileID: 8101946705634122424}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: cardUIDictionary
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[NueGames.Enums.RarityType,
+        Assembly-CSharp],[NueGames.Card.SingleCardDisplay, Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[NueGames.Enums.RarityType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _cardInfo:
+    cardLevelInfo:
+      ID: 0
+      EnGroupID: 
+      GroupID: 
+      EffectID: 
+      Mana: 0
+      UpgradeCost: 0
+      MaxLevel: 0
+      Description: 
+      EffectInfos: []
 --- !u!1 &8989979691076520953
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +332,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2358127231938869010, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
   m_PrefabInstance: {fileID: 533007505483631076}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8101946705634122424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8577802695598920540, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
+  m_PrefabInstance: {fileID: 533007505483631076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ba11b14ce24974b56bf49592aff8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1121959977860820673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -340,6 +449,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2358127231938869010, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
   m_PrefabInstance: {fileID: 1121959977860820673}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8689830433381596573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8577802695598920540, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
+  m_PrefabInstance: {fileID: 1121959977860820673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ba11b14ce24974b56bf49592aff8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2392245293902473548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -498,3 +618,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2358127231938869010, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
   m_PrefabInstance: {fileID: 2392245293902473548}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6212870104228035088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8577802695598920540, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
+  m_PrefabInstance: {fileID: 2392245293902473548}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ba11b14ce24974b56bf49592aff8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

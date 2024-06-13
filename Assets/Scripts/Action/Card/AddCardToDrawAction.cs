@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Action.Parameters;
+using Card.Data;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using UnityEngine;

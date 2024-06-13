@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Action.Parameters;
+using Card.Data;
 using NueGames.Action;
 using NueGames.Card;
 using NueGames.Characters;
@@ -18,14 +19,14 @@ namespace CardAction
     public abstract class CardActionBase
     {
         
-        protected CardBase Card;
+        protected BattleCard BattleCard;
         protected CardData CardData;
         protected List<CharacterBase> TargetList;
 
-        public void SetValue(CardBase cardBase, List<CharacterBase> targetList)
+        public void SetValue(BattleCard battleCard, List<CharacterBase> targetList)
         {
-            Card = cardBase;
-            CardData = cardBase.CardData;
+            BattleCard = battleCard;
+            CardData = battleCard.CardData;
             TargetList = targetList;
         }
         
@@ -76,7 +77,7 @@ namespace CardAction
             return new ActionSource()
             {
                 SourceType = SourceType.Card,
-                SourceCard = Card,
+                SourceBattleCard = BattleCard,
                 SourceCharacter = CombatManager.Instance.MainAlly
             };
         }

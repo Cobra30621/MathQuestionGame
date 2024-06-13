@@ -1,10 +1,11 @@
 ﻿using NueGames.Managers;
 using UnityEngine;
 using NueGames.Combat;
+using Sirenix.OdinInspector;
 
 namespace NueGames.UI
 {
-    public class CanvasBase : MonoBehaviour
+    public class CanvasBase : SerializedMonoBehaviour
     {
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Card.Data;
 using NueGames.Data.Collection;
 using Sirenix.OdinInspector;
 using UnityEngine;

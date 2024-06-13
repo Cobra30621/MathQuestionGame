@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Card.Data;
 using Data;
 using DataPersistence;
 using Managers;
@@ -119,9 +120,9 @@ namespace NueGames.Managers
         
         #region Public Methods
         
-        public CardBase BuildAndGetCard(CardData targetData, Transform parent)
+        public BattleCard BuildAndGetCard(CardData targetData, Transform parent)
         {
-            var clone = Instantiate(GameplayData.CardPrefab, parent);
+            var clone = Instantiate(GameplayData.BattleCardPrefab, parent);
             clone.SetCard(targetData);
             return clone;
         }

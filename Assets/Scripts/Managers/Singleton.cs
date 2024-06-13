@@ -24,8 +24,11 @@ public abstract class Singleton<T> : SerializedMonoBehaviour where T : Serialize
                 }
                 else
                 {
-                    // If instance is found, ensure it persists across scene changes.
-                    DontDestroyOnLoad(instance);
+                    #if ! UNITY_EDITOR
+                   // If instance is found, ensure it persists across scene changes.
+                                DontDestroyOnLoad(instance);             
+                    #endif
+                    
                 }
             }
             return instance;

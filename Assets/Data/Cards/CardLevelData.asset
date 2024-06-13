@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08fbcd64fe3a4de4b6a2306bec791745, type: 3}
+  m_Name: CardLevelData
+  m_EditorClassIdentifier: 
+  url: https://opensheet.elk.sh/17o-e5oCXd3G-jgaeQcWVH2am7DFnWY5afiKsLWWvOQs/CardLevelData_dev
+  cardInfos:
+  - ID: 101
+    EnGroupID: Attack
+    GroupID: "\u666E\u653B"
+    EffectID: 101
+    Mana: 1
+    UpgradeCost: 10
+    MaxLevel: 0
+    Description: 
+    EffectInfos: []
+  - ID: 102
+    EnGroupID: Attack
+    GroupID: "\u666E\u653B"
+    EffectID: 102
+    Mana: 2
+    UpgradeCost: 20
+    MaxLevel: 0
+    Description: 
+    EffectInfos: []
+  - ID: 103
+    EnGroupID: Attack
+    GroupID: "\u666E\u653B"
+    EffectID: 103
+    Mana: 3
+    UpgradeCost: 30
+    MaxLevel: 1
+    Description: 
+    EffectInfos: []
+  - ID: 104
+    EnGroupID: Dash
+    GroupID: "\u885D\u649E"
+    EffectID: 101, 201
+    Mana: 1
+    UpgradeCost: 15
+    MaxLevel: 0
+    Description: 
+    EffectInfos: []
+  - ID: 105
+    EnGroupID: Dash
+    GroupID: "\u885D\u649E"
+    EffectID: 102, 202
+    Mana: 2
+    UpgradeCost: 25
+    MaxLevel: 0
+    Description: 
+    EffectInfos: []
+  - ID: 106
+    EnGroupID: Dash
+    GroupID: "\u885D\u649E"
+    EffectID: 103, 203
+    Mana: 3
+    UpgradeCost: 35
+    MaxLevel: 1
+    Description: 
+    EffectInfos: []
+  - ID: 107
+    EnGroupID: Flee
+    GroupID: "\u9003\u8DD1"
+    EffectID: 201, 301
+    Mana: 1
+    UpgradeCost: 5
+    MaxLevel: 0
+    Description: 
+    EffectInfos: []
+  - ID: 108
+    EnGroupID: Flee
+    GroupID: "\u9003\u8DD1"
+    EffectID: 202, 302
+    Mana: 2
+    UpgradeCost: 10
+    MaxLevel: 0
+    Description: 
+    EffectInfos: []
+  - ID: 109
+    EnGroupID: Flee
+    GroupID: "\u9003\u8DD1"
+    EffectID: 203, 303
+    Mana: 3
+    UpgradeCost: 15
+    MaxLevel: 1
+    Description: 
+    EffectInfos: []

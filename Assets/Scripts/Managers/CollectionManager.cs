@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Card.Data;
 using NueGames.Card;
 using NueGames.Collection;
 using NueGames.Data.Collection;
@@ -109,25 +110,25 @@ namespace NueGames.Managers
             HandController.hand.Clear();
         }
         
-        public void OnCardDiscarded(CardBase targetCard)
+        public void OnCardDiscarded(BattleCard targetBattleCard)
         {
-            HandPile.Remove(targetCard.CardData);
-            DiscardPile.Add(targetCard.CardData);
+            HandPile.Remove(targetBattleCard.CardData);
+            DiscardPile.Add(targetBattleCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
         }
         
-        public void OnCardExhausted(CardBase targetCard)
+        public void OnCardExhausted(BattleCard targetBattleCard)
         {
-            HandPile.Remove(targetCard.CardData);
-            ExhaustPile.Add(targetCard.CardData);
+            HandPile.Remove(targetBattleCard.CardData);
+            ExhaustPile.Add(targetBattleCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
         }
-        public void OnCardPlayed(CardBase targetCard)
+        public void OnCardPlayed(BattleCard targetBattleCard)
         {
-            if (targetCard.CardData.ExhaustAfterPlay)
-                targetCard.Exhaust();
+            if (targetBattleCard.CardData.ExhaustAfterPlay)
+                targetBattleCard.Exhaust();
             else
-                targetCard.Discard();
+                targetBattleCard.Discard();
           
             foreach (var cardObject in HandController.hand)
                 cardObject.UpdateCardText();
@@ -162,9 +163,9 @@ namespace NueGames.Managers
         /// 對卡牌堆的卡片，進行移動
         /// </summary>
         /// <param name="parameter"></param>
-        /// <param name="targetCard"></param>
+        /// <param name="targetBattleCard"></param>
         /// <exception cref="System.NotImplementedException"></exception>
-        public void ChangeCardPile(ChoiceParameter parameter, CardBase targetCard)
+        public void ChangeCardPile(ChoiceParameter parameter, BattleCard targetBattleCard)
         {
             Debug.Log($"ChangeCard{parameter}");
             // switch (parameter.TargetPile)
@@ -183,16 +184,16 @@ namespace NueGames.Managers
             //         break;
             // }
             
-            OnCardChangePile(parameter, targetCard);
+            OnCardChangePile(parameter, targetBattleCard);
         }
 
         
         
         
-        public void OnCardChangePile(ChoiceParameter parameter, CardBase targetCard)
+        public void OnCardChangePile(ChoiceParameter parameter, BattleCard targetBattleCard)
         {
-            RemoveCardFromPile(parameter.SourcePile, targetCard.CardData);
-            AddCardToPile(parameter.TargetPile, targetCard.CardData);
+            RemoveCardFromPile(parameter.SourcePile, targetBattleCard.CardData);
+            AddCardToPile(parameter.TargetPile, targetBattleCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
         }
         

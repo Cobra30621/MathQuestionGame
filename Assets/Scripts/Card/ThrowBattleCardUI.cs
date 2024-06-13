@@ -3,7 +3,7 @@ using NueGames.Managers;
 
 namespace NueGames.Card
 {
-    public class ThrowCardUI : CardBase
+    public class ThrowBattleCardUI : BattleCard
     {
         public System.Action OnCardChose;
         

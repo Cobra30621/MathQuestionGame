@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Card.Data;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Enums;
@@ -72,10 +73,10 @@ namespace NueGames.Collection
         /// <summary>
         /// 當卡牌被選擇時
         /// </summary>
-        /// <param name="cardBase"></param>
-        public void OnCardChoose(CardBase cardBase)
+        /// <param name="battleCard"></param>
+        public void OnCardChoose(BattleCard battleCard)
         {
-            CollectionManager.ChangeCardPile(_currentParameter, cardBase);
+            CollectionManager.ChangeCardPile(_currentParameter, battleCard);
             Close();
         }
 

@@ -10,8 +10,8 @@ namespace CampFire
     {
         [SerializeField] private GameObject mainPanel;
 
-        [SerializeField] private ThrowCardUI throwCardUI;
-        private List<CardBase> _spawnedCardList = new List<CardBase>();
+        [SerializeField] private ThrowBattleCardUI throwBattleCardUI;
+        private List<BattleCard> _spawnedCardList = new List<BattleCard>();
 
         [SerializeField] private Transform spawnPos;
         
@@ -33,7 +33,7 @@ namespace CampFire
             
             foreach (var cardData in GameManager.Instance.CurrentCardsList)
             {
-                var cardBase = Instantiate(throwCardUI, spawnPos);
+                var cardBase = Instantiate(throwBattleCardUI, spawnPos);
                 _spawnedCardList.Add(cardBase);
                 cardBase.SetCard(cardData, false);
                 cardBase.OnCardChose += OnThrowCard;

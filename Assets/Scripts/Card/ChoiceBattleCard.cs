@@ -1,6 +1,6 @@
 ﻿namespace NueGames.Card
 {
-    public class ChoiceCard : CardBase
+    public class ChoiceBattleCard : BattleCard
     {
         
     }

@@ -1,3 +1,4 @@
+using Card.Data;
 using NueGames.Data.Collection;
 using TMPro;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.UI;
 
 namespace NueGames.Card
 {
-    public class CardUI : MonoBehaviour
+    public class SingleCardDisplay : MonoBehaviour
     {
         [SerializeField] protected Image cardImage;
         [SerializeField] protected Image passiveImage;
@@ -13,13 +14,12 @@ namespace NueGames.Card
         [SerializeField] protected TextMeshProUGUI descTextField;
         [SerializeField] protected TextMeshProUGUI manaTextField;
 
-        public void UpdateUI(CardData CardData, int mana)
+        public void UpdateUI(CardInfo cardInfo)
         {
-            nameTextField.text = CardData.CardName;
-            descTextField.text = CardData.MyDescription;
-            manaTextField.text = CardData.ManaCost.ToString();
-            cardImage.sprite = CardData.CardSprite;
-            manaTextField.text = mana.ToString();
+            nameTextField.text = cardInfo.CardData.CardName + $" {cardInfo.Level}";
+            descTextField.text = cardInfo.Description;
+            manaTextField.text = cardInfo.ManaCost.ToString();
+            cardImage.sprite = cardInfo.CardData.CardSprite;
         }
 
         public void SetPlayable(bool playable)

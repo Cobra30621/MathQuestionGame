@@ -1,6 +1,6 @@
 namespace NueGames.Card
 {
-    public class UICard : CardBase
+    public class UIBattleCard : BattleCard
     {
         
     }

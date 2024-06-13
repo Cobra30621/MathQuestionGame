@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using CampFire;
+using Card.Data;
 using NueGames.CharacterAbility;
 using NueGames.Data.Collection;
 using NueGames.UI;

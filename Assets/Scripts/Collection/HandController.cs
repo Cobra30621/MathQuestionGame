@@ -32,7 +32,7 @@ namespace NueGames.Collection
         public LayerMask selectableLayer;
         public LayerMask targetLayer;
         public Camera cam = null;
-        public List<CardBase> hand; // Cards currently in hand
+        public List<BattleCard> hand; // Cards currently in hand
 
         [Header("Selecting Effect")] 
         private CharacterHighlightController characterHighlightController = new CharacterHighlightController();
@@ -50,7 +50,7 @@ namespace NueGames.Collection
        
         [SerializeField] private int _selected = -1; // Card index that is nearest to mouse
         [SerializeField] private int _dragged = -1; // Card index that is held by mouse (inside of hand)
-        private CardBase _heldCard; // Card that is held by mouse (when outside of hand)
+        private BattleCard _heldBattleCard; // Card that is held by mouse (when outside of hand)
         [SerializeField] private Vector3 _heldCardOffset;
         [SerializeField] private Vector2 _heldCardTilt;
         [SerializeField] private Vector2 _force;
@@ -172,7 +172,7 @@ namespace NueGames.Collection
                 // Set to inactive material if not enough mana required to use card
                 card.SetInactiveMaterialState(!PlayCardJudgment.EnoughResourceToUseCard(card));
 
-                var noCardHeld = _heldCard == null; // Whether a card is "held" (outside of hand)
+                var noCardHeld = _heldBattleCard == null; // Whether a card is "held" (outside of hand)
                 var onSelectedCard = noCardHeld && _selected == i;
                 var onDraggedCard = noCardHeld && _dragged == i;
 
@@ -276,9 +276,9 @@ namespace NueGames.Collection
 
         private void HandleDraggedCardOutsideHand(bool mouseButton, Vector2 mousePos)
         {
-            if (_heldCard != null)
+            if (_heldBattleCard != null)
             {
-                var cardTransform = _heldCard.transform;
+                var cardTransform = _heldBattleCard.transform;
                 // Debug.Log($"cardTransform.position { cardTransform.position}");
                 var cardUp = Vector3.up;
                 var cardPos = _mouseWorldPos + _heldCardOffset;
@@ -300,7 +300,7 @@ namespace NueGames.Collection
                 cardTransform.position = cardPos;
                 
 
-                ActionTargetType actionTargetType = _heldCard.CardData.ActionTargetType;
+                ActionTargetType actionTargetType = _heldBattleCard.CardData.ActionTargetType;
                 characterHighlightController.OnDraggedCardOutsideHand(actionTargetType);
 
                 if (!GameManager.CanSelectCards || _mouseInsideHand)
@@ -327,10 +327,10 @@ namespace NueGames.Collection
                 _dragged = _selected;
                 _selected = -1;
             }
-            AddCardToHand(_heldCard, _dragged);
+            AddCardToHand(_heldBattleCard, _dragged);
             
             
-            _heldCard = null;
+            _heldBattleCard = null;
         }
 
         
@@ -343,11 +343,11 @@ namespace NueGames.Collection
             characterHighlightController.DeactivateAllHighlights();
             bool backToHand = true;
 
-            if (PlayCardJudgment.CanUseCard(_heldCard))
+            if (PlayCardJudgment.CanUseCard(_heldBattleCard))
             {
                 CharacterBase hitCharacter = GetHitCharacter(mousePos);
                 
-                if (EnablePlayCard(_heldCard.CardData.ActionTargetType, hitCharacter))
+                if (EnablePlayCard(_heldBattleCard.CardData.ActionTargetType, hitCharacter))
                 {
                     backToHand = false;
                     // //  Arrow Effect for the card's ActionTargetType is single enemy
@@ -356,9 +356,9 @@ namespace NueGames.Collection
                     //     RemoveCardFromHand(_usingSelectingEffectCardIndex);
                     // }
 
-                    var targetList = GetTargetList(_heldCard.CardData.ActionTargetType, hitCharacter);
+                    var targetList = GetTargetList(_heldBattleCard.CardData.ActionTargetType, hitCharacter);
                     
-                    _heldCard.Use(targetList);
+                    _heldBattleCard.Use(targetList);
                     DeactivateSelectingSingleEnemyEffect();
                 }
             }
@@ -367,9 +367,9 @@ namespace NueGames.Collection
 
             // Cannot use card / Not enough mana! / Not the card use arrow effect Return card to hand!
             if (backToHand ) 
-                AddCardToHand(_heldCard, _selected);
+                AddCardToHand(_heldBattleCard, _selected);
 
-            _heldCard = null;
+            _heldBattleCard = null;
         }
 
 
@@ -477,7 +477,7 @@ namespace NueGames.Collection
                 }
             }
 
-            if (_heldCard == null && mouseButton && _dragged != -1 && _selected != -1 && _dragged != _selected)
+            if (_heldBattleCard == null && mouseButton && _dragged != -1 && _selected != -1 && _dragged != _selected)
             {
                 // Move dragged card
                 MoveCardToIndex(_dragged, _selected);
@@ -488,12 +488,12 @@ namespace NueGames.Collection
         private void OnCardDragedOutsideHand()
         {
             // Card is outside of the hand, so is considered "held" ready to be used
-            _heldCard = hand[_dragged];
-            _isUsingSelectingEffectCard = _heldCard.ActionTargetIsSingleEnemy();
+            _heldBattleCard = hand[_dragged];
+            _isUsingSelectingEffectCard = _heldBattleCard.ActionTargetIsSingleEnemy();
             if (_isUsingSelectingEffectCard)
             {
                 _usingSelectingEffectCardIndex = _dragged;
-                arrowController.SetupAndActivate(_heldCard.transform);
+                arrowController.SetupAndActivate(_heldBattleCard.transform);
             }
             
             // Remove from hand, so that cards in hand fill the hole that the card left
@@ -524,9 +524,9 @@ namespace NueGames.Collection
             }
             
             // Check card Action Target Is Single Enemy
-            if (_heldCard != null)
+            if (_heldBattleCard != null)
             {
-                if (_heldCard.ActionTargetIsSingleEnemy())
+                if (_heldBattleCard.ActionTargetIsSingleEnemy())
                 {
                     HandleSelectingSingleEnemyEffect(selectedEnemy);
                 }
@@ -558,7 +558,7 @@ namespace NueGames.Collection
             characterHighlightController.ActivateEnemyHighlight(selectedEnemy);
             arrowController.OnEnterEnemy();
             CombatManager.SetSelectedEnemy(selectedEnemy);
-            _heldCard?.UpdateCardText();
+            _heldBattleCard?.UpdateCardText();
         }
         
         private void DeactivateSelectingSingleEnemyEffect()
@@ -566,7 +566,7 @@ namespace NueGames.Collection
             characterHighlightController.DeactivateEnemyHighlights();
             arrowController.OnLeaveEnemy();
             CombatManager.SetSelectedEnemy(null);
-            _heldCard?.UpdateCardText();
+            _heldBattleCard?.UpdateCardText();
         }
 
         private void GetDistanceToCurrentSelectedCard(out int count, out float sqrDistance)
@@ -646,37 +646,37 @@ namespace NueGames.Collection
         public void MoveCardToIndex(int currentIndex, int toIndex)
         {
             if (currentIndex == toIndex) return; // Same index, do nothing
-            CardBase card = hand[currentIndex];
+            BattleCard battleCard = hand[currentIndex];
             hand.RemoveAt(currentIndex);
-            hand.Insert(toIndex, card);
+            hand.Insert(toIndex, battleCard);
 
             if (updateHierarchyOrder)
             {
-                card.transform.SetSiblingIndex(toIndex);
+                battleCard.transform.SetSiblingIndex(toIndex);
             }
         }
 
         /// <summary>
         /// Adds a card to the hand. Optional param to insert it at a given index.
         /// </summary>
-        public void AddCardToHand(CardBase card, int index = -1)
+        public void AddCardToHand(BattleCard battleCard, int index = -1)
         {
             if (index < 0)
             {
                 // Add to end
-                hand.Add(card);
+                hand.Add(battleCard);
                 index = hand.Count - 1;
             }
             else
             {
                 // Insert at index
-                hand.Insert(index, card);
+                hand.Insert(index, battleCard);
             }
 
             if (updateHierarchyOrder)
             {
-                card.transform.SetParent(transform);
-                card.transform.SetSiblingIndex(index);
+                battleCard.transform.SetParent(transform);
+                battleCard.transform.SetSiblingIndex(index);
             }
         }
 
@@ -687,9 +687,9 @@ namespace NueGames.Collection
         {
             if (updateHierarchyOrder)
             {
-                CardBase card = hand[index];
-                card.transform.SetParent(transform.parent);
-                card.transform.SetSiblingIndex(transform.GetSiblingIndex() + 1);
+                BattleCard battleCard = hand[index];
+                battleCard.transform.SetParent(transform.parent);
+                battleCard.transform.SetSiblingIndex(transform.GetSiblingIndex() + 1);
             }
 
             hand.RemoveAt(index);

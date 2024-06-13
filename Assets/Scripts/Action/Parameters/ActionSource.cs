@@ -32,7 +32,7 @@ namespace Action.Parameters
         /// <summary>
         /// 源自於哪張卡片
         /// </summary>
-        public CardBase SourceCard;
+        public BattleCard SourceBattleCard;
 
         public bool IsFromPower(PowerName checkPower)
         {
@@ -42,7 +42,7 @@ namespace Action.Parameters
 
         public override string ToString()
         {
-            return $"{nameof(SourceType)}: {SourceType}, {nameof(SourcePower)}: {SourcePower}, {nameof(SourceRelic)}: {SourceRelic}, {nameof(SourceCharacter)}: {SourceCharacter?.name}, {nameof(SourceCard)}: {SourceCard?.name}";
+            return $"{nameof(SourceType)}: {SourceType}, {nameof(SourcePower)}: {SourcePower}, {nameof(SourceRelic)}: {SourceRelic}, {nameof(SourceCharacter)}: {SourceCharacter?.name}, {nameof(SourceBattleCard)}: {SourceBattleCard?.name}";
         }
     }
 }

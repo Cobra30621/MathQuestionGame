@@ -1,7 +1,10 @@
 using System.Collections.Generic;
+using Card;
+using Card.Data;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Managers;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,47 +14,29 @@ namespace NueGames.UI
     public class InventoryCanvas : CanvasBase
     {
         [SerializeField] private TextMeshProUGUI titleTextField;
-        [SerializeField] private LayoutGroup cardSpawnRoot;
-        [SerializeField] private CardBase cardUIPrefab;
-
+  
         public TextMeshProUGUI TitleTextField => titleTextField;
-        public LayoutGroup CardSpawnRoot => cardSpawnRoot;
 
-        private List<CardBase> _spawnedCardList = new List<CardBase>();
+        [Required]
+        public CardListDisplay CardListDisplay;
 
         public void ChangeTitle(string newTitle) => TitleTextField.text = newTitle;
+
+
+        [SerializeField] private DeckData testDisplayDeck;
+
+
+        [Button]
+        public void Test()
+        {
+            SetCards(testDisplayDeck.CardList);
+        }
+        
         
         public void SetCards(List<CardData> cardDataList)
         {
-            var count = 0;
-            for (int i = 0; i < _spawnedCardList.Count; i++)
-            {
-                count++;
-                if (i>=cardDataList.Count)
-                {
-                    _spawnedCardList[i].gameObject.SetActive(false);
-                }
-                else
-                {
-                    _spawnedCardList[i].SetCard(cardDataList[i],false);
-                    _spawnedCardList[i].gameObject.SetActive(true);
-                }
-                
-            }
-            
-            var cal = cardDataList.Count - count;
-            if (cal>0)
-            {
-                for (var i = 0; i < cal; i++)
-                {
-                    var cardData = cardDataList[count+i];
-                    var cardBase = Instantiate(cardUIPrefab, CardSpawnRoot.transform);
-                    cardBase.SetCard(cardData, false);
-                    _spawnedCardList.Add(cardBase);
-                }
-            }
-            
-           
+            var cardInfos = CardManager.Instance.CreateCardInfos(cardDataList);
+            CardListDisplay.Open(cardInfos);
         }
 
         public override void OpenCanvas()

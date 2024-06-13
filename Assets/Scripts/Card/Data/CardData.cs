@@ -1,24 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CardAction;
-using NueGames.Action;
-using NueGames.Action.MathAction;
 using NueGames.Characters;
-using NueGames.Combat;
+using NueGames.Data.Collection;
 using NueGames.Enums;
-using NueGames.Managers;
-using NueGames.NueExtentions;
-using NueGames.Power;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-using Sirenix.Utilities;
-using UnityEditor;
 using UnityEngine;
 
-namespace NueGames.Data.Collection
+namespace Card.Data
 {
     [CreateAssetMenu(fileName = "Card Data", menuName = "Collection/Card", order = 0)]
     public class CardData : SerializedScriptableObject ,ISerializeReferenceByAssetGuid
@@ -31,7 +21,7 @@ namespace NueGames.Data.Collection
             "技術文件放在 Assets/Scripts/CardAction/CardActionBase.cs 的開頭註解" )]
         [SerializeField] private CardActionBase cardAction;
 
-        [SerializeField] private List<CardLevel> cardLevels;
+        [SerializeField] private List<CardLevelInfo> _levelInfos;
         [FoldoutGroup("數值參數")]
         [SerializeField]private ActionTargetType actionTargetType;
         [FoldoutGroup("數值參數")]
@@ -83,6 +73,8 @@ namespace NueGames.Data.Collection
         public ActionTargetType ActionTargetType => actionTargetType;
         
         public CardActionBase CardAction => cardAction;
+        
+        public List<CardLevelInfo> LevelInfos => _levelInfos;
 
         public GameObject FxGo => fxGo;
         public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
@@ -125,6 +117,22 @@ namespace NueGames.Data.Collection
             
             MyDescription = description;
         }
+        
+        public CardLevelInfo GetLevelInfo(int level)
+        {
+            if (level >= LevelInfos.Count)
+            {
+                throw new Exception($"level {level} 超過 {cardName} 的 LevelInfos {LevelInfos.Count} 數量");
+            }
+            return LevelInfos[level];
+        }
+        
+        public void SetCardLevels(List<CardLevelInfo> levelInfos)
+        {
+            _levelInfos = levelInfos;
+        }
+        
+        
 
 #if UNITY_EDITOR // Editor-related code must be excluded from builds
         private IEnumerable GetAssets()

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Card.Data;
 using UnityEngine;
 
 namespace NueGames.Data.Collection.RewardData

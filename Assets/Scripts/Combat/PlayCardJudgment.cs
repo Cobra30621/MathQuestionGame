@@ -12,14 +12,14 @@ namespace NueGames.Combat
         public static GameManager GameManager => GameManager.Instance;
         public static CombatManager CombatManager => CombatManager.Instance;
 
-        public static bool CanUseCard(CardBase cardBase)
+        public static bool CanUseCard(BattleCard battleCard)
         {
-            return EnoughResourceToUseCard(cardBase) && !cardBase.CardData.CanNotPlay;
+            return EnoughResourceToUseCard(battleCard) && !battleCard.CardData.CanNotPlay;
         }
 
-        public static bool EnoughResourceToUseCard(CardBase cardBase)
+        public static bool EnoughResourceToUseCard(BattleCard battleCard)
         {
-            return EnoughMana(cardBase.ManaCost);
+            return EnoughMana(battleCard.ManaCost);
         }
         
         private static bool EnoughMana(int needMana)

@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NueGames.Data.Collection;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace NueGames.Data.Collection
+namespace Card.Data
 {
     [CreateAssetMenu(fileName = "Deck Data", menuName = "Collection/Deck", order = 1)]
     public class DeckData : ScriptableObject

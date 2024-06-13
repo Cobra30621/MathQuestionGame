@@ -1,4 +1,5 @@
 ﻿using System;
+using Card.Data;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Managers;
@@ -11,17 +12,17 @@ namespace NueGames.Collection
         IPointerUpHandler
     {
         [SerializeField] private float showScaleRate = 1.15f;
-        private CardBase _cardBase;
+        private BattleCard _battleCard;
         private Vector3 _initalScale;
-        public System.Action<CardBase> OnCardChose;
+        public System.Action<BattleCard> OnCardChose;
         public CollectionManager CollectionManager = CollectionManager.Instance;
 
         public void BuildCard(CardData cardData)
         {
-            _cardBase = GetComponent<CardBase>();
+            _battleCard = GetComponent<BattleCard>();
             _initalScale = transform.localScale;
-            _cardBase.SetCard(cardData);
-            _cardBase.UpdateCardText();
+            _battleCard.SetCard(cardData);
+            _battleCard.UpdateCardText();
         }
 
         private void OnChoice()
@@ -29,7 +30,7 @@ namespace NueGames.Collection
             // if (CollectionManager != null)
             //     CollectionManager.OnCardChangePile();
 
-            OnCardChose?.Invoke(_cardBase);
+            OnCardChose?.Invoke(_battleCard);
         }
 
 

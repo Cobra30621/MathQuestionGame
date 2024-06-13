@@ -241,9 +241,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d02565079cba14a8c85dcf14fc1891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   titleTextField: {fileID: 9127871942361017765}
-  cardSpawnRoot: {fileID: 4437318933109815386}
-  cardUIPrefab: {fileID: 593423258, guid: 5d5009aa9a8f2401ebf7d842d4785e30, type: 3}
+  CardListDisplay: {fileID: 1364668591263409074}
+  testDisplayDeck: {fileID: 0}
 --- !u!1 &1235933608894134585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,6 +1036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6483425684488289664}
   - component: {fileID: 5005886540727593838}
+  - component: {fileID: 1364668591263409074}
   m_Layer: 5
   m_Name: CardPanel
   m_TagString: Untagged
@@ -1069,6 +1079,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6748cae7ad739cd419d12eb4f1dde65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1364668591263409074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616074663679409170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c75eaebab8b4f929ede3211bfac0270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPanel: {fileID: 4616074663679409170}
+  prefab: {fileID: 540110099308547636, guid: cda0e042831324adbbcd50ce8a216a74, type: 3}
+  spawnedCardList: []
+  spawnPos: {fileID: 969933884834585910}
 --- !u!1 &4773978110025437830
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Card.Data;
 using Map;
 using NueGames.Card;
 using NueGames.Characters;
@@ -38,7 +39,7 @@ namespace NueGames.Data.Settings
         
         [FoldoutGroup("卡牌")]
         [PropertyTooltip("卡牌的 GameObject")]
-        [SerializeField] private CardBase cardPrefab;
+        [SerializeField] private BattleCard battleCardPrefab;
 
         [FoldoutGroup("玩家")] 
         [PropertyTooltip("玩家資料")] [InlineEditor()] [SerializeField]
@@ -58,7 +59,7 @@ namespace NueGames.Data.Settings
         public DeckData InitalDeck => initalDeck;
         public CardRewardData CardRewardData => cardRewardData;
         public int MaxCardOnHand => maxCardOnHand;
-        public CardBase CardPrefab => cardPrefab;
+        public BattleCard BattleCardPrefab => battleCardPrefab;
         public List<RelicName> InitialRelic => initialRelic;
         public MapConfig[] MapConfigs => _mapConfigs;
 
