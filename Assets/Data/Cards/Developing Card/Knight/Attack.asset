@@ -34,7 +34,49 @@ MonoBehaviour:
       Entry: 6
       Data: 
   cardId: "\u666E\u653B"
-  _levelInfos: []
+  _levelInfos:
+  - ID: 101
+    EnGroupID: Attack
+    GroupID: "\u666E\u653B"
+    EffectID: 101
+    Mana: 1
+    UpgradeCost: 10
+    MaxLevel: 0
+    Description: 1
+    EffectInfos:
+    - ActionType: 1
+      SkillID: 101
+      int1: 1
+      int2: 0
+      int3: 0
+  - ID: 102
+    EnGroupID: Attack
+    GroupID: "\u666E\u653B"
+    EffectID: 102
+    Mana: 2
+    UpgradeCost: 20
+    MaxLevel: 0
+    Description: 
+    EffectInfos:
+    - ActionType: 1
+      SkillID: 102
+      int1: 2
+      int2: 0
+      int3: 0
+  - ID: 103
+    EnGroupID: Attack
+    GroupID: "\u666E\u653B"
+    EffectID: 103
+    Mana: 3
+    UpgradeCost: 30
+    MaxLevel: 1
+    Description: 
+    EffectInfos:
+    - ActionType: 1
+      SkillID: 103
+      int1: 3
+      int2: 0
+      int3: 0
   actionTargetType: 0
   manaCost: 1
   exhaustAfterPlay: 0

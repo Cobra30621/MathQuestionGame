@@ -16,11 +16,18 @@ public class SaveManager : Singleton<SaveManager>
     [ShowInInspector] private GameData _gameData;
     [ShowInInspector] [ReadOnly] private List<IDataPersistence> dataPersistenceObjects;
 
+    [LabelText("在 Awake 時，就進行讀檔")]
+    [SerializeField] private bool loadOnAwake;
 
     protected override void DoAtAwake()
     {
         dataPersistenceObjects = FindAllDataPersistenceObjects();
         base.DoAtAwake();
+
+        if (loadOnAwake)
+        {
+            LoadGame();
+        }
     }
     
     [Button]
@@ -55,10 +62,9 @@ public class SaveManager : Singleton<SaveManager>
     {
         dataPersistenceObjects = FindAllDataPersistenceObjects();
         // if we don't have any gameData to save, log a warning here
-        if (this._gameData == null) 
+        if (this._gameData == null)
         {
-            Debug.LogWarning("No gameData was found. A New Game needs to be started before gameData can be saved.");
-            return;
+            _gameData = new GameData();
         }
 
         // pass the Skill to other scripts so they can update it

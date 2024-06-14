@@ -34,7 +34,64 @@ MonoBehaviour:
       Entry: 6
       Data: 
   cardId: "\u885D\u649E"
-  _levelInfos: []
+  _levelInfos:
+  - ID: 104
+    EnGroupID: Dash
+    GroupID: "\u885D\u649E"
+    EffectID: 101, 201
+    Mana: 1
+    UpgradeCost: 15
+    MaxLevel: 0
+    Description: 1
+    EffectInfos:
+    - ActionType: 1
+      SkillID: 101
+      int1: 1
+      int2: 0
+      int3: 0
+    - ActionType: 50
+      SkillID: 201
+      int1: 2
+      int2: 0
+      int3: 0
+  - ID: 105
+    EnGroupID: Dash
+    GroupID: "\u885D\u649E"
+    EffectID: 102, 202
+    Mana: 2
+    UpgradeCost: 25
+    MaxLevel: 0
+    Description: 
+    EffectInfos:
+    - ActionType: 1
+      SkillID: 102
+      int1: 2
+      int2: 0
+      int3: 0
+    - ActionType: 50
+      SkillID: 202
+      int1: 4
+      int2: 0
+      int3: 0
+  - ID: 106
+    EnGroupID: Dash
+    GroupID: "\u885D\u649E"
+    EffectID: 103, 203
+    Mana: 3
+    UpgradeCost: 35
+    MaxLevel: 1
+    Description: 
+    EffectInfos:
+    - ActionType: 1
+      SkillID: 103
+      int1: 3
+      int2: 0
+      int3: 0
+    - ActionType: 50
+      SkillID: 203
+      int1: 6
+      int2: 0
+      int3: 0
   actionTargetType: 1
   manaCost: 1
   exhaustAfterPlay: 0
