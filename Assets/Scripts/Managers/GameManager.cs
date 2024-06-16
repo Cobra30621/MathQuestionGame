@@ -123,7 +123,7 @@ namespace NueGames.Managers
         public BattleCard BuildAndGetCard(CardData targetData, Transform parent)
         {
             var clone = Instantiate(GameplayData.BattleCardPrefab, parent);
-            clone.SetCard(targetData);
+            clone.Init(targetData);
             return clone;
         }
 

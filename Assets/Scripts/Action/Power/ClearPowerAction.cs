@@ -17,6 +17,8 @@ namespace NueGames.Action
     {
         private readonly PowerName _targetPower;
 
+        
+        
         public ClearPowerAction(PowerName powerName, 
             List<CharacterBase> targetList, ActionSource actionSource)
         {

@@ -101,16 +101,14 @@ namespace EnemyAbility
                 }
                 if (!_skillData.EnemyActions[0].IsDamageAction) return false;
                 
-                var damageInfo = new DamageInfo()
-                {
-                    Target = CombatManager.Instance.MainAlly,
-                    damageValue = _skillData.EnemyActions[0].DamageValueForIntention,
-                    ActionSource = new ActionSource()
+                var damageInfo = new DamageInfo(_skillData.EnemyActions[0].DamageValueForIntention,
+                    new ActionSource()
                     {
                         SourceType = SourceType.Enemy,
                         SourceCharacter = _enemy
                     }
-                };
+                    );
+                damageInfo.SetTarget(CombatManager.Instance.MainAlly);
                 value = CombatCalculator.GetDamageValue(damageInfo);
                 return true;
             }

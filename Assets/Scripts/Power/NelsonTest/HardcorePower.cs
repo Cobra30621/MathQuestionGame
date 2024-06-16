@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Action.Parameters;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -32,9 +33,9 @@ namespace NueGames.Power
         }
         protected override void OnAnswerWrong()
         {
-            GameActionExecutor.AddToBottom(new DamageAction(
-                99999,new List<CharacterBase>() {Owner},
-                    GetActionSource(), fixDamage:true));
+            var damageInfo = new DamageInfo(99999, GetActionSource(), fixDamage: true);
+
+            GameActionExecutor.AddToBottom(new DamageAction(damageInfo, new List<CharacterBase>() {Owner}));
         }
     }
 }

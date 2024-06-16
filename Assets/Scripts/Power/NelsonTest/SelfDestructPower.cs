@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Action.Parameters;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -29,10 +30,11 @@ namespace NueGames.Power
         {
             _turnCount++;
             if (_turnCount >= 3)
-            {   //Owner改成玩家ｓ
-                GameActionExecutor.AddToBottom(new DamageAction(
-                    20,new List<CharacterBase>() {Owner},
-                    GetActionSource(), fixDamage:true));
+            {   
+                var damageInfo = new DamageInfo(20, GetActionSource(), fixDamage: true);
+
+                GameActionExecutor.AddToBottom(new DamageAction(damageInfo, new List<CharacterBase>() {Owner}));
+                
             }    
         }
     }

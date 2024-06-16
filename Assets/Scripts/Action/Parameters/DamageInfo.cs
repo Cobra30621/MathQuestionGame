@@ -10,29 +10,41 @@ namespace Action.Parameters
 {
     public class DamageInfo
     {
-
         /// <summary>
         /// 傷害來源
         /// </summary>
-        public ActionSource ActionSource;
+        public ActionSource ActionSource { get; private set; }
         /// <summary>
         /// 傷害對象
         /// </summary>
-        public CharacterBase Target;
+        public CharacterBase Target { get; private set; }
         /// <summary>
         /// 基礎傷害數值
         /// </summary>
-        public float damageValue;
+        public float DamageValue { get; private set; }
         /// <summary>
         /// 固定傷害，不受狀態影響
         /// </summary>
-        public bool FixDamage;
+        public bool FixDamage { get; private set; }
         /// <summary>
         /// 可以穿甲
         /// </summary>
-        public bool CanPierceArmor;
+        public bool CanPierceArmor { get; private set; }
 
-   
+        
+        public DamageInfo(float damageValue, ActionSource actionSource, bool fixDamage = false, bool canPierceArmor = false)
+        {
+            ActionSource = actionSource;
+            DamageValue = damageValue;
+            FixDamage = fixDamage;
+            CanPierceArmor = canPierceArmor;
+        }
+
+        public void SetTarget(CharacterBase target)
+        {
+            Target = target;
+        }
+
 
         public int GetDamageValue()
         {

@@ -1,33 +1,28 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Action.Parameters;
+using Card;
 using Card.Data;
-using CardAction;
+using Card.Display;
+using GameAction;
 using NueGames.Action;
 using NueGames.Characters;
-using NueGames.Data.Collection;
 using NueGames.Data.Containers;
 using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.NueExtentions;
-using NueGames.Utils;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
 using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using NueGames.Combat;
 using NueGames.Parameters;
 using NueGames.Power;
-using Sirenix.OdinInspector;
 
 namespace NueGames.Card
 {
-    public class BattleCard : SerializedMonoBehaviour,I2DTooltipTarget, IPointerDownHandler, IPointerUpHandler
+    public class BattleCard : CardBase,I2DTooltipTarget, IPointerDownHandler, IPointerUpHandler
     {
         [Header("Base References")]
         [SerializeField] protected Transform descriptionRoot;
@@ -37,18 +32,27 @@ namespace NueGames.Card
 
 
         #region Cache
-        public CardData CardData { get; private set; }
-        public bool IsInactive { get; protected set; }
+        public bool IsInactive { get; private set; }
+        public bool IsPlayable { get; private set; }
+        public bool IsExhausted { get; private set; }
+        
         protected Transform CachedTransform { get; set; }
         protected WaitForEndOfFrame CachedWaitFrame { get; set; }
-        public bool IsPlayable { get; protected set; } = true;
-        public int ManaCost { get; protected set;}
+        
+
+        public CardData CardData => _cardInfo.CardData;
+        public CardLevelInfo CardLevelInfo => _cardInfo.CardLevelInfo;
+        public ActionTargetType ActionTargetType => CardLevelInfo.ActionTargetType;
+        public int ManaCost { get; private set; }
+        
+        
 
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;
-        public bool IsExhausted { get; private set; }
         
-
+        [Header("3D Settings")]
+        [SerializeField] private Canvas canvas;
+        
         #endregion
         
         #region Setup
@@ -58,41 +62,41 @@ namespace NueGames.Card
             CachedWaitFrame = new WaitForEndOfFrame();
         }
 
-        public virtual void SetCard(CardData cardData,bool isPlayable = true)
+        public override void Init(CardData cardData)
         {
-            CardData = cardData;
-            IsPlayable = isPlayable;
+            var cardInfo = CardManager.Instance.CreateCardInfo(cardData);
+
+            IsPlayable = true;
+            Init(cardInfo);
             
-            foreach (var pair in cardUIDictionary)
-            {
-                pair.Value.gameObject.SetActive(false);
-            }
-            CurrentSingleCard = cardUIDictionary[CardData.Rarity];
-            ManaCost = cardData.ManaCost;
-            CurrentSingleCard.gameObject.SetActive(true);
-            UpdateCardText();
+            ManaCost = CardLevelInfo.Mana;
+            
+            if (canvas)
+                canvas.worldCamera = CollectionManager.HandController.cam;
         }
-        
+
+   
         #endregion
 
 
-        
-        #region Card Methods
-        // Math Action
+        #region Do Effect Action
 
-        public bool ActionTargetIsSingleEnemy()
-        {
-            return CardData.ActionTargetType == ActionTargetType.Enemy;
-        }
-        
         public virtual void Use(List<CharacterBase> targetList)
         {
             if (!IsPlayable) return;
 
             HideTooltipInfo(TooltipManager.Instance);
             
-            SpendMana( ManaCost);
+            SpendMana(ManaCost);
+            
+            DoFXAction(_cardInfo.CardData, targetList);
+            DoAction(targetList);
+            
+            CollectionManager.OnCardPlayed(this);
+        }
 
+        public void DoAction(List<CharacterBase> targetList)
+        {
             ActionSource actionSource = new ActionSource()
             {
                 SourceType = SourceType.Card,
@@ -100,11 +104,43 @@ namespace NueGames.Card
                 SourceCharacter = CombatManager.MainAlly
             };
             
-            CardData.CardAction.SetValue(this, targetList);
-            CardData.CardAction.DoAction();
-            
-            CollectionManager.OnCardPlayed(this);
+            foreach (var effectInfo in CardLevelInfo.EffectInfos)
+            {
+                var gameAction = GameActionFactory.GetGameAction(effectInfo, targetList, actionSource);
+                GameActionExecutor.AddToBottom(gameAction);
+            }
         }
+        
+        /// <summary>
+        /// 執行要撥放的特效
+        /// </summary>
+        protected void DoFXAction(CardData cardData, List<CharacterBase> targetList)
+        {
+            GameActionExecutor.AddToBottom(new FXAction(
+                new FxInfo(cardData.FxGo, cardData.FxSpawnPosition)
+                , targetList));
+
+            if (cardData.UseDefaultAttackFeedback)
+            {
+                CombatManager.Instance.MainAlly.PlayDefaultAttackFeedback();
+            }
+
+            if (cardData.UseCustomFeedback)
+            {
+                CombatManager.Instance.MainAlly.PlayFeedback(cardData.CustomFeedbackKey);
+            }
+        }
+
+        #endregion
+        
+
+        
+        #region Card Methods
+        public bool ActionTargetIsSingleEnemy()
+        {
+            return CardLevelInfo.ActionTargetType == ActionTargetType.Enemy;
+        }
+        
         
         public virtual void Discard()
         {
@@ -138,16 +174,11 @@ namespace NueGames.Card
             CurrentSingleCard.SetPlayable(isInactive);
         }
         
-        public virtual void UpdateCardText()
-        {
-            CardData.UpdateDescription();
-            // CurrentSingleCard.UpdateUI(CardData, ManaCost);
-            
-        }
+        
 
         
-        
         #endregion
+        
 
         #region Card Cost(卡牌花費改變)
         /// <summary>
@@ -160,7 +191,8 @@ namespace NueGames.Card
             if (ManaCost < 0)
                 ManaCost = 0;
 
-            UpdateCardText();
+            _cardInfo.ManaCost = ManaCost;
+            UpdateCardDisplay();
         }
 
         /// <summary>
@@ -170,7 +202,8 @@ namespace NueGames.Card
         public void SetManaCost(int cost)
         {
             ManaCost = cost;
-            UpdateCardText();
+            _cardInfo.ManaCost = ManaCost;
+            UpdateCardDisplay();
         }
         
 

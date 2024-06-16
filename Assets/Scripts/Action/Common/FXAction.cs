@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Action.Parameters;
+using Card;
 using NueGames.Characters;
 using NueGames.Enums;
 using UnityEngine;
@@ -15,8 +17,7 @@ namespace NueGames.Action
             _fxInfo = fxInfo;
             TargetList = targetList;
         }
-        
-        
+
         protected override void DoMainAction()
         {
             Debug.Log($"_fxInfo.FxGo{_fxInfo.FxGo}");

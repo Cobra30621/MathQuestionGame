@@ -33,8 +33,8 @@ namespace NueGames.Power
 
                 foreach (var target in targetList)
                 {
-                    GameActionExecutor.AddToBottom(new DamageAction(
-                        Amount, new List<CharacterBase>(){target}, GetActionSource()));
+                    var newDamageInfo = new DamageInfo(Amount, GetActionSource(), fixDamage: true);
+                    GameActionExecutor.AddToBottom(new DamageAction(newDamageInfo, new List<CharacterBase>() {Owner}));
 
                     GameActionExecutor.AddToBottom(new ApplyPowerAction(
                         Amount, PowerName.Fire, new List<CharacterBase>(){target}, GetActionSource()));

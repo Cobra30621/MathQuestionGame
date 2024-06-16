@@ -15,8 +15,7 @@ namespace Card.Data
         public CardLevelInfo CardLevelInfo => cardLevelInfo;
 
         public string Description => CardLevelInfo.Description;
-
-        public int ManaCost => CardLevelInfo.Mana;
+        public int ManaCost;
 
         [SerializeField] private CardLevelInfo cardLevelInfo;
 
@@ -25,6 +24,8 @@ namespace Card.Data
             CardData = cardData;
             Level = level;
             cardLevelInfo = cardData.GetLevelInfo(level);
+            
         }
+        
     }
 }

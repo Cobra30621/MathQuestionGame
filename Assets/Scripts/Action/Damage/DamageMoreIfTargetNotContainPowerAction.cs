@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Action.Parameters;
+using Card;
 using NueGames.Characters;
 using NueGames.Managers;
 using NueGames.Power;
@@ -11,52 +12,44 @@ namespace NueGames.Action
     /// </summary>
     public class DamageMoreIfTargetNotContainPowerAction : GameActionBase
     {
+        /// <summary>
+        /// 判斷的能力
+        /// </summary>
         private PowerName _judgePower;
+        /// <summary>
+        /// 基礎傷害
+        /// </summary>
+        private int _basicValue = 0;
+        /// <summary>
+        /// 額外傷害
+        /// </summary>
         private int _extraDamage;
-        private readonly DamageInfo _damageInfo;
 
         /// <summary>
-        /// 如果對象有 XX 能力，造成額外傷害
+        /// 讀表用的建構值
         /// </summary>
-        /// <param name="baseValue">基礎傷害</param>
-        /// <param name="judgePower">判斷是否持有的能力</param>
-        /// <param name="extraDamage">額外加乘傷害</param>
-        /// <param name="targetList">目標對象</param>
-        /// <param name="source">行為來源</param>
-        /// <param name="fixDamage">是否為固定傷害</param>
-        /// <param name="canPierceArmor">是否為穿甲傷害</param>
-        public DamageMoreIfTargetNotContainPowerAction(
-            int baseValue, PowerName judgePower, int extraDamage, List<CharacterBase> targetList,  
-            ActionSource source, bool fixDamage = false, bool canPierceArmor = false)
+        /// <param name="skillInfo"></param>
+        public DamageMoreIfTargetNotContainPowerAction(SkillInfo skillInfo)
         {
-            TargetList = targetList;
-            _judgePower = judgePower;
-            _extraDamage = extraDamage;
-            
-            _damageInfo = new DamageInfo()
-            {
-                damageValue = baseValue,
-                ActionSource = source,
-                FixDamage = fixDamage,
-                CanPierceArmor = canPierceArmor
-            };
+            _judgePower = PowerHelper.GetPowerName(skillInfo.int2);
+            _basicValue = skillInfo.int2;
+            _extraDamage = skillInfo.int3;
         }
-
 
         protected override void DoMainAction()
         {
             foreach (var target in TargetList)
             {
-                float totalDamage = _damageInfo.damageValue;
+                float totalDamage = _basicValue;
                 if (!target.HasPower(_judgePower))
                 {
                     totalDamage += _extraDamage;
                 }
 
-                _damageInfo.damageValue = totalDamage;
-                
-                GameActionExecutor.AddToBottom(new DamageAction(
-                    _damageInfo, new List<CharacterBase>(){target}));
+                var damageInfo = new DamageInfo(totalDamage, ActionSource);
+                var damageAction = new DamageAction(damageInfo, new List<CharacterBase>(){target});
+         
+                GameActionExecutor.AddToBottom(damageAction);
             }
         }
     }

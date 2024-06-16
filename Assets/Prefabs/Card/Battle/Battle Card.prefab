@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2689473134106589741}
-  - component: {fileID: 2689473134106589740}
+  - component: {fileID: 9037803414236952983}
   m_Layer: 9
   m_Name: Battle Card
   m_TagString: Untagged
@@ -65,7 +65,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2689473134106589740
+--- !u!114 &9037803414236952983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,83 +74,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2689473134106589730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cbdc02cecc40ab9140a566043fe679, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f14e233234845678af96ebfd2f45fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 7981068454026748882}
-    - {fileID: 4639417580466365535}
-    - {fileID: 7365052655920891127}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: cardUIDictionary
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[NueGames.Enums.RarityType,
-        Assembly-CSharp],[NueGames.Card.CardUI, Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[NueGames.Enums.RarityType,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+  _cardDisplay: {fileID: 5993437295428691552}
   descriptionRoot: {fileID: 8136691123716273335}
   canvas: {fileID: 3367497252874219826}
 --- !u!1 &3677811352146201060
@@ -261,6 +188,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8539417325386651938}
     m_Modifications:
+    - target: {fileID: 5005468080887527471, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5005468080887527471, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
     - target: {fileID: 6189203452410003451, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -363,41 +294,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
---- !u!114 &4639417580466365535 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6212870104228035088, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
-  m_PrefabInstance: {fileID: 1610610555201101391}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2ba11b14ce24974b56bf49592aff8f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &4881478115978994100 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6189203452410003451, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
   m_PrefabInstance: {fileID: 1610610555201101391}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7365052655920891127 stripped
+--- !u!114 &5993437295428691552 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8101946705634122424, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5005468080887527471, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
   m_PrefabInstance: {fileID: 1610610555201101391}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2ba11b14ce24974b56bf49592aff8f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7981068454026748882 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8689830433381596573, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
-  m_PrefabInstance: {fileID: 1610610555201101391}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2ba11b14ce24974b56bf49592aff8f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 56df2368ed8e4291a9b61f2ca42e59b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Action.Parameters;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -22,10 +23,9 @@ namespace NueGames.Power
         {
             if (IsCharacterTurn(info))
             {
-                // 造成傷害
-                GameActionExecutor.AddToBottom(
-                    new DamageAction(1, new List<CharacterBase>() { Owner },
-                        GetActionSource(), true, true));
+                var damageInfo = new DamageInfo(1, GetActionSource(), fixDamage: true, canPierceArmor:true);
+
+                GameActionExecutor.AddToBottom(new DamageAction(damageInfo, new List<CharacterBase>() {Owner}));
             }
         }
     }

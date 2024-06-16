@@ -300,7 +300,7 @@ namespace NueGames.Collection
                 cardTransform.position = cardPos;
                 
 
-                ActionTargetType actionTargetType = _heldBattleCard.CardData.ActionTargetType;
+                ActionTargetType actionTargetType = _heldBattleCard.ActionTargetType;
                 characterHighlightController.OnDraggedCardOutsideHand(actionTargetType);
 
                 if (!GameManager.CanSelectCards || _mouseInsideHand)
@@ -347,7 +347,7 @@ namespace NueGames.Collection
             {
                 CharacterBase hitCharacter = GetHitCharacter(mousePos);
                 
-                if (EnablePlayCard(_heldBattleCard.CardData.ActionTargetType, hitCharacter))
+                if (EnablePlayCard(_heldBattleCard.ActionTargetType, hitCharacter))
                 {
                     backToHand = false;
                     // //  Arrow Effect for the card's ActionTargetType is single enemy
@@ -356,7 +356,7 @@ namespace NueGames.Collection
                     //     RemoveCardFromHand(_usingSelectingEffectCardIndex);
                     // }
 
-                    var targetList = GetTargetList(_heldBattleCard.CardData.ActionTargetType, hitCharacter);
+                    var targetList = GetTargetList(_heldBattleCard.ActionTargetType, hitCharacter);
                     
                     _heldBattleCard.Use(targetList);
                     DeactivateSelectingSingleEnemyEffect();
@@ -558,7 +558,7 @@ namespace NueGames.Collection
             characterHighlightController.ActivateEnemyHighlight(selectedEnemy);
             arrowController.OnEnterEnemy();
             CombatManager.SetSelectedEnemy(selectedEnemy);
-            _heldBattleCard?.UpdateCardText();
+            _heldBattleCard?.UpdateCardDisplay();
         }
         
         private void DeactivateSelectingSingleEnemyEffect()
@@ -566,7 +566,7 @@ namespace NueGames.Collection
             characterHighlightController.DeactivateEnemyHighlights();
             arrowController.OnLeaveEnemy();
             CombatManager.SetSelectedEnemy(null);
-            _heldBattleCard?.UpdateCardText();
+            _heldBattleCard?.UpdateCardDisplay();
         }
 
         private void GetDistanceToCurrentSelectedCard(out int count, out float sqrDistance)

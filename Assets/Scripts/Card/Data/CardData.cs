@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using CardAction;
 using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
@@ -14,18 +13,9 @@ namespace Card.Data
     public class CardData : SerializedScriptableObject ,ISerializeReferenceByAssetGuid
     {
         [SerializeField] private string cardId;
-        [FoldoutGroup("卡片行為")]
-        [DetailedInfoBox("如何創建新的卡片行為(CardAction)...", 
-            "如何創建新的卡片行為(CardAction)\n" +
-            "請去 Assets/Scripts/CardAction 資料夾中，創建新的 cs 檔。\n" +
-            "技術文件放在 Assets/Scripts/CardAction/CardActionBase.cs 的開頭註解" )]
-        [SerializeField] private CardActionBase cardAction;
 
         [SerializeField] private List<CardLevelInfo> _levelInfos;
-        [FoldoutGroup("數值參數")]
-        [SerializeField]private ActionTargetType actionTargetType;
-        [FoldoutGroup("數值參數")]
-        [SerializeField] private int manaCost;
+        
         [FoldoutGroup("數值參數")]
         [SerializeField] private bool exhaustAfterPlay;
         [FoldoutGroup("數值參數")]
@@ -67,12 +57,9 @@ namespace Card.Data
 
         public string CardId => cardId;
         public string CardName => cardName;
-        public int ManaCost => manaCost;
         public Sprite CardSprite => cardSprite;
         public RarityType Rarity => rarity;
-        public ActionTargetType ActionTargetType => actionTargetType;
         
-        public CardActionBase CardAction => cardAction;
         
         public List<CardLevelInfo> LevelInfos => _levelInfos;
 

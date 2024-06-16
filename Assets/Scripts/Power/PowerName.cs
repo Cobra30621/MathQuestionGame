@@ -5,6 +5,8 @@
     /// </summary>
     public enum PowerName
     {
+        None = 0,
+        
         // 傷害計算相關
         Block = 1,
         Strength = 2,

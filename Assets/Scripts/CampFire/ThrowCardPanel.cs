@@ -35,7 +35,7 @@ namespace CampFire
             {
                 var cardBase = Instantiate(throwBattleCardUI, spawnPos);
                 _spawnedCardList.Add(cardBase);
-                cardBase.SetCard(cardData, false);
+                cardBase.Init(cardData);
                 cardBase.OnCardChose += OnThrowCard;
             }
         }

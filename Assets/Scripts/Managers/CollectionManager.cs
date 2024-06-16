@@ -91,7 +91,7 @@ namespace NueGames.Managers
             }
             
             foreach (var cardObject in HandController.hand)
-                cardObject.UpdateCardText();
+                cardObject.UpdateCardDisplay();
         }
         public void DiscardHand()
         {
@@ -131,7 +131,7 @@ namespace NueGames.Managers
                 targetBattleCard.Discard();
           
             foreach (var cardObject in HandController.hand)
-                cardObject.UpdateCardText();
+                cardObject.UpdateCardDisplay();
         }
         public void SetGameDeck()
         {

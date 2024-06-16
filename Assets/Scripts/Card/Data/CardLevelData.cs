@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using NueGames.Enums;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Utilities;
@@ -58,6 +59,8 @@ namespace Card
         public int UpgradeCost;
         public bool MaxLevel;
 
+        public ActionTargetType ActionTargetType;
+        
         public string Description;
 
         public List<SkillInfo> EffectInfos;
@@ -66,8 +69,6 @@ namespace Card
         {
             EffectInfos = effectInfos;
         }
-
-        
     }
 
 }

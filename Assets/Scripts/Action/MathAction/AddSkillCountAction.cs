@@ -1,3 +1,4 @@
+using Card;
 using NueGames.CharacterAbility;
 
 namespace NueGames.Action.MathAction
@@ -7,8 +8,16 @@ namespace NueGames.Action.MathAction
     /// </summary>
     public class AddSkillCountAction : GameActionBase
     {
+        /// <summary>
+        /// 增加次數
+        /// </summary>
         public int addCount;
 
+        public AddSkillCountAction(SkillInfo skillInfo)
+        {
+            addCount = skillInfo.int1;
+        }
+        
         public AddSkillCountAction(int addCount)
         {
             this.addCount = addCount;

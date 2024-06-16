@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Action;
+using NueGames.Enums;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -55,7 +56,6 @@ namespace Card
         public GameActionType ActionType;
         [FormerlySerializedAs("EffectID")] public int SkillID;
         
-
         public int int1;
         public int int2;
         public int int3;

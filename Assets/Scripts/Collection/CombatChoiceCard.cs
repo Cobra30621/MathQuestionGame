@@ -21,8 +21,8 @@ namespace NueGames.Collection
         {
             _battleCard = GetComponent<BattleCard>();
             _initalScale = transform.localScale;
-            _battleCard.SetCard(cardData);
-            _battleCard.UpdateCardText();
+            _battleCard.Init(cardData);
+            _battleCard.UpdateCardDisplay();
         }
 
         private void OnChoice()

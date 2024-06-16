@@ -21,12 +21,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: cardAction
-      Entry: 7
-      Data: 0|CardAction.KnightCard.ArmorBreaker, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: customerFeedback
       Entry: 6
       Data: 
@@ -39,6 +33,7 @@ MonoBehaviour:
     Mana: 1
     UpgradeCost: 5
     MaxLevel: 0
+    ActionTargetType: 0
     Description: q
     EffectInfos:
     - ActionType: 50
@@ -58,6 +53,7 @@ MonoBehaviour:
     Mana: 2
     UpgradeCost: 10
     MaxLevel: 0
+    ActionTargetType: 1
     Description: 
     EffectInfos:
     - ActionType: 50
@@ -77,6 +73,7 @@ MonoBehaviour:
     Mana: 3
     UpgradeCost: 15
     MaxLevel: 1
+    ActionTargetType: 1
     Description: 
     EffectInfos:
     - ActionType: 50
@@ -89,8 +86,6 @@ MonoBehaviour:
       int1: 3
       int2: 0
       int3: 0
-  actionTargetType: 1
-  manaCost: 2
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0

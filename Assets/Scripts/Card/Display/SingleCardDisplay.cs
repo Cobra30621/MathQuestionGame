@@ -21,7 +21,7 @@ namespace NueGames.Card
             manaTextField.text = cardInfo.ManaCost.ToString();
             cardImage.sprite = cardInfo.CardData.CardSprite;
         }
-
+        
         public void SetPlayable(bool playable)
         {
             passiveImage.gameObject.SetActive(playable);

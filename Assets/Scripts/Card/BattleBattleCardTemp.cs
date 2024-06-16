@@ -11,9 +11,9 @@ namespace NueGames.Card
         [Header("3D Settings")]
         [SerializeField] private Canvas canvas;
       
-        public override void SetCard(CardData cardData,bool isPlayable)
+        public override void Init(CardData cardData)
         {
-            base.SetCard(cardData,isPlayable);
+            base.Init(cardData);
            
             if (canvas)
                 canvas.worldCamera = CollectionManager.HandController.cam;

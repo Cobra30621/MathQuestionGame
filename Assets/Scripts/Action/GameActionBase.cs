@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Action.Parameters;
+using Card;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -33,6 +34,8 @@ namespace NueGames.Action
         
         public float ActionDelay = 0.1f;
         
+        public SkillInfo SkillInfo { get; protected set; }
+        
         #endregion
         
         #region Manager
@@ -49,13 +52,19 @@ namespace NueGames.Action
 
         #region SetValue
 
+        public void SetBasicValue(List<CharacterBase> targets, ActionSource actionSource, float delay = 0.1f)
+        {
+            TargetList = targets;
+            ActionSource = actionSource;
+            ActionDelay = delay;
+        }
+        
 
-        public GameActionBase SetActionDelay(float delay)
+        public void SetDelay(float delay)
         {
             ActionDelay = delay;
-            return this;
         }
-
+        
         #endregion
         
         #region 執行遊戲行為

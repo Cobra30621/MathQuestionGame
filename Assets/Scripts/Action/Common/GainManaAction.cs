@@ -1,4 +1,5 @@
 ﻿using Action.Parameters;
+using Card;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Enums;
@@ -9,14 +10,31 @@ namespace NueGames.Action
     /// <summary>
     /// 獲得瑪娜
     /// </summary>
-    public class EarnManaAction : GameActionBase
+    public class GainManaAction : GameActionBase
     {
         private int _manaCount;
 
-        public EarnManaAction(int manaCount, ActionSource source)
+        /// <summary>
+        /// 內部系統用
+        /// </summary>
+        /// <param name="applyValue"></param>
+        /// <param name="powerName"></param>
+        /// <param name="targetList"></param>
+        /// <param name="actionSource"></param>
+        public GainManaAction(int manaCount, ActionSource source)
         {
             _manaCount = manaCount;
             ActionSource = source;
+        }
+
+        /// <summary>
+        /// 讀表用的建構值
+        /// </summary>
+        /// <param name="skillInfo"></param>
+        public GainManaAction(SkillInfo skillInfo)
+        {
+            SkillInfo = skillInfo;
+            _manaCount = skillInfo.int1;
         }
         
         
