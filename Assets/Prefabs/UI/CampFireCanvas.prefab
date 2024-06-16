@@ -1084,7 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPanel: {fileID: 6094876760619141176}
-  throwCardUI: {fileID: 6305452393434924772, guid: 6eebb055e100c469fb33651030d6fa8f, type: 3}
+  throwBattleCardUI: {fileID: 5287368059344636128, guid: 6a58982ad8979429ca524a216d3ddaa2, type: 3}
   spawnPos: {fileID: 7813948712724821604}
 --- !u!1 &6883843530665353279
 GameObject:
@@ -3402,6 +3402,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39815ed1944405e9348fa812d73c346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   optionPanel: {fileID: 8110164035611099408}
   characterSkillLevelUpPanel: {fileID: 8110164036326898587}
   throwCardPanel: {fileID: 6421665634570975669}

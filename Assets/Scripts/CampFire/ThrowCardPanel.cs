@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Card.Display;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Managers;
@@ -11,7 +12,7 @@ namespace CampFire
         [SerializeField] private GameObject mainPanel;
 
         [SerializeField] private ThrowBattleCardUI throwBattleCardUI;
-        private List<BattleCard> _spawnedCardList = new List<BattleCard>();
+        private List<ThrowBattleCardUI> _spawnedCardList = new List<ThrowBattleCardUI>();
 
         [SerializeField] private Transform spawnPos;
         
@@ -36,7 +37,7 @@ namespace CampFire
                 var cardBase = Instantiate(throwBattleCardUI, spawnPos);
                 _spawnedCardList.Add(cardBase);
                 cardBase.Init(cardData);
-                cardBase.OnCardChose += OnThrowCard;
+                cardBase.uiCard.OnCardChose += OnThrowCard;
             }
         }
 

@@ -129,7 +129,7 @@ namespace NueGames.UI.Reward
                 
                 var reward = _cardRewardList.RandomItem();
                 choice.BuildReward(reward);
-                choice.OnCardChose += ResetChoice;
+                choice.uiCard.OnCardChose += ResetChoice;
                 
                 _cardRewardList.Remove(reward);
                 _spawnedChoiceList.Add(choice);

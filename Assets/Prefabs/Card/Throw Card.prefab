@@ -105,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7492014500962260421, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
       propertyPath: m_Name
-      value: UI Card
+      value: Throw Card
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
@@ -133,6 +133,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   descriptionRoot: {fileID: 3885878021218621756}
   _cardDisplay: {fileID: 7583862319554811406}
+  showScaleRate: 1.15
+--- !u!114 &5287368059344636128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5454227848950578148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d373e61d6ca48d296d21130b2137f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiCard: {fileID: 540110099308547636}
 --- !u!114 &7583862319554811406 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5005468080887527471, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}

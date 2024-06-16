@@ -154,7 +154,7 @@ namespace NueGames.Collection
             // Get world position from mouse
             GetMouseWorldPosition(mousePos);
 
-            // Get distance to current selected card (for comparing against other cards later, to find closest)
+            // Get distance to current selected uiCard (for comparing against other cards later, to find closest)
             GetDistanceToCurrentSelectedCard(out count, out sqrDistance);
 
             // Check if mouse is inside hand bounds
@@ -169,14 +169,14 @@ namespace NueGames.Collection
                 var card = hand[i];
                 var cardTransform = card.transform;
 
-                // Set to inactive material if not enough mana required to use card
+                // Set to inactive material if not enough mana required to use uiCard
                 card.SetInactiveMaterialState(!PlayCardJudgment.EnoughResourceToUseCard(card));
 
-                var noCardHeld = _heldBattleCard == null; // Whether a card is "held" (outside of hand)
+                var noCardHeld = _heldBattleCard == null; // Whether a uiCard is "held" (outside of hand)
                 var onSelectedCard = noCardHeld && _selected == i;
                 var onDraggedCard = noCardHeld && _dragged == i;
 
-                // Get Position along Curve (for card positioning)
+                // Get Position along Curve (for uiCard positioning)
                 float selectOffset = 0;
                 if (noCardHeld)
                     selectOffset = 0.02f *
@@ -202,7 +202,7 @@ namespace NueGames.Collection
                 // Show Selected Card
                 if (mouseHoveringOnSelected || onDraggedCard)
                 {
-                    // When selected bring card to front
+                    // When selected bring uiCard to front
                     if (cardUprightWhenSelected) cardUp = Vector3.up;
                     
                     cardTransform.localScale = selectedCardSize * Vector3.one;
@@ -350,7 +350,7 @@ namespace NueGames.Collection
                 if (EnablePlayCard(_heldBattleCard.ActionTargetType, hitCharacter))
                 {
                     backToHand = false;
-                    // //  Arrow Effect for the card's ActionTargetType is single enemy
+                    // //  Arrow Effect for the uiCard's ActionTargetType is single enemy
                     // if (_heldCard.ActionTargetIsSingleEnemy())
                     // {
                     //     RemoveCardFromHand(_usingSelectingEffectCardIndex);
@@ -365,7 +365,7 @@ namespace NueGames.Collection
             
             arrowController.Deactivate();
 
-            // Cannot use card / Not enough mana! / Not the card use arrow effect Return card to hand!
+            // Cannot use uiCard / Not enough mana! / Not the uiCard use arrow effect Return uiCard to hand!
             if (backToHand ) 
                 AddCardToHand(_heldBattleCard, _selected);
 
@@ -479,7 +479,7 @@ namespace NueGames.Collection
 
             if (_heldBattleCard == null && mouseButton && _dragged != -1 && _selected != -1 && _dragged != _selected)
             {
-                // Move dragged card
+                // Move dragged uiCard
                 MoveCardToIndex(_dragged, _selected);
                 _dragged = _selected;
             }
@@ -496,7 +496,7 @@ namespace NueGames.Collection
                 arrowController.SetupAndActivate(_heldBattleCard.transform);
             }
             
-            // Remove from hand, so that cards in hand fill the hole that the card left
+            // Remove from hand, so that cards in hand fill the hole that the uiCard left
             RemoveCardFromHand(_dragged);
             
             _dragged = -1;
@@ -523,7 +523,7 @@ namespace NueGames.Collection
                 selectedEnemy = hit.collider.gameObject.GetComponent<EnemyBase>();
             }
             
-            // Check card Action Target Is Single Enemy
+            // Check uiCard Action Target Is Single Enemy
             if (_heldBattleCard != null)
             {
                 if (_heldBattleCard.ActionTargetIsSingleEnemy())
@@ -641,7 +641,7 @@ namespace NueGames.Collection
         }
 
         /// <summary>
-        /// Moves the card in hand from the currentIndex to the toIndex. If you want to move a card that isn't in hand, use AddCardToHand
+        /// Moves the uiCard in hand from the currentIndex to the toIndex. If you want to move a uiCard that isn't in hand, use AddCardToHand
         /// </summary>
         public void MoveCardToIndex(int currentIndex, int toIndex)
         {
@@ -657,7 +657,7 @@ namespace NueGames.Collection
         }
 
         /// <summary>
-        /// Adds a card to the hand. Optional param to insert it at a given index.
+        /// Adds a uiCard to the hand. Optional param to insert it at a given index.
         /// </summary>
         public void AddCardToHand(BattleCard battleCard, int index = -1)
         {
@@ -681,7 +681,7 @@ namespace NueGames.Collection
         }
 
         /// <summary>
-        /// Remove the card at the specified index from the hand.
+        /// Remove the uiCard at the specified index from the hand.
         /// </summary>
         public void RemoveCardFromHand(int index)
         {

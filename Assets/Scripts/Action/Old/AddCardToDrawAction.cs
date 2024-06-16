@@ -28,10 +28,10 @@
 //
 //         protected override void DoMainAction()
 //         {
-//             foreach (var card in _cards)
+//             foreach (var uiCard in _cards)
 //             {
 //                 CollectionManager.AddCardToPile(PileType.Draw, 
-//                     card);
+//                     uiCard);
 //             }
 //         }
 //     }

@@ -1481,12 +1481,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354e83f72cd44271a70cfc99db01f969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   rewardContainerData: {fileID: 11400000, guid: 576255f7c5abd6d44800bc419cf6fbf8, type: 2}
   rewardRoot: {fileID: 8356462358083751223}
   rewardContainerPrefab: {fileID: 4144854971553763347, guid: 7728fa9ef774a574fa112e56a3a8c0ef, type: 3}
   rewardPanelRoot: {fileID: 3975758537094236638}
   choice2DCardSpawnRoot: {fileID: 4296046879590768356}
-  rewardChoiceCardUIPrefab: {fileID: 1578089549520129830, guid: bb6c303568dc346b8a7bb3c00e6b21fc, type: 3}
+  rewardChoiceCardUIPrefab: {fileID: 9015980609332245709, guid: 5aa071d4980754ef59cfccd4a842723c, type: 3}
   choicePanel: {fileID: 3729220889032712400}
 --- !u!223 &7733704880889306847
 Canvas:

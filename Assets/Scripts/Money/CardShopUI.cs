@@ -41,8 +41,7 @@ namespace Money
             {
                 var card = Instantiate(prefab, spawnPos);
                 spawnedCardList.Add(card);
-                card.Init(cardInfo);
-                card.SetData(new CardUpgradeCommodity(cardInfo), this);
+                card.SetData(new CardUpgradeCommodity(cardInfo), this, cardInfo);
             }
         }
         

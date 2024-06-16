@@ -7,25 +7,21 @@ using Card.Display;
 using GameAction;
 using NueGames.Action;
 using NueGames.Characters;
-using NueGames.Data.Containers;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
-using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 using NueGames.Combat;
 using NueGames.Parameters;
-using NueGames.Power;
 
 namespace NueGames.Card
 {
     public class BattleCard : CardBase,I2DTooltipTarget, IPointerDownHandler, IPointerUpHandler
     {
         [Header("Base References")]
-        [SerializeField] protected Transform descriptionRoot;
         
         [SerializeField] protected Dictionary<RarityType, SingleCardDisplay> cardUIDictionary;
         protected SingleCardDisplay CurrentSingleCard;
@@ -39,10 +35,7 @@ namespace NueGames.Card
         protected Transform CachedTransform { get; set; }
         protected WaitForEndOfFrame CachedWaitFrame { get; set; }
         
-
-        public CardData CardData => _cardInfo.CardData;
-        public CardLevelInfo CardLevelInfo => _cardInfo.CardLevelInfo;
-        public ActionTargetType ActionTargetType => CardLevelInfo.ActionTargetType;
+        
         public int ManaCost { get; private set; }
         
         
@@ -71,8 +64,9 @@ namespace NueGames.Card
             
             ManaCost = CardLevelInfo.Mana;
             
+            _camera = CollectionManager.HandController.cam;
             if (canvas)
-                canvas.worldCamera = CollectionManager.HandController.cam;
+                canvas.worldCamera = _camera;
         }
 
    
@@ -279,79 +273,6 @@ namespace NueGames.Card
         }
 
         #endregion
-
-        #region Pointer Events
-        public virtual void OnPointerEnter(PointerEventData eventData)
-        {
-            ShowTooltipInfo();
-        }
-
-        public virtual void OnPointerExit(PointerEventData eventData)
-        {
-            HideTooltipInfo(TooltipManager.Instance);
-        }
-
-        public virtual void OnPointerDown(PointerEventData eventData)
-        {
-            HideTooltipInfo(TooltipManager.Instance);
-        }
-
-        public virtual void OnPointerUp(PointerEventData eventData)
-        {
-            ShowTooltipInfo();
-        }
-        #endregion
-
-        #region Tooltip
-        protected virtual void ShowTooltipInfo()
-        {
-            if (!descriptionRoot) return;
-            if (CardData.KeywordsList == null) return;
-           
-            var tooltipManager = TooltipManager.Instance;
-            Debug.Log($"CardData.KeywordsList{CardData.KeywordsList.Count}");
-            foreach (var cardDataSpecialKeyword in CardData.KeywordsList)
-            {
-                var specialKeyword = tooltipManager.SpecialKeywordData.SpecialKeywordBaseList.Find(x=>x.SpecialKeyword == cardDataSpecialKeyword);
-                if (specialKeyword != null)
-                    ShowTooltipInfo(tooltipManager,specialKeyword.GetContent(),specialKeyword.GetHeader(),descriptionRoot,CursorType.Default,CollectionManager ? CollectionManager.HandController.cam : Camera.main);
-            }
-            
-            Debug.Log($"GetActionsPowerTypes(){GetActionsPowerTypes()}");
-            foreach (var powerType in GetActionsPowerTypes())
-            {
-                PowerData powerData = tooltipManager.PowersData.GetPowerData(powerType);
-                if(powerData != null)
-                    ShowTooltipInfo(tooltipManager,powerData.GetContent(),powerData.GetHeader(),descriptionRoot,CursorType.Default,CollectionManager ? CollectionManager.HandController.cam : Camera.main);
-            }
-        }
-
-        public virtual void ShowTooltipInfo(TooltipManager tooltipManager, string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default,Camera cam = null, float delayShow =0)
-        {
-            tooltipManager.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);
-        }
-
-        public virtual void HideTooltipInfo(TooltipManager tooltipManager)
-        {
-            tooltipManager.HideTooltip();
-        }
         
-        private List<PowerName> GetActionsPowerTypes()
-        {
-            List<PowerName> powerTypes = new List<PowerName>();
-            
-            // TODO GetActionsPowerTypes()
-            // foreach (var cardActionData in CardData.CardActionDataList)
-            // {
-            //     if (cardActionData.actionName == ActionName.ApplyPower)
-            //     {
-            //         powerTypes.Add(cardActionData.powerName);
-            //     }
-            // }
-            return powerTypes;
-        }
-
-        #endregion
-       
     }
 }
