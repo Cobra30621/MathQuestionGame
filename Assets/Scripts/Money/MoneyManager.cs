@@ -1,10 +1,11 @@
 ﻿
+using Data;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Money
 {
-    public class MoneyManager : Singleton<MoneyManager>
+    public class MoneyManager : Singleton<MoneyManager>, IDataPersistence
     {
         [SerializeField] private int money;
         public int Money => money;
@@ -34,5 +35,14 @@ namespace Money
             return money >= need;
         }
 
+        public void LoadData(GameData data)
+        {
+            money = data.Money;
+        }
+
+        public void SaveData(GameData data)
+        {
+            data.Money = money;
+        }
     }
 }

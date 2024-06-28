@@ -14,8 +14,7 @@ namespace Data
     {
         public int DrawCount;
         public int MaxMana;
-        public int CurrentGold;
-        
+
         public AllyHealthData AllyHealthData;
         
         public string AllyDataGuid;
@@ -39,7 +38,6 @@ namespace Data
         {
             DrawCount = gameplayData.DrawCount;
             MaxMana = gameplayData.MaxMana;
-            CurrentGold = 0;
             AllyHealthData = new AllyHealthData()
             {
                 CurrentHealth = gameplayData.InitialAllyData.MaxHealth,

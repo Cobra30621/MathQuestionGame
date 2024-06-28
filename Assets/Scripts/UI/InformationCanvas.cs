@@ -1,4 +1,5 @@
-﻿using NueGames.Managers;
+﻿using Money;
+using NueGames.Managers;
 using TMPro;
 using UnityEngine;
 
@@ -44,7 +45,7 @@ namespace NueGames.UI
             
             SetHealthText(GameManager.PlayerData.AllyHealthData.CurrentHealth,
                 GameManager.PlayerData.AllyHealthData.MaxHealth);
-            SetGoldText(GameManager.PlayerData.CurrentGold);
+            SetGoldText(MoneyManager.Instance.Money);
             SetNameText(GameManager.MainAllyData.CharacterName);
         }
         #endregion

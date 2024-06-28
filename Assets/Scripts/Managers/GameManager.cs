@@ -5,6 +5,7 @@ using Data;
 using DataPersistence;
 using Managers;
 using Map;
+using Money;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Characters;
@@ -101,6 +102,8 @@ namespace NueGames.Managers
                 AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData),
                 Relics = RelicManager.Instance.GetRelicNames(),
             };
+            
+            MoneyManager.Instance.SetMoney(gameplayData.InitMoney);
             
             UIManager.Instance.RewardCanvas.SetCardReward(gameplayData.CardRewardData);
 

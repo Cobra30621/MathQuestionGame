@@ -27,10 +27,16 @@ namespace NueGames.Data.Settings
         [PropertyTooltip("最大手牌數量")]
         [SerializeField] private int maxCardOnHand;
         
+        [FoldoutGroup("基礎設定")]
+        [PropertyTooltip("最大手牌數量")]
+        [SerializeField] private int initMoney;
+        
         [InlineEditor]
         [FoldoutGroup("卡牌")]
         [PropertyTooltip("初始卡牌")]
         [SerializeField] private DeckData initalDeck;
+        
+        
         
         [InlineEditor]
         [FoldoutGroup("卡牌")]
@@ -62,6 +68,7 @@ namespace NueGames.Data.Settings
         public BattleCard BattleCardPrefab => battleCardPrefab;
         public List<RelicName> InitialRelic => initialRelic;
         public MapConfig[] MapConfigs => _mapConfigs;
+        public int InitMoney => initMoney;
 
         #endregion
     }
