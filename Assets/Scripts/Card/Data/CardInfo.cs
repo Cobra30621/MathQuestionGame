@@ -14,7 +14,7 @@ namespace Card.Data
 
         public CardLevelInfo CardLevelInfo => cardLevelInfo;
 
-        public string Description => CardLevelInfo.Description;
+        public string Description => CardLevelInfo.DesLang;
         public int ManaCost;
 
         [SerializeField] private CardLevelInfo cardLevelInfo;

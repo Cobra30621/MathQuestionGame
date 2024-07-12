@@ -4,6 +4,7 @@ using System.Linq;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace Card
@@ -51,18 +52,15 @@ namespace Card
     public class CardLevelInfo
     {
         public int ID;
-        public string EnGroupID;
         public string GroupID;
-        public string EffectID;
-        public int Mana;
-
+        public string SkillID;
+        [FormerlySerializedAs("Mana")] public int ManaCost;
         public int UpgradeCost;
+        public AllyClassType Class;
         public bool MaxLevel;
-
-        public ActionTargetType ActionTargetType;
-        
-        public string Description;
-
+        public string TitleLang;
+        public string DesLang;
+        public ActionTargetType ActionTargetType => EffectInfos[0].Target; // follow first effect
         public List<SkillInfo> EffectInfos;
 
         public void SetEffect(List<SkillInfo> effectInfos)

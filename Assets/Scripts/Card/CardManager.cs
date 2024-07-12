@@ -12,7 +12,6 @@ namespace Card
         [SerializeField] private DeckData saveDeck;
         [Required]
         [SerializeField] private readonly CardLevelHandler _cardLevelHandler;
-
         public CardLevelHandler CardLevelHandler => _cardLevelHandler;
         
 

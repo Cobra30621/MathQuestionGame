@@ -21,17 +21,22 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: cardAction
-      Entry: 7
-      Data: 0|CardAction.Again, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: customerFeedback
       Entry: 6
       Data: 
-  actionTargetType: 1
-  manaCost: 0
+  cardId: 
+  _levelInfos:
+  - ID: 0
+    GroupID: 
+    SkillID: 
+    Mana: 0
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: 
+    DesLang: 
+    ActionTargetType: 0
+    EffectInfos: []
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0

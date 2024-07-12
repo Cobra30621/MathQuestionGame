@@ -12,8 +12,8 @@ namespace Card.Data
     [CreateAssetMenu(fileName = "Card Data", menuName = "Collection/Card", order = 0)]
     public class CardData : SerializedScriptableObject ,ISerializeReferenceByAssetGuid
     {
+        // equivalent to groupID now, I guess
         [SerializeField] private string cardId;
-
         [SerializeField] private List<CardLevelInfo> _levelInfos;
         
         [FoldoutGroup("數值參數")]
@@ -54,12 +54,10 @@ namespace Card.Data
 
 
         #region Cache
-
         public string CardId => cardId;
         public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
         public RarityType Rarity => rarity;
-        
         
         public List<CardLevelInfo> LevelInfos => _levelInfos;
 
