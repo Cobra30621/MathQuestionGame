@@ -21,18 +21,19 @@ namespace Card
         [BoxGroup("LoadData")]
         private string url = "https://opensheet.elk.sh/17o-e5oCXd3G-jgaeQcWVH2am7DFnWY5afiKsLWWvOQs/SkillData_dev";
 
+        [FormerlySerializedAs("effectInfos")]
         [SerializeField]
         [TableList]
-        private SkillInfo[] effectInfos;
+        private SkillInfo[] skillInfos;
 
         #endregion
         
         
         #region Public Methods
 
-        public List<SkillInfo> GetAllCardInfo()
+        public List<SkillInfo> GetSkillInfos()
         {
-            return effectInfos.ToList();
+            return skillInfos.ToList();
         }
 
         #endregion
@@ -43,7 +44,7 @@ namespace Card
         [BoxGroup("LoadData")]
         private void ParseDataFromGoogleSheet()
         {
-            GoogleSheetService.LoadDataArray<SkillInfo>(url , infos => effectInfos = infos);
+            GoogleSheetService.LoadDataArray<SkillInfo>(url , infos => skillInfos = infos);
         }
 
         #endregion
@@ -53,11 +54,14 @@ namespace Card
     [Serializable]
     public class SkillInfo
     {
-        public GameActionType ActionType;
-        [FormerlySerializedAs("EffectID")] public int SkillID;
-        
+        public int SkillID;
+        public GameActionType EffectID;
+        public string EffectParameter;
+        public List <int> EffectParameterList; 
         public int int1;
         public int int2;
         public int int3;
+        public ActionTargetType Target;
+        public string Description;
     }
 }

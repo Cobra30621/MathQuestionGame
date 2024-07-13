@@ -19,14 +19,19 @@ namespace Card
         [Button("讀取卡牌資料")]
         public void LoadCardData()
         {
+            foreach (var skillInfo in skillData.GetSkillInfos())
+            {
+                var effectParameterList = ConvertStringToList(skillInfo.EffectParameter);
+                skillInfo.EffectParameterList = effectParameterList;
+            }
             foreach (var card in SaveDeck.CardList)
             {
                 var levelInfos = GetLevelInfo( card.CardId);
                 
                 foreach (var levelInfo in levelInfos)
                 {
-                    var effectId = ConvertStringToList(levelInfo.EffectID);
-                    var effectInfos = GetEffectInfo(effectId);
+                    var skillId = ConvertStringToList(levelInfo.SkillID);
+                    var effectInfos = GetSkillInfo(skillId);
                     levelInfo.SetEffect(effectInfos);
                 }
                     
@@ -42,9 +47,9 @@ namespace Card
                 Where(x => x.GroupID == cardId).ToList();
         }
 
-        private List<SkillInfo> GetEffectInfo(List<int> effectId)
+        private List<SkillInfo> GetSkillInfo(List<int> skillId)
         {
-            return skillData.GetAllCardInfo().Where(x =>  effectId.Contains(x.SkillID)).ToList();
+            return skillData.GetSkillInfos().Where(x =>  skillId.Contains(x.SkillID)).ToList();
         }
         
         static List<int> ConvertStringToList(string input)

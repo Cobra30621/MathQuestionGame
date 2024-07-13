@@ -21,7 +21,7 @@ namespace GameAction
 
         private static GameActionBase BuildAction(SkillInfo skillInfo)
         {
-            switch (skillInfo.ActionType)
+            switch (skillInfo.EffectID)
             {
                 case GameActionType.Damage:
                     return new DamageAction(skillInfo);

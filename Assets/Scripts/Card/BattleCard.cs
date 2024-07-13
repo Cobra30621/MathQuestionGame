@@ -62,7 +62,7 @@ namespace NueGames.Card
             IsPlayable = true;
             Init(cardInfo);
             
-            ManaCost = CardLevelInfo.Mana;
+            ManaCost = CardLevelInfo.ManaCost;
             
             _camera = CollectionManager.HandController.cam;
             if (canvas)

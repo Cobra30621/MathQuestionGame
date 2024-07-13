@@ -5,7 +5,7 @@ namespace Action
         Damage = 1,
         
         
-        MultiDamage = 2,
+        MultiDamage = 20001,
         SuperDamage = 3,
         ApplyPower = 10,
         EnemyBlock = 12,

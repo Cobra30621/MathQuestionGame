@@ -29,8 +29,8 @@ namespace NueGames.Action
         /// <param name="skillInfo"></param>
         public MultiDamageAction(SkillInfo skillInfo)
         {
-            _damage = skillInfo.int1;
-            _times = skillInfo.int2;
+            _damage = skillInfo.EffectParameterList[0];
+            _times = skillInfo.EffectParameterList[1];
         }
 
         protected override void DoMainAction()
