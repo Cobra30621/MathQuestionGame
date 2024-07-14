@@ -65,9 +65,9 @@ namespace EnemyAbility.EnemyAction
         /// </summary>
         protected void DoFXAction()
         {
-            GameActionExecutor.AddToBottom(new FXAction(
-                new FxInfo(Skill.FxGo, Skill.FxSpawnPosition)
-                , TargetList));
+            // GameActionExecutor.AddAction(new FXAction(
+            //     new FxInfo(Skill.FxGo, Skill.FxSpawnPosition)
+            //     , TargetList));
 
             if (Skill.UseDefaultAttackFeedback)
             {

@@ -54,7 +54,7 @@ namespace NueGames.CharacterAbility
             if (EnablePlaySkill())
             {
                 AddSkillCount(-1);
-                GameActionExecutor.AddToBottom(new EnterMathQuestioningAction(
+                GameActionExecutor.AddAction(new EnterMathQuestioningAction(
                     _characterSkill.QuestionAction));
                 OnPlaySkill?.Invoke();
             }

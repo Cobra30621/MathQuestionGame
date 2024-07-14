@@ -28,7 +28,7 @@ namespace NueGames.Relic.Common
         protected override void OnAnswerCorrect()
         {
             CharacterBase ally = CombatManager.Instance.MainAlly;
-            GameActionExecutor.AddToBottom(new ApplyPowerAction(
+            GameActionExecutor.AddAction(new ApplyPowerAction(
                 1, PowerName.Strength, new List<CharacterBase>(){ally}, GetActionSource()));
         }
         

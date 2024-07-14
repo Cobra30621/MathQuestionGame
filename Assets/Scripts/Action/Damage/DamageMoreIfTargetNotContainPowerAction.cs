@@ -49,7 +49,7 @@ namespace NueGames.Action
                 var damageInfo = new DamageInfo(totalDamage, ActionSource);
                 var damageAction = new DamageAction(damageInfo, new List<CharacterBase>(){target});
          
-                GameActionExecutor.AddToBottom(damageAction);
+                GameActionExecutor.AddAction(damageAction);
             }
         }
     }

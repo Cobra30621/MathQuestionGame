@@ -15,7 +15,7 @@
 //         public List<EnemyData> EnemyDataList;
 //         protected override void DoMainAction()
 //         {
-//             GameActionExecutor.AddToBottom(new HiveSpawnBeeAction(EnemyDataList));
+//             GameActionExecutor.AddAction(new HiveSpawnBeeAction(EnemyDataList));
 //         }
 //     }
 // }

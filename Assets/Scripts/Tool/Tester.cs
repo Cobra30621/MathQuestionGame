@@ -56,6 +56,6 @@ public class Tester : MonoBehaviour
         // MathQuestioningActionParameters parameters = new MathQuestioningActionParameters();
         // parameters.SetQuestionCountValue(true, 3);
         // enterMathQuestioningAction.SetValue(parameters);
-        // enterMathQuestioningAction.AddToBottom();
+        // enterMathQuestioningAction.AddAction();
     }
 }

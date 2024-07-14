@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Action.Parameters;
+using Action.Sequence;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Data.Containers;
@@ -19,7 +20,7 @@ namespace EnemyAbility
         public bool UseDefaultAttackFeedback => _skillData.UseDefaultAttackFeedback;
         public bool UseCustomFeedback => _skillData.UseCustomFeedback;
         public string CustomFeedbackKey => _skillData.CustomFeedbackKey;
-        public GameObject FxGo => _skillData.FxGo;
+        public FXPlayer FxGo => _skillData.FxGo;
         public FxSpawnPosition FxSpawnPosition => _skillData.FxSpawnPosition;
         public EnemyIntentionData Intention => _skillData.Intention;
         

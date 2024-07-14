@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Action.Parameters;
+using Action.Sequence;
 using Card;
 using Card.Data;
 using Card.Display;
@@ -16,16 +17,12 @@ using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 using NueGames.Combat;
 using NueGames.Parameters;
+using Sirenix.Utilities;
 
 namespace NueGames.Card
 {
     public class BattleCard : CardBase,I2DTooltipTarget, IPointerDownHandler, IPointerUpHandler
     {
-        [Header("Base References")]
-        
-        [SerializeField] protected Dictionary<RarityType, SingleCardDisplay> cardUIDictionary;
-        protected SingleCardDisplay CurrentSingleCard;
-
 
         #region Cache
         public bool IsInactive { get; private set; }
@@ -53,6 +50,7 @@ namespace NueGames.Card
         {
             CachedTransform = transform;
             CachedWaitFrame = new WaitForEndOfFrame();
+
         }
 
         public override void Init(CardData cardData)
@@ -83,7 +81,7 @@ namespace NueGames.Card
             
             SpendMana(ManaCost);
             
-            DoFXAction(_cardInfo.CardData, targetList);
+            DoCharacterFeedback(_cardInfo.CardData);
             DoAction(targetList);
             
             CollectionManager.OnCardPlayed(this);
@@ -97,22 +95,19 @@ namespace NueGames.Card
                 SourceBattleCard = this,
                 SourceCharacter = CombatManager.MainAlly
             };
+
+            var gameActions = GameActionFactory.GetGameActions(CardLevelInfo.EffectInfos, 
+                targetList, actionSource);
             
-            foreach (var effectInfo in CardLevelInfo.EffectInfos)
-            {
-                var gameAction = GameActionFactory.GetGameAction(effectInfo, targetList, actionSource);
-                GameActionExecutor.AddToBottom(gameAction);
-            }
+            GameActionExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, targetList));
         }
         
         /// <summary>
         /// 執行要撥放的特效
         /// </summary>
-        protected void DoFXAction(CardData cardData, List<CharacterBase> targetList)
+        protected void DoCharacterFeedback(CardData cardData)
         {
-            GameActionExecutor.AddToBottom(new FXAction(
-                new FxInfo(cardData.FxGo, cardData.FxSpawnPosition)
-                , targetList));
+
 
             if (cardData.UseDefaultAttackFeedback)
             {
@@ -165,7 +160,7 @@ namespace NueGames.Card
             if (isInactive == this.IsInactive) return; 
             
             IsInactive = isInactive;
-            CurrentSingleCard.SetPlayable(isInactive);
+            _cardDisplay.SetPlayable(isInactive);
         }
         
         

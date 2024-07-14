@@ -21,7 +21,7 @@
 //         /// </summary>
 //         protected override void DoMainAction()
 //         {
-//             GameActionExecutor.AddToBottom(new DamageAction(
+//             GameActionExecutor.AddAction(new DamageAction(
 //                 damageValue, TargetList, GetActionSource()));
 //         }
 //     }

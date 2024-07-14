@@ -15,11 +15,11 @@ namespace Question.QuestionAction
         
         public override void DoCorrectAction()
         {
-            GameActionExecutor.AddToBottom(new ApplyPowerAction(
+            GameActionExecutor.AddAction(new ApplyPowerAction(
                 BlockValue, PowerName.Block, 
                 new List<CharacterBase>(){CombatManager.Instance.MainAlly}, GetActionSource()));
             
-            GameActionExecutor.AddToBottom(new FXAction(CorrectFx, 
+            GameActionExecutor.AddAction(new FXAction(CorrectFx, 
             new List<CharacterBase>(){CombatManager.Instance.MainAlly}));
         }
 

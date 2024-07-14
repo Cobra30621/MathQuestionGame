@@ -33,7 +33,7 @@ namespace NueGames.Power
             {   
                 var damageInfo = new DamageInfo(20, GetActionSource(), fixDamage: true);
 
-                GameActionExecutor.AddToBottom(new DamageAction(damageInfo, new List<CharacterBase>() {Owner}));
+                GameActionExecutor.AddAction(new DamageAction(damageInfo, new List<CharacterBase>() {Owner}));
                 
             }    
         }

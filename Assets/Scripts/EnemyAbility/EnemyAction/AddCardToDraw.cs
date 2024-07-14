@@ -18,7 +18,7 @@
 //         
 //         protected override void DoMainAction()
 //         {
-//             GameActionExecutor.AddToBottom(new AddCardToDrawAction(addCards, GetActionSource()));
+//             GameActionExecutor.AddAction(new AddCardToDrawAction(addCards, GetActionSource()));
 //         }
 //     }
 // }

@@ -38,7 +38,7 @@ namespace NueGames.Relic.Common
         //             GetActionSource()
         //         );
         //         
-        //         GameActionExecutor.AddToBottom(action);
+        //         GameActionExecutor.AddAction(action);
         //     }
         // }
         

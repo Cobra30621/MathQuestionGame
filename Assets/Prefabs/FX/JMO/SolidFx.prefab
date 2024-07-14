@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6438495347631614487}
+  - component: {fileID: 6990816662716873122}
   m_Layer: 0
   m_Name: SolidFx
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6990816662716873122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2863932577946354716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30a3141789d4c6aafb68af0dfcaa046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxs:
+  - {fileID: 3673630271162330984}
 --- !u!1001 &205861564821135085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,5 +179,10 @@ PrefabInstance:
 --- !u!4 &3673630271162330981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3467777503510229384, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
+  m_PrefabInstance: {fileID: 205861564821135085}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3673630271162330984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3467777503510229381, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
   m_PrefabInstance: {fileID: 205861564821135085}
   m_PrefabAsset: {fileID: 0}

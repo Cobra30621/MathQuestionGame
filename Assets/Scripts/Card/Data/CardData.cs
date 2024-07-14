@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Action.Parameters;
+using Action.Sequence;
 using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
@@ -23,10 +25,11 @@ namespace Card.Data
         [FoldoutGroup("數值參數")]
         [SerializeField] private bool exhaustIfNotPlay;
         
-        [FoldoutGroup("卡牌特效")]
-        [ValueDropdown("GetAssets")]
-        [SerializeField] private GameObject fxGo;
 
+        [FoldoutGroup("卡牌特效")] 
+        [SerializeField] private FxInfo fxInfo;
+        
+        
         [FoldoutGroup("卡牌特效")]
         [SerializeField] private FxSpawnPosition fxSpawnPosition;
 
@@ -60,8 +63,7 @@ namespace Card.Data
         public RarityType Rarity => rarity;
         
         public List<CardLevelInfo> LevelInfos => _levelInfos;
-
-        public GameObject FxGo => fxGo;
+        public FxInfo FxInfo => fxInfo;
         public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
         public bool CanNotPlay => canNotPlay;
         public bool ExhaustIfNotPlay => exhaustAfterPlay;

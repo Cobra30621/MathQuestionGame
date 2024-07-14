@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Action.Parameters;
+using Action.Sequence;
 using EnemyAbility.EnemyAction;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -74,7 +75,7 @@ namespace EnemyAbility
 
         [VerticalGroup("特效")]
         [ValueDropdown("GetAssets")]
-        [SerializeField] private GameObject fxGo;
+        [SerializeField] private FXPlayer fxGo;
         /// <summary>
         /// The spawn position of the effect.
         /// </summary>
@@ -99,7 +100,7 @@ namespace EnemyAbility
 
         public string Name => name;
         public EnemyIntentionData Intention => intention;
-        public GameObject FxGo => fxGo;
+        public FXPlayer FxGo => fxGo;
         public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
         public bool UseDefaultAttackFeedback => useDefaultAttackFeedback;
         public CustomerFeedbackSetting CustomerFeedbackSetting => customerFeedback;

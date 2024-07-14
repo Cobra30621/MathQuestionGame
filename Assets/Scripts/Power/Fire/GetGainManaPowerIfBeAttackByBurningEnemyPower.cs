@@ -36,7 +36,7 @@ namespace NueGames.Power
             {
                 if (source.HasPower(PowerName.Fire))
                 {
-                    GameActionExecutor.AddToBottom (
+                    GameActionExecutor.AddAction (
                         new ApplyPowerAction(1, PowerName.GainManaAtRoundStart, 
                         new List<CharacterBase>(){info.Target}, GetActionSource()));
                 }

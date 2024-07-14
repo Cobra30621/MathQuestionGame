@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7460372807174662206}
+  - component: {fileID: 1664929289420301857}
   m_Layer: 0
   m_Name: BurnFx
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664929289420301857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352709588197428302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30a3141789d4c6aafb68af0dfcaa046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxs:
+  - {fileID: 8251535419726296592}
 --- !u!1001 &5517184827611952313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,6 +128,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 536d7f9e569eca04c9e75dd62a27ff12, type: 3}
+--- !u!1 &8251535419726296592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4473110034534548137, guid: 536d7f9e569eca04c9e75dd62a27ff12, type: 3}
+  m_PrefabInstance: {fileID: 5517184827611952313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8251535419726296605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4473110034534548132, guid: 536d7f9e569eca04c9e75dd62a27ff12, type: 3}

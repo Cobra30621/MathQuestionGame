@@ -9,7 +9,7 @@ namespace Action
         SuperDamage = 3,
         ApplyPower = 10,
         EnemyBlock = 12,
-        Block= 50,
+        Block= 20002,
         GainMana = 51,
     }
 }

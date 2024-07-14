@@ -37,7 +37,7 @@ namespace NueGames.Power
             if (IsCharacterTurn(info))
             {
                 
-                GameActionExecutor.AddToBottom(new ApplyPowerAction(
+                GameActionExecutor.AddAction(new ApplyPowerAction(
                     3 * Amount, PowerName.Block, new List<CharacterBase>() {Owner},
                     GetActionSource()));
             }

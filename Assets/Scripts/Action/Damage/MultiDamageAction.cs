@@ -40,7 +40,7 @@ namespace NueGames.Action
                 var damageInfo = new DamageInfo(_damage, ActionSource);
                 var damageAction = new DamageAction(damageInfo, TargetList);
          
-                GameActionExecutor.AddToBottom(damageAction);
+                damageAction.DoAction();
             }
         }
     }

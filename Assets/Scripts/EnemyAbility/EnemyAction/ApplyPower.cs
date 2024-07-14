@@ -16,7 +16,7 @@ namespace EnemyAbility.EnemyAction
         protected override void DoMainAction()
         {
             Debug.Log($"Do {PowerName} {PowerAmount}");
-            GameActionExecutor.AddToBottom(new ApplyPowerAction(
+            GameActionExecutor.AddAction(new ApplyPowerAction(
                 PowerAmount, PowerName, TargetList, GetActionSource()));
         }
     }

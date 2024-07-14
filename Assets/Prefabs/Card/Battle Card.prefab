@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f14e233234845678af96ebfd2f45fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardDisplay: {fileID: 5993437295428691552}
   descriptionRoot: {fileID: 8136691123716273335}
+  _cardDisplay: {fileID: 5993437295428691552}
   canvas: {fileID: 3367497252874219826}
 --- !u!1 &3677811352146201060
 GameObject:
@@ -288,9 +288,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.8725014
       objectReference: {fileID: 0}
+    - target: {fileID: 7322408679527161861, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7492014500962260421, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
       propertyPath: m_Name
       value: CardPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884101739653449504, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 432184709a97b4b329bc3f8735e33d19, type: 3}

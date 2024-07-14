@@ -36,14 +36,15 @@ MonoBehaviour:
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u6575\u65B9\u9020\u62103\u9EDE\u50B7\u5BB3\u3002"
     EffectInfos:
-    - ActionType: 1
-      SkillID: 1000003
+    - SkillID: 1000003
       EffectID: 20001
-      int1: 3
-      int2: 1
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      int1: 0
+      int2: 0
       int3: 0
-      Target: 0
-      Description: "\u50B7\u5BB3"
+      Target: 1
+      Description: 
   - ID: 110002
     GroupID: 1
     SkillID: 1000003, 2000002
@@ -54,22 +55,24 @@ MonoBehaviour:
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u6575\u65B9\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F972\u9EDE\u8B77\u76FE\u3002"
     EffectInfos:
-    - ActionType: 0
-      SkillID: 1000003
+    - SkillID: 1000003
       EffectID: 20001
-      int1: 3
-      int2: 1
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      int1: 0
+      int2: 0
       int3: 0
-      Target: 0
-      Description: "\u50B7\u5BB3"
-    - ActionType: 0
-      SkillID: 2000002
+      Target: 1
+      Description: 
+    - SkillID: 2000002
       EffectID: 20002
-      int1: 2
-      int2: 1
+      EffectParameter: 2 ,1
+      EffectParameterList: 0200000001000000
+      int1: 0
+      int2: 0
       int3: 0
       Target: 0
-      Description: "\u8B77\u76FE"
+      Description: 
   - ID: 110003
     GroupID: 1
     SkillID: 1000003, 2000003
@@ -80,22 +83,24 @@ MonoBehaviour:
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u6575\u65B9\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F973\u9EDE\u8B77\u76FE\u3002"
     EffectInfos:
-    - ActionType: 0
-      SkillID: 1000003
+    - SkillID: 1000003
       EffectID: 20001
-      int1: 3
-      int2: 1
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      int1: 0
+      int2: 0
       int3: 0
-      Target: 0
-      Description: "\u50B7\u5BB3"
-    - ActionType: 0
-      SkillID: 2000003
+      Target: 1
+      Description: 
+    - SkillID: 2000003
       EffectID: 20002
-      int1: 3
-      int2: 1
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      int1: 0
+      int2: 0
       int3: 0
       Target: 0
-      Description: "\u8B77\u76FE"
+      Description: 
   - ID: 110004
     GroupID: 1
     SkillID: 1000003, 2000004
@@ -106,22 +111,24 @@ MonoBehaviour:
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u6575\u65B9\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F974\u9EDE\u8B77\u76FE\u3002"
     EffectInfos:
-    - ActionType: 0
-      SkillID: 1000003
+    - SkillID: 1000003
       EffectID: 20001
-      int1: 3
-      int2: 1
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      int1: 0
+      int2: 0
       int3: 0
-      Target: 0
-      Description: "\u50B7\u5BB3"
-    - ActionType: 0
-      SkillID: 2000004
+      Target: 1
+      Description: 
+    - SkillID: 2000004
       EffectID: 20002
-      int1: 4
-      int2: 1
+      EffectParameter: 4 ,1
+      EffectParameterList: 0400000001000000
+      int1: 0
+      int2: 0
       int3: 0
       Target: 0
-      Description: "\u8B77\u76FE"
+      Description: 
   - ID: 110005
     GroupID: 1
     SkillID: 1000003, 2000005
@@ -132,22 +139,24 @@ MonoBehaviour:
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u6575\u65B9\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F975\u9EDE\u8B77\u76FE\u3002"
     EffectInfos:
-    - ActionType: 0
-      SkillID: 1000003
+    - SkillID: 1000003
       EffectID: 20001
-      int1: 3
-      int2: 1
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      int1: 0
+      int2: 0
       int3: 0
-      Target: 0
-      Description: "\u50B7\u5BB3"
-    - ActionType: 0
-      SkillID: 2000005
+      Target: 1
+      Description: 
+    - SkillID: 2000005
       EffectID: 20002
-      int1: 5
-      int2: 1
+      EffectParameter: 5 ,1
+      EffectParameterList: 0500000001000000
+      int1: 0
+      int2: 0
       int3: 0
       Target: 0
-      Description: "\u8B77\u76FE"
+      Description: 
   - ID: 110006
     GroupID: 1
     SkillID: 1000003, 2000006
@@ -158,22 +167,24 @@ MonoBehaviour:
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u6575\u65B9\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F976\u9EDE\u8B77\u76FE\u3002"
     EffectInfos:
-    - ActionType: 0
-      SkillID: 1000003
+    - SkillID: 1000003
       EffectID: 20001
-      int1: 3
-      int2: 1
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      int1: 0
+      int2: 0
       int3: 0
-      Target: 0
-      Description: "\u50B7\u5BB3"
-    - ActionType: 0
-      SkillID: 2000006
+      Target: 1
+      Description: 
+    - SkillID: 2000006
       EffectID: 20002
-      int1: 6
-      int2: 1
+      EffectParameter: 6 ,1
+      EffectParameterList: 0600000001000000
+      int1: 0
+      int2: 0
       int3: 0
       Target: 0
-      Description: "\u8B77\u76FE"
+      Description: 
   - ID: 110007
     GroupID: 1
     SkillID: 1000003, 2000007
@@ -184,22 +195,24 @@ MonoBehaviour:
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u6575\u65B9\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F977\u9EDE\u8B77\u76FE\u3002"
     EffectInfos:
-    - ActionType: 0
-      SkillID: 1000003
+    - SkillID: 1000003
       EffectID: 20001
-      int1: 3
-      int2: 1
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      int1: 0
+      int2: 0
       int3: 0
-      Target: 0
-      Description: "\u50B7\u5BB3"
-    - ActionType: 0
-      SkillID: 2000007
+      Target: 1
+      Description: 
+    - SkillID: 2000007
       EffectID: 20002
-      int1: 7
-      int2: 1
+      EffectParameter: 7 ,1
+      EffectParameterList: 0700000001000000
+      int1: 0
+      int2: 0
       int3: 0
       Target: 0
-      Description: "\u8B77\u76FE"
+      Description: 
   - ID: 110008
     GroupID: 1
     SkillID: 1000003, 2000008
@@ -210,22 +223,24 @@ MonoBehaviour:
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u6575\u65B9\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F978\u9EDE\u8B77\u76FE\u3002"
     EffectInfos:
-    - ActionType: 0
-      SkillID: 1000003
+    - SkillID: 1000003
       EffectID: 20001
-      int1: 3
-      int2: 1
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      int1: 0
+      int2: 0
       int3: 0
-      Target: 0
-      Description: "\u50B7\u5BB3"
-    - ActionType: 0
-      SkillID: 2000008
+      Target: 1
+      Description: 
+    - SkillID: 2000008
       EffectID: 20002
-      int1: 8
-      int2: 1
+      EffectParameter: 8 ,1
+      EffectParameterList: 0800000001000000
+      int1: 0
+      int2: 0
       int3: 0
       Target: 0
-      Description: "\u8B77\u76FE"
+      Description: 
   - ID: 110009
     GroupID: 1
     SkillID: 1000003, 2000009
@@ -236,22 +251,24 @@ MonoBehaviour:
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u6575\u65B9\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F979\u9EDE\u8B77\u76FE\u3002"
     EffectInfos:
-    - ActionType: 0
-      SkillID: 1000003
+    - SkillID: 1000003
       EffectID: 20001
-      int1: 3
-      int2: 1
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      int1: 0
+      int2: 0
       int3: 0
-      Target: 0
-      Description: "\u50B7\u5BB3"
-    - ActionType: 0
-      SkillID: 2000009
+      Target: 1
+      Description: 
+    - SkillID: 2000009
       EffectID: 20002
-      int1: 9
-      int2: 1
+      EffectParameter: 9 ,1
+      EffectParameterList: 0900000001000000
+      int1: 0
+      int2: 0
       int3: 0
       Target: 0
-      Description: "\u8B77\u76FE"
+      Description: 
   - ID: 110010
     GroupID: 1
     SkillID: 1000003, 2000010
@@ -262,26 +279,32 @@ MonoBehaviour:
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u6575\u65B9\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F9710\u9EDE\u8B77\u76FE\u3002"
     EffectInfos:
-    - ActionType: 0
-      SkillID: 1000003
+    - SkillID: 1000003
       EffectID: 20001
-      int1: 3
-      int2: 1
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      int1: 0
+      int2: 0
       int3: 0
-      Target: 0
-      Description: "\u50B7\u5BB3"
-    - ActionType: 0
-      SkillID: 2000010
+      Target: 1
+      Description: 
+    - SkillID: 2000010
       EffectID: 20002
-      int1: 10
-      int2: 1
+      EffectParameter: 10 ,1
+      EffectParameterList: 0a00000001000000
+      int1: 0
+      int2: 0
       int3: 0
       Target: 0
-      Description: "\u8B77\u76FE"
+      Description: 
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
-  fxGo: {fileID: 0}
+  fxInfo:
+    fxGo: {fileID: 1275131819952708136, guid: 297b040f1ee07ac488178cd460c85e2e, type: 3}
+    FxSpawnPosition: 0
+    WaitMethod: 1
+    Delay: -1
   fxSpawnPosition: 0
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0

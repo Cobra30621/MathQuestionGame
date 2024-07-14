@@ -91,7 +91,7 @@ namespace Tool
             {
                 var ally = CombatManager.Instance.MainAlly;
                 
-                GameActionExecutor.AddToBottom(
+                GameActionExecutor.AddAction(
                     new ApplyPowerAction(1, powerName, 
                     new List<CharacterBase>(){ally}, null));
             }

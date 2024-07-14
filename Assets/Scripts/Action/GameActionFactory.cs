@@ -10,6 +10,21 @@ namespace GameAction
 {
     public static class GameActionFactory
     {
+
+        public static List<GameActionBase> GetGameActions(List<SkillInfo> skillInfos, List<CharacterBase> targets, 
+            ActionSource actionSource, float delay = 0.1f)
+        {
+            var gameActions = new List<GameActionBase>();
+            foreach (var effectInfo in skillInfos)
+            {
+                var gameAction = GameActionFactory.GetGameAction(effectInfo, targets, actionSource);
+                gameActions.Add(gameAction);
+                
+            }
+
+            return gameActions;
+        }
+        
         public static GameActionBase GetGameAction(SkillInfo skillInfo, List<CharacterBase> targets, 
             ActionSource actionSource, float delay = 0.1f)
         {

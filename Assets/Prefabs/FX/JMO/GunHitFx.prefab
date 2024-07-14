@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1537912603869231232}
+  - component: {fileID: 905385027879428260}
   m_Layer: 0
   m_Name: GunHitFx
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &905385027879428260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537912603869231247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30a3141789d4c6aafb68af0dfcaa046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxs:
+  - {fileID: 5077670548196250192}
 --- !u!1001 &1537912602350733980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121,6 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3054d195b5df76141adb352d54387621, type: 3}
+--- !u!1 &5077670548196250192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5989859148366682316, guid: 3054d195b5df76141adb352d54387621, type: 3}
+  m_PrefabInstance: {fileID: 1537912602350733980}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5077670548196250197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5989859148366682313, guid: 3054d195b5df76141adb352d54387621, type: 3}
