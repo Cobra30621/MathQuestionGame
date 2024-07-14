@@ -12,7 +12,7 @@ namespace GameAction
     {
 
         public static List<GameActionBase> GetGameActions(List<SkillInfo> skillInfos, List<CharacterBase> targets, 
-            ActionSource actionSource, float delay = 0.1f)
+            ActionSource actionSource)
         {
             var gameActions = new List<GameActionBase>();
             foreach (var effectInfo in skillInfos)
@@ -26,11 +26,11 @@ namespace GameAction
         }
         
         public static GameActionBase GetGameAction(SkillInfo skillInfo, List<CharacterBase> targets, 
-            ActionSource actionSource, float delay = 0.1f)
+            ActionSource actionSource)
         {
             GameActionBase action = BuildAction(skillInfo);
             
-            action.SetBasicValue(targets, actionSource, delay);
+            action.SetBasicValue(targets, actionSource);
             return action;
         }
 

@@ -57,14 +57,13 @@ namespace NueGames.Managers
         /// 排隊：會等原本的"待執行的遊戲行為清單"遊戲行為執行完，才執行
         /// </summary>
         /// <param name="action"></param>
-        public static void AddAction(GameActionBase action)
+        public static void AddAction(GameActionBase action, float delay = 0.1f)
         {
-            Instance.SequenceManager.AddSequence(new DelaySequence(new List<GameActionBase>(){action}, 0));
+            Instance.SequenceManager.AddSequence(new DelaySequence(new List<GameActionBase>(){action}, delay));
         }
 
         public static void AddActionWithFX(FXSequence fxSequence)
         {
-            Debug.Log("Add Sequeue");
             Instance.SequenceManager.AddSequence(fxSequence);
         }
         

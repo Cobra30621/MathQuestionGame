@@ -31,9 +31,7 @@ namespace NueGames.Action
         /// 行為來源
         /// </summary>
         public ActionSource ActionSource;
-        
-        public float ActionDelay = 0.1f;
-        
+
         public SkillInfo SkillInfo { get; protected set; }
         
         #endregion
@@ -52,18 +50,13 @@ namespace NueGames.Action
 
         #region SetValue
 
-        public void SetBasicValue(List<CharacterBase> targets, ActionSource actionSource, float delay = 0.1f)
+        public void SetBasicValue(List<CharacterBase> targets, ActionSource actionSource)
         {
             TargetList = targets;
             ActionSource = actionSource;
-            ActionDelay = delay;
         }
         
-
-        public void SetDelay(float delay)
-        {
-            ActionDelay = delay;
-        }
+        
         
         #endregion
         
@@ -107,7 +100,7 @@ namespace NueGames.Action
 
         public override string ToString()
         {
-            return $"{nameof(TargetList)}: {TargetList}, {nameof(ActionSource)}: {ActionSource}, {nameof(ActionDelay)}: {ActionDelay}";
+            return $"{nameof(TargetList)}: {TargetList}, {nameof(ActionSource)}: {ActionSource}";
         }
     }
 }
