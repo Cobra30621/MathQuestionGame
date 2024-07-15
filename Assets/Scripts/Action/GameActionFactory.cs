@@ -46,6 +46,8 @@ namespace GameAction
                     return new ApplyPowerAction(skillInfo);
                 case GameActionType.Block:
                     return new ApplyBlockAction(skillInfo);
+                case GameActionType.MultiBlock:
+                    return new MultiBlockAction(skillInfo);
                 case GameActionType.GainMana:
                     return new GainManaAction(skillInfo);
                 default:

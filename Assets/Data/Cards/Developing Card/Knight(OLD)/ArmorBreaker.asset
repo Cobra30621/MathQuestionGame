@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: ArmorBreaker
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+  cardId: "\u9003\u8DD1"
+  _levelInfos:
+  - ID: 107
+    EnGroupID: Flee
+    GroupID: "\u9003\u8DD1"
+    EffectID: 201, 301
+    Mana: 1
+    UpgradeCost: 5
+    MaxLevel: 0
+    ActionTargetType: 0
+    Description: q
+    EffectInfos:
+    - ActionType: 50
+      SkillID: 201
+      int1: 2
+      int2: 0
+      int3: 0
+    - ActionType: 51
+      SkillID: 301
+      int1: 1
+      int2: 0
+      int3: 0
+  - ID: 108
+    EnGroupID: Flee
+    GroupID: "\u9003\u8DD1"
+    EffectID: 202, 302
+    Mana: 2
+    UpgradeCost: 10
+    MaxLevel: 0
+    ActionTargetType: 1
+    Description: 
+    EffectInfos:
+    - ActionType: 50
+      SkillID: 202
+      int1: 4
+      int2: 0
+      int3: 0
+    - ActionType: 51
+      SkillID: 302
+      int1: 2
+      int2: 0
+      int3: 0
+  - ID: 109
+    EnGroupID: Flee
+    GroupID: "\u9003\u8DD1"
+    EffectID: 203, 303
+    Mana: 3
+    UpgradeCost: 15
+    MaxLevel: 1
+    ActionTargetType: 1
+    Description: 
+    EffectInfos:
+    - ActionType: 50
+      SkillID: 203
+      int1: 6
+      int2: 0
+      int3: 0
+    - ActionType: 51
+      SkillID: 303
+      int1: 3
+      int2: 0
+      int3: 0
+  exhaustAfterPlay: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxGo: {fileID: 1620147875121314511, guid: 43cd2caf0ae1a4f068f1ac84c068f54f, type: 3}
+  fxSpawnPosition: 0
+  useDefaultAttackFeedback: 0
+  useCustomFeedback: 0
+  cardName: "\u788E\u7532"
+  cardSprite: {fileID: 21300000, guid: 6a40241fa42d84620a8b95f933d5c1d2, type: 3}
+  rarity: 0
+  description: "\u6BCF\u56DE\u5408\u62631\u6EF4\u8840\uFF0C\u5169\u5C64\u76D4\u7532"
