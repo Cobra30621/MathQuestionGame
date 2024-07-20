@@ -15,7 +15,18 @@ namespace Card.Data
     public class CardData : SerializedScriptableObject ,ISerializeReferenceByAssetGuid
     {
         // equivalent to groupID now, I guess
+
+        [LabelText("開發者卡片")]
+        [SerializeField] private bool isDevelopCard;
+
+        [ShowIf("isDevelopCard")]
+        [LabelText("卡片效果")]
+        [SerializeField] private CardLevelInfo developLevelInfo;
+        
+        [ShowIf("@isDevelopCard == false")]
         [SerializeField] private string cardId;
+        
+        [ShowIf("@isDevelopCard == false")]
         [SerializeField] private List<CardLevelInfo> _levelInfos;
         
         [FoldoutGroup("數值參數")]
@@ -57,6 +68,8 @@ namespace Card.Data
 
 
         #region Cache
+
+        public bool IsDevelopCard => isDevelopCard;
         public string CardId => cardId;
         public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
@@ -107,6 +120,12 @@ namespace Card.Data
         
         public CardLevelInfo GetLevelInfo(int level)
         {
+            // 如果是開發者卡片，回傳開發者資訊
+            if (isDevelopCard)
+            {
+                return developLevelInfo;
+            }
+            
             if (level >= LevelInfos.Count)
             {
                 throw new Exception($"level {level} 超過 {cardName} 的 LevelInfos {LevelInfos.Count} 數量");

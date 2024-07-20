@@ -21,27 +21,40 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: cardAction
-      Entry: 7
-      Data: 0|CardAction.ApplyPower, Assembly-CSharp
-    - Name: value
-      Entry: 3
-      Data: 1
-    - Name: powerName
-      Entry: 3
-      Data: 22
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: customerFeedback
       Entry: 6
       Data: 
-  actionTargetType: 0
-  manaCost: 1
+  isDevelopCard: 1
+  developLevelInfo:
+    ID: 0
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
+    DesLang: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
+    EffectInfos:
+    - SkillID: 0
+      EffectID: 10
+      EffectParameter: 
+      EffectParameterList: 0300000002000000
+      int1: 3
+      int2: 2
+      int3: 0
+      Target: 1
+      Description: 
+  cardId: 
+  _levelInfos: []
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
-  fxGo: {fileID: 5403046535671323747, guid: 58987db4057af416da36d5e3e8f7683d, type: 3}
+  fxInfo:
+    fxGo: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
   fxSpawnPosition: 0
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0

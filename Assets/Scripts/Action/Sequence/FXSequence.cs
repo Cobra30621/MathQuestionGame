@@ -40,14 +40,13 @@ namespace Action.Sequence
         {
             foreach (var action in _actions)
             {
-                Debug.Log(action);
                 action.DoAction();
             }
             
             playingFXs = new List<FXPlayer>();
             FXPlayer fxPlayer;
             
-            if (_fxInfo.FxGo != null)
+            if (_fxInfo.FxPrefab != null)
             {
                 var spawnTransform = FxManager.GetFXSpawnPosition(_fxInfo.FxSpawnPosition);
                 switch (_fxInfo.FxSpawnPosition)
@@ -55,25 +54,24 @@ namespace Action.Sequence
                     case FxSpawnPosition.EachTarget:
                         foreach (var target in TargetList)
                         {
-                            fxPlayer = FxManager.PlayFx(_fxInfo.FxGo, spawnTransform, 
+                            fxPlayer = FxManager.PlayFx(_fxInfo.FxPrefab, spawnTransform, 
                                 target.transform.position);
                             playingFXs.Add(fxPlayer);
                         };
                         break;
                     case FxSpawnPosition.Ally:
                         spawnTransform.position = CombatManager.Instance.GetMainAllyTransform().position;
-                        fxPlayer = FxManager.PlayFx(_fxInfo.FxGo, spawnTransform);
+                        fxPlayer = FxManager.PlayFx(_fxInfo.FxPrefab, spawnTransform);
                         playingFXs.Add(fxPlayer);
                         break;
                     case FxSpawnPosition.EnemyMiddle:
                     case FxSpawnPosition.ScreenMiddle:
-                        fxPlayer =FxManager.PlayFx(_fxInfo.FxGo, spawnTransform);
+                        fxPlayer =FxManager.PlayFx(_fxInfo.FxPrefab, spawnTransform);
                         playingFXs.Add(fxPlayer);
                         break;
                 }
             }
 
-            Debug.Log($"Wait");
             yield return WaitComplete();
             
             onComplete.Invoke();

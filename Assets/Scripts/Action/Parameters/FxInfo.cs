@@ -17,11 +17,11 @@ namespace Action.Parameters
 
         [PropertyTooltip("特效物件")]
         [ValueDropdown("GetAssets")]
-        [SerializeField] private GameObject fxGo;
+        [SerializeField] private GameObject fxPrefab;
         
         
         [PropertyTooltip("特效物件")]
-        public FXPlayer FxGo => fxGo.GetComponent<FXPlayer>();
+        public FXPlayer FxPrefab => fxPrefab != null ? fxPrefab.GetComponent<FXPlayer>() : null;
         
         [PropertyTooltip("特效產生處")]
         public FxSpawnPosition FxSpawnPosition;
@@ -37,7 +37,7 @@ namespace Action.Parameters
         
         public override string ToString()
         {
-            return $"{nameof(fxGo)}: {fxGo}, {nameof(FxSpawnPosition)}: {FxSpawnPosition}, {nameof(WaitMethod)}: {WaitMethod}, {nameof(Delay)}: {Delay}, {nameof(FxGo)}: {FxGo}";
+            return $"{nameof(fxPrefab)}: {fxPrefab}, {nameof(FxSpawnPosition)}: {FxSpawnPosition}, {nameof(WaitMethod)}: {WaitMethod}, {nameof(Delay)}: {Delay}, {nameof(FxPrefab)}: {FxPrefab}";
         }
 
 #if UNITY_EDITOR // Editor-related code must be excluded from builds
