@@ -58,10 +58,7 @@ namespace Card
         public GameActionType EffectID;
         public string EffectParameter;
         public List <int> EffectParameterList; 
-        public int int1;
-        public int int2;
-        public int int3;
         public ActionTargetType Target;
-        public string Description;
+        public string ps;
     }
 }

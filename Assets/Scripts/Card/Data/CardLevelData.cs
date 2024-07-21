@@ -54,7 +54,7 @@ namespace Card
         public int ID;
         public string GroupID;
         public string SkillID;
-        [FormerlySerializedAs("Mana")] public int ManaCost;
+        public int ManaCost;
         public int UpgradeCost;
         public AllyClassType Class;
         public bool MaxLevel;

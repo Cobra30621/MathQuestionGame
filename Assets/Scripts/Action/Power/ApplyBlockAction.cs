@@ -35,7 +35,7 @@ namespace NueGames.Action
         public ApplyBlockAction(SkillInfo skillInfo)
         {
             SkillInfo = skillInfo;
-            _applyValue = skillInfo.int1;
+            _applyValue = skillInfo.EffectParameterList[0];
         }
         
         protected override void DoMainAction()

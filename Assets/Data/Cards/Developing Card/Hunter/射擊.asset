@@ -24,13 +24,25 @@ MonoBehaviour:
     - Name: customerFeedback
       Entry: 6
       Data: 
+  isDevelopCard: 0
+  developLevelInfo:
+    ID: 0
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: 
+    DesLang: 
+    EffectInfos: []
   cardId: 3
   _levelInfos: []
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
   fxInfo:
-    fxGo: {fileID: 0}
+    fxPrefab: {fileID: 0}
     FxSpawnPosition: 0
     WaitMethod: 0
     Delay: -1
