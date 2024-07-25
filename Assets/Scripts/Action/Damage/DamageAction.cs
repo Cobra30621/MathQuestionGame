@@ -7,7 +7,6 @@ using NueGames.Combat;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using UnityEngine;
-
 namespace NueGames.Action
 {
     /// <summary>
@@ -38,7 +37,7 @@ namespace NueGames.Action
         public DamageAction(SkillInfo skillInfo)
         {
             SkillInfo = skillInfo;
-            _damage = skillInfo.int1;
+            _damage = skillInfo.EffectParameterList[0];
             haveSetDamageInfo = false;
             
         }

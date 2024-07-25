@@ -32,7 +32,7 @@ namespace NueGames.Action
         /// <param name="skillInfo"></param>
         public HealAction(SkillInfo skillInfo)
         {
-            _healValue = skillInfo.int1;
+            _healValue = skillInfo.EffectParameterList[0];
         }
 
         /// <summary>

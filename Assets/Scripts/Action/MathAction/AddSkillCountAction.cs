@@ -15,7 +15,7 @@ namespace NueGames.Action.MathAction
 
         public AddSkillCountAction(SkillInfo skillInfo)
         {
-            addCount = skillInfo.int1;
+            addCount = skillInfo.EffectParameterList[0];
         }
         
         public AddSkillCountAction(int addCount)

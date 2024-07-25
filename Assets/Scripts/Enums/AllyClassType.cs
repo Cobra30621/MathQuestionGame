@@ -5,8 +5,8 @@ namespace NueGames.Enums
     {  
         Knight = 1,
         Hunter = 2,
-        Thief = 3,
-        Mage = 4,
+        Mage = 3,
+        Thief = 4,  
         General = 5
     }
 }

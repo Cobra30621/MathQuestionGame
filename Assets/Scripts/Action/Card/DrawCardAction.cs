@@ -29,7 +29,7 @@ namespace NueGames.Action
         /// <param name="skillInfo"></param>
         public DrawCardAction(SkillInfo skillInfo)
         {
-            _drawCardCount = skillInfo.int1;
+            _drawCardCount = skillInfo.EffectParameterList[0];
         }
 
         /// <summary>

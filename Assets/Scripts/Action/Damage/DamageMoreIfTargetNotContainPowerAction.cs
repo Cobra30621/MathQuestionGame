@@ -31,9 +31,9 @@ namespace NueGames.Action
         /// <param name="skillInfo"></param>
         public DamageMoreIfTargetNotContainPowerAction(SkillInfo skillInfo)
         {
-            _judgePower = PowerHelper.GetPowerName(skillInfo.int2);
-            _basicValue = skillInfo.int2;
-            _extraDamage = skillInfo.int3;
+            _judgePower = PowerHelper.GetPowerName(skillInfo.EffectParameterList[1]);
+            _basicValue = skillInfo.EffectParameterList[1];
+            _extraDamage = skillInfo.EffectParameterList[2];
         }
 
         protected override void DoMainAction()
