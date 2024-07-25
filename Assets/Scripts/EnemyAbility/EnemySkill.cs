@@ -92,7 +92,7 @@ namespace EnemyAbility
 
         public bool GetIntentionValue(out int value)
         {
-            Debug.Log($"Enemy Skill {_skillData}, Enemy {_enemy.name}");
+            // Debug.Log($"Enemy Skill {_skillData}, Enemy {_enemy.name}");
             if (_skillData.Intention.ShowIntentionValue)
             {
                 value = -1;

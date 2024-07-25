@@ -38,7 +38,6 @@ namespace NueGames.Characters
         public override void BuildCharacter()
         {
             base.BuildCharacter();
-            Debug.Log($"EnemyCanvas {EnemyCanvas}");
             EnemyCanvas.InitCanvas();
             CharacterStats = new CharacterStats(_enemyData.MaxHealth, this);
             CharacterStats.SetCharacterCanvasEvent(EnemyCanvas);

@@ -10,6 +10,7 @@ using UnityEngine;
 public class MainMenuManager : MonoBehaviour
 {
     [InlineEditor()]
+    [LabelText("關卡資料")]
     public GameplayData GameplayData ;
 
     [SerializeField] private QuestionSettingUI questionSettingUI;

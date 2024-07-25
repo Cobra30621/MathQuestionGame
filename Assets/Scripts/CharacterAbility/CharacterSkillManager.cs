@@ -41,7 +41,7 @@ namespace NueGames.CharacterAbility
 
         public void SetCharacterSkill(CharacterSkill characterSkill)
         {
-            Debug.Log($"Set Skill {characterSkill}");
+            // Debug.Log($"Set Skill {characterSkill}");
             _characterSkill = characterSkill;
             SetSkillCount(characterSkill.skillCount);
         }

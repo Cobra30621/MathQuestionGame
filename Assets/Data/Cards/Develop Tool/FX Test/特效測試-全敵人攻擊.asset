@@ -21,19 +21,31 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: cardAction
-      Entry: 7
-      Data: 0|CardAction.PlayFX, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: customerFeedback
       Entry: 6
       Data: 
-  actionTargetType: 2
-  manaCost: 0
+  isDevelopCard: 1
+  developLevelInfo:
+    ID: 0
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: 
+    DesLang: 
+    EffectInfos: []
+  cardId: 
+  _levelInfos: []
   exhaustAfterPlay: 0
-  fxName: 70
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
   fxSpawnPosition: 0
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0

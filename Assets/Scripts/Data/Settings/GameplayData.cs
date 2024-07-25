@@ -16,46 +16,47 @@ namespace NueGames.Data.Settings
     public class GameplayData : ScriptableObject, ISerializeReferenceByAssetGuid
     {
         [FoldoutGroup("基礎設定")]
-        [PropertyTooltip("初始抽牌數量")]
+        [LabelText("初始抽牌數量")]
         [SerializeField] private int drawCount = 4;
         
         [FoldoutGroup("基礎設定")]
-        [PropertyTooltip("最大魔力")]
+        [LabelText("最大魔力")]
         [SerializeField] private int maxMana = 3;
         
         [FoldoutGroup("基礎設定")]
-        [PropertyTooltip("最大手牌數量")]
+        [LabelText("最大手牌數量")]
         [SerializeField] private int maxCardOnHand;
         
         [FoldoutGroup("基礎設定")]
-        [PropertyTooltip("最大手牌數量")]
+        [LabelText("初始金錢")]
         [SerializeField] private int initMoney;
         
         [InlineEditor]
         [FoldoutGroup("卡牌")]
-        [PropertyTooltip("初始卡牌")]
+        [LabelText("初始卡組")]
         [SerializeField] private DeckData initalDeck;
         
         
         
         [InlineEditor]
         [FoldoutGroup("卡牌")]
-        [PropertyTooltip("獎賞的卡牌")]
+        [LabelText("獎賞的卡牌")]
         [SerializeField] private CardRewardData cardRewardData;
         
         [FoldoutGroup("卡牌")]
-        [PropertyTooltip("卡牌的 GameObject")]
+        [LabelText("卡牌的 Prefab")]
         [SerializeField] private BattleCard battleCardPrefab;
 
         [FoldoutGroup("玩家")] 
-        [PropertyTooltip("玩家資料")] [InlineEditor()] [SerializeField]
+        [LabelText("玩家資料")] [InlineEditor()] [SerializeField]
         private AllyData initialAllyDataData;
         
         [FoldoutGroup("玩家")]
-        [PropertyTooltip("玩家初始遺物")]
+        [LabelText("玩家初始遺物")]
         [SerializeField] private List<RelicName> initialRelic;
 
         [FoldoutGroup("地圖")]
+        [LabelText("地圖")]
         [SerializeField] private MapConfig[] _mapConfigs;
         
         #region Encapsulation

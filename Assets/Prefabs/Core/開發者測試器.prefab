@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2203989986768820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4095018288147458740}
+  - component: {fileID: 7023131020957682350}
+  m_Layer: 0
+  m_Name: "\u8B80\u53D6\u5361\u7247\u8868\u55AE"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4095018288147458740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2203989986768820}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 607283629099232314}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7023131020957682350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2203989986768820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05f23fd59a284fd59f22d5f1147eb101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveDeck: {fileID: 11400000, guid: 0d8b556c7688a4833901d3a5cad41e8b, type: 2}
+  cardLevelData: {fileID: 11400000, guid: b7b41caa65a104107ab307b5f8a3aaab, type: 2}
+  skillData: {fileID: 11400000, guid: fcdcaa925d8d8446db1919662da02639, type: 2}
 --- !u!1 &607283629099232260
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,7 +75,9 @@ Transform:
   m_LocalPosition: {x: 246.61539, y: 996.6578, z: 9.969067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4095018288147458740}
+  - {fileID: 7554945041793251367}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,4 +98,57 @@ MonoBehaviour:
       m_Calls: []
   GameplayData: {fileID: 11400000, guid: 699903d0236c43c43964bc88e127de7f, type: 2}
   EnemyEncounter: {fileID: 11400000, guid: 7f700ffeb36011b4fb16eec544a68f91, type: 2}
+  QuestionSetting:
+    Grades: 
+    Publishers: 
   allyPowerAtGameStart: 02000000
+--- !u!1 &4460161426109008673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7554945041793251367}
+  - component: {fileID: 5310653157622860156}
+  m_Layer: 0
+  m_Name: "\u554F\u984C\u4E0B\u8F09\u5668"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7554945041793251367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4460161426109008673}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 584.7168, y: -342.13025, z: -32.615166}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 607283629099232314}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5310653157622860156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4460161426109008673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d4b369a2e9542bb910ef82418d7eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestionData: {fileID: 11400000, guid: e3611fad9cf8f4f4a88eafafbf5bbc73, type: 2}
+  generateCountForEachChapter: 0
+  hard: 0
+  maxChapter: 0
+  data:
+    problem: []

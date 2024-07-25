@@ -5,8 +5,6 @@ using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.Parameters;
-using NueGames.Relic;
 using UnityEngine;
 using UnityEngine.Events;
 using NueGames.Combat;
@@ -27,27 +25,29 @@ namespace Tool
         /// <summary>
         /// 測試的事件
         /// </summary>
+        [LabelText("遊戲開始時，執行事件")]
         public UnityEvent TestEvent;
         
         [InlineEditor()]
+        [LabelText("遊戲設定")]
         public GameplayData GameplayData;
+        
+        [LabelText("產生的敵人")]
         [InlineEditor()]
         public EnemyEncounter EnemyEncounter;
 
+        [LabelText("問題設定")]
         public QuestionSetting QuestionSetting;
         
+        [LabelText("玩家初始獲得的能力")]
         public List<PowerName> allyPowerAtGameStart;
         
         
 
-        void Awake()
-        {
-            SetDevelopModeData();
-        }
-
         void Start()
         {
-           
+            SetDevelopModeData();
+            
             PlayTest();
 
             GenerateAllyPower();
