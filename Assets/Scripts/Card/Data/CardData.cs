@@ -40,10 +40,6 @@ namespace Card.Data
         [FoldoutGroup("卡牌特效")] 
         [SerializeField] private FxInfo fxInfo;
         
-        
-        [FoldoutGroup("卡牌特效")]
-        [SerializeField] private FxSpawnPosition fxSpawnPosition;
-
         [FoldoutGroup("角色動畫")] 
         [SerializeField] private bool useDefaultAttackFeedback;
         [FoldoutGroup("角色動畫")] 
@@ -77,7 +73,6 @@ namespace Card.Data
         
         public List<CardLevelInfo> LevelInfos => _levelInfos;
         public FxInfo FxInfo => fxInfo;
-        public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
         public bool CanNotPlay => canNotPlay;
         public bool ExhaustIfNotPlay => exhaustAfterPlay;
         

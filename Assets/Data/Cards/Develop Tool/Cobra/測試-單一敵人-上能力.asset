@@ -38,24 +38,20 @@ MonoBehaviour:
     EffectInfos:
     - SkillID: 0
       EffectID: 10
-      EffectParameter: 
+      EffectParameter: "\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
       EffectParameterList: 0300000002000000
-      int1: 3
-      int2: 2
-      int3: 0
       Target: 1
-      Description: 
+      ps: 
   cardId: 
   _levelInfos: []
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
   fxInfo:
-    fxGo: {fileID: 0}
+    fxPrefab: {fileID: 9217137000476708333, guid: 8d038ba3f664d485d9be71d35ddf5da9, type: 3}
     FxSpawnPosition: 0
-    WaitMethod: 0
+    WaitMethod: 1
     Delay: -1
-  fxSpawnPosition: 0
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
   cardName: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"

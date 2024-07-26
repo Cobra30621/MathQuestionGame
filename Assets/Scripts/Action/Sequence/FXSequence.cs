@@ -57,16 +57,19 @@ namespace Action.Sequence
                             fxPlayer = FxManager.PlayFx(_fxInfo.FxPrefab, spawnTransform, 
                                 target.transform.position);
                             playingFXs.Add(fxPlayer);
+                            fxPlayer.Play();
                         };
                         break;
                     case FxSpawnPosition.Ally:
                         spawnTransform.position = CombatManager.Instance.GetMainAllyTransform().position;
                         fxPlayer = FxManager.PlayFx(_fxInfo.FxPrefab, spawnTransform);
+                        fxPlayer.Play();
                         playingFXs.Add(fxPlayer);
                         break;
                     case FxSpawnPosition.EnemyMiddle:
                     case FxSpawnPosition.ScreenMiddle:
                         fxPlayer =FxManager.PlayFx(_fxInfo.FxPrefab, spawnTransform);
+                        fxPlayer.Play();
                         playingFXs.Add(fxPlayer);
                         break;
                 }
@@ -75,6 +78,10 @@ namespace Action.Sequence
             yield return WaitComplete();
             
             onComplete.Invoke();
+            
+            // 播放特效完畢後，刪除所有特效
+            yield return new WaitUntil(()=> !HaveFXPlaying());
+            DestroyAllFxPlayers();
         }
 
         private IEnumerator WaitComplete()
@@ -82,6 +89,7 @@ namespace Action.Sequence
             if (_fxInfo.WaitMethod == WaitMethod.WaitFXFinish)
             {
                 yield return new WaitUntil(()=> !HaveFXPlaying());
+                
             }else if (_fxInfo.WaitMethod == WaitMethod.WaitDelay)
             {
                 yield return new WaitForSeconds(_fxInfo.Delay);
@@ -99,6 +107,15 @@ namespace Action.Sequence
             }
 
             return false;
+        }
+
+        private void DestroyAllFxPlayers()
+        {
+            foreach (var playingFX in playingFXs)
+            {
+                Debug.Log($"Destroy {playingFX.name}");
+                GameObject.Destroy(playingFX.gameObject);
+            }
         }
 
         public override string ToString()

@@ -15,21 +15,21 @@ namespace Action.Parameters
     public class FxInfo
     {
 
-        [PropertyTooltip("特效物件")]
+        [LabelText("特效物件")]
         [ValueDropdown("GetAssets")]
         [SerializeField] private GameObject fxPrefab;
         
         
-        [PropertyTooltip("特效物件")]
+        
         public FXPlayer FxPrefab => fxPrefab != null ? fxPrefab.GetComponent<FXPlayer>() : null;
         
-        [PropertyTooltip("特效產生處")]
+        [LabelText("特效產生處")]
         public FxSpawnPosition FxSpawnPosition;
 
-        [PropertyTooltip("等待特效的方式")]
+        [LabelText("等待特效的方式")]
         public WaitMethod WaitMethod;
         
-        [PropertyTooltip("等待時間")]
+        [LabelText("等待時間")]
         [ShowIf("WaitMethod", WaitMethod.WaitDelay)]
         public float Delay = -1;
 

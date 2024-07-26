@@ -19,8 +19,8 @@ namespace Question.QuestionAction
                 BlockValue, PowerName.Block, 
                 new List<CharacterBase>(){CombatManager.Instance.MainAlly}, GetActionSource()));
             
-            GameActionExecutor.AddAction(new FXAction(CorrectFx, 
-            new List<CharacterBase>(){CombatManager.Instance.MainAlly}));
+            // GameActionExecutor.AddAction(new FXAction(CorrectFx, 
+            // new List<CharacterBase>(){CombatManager.Instance.MainAlly}));
         }
 
         public override void DoWrongAction()
