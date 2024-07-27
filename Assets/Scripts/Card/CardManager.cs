@@ -3,6 +3,7 @@ using System.Linq;
 using Card.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Card
 {
@@ -13,6 +14,23 @@ namespace Card
         [Required]
         [SerializeField] private readonly CardLevelHandler _cardLevelHandler;
         public CardLevelHandler CardLevelHandler => _cardLevelHandler;
+
+        public UnityEvent<List<CardInfo>> CardInfoUpdated;
+
+
+        public void UpgradeCard(string cardId)
+        {
+            _cardLevelHandler.UpgradeCard(cardId);
+            UpdateCardInfos();
+            
+        }
+
+        public void UpdateCardInfos()
+        {
+            var cardInfos = GetAllCardInfos();
+            
+            CardInfoUpdated.Invoke(cardInfos);
+        }
         
 
         public List<CardInfo> GetAllCardInfos()

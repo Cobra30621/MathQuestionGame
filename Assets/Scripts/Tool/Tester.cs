@@ -45,8 +45,8 @@ public class Tester : MonoBehaviour
     public RelicName relicName;
     private void GainRelic()
     {
-        RelicManager.Instance.GainRelic(relicName);
-        RelicManager.Instance.PrintCurrentRelicList();
+        GameManager.Instance.RelicManager.GainRelic(relicName);
+        GameManager.Instance.RelicManager.PrintCurrentRelicList();
     }
 
 

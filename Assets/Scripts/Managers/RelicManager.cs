@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class RelicManager : Singleton<RelicManager>
+    public class RelicManager : MonoBehaviour
     {
         protected UIManager UIManager => UIManager.Instance;
         public List<RelicClip> CurrentRelicList = new List<RelicClip>();

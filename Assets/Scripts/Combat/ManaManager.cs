@@ -39,7 +39,7 @@ namespace NueGames.Combat
             }
 
             // 遺物系統瑪娜加成
-            var relics = RelicManager.Instance.CurrentRelicList;
+            var relics = GameManager.Instance.RelicManager.CurrentRelicList;
             foreach (var relicClip in relics)
             {
                 gainValue = relicClip.Relic.AtGainTurnStartMana(gainValue);

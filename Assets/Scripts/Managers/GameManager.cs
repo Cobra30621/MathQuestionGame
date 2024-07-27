@@ -24,6 +24,9 @@ namespace NueGames.Managers
     public class GameManager : Singleton<GameManager>, IDataPersistence
     {
         [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler, allyDataFileHandler, gameplayDataFileHandler;
+
+        [SerializeField] private RelicManager _relicManager;
+        public RelicManager RelicManager => _relicManager;
         
         [Header("Settings")]
         [InlineEditor()]
@@ -65,7 +68,7 @@ namespace NueGames.Managers
             data.GamePlayDataId = gameplayDataFileHandler.DataToGuid(gameplayData);
             data.PlayerData.CardDataGuids =  cardDataFileHandler.DataToGuid(CurrentCardsList);
             data.PlayerData.AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData);
-            data.PlayerData.Relics = RelicManager.Instance.GetRelicNames();
+            data.PlayerData.Relics = _relicManager.GetRelicNames();
         }
         
         #endregion
@@ -100,7 +103,7 @@ namespace NueGames.Managers
             {
                 CardDataGuids = cardDataFileHandler.DataToGuid(CurrentCardsList),
                 AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData),
-                Relics = RelicManager.Instance.GetRelicNames(),
+                Relics = _relicManager.GetRelicNames(),
             };
             
             MoneyManager.Instance.SetMoney(gameplayData.InitMoney);
@@ -157,7 +160,7 @@ namespace NueGames.Managers
         
         private void SetRelicList(List<RelicName> relicNames)
         {
-            RelicManager.Instance.GainRelic(relicNames);
+            _relicManager.GainRelic(relicNames);
         }
 
         public void ThrowCard(CardData cardData)

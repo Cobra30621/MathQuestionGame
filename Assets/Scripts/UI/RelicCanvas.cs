@@ -4,6 +4,7 @@ using Managers;
 using NueGames.Relic;
 using NueGames.UI;
 using UnityEngine;
+using NueGames.Managers;
 
 public class RelicCanvas : CanvasBase
 {
@@ -11,7 +12,7 @@ public class RelicCanvas : CanvasBase
     private List<RelicIconsBase> _relicIconsBases;
     private RelicIconsBase RelicBasePrefab => RelicManager.relicsData.RelicBasePrefab;
     
-    private RelicManager RelicManager => RelicManager.Instance;
+    private RelicManager RelicManager => GameManager.Instance.RelicManager;
 
     /// <summary>
     /// 取得 Relic 時

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using Card.Data;
+using NSubstitute.Core;
 using NueGames.Data.Containers;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -31,6 +33,8 @@ namespace Card.Display
             
             Init(cardInfo);
         }
+
+        
         
         public virtual void Init(CardInfo cardInfo)
         {
@@ -39,6 +43,21 @@ namespace Card.Display
             _cardInfo = cardInfo;
             
             UpdateCardDisplay();
+            
+            CardManager.Instance.CardInfoUpdated.AddListener(OnCardInfoUpdated);
+        }
+        
+        private void OnCardInfoUpdated(List<CardInfo> cardInfos)
+        {
+            var cardInfo = cardInfos.FirstOrDefault(c => c.CardData.CardId ==  _cardInfo.CardData.CardId);
+            Debug.Log(cardInfo);
+            
+            if (cardInfo!= null)
+            {
+                _cardInfo = cardInfo;
+            
+                UpdateCardDisplay();
+            }
         }
         
         public void UpdateCardDisplay()
