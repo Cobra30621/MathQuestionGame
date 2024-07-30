@@ -4,6 +4,8 @@ using Action.Parameters;
 using Card;
 using NueGames.Action;
 using NueGames.Characters;
+using NueGames.Combat;
+using NueGames.Enums;
 using UnityEngine;
 
 namespace GameAction
@@ -29,6 +31,13 @@ namespace GameAction
             ActionSource actionSource)
         {
             GameActionBase action = BuildAction(skillInfo);
+
+            // 如果 ActionTargetType 指定是玩家，將 TargetList 改成玩家
+            // 有可能卡片指定對象是敵人，但有部分效果對應到玩家
+            if (skillInfo.Target == ActionTargetType.Ally)
+            {
+                targets = new List<CharacterBase>(){CombatManager.Instance.MainAlly};
+            }
             
             action.SetBasicValue(targets, actionSource);
             return action;
