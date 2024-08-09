@@ -36,8 +36,12 @@ namespace Card
                 }
                     
                 card.SetCardLevels(levelInfos);
+                EditorUtility.SetDirty(card);
             }
             
+            EditorUtility.SetDirty(SaveDeck);
+            EditorUtility.SetDirty(cardLevelData);
+            EditorUtility.SetDirty(skillData);
             AssetDatabase.SaveAssets();
         }
 
