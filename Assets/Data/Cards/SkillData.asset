@@ -12,983 +12,4176 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f80a1f733c94985973294f834614906, type: 3}
   m_Name: SkillData
   m_EditorClassIdentifier: 
-  url: https://opensheet.elk.sh/1tCaaCrB-9xcP_sgVigBUC5hSNOEx9KzDwsomPIC7asU/SkillA
-  skillInfos:
-  - SkillID: 1000001
+  ids:
+  - uniqueId:
+      dataId: 1000001
+      displayName: 1000001
+    SkillID: 1000001
     EffectID: 20001
     EffectParameter: 1 ,1
-    EffectParameterList: 0100000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000002
+  - uniqueId:
+      dataId: 1000002
+      displayName: 1000002
+    SkillID: 1000002
     EffectID: 20001
     EffectParameter: 2 ,1
-    EffectParameterList: 0200000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000003
+  - uniqueId:
+      dataId: 1000003
+      displayName: 1000003
+    SkillID: 1000003
     EffectID: 20001
     EffectParameter: 3 ,1
-    EffectParameterList: 0300000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000004
+  - uniqueId:
+      dataId: 1000004
+      displayName: 1000004
+    SkillID: 1000004
     EffectID: 20001
     EffectParameter: 4 ,1
-    EffectParameterList: 0400000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000005
+  - uniqueId:
+      dataId: 1000005
+      displayName: 1000005
+    SkillID: 1000005
     EffectID: 20001
     EffectParameter: 5 ,1
-    EffectParameterList: 0500000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000006
+  - uniqueId:
+      dataId: 1000006
+      displayName: 1000006
+    SkillID: 1000006
     EffectID: 20001
     EffectParameter: 6 ,1
-    EffectParameterList: 0600000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000007
+  - uniqueId:
+      dataId: 1000007
+      displayName: 1000007
+    SkillID: 1000007
     EffectID: 20001
     EffectParameter: 7 ,1
-    EffectParameterList: 0700000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000008
+  - uniqueId:
+      dataId: 1000008
+      displayName: 1000008
+    SkillID: 1000008
     EffectID: 20001
     EffectParameter: 8 ,1
-    EffectParameterList: 0800000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000009
+  - uniqueId:
+      dataId: 1000009
+      displayName: 1000009
+    SkillID: 1000009
     EffectID: 20001
     EffectParameter: 9 ,1
-    EffectParameterList: 0900000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000010
+  - uniqueId:
+      dataId: 1000010
+      displayName: 1000010
+    SkillID: 1000010
     EffectID: 20001
     EffectParameter: 10 ,1
-    EffectParameterList: 0a00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000011
+  - uniqueId:
+      dataId: 1000011
+      displayName: 1000011
+    SkillID: 1000011
     EffectID: 20001
     EffectParameter: 11 ,1
-    EffectParameterList: 0b00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000012
+  - uniqueId:
+      dataId: 1000012
+      displayName: 1000012
+    SkillID: 1000012
     EffectID: 20001
     EffectParameter: 12 ,1
-    EffectParameterList: 0c00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000013
+  - uniqueId:
+      dataId: 1000013
+      displayName: 1000013
+    SkillID: 1000013
     EffectID: 20001
     EffectParameter: 13 ,1
-    EffectParameterList: 0d00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000014
+  - uniqueId:
+      dataId: 1000014
+      displayName: 1000014
+    SkillID: 1000014
     EffectID: 20001
     EffectParameter: 14 ,1
-    EffectParameterList: 0e00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000015
+  - uniqueId:
+      dataId: 1000015
+      displayName: 1000015
+    SkillID: 1000015
     EffectID: 20001
     EffectParameter: 15 ,1
-    EffectParameterList: 0f00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000016
+  - uniqueId:
+      dataId: 1000016
+      displayName: 1000016
+    SkillID: 1000016
     EffectID: 20001
     EffectParameter: 16 ,1
-    EffectParameterList: 1000000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000017
+  - uniqueId:
+      dataId: 1000017
+      displayName: 1000017
+    SkillID: 1000017
     EffectID: 20001
     EffectParameter: 17 ,1
-    EffectParameterList: 1100000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000018
+  - uniqueId:
+      dataId: 1000018
+      displayName: 1000018
+    SkillID: 1000018
     EffectID: 20001
     EffectParameter: 18 ,1
-    EffectParameterList: 1200000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000019
+  - uniqueId:
+      dataId: 1000019
+      displayName: 1000019
+    SkillID: 1000019
     EffectID: 20001
     EffectParameter: 19 ,1
-    EffectParameterList: 1300000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000020
+  - uniqueId:
+      dataId: 1000020
+      displayName: 1000020
+    SkillID: 1000020
     EffectID: 20001
     EffectParameter: 20 ,1
-    EffectParameterList: 1400000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000021
+  - uniqueId:
+      dataId: 1000021
+      displayName: 1000021
+    SkillID: 1000021
     EffectID: 20001
     EffectParameter: 21 ,1
-    EffectParameterList: 1500000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000022
+  - uniqueId:
+      dataId: 1000022
+      displayName: 1000022
+    SkillID: 1000022
     EffectID: 20001
     EffectParameter: 22 ,1
-    EffectParameterList: 1600000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000023
+  - uniqueId:
+      dataId: 1000023
+      displayName: 1000023
+    SkillID: 1000023
     EffectID: 20001
     EffectParameter: 23 ,1
-    EffectParameterList: 1700000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000024
+  - uniqueId:
+      dataId: 1000024
+      displayName: 1000024
+    SkillID: 1000024
     EffectID: 20001
     EffectParameter: 24 ,1
-    EffectParameterList: 1800000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000025
+  - uniqueId:
+      dataId: 1000025
+      displayName: 1000025
+    SkillID: 1000025
     EffectID: 20001
     EffectParameter: 25 ,1
-    EffectParameterList: 1900000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000026
+  - uniqueId:
+      dataId: 1000026
+      displayName: 1000026
+    SkillID: 1000026
     EffectID: 20001
     EffectParameter: 26 ,1
-    EffectParameterList: 1a00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000027
+  - uniqueId:
+      dataId: 1000027
+      displayName: 1000027
+    SkillID: 1000027
     EffectID: 20001
     EffectParameter: 27 ,1
-    EffectParameterList: 1b00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000028
+  - uniqueId:
+      dataId: 1000028
+      displayName: 1000028
+    SkillID: 1000028
     EffectID: 20001
     EffectParameter: 28 ,1
-    EffectParameterList: 1c00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000029
+  - uniqueId:
+      dataId: 1000029
+      displayName: 1000029
+    SkillID: 1000029
     EffectID: 20001
     EffectParameter: 29 ,1
-    EffectParameterList: 1d00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000030
+  - uniqueId:
+      dataId: 1000030
+      displayName: 1000030
+    SkillID: 1000030
     EffectID: 20001
     EffectParameter: 30 ,1
-    EffectParameterList: 1e00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000031
+  - uniqueId:
+      dataId: 1000031
+      displayName: 1000031
+    SkillID: 1000031
     EffectID: 20001
     EffectParameter: 31 ,1
-    EffectParameterList: 1f00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000032
+  - uniqueId:
+      dataId: 1000032
+      displayName: 1000032
+    SkillID: 1000032
     EffectID: 20001
     EffectParameter: 32 ,1
-    EffectParameterList: 2000000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000033
+  - uniqueId:
+      dataId: 1000033
+      displayName: 1000033
+    SkillID: 1000033
     EffectID: 20001
     EffectParameter: 33 ,1
-    EffectParameterList: 2100000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000034
+  - uniqueId:
+      dataId: 1000034
+      displayName: 1000034
+    SkillID: 1000034
     EffectID: 20001
     EffectParameter: 34 ,1
-    EffectParameterList: 2200000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000035
+  - uniqueId:
+      dataId: 1000035
+      displayName: 1000035
+    SkillID: 1000035
     EffectID: 20001
     EffectParameter: 35 ,1
-    EffectParameterList: 2300000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000036
+  - uniqueId:
+      dataId: 1000036
+      displayName: 1000036
+    SkillID: 1000036
     EffectID: 20001
     EffectParameter: 36 ,1
-    EffectParameterList: 2400000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000037
+  - uniqueId:
+      dataId: 1000037
+      displayName: 1000037
+    SkillID: 1000037
     EffectID: 20001
     EffectParameter: 37 ,1
-    EffectParameterList: 2500000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000038
+  - uniqueId:
+      dataId: 1000038
+      displayName: 1000038
+    SkillID: 1000038
     EffectID: 20001
     EffectParameter: 38 ,1
-    EffectParameterList: 2600000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000039
+  - uniqueId:
+      dataId: 1000039
+      displayName: 1000039
+    SkillID: 1000039
     EffectID: 20001
     EffectParameter: 39 ,1
-    EffectParameterList: 2700000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000040
+  - uniqueId:
+      dataId: 1000040
+      displayName: 1000040
+    SkillID: 1000040
     EffectID: 20001
     EffectParameter: 40 ,1
-    EffectParameterList: 2800000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000041
+  - uniqueId:
+      dataId: 1000041
+      displayName: 1000041
+    SkillID: 1000041
     EffectID: 20001
     EffectParameter: 41 ,1
-    EffectParameterList: 2900000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000042
+  - uniqueId:
+      dataId: 1000042
+      displayName: 1000042
+    SkillID: 1000042
     EffectID: 20001
     EffectParameter: 42 ,1
-    EffectParameterList: 2a00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000043
+  - uniqueId:
+      dataId: 1000043
+      displayName: 1000043
+    SkillID: 1000043
     EffectID: 20001
     EffectParameter: 43 ,1
-    EffectParameterList: 2b00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000044
+  - uniqueId:
+      dataId: 1000044
+      displayName: 1000044
+    SkillID: 1000044
     EffectID: 20001
     EffectParameter: 44 ,1
-    EffectParameterList: 2c00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000045
+  - uniqueId:
+      dataId: 1000045
+      displayName: 1000045
+    SkillID: 1000045
     EffectID: 20001
     EffectParameter: 45 ,1
-    EffectParameterList: 2d00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000046
+  - uniqueId:
+      dataId: 1000046
+      displayName: 1000046
+    SkillID: 1000046
     EffectID: 20001
     EffectParameter: 46 ,1
-    EffectParameterList: 2e00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000047
+  - uniqueId:
+      dataId: 1000047
+      displayName: 1000047
+    SkillID: 1000047
     EffectID: 20001
     EffectParameter: 47 ,1
-    EffectParameterList: 2f00000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000048
+  - uniqueId:
+      dataId: 1000048
+      displayName: 1000048
+    SkillID: 1000048
     EffectID: 20001
     EffectParameter: 48 ,1
-    EffectParameterList: 3000000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000049
+  - uniqueId:
+      dataId: 1000049
+      displayName: 1000049
+    SkillID: 1000049
     EffectID: 20001
     EffectParameter: 49 ,1
-    EffectParameterList: 3100000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1000050
+  - uniqueId:
+      dataId: 1000050
+      displayName: 1000050
+    SkillID: 1000050
     EffectID: 20001
     EffectParameter: 50 ,1
-    EffectParameterList: 3200000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100001
+  - uniqueId:
+      dataId: 1000051
+      displayName: 1000051
+    SkillID: 1000051
+    EffectID: 20001
+    EffectParameter: 1,2
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000052
+      displayName: 1000052
+    SkillID: 1000052
+    EffectID: 20001
+    EffectParameter: 1,3
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000053
+      displayName: 1000053
+    SkillID: 1000053
+    EffectID: 20001
+    EffectParameter: 1,4
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000054
+      displayName: 1000054
+    SkillID: 1000054
+    EffectID: 20001
+    EffectParameter: 1,5
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000055
+      displayName: 1000055
+    SkillID: 1000055
+    EffectID: 20001
+    EffectParameter: 1,6
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000056
+      displayName: 1000056
+    SkillID: 1000056
+    EffectID: 20001
+    EffectParameter: 1,7
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000057
+      displayName: 1000057
+    SkillID: 1000057
+    EffectID: 20001
+    EffectParameter: 1,8
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000058
+      displayName: 1000058
+    SkillID: 1000058
+    EffectID: 20001
+    EffectParameter: 1,9
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000059
+      displayName: 1000059
+    SkillID: 1000059
+    EffectID: 20001
+    EffectParameter: 1,10
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000060
+      displayName: 1000060
+    SkillID: 1000060
+    EffectID: 20001
+    EffectParameter: 2,2
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000061
+      displayName: 1000061
+    SkillID: 1000061
+    EffectID: 20001
+    EffectParameter: 2,3
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000062
+      displayName: 1000062
+    SkillID: 1000062
+    EffectID: 20001
+    EffectParameter: 2,4
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000063
+      displayName: 1000063
+    SkillID: 1000063
+    EffectID: 20001
+    EffectParameter: 2,5
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000064
+      displayName: 1000064
+    SkillID: 1000064
+    EffectID: 20001
+    EffectParameter: 2,6
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000065
+      displayName: 1000065
+    SkillID: 1000065
+    EffectID: 20001
+    EffectParameter: 2,7
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000066
+      displayName: 1000066
+    SkillID: 1000066
+    EffectID: 20001
+    EffectParameter: 2,8
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000067
+      displayName: 1000067
+    SkillID: 1000067
+    EffectID: 20001
+    EffectParameter: 2,9
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1000068
+      displayName: 1000068
+    SkillID: 1000068
+    EffectID: 20001
+    EffectParameter: 2,10
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1100001
+      displayName: 1100001
+    SkillID: 1100001
     EffectID: 20001
     EffectParameter: 1 ,1
-    EffectParameterList: 0100000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100002
+  - uniqueId:
+      dataId: 1100002
+      displayName: 1100002
+    SkillID: 1100002
     EffectID: 20001
     EffectParameter: 2 ,1
-    EffectParameterList: 0200000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100003
+  - uniqueId:
+      dataId: 1100003
+      displayName: 1100003
+    SkillID: 1100003
     EffectID: 20001
     EffectParameter: 3 ,1
-    EffectParameterList: 0300000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100004
+  - uniqueId:
+      dataId: 1100004
+      displayName: 1100004
+    SkillID: 1100004
     EffectID: 20001
     EffectParameter: 4 ,1
-    EffectParameterList: 0400000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100005
+  - uniqueId:
+      dataId: 1100005
+      displayName: 1100005
+    SkillID: 1100005
     EffectID: 20001
     EffectParameter: 5 ,1
-    EffectParameterList: 0500000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100006
+  - uniqueId:
+      dataId: 1100006
+      displayName: 1100006
+    SkillID: 1100006
     EffectID: 20001
     EffectParameter: 6 ,1
-    EffectParameterList: 0600000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100007
+  - uniqueId:
+      dataId: 1100007
+      displayName: 1100007
+    SkillID: 1100007
     EffectID: 20001
     EffectParameter: 7 ,1
-    EffectParameterList: 0700000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100008
+  - uniqueId:
+      dataId: 1100008
+      displayName: 1100008
+    SkillID: 1100008
     EffectID: 20001
     EffectParameter: 8 ,1
-    EffectParameterList: 0800000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100009
+  - uniqueId:
+      dataId: 1100009
+      displayName: 1100009
+    SkillID: 1100009
     EffectID: 20001
     EffectParameter: 9 ,1
-    EffectParameterList: 0900000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100010
+  - uniqueId:
+      dataId: 1100010
+      displayName: 1100010
+    SkillID: 1100010
     EffectID: 20001
     EffectParameter: 10 ,1
-    EffectParameterList: 0a00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100011
+  - uniqueId:
+      dataId: 1100011
+      displayName: 1100011
+    SkillID: 1100011
     EffectID: 20001
     EffectParameter: 11 ,1
-    EffectParameterList: 0b00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100012
+  - uniqueId:
+      dataId: 1100012
+      displayName: 1100012
+    SkillID: 1100012
     EffectID: 20001
     EffectParameter: 12 ,1
-    EffectParameterList: 0c00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100013
+  - uniqueId:
+      dataId: 1100013
+      displayName: 1100013
+    SkillID: 1100013
     EffectID: 20001
     EffectParameter: 13 ,1
-    EffectParameterList: 0d00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100014
+  - uniqueId:
+      dataId: 1100014
+      displayName: 1100014
+    SkillID: 1100014
     EffectID: 20001
     EffectParameter: 14 ,1
-    EffectParameterList: 0e00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100015
+  - uniqueId:
+      dataId: 1100015
+      displayName: 1100015
+    SkillID: 1100015
     EffectID: 20001
     EffectParameter: 15 ,1
-    EffectParameterList: 0f00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100016
+  - uniqueId:
+      dataId: 1100016
+      displayName: 1100016
+    SkillID: 1100016
     EffectID: 20001
     EffectParameter: 16 ,1
-    EffectParameterList: 1000000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100017
+  - uniqueId:
+      dataId: 1100017
+      displayName: 1100017
+    SkillID: 1100017
     EffectID: 20001
     EffectParameter: 17 ,1
-    EffectParameterList: 1100000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100018
+  - uniqueId:
+      dataId: 1100018
+      displayName: 1100018
+    SkillID: 1100018
     EffectID: 20001
     EffectParameter: 18 ,1
-    EffectParameterList: 1200000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100019
+  - uniqueId:
+      dataId: 1100019
+      displayName: 1100019
+    SkillID: 1100019
     EffectID: 20001
     EffectParameter: 19 ,1
-    EffectParameterList: 1300000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100020
+  - uniqueId:
+      dataId: 1100020
+      displayName: 1100020
+    SkillID: 1100020
     EffectID: 20001
     EffectParameter: 20 ,1
-    EffectParameterList: 1400000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100021
+  - uniqueId:
+      dataId: 1100021
+      displayName: 1100021
+    SkillID: 1100021
     EffectID: 20001
     EffectParameter: 21 ,1
-    EffectParameterList: 1500000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100022
+  - uniqueId:
+      dataId: 1100022
+      displayName: 1100022
+    SkillID: 1100022
     EffectID: 20001
     EffectParameter: 22 ,1
-    EffectParameterList: 1600000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100023
+  - uniqueId:
+      dataId: 1100023
+      displayName: 1100023
+    SkillID: 1100023
     EffectID: 20001
     EffectParameter: 23 ,1
-    EffectParameterList: 1700000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100024
+  - uniqueId:
+      dataId: 1100024
+      displayName: 1100024
+    SkillID: 1100024
     EffectID: 20001
     EffectParameter: 24 ,1
-    EffectParameterList: 1800000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100025
+  - uniqueId:
+      dataId: 1100025
+      displayName: 1100025
+    SkillID: 1100025
     EffectID: 20001
     EffectParameter: 25 ,1
-    EffectParameterList: 1900000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100026
+  - uniqueId:
+      dataId: 1100026
+      displayName: 1100026
+    SkillID: 1100026
     EffectID: 20001
     EffectParameter: 26 ,1
-    EffectParameterList: 1a00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100027
+  - uniqueId:
+      dataId: 1100027
+      displayName: 1100027
+    SkillID: 1100027
     EffectID: 20001
     EffectParameter: 27 ,1
-    EffectParameterList: 1b00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100028
+  - uniqueId:
+      dataId: 1100028
+      displayName: 1100028
+    SkillID: 1100028
     EffectID: 20001
     EffectParameter: 28 ,1
-    EffectParameterList: 1c00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100029
+  - uniqueId:
+      dataId: 1100029
+      displayName: 1100029
+    SkillID: 1100029
     EffectID: 20001
     EffectParameter: 29 ,1
-    EffectParameterList: 1d00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100030
+  - uniqueId:
+      dataId: 1100030
+      displayName: 1100030
+    SkillID: 1100030
     EffectID: 20001
     EffectParameter: 30 ,1
-    EffectParameterList: 1e00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100031
+  - uniqueId:
+      dataId: 1100031
+      displayName: 1100031
+    SkillID: 1100031
     EffectID: 20001
     EffectParameter: 31 ,1
-    EffectParameterList: 1f00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100032
+  - uniqueId:
+      dataId: 1100032
+      displayName: 1100032
+    SkillID: 1100032
     EffectID: 20001
     EffectParameter: 32 ,1
-    EffectParameterList: 2000000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100033
+  - uniqueId:
+      dataId: 1100033
+      displayName: 1100033
+    SkillID: 1100033
     EffectID: 20001
     EffectParameter: 33 ,1
-    EffectParameterList: 2100000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100034
+  - uniqueId:
+      dataId: 1100034
+      displayName: 1100034
+    SkillID: 1100034
     EffectID: 20001
     EffectParameter: 34 ,1
-    EffectParameterList: 2200000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100035
+  - uniqueId:
+      dataId: 1100035
+      displayName: 1100035
+    SkillID: 1100035
     EffectID: 20001
     EffectParameter: 35 ,1
-    EffectParameterList: 2300000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100036
+  - uniqueId:
+      dataId: 1100036
+      displayName: 1100036
+    SkillID: 1100036
     EffectID: 20001
     EffectParameter: 36 ,1
-    EffectParameterList: 2400000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100037
+  - uniqueId:
+      dataId: 1100037
+      displayName: 1100037
+    SkillID: 1100037
     EffectID: 20001
     EffectParameter: 37 ,1
-    EffectParameterList: 2500000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100038
+  - uniqueId:
+      dataId: 1100038
+      displayName: 1100038
+    SkillID: 1100038
     EffectID: 20001
     EffectParameter: 38 ,1
-    EffectParameterList: 2600000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100039
+  - uniqueId:
+      dataId: 1100039
+      displayName: 1100039
+    SkillID: 1100039
     EffectID: 20001
     EffectParameter: 39 ,1
-    EffectParameterList: 2700000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100040
+  - uniqueId:
+      dataId: 1100040
+      displayName: 1100040
+    SkillID: 1100040
     EffectID: 20001
     EffectParameter: 40 ,1
-    EffectParameterList: 2800000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100041
+  - uniqueId:
+      dataId: 1100041
+      displayName: 1100041
+    SkillID: 1100041
     EffectID: 20001
     EffectParameter: 41 ,1
-    EffectParameterList: 2900000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100042
+  - uniqueId:
+      dataId: 1100042
+      displayName: 1100042
+    SkillID: 1100042
     EffectID: 20001
     EffectParameter: 42 ,1
-    EffectParameterList: 2a00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100043
+  - uniqueId:
+      dataId: 1100043
+      displayName: 1100043
+    SkillID: 1100043
     EffectID: 20001
     EffectParameter: 43 ,1
-    EffectParameterList: 2b00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100044
+  - uniqueId:
+      dataId: 1100044
+      displayName: 1100044
+    SkillID: 1100044
     EffectID: 20001
     EffectParameter: 44 ,1
-    EffectParameterList: 2c00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100045
+  - uniqueId:
+      dataId: 1100045
+      displayName: 1100045
+    SkillID: 1100045
     EffectID: 20001
     EffectParameter: 45 ,1
-    EffectParameterList: 2d00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100046
+  - uniqueId:
+      dataId: 1100046
+      displayName: 1100046
+    SkillID: 1100046
     EffectID: 20001
     EffectParameter: 46 ,1
-    EffectParameterList: 2e00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100047
+  - uniqueId:
+      dataId: 1100047
+      displayName: 1100047
+    SkillID: 1100047
     EffectID: 20001
     EffectParameter: 47 ,1
-    EffectParameterList: 2f00000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100048
+  - uniqueId:
+      dataId: 1100048
+      displayName: 1100048
+    SkillID: 1100048
     EffectID: 20001
     EffectParameter: 48 ,1
-    EffectParameterList: 3000000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100049
+  - uniqueId:
+      dataId: 1100049
+      displayName: 1100049
+    SkillID: 1100049
     EffectID: 20001
     EffectParameter: 49 ,1
-    EffectParameterList: 3100000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 1100050
+  - uniqueId:
+      dataId: 1100050
+      displayName: 1100050
+    SkillID: 1100050
     EffectID: 20001
     EffectParameter: 50 ,1
-    EffectParameterList: 3200000001000000
+    EffectParameterList: 
     Target: 2
     ps: "\u50B7\u5BB3"
-  - SkillID: 2000001
+  - uniqueId:
+      dataId: 2000001
+      displayName: 2000001
+    SkillID: 2000001
     EffectID: 20002
     EffectParameter: 1 ,1
-    EffectParameterList: 0100000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000002
+  - uniqueId:
+      dataId: 2000002
+      displayName: 2000002
+    SkillID: 2000002
     EffectID: 20002
     EffectParameter: 2 ,1
-    EffectParameterList: 0200000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000003
+  - uniqueId:
+      dataId: 2000003
+      displayName: 2000003
+    SkillID: 2000003
     EffectID: 20002
     EffectParameter: 3 ,1
-    EffectParameterList: 0300000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000004
+  - uniqueId:
+      dataId: 2000004
+      displayName: 2000004
+    SkillID: 2000004
     EffectID: 20002
     EffectParameter: 4 ,1
-    EffectParameterList: 0400000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000005
+  - uniqueId:
+      dataId: 2000005
+      displayName: 2000005
+    SkillID: 2000005
     EffectID: 20002
     EffectParameter: 5 ,1
-    EffectParameterList: 0500000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000006
+  - uniqueId:
+      dataId: 2000006
+      displayName: 2000006
+    SkillID: 2000006
     EffectID: 20002
     EffectParameter: 6 ,1
-    EffectParameterList: 0600000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000007
+  - uniqueId:
+      dataId: 2000007
+      displayName: 2000007
+    SkillID: 2000007
     EffectID: 20002
     EffectParameter: 7 ,1
-    EffectParameterList: 0700000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000008
+  - uniqueId:
+      dataId: 2000008
+      displayName: 2000008
+    SkillID: 2000008
     EffectID: 20002
     EffectParameter: 8 ,1
-    EffectParameterList: 0800000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000009
+  - uniqueId:
+      dataId: 2000009
+      displayName: 2000009
+    SkillID: 2000009
     EffectID: 20002
     EffectParameter: 9 ,1
-    EffectParameterList: 0900000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000010
+  - uniqueId:
+      dataId: 2000010
+      displayName: 2000010
+    SkillID: 2000010
     EffectID: 20002
     EffectParameter: 10 ,1
-    EffectParameterList: 0a00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000011
+  - uniqueId:
+      dataId: 2000011
+      displayName: 2000011
+    SkillID: 2000011
     EffectID: 20002
     EffectParameter: 11 ,1
-    EffectParameterList: 0b00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000012
+  - uniqueId:
+      dataId: 2000012
+      displayName: 2000012
+    SkillID: 2000012
     EffectID: 20002
     EffectParameter: 12 ,1
-    EffectParameterList: 0c00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000013
+  - uniqueId:
+      dataId: 2000013
+      displayName: 2000013
+    SkillID: 2000013
     EffectID: 20002
     EffectParameter: 13 ,1
-    EffectParameterList: 0d00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000014
+  - uniqueId:
+      dataId: 2000014
+      displayName: 2000014
+    SkillID: 2000014
     EffectID: 20002
     EffectParameter: 14 ,1
-    EffectParameterList: 0e00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000015
+  - uniqueId:
+      dataId: 2000015
+      displayName: 2000015
+    SkillID: 2000015
     EffectID: 20002
     EffectParameter: 15 ,1
-    EffectParameterList: 0f00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000016
+  - uniqueId:
+      dataId: 2000016
+      displayName: 2000016
+    SkillID: 2000016
     EffectID: 20002
     EffectParameter: 16 ,1
-    EffectParameterList: 1000000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000017
+  - uniqueId:
+      dataId: 2000017
+      displayName: 2000017
+    SkillID: 2000017
     EffectID: 20002
     EffectParameter: 17 ,1
-    EffectParameterList: 1100000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000018
+  - uniqueId:
+      dataId: 2000018
+      displayName: 2000018
+    SkillID: 2000018
     EffectID: 20002
     EffectParameter: 18 ,1
-    EffectParameterList: 1200000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000019
+  - uniqueId:
+      dataId: 2000019
+      displayName: 2000019
+    SkillID: 2000019
     EffectID: 20002
     EffectParameter: 19 ,1
-    EffectParameterList: 1300000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000020
+  - uniqueId:
+      dataId: 2000020
+      displayName: 2000020
+    SkillID: 2000020
     EffectID: 20002
     EffectParameter: 20 ,1
-    EffectParameterList: 1400000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000021
+  - uniqueId:
+      dataId: 2000021
+      displayName: 2000021
+    SkillID: 2000021
     EffectID: 20002
     EffectParameter: 21 ,1
-    EffectParameterList: 1500000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000022
+  - uniqueId:
+      dataId: 2000022
+      displayName: 2000022
+    SkillID: 2000022
     EffectID: 20002
     EffectParameter: 22 ,1
-    EffectParameterList: 1600000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000023
+  - uniqueId:
+      dataId: 2000023
+      displayName: 2000023
+    SkillID: 2000023
     EffectID: 20002
     EffectParameter: 23 ,1
-    EffectParameterList: 1700000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000024
+  - uniqueId:
+      dataId: 2000024
+      displayName: 2000024
+    SkillID: 2000024
     EffectID: 20002
     EffectParameter: 24 ,1
-    EffectParameterList: 1800000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000025
+  - uniqueId:
+      dataId: 2000025
+      displayName: 2000025
+    SkillID: 2000025
     EffectID: 20002
     EffectParameter: 25 ,1
-    EffectParameterList: 1900000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000026
+  - uniqueId:
+      dataId: 2000026
+      displayName: 2000026
+    SkillID: 2000026
     EffectID: 20002
     EffectParameter: 26 ,1
-    EffectParameterList: 1a00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000027
+  - uniqueId:
+      dataId: 2000027
+      displayName: 2000027
+    SkillID: 2000027
     EffectID: 20002
     EffectParameter: 27 ,1
-    EffectParameterList: 1b00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000028
+  - uniqueId:
+      dataId: 2000028
+      displayName: 2000028
+    SkillID: 2000028
     EffectID: 20002
     EffectParameter: 28 ,1
-    EffectParameterList: 1c00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000029
+  - uniqueId:
+      dataId: 2000029
+      displayName: 2000029
+    SkillID: 2000029
     EffectID: 20002
     EffectParameter: 29 ,1
-    EffectParameterList: 1d00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000030
+  - uniqueId:
+      dataId: 2000030
+      displayName: 2000030
+    SkillID: 2000030
     EffectID: 20002
     EffectParameter: 30 ,1
-    EffectParameterList: 1e00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000031
+  - uniqueId:
+      dataId: 2000031
+      displayName: 2000031
+    SkillID: 2000031
     EffectID: 20002
     EffectParameter: 31 ,1
-    EffectParameterList: 1f00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000032
+  - uniqueId:
+      dataId: 2000032
+      displayName: 2000032
+    SkillID: 2000032
     EffectID: 20002
     EffectParameter: 32 ,1
-    EffectParameterList: 2000000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000033
+  - uniqueId:
+      dataId: 2000033
+      displayName: 2000033
+    SkillID: 2000033
     EffectID: 20002
     EffectParameter: 33 ,1
-    EffectParameterList: 2100000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000034
+  - uniqueId:
+      dataId: 2000034
+      displayName: 2000034
+    SkillID: 2000034
     EffectID: 20002
     EffectParameter: 34 ,1
-    EffectParameterList: 2200000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000035
+  - uniqueId:
+      dataId: 2000035
+      displayName: 2000035
+    SkillID: 2000035
     EffectID: 20002
     EffectParameter: 35 ,1
-    EffectParameterList: 2300000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000036
+  - uniqueId:
+      dataId: 2000036
+      displayName: 2000036
+    SkillID: 2000036
     EffectID: 20002
     EffectParameter: 36 ,1
-    EffectParameterList: 2400000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000037
+  - uniqueId:
+      dataId: 2000037
+      displayName: 2000037
+    SkillID: 2000037
     EffectID: 20002
     EffectParameter: 37 ,1
-    EffectParameterList: 2500000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000038
+  - uniqueId:
+      dataId: 2000038
+      displayName: 2000038
+    SkillID: 2000038
     EffectID: 20002
     EffectParameter: 38 ,1
-    EffectParameterList: 2600000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000039
+  - uniqueId:
+      dataId: 2000039
+      displayName: 2000039
+    SkillID: 2000039
     EffectID: 20002
     EffectParameter: 39 ,1
-    EffectParameterList: 2700000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000040
+  - uniqueId:
+      dataId: 2000040
+      displayName: 2000040
+    SkillID: 2000040
     EffectID: 20002
     EffectParameter: 40 ,1
-    EffectParameterList: 2800000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000041
+  - uniqueId:
+      dataId: 2000041
+      displayName: 2000041
+    SkillID: 2000041
     EffectID: 20002
     EffectParameter: 41 ,1
-    EffectParameterList: 2900000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000042
+  - uniqueId:
+      dataId: 2000042
+      displayName: 2000042
+    SkillID: 2000042
     EffectID: 20002
     EffectParameter: 42 ,1
-    EffectParameterList: 2a00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000043
+  - uniqueId:
+      dataId: 2000043
+      displayName: 2000043
+    SkillID: 2000043
     EffectID: 20002
     EffectParameter: 43 ,1
-    EffectParameterList: 2b00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000044
+  - uniqueId:
+      dataId: 2000044
+      displayName: 2000044
+    SkillID: 2000044
     EffectID: 20002
     EffectParameter: 44 ,1
-    EffectParameterList: 2c00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000045
+  - uniqueId:
+      dataId: 2000045
+      displayName: 2000045
+    SkillID: 2000045
     EffectID: 20002
     EffectParameter: 45 ,1
-    EffectParameterList: 2d00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000046
+  - uniqueId:
+      dataId: 2000046
+      displayName: 2000046
+    SkillID: 2000046
     EffectID: 20002
     EffectParameter: 46 ,1
-    EffectParameterList: 2e00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000047
+  - uniqueId:
+      dataId: 2000047
+      displayName: 2000047
+    SkillID: 2000047
     EffectID: 20002
     EffectParameter: 47 ,1
-    EffectParameterList: 2f00000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000048
+  - uniqueId:
+      dataId: 2000048
+      displayName: 2000048
+    SkillID: 2000048
     EffectID: 20002
     EffectParameter: 48 ,1
-    EffectParameterList: 3000000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000049
+  - uniqueId:
+      dataId: 2000049
+      displayName: 2000049
+    SkillID: 2000049
     EffectID: 20002
     EffectParameter: 49 ,1
-    EffectParameterList: 3100000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 2000050
+  - uniqueId:
+      dataId: 2000050
+      displayName: 2000050
+    SkillID: 2000050
     EffectID: 20002
     EffectParameter: 50 ,1
-    EffectParameterList: 3200000001000000
+    EffectParameterList: 
     Target: 0
     ps: "\u8B77\u76FE"
-  - SkillID: 3000001
+  - uniqueId:
+      dataId: 3000001
+      displayName: 3000001
+    SkillID: 3000001
     EffectID: 20003
-    EffectParameter: 1,0
-    EffectParameterList: 0100000000000000
+    EffectParameter: 0,1
+    EffectParameterList: 
     Target: 0
     ps: "\u53CD\u5F48"
-  - SkillID: 3000002
+  - uniqueId:
+      dataId: 3000002
+      displayName: 3000002
+    SkillID: 3000002
     EffectID: 20003
-    EffectParameter: 2,0
-    EffectParameterList: 0200000000000000
+    EffectParameter: 0,2
+    EffectParameterList: 
     Target: 0
     ps: "\u53CD\u5F48"
-  - SkillID: 3000003
+  - uniqueId:
+      dataId: 3000003
+      displayName: 3000003
+    SkillID: 3000003
     EffectID: 20003
-    EffectParameter: 3,0
-    EffectParameterList: 0300000000000000
+    EffectParameter: 0,3
+    EffectParameterList: 
     Target: 0
     ps: "\u53CD\u5F48"
-  - SkillID: 3000004
+  - uniqueId:
+      dataId: 3000004
+      displayName: 3000004
+    SkillID: 3000004
     EffectID: 20003
-    EffectParameter: 4,0
-    EffectParameterList: 0400000000000000
+    EffectParameter: 0,4
+    EffectParameterList: 
     Target: 0
     ps: "\u53CD\u5F48"
-  - SkillID: 3000005
+  - uniqueId:
+      dataId: 3000005
+      displayName: 3000005
+    SkillID: 3000005
     EffectID: 20003
-    EffectParameter: 5,0
-    EffectParameterList: 0500000000000000
+    EffectParameter: 0,5
+    EffectParameterList: 
     Target: 0
     ps: "\u53CD\u5F48"
-  - SkillID: 3100011
+  - uniqueId:
+      dataId: 3000011
+      displayName: 3000011
+    SkillID: 3000011
+    EffectID: 20003
+    EffectParameter: 0,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: 3000012
+      displayName: 3000012
+    SkillID: 3000012
+    EffectID: 20003
+    EffectParameter: 0,2
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: 3000013
+      displayName: 3000013
+    SkillID: 3000013
+    EffectID: 20003
+    EffectParameter: 0,3
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: 3000014
+      displayName: 3000014
+    SkillID: 3000014
+    EffectID: 20003
+    EffectParameter: 0,4
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: 3000015
+      displayName: 3000015
+    SkillID: 3000015
+    EffectID: 20003
+    EffectParameter: 0,5
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: 3100001
+      displayName: 3100001
+    SkillID: 3100001
     EffectID: 20003
     EffectParameter: 1,1
-    EffectParameterList: 0100000001000000
+    EffectParameterList: 
     Target: 1
     ps: "\u6613\u50B7"
-  - SkillID: 3100012
+  - uniqueId:
+      dataId: 3100002
+      displayName: 3100002
+    SkillID: 3100002
     EffectID: 20003
-    EffectParameter: 2,1
-    EffectParameterList: 0200000001000000
+    EffectParameter: 1,2
+    EffectParameterList: 
     Target: 1
     ps: "\u6613\u50B7"
-  - SkillID: 3100013
+  - uniqueId:
+      dataId: 3100003
+      displayName: 3100003
+    SkillID: 3100003
     EffectID: 20003
-    EffectParameter: 3,1
-    EffectParameterList: 0300000001000000
+    EffectParameter: 1,3
+    EffectParameterList: 
     Target: 1
     ps: "\u6613\u50B7"
-  - SkillID: 3100014
+  - uniqueId:
+      dataId: 3100004
+      displayName: 3100004
+    SkillID: 3100004
     EffectID: 20003
-    EffectParameter: 4,1
-    EffectParameterList: 0400000001000000
+    EffectParameter: 1,4
+    EffectParameterList: 
     Target: 1
     ps: "\u6613\u50B7"
-  - SkillID: 3100015
+  - uniqueId:
+      dataId: 3100005
+      displayName: 3100005
+    SkillID: 3100005
     EffectID: 20003
+    EffectParameter: 1,5
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 3100011
+      displayName: 3100011
+    SkillID: 3100011
+    EffectID: 20003
+    EffectParameter: 1,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 3100012
+      displayName: 3100012
+    SkillID: 3100012
+    EffectID: 20003
+    EffectParameter: 1,2
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 3100013
+      displayName: 3100013
+    SkillID: 3100013
+    EffectID: 20003
+    EffectParameter: 1,3
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 3100014
+      displayName: 3100014
+    SkillID: 3100014
+    EffectID: 20003
+    EffectParameter: 1,4
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 3100015
+      displayName: 3100015
+    SkillID: 3100015
+    EffectID: 20003
+    EffectParameter: 1,5
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 3200001
+      displayName: 3200001
+    SkillID: 3200001
+    EffectID: 20003
+    EffectParameter: 1,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 3200002
+      displayName: 3200002
+    SkillID: 3200002
+    EffectID: 20003
+    EffectParameter: 1,2
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 3200003
+      displayName: 3200003
+    SkillID: 3200003
+    EffectID: 20003
+    EffectParameter: 1,3
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 3200004
+      displayName: 3200004
+    SkillID: 3200004
+    EffectID: 20003
+    EffectParameter: 1,4
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 3200005
+      displayName: 3200005
+    SkillID: 3200005
+    EffectID: 20003
+    EffectParameter: 1,5
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 3200011
+      displayName: 3200011
+    SkillID: 3200011
+    EffectID: 20003
+    EffectParameter: 1,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 3200012
+      displayName: 3200012
+    SkillID: 3200012
+    EffectID: 20003
+    EffectParameter: 1,2
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 3200013
+      displayName: 3200013
+    SkillID: 3200013
+    EffectID: 20003
+    EffectParameter: 1,3
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 3200014
+      displayName: 3200014
+    SkillID: 3200014
+    EffectID: 20003
+    EffectParameter: 1,4
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 3200015
+      displayName: 3200015
+    SkillID: 3200015
+    EffectID: 20003
+    EffectParameter: 1,5
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 9101001
+      displayName: 9101001
+    SkillID: 9101001
+    EffectID: 20003
+    EffectParameter: 7, 1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u71C3\u71D2"
+  - uniqueId:
+      dataId: 9101002
+      displayName: 9101002
+    SkillID: 9101002
+    EffectID: 20002
+    EffectParameter: 6, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 9101003
+      displayName: 9101003
+    SkillID: 9101003
+    EffectID: 20003
+    EffectParameter: 8, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u60E1\u9B54\u737B\u796D"
+  - uniqueId:
+      dataId: 9102001
+      displayName: 9102001
+    SkillID: 9102001
+    EffectID: 20003
+    EffectParameter: 7, 3
+    EffectParameterList: 
+    Target: 0
+    ps: "\u71C3\u71D2"
+  - uniqueId:
+      dataId: 9102002
+      displayName: 9102002
+    SkillID: 9102002
+    EffectID: 20002
+    EffectParameter: 15, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 9102003
+      displayName: 9102003
+    SkillID: 9102003
+    EffectID: 20003
+    EffectParameter: 8, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u60E1\u9B54\u737B\u796D"
+  - uniqueId:
+      dataId: 9103001
+      displayName: 9103001
+    SkillID: 9103001
+    EffectID: 20003
+    EffectParameter: 7, 5
+    EffectParameterList: 
+    Target: 0
+    ps: "\u71C3\u71D2"
+  - uniqueId:
+      dataId: 9103002
+      displayName: 9103002
+    SkillID: 9103002
+    EffectID: 20002
+    EffectParameter: 27, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 9103003
+      displayName: 9103003
+    SkillID: 9103003
+    EffectID: 20003
+    EffectParameter: 8, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u60E1\u9B54\u737B\u796D"
+  - uniqueId:
+      dataId: 9111001
+      displayName: 9111001
+    SkillID: 9111001
+    EffectID: 20001
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 9112001
+      displayName: 9112001
+    SkillID: 9112001
+    EffectID: 20001
+    EffectParameter: 20,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 9113001
+      displayName: 9113001
+    SkillID: 9113001
+    EffectID: 20001
+    EffectParameter: 30,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 9201001
+      displayName: 9201001
+    SkillID: 9201001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: 9201002
+      displayName: 9201002
+    SkillID: 9201002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: 9201003
+      displayName: 9201003
+    SkillID: 9201003
+    EffectID: 20001
     EffectParameter: 5,1
-    EffectParameterList: 0500000001000000
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 9202001
+      displayName: 9202001
+    SkillID: 9202001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: 9202002
+      displayName: 9202002
+    SkillID: 9202002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: 9202003
+      displayName: 9202003
+    SkillID: 9202003
+    EffectID: 20001
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 9203001
+      displayName: 9203001
+    SkillID: 9203001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: 9203002
+      displayName: 9203002
+    SkillID: 9203002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: 9203003
+      displayName: 9203003
+    SkillID: 9203003
+    EffectID: 20001
+    EffectParameter: 15,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 9211001
+      displayName: 9211001
+    SkillID: 9211001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: 9211002
+      displayName: 9211002
+    SkillID: 9211002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: 9211003
+      displayName: 9211003
+    SkillID: 9211003
+    EffectID: 20006
+    EffectParameter: 1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 9211004
+      displayName: 9211004
+    SkillID: 9211004
+    EffectID: 20001
+    EffectParameter: 20,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 9212001
+      displayName: 9212001
+    SkillID: 9212001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: 9212002
+      displayName: 9212002
+    SkillID: 9212002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: 9212003
+      displayName: 9212003
+    SkillID: 9212003
+    EffectID: 20006
+    EffectParameter: 1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 9212004
+      displayName: 9212004
+    SkillID: 9212004
+    EffectID: 20001
+    EffectParameter: 40,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 9213001
+      displayName: 9213001
+    SkillID: 9213001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: 9213002
+      displayName: 9213002
+    SkillID: 9213002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: 9213003
+      displayName: 9213003
+    SkillID: 9213003
+    EffectID: 20006
+    EffectParameter: 1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 9213004
+      displayName: 9213004
+    SkillID: 9213004
+    EffectID: 20001
+    EffectParameter: 60,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  useDataPath: 0
+  dataPath: 
+  sortingByDisplayName: 0
+  url: https://opensheet.elk.sh/1tCaaCrB-9xcP_sgVigBUC5hSNOEx9KzDwsomPIC7asU/SkillA
+  skillInfos:
+  - uniqueId:
+      dataId: 337ee627-996f-449a-a1c3-eddaa98b08cf
+      displayName: 
+    SkillID: 1000001
+    EffectID: 20001
+    EffectParameter: 1 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 214c1958-b60f-4634-aa12-a51e8d70404b
+      displayName: 
+    SkillID: 1000002
+    EffectID: 20001
+    EffectParameter: 2 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 776d8658-70cd-4150-8670-4508349864ea
+      displayName: 
+    SkillID: 1000003
+    EffectID: 20001
+    EffectParameter: 3 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 5718f2ac-e436-4f0c-b7d9-6ea7ba1b8014
+      displayName: 
+    SkillID: 1000004
+    EffectID: 20001
+    EffectParameter: 4 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 3c7f9d1c-b4b7-4bcb-803c-260dd8347b2a
+      displayName: 
+    SkillID: 1000005
+    EffectID: 20001
+    EffectParameter: 5 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 5c8fca7c-1319-4018-8d50-8244af9281d9
+      displayName: 
+    SkillID: 1000006
+    EffectID: 20001
+    EffectParameter: 6 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 564f30ef-a8f3-4aaa-ab34-fbda15dfddd3
+      displayName: 
+    SkillID: 1000007
+    EffectID: 20001
+    EffectParameter: 7 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 81488d55-7ef7-4791-9475-477997ca014a
+      displayName: 
+    SkillID: 1000008
+    EffectID: 20001
+    EffectParameter: 8 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 436fd37f-4151-477d-8ccf-ba37247c69dd
+      displayName: 
+    SkillID: 1000009
+    EffectID: 20001
+    EffectParameter: 9 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 3d21a3ea-cc4f-4728-9085-425a47a14df7
+      displayName: 
+    SkillID: 1000010
+    EffectID: 20001
+    EffectParameter: 10 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: ae94255d-17d0-44b0-896a-22a41414b064
+      displayName: 
+    SkillID: 1000011
+    EffectID: 20001
+    EffectParameter: 11 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: d3d6a945-c3e7-4516-ad7a-e5fbd552f22f
+      displayName: 
+    SkillID: 1000012
+    EffectID: 20001
+    EffectParameter: 12 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: f3ef36f9-4bab-4ec5-90c8-a4afb09ecec6
+      displayName: 
+    SkillID: 1000013
+    EffectID: 20001
+    EffectParameter: 13 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 34890b83-405a-4c9e-815e-330c3ad45061
+      displayName: 
+    SkillID: 1000014
+    EffectID: 20001
+    EffectParameter: 14 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 5116eddc-2fe8-4344-9949-4b2d4dc2becb
+      displayName: 
+    SkillID: 1000015
+    EffectID: 20001
+    EffectParameter: 15 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 26d651da-e930-45b4-8719-ec2b9ee7f335
+      displayName: 
+    SkillID: 1000016
+    EffectID: 20001
+    EffectParameter: 16 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 95336d35-5019-45ab-b568-ebf664b336e9
+      displayName: 
+    SkillID: 1000017
+    EffectID: 20001
+    EffectParameter: 17 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: d8623fec-6e93-4db1-83ce-84b5d4fdf622
+      displayName: 
+    SkillID: 1000018
+    EffectID: 20001
+    EffectParameter: 18 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: f2f8734a-6a32-4a10-8ea5-876753112050
+      displayName: 
+    SkillID: 1000019
+    EffectID: 20001
+    EffectParameter: 19 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1b2517b9-51c9-4a93-a82d-b110639df827
+      displayName: 
+    SkillID: 1000020
+    EffectID: 20001
+    EffectParameter: 20 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 435b0c4b-64c3-4343-86ce-7a62e6adda16
+      displayName: 
+    SkillID: 1000021
+    EffectID: 20001
+    EffectParameter: 21 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: deeb0d7f-6fe9-4f84-a051-10199c4f629f
+      displayName: 
+    SkillID: 1000022
+    EffectID: 20001
+    EffectParameter: 22 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 2324bf6d-6d6e-426f-9d1a-c70ac20e6c90
+      displayName: 
+    SkillID: 1000023
+    EffectID: 20001
+    EffectParameter: 23 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: ea6c6daf-2bd2-4c22-9f9d-862a50bba5f7
+      displayName: 
+    SkillID: 1000024
+    EffectID: 20001
+    EffectParameter: 24 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: c276aeb6-a8d8-433e-b1ce-1229f5538905
+      displayName: 
+    SkillID: 1000025
+    EffectID: 20001
+    EffectParameter: 25 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: a9fbede2-e838-4186-89e1-7ad6bf1b2f50
+      displayName: 
+    SkillID: 1000026
+    EffectID: 20001
+    EffectParameter: 26 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 9ddad90d-3bd3-413a-8508-6fbeb1e53251
+      displayName: 
+    SkillID: 1000027
+    EffectID: 20001
+    EffectParameter: 27 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: ac78115c-ecae-40ae-b82c-8d98920dce69
+      displayName: 
+    SkillID: 1000028
+    EffectID: 20001
+    EffectParameter: 28 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 00f66fc4-2ba4-4475-8637-92137a4e2811
+      displayName: 
+    SkillID: 1000029
+    EffectID: 20001
+    EffectParameter: 29 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: bceda343-8ac3-441a-a201-4a5c1ba80b63
+      displayName: 
+    SkillID: 1000030
+    EffectID: 20001
+    EffectParameter: 30 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: d7490e1d-a2cc-42a7-ae7a-af2fc3728d17
+      displayName: 
+    SkillID: 1000031
+    EffectID: 20001
+    EffectParameter: 31 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 9754356d-f93f-40ed-9488-b791680c0ff6
+      displayName: 
+    SkillID: 1000032
+    EffectID: 20001
+    EffectParameter: 32 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 26d7e741-bca3-455c-91ae-3ec6eed2ec26
+      displayName: 
+    SkillID: 1000033
+    EffectID: 20001
+    EffectParameter: 33 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 312937f7-cb93-4f1f-bd32-fc620e8cab58
+      displayName: 
+    SkillID: 1000034
+    EffectID: 20001
+    EffectParameter: 34 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 84b4f876-3b64-4d2b-ac21-4895a4300f18
+      displayName: 
+    SkillID: 1000035
+    EffectID: 20001
+    EffectParameter: 35 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 748a4d00-55ea-4038-ba97-fe53c9f24010
+      displayName: 
+    SkillID: 1000036
+    EffectID: 20001
+    EffectParameter: 36 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: bc0cffcc-d965-44b0-8566-ec48351887bf
+      displayName: 
+    SkillID: 1000037
+    EffectID: 20001
+    EffectParameter: 37 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 3c352aa0-8e95-4ecb-a598-ee22b5299106
+      displayName: 
+    SkillID: 1000038
+    EffectID: 20001
+    EffectParameter: 38 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 2dea9dc8-70b7-4cbe-a008-db19182f1693
+      displayName: 
+    SkillID: 1000039
+    EffectID: 20001
+    EffectParameter: 39 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: f0520f9b-c0b5-493d-9f02-9a91ce57b678
+      displayName: 
+    SkillID: 1000040
+    EffectID: 20001
+    EffectParameter: 40 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 5e609732-136d-4301-8583-1bc84a61faa5
+      displayName: 
+    SkillID: 1000041
+    EffectID: 20001
+    EffectParameter: 41 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: a2382733-8224-4ff6-819c-9936ecd39f47
+      displayName: 
+    SkillID: 1000042
+    EffectID: 20001
+    EffectParameter: 42 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: fad01063-83e0-43b4-8155-3437d12cadd0
+      displayName: 
+    SkillID: 1000043
+    EffectID: 20001
+    EffectParameter: 43 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: cd71315e-915e-4049-835c-e623881f2b68
+      displayName: 
+    SkillID: 1000044
+    EffectID: 20001
+    EffectParameter: 44 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 5074bd79-f5f7-4373-9d79-506fdfd62dea
+      displayName: 
+    SkillID: 1000045
+    EffectID: 20001
+    EffectParameter: 45 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: b806a20d-eeac-49aa-8f21-c73933c8a51e
+      displayName: 
+    SkillID: 1000046
+    EffectID: 20001
+    EffectParameter: 46 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: d472138f-98c4-4dd3-a1bf-93a0df525721
+      displayName: 
+    SkillID: 1000047
+    EffectID: 20001
+    EffectParameter: 47 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: e76fef5f-edad-4a90-b003-fe889701f270
+      displayName: 
+    SkillID: 1000048
+    EffectID: 20001
+    EffectParameter: 48 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 33357cd4-e696-421e-a965-8a6ce3475bff
+      displayName: 
+    SkillID: 1000049
+    EffectID: 20001
+    EffectParameter: 49 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: a35bd23a-e67f-4713-8157-0a12e80e477b
+      displayName: 
+    SkillID: 1000050
+    EffectID: 20001
+    EffectParameter: 50 ,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 8122d75e-7612-4cb3-b590-3908f7509fdb
+      displayName: 
+    SkillID: 1000051
+    EffectID: 20001
+    EffectParameter: 1,2
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 28731135-e132-4879-ac94-8fc057740f2b
+      displayName: 
+    SkillID: 1000052
+    EffectID: 20001
+    EffectParameter: 1,3
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 8a0e2f9b-5d7f-4860-8444-3809a0cab0d4
+      displayName: 
+    SkillID: 1000053
+    EffectID: 20001
+    EffectParameter: 1,4
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: fe8a847f-816e-4518-9e2e-8acb780c0a40
+      displayName: 
+    SkillID: 1000054
+    EffectID: 20001
+    EffectParameter: 1,5
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: fa566e63-4f14-4436-8e01-341dcdf262e9
+      displayName: 
+    SkillID: 1000055
+    EffectID: 20001
+    EffectParameter: 1,6
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: ea8fe4b5-ec04-4437-a76b-f61d0d08cf92
+      displayName: 
+    SkillID: 1000056
+    EffectID: 20001
+    EffectParameter: 1,7
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 6e45cfb6-0fb2-428c-84a1-08c0922b418d
+      displayName: 
+    SkillID: 1000057
+    EffectID: 20001
+    EffectParameter: 1,8
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 8cc70692-f22d-408a-9f12-ac7501457887
+      displayName: 
+    SkillID: 1000058
+    EffectID: 20001
+    EffectParameter: 1,9
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 48182cf5-138f-46a5-a866-faa6d70f33bb
+      displayName: 
+    SkillID: 1000059
+    EffectID: 20001
+    EffectParameter: 1,10
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 648f32d0-61a3-451c-8221-42c8129ac827
+      displayName: 
+    SkillID: 1000060
+    EffectID: 20001
+    EffectParameter: 2,2
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: e8c66b91-7c00-4475-b9b3-8aa32492445c
+      displayName: 
+    SkillID: 1000061
+    EffectID: 20001
+    EffectParameter: 2,3
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 80ee78db-821b-4b2a-b790-1230db87b324
+      displayName: 
+    SkillID: 1000062
+    EffectID: 20001
+    EffectParameter: 2,4
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 5a0da92d-b309-46c5-8804-37a59caea6e9
+      displayName: 
+    SkillID: 1000063
+    EffectID: 20001
+    EffectParameter: 2,5
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 35044552-52b6-4cde-bde9-e0f3f85517fa
+      displayName: 
+    SkillID: 1000064
+    EffectID: 20001
+    EffectParameter: 2,6
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: b5c022b6-ea9f-42ee-a6b2-c0aabf705cca
+      displayName: 
+    SkillID: 1000065
+    EffectID: 20001
+    EffectParameter: 2,7
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 10cc913a-18ec-4f01-84c2-ead448a4c344
+      displayName: 
+    SkillID: 1000066
+    EffectID: 20001
+    EffectParameter: 2,8
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: a0bc57c3-c540-4b53-8f2d-a20b62380d12
+      displayName: 
+    SkillID: 1000067
+    EffectID: 20001
+    EffectParameter: 2,9
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: f5cf73ae-5ae4-40b4-96e6-3b9e356b747b
+      displayName: 
+    SkillID: 1000068
+    EffectID: 20001
+    EffectParameter: 2,10
+    EffectParameterList: 
+    Target: 1
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 860dd813-9f25-4606-b662-b51664481e3f
+      displayName: 
+    SkillID: 1100001
+    EffectID: 20001
+    EffectParameter: 1 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 21c12753-3e36-4cb9-ab73-88c3a66ddfed
+      displayName: 
+    SkillID: 1100002
+    EffectID: 20001
+    EffectParameter: 2 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 3b3f1295-7819-4038-b477-e9e5eb33f830
+      displayName: 
+    SkillID: 1100003
+    EffectID: 20001
+    EffectParameter: 3 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 6e0eb095-90db-45d9-b35a-26cb9089ce4e
+      displayName: 
+    SkillID: 1100004
+    EffectID: 20001
+    EffectParameter: 4 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: d702f408-bec0-4b3b-9297-443c4a2c9c77
+      displayName: 
+    SkillID: 1100005
+    EffectID: 20001
+    EffectParameter: 5 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 36c5754f-6f0b-46e1-81e3-0959246478ee
+      displayName: 
+    SkillID: 1100006
+    EffectID: 20001
+    EffectParameter: 6 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: d5fd8d99-af09-4f42-87c9-ee48656e1e12
+      displayName: 
+    SkillID: 1100007
+    EffectID: 20001
+    EffectParameter: 7 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: d1687b3d-0402-4890-91e8-666a9ccd5776
+      displayName: 
+    SkillID: 1100008
+    EffectID: 20001
+    EffectParameter: 8 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: cf3a8915-6f04-464a-bbc3-8b6f29cee74c
+      displayName: 
+    SkillID: 1100009
+    EffectID: 20001
+    EffectParameter: 9 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: a65df9f5-0adb-4bec-a36e-0b043061bb16
+      displayName: 
+    SkillID: 1100010
+    EffectID: 20001
+    EffectParameter: 10 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 38553237-0c4a-44b8-bbec-2fc0a3aa8f44
+      displayName: 
+    SkillID: 1100011
+    EffectID: 20001
+    EffectParameter: 11 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 5ee5a0a5-6480-494a-8cee-58e151a9378f
+      displayName: 
+    SkillID: 1100012
+    EffectID: 20001
+    EffectParameter: 12 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: a592a8c4-02db-452d-87bd-27d26da9e37e
+      displayName: 
+    SkillID: 1100013
+    EffectID: 20001
+    EffectParameter: 13 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 11780f99-79df-4d1a-bfdf-a03d6ebda2ec
+      displayName: 
+    SkillID: 1100014
+    EffectID: 20001
+    EffectParameter: 14 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: e5d0c409-16df-4760-84e0-881848a3bd69
+      displayName: 
+    SkillID: 1100015
+    EffectID: 20001
+    EffectParameter: 15 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 71048d58-1b27-44ae-b84a-d5133eb26ffd
+      displayName: 
+    SkillID: 1100016
+    EffectID: 20001
+    EffectParameter: 16 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: fe42ebe0-6abb-470f-9372-80065815deac
+      displayName: 
+    SkillID: 1100017
+    EffectID: 20001
+    EffectParameter: 17 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: eefdc6e4-acba-4f3a-a542-3a7f3a8e01fa
+      displayName: 
+    SkillID: 1100018
+    EffectID: 20001
+    EffectParameter: 18 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: f72d5258-7d81-4c52-8fac-b074935cf710
+      displayName: 
+    SkillID: 1100019
+    EffectID: 20001
+    EffectParameter: 19 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: a17d3733-2882-4fb6-adc1-1556e6d68556
+      displayName: 
+    SkillID: 1100020
+    EffectID: 20001
+    EffectParameter: 20 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: e51887f0-b447-441d-bcc1-7a5381a5c8f9
+      displayName: 
+    SkillID: 1100021
+    EffectID: 20001
+    EffectParameter: 21 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: cdaccccd-2d38-40f8-92e9-084705429835
+      displayName: 
+    SkillID: 1100022
+    EffectID: 20001
+    EffectParameter: 22 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: c3b24897-7ab6-4cae-a9e1-880c9d5015ab
+      displayName: 
+    SkillID: 1100023
+    EffectID: 20001
+    EffectParameter: 23 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 69229014-9b97-4c0e-80b9-11a232d7b10f
+      displayName: 
+    SkillID: 1100024
+    EffectID: 20001
+    EffectParameter: 24 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 59e77900-d8e0-4cab-888a-1452d3a418da
+      displayName: 
+    SkillID: 1100025
+    EffectID: 20001
+    EffectParameter: 25 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 46278534-c002-49b5-a9d3-2618c1690fff
+      displayName: 
+    SkillID: 1100026
+    EffectID: 20001
+    EffectParameter: 26 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: e55092b4-e731-4855-831f-ef745526d460
+      displayName: 
+    SkillID: 1100027
+    EffectID: 20001
+    EffectParameter: 27 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 1fd0f21c-aa8c-418e-8b0a-3ee1409e5356
+      displayName: 
+    SkillID: 1100028
+    EffectID: 20001
+    EffectParameter: 28 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 00d2faf6-92c1-4e2c-85e9-ad6694c7b5e0
+      displayName: 
+    SkillID: 1100029
+    EffectID: 20001
+    EffectParameter: 29 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: e735619d-4682-4ddc-add9-e5b0e6609908
+      displayName: 
+    SkillID: 1100030
+    EffectID: 20001
+    EffectParameter: 30 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: a6ffee2e-bc5f-4537-af16-57faf2cdbe1f
+      displayName: 
+    SkillID: 1100031
+    EffectID: 20001
+    EffectParameter: 31 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: a545b0de-2fb4-4467-8e3c-f73e2386f6b6
+      displayName: 
+    SkillID: 1100032
+    EffectID: 20001
+    EffectParameter: 32 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 78c0b861-669e-4abf-94c9-c5683e641888
+      displayName: 
+    SkillID: 1100033
+    EffectID: 20001
+    EffectParameter: 33 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 5cf577f8-7fa8-49b1-8cd8-e86c3b005829
+      displayName: 
+    SkillID: 1100034
+    EffectID: 20001
+    EffectParameter: 34 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: e9d5b44d-1176-41f0-9add-bbe97d0ad536
+      displayName: 
+    SkillID: 1100035
+    EffectID: 20001
+    EffectParameter: 35 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 7491437a-1778-4b5c-a0b1-ed5195074d55
+      displayName: 
+    SkillID: 1100036
+    EffectID: 20001
+    EffectParameter: 36 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: fa9f89be-edf4-4fcb-a4fb-8b7b8715608a
+      displayName: 
+    SkillID: 1100037
+    EffectID: 20001
+    EffectParameter: 37 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 8751a6e0-17c8-40f7-b90e-ea63fee09774
+      displayName: 
+    SkillID: 1100038
+    EffectID: 20001
+    EffectParameter: 38 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: f70ea224-ce2a-41f7-a141-f0df1d6ea532
+      displayName: 
+    SkillID: 1100039
+    EffectID: 20001
+    EffectParameter: 39 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 68cacf8e-a29c-4134-b456-57a912573536
+      displayName: 
+    SkillID: 1100040
+    EffectID: 20001
+    EffectParameter: 40 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 5bd1b2df-fd35-495f-8073-5f8e7d5431f5
+      displayName: 
+    SkillID: 1100041
+    EffectID: 20001
+    EffectParameter: 41 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 96e2b09f-d072-4a3d-b058-6baf8d3811a3
+      displayName: 
+    SkillID: 1100042
+    EffectID: 20001
+    EffectParameter: 42 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 0004433e-1557-49b9-b854-448940f07a3d
+      displayName: 
+    SkillID: 1100043
+    EffectID: 20001
+    EffectParameter: 43 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: a2f00b90-b929-4017-a81a-5177e36c2db5
+      displayName: 
+    SkillID: 1100044
+    EffectID: 20001
+    EffectParameter: 44 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 6e3ed314-27bc-4d6e-87e8-1d47d5899b34
+      displayName: 
+    SkillID: 1100045
+    EffectID: 20001
+    EffectParameter: 45 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 8e3f4977-54e0-4c72-8bef-73763c3dbd41
+      displayName: 
+    SkillID: 1100046
+    EffectID: 20001
+    EffectParameter: 46 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 437f0e3b-9e82-4487-b59b-555a7db1b68c
+      displayName: 
+    SkillID: 1100047
+    EffectID: 20001
+    EffectParameter: 47 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 9c138704-8ce2-48c3-bc5e-19e2f7b38d4d
+      displayName: 
+    SkillID: 1100048
+    EffectID: 20001
+    EffectParameter: 48 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 9ae9670b-c228-4a1e-8b6a-fb818ee54790
+      displayName: 
+    SkillID: 1100049
+    EffectID: 20001
+    EffectParameter: 49 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: 6b2bd829-b26d-4b95-9018-6ede01c38a70
+      displayName: 
+    SkillID: 1100050
+    EffectID: 20001
+    EffectParameter: 50 ,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u50B7\u5BB3"
+  - uniqueId:
+      dataId: e197ed86-68d7-4749-8b6f-c7e051ddd973
+      displayName: 
+    SkillID: 2000001
+    EffectID: 20002
+    EffectParameter: 1 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 619b7b25-02c1-4be5-9d44-45ed09764d3f
+      displayName: 
+    SkillID: 2000002
+    EffectID: 20002
+    EffectParameter: 2 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 34b88a9b-21f5-44b6-b4f9-664eef50a7a6
+      displayName: 
+    SkillID: 2000003
+    EffectID: 20002
+    EffectParameter: 3 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 45aaf823-b939-40fa-b864-d3af1afdefe9
+      displayName: 
+    SkillID: 2000004
+    EffectID: 20002
+    EffectParameter: 4 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: de1afbb2-da33-48f2-b92c-bef3c2a7fcc4
+      displayName: 
+    SkillID: 2000005
+    EffectID: 20002
+    EffectParameter: 5 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: a117463b-8a25-42f7-b7e3-9be6048d8093
+      displayName: 
+    SkillID: 2000006
+    EffectID: 20002
+    EffectParameter: 6 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 573a4654-1f00-4e0a-b214-34642dbacf9b
+      displayName: 
+    SkillID: 2000007
+    EffectID: 20002
+    EffectParameter: 7 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: f67e87c0-edf8-4081-a0ed-07186262f032
+      displayName: 
+    SkillID: 2000008
+    EffectID: 20002
+    EffectParameter: 8 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: e496406d-00ff-4d10-a1a0-915ba1140845
+      displayName: 
+    SkillID: 2000009
+    EffectID: 20002
+    EffectParameter: 9 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: b459d5d7-e1b5-40ce-9e1c-927e0c898c89
+      displayName: 
+    SkillID: 2000010
+    EffectID: 20002
+    EffectParameter: 10 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: da96f145-c66c-44c4-b14a-4c1747eacb47
+      displayName: 
+    SkillID: 2000011
+    EffectID: 20002
+    EffectParameter: 11 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: e59c7c70-54b0-4689-9464-128f0954f29c
+      displayName: 
+    SkillID: 2000012
+    EffectID: 20002
+    EffectParameter: 12 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 8276480f-628d-42e6-945e-185cada28823
+      displayName: 
+    SkillID: 2000013
+    EffectID: 20002
+    EffectParameter: 13 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: f5a0a9b0-536b-46d1-a053-8bb935e65f48
+      displayName: 
+    SkillID: 2000014
+    EffectID: 20002
+    EffectParameter: 14 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 2959ce3d-4221-4f29-a061-168b67397213
+      displayName: 
+    SkillID: 2000015
+    EffectID: 20002
+    EffectParameter: 15 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: f6e9558e-58fa-48d1-be7e-7206b8200bd7
+      displayName: 
+    SkillID: 2000016
+    EffectID: 20002
+    EffectParameter: 16 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: bc8814c9-b8e0-4214-93ed-70256d693f92
+      displayName: 
+    SkillID: 2000017
+    EffectID: 20002
+    EffectParameter: 17 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 1315745e-1256-40d9-813f-ba9d52cbe49d
+      displayName: 
+    SkillID: 2000018
+    EffectID: 20002
+    EffectParameter: 18 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: d25c8b7e-d076-4ac1-b39d-b7a8aec49251
+      displayName: 
+    SkillID: 2000019
+    EffectID: 20002
+    EffectParameter: 19 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 60ff9aec-b8b4-4259-9fd6-576ea9c22869
+      displayName: 
+    SkillID: 2000020
+    EffectID: 20002
+    EffectParameter: 20 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 7fe5719b-4cf5-4fad-9422-cc23d69e5228
+      displayName: 
+    SkillID: 2000021
+    EffectID: 20002
+    EffectParameter: 21 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 948228b2-dec1-4536-891e-2087ad233334
+      displayName: 
+    SkillID: 2000022
+    EffectID: 20002
+    EffectParameter: 22 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 89f21ec2-9d2e-4963-9337-9498caede10d
+      displayName: 
+    SkillID: 2000023
+    EffectID: 20002
+    EffectParameter: 23 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: ad51606d-476e-4948-885e-ca1a6ac4d8d1
+      displayName: 
+    SkillID: 2000024
+    EffectID: 20002
+    EffectParameter: 24 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: e4c87be7-939e-4a7f-bcb9-c6e160859aee
+      displayName: 
+    SkillID: 2000025
+    EffectID: 20002
+    EffectParameter: 25 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: aea5d74e-666e-48f7-8f25-c84c8549c497
+      displayName: 
+    SkillID: 2000026
+    EffectID: 20002
+    EffectParameter: 26 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: c300271b-14da-4481-980a-1e919e5b9b11
+      displayName: 
+    SkillID: 2000027
+    EffectID: 20002
+    EffectParameter: 27 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 0461e571-85a5-45a2-94dc-aec020a8a557
+      displayName: 
+    SkillID: 2000028
+    EffectID: 20002
+    EffectParameter: 28 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 07c9fe30-006f-424f-a0cb-6b8d43258d34
+      displayName: 
+    SkillID: 2000029
+    EffectID: 20002
+    EffectParameter: 29 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 77ea19d2-0aa0-404e-8239-c25d75fdd125
+      displayName: 
+    SkillID: 2000030
+    EffectID: 20002
+    EffectParameter: 30 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 848ccdfe-1a87-4997-a0bf-c526649e7dfe
+      displayName: 
+    SkillID: 2000031
+    EffectID: 20002
+    EffectParameter: 31 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: bc9a592c-8c58-4bea-981a-5a4685264f96
+      displayName: 
+    SkillID: 2000032
+    EffectID: 20002
+    EffectParameter: 32 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 88dd61c4-5b82-44ec-8075-0ea6c1c5a412
+      displayName: 
+    SkillID: 2000033
+    EffectID: 20002
+    EffectParameter: 33 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 6814bd64-96b8-4dca-90b2-8ba15b52a6fb
+      displayName: 
+    SkillID: 2000034
+    EffectID: 20002
+    EffectParameter: 34 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: dceb1bfd-6cad-4dbc-8117-b3aab038db39
+      displayName: 
+    SkillID: 2000035
+    EffectID: 20002
+    EffectParameter: 35 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: b53d5326-409c-4035-961d-fc090ed6b2fa
+      displayName: 
+    SkillID: 2000036
+    EffectID: 20002
+    EffectParameter: 36 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: a7be552c-2129-410a-8642-6c6b7828b49b
+      displayName: 
+    SkillID: 2000037
+    EffectID: 20002
+    EffectParameter: 37 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 2f1630a2-8093-46d2-aa8e-e558041ed550
+      displayName: 
+    SkillID: 2000038
+    EffectID: 20002
+    EffectParameter: 38 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: e97f6a75-a46a-4daf-8ec2-a4b98c245b24
+      displayName: 
+    SkillID: 2000039
+    EffectID: 20002
+    EffectParameter: 39 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 0c6e6796-bed3-47ca-b290-ca97a5111328
+      displayName: 
+    SkillID: 2000040
+    EffectID: 20002
+    EffectParameter: 40 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 6a501c51-967a-49e0-b7f9-6ebfdcad58ea
+      displayName: 
+    SkillID: 2000041
+    EffectID: 20002
+    EffectParameter: 41 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 3c01716a-e8ae-4f06-ae39-e0f9d7c65e30
+      displayName: 
+    SkillID: 2000042
+    EffectID: 20002
+    EffectParameter: 42 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 800b2977-29b5-4467-a099-ace03e32f0ce
+      displayName: 
+    SkillID: 2000043
+    EffectID: 20002
+    EffectParameter: 43 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: ba1fd264-33d9-4c31-945c-0913cf2ca3eb
+      displayName: 
+    SkillID: 2000044
+    EffectID: 20002
+    EffectParameter: 44 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: c1320bbd-5c69-4c5b-b164-fd4491456710
+      displayName: 
+    SkillID: 2000045
+    EffectID: 20002
+    EffectParameter: 45 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 85af8af2-5152-4e84-bc12-0c28a80ef575
+      displayName: 
+    SkillID: 2000046
+    EffectID: 20002
+    EffectParameter: 46 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 0492ef92-477a-4648-9e41-94ba5cf51b6b
+      displayName: 
+    SkillID: 2000047
+    EffectID: 20002
+    EffectParameter: 47 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: ab3a6d90-9b36-4db9-97a1-8ccdcf428725
+      displayName: 
+    SkillID: 2000048
+    EffectID: 20002
+    EffectParameter: 48 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 8735cbd9-64da-4681-b557-3276a797f2ba
+      displayName: 
+    SkillID: 2000049
+    EffectID: 20002
+    EffectParameter: 49 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: ec9ebb7e-937a-4d2c-9893-d1acf3be4537
+      displayName: 
+    SkillID: 2000050
+    EffectID: 20002
+    EffectParameter: 50 ,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 9f701bef-a658-4ce9-b713-90229a7662fd
+      displayName: 
+    SkillID: 3000001
+    EffectID: 20003
+    EffectParameter: 0,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: 0fe70d50-461d-481e-a425-f8e6266c5152
+      displayName: 
+    SkillID: 3000002
+    EffectID: 20003
+    EffectParameter: 0,2
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: 264b1f96-f487-4eb1-8ee5-14f3cace1285
+      displayName: 
+    SkillID: 3000003
+    EffectID: 20003
+    EffectParameter: 0,3
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: 58431b86-38ea-4633-b618-38b39cd46c94
+      displayName: 
+    SkillID: 3000004
+    EffectID: 20003
+    EffectParameter: 0,4
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: aae41d69-4c42-4bb3-97e2-6afab2b3303a
+      displayName: 
+    SkillID: 3000005
+    EffectID: 20003
+    EffectParameter: 0,5
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: 79d9f4d9-d8b0-4a2c-897c-248a850f8430
+      displayName: 
+    SkillID: 3000011
+    EffectID: 20003
+    EffectParameter: 0,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: ca0996ea-f23c-4338-89bd-d89584dff495
+      displayName: 
+    SkillID: 3000012
+    EffectID: 20003
+    EffectParameter: 0,2
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: 12f6a4d8-6cf8-4349-be99-1de0e23cd0c5
+      displayName: 
+    SkillID: 3000013
+    EffectID: 20003
+    EffectParameter: 0,3
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: 16f1b023-2c90-41b3-979f-d0ec00f48ded
+      displayName: 
+    SkillID: 3000014
+    EffectID: 20003
+    EffectParameter: 0,4
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: e2045c58-a2b7-40ec-b173-2ff036490fc3
+      displayName: 
+    SkillID: 3000015
+    EffectID: 20003
+    EffectParameter: 0,5
+    EffectParameterList: 
+    Target: 0
+    ps: "\u53CD\u5F48"
+  - uniqueId:
+      dataId: d7442395-2555-4c95-9dd1-a6bcd98f23cd
+      displayName: 
+    SkillID: 3100001
+    EffectID: 20003
+    EffectParameter: 1,1
+    EffectParameterList: 
     Target: 1
     ps: "\u6613\u50B7"
-  - SkillID: 9000010
-    EffectID: 90001
-    EffectParameter: 1 , 3, 1
-    EffectParameterList: 010000000300000001000000
-    Target: 0
-    ps: "\u50B7\u5BB3"
-  - SkillID: 9000011
-    EffectID: 90001
-    EffectParameter: 1 ,5 ,1
-    EffectParameterList: 010000000500000001000000
-    Target: 0
-    ps: "\u50B7\u5BB3"
-  - SkillID: 9000020
-    EffectID: 90002
-    EffectParameter: 2,5,1
-    EffectParameterList: 020000000500000001000000
+  - uniqueId:
+      dataId: 86bef599-040d-494e-86be-5c083b681434
+      displayName: 
+    SkillID: 3100002
+    EffectID: 20003
+    EffectParameter: 1,2
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 3f0633fb-f7a2-4fce-b7f2-cb5e37cea17b
+      displayName: 
+    SkillID: 3100003
+    EffectID: 20003
+    EffectParameter: 1,3
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 08c46e26-490b-4d1d-a672-62e4ee2f8888
+      displayName: 
+    SkillID: 3100004
+    EffectID: 20003
+    EffectParameter: 1,4
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 17d1b52d-a408-4a08-8499-82dc86fbd209
+      displayName: 
+    SkillID: 3100005
+    EffectID: 20003
+    EffectParameter: 1,5
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 7994e99e-3926-4cc1-ab8d-545ec08afd40
+      displayName: 
+    SkillID: 3100011
+    EffectID: 20003
+    EffectParameter: 1,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: bef2fe3f-a70d-4bb5-9a2f-82f3694afe37
+      displayName: 
+    SkillID: 3100012
+    EffectID: 20003
+    EffectParameter: 1,2
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: a01caf35-f107-4815-9e9f-2f994125207d
+      displayName: 
+    SkillID: 3100013
+    EffectID: 20003
+    EffectParameter: 1,3
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 11a59ac1-15b8-430c-acc6-fa641e0d4d3f
+      displayName: 
+    SkillID: 3100014
+    EffectID: 20003
+    EffectParameter: 1,4
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 1b13d685-beb4-4d58-b53c-fa639f21c32c
+      displayName: 
+    SkillID: 3100015
+    EffectID: 20003
+    EffectParameter: 1,5
+    EffectParameterList: 
+    Target: 1
+    ps: "\u6613\u50B7"
+  - uniqueId:
+      dataId: 1a4c1929-f20b-4f8f-bdd5-cbd4066924aa
+      displayName: 
+    SkillID: 3200001
+    EffectID: 20003
+    EffectParameter: 1,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 30437678-3081-4284-b9ea-76cd3827c32e
+      displayName: 
+    SkillID: 3200002
+    EffectID: 20003
+    EffectParameter: 1,2
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: de28ef1d-918c-42b8-8911-b6f930ca7976
+      displayName: 
+    SkillID: 3200003
+    EffectID: 20003
+    EffectParameter: 1,3
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: e503c4e8-812f-41f0-b3ac-e954e3172d82
+      displayName: 
+    SkillID: 3200004
+    EffectID: 20003
+    EffectParameter: 1,4
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 7e6790d0-bc41-490b-a65b-2ee645714889
+      displayName: 
+    SkillID: 3200005
+    EffectID: 20003
+    EffectParameter: 1,5
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 64bc26e2-d472-42cf-8b53-0643c5e8efc8
+      displayName: 
+    SkillID: 3200011
+    EffectID: 20003
+    EffectParameter: 1,1
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 65a27bdd-11a8-4feb-874d-dc83e5587652
+      displayName: 
+    SkillID: 3200012
+    EffectID: 20003
+    EffectParameter: 1,2
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 99ac78f1-1782-4380-9b35-876d005f9431
+      displayName: 
+    SkillID: 3200013
+    EffectID: 20003
+    EffectParameter: 1,3
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 93d15eab-6ced-497d-a22d-d012dd8858ce
+      displayName: 
+    SkillID: 3200014
+    EffectID: 20003
+    EffectParameter: 1,4
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 92c27991-0191-4427-b02e-7c3dab390cb3
+      displayName: 
+    SkillID: 3200015
+    EffectID: 20003
+    EffectParameter: 1,5
+    EffectParameterList: 
+    Target: 2
+    ps: "\u529B\u91CF"
+  - uniqueId:
+      dataId: 649be929-665a-4a51-995c-825edcad1372
+      displayName: 
+    SkillID: 0
+    EffectID: 0
+    EffectParameter: 
+    EffectParameterList: 
     Target: 0
     ps: 
+  - uniqueId:
+      dataId: a9a61d87-da2f-4873-82ac-0dfacba19a8c
+      displayName: 
+    SkillID: 9101001
+    EffectID: 20003
+    EffectParameter: 7, 1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u71C3\u71D2"
+  - uniqueId:
+      dataId: 6d72d423-885e-43c2-a614-cbdd1eb257f6
+      displayName: 
+    SkillID: 9101002
+    EffectID: 20002
+    EffectParameter: 6, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: fea8d310-41dd-411b-afe2-9d96dd6dbd0f
+      displayName: 
+    SkillID: 9101003
+    EffectID: 20003
+    EffectParameter: 8, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u60E1\u9B54\u737B\u796D"
+  - uniqueId:
+      dataId: 0b1d6658-773c-46c9-b5a7-4471cce32f8c
+      displayName: 
+    SkillID: 9102001
+    EffectID: 20003
+    EffectParameter: 7, 3
+    EffectParameterList: 
+    Target: 0
+    ps: "\u71C3\u71D2"
+  - uniqueId:
+      dataId: 127a74b0-c3d5-4b18-ae14-79c245da3c64
+      displayName: 
+    SkillID: 9102002
+    EffectID: 20002
+    EffectParameter: 15, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 80173633-e095-4620-b3d1-0d465f278e8a
+      displayName: 
+    SkillID: 9102003
+    EffectID: 20003
+    EffectParameter: 8, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u60E1\u9B54\u737B\u796D"
+  - uniqueId:
+      dataId: 690b5cd2-5639-4f99-8ead-645010ba617a
+      displayName: 
+    SkillID: 9103001
+    EffectID: 20003
+    EffectParameter: 7, 5
+    EffectParameterList: 
+    Target: 0
+    ps: "\u71C3\u71D2"
+  - uniqueId:
+      dataId: 51e8e8ed-b809-42b2-9954-af21979c3874
+      displayName: 
+    SkillID: 9103002
+    EffectID: 20002
+    EffectParameter: 27, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u8B77\u76FE"
+  - uniqueId:
+      dataId: 3a30bdaf-4a4a-4d2c-927a-ea57dde29119
+      displayName: 
+    SkillID: 9103003
+    EffectID: 20003
+    EffectParameter: 8, 1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u60E1\u9B54\u737B\u796D"
+  - uniqueId:
+      dataId: 897a5b93-5cde-403e-b31f-5df01efb374a
+      displayName: 
+    SkillID: 9111001
+    EffectID: 20001
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: b980d025-6a7f-474b-8808-7529edd9f768
+      displayName: 
+    SkillID: 9112001
+    EffectID: 20001
+    EffectParameter: 20,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 5f3e69e3-1e68-45bc-9ea4-3c2c3da00ab7
+      displayName: 
+    SkillID: 9113001
+    EffectID: 20001
+    EffectParameter: 30,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: ae113c98-c164-4ef1-a3c2-f519e8588a6b
+      displayName: 
+    SkillID: 9201001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: fcdbed7a-1900-4a02-bf63-eae382d04289
+      displayName: 
+    SkillID: 9201002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: 54bc7649-73fd-4328-974e-bfe1fb165b8c
+      displayName: 
+    SkillID: 9201003
+    EffectID: 20001
+    EffectParameter: 5,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: b4645b67-f093-49c5-83ab-2a22ca05959d
+      displayName: 
+    SkillID: 9202001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: c81ee04a-6c22-48cd-88e2-6abde42adf04
+      displayName: 
+    SkillID: 9202002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: 7e25e9d6-d730-46fc-be6a-c6802d2f7968
+      displayName: 
+    SkillID: 9202003
+    EffectID: 20001
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 8ebb756e-f603-4518-b83c-35416fd8217c
+      displayName: 
+    SkillID: 9203001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: 8182cbae-7ea7-40ae-9d1c-062c923ecf54
+      displayName: 
+    SkillID: 9203002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: ec8d37b2-528c-45fc-9acf-3bcd749d3dd0
+      displayName: 
+    SkillID: 9203003
+    EffectID: 20001
+    EffectParameter: 15,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 1baa8fcb-2595-47cb-a8fe-fc7f1fc42e38
+      displayName: 
+    SkillID: 9211001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: f7039563-5e05-4cec-8eb0-7d1d1dbae315
+      displayName: 
+    SkillID: 9211002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: 196a3339-51f8-4df7-813a-be608cbc8685
+      displayName: 
+    SkillID: 9211003
+    EffectID: 20006
+    EffectParameter: 1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: f909a1ed-d247-4f71-9ecd-20bf73fdf7bf
+      displayName: 
+    SkillID: 9211004
+    EffectID: 20001
+    EffectParameter: 20,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 5b4b20b6-29d4-4162-9cfa-0e12cc4bf944
+      displayName: 
+    SkillID: 9212001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: a1e4e359-4219-4bf6-8236-c057764779d3
+      displayName: 
+    SkillID: 9212002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: 1d3ce6ae-57a3-4e92-9b85-49f7208f1908
+      displayName: 
+    SkillID: 9212003
+    EffectID: 20006
+    EffectParameter: 1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: b887ef99-19c5-408b-8d53-c375b9fbb06c
+      displayName: 
+    SkillID: 9212004
+    EffectID: 20001
+    EffectParameter: 40,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: a02090ad-d7cc-4319-97e8-7e28b9286598
+      displayName: 
+    SkillID: 9213001
+    EffectID: 20003
+    EffectParameter: 9,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+  - uniqueId:
+      dataId: 3810d6a5-f8bf-4f75-9ed1-87fa4c2a4174
+      displayName: 
+    SkillID: 9213002
+    EffectID: 20003
+    EffectParameter: 10,1
+    EffectParameterList: 
+    Target: 1
+    ps: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+  - uniqueId:
+      dataId: a6a38ab1-d2b1-46b7-8ae8-01dc9c0c54d6
+      displayName: 
+    SkillID: 9213003
+    EffectID: 20006
+    EffectParameter: 1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"
+  - uniqueId:
+      dataId: 4f50d868-2393-48ab-8fae-7e905faec96c
+      displayName: 
+    SkillID: 9213004
+    EffectID: 20001
+    EffectParameter: 60,1
+    EffectParameterList: 
+    Target: 0
+    ps: "\u653B\u64CA"

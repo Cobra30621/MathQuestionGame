@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Action;
 using NueGames.Enums;
+using rStarTools.Scripts.ScriptableObjects.DataOverviews;
+using rStarTools.Scripts.StringList;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,8 +13,11 @@ using Utilities;
 namespace Card
 {
     [CreateAssetMenu(fileName = "SkillData",menuName = "SkillData",order = 0)]
-    public class SkillData : ScriptableObject
+    public class SkillData : DataOverviewBase<SkillData, SkillInfo>
     {
+        
+        public bool IsLoading { get; private set; }
+        
         #region Private Variables
 
         [SerializeField]
@@ -42,9 +47,22 @@ namespace Card
 
         [Button]
         [BoxGroup("LoadData")]
-        private void ParseDataFromGoogleSheet()
+        public void ParseDataFromGoogleSheet()
         {
-            GoogleSheetService.LoadDataArray<SkillInfo>(url , infos => skillInfos = infos);
+            IsLoading = true;
+            GoogleSheetService.LoadDataArray<SkillInfo>(url , infos =>
+            {
+                ids = new List<SkillInfo>();
+                Debug.Log($"{infos.Length}");
+            
+                foreach (var info in infos)
+                {
+                    info.SetDisplayName($"{info.SkillID}");
+                    info.SetDataId($"{info.SkillID}");
+                    AddData(info);
+                }
+                IsLoading = false;
+            });
         }
 
         #endregion
@@ -52,7 +70,7 @@ namespace Card
     
     
     [Serializable]
-    public class SkillInfo
+    public class SkillInfo : DataBase<SkillData>
     {
         public int SkillID;
         public GameActionType EffectID;

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Card.Data;
 using Sirenix.OdinInspector;
+using Tool;
 using UnityEditor;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace Card
         {
             foreach (var skillInfo in skillData.GetSkillInfos())
             {
-                var effectParameterList = ConvertStringToList(skillInfo.EffectParameter);
+                var effectParameterList = Helper.ConvertStringToList(skillInfo.EffectParameter);
                 skillInfo.EffectParameterList = effectParameterList;
             }
             foreach (var card in SaveDeck.CardList)
@@ -30,7 +31,7 @@ namespace Card
                 
                 foreach (var levelInfo in levelInfos)
                 {
-                    var skillId = ConvertStringToList(levelInfo.SkillID);
+                    var skillId = Helper.ConvertStringToList(levelInfo.SkillID);
                     var effectInfos = GetSkillInfo(skillId);
                     levelInfo.SetEffect(effectInfos);
                 }
@@ -56,25 +57,6 @@ namespace Card
             return skillData.GetSkillInfos().Where(x =>  skillId.Contains(x.SkillID)).ToList();
         }
         
-        static List<int> ConvertStringToList(string input)
-        {
-            List<int> numbers = new List<int>();
-
-            string[] parts = input.Split(',');
-
-            foreach (string part in parts)
-            {
-                if (int.TryParse(part.Trim(), out int number))
-                {
-                    numbers.Add(number);
-                }
-                else
-                {
-                    Debug.Log($"Invalid input: {part}");
-                }
-            }
-
-            return numbers;
-        }
+        
     }
 }
