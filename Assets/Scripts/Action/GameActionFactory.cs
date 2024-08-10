@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Action;
 using Action.Parameters;
 using Card;
+using Combat;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -54,7 +55,7 @@ namespace GameAction
                     targetList.AddRange(CombatManager.Instance.Enemies);
                     break;
                 case ActionTargetType.RandomEnemy:
-                    targetList.Add(CombatManager.Instance.RandomEnemyBase);
+                    targetList.Add(CombatManager.Instance.RandomEnemy);
                     break;
             }
 

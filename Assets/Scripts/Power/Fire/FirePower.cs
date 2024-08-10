@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Action.Parameters;
+using Combat;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;

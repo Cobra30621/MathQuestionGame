@@ -1,4 +1,5 @@
-﻿using NueGames.Combat;
+﻿using Combat;
+using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
 using UnityEngine;

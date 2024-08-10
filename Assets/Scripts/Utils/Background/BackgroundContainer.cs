@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Combat;
 using NueGames.Managers;
 using UnityEngine;
 using NueGames.Combat;
@@ -14,7 +15,7 @@ namespace NueGames.Utils.Background
         
         public void OpenSelectedBackground()
         {
-            var encounter = CombatManager.Instance.CurrentEncounter;
+            var encounter = CombatManager.Instance.currentEncounter;
             foreach (var backgroundRoot in BackgroundRootList)
                 backgroundRoot.gameObject.SetActive(encounter.TargetBackgroundType == backgroundRoot.BackgroundType);
         }

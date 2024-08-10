@@ -1,5 +1,6 @@
 ﻿using System;
 using Action.Parameters;
+using Combat;
 using NueGames.CharacterAbility;
 using NueGames.Combat;
 using NueGames.Data.Characters;
@@ -17,26 +18,19 @@ namespace NueGames.Characters
         private AllyData _allyData;
         public AllyCanvas AllyCanvas => allyCanvas;
 
-
-        public void SetCharacterData(AllyData data)
-        {
-            _allyData = data;
-        }
-
+        
         public CharacterSkill GetCharacterSkill()
         {
             return _allyData.CharacterSkill;
         }
         
-        public override void BuildCharacter()
+        public void BuildCharacter(AllyData allyData)
         {
-            base.BuildCharacter();
+            _allyData = allyData;
+            
+            SetUpFeedbackDict();
             allyCanvas.InitCanvas();
-            CharacterStats = new CharacterStats(_allyData.MaxHealth, this);
-            CharacterStats.SetCharacterCanvasEvent(allyCanvas);
-
-            if (!GameManager)
-                throw new Exception("There is no GameManager");
+            CharacterStats = new CharacterStats(_allyData.MaxHealth, this, allyCanvas);
             
             var data = GameManager.PlayerData.AllyHealthData;
             
@@ -55,6 +49,10 @@ namespace NueGames.Characters
             
             if (CombatManager != null)
                 CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
+            
+            if (UIManager != null)
+                OnHealthChanged += UIManager.InformationCanvas.SetHealthText;
+            CharacterStats.SetCurrentHealth(CharacterStats.CurrentHealth);
         }
         
         protected override void OnDeathAction(DamageInfo damageInfo)

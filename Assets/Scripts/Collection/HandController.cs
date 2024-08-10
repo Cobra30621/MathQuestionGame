@@ -7,7 +7,7 @@ using NueGames.Managers;
 using UnityEngine;
 using Kalkatos.DottedArrow;
 using NueGames.Combat;
-using CombatManager = NueGames.Combat.CombatManager;
+using CombatManager = Combat.CombatManager;
 
 namespace NueGames.Collection
 {

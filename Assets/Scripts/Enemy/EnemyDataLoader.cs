@@ -46,6 +46,7 @@ namespace Enemy
             
             yield return new WaitUntil(()=>!enemyDataOverview.IsLoading);
             
+            // 讀取技能資料
             skillData.ParseDataFromGoogleSheet();
             
             yield return new WaitUntil(()=>!skillData.IsLoading);

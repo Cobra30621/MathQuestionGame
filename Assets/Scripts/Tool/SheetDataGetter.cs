@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Card;
+using Enemy;
 using Enemy.Data;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Enemy
+namespace Tool
 {
     public class SheetDataGetter : ScriptableObject
     {
@@ -24,13 +24,13 @@ namespace Enemy
         }
         
 
-        public List<Data.EnemySkillData> GetEnemySkillInfos(List<string> ids)
+        public List<EnemySkillData> GetEnemySkillInfos(List<string> ids)
         {
             return ids.ConvertAll(GetEnemySkillInfo).ToList();
         } 
         
 
-        public Data.EnemySkillData GetEnemySkillInfo(string id)
+        public EnemySkillData GetEnemySkillInfo(string id)
         {
             return enemySkillDataOverview.GetEnemyAction(id);
         }

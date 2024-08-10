@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Tool;
 using UnityEngine;
 
 namespace Enemy.Data

@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using Action.Parameters;
+using Combat;
 using Enemy.Data;
 using NueGames.Characters;
 using NueGames.Combat;
+using Tool;
 using UnityEngine;
 
 namespace Enemy
@@ -20,26 +22,22 @@ namespace Enemy
 
         #region SetUp
 
-        public override void BuildCharacter()
+        
+        public void BuildCharacter(EnemyData enemyData, SheetDataGetter sheetDataGetter)
         {
-            base.BuildCharacter();
+            data = enemyData;
+            enemyAbility = new EnemyAbility(enemyData, this, sheetDataGetter);
+
+            SetUpFeedbackDict();
             EnemyCanvas.InitCanvas();
-            CharacterStats = new CharacterStats(data.MaxHp, this);
-            CharacterStats.SetCharacterCanvasEvent(EnemyCanvas);
+            
+            CharacterStats = new CharacterStats(data.MaxHp, this, EnemyCanvas);
             OnDeath += OnDeathAction;
-            CharacterStats.SetCurrentHealth(CharacterStats.MaxHealth);
-            Debug.Log($"Max health: {data.MaxHp} " +  CharacterStats.MaxHealth);
 
             CombatManager.OnRoundStart += SetThisRoundSkill;
             CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
         }
         
-        public void SetEnemyInfo(EnemyData enemyData, SheetDataGetter sheetDataGetter)
-        {
-            data = enemyData;
-            enemyAbility = new EnemyAbility(enemyData, this, sheetDataGetter);
-        }
-     
         
         #endregion
         
@@ -65,7 +63,6 @@ namespace Enemy
         {
             if (currentSkill.GetIntentionValue(out int value))
             {
-                Debug.Log($"Enemy Canvas{EnemyCanvas}");
                 EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
                 EnemyCanvas.NextActionValueText.text = $"{value}";
             }

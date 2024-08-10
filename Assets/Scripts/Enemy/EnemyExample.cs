@@ -1,6 +1,4 @@
-﻿using Enemy;
-
-namespace NueGames.Characters.Enemies
+﻿namespace Enemy
 {
     public class EnemyExample : EnemyBase
     {

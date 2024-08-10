@@ -5,6 +5,7 @@ using Action.Sequence;
 using Card;
 using Card.Data;
 using Card.Display;
+using Combat;
 using GameAction;
 using NueGames.Action;
 using NueGames.Characters;

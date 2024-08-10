@@ -5,18 +5,17 @@ using Enemy;
 using Feedback;
 using NueGames.CharacterAbility;
 using NueGames.Characters;
-using NueGames.Characters.Enemies;
+using NueGames.Combat;
 using NueGames.Data.Encounter;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.NueExtentions;
-using NueGames.Power;
 using NueGames.Utils.Background;
 using Question;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace NueGames.Combat
+namespace Combat
 {
     public class CombatManager : SingletonDestroyOnLoad<CombatManager>
     {
@@ -36,16 +35,16 @@ namespace NueGames.Combat
 
         #region Character
         // 所有敵人清單
-        public List<Enemy.EnemyBase> Enemies { get; private set; }
+        public List<EnemyBase> Enemies { get; private set; }
         // 玩家
         public AllyBase MainAlly;
 
-        public Enemy.EnemyBase RandomEnemyBase => Enemies.RandomItem();
+        public EnemyBase RandomEnemy => Enemies.RandomItem();
         
         /// <summary>
         /// 現在正在被選擇中的敵人
         /// </summary>
-        [FormerlySerializedAs("CurrentSelectedEnemy")] public Enemy.EnemyBase currentSelectedEnemyBase;
+        [FormerlySerializedAs("CurrentSelectedEnemy")] public EnemyBase currentSelectedEnemyBase;
 
         [SerializeField] private IFeedback allyTurnStartFeedback, enemyTurnStartFeedback;
 
@@ -62,9 +61,8 @@ namespace NueGames.Combat
 
         private List<Transform> AllyPosList => allyPosList;
 
-
-
-        public EnemyEncounter CurrentEncounter;
+        
+        public EnemyEncounter currentEncounter;
         
         public CombatStateType CurrentCombatStateType
         {
@@ -72,7 +70,6 @@ namespace NueGames.Combat
             private set
             {
                 _currentCombatStateType = value;
-                // Debug.Log($"currentCombatState {_currentCombatStateType}");
                 ExecuteCombatState(value);
             }
         }
@@ -119,7 +116,6 @@ namespace NueGames.Combat
         
         protected override void DoAtAwake()
         {
-            Debug.Log("DoAtAwake()");
             _manaManager = new ManaManager();
             CurrentCombatStateType = CombatStateType.PrepareCombat;
         }
@@ -350,7 +346,7 @@ namespace NueGames.Combat
             UIManager.InformationCanvas.ResetCanvas();
             LoseCombat();
         }
-        public void OnEnemyDeath(Enemy.EnemyBase targetEnemyBase)
+        public void OnEnemyDeath(EnemyBase targetEnemyBase)
         {
             Enemies.Remove(targetEnemyBase);
             if (Enemies.Count<=0)
@@ -379,11 +375,11 @@ namespace NueGames.Combat
         #region Private Methods
         private void BuildEnemies()
         {
-            CurrentEncounter = GameManager.CurrentEnemyEncounter;
+            currentEncounter = GameManager.CurrentEnemyEncounter;
             
             Enemies = new List<EnemyBase>();
-            Debug.Log(CurrentEncounter);
-            var enemyList = CurrentEncounter.enemyList;
+            Debug.Log(currentEncounter);
+            var enemyList = currentEncounter.enemyList;
             foreach (var enemyData in enemyList)
             {
                 var enemy = _enemyBuilder.Build(enemyData, GetEnemyPos());
@@ -408,8 +404,7 @@ namespace NueGames.Combat
         private void BuildAllies()
         {
             var clone = Instantiate(GameManager.MainAllyData.prefab, AllyPosList[0]);
-            clone.SetCharacterData(GameManager.MainAllyData);
-            clone.BuildCharacter();
+            clone.BuildCharacter(GameManager.MainAllyData);
             MainAlly = clone;
         }
         

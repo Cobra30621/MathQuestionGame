@@ -1,5 +1,6 @@
 ﻿using Card;
 using Enemy.Data;
+using Tool;
 using UnityEngine;
 
 namespace Enemy
@@ -22,8 +23,7 @@ namespace Enemy
             var prefab = enemyPrefabData.GetPrefab(data.Prefab);
             var clone = Instantiate(prefab, spawnPos);
             
-            clone.SetEnemyInfo(data, sheetDataGetter);
-            clone.BuildCharacter();
+            clone.BuildCharacter(data, sheetDataGetter);
 
             return clone;
         }

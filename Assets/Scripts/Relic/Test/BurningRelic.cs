@@ -1,4 +1,5 @@
-﻿using NueGames.Action;
+﻿using Combat;
+using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
