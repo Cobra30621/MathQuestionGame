@@ -1271,7 +1271,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -8828415525500291317, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
   m_PrefabInstance: {fileID: 7233930414211009961}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5227843413581054256
+--- !u!114 &8640744084049430701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6998382408650455714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0264cae29c8404d836d9743c7f21ac2, type: 3}
+  m_Script: {fileID: 11500000, guid: 77b200fe7eab4d99a59ab177cf412edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -1339,10 +1339,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: _enemyAbility
-      Entry: 6
-      Data: 
-    - Name: _currentSkill
+    - Name: enemyAbility
       Entry: 6
       Data: 
   characterType: 1
@@ -1353,8 +1350,26 @@ MonoBehaviour:
   onDeadFeedback: {fileID: 3293349063477261312}
   Feedbacks: []
   enemyCanvas: {fileID: 5019493528056418207}
-  deathSoundProfileData: {fileID: 11400000, guid: 7e15e2a10065ab54c8eaf26154af0156, type: 2}
-  _enemyData: {fileID: 0}
+  data:
+    uniqueId:
+      dataId: fc8acd7d-9b47-40d1-adbd-15ba89de9585
+      displayName: 
+    ID: 
+    Lang: 
+    EnemySkillID: 
+    Level: 
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHealth: 0
+    enemySkillIDs: []
+  currentSkill:
+    currentCd: 0
+    skillInfos: []
+    intention:
+      showIntentionValue: 0
+      intentionSprite: {fileID: 0}
+      header: 
+      content: 
 --- !u!4 &8949777140957529120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1754129541537614217, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}

@@ -5,7 +5,7 @@
     /// </summary>
     public enum ActionTargetType
     {
-        Enemy = 1,
+        SpecifiedEnemy = 1,
         Ally = 0,
         AllEnemies = 2,
         RandomEnemy,

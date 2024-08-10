@@ -662,46 +662,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyName:
-    id: 311
-  enemyInfoOverview: {fileID: 11400000, guid: f35e2fb79d231c64095d3f074ae47383, type: 2}
-  enemyActionOverview: {fileID: 11400000, guid: 3c803195b41f5dc4790e30a453ad2e40, type: 2}
+    id: 112
+  enemyDataOverview: {fileID: 11400000, guid: f35e2fb79d231c64095d3f074ae47383, type: 2}
+  enemySkillDataOverview: {fileID: 11400000, guid: 3c803195b41f5dc4790e30a453ad2e40, type: 2}
   skillData: {fileID: 11400000, guid: fcdcaa925d8d8446db1919662da02639, type: 2}
-  EnemyInfo:
+  enemyData:
     uniqueId:
-      dataId: 102
-      displayName: "\u4F4E\u968E\u60E1\u9B54-\u96E3\u5EA6\u4E8C"
-    ID: 102
-    Lang: "\u4F4E\u968E\u60E1\u9B54"
-    MobSkillID: 9102001, 9102002,9102003
+      dataId: 112
+      displayName: "\u60E1\u9B54\u738B-\u96E3\u5EA6\u4E8C"
+    ID: 112
+    Lang: "\u60E1\u9B54\u738B"
+    EnemySkillID: 9112001
     Level: "\u96E3\u5EA6\u4E8C"
-    EnemySkillInfos:
-    - uniqueId:
-        dataId: 9102001
-        displayName: Enemy.EnemySkillInfo.EnemyAction
-      ID: 9102001
-      SkillID: 9102001
-      Target: 0
-      ps: "\u71C3\u71D2"
-      CD: 2
-      skillInfos: []
-    - uniqueId:
-        dataId: 9102002
-        displayName: Enemy.EnemySkillInfo.EnemyAction
-      ID: 9102002
-      SkillID: 9102002
-      Target: 0
-      ps: "\u8B77\u76FE"
-      CD: 1
-      skillInfos: []
-    - uniqueId:
-        dataId: 9102003
-        displayName: Enemy.EnemySkillInfo.EnemyAction
-      ID: 9102003
-      SkillID: 9102003
-      Target: 0
-      ps: "\u60E1\u9B54\u737B\u796D"
-      CD: -1
-      skillInfos: []
+    Prefab: Soldier
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 9112001
 --- !u!4 &1163325947
 Transform:
   m_ObjectHideFlags: 0

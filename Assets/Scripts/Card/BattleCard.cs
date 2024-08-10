@@ -127,7 +127,7 @@ namespace NueGames.Card
         #region Card Methods
         public bool ActionTargetIsSingleEnemy()
         {
-            return CardLevelInfo.ActionTargetType == ActionTargetType.Enemy;
+            return CardLevelInfo.ActionTargetType == ActionTargetType.SpecifiedEnemy;
         }
         
         

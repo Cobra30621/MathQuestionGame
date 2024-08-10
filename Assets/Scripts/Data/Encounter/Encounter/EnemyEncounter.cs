@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using EnemyAbility;
-using NueGames.Data.Characters;
-using NueGames.Enums;
+using Enemy;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,7 +13,6 @@ namespace NueGames.Data.Encounter
     [CreateAssetMenu(fileName = "Enemy Encounter", menuName = "Enemy/EnemyEncounter")]
     public class EnemyEncounter : EncounterBase
     {
-        [InlineEditor()]
-        public List<EnemyData> enemyList;
+        public List<EnemyName> enemyList;
     }
 }

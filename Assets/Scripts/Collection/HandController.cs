@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Enemy;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Enums;
@@ -383,7 +384,7 @@ namespace NueGames.Collection
         private bool EnablePlayCard(ActionTargetType cardActionTarget, CharacterBase hitCharacter)
         {
             // 只有目標是敵人時，才一定需要碰到目標
-            if (cardActionTarget == ActionTargetType.Enemy)
+            if (cardActionTarget == ActionTargetType.SpecifiedEnemy)
             {
                 // 如果 hitCharacter 沒有碰到任何目標，回傳 false
                 if (hitCharacter == null)
@@ -416,7 +417,7 @@ namespace NueGames.Collection
                 case ActionTargetType.Ally:
                     targetList.Add(CombatManager.MainAlly);
                     break;
-                case ActionTargetType.Enemy:
+                case ActionTargetType.SpecifiedEnemy:
                     if (hitTarget.IsCharacterType(CharacterType.Enemy))
                     {
                         targetList.Add(hitTarget);

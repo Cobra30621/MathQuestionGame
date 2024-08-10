@@ -6,6 +6,7 @@ using NueGames.Enums;
 using rStarTools.Scripts.ScriptableObjects.DataOverviews;
 using rStarTools.Scripts.StringList;
 using Sirenix.OdinInspector;
+using Tool;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Utilities;
@@ -13,13 +14,11 @@ using Utilities;
 namespace Card
 {
     [CreateAssetMenu(fileName = "SkillData",menuName = "SkillData",order = 0)]
-    public class SkillData : DataOverviewBase<SkillData, SkillInfo>
+    public class SkillData : SerializedScriptableObject
     {
         
         public bool IsLoading { get; private set; }
         
-        #region Private Variables
-
         [SerializeField]
         [LabelWidth(30)]
         [LabelText("Url:")]
@@ -31,20 +30,33 @@ namespace Card
         [TableList]
         private SkillInfo[] skillInfos;
 
-        #endregion
+
+        public Dictionary<string, SkillInfo> dict;
         
-        
-        #region Public Methods
+        #region GetSkillInfo
 
         public List<SkillInfo> GetSkillInfos()
         {
             return skillInfos.ToList();
         }
-
+        
+       
+        public SkillInfo GetSkillInfo(string id)
+        {
+            if (dict.TryGetValue(id, out var value))
+            {
+                return value;
+            }
+            else
+            {
+                Debug.LogError($"No SkillInfo found for ID : {id}");
+                return null;
+            }
+        }
+        
         #endregion
 
-        #region Private Methods
-
+    
         [Button]
         [BoxGroup("LoadData")]
         public void ParseDataFromGoogleSheet()
@@ -52,25 +64,35 @@ namespace Card
             IsLoading = true;
             GoogleSheetService.LoadDataArray<SkillInfo>(url , infos =>
             {
-                ids = new List<SkillInfo>();
-                Debug.Log($"{infos.Length}");
-            
-                foreach (var info in infos)
+                skillInfos = infos;
+                
+                foreach (var skillInfo in skillInfos)
                 {
-                    info.SetDisplayName($"{info.SkillID}");
-                    info.SetDataId($"{info.SkillID}");
-                    AddData(info);
+                    var effectParameterList = Helper.ConvertStringToIntList(skillInfo.EffectParameter);
+                    skillInfo.EffectParameterList = effectParameterList;
                 }
+                
+                BuildDict();
                 IsLoading = false;
             });
         }
 
-        #endregion
+        private void BuildDict()
+        {
+            dict = new Dictionary<string, SkillInfo>();
+            foreach (var info in skillInfos)
+            {
+                if (dict.ContainsKey(info.SkillID.ToString()))
+                    Debug.LogError($"Duplicate SkillID : {info.SkillID}");
+                else
+                    dict.Add(info.SkillID.ToString(), info);
+            }
+        }
     }
     
     
     [Serializable]
-    public class SkillInfo : DataBase<SkillData>
+    public class SkillInfo 
     {
         public int SkillID;
         public GameActionType EffectID;

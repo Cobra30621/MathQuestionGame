@@ -1,0 +1,1232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3da5b9a1c043d1b079d010acd170ad, type: 3}
+  m_Name: enemy skill info overview
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: dict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Enemy.Data.EnemySkillData,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 33
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9101001
+    - Name: $v
+      Entry: 7
+      Data: 2|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9101001
+    - Name: SkillID
+      Entry: 1
+      Data: 9101001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u71C3\u71D2"
+    - Name: CD
+      Entry: 3
+      Data: 2
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9101002
+    - Name: $v
+      Entry: 7
+      Data: 3|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9101002
+    - Name: SkillID
+      Entry: 1
+      Data: 9101002
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u8B77\u76FE"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9101003
+    - Name: $v
+      Entry: 7
+      Data: 4|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9101003
+    - Name: SkillID
+      Entry: 1
+      Data: 9101003
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u60E1\u9B54\u737B\u796D"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9102001
+    - Name: $v
+      Entry: 7
+      Data: 5|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9102001
+    - Name: SkillID
+      Entry: 1
+      Data: 9102001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u71C3\u71D2"
+    - Name: CD
+      Entry: 3
+      Data: 2
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9102002
+    - Name: $v
+      Entry: 7
+      Data: 6|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9102002
+    - Name: SkillID
+      Entry: 1
+      Data: 9102002
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u8B77\u76FE"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9102003
+    - Name: $v
+      Entry: 7
+      Data: 7|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9102003
+    - Name: SkillID
+      Entry: 1
+      Data: 9102003
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u60E1\u9B54\u737B\u796D"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9103001
+    - Name: $v
+      Entry: 7
+      Data: 8|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9103001
+    - Name: SkillID
+      Entry: 1
+      Data: 9103001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u71C3\u71D2"
+    - Name: CD
+      Entry: 3
+      Data: 2
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9103002
+    - Name: $v
+      Entry: 7
+      Data: 9|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9103002
+    - Name: SkillID
+      Entry: 1
+      Data: 9103002
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u8B77\u76FE"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9103003
+    - Name: $v
+      Entry: 7
+      Data: 10|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9103003
+    - Name: SkillID
+      Entry: 1
+      Data: 9103003
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u60E1\u9B54\u737B\u796D"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9111001
+    - Name: $v
+      Entry: 7
+      Data: 11|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9111001
+    - Name: SkillID
+      Entry: 1
+      Data: 9111001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9112001
+    - Name: $v
+      Entry: 7
+      Data: 12|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9112001
+    - Name: SkillID
+      Entry: 1
+      Data: 9112001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9113001
+    - Name: $v
+      Entry: 7
+      Data: 13|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9113001
+    - Name: SkillID
+      Entry: 1
+      Data: 9113001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9201001
+    - Name: $v
+      Entry: 7
+      Data: 14|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9201001
+    - Name: SkillID
+      Entry: 1
+      Data: 9201001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9201002
+    - Name: $v
+      Entry: 7
+      Data: 15|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9201002
+    - Name: SkillID
+      Entry: 1
+      Data: 9201002
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9201003
+    - Name: $v
+      Entry: 7
+      Data: 16|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9201003
+    - Name: SkillID
+      Entry: 1
+      Data: 9201003
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9202001
+    - Name: $v
+      Entry: 7
+      Data: 17|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9202001
+    - Name: SkillID
+      Entry: 1
+      Data: 9202001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9202002
+    - Name: $v
+      Entry: 7
+      Data: 18|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9202002
+    - Name: SkillID
+      Entry: 1
+      Data: 9202002
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9202003
+    - Name: $v
+      Entry: 7
+      Data: 19|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9202003
+    - Name: SkillID
+      Entry: 1
+      Data: 9202003
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9203001
+    - Name: $v
+      Entry: 7
+      Data: 20|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9203001
+    - Name: SkillID
+      Entry: 1
+      Data: 9203001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9203002
+    - Name: $v
+      Entry: 7
+      Data: 21|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9203002
+    - Name: SkillID
+      Entry: 1
+      Data: 9203002
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9203003
+    - Name: $v
+      Entry: 7
+      Data: 22|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9203003
+    - Name: SkillID
+      Entry: 1
+      Data: 9203003
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9211001
+    - Name: $v
+      Entry: 7
+      Data: 23|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9211001
+    - Name: SkillID
+      Entry: 1
+      Data: 9211001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9211002
+    - Name: $v
+      Entry: 7
+      Data: 24|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9211002
+    - Name: SkillID
+      Entry: 1
+      Data: 9211002
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9211003
+    - Name: $v
+      Entry: 7
+      Data: 25|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9211003
+    - Name: SkillID
+      Entry: 1
+      Data: 9211003
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 3
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9211004
+    - Name: $v
+      Entry: 7
+      Data: 26|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9211004
+    - Name: SkillID
+      Entry: 1
+      Data: 9211004
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9212001
+    - Name: $v
+      Entry: 7
+      Data: 27|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9212001
+    - Name: SkillID
+      Entry: 1
+      Data: 9212001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9212002
+    - Name: $v
+      Entry: 7
+      Data: 28|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9212002
+    - Name: SkillID
+      Entry: 1
+      Data: 9212002
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9212003
+    - Name: $v
+      Entry: 7
+      Data: 29|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9212003
+    - Name: SkillID
+      Entry: 1
+      Data: 9212003
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 3
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9212004
+    - Name: $v
+      Entry: 7
+      Data: 30|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9212004
+    - Name: SkillID
+      Entry: 1
+      Data: 9212004
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9213001
+    - Name: $v
+      Entry: 7
+      Data: 31|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9213001
+    - Name: SkillID
+      Entry: 1
+      Data: 9213001
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9213002
+    - Name: $v
+      Entry: 7
+      Data: 32|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9213002
+    - Name: SkillID
+      Entry: 1
+      Data: 9213002
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9213003
+    - Name: $v
+      Entry: 7
+      Data: 33|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9213003
+    - Name: SkillID
+      Entry: 1
+      Data: 9213003
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 3
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9213004
+    - Name: $v
+      Entry: 7
+      Data: 34|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 9213004
+    - Name: SkillID
+      Entry: 1
+      Data: 9213004
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 6
+      Data: 
+    - Name: skillList
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  url: https://opensheet.elk.sh/1tCaaCrB-9xcP_sgVigBUC5hSNOEx9KzDwsomPIC7asU/EnemySkillA

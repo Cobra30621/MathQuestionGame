@@ -5,7 +5,21 @@ namespace Tool
 {
     public static class Helper
     {
-        public static List<int> ConvertStringToList(string input)
+        public static List<string> ConvertStringToStringList(string input)
+        {
+            List<string> strings = new List<string>();
+
+            string[] parts = input.Split(',');
+
+            foreach (string part in parts)
+            {
+                strings.Add(part.Trim());
+            }
+
+            return strings;
+        }
+
+        public static List<int> ConvertStringToIntList(string input)
         {
             List<int> numbers = new List<int>();
 

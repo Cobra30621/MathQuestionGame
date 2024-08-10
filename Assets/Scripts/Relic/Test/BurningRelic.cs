@@ -27,7 +27,7 @@ namespace NueGames.Relic.Common
         // TODO 實作這個遺物
         protected override void OnAnswerCorrect()
         {
-            CharacterBase enemy = CombatManager.Instance.CurrentSelectedEnemy;
+            CharacterBase enemy = CombatManager.Instance.currentSelectedEnemyBase;
             enemy.ApplyPower(PowerName.Fire,1);
 
             // TODO 實作遺物

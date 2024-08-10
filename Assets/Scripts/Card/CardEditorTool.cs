@@ -20,18 +20,14 @@ namespace Card
         [Button("讀取卡牌資料")]
         public void LoadCardData()
         {
-            foreach (var skillInfo in skillData.GetSkillInfos())
-            {
-                var effectParameterList = Helper.ConvertStringToList(skillInfo.EffectParameter);
-                skillInfo.EffectParameterList = effectParameterList;
-            }
+            
             foreach (var card in SaveDeck.CardList)
             {
                 var levelInfos = GetLevelInfo( card.CardId);
                 
                 foreach (var levelInfo in levelInfos)
                 {
-                    var skillId = Helper.ConvertStringToList(levelInfo.SkillID);
+                    var skillId = Helper.ConvertStringToIntList(levelInfo.SkillID);
                     var effectInfos = GetSkillInfo(skillId);
                     levelInfo.SetEffect(effectInfos);
                 }

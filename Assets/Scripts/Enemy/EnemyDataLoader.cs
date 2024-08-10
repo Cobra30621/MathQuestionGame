@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using Card;
-using Enemy.EnemySkillInfo;
+using Enemy.Data;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
@@ -12,12 +12,15 @@ namespace Enemy
     {
         public EnemyName EnemyName;
 
+        [FormerlySerializedAs("enemyInfoOverview")]
         [InlineEditor]
         [LabelText("敵人資料")]
-        public EnemyInfoOverview enemyInfoOverview;
+        public EnemyDataOverview enemyDataOverview;
 
+        [FormerlySerializedAs("enemySkillInfoOverview")]
+        [FormerlySerializedAs("enemyActionOverview")]
         [LabelText("敵人回合行動資料")]
-        [InlineEditor] public EnemyActionOverview enemyActionOverview;
+        [InlineEditor] public EnemySkillDataOverview enemySkillDataOverview;
         
         [LabelText("技能資料")]
         [InlineEditor] public SkillData skillData;
@@ -34,34 +37,27 @@ namespace Enemy
         private IEnumerator LoadCoroutine()
         {
             // 讀取敵人技能
-            enemyActionOverview.ParseDataFromGoogleSheet();
+            enemySkillDataOverview.ParseDataFromGoogleSheet();
 
-            yield return new WaitUntil(()=>!enemyActionOverview.IsLoading);
+            yield return new WaitUntil(()=>!enemySkillDataOverview.IsLoading);
             
             // 讀取敵人資料
-            enemyInfoOverview.ParseDataFromGoogleSheet();
+            enemyDataOverview.ParseDataFromGoogleSheet();
             
-            yield return new WaitUntil(()=>!enemyInfoOverview.IsLoading);
+            yield return new WaitUntil(()=>!enemyDataOverview.IsLoading);
             
             skillData.ParseDataFromGoogleSheet();
             
             yield return new WaitUntil(()=>!skillData.IsLoading);
             
-
-            // 幫所有敵人設置對應的技能 ID
-            enemyInfoOverview.SetEnemySkillInfo(enemyActionOverview);
-        
-            // 幫所有敵人行動設置技能 ID
-            enemyActionOverview.SetSkillInfo(skillData);
-            
         }
 
-        public EnemyInfo.EnemyInfo EnemyInfo;
+        [FormerlySerializedAs("EnemyInfo")] public EnemyData enemyData;
         
         [Button]
         public void PrintAllSkill()
         {
-            EnemyInfo = enemyInfoOverview.FindUniqueId(EnemyName.Id);
+            enemyData = enemyDataOverview.FindUniqueId(EnemyName.Id);
             
         }
         

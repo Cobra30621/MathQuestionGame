@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using EnemyAbility;
+using Enemy;
 using Feedback;
 using NueGames.CharacterAbility;
 using NueGames.Characters;
@@ -15,6 +14,7 @@ using NueGames.Power;
 using NueGames.Utils.Background;
 using Question;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace NueGames.Combat
 {
@@ -25,6 +25,7 @@ namespace NueGames.Combat
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
         [SerializeField] private ManaManager _manaManager;
+        [SerializeField] private EnemyBuilder _enemyBuilder;
 
         public int CurrentMana => _manaManager.CurrentMana;
         public Action<int> OnGainMana
@@ -35,14 +36,16 @@ namespace NueGames.Combat
 
         #region Character
         // 所有敵人清單
-        public List<EnemyBase> Enemies { get; private set; }
+        public List<Enemy.EnemyBase> Enemies { get; private set; }
         // 玩家
         public AllyBase MainAlly;
+
+        public Enemy.EnemyBase RandomEnemyBase => Enemies.RandomItem();
         
         /// <summary>
         /// 現在正在被選擇中的敵人
         /// </summary>
-        public EnemyBase CurrentSelectedEnemy;
+        [FormerlySerializedAs("CurrentSelectedEnemy")] public Enemy.EnemyBase currentSelectedEnemyBase;
 
         [SerializeField] private IFeedback allyTurnStartFeedback, enemyTurnStartFeedback;
 
@@ -94,7 +97,7 @@ namespace NueGames.Combat
         /// <summary>
         /// 遊戲回合開始
         /// </summary>
-        public static Action<RoundInfo> OnRoundStart;
+        public static Action<RoundInfo> OnRoundStart ;
         /// <summary>
         /// 遊戲回合結束
         /// </summary>
@@ -228,7 +231,7 @@ namespace NueGames.Combat
             CollectionManager.DrawCards(GameManager.PlayerData.DrawCount);
             GameManager.CanSelectCards = false;
             
-            OnRoundStart.Invoke(GetRoundInfo());
+            OnRoundStart?.Invoke(GetRoundInfo());
             yield return new WaitForSeconds(0.1f);
             
             CurrentCombatStateType = CombatStateType.AllyTurn;
@@ -258,7 +261,7 @@ namespace NueGames.Combat
 
             foreach (var currentEnemy in Enemies)
             {
-                yield return currentEnemy.StartCoroutine(nameof(EnemyExample.BattleStartActionRoutine));
+                yield return currentEnemy.BattleStartActionRoutine();
                 yield return waitDelay;
             }
         }
@@ -277,7 +280,7 @@ namespace NueGames.Combat
             
             foreach (var currentEnemy in CoroutineEnemies)
             {
-                yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
+                yield return currentEnemy.ActionRoutine();
                 yield return waitDelay;
             }
             
@@ -341,59 +344,22 @@ namespace NueGames.Combat
         
         #region Public Methods
 
-        public int GetEnemyCount(EnemyData enemyData)
-        {
-            int counter = 0;
-            foreach (var enemy in Enemies)
-            {
-                if (enemy.GetDataName() == enemyData.name) counter++;
-            }
-            Debug.Log(counter);
-            return counter;
-        }
+ 
         public void OnAllyDeath(AllyBase targetAlly)
         {
             UIManager.InformationCanvas.ResetCanvas();
             LoseCombat();
         }
-        public void OnEnemyDeath(EnemyBase targetEnemy)
+        public void OnEnemyDeath(Enemy.EnemyBase targetEnemyBase)
         {
-            Enemies.Remove(targetEnemy);
+            Enemies.Remove(targetEnemyBase);
             if (Enemies.Count<=0)
                 WinCombat();
         }
         
-        public List<CharacterBase> EnemyDetermineTargets(CharacterBase enemyCharacter,
-            ActionTargetType actionTargetType)
-        {
-            List<CharacterBase> targetList = new List<CharacterBase>();
-            switch (actionTargetType)
-            {
-                case ActionTargetType.AllEnemies:
-                    targetList = new List<CharacterBase>(Enemies);
-                    break;
-                case ActionTargetType.Enemy:
-                    targetList.Add(enemyCharacter);
-                    break;
-                case ActionTargetType.Ally:
-                    targetList.Add(MainAlly);
-                    break;
-                case ActionTargetType.RandomEnemy:
-                    if (Enemies.Count>0)
-                        targetList.Add(Enemies.RandomItem());
-                    break;
-                case ActionTargetType.WithoutTarget:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
-            return targetList;
-        }
-        
         public void SetSelectedEnemy(EnemyBase selectedEnemy)
         {
-            CurrentSelectedEnemy = selectedEnemy;
+            currentSelectedEnemyBase = selectedEnemy;
         }
 
         public Transform GetMainAllyTransform()
@@ -420,18 +386,10 @@ namespace NueGames.Combat
             var enemyList = CurrentEncounter.enemyList;
             foreach (var enemyData in enemyList)
             {
-                BuildEnemy(enemyData);
+                var enemy = _enemyBuilder.Build(enemyData, GetEnemyPos());
+                
+                Enemies.Add(enemy);
             }
-        }
-
-        public void BuildEnemy(EnemyData enemyData)
-        {
-            Debug.Log($"enemydata {enemyData}");
-            var clone = Instantiate(enemyData.EnemyPrefab, GetEnemyPos());
-            clone.SetEnemyData(enemyData);
-            clone.BuildCharacter();
-            
-            Enemies.Add(clone);
         }
 
         private Transform GetEnemyPos()

@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b863cc8247477ea34be6698594831a, type: 3}
+  m_Name: enemy info overview
+  m_EditorClassIdentifier: 
+  ids:
+  - uniqueId:
+      dataId: 101
+      displayName: "\u4F4E\u968E\u60E1\u9B54-\u96E3\u5EA6\u4E00"
+    ID: 101
+    Lang: "\u4F4E\u968E\u60E1\u9B54"
+    EnemySkillID: 9101001, 9101002,9101003
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: Birdman
+    StartBattleSkillID: 9101002
+    MaxHp: 10
+    enemySkillIDs:
+    - 9101001
+    - 9101002
+    - 9101003
+  - uniqueId:
+      dataId: 102
+      displayName: "\u4F4E\u968E\u60E1\u9B54-\u96E3\u5EA6\u4E8C"
+    ID: 102
+    Lang: "\u4F4E\u968E\u60E1\u9B54"
+    EnemySkillID: 9102001, 9102002,9102003
+    Level: "\u96E3\u5EA6\u4E8C"
+    Prefab: Birdman
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 9102001
+    - 9102002
+    - 9102003
+  - uniqueId:
+      dataId: 103
+      displayName: "\u4F4E\u968E\u60E1\u9B54-\u96E3\u5EA6\u4E09"
+    ID: 103
+    Lang: "\u4F4E\u968E\u60E1\u9B54"
+    EnemySkillID: 9103001, 9103002,9103003
+    Level: "\u96E3\u5EA6\u4E09"
+    Prefab: Birdman
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 9103001
+    - 9103002
+    - 9103003
+  - uniqueId:
+      dataId: 111
+      displayName: "\u60E1\u9B54\u738B-\u96E3\u5EA6\u4E00"
+    ID: 111
+    Lang: "\u60E1\u9B54\u738B"
+    EnemySkillID: 9111001
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: Soldier
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 9111001
+  - uniqueId:
+      dataId: 112
+      displayName: "\u60E1\u9B54\u738B-\u96E3\u5EA6\u4E8C"
+    ID: 112
+    Lang: "\u60E1\u9B54\u738B"
+    EnemySkillID: 9112001
+    Level: "\u96E3\u5EA6\u4E8C"
+    Prefab: Soldier
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 9112001
+  - uniqueId:
+      dataId: 113
+      displayName: "\u60E1\u9B54\u738B-\u96E3\u5EA6\u4E09"
+    ID: 113
+    Lang: "\u60E1\u9B54\u738B"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E09"
+    Prefab: Soldier
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 201
+      displayName: "\u53F2\u840A\u59C6-\u96E3\u5EA6\u4E00"
+    ID: 201
+    Lang: "\u53F2\u840A\u59C6"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 202
+      displayName: "\u53F2\u840A\u59C6-\u96E3\u5EA6\u4E8C"
+    ID: 202
+    Lang: "\u53F2\u840A\u59C6"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E8C"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 203
+      displayName: "\u53F2\u840A\u59C6-\u96E3\u5EA6\u4E09"
+    ID: 203
+    Lang: "\u53F2\u840A\u59C6"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E09"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 211
+      displayName: "\u53F2\u840A\u59C6\u738B-\u96E3\u5EA6\u4E00"
+    ID: 211
+    Lang: "\u53F2\u840A\u59C6\u738B"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 212
+      displayName: "\u53F2\u840A\u59C6\u738B-\u96E3\u5EA6\u4E8C"
+    ID: 212
+    Lang: "\u53F2\u840A\u59C6\u738B"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E8C"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 213
+      displayName: "\u53F2\u840A\u59C6\u738B-\u96E3\u5EA6\u4E09"
+    ID: 213
+    Lang: "\u53F2\u840A\u59C6\u738B"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E09"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 301
+      displayName: "\u6A39\u7CBE-\u96E3\u5EA6\u4E00"
+    ID: 301
+    Lang: "\u6A39\u7CBE"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: WorkerAnt
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 302
+      displayName: "\u6A39\u7CBE-\u96E3\u5EA6\u4E8C"
+    ID: 302
+    Lang: "\u6A39\u7CBE"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E8C"
+    Prefab: WorkerAnt
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 303
+      displayName: "\u6A39\u7CBE-\u96E3\u5EA6\u4E09"
+    ID: 303
+    Lang: "\u6A39\u7CBE"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E09"
+    Prefab: WorkerAnt
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 311
+      displayName: "\u53E4\u6A39-\u96E3\u5EA6\u4E00"
+    ID: 311
+    Lang: "\u53E4\u6A39"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 312
+      displayName: "\u53E4\u6A39-\u96E3\u5EA6\u4E8C"
+    ID: 312
+    Lang: "\u53E4\u6A39"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E8C"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  - uniqueId:
+      dataId: 313
+      displayName: "\u53E4\u6A39-\u96E3\u5EA6\u4E09"
+    ID: 313
+    Lang: "\u53E4\u6A39"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E09"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 10
+    enemySkillIDs:
+    - 
+  useDataPath: 0
+  dataPath: 
+  sortingByDisplayName: 0
+  url: https://opensheet.elk.sh/1tCaaCrB-9xcP_sgVigBUC5hSNOEx9KzDwsomPIC7asU/EnemyA

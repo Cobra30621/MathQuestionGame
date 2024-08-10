@@ -1,10 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using NueGames.Characters;
+using Enemy;
 using NueGames.Enums;
-using NueGames.Managers;
-using UnityEngine;
 
 namespace NueGames.Combat
 {
@@ -29,7 +25,7 @@ namespace NueGames.Combat
                 case ActionTargetType.Ally:
                     ActivateAllAllyHighlights();
                     break;
-                case ActionTargetType.Enemy:
+                case ActionTargetType.SpecifiedEnemy:
                 case ActionTargetType.WithoutTarget:
                     break;
                 default:
