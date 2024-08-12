@@ -29,7 +29,7 @@ namespace Card
                 {
                     var skillId = Helper.ConvertStringToIntList(levelInfo.SkillID);
                     var effectInfos = GetSkillInfo(skillId);
-                    levelInfo.SetEffect(effectInfos);
+                    // levelInfo.SetEffect(effectInfos);
                 }
                     
                 card.SetCardLevels(levelInfos);
@@ -50,7 +50,7 @@ namespace Card
 
         private List<SkillInfo> GetSkillInfo(List<int> skillId)
         {
-            return skillData.GetSkillInfos().Where(x =>  skillId.Contains(x.SkillID)).ToList();
+            return skillData.GetAllSkillInfos().Where(x =>  skillId.Contains(x.SkillID)).ToList();
         }
         
         

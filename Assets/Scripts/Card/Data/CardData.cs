@@ -62,6 +62,8 @@ namespace Card.Data
         [FoldoutGroup("顯示提示字")]
         private List<SpecialKeywords> specialKeywordsList;
 
+        
+        
 
         #region Cache
 

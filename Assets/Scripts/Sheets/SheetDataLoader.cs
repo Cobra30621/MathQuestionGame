@@ -44,6 +44,11 @@ namespace Sheets
             getter.enemyData.ParseDataFromGoogleSheet();
             yield return new WaitUntil(()=>!getter.enemyData.IsLoading);
             
+            getter.cardLevelData.ParseDataFromGoogleSheet();
+            yield return new WaitUntil(()=>!getter.cardLevelData.IsLoading);
+
+            BuildCardData();
+            
             Debug.Log("Loaded data from Google Sheets");
             
             SaveAsset();
@@ -52,11 +57,22 @@ namespace Sheets
             sheetDataValidator.ValidateSheet();
         }
 
+        private void BuildCardData()
+        {
+            foreach (var cardData in getter.saveDeck.CardList)
+            {
+                var cardLevelInfos = getter.cardLevelData.GetLevelInfo(cardData.CardId);
+                cardData.SetCardLevels(cardLevelInfos);
+            }
+        }
+        
+
         private void SaveAsset()
         {
             EditorUtility.SetDirty(getter.skillData);
             EditorUtility.SetDirty(getter.enemySkillData);
             EditorUtility.SetDirty(getter.enemyData);
+            EditorUtility.SetDirty(getter.cardLevelData);
             AssetDatabase.SaveAssets();
         }
     }

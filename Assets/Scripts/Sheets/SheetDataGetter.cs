@@ -1,4 +1,5 @@
 ﻿using Card;
+using Card.Data;
 using Enemy;
 using Enemy.Data;
 using Sirenix.OdinInspector;
@@ -31,6 +32,9 @@ namespace Sheets
         
         [Required] [InlineEditor] [LabelText("意圖")]
         public IntentionData intentionData;
+        
+        [Required] [InlineEditor] [LabelText("需存檔用的卡片")]
+        public DeckData saveDeck;
 
         /// <summary>
         /// Retrieves intention data based on the given ID.

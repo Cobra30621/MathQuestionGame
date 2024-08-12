@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Action;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
@@ -11,6 +12,7 @@ namespace Sheets
     /// </summary>
     public class SheetDataValidator : MonoBehaviour
     {
+        [Required]
         public SheetDataGetter getter;
 
         /// <summary>
@@ -23,7 +25,41 @@ namespace Sheets
             ValidateEnemyData();
             ValidateSkillData();
 
+            ValidateCardLevelData();
+            ValidateCardData();
+
             Debug.Log("驗證完成");
+        }
+
+        private void ValidateCardLevelData()
+        {
+            foreach (var cardLevelInfo in getter.cardLevelData.GetAllCardInfo())
+            {
+                foreach (var skillID in cardLevelInfo.skillIDs)
+                {
+                    getter.skillData.GetSkillInfo(skillID, $"CardLevelData {cardLevelInfo.ID}: ");
+                }
+                
+                if (!Enum.IsDefined(typeof(AllyClassType), cardLevelInfo.Class))
+                {
+                    Debug.LogError($"Invalid {nameof(AllyClassType)} " +
+                                   $"'{cardLevelInfo.Class}' in CardLevelInfo '{cardLevelInfo.ID}'");
+                }
+            }
+        }
+
+        private void ValidateCardData()
+        {
+            var groupIds = getter.cardLevelData.GetGroupIds();
+
+            foreach (var groupId in groupIds)
+            {
+                var firstOrDefault = getter.saveDeck.CardList.FirstOrDefault(x => x.CardId == groupId);
+                if (firstOrDefault == null)
+                {
+                    Debug.LogError($"未找到卡片組 {groupId} 對應的 CardData");
+                }
+            }
         }
 
         private void ValidateEnemyData()
@@ -63,7 +99,7 @@ namespace Sheets
         private void ValidateSkillData()
         {
             // Validates effect IDs and targets for skills.
-            foreach (var skillInfo in getter.skillData.GetSkillInfos())
+            foreach (var skillInfo in getter.skillData.GetAllSkillInfos())
             {
                 if (!Enum.IsDefined(typeof(GameActionType), skillInfo.EffectID))
                 {

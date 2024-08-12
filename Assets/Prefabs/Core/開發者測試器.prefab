@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4095018288147458740}
-  - component: {fileID: 7023131020957682350}
+  - component: {fileID: 8980729459045170074}
+  - component: {fileID: 3934071664205241657}
   m_Layer: 0
-  m_Name: "\u8B80\u53D6\u5361\u7247\u8868\u55AE"
+  m_Name: "\u8868\u55AE\u8B80\u53D6\u5668"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +33,7 @@ Transform:
   m_Father: {fileID: 607283629099232314}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7023131020957682350
+--- !u!114 &8980729459045170074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +42,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 2203989986768820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05f23fd59a284fd59f22d5f1147eb101, type: 3}
+  m_Script: {fileID: 11500000, guid: ad3d2f584de44ef1b93d2fd3187fee09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SaveDeck: {fileID: 11400000, guid: 0d8b556c7688a4833901d3a5cad41e8b, type: 2}
-  cardLevelData: {fileID: 11400000, guid: b7b41caa65a104107ab307b5f8a3aaab, type: 2}
-  skillData: {fileID: 11400000, guid: fcdcaa925d8d8446db1919662da02639, type: 2}
+  getter: {fileID: 11400000, guid: c5faecb921b28874c9d697614b4562ab, type: 2}
+  sheetDataValidator: {fileID: 3934071664205241657}
+--- !u!114 &3934071664205241657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2203989986768820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df5329b06224c15bb56bc0460e7a9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getter: {fileID: 11400000, guid: c5faecb921b28874c9d697614b4562ab, type: 2}
 --- !u!1 &607283629099232260
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +116,7 @@ MonoBehaviour:
   QuestionSetting:
     Grades: 
     Publishers: 
-  allyPowerAtGameStart: 02000000
+  allyPowerAtGameStart: 
 --- !u!114 &2466699180288306852
 MonoBehaviour:
   m_ObjectHideFlags: 0

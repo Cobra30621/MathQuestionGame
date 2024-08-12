@@ -88,7 +88,15 @@ namespace NueGames.Card
             CollectionManager.OnCardPlayed(this);
         }
 
-        public void DoAction(List<CharacterBase> targetList)
+        public void DoAction(List<CharacterBase> specifiedTargets)
+        {
+            
+            var gameActions = GetGameActions(specifiedTargets);
+            
+            GameActionExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, specifiedTargets));
+        }
+
+        private List<GameActionBase> GetGameActions(List<CharacterBase> targetList)
         {
             ActionSource actionSource = new ActionSource()
             {
@@ -97,10 +105,18 @@ namespace NueGames.Card
                 SourceCharacter = CombatManager.MainAlly
             };
 
+            if (_cardInfo.CardData.IsDevelopCard)
+            {
+            }
+            else
+            {
+                CardLevelInfo.EffectInfos = CardManager.Instance.GetSkillInfos(CardLevelInfo.skillIDs);
+            }
+
             var gameActions = GameActionFactory.GetGameActions(CardLevelInfo.EffectInfos, 
                 targetList, actionSource);
-            
-            GameActionExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, targetList));
+
+            return gameActions;
         }
         
         /// <summary>
@@ -126,11 +142,7 @@ namespace NueGames.Card
 
         
         #region Card Methods
-        public bool ActionTargetIsSingleEnemy()
-        {
-            return CardLevelInfo.ActionTargetType == ActionTargetType.SpecifiedEnemy;
-        }
-        
+  
         
         public virtual void Discard()
         {

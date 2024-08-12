@@ -16,7 +16,6 @@ namespace Card
     [CreateAssetMenu(fileName = "SkillData",menuName = "SkillData",order = 0)]
     public class SkillData : SerializedScriptableObject
     {
-        
         public bool IsLoading { get; private set; }
         
         [SerializeField]
@@ -35,7 +34,7 @@ namespace Card
         
         #region GetSkillInfo
 
-        public List<SkillInfo> GetSkillInfos()
+        public List<SkillInfo> GetAllSkillInfos()
         {
             return skillInfos.ToList();
         }
