@@ -14,8 +14,8 @@ namespace Enemy
     {
         [SerializeField] protected EnemyCanvas enemyCanvas;
         public EnemyCanvas EnemyCanvas => enemyCanvas;
-        
-        public EnemyData data;
+
+        private EnemyData data;
 
         public EnemyAbility enemyAbility;
 
