@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ea1326823d420abba480753ed84857, type: 3}
   m_Name: new sheet data getter
   m_EditorClassIdentifier: 
-  enemyDataOverview: {fileID: 11400000, guid: f35e2fb79d231c64095d3f074ae47383, type: 2}
-  enemySkillDataOverview: {fileID: 11400000, guid: 3c803195b41f5dc4790e30a453ad2e40, type: 2}
+  enemyData: {fileID: 11400000, guid: f35e2fb79d231c64095d3f074ae47383, type: 2}
+  enemySkillData: {fileID: 11400000, guid: 3c803195b41f5dc4790e30a453ad2e40, type: 2}
   skillData: {fileID: 11400000, guid: fcdcaa925d8d8446db1919662da02639, type: 2}
+  cardLevelData: {fileID: 11400000, guid: b7b41caa65a104107ab307b5f8a3aaab, type: 2}
+  enemyPrefabData: {fileID: 11400000, guid: 89f6bf46d877c2443ad8322052e244e8, type: 2}
   intentionData: {fileID: 11400000, guid: 7c0f89dafa582f942801519ad7c6232f, type: 2}

@@ -646,6 +646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1163325947}
   - component: {fileID: 1163325946}
+  - component: {fileID: 1163325948}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Untagged
@@ -665,24 +666,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad3d2f584de44ef1b93d2fd3187fee09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyName:
-    id: 112
-  enemyDataOverview: {fileID: 11400000, guid: f35e2fb79d231c64095d3f074ae47383, type: 2}
-  enemySkillDataOverview: {fileID: 11400000, guid: 3c803195b41f5dc4790e30a453ad2e40, type: 2}
-  skillData: {fileID: 11400000, guid: fcdcaa925d8d8446db1919662da02639, type: 2}
-  enemyData:
-    uniqueId:
-      dataId: 112
-      displayName: "\u60E1\u9B54\u738B-\u96E3\u5EA6\u4E8C"
-    ID: 112
-    Lang: "\u60E1\u9B54\u738B"
-    EnemySkillID: 9112001
-    Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: Soldier
-    StartBattleSkillID: 
-    MaxHp: 10
-    enemySkillIDs:
-    - 9112001
+  getter: {fileID: 11400000, guid: c5faecb921b28874c9d697614b4562ab, type: 2}
+  sheetDataValidator: {fileID: 1163325948}
 --- !u!4 &1163325947
 Transform:
   m_ObjectHideFlags: 0
@@ -698,6 +683,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1163325948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163325945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df5329b06224c15bb56bc0460e7a9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getter: {fileID: 11400000, guid: c5faecb921b28874c9d697614b4562ab, type: 2}
 --- !u!1001 &1169923787
 PrefabInstance:
   m_ObjectHideFlags: 0

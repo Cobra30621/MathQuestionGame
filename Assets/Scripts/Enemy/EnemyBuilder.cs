@@ -1,6 +1,7 @@
 ﻿using Card;
 using Combat;
 using Enemy.Data;
+using Sheets;
 using Tool;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Enemy
 
         public EnemyBase Build(EnemyName enemyName, Transform spawnPos)
         {
-            var enemyData = sheetDataGetter.enemyDataOverview.FindUniqueId(enemyName.Id);
+            var enemyData = sheetDataGetter.enemyData.FindUniqueId(enemyName.Id);
             return Build(enemyData, spawnPos);
         }
         

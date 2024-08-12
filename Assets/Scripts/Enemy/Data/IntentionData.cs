@@ -10,7 +10,7 @@ namespace Enemy.Data
         public Dictionary<string, Intention> Intentions;
 
 
-        public Intention GetIntention(string id)
+        public Intention GetIntention(string id, string whoFinding = "")
         {
             if (Intentions.TryGetValue(id, out var intention))
             {
@@ -18,7 +18,7 @@ namespace Enemy.Data
             }
             else
             {
-                Debug.LogError($"Intention with ID '{id}' not found in IntentionData!");
+                Debug.LogError($"{whoFinding} can't find Intention with ID '{id}' in IntentionData!");
                 return null;
             }
         }

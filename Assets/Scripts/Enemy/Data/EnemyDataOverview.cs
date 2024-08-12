@@ -33,7 +33,7 @@ namespace Enemy
             GoogleSheetService.LoadDataArray<EnemyData>(url , infos =>
             {
                 ids = new List<EnemyData>();
-                Debug.Log($"{infos.Length}");
+                Debug.Log($"EnemyData Count: {infos.Length}");
             
                 foreach (var enemyInfo in infos)
                 {

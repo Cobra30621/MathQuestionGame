@@ -15,6 +15,6 @@ namespace Enemy.Data
         public int CD;
         public string Intention;
 
-        [FormerlySerializedAs("skillList")] public List<string> skillIDs;
+        public List<string> skillIDs;
     }
 }

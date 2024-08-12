@@ -89,8 +89,7 @@ MonoBehaviour:
     Prefab: Soldier
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 201
       displayName: "\u53F2\u840A\u59C6-\u96E3\u5EA6\u4E00"
@@ -101,8 +100,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 202
       displayName: "\u53F2\u840A\u59C6-\u96E3\u5EA6\u4E8C"
@@ -113,8 +111,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 203
       displayName: "\u53F2\u840A\u59C6-\u96E3\u5EA6\u4E09"
@@ -125,8 +122,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 211
       displayName: "\u53F2\u840A\u59C6\u738B-\u96E3\u5EA6\u4E00"
@@ -137,8 +133,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 212
       displayName: "\u53F2\u840A\u59C6\u738B-\u96E3\u5EA6\u4E8C"
@@ -149,8 +144,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 213
       displayName: "\u53F2\u840A\u59C6\u738B-\u96E3\u5EA6\u4E09"
@@ -161,8 +155,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 301
       displayName: "\u6A39\u7CBE-\u96E3\u5EA6\u4E00"
@@ -170,11 +163,10 @@ MonoBehaviour:
     Lang: "\u6A39\u7CBE"
     EnemySkillID: 
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: WorkerAnt
+    Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 302
       displayName: "\u6A39\u7CBE-\u96E3\u5EA6\u4E8C"
@@ -182,11 +174,10 @@ MonoBehaviour:
     Lang: "\u6A39\u7CBE"
     EnemySkillID: 
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: WorkerAnt
+    Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 303
       displayName: "\u6A39\u7CBE-\u96E3\u5EA6\u4E09"
@@ -194,11 +185,10 @@ MonoBehaviour:
     Lang: "\u6A39\u7CBE"
     EnemySkillID: 
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: WorkerAnt
+    Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 311
       displayName: "\u53E4\u6A39-\u96E3\u5EA6\u4E00"
@@ -206,11 +196,10 @@ MonoBehaviour:
     Lang: "\u53E4\u6A39"
     EnemySkillID: 
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: Hive
+    Prefab: JOJO
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 312
       displayName: "\u53E4\u6A39-\u96E3\u5EA6\u4E8C"
@@ -221,8 +210,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   - uniqueId:
       dataId: 313
       displayName: "\u53E4\u6A39-\u96E3\u5EA6\u4E09"
@@ -233,8 +221,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
-    enemySkillIDs:
-    - 
+    enemySkillIDs: []
   useDataPath: 0
   dataPath: 
   sortingByDisplayName: 0

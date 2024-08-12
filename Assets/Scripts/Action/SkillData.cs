@@ -41,7 +41,7 @@ namespace Card
         }
         
        
-        public SkillInfo GetSkillInfo(string id)
+        public SkillInfo GetSkillInfo(string id, string whoFinding = "")
         {
             if (dict.TryGetValue(id, out var value))
             {
@@ -49,7 +49,7 @@ namespace Card
             }
             else
             {
-                Debug.LogError($"No SkillInfo found for ID : {id}");
+                Debug.LogError($"{whoFinding} can't find SkillInfo: '{id}'");
                 return null;
             }
         }
@@ -65,6 +65,7 @@ namespace Card
             GoogleSheetService.LoadDataArray<SkillInfo>(url , infos =>
             {
                 skillInfos = infos;
+                Debug.Log($"SkillInfos Count: {infos.Length}");
                 
                 foreach (var skillInfo in skillInfos)
                 {

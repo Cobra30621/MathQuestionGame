@@ -7,6 +7,11 @@ namespace Tool
     {
         public static List<string> ConvertStringToStringList(string input)
         {
+            if (input.Trim() == "")
+            {
+                return new List<string>();
+            }
+            
             List<string> strings = new List<string>();
 
             string[] parts = input.Split(',');
