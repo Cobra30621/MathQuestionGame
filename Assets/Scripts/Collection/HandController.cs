@@ -558,7 +558,6 @@ namespace NueGames.Collection
         {
             characterHighlightController.ActivateEnemyHighlight(selectedEnemy);
             arrowController.OnEnterEnemy();
-            CombatManager.SetSelectedEnemy(selectedEnemy);
             _heldBattleCard?.UpdateCardDisplay();
         }
         
@@ -566,7 +565,6 @@ namespace NueGames.Collection
         {
             characterHighlightController.DeactivateEnemyHighlights();
             arrowController.OnLeaveEnemy();
-            CombatManager.SetSelectedEnemy(null);
             _heldBattleCard?.UpdateCardDisplay();
         }
 

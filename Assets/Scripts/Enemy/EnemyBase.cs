@@ -20,11 +20,16 @@ namespace Enemy
 
         public EnemySkill currentSkill;
 
-        #region SetUp
-
+        private CharacterHandler _characterHandler;
         
-        public void BuildCharacter(EnemyData enemyData, SheetDataGetter sheetDataGetter)
+        
+        
+        #region SetUp
+        public void BuildCharacter(EnemyData enemyData, SheetDataGetter sheetDataGetter
+            ,CharacterHandler characterHandler)
         {
+            _characterHandler = characterHandler;
+            
             data = enemyData;
             enemyAbility = new EnemyAbility(enemyData, this, sheetDataGetter);
 
@@ -47,7 +52,7 @@ namespace Enemy
             CombatManager.OnRoundStart -= SetThisRoundSkill;
             CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
            
-            CombatManager.OnEnemyDeath(this);
+            _characterHandler.OnEnemyDeath(this);
             Destroy(gameObject);
         }
         

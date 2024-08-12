@@ -17,15 +17,14 @@ namespace NueGames.Characters
         [SerializeField] private AllyCanvas allyCanvas;
         private AllyData _allyData;
         public AllyCanvas AllyCanvas => allyCanvas;
+        
+        private CharacterHandler _characterHandler;
 
         
-        public CharacterSkill GetCharacterSkill()
-        {
-            return _allyData.CharacterSkill;
-        }
         
-        public void BuildCharacter(AllyData allyData)
+        public void BuildCharacter(AllyData allyData, CharacterHandler characterHandler)
         {
+            _characterHandler = characterHandler;
             _allyData = allyData;
             
             SetUpFeedbackDict();
@@ -61,7 +60,7 @@ namespace NueGames.Characters
             if (CombatManager != null)
             {
                 CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
-                CombatManager.OnAllyDeath(this);
+                _characterHandler.OnAllyDeath(this);
             }
 
             Destroy(gameObject);

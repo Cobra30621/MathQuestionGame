@@ -3,19 +3,20 @@ using System.Linq;
 using Card;
 using Enemy;
 using Enemy.Data;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Tool
 {
     public class SheetDataGetter : ScriptableObject
     {
-        
+        [Required]
         public EnemyDataOverview enemyDataOverview;
-
+        [Required]
         public EnemySkillDataOverview enemySkillDataOverview;
-
+        [Required]
         public SkillData skillData;
-
+        [Required]
         public IntentionData intentionData;
 
         public Intention GetIntention(string id)
@@ -24,22 +25,11 @@ namespace Tool
         }
         
 
-        public List<EnemySkillData> GetEnemySkillInfos(List<string> ids)
-        {
-            return ids.ConvertAll(GetEnemySkillInfo).ToList();
-        } 
-        
-
         public EnemySkillData GetEnemySkillInfo(string id)
         {
             return enemySkillDataOverview.GetEnemyAction(id);
         }
 
-
-        public List<SkillInfo> GetSkillInfos(List<string> ids)
-        {
-            return ids.ConvertAll(GetSkillInfo).ToList();
-        }
         
         public SkillInfo GetSkillInfo(string id)
         {

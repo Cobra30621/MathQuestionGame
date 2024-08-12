@@ -1,4 +1,5 @@
 ﻿using Card;
+using Combat;
 using Enemy.Data;
 using Tool;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace Enemy
 
         public EnemyPrefabData enemyPrefabData;
 
+        public CharacterHandler characterHandler;
+        
 
         public EnemyBase Build(EnemyName enemyName, Transform spawnPos)
         {
@@ -23,7 +26,7 @@ namespace Enemy
             var prefab = enemyPrefabData.GetPrefab(data.Prefab);
             var clone = Instantiate(prefab, spawnPos);
             
-            clone.BuildCharacter(data, sheetDataGetter);
+            clone.BuildCharacter(data, sheetDataGetter, characterHandler);
 
             return clone;
         }
