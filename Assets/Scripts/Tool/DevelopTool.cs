@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Combat;
+using Data.Encounter;
 using Managers;
 using NueGames.Action;
 using NueGames.Characters;
@@ -15,6 +16,7 @@ using NueGames.Power;
 using Question;
 using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace Tool
 {
@@ -33,9 +35,8 @@ namespace Tool
         [LabelText("遊戲設定")]
         public GameplayData GameplayData;
         
-        [LabelText("產生的敵人")]
-        [InlineEditor()]
-        public EnemyEncounter EnemyEncounter;
+        [LabelText("產生的敵人們")]
+        public EncounterName enemyEncounter;
 
         [LabelText("問題設定")]
         public QuestionSetting QuestionSetting;
@@ -80,7 +81,7 @@ namespace Tool
         private void SetDevelopModeData()
         {
             GameManager.Instance.SetGameplayData(GameplayData);
-            GameManager.Instance.SetEnemyEncounter(EnemyEncounter);
+            GameManager.Instance.SetEnemyEncounter(enemyEncounter);
             QuestionManager.Instance.SetQuestionSetting(QuestionSetting); 
             
             GameManager.Instance.StartDevelopMode();

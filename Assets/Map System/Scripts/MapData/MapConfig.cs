@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Data.Encounter;
 using Malee;
 using NueGames.Data.Encounter;
 using OneLine;

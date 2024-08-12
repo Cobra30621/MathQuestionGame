@@ -2029,9 +2029,15 @@ MonoBehaviour:
       Data: 
   backgroundContainer: {fileID: 2922147483016735578}
   characterHandler: {fileID: 7323676038586818325}
+  enemyEncounterOverview: {fileID: 11400000, guid: 1a4ab8e826fb934408e150b4eb9768b8, type: 2}
   allyTurnStartFeedback: {fileID: 8241232230443560162}
   enemyTurnStartFeedback: {fileID: 6960330602947234766}
-  currentEncounter: {fileID: 0}
+  currentEncounter:
+    uniqueId:
+      dataId: b5ca2cae-b82e-42cf-83b3-e28e539d21be
+      displayName: 
+    enemyList: []
+    targetBackgroundType: 0
   RoundNumber: 0
 --- !u!114 &7323676038586818325
 MonoBehaviour:

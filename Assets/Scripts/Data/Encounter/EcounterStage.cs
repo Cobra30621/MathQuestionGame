@@ -1,18 +1,8 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Data.Encounter.EncounterList;
-using Newtonsoft.Json;
-using NueGames.Characters;
-using NueGames.Data.Characters;
-using NueGames.Encounter;
-using NueGames.Enums;
-using NueGames.NueExtentions;
+﻿using System;
+using NueGames.Data.Encounter;
 using UnityEngine;
 
-
-namespace NueGames.Data.Encounter
+namespace Data.Encounter
 {
     /// <summary>
     /// 一層地圖的遭遇資料

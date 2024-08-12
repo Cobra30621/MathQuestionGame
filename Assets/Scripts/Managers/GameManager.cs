@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Card.Data;
 using Data;
+using Data.Encounter;
 using DataPersistence;
 using Managers;
 using Map;
@@ -43,7 +44,7 @@ namespace NueGames.Managers
         
         public AllyData MainAllyData;
         
-        public EnemyEncounter CurrentEnemyEncounter;
+        public EncounterName CurrentEnemyEncounter;
 
         public bool CanSelectCards;
 
@@ -140,10 +141,10 @@ namespace NueGames.Managers
         }
 
         
-        public void SetEnemyEncounter(EnemyEncounter encounter)
+        public void SetEnemyEncounter(EncounterName encounter)
         {
             CurrentEnemyEncounter  = encounter;
-            Debug.Log($"CurrentEnemyEncounter {CurrentEnemyEncounter.name}");
+            // Debug.Log($"CurrentEnemyEncounter {CurrentEnemyEncounter.name}");
         }
 
         public void HealAlly(float percent)

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Data.Encounter;
 using NueGames.Encounter;
 using UnityEngine;
 
@@ -15,17 +17,17 @@ namespace NueGames.Data.Encounter
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
-        public List<string> GetEncounterListByWeight(int count)
+        public List<EncounterName> GetEncounterListByWeight(int count)
         {
             List<EnemyEncounterClip> randomClipList = WeightedRandom.GetWeightedRandomObjects(weightClip, count);
             
-            List<EnemyEncounter> encounterList = new List<EnemyEncounter>();
+            var encounterList = new List<EncounterName>();
             foreach (var clip in randomClipList)
             {
                 encounterList.Add(clip.Encounter);
             }
 
-            return  EncounterManager.Instance.EnemyEncounterToGuid(encounterList);
+            return  encounterList;
 
         }
     }
@@ -36,12 +38,12 @@ namespace NueGames.Data.Encounter
     [Serializable]
     public class EnemyEncounterClip : IWeightedObject
     {
-        [SerializeField] private EnemyEncounter encounter;
+        [SerializeField] private EncounterName encounter;
         [SerializeField] private int weight;
         /// <summary>
         /// 一場戰鬥的敵人清單
         /// </summary>
-        public EnemyEncounter Encounter => encounter;
+        public EncounterName Encounter => encounter;
         /// <summary>
         /// 權重(機率)
         /// </summary>

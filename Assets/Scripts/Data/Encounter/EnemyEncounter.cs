@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using NueGames.Data.Characters;
+using Enemy;
 using NueGames.Enums;
-using Sirenix.OdinInspector;
+using rStarTools.Scripts.StringList;
 using UnityEngine;
 
-namespace NueGames.Data.Encounter
+namespace Data.Encounter
 {
-    
-    
-    
     /// <summary>
-    /// 遭遇的基礎類別
+    /// 遭遇一場戰鬥的敵人清單
     /// </summary>
     [Serializable]
-    public abstract class EncounterBase : SerializedScriptableObject ,ISerializeReferenceByAssetGuid
+    public class EnemyEncounter : DataBase<EnemyEncounterOverview>
     {
+        public List<EnemyName> enemyList;
+        
         [SerializeField] private BackgroundTypes targetBackgroundType;
         
         public BackgroundTypes TargetBackgroundType => targetBackgroundType;
+
+        
         
     }
 }

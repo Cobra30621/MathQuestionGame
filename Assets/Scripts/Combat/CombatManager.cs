@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Data.Encounter;
 using Enemy;
 using Feedback;
 using NueGames.Characters;
@@ -23,6 +24,7 @@ namespace Combat
         [SerializeField] private ManaManager _manaManager;
 
         [Required] public CharacterHandler characterHandler;
+        [Required] public EnemyEncounterOverview enemyEncounterOverview;
 
         [Required] [SerializeField] private IFeedback allyTurnStartFeedback, enemyTurnStartFeedback;
 
@@ -228,7 +230,8 @@ namespace Combat
 
         private IEnumerator StartCombatRoutine()
         {
-            currentEncounter = GameManager.CurrentEnemyEncounter;
+            var encounterName = GameManager.CurrentEnemyEncounter;
+            currentEncounter = enemyEncounterOverview.FindUniqueId(encounterName.Id);
             characterHandler.BuildEnemies(currentEncounter.enemyList);
             characterHandler.BuildAllies(GameManager.MainAllyData);
 

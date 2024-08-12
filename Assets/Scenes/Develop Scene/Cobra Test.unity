@@ -432,6 +432,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3747954644409722070, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: CurrentEnemyEncounter.id
+      value: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747954644409722070, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 3747954644409722070, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
@@ -1041,6 +1045,10 @@ PrefabInstance:
       propertyPath: EnemyEncounter
       value: 
       objectReference: {fileID: 11400000, guid: a98bdd8349c66492e84573047c60899a, type: 2}
+    - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: enemyEncounter.id
+      value: 23350bb9-c64b-4773-8b9e-269746eb51e0
+      objectReference: {fileID: 0}
     - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: allyPowerAtGameStart.Array.size
       value: 0
