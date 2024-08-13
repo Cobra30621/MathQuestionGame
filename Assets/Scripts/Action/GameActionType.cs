@@ -8,7 +8,7 @@ namespace Action
         MultiDamage = 20001,
         MultiBlock = 20002,
         SuperDamage = 3,
-        ApplyPower = 10,
+        ApplyPower = 20003,
         EnemyBlock = 12,
         Block= 2,
         GainMana = 51,

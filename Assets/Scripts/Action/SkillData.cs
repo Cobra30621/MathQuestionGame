@@ -6,6 +6,7 @@ using NueGames.Enums;
 using rStarTools.Scripts.ScriptableObjects.DataOverviews;
 using rStarTools.Scripts.StringList;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using Tool;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -63,8 +64,10 @@ namespace Card
             IsLoading = true;
             GoogleSheetService.LoadDataArray<SkillInfo>(url , infos =>
             {
-                skillInfos = infos;
-                Debug.Log($"SkillInfos Count: {infos.Length}");
+                // 將空行列剔除
+                skillInfos = infos.Where(skill => 
+                    !skill.SkillID.IsNullOrWhitespace()).ToArray();
+                Debug.Log($"SkillInfos Count: {skillInfos.Length}");
                 
                 foreach (var skillInfo in skillInfos)
                 {
@@ -94,7 +97,7 @@ namespace Card
     [Serializable]
     public class SkillInfo 
     {
-        public int SkillID;
+        public string SkillID;
         public GameActionType EffectID;
         public string EffectParameter;
         public List <int> EffectParameterList; 

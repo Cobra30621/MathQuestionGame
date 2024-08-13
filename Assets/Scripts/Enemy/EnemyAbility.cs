@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Sheets;
+using Sirenix.Utilities;
 using Tool;
 using UnityEngine;
 
@@ -17,8 +18,9 @@ namespace Enemy.Data
                 ConvertAll(id => 
                     new EnemySkill(getter.GetEnemySkillInfo(id), enemyBase, getter));
 
-            _startBattleSkill = new EnemySkill(
-                getter.GetEnemySkillInfo(data.StartBattleSkillID), enemyBase, getter);
+            if(!data.StartBattleSkillID.IsNullOrWhitespace())
+                _startBattleSkill = new EnemySkill(
+                    getter.GetEnemySkillInfo(data.StartBattleSkillID), enemyBase, getter);
         }
 
         /// <summary>

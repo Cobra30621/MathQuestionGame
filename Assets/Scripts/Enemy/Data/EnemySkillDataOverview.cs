@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using Tool;
 using UnityEngine;
 using Utilities;
@@ -29,11 +31,12 @@ namespace Enemy.Data
             IsLoading = true;
             GoogleSheetService.LoadDataArray<EnemySkillData>(url, infos =>
             {
-                Debug.Log($"EnemySkillData Count: {infos.Length}");
+                // 將空行列剔除
+                EnemySkills = infos.Where(info => 
+                    !info.ID.IsNullOrWhitespace()).ToArray();;
+                Debug.Log($"EnemySkillData Count: {EnemySkills.Length}");
 
-                EnemySkills = infos;
-
-                foreach (var skillData in infos)
+                foreach (var skillData in EnemySkills)
                 {
                     skillData.skillIDs = Helper.ConvertStringToStringList(skillData.SkillID);
                 }

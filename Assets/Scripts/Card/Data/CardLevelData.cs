@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using Tool;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -63,7 +64,9 @@ namespace Card
             IsLoading = true;
             GoogleSheetService.LoadDataArray<CardLevelInfo>(url , infos =>
             {
-                cardInfos = infos;
+                // 將空行列剔除
+                cardInfos = infos.Where(info => 
+                    !info.ID.IsNullOrWhitespace()).ToArray();;
                 Debug.Log($"CardLevelInfo Count: {infos.Length}");
                 
                 foreach (var cardLevelInfo in cardInfos)
@@ -84,7 +87,7 @@ namespace Card
     [Serializable]
     public class CardLevelInfo
     {
-        public int ID;
+        public string ID;
         public string GroupID;
         public string SkillID;
         public int ManaCost;

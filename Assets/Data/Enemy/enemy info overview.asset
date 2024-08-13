@@ -15,73 +15,73 @@ MonoBehaviour:
   ids:
   - uniqueId:
       dataId: 101
-      displayName: "\u4F4E\u968E\u60E1\u9B54-\u96E3\u5EA6\u4E00"
+      displayName: "\u4F4E\u968E\u60E1\u9B54/\u96E3\u5EA6\u4E00"
     ID: 101
     Lang: "\u4F4E\u968E\u60E1\u9B54"
-    EnemySkillID: 9101001, 9101002,9101003
+    EnemySkillID: 101001, 101002,101003
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Birdman
-    StartBattleSkillID: 9101002
+    StartBattleSkillID: 101002
     MaxHp: 10
     enemySkillIDs:
-    - 9101001
-    - 9101002
-    - 9101003
+    - 101001
+    - 101002
+    - 101003
   - uniqueId:
       dataId: 102
-      displayName: "\u4F4E\u968E\u60E1\u9B54-\u96E3\u5EA6\u4E8C"
+      displayName: "\u4F4E\u968E\u60E1\u9B54/\u96E3\u5EA6\u4E8C"
     ID: 102
     Lang: "\u4F4E\u968E\u60E1\u9B54"
-    EnemySkillID: 9102001, 9102002,9102003
+    EnemySkillID: 102001, 102002,102003
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: Birdman
     StartBattleSkillID: 
     MaxHp: 10
     enemySkillIDs:
-    - 9102001
-    - 9102002
-    - 9102003
+    - 102001
+    - 102002
+    - 102003
   - uniqueId:
       dataId: 103
-      displayName: "\u4F4E\u968E\u60E1\u9B54-\u96E3\u5EA6\u4E09"
+      displayName: "\u4F4E\u968E\u60E1\u9B54/\u96E3\u5EA6\u4E09"
     ID: 103
     Lang: "\u4F4E\u968E\u60E1\u9B54"
-    EnemySkillID: 9103001, 9103002,9103003
+    EnemySkillID: 103001, 103002,103003
     Level: "\u96E3\u5EA6\u4E09"
     Prefab: Birdman
     StartBattleSkillID: 
     MaxHp: 10
     enemySkillIDs:
-    - 9103001
-    - 9103002
-    - 9103003
+    - 103001
+    - 103002
+    - 103003
   - uniqueId:
       dataId: 111
-      displayName: "\u60E1\u9B54\u738B-\u96E3\u5EA6\u4E00"
+      displayName: "\u60E1\u9B54\u738B/\u96E3\u5EA6\u4E00"
     ID: 111
     Lang: "\u60E1\u9B54\u738B"
-    EnemySkillID: 9111001
+    EnemySkillID: 111001
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Soldier
     StartBattleSkillID: 
     MaxHp: 10
     enemySkillIDs:
-    - 9111001
+    - 111001
   - uniqueId:
       dataId: 112
-      displayName: "\u60E1\u9B54\u738B-\u96E3\u5EA6\u4E8C"
+      displayName: "\u60E1\u9B54\u738B/\u96E3\u5EA6\u4E8C"
     ID: 112
     Lang: "\u60E1\u9B54\u738B"
-    EnemySkillID: 9112001
+    EnemySkillID: 112001
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: Soldier
     StartBattleSkillID: 
     MaxHp: 10
     enemySkillIDs:
-    - 9112001
+    - 112001
   - uniqueId:
       dataId: 113
-      displayName: "\u60E1\u9B54\u738B-\u96E3\u5EA6\u4E09"
+      displayName: "\u60E1\u9B54\u738B/\u96E3\u5EA6\u4E09"
     ID: 113
     Lang: "\u60E1\u9B54\u738B"
     EnemySkillID: 
@@ -92,7 +92,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 201
-      displayName: "\u53F2\u840A\u59C6-\u96E3\u5EA6\u4E00"
+      displayName: "\u53F2\u840A\u59C6/\u96E3\u5EA6\u4E00"
     ID: 201
     Lang: "\u53F2\u840A\u59C6"
     EnemySkillID: 
@@ -103,7 +103,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 202
-      displayName: "\u53F2\u840A\u59C6-\u96E3\u5EA6\u4E8C"
+      displayName: "\u53F2\u840A\u59C6/\u96E3\u5EA6\u4E8C"
     ID: 202
     Lang: "\u53F2\u840A\u59C6"
     EnemySkillID: 
@@ -114,7 +114,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 203
-      displayName: "\u53F2\u840A\u59C6-\u96E3\u5EA6\u4E09"
+      displayName: "\u53F2\u840A\u59C6/\u96E3\u5EA6\u4E09"
     ID: 203
     Lang: "\u53F2\u840A\u59C6"
     EnemySkillID: 
@@ -125,7 +125,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 211
-      displayName: "\u53F2\u840A\u59C6\u738B-\u96E3\u5EA6\u4E00"
+      displayName: "\u53F2\u840A\u59C6\u738B/\u96E3\u5EA6\u4E00"
     ID: 211
     Lang: "\u53F2\u840A\u59C6\u738B"
     EnemySkillID: 
@@ -136,7 +136,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 212
-      displayName: "\u53F2\u840A\u59C6\u738B-\u96E3\u5EA6\u4E8C"
+      displayName: "\u53F2\u840A\u59C6\u738B/\u96E3\u5EA6\u4E8C"
     ID: 212
     Lang: "\u53F2\u840A\u59C6\u738B"
     EnemySkillID: 
@@ -147,7 +147,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 213
-      displayName: "\u53F2\u840A\u59C6\u738B-\u96E3\u5EA6\u4E09"
+      displayName: "\u53F2\u840A\u59C6\u738B/\u96E3\u5EA6\u4E09"
     ID: 213
     Lang: "\u53F2\u840A\u59C6\u738B"
     EnemySkillID: 
@@ -158,7 +158,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 301
-      displayName: "\u6A39\u7CBE-\u96E3\u5EA6\u4E00"
+      displayName: "\u6A39\u7CBE/\u96E3\u5EA6\u4E00"
     ID: 301
     Lang: "\u6A39\u7CBE"
     EnemySkillID: 
@@ -169,7 +169,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 302
-      displayName: "\u6A39\u7CBE-\u96E3\u5EA6\u4E8C"
+      displayName: "\u6A39\u7CBE/\u96E3\u5EA6\u4E8C"
     ID: 302
     Lang: "\u6A39\u7CBE"
     EnemySkillID: 
@@ -180,7 +180,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 303
-      displayName: "\u6A39\u7CBE-\u96E3\u5EA6\u4E09"
+      displayName: "\u6A39\u7CBE/\u96E3\u5EA6\u4E09"
     ID: 303
     Lang: "\u6A39\u7CBE"
     EnemySkillID: 
@@ -191,7 +191,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 311
-      displayName: "\u53E4\u6A39-\u96E3\u5EA6\u4E00"
+      displayName: "\u53E4\u6A39/\u96E3\u5EA6\u4E00"
     ID: 311
     Lang: "\u53E4\u6A39"
     EnemySkillID: 
@@ -202,7 +202,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 312
-      displayName: "\u53E4\u6A39-\u96E3\u5EA6\u4E8C"
+      displayName: "\u53E4\u6A39/\u96E3\u5EA6\u4E8C"
     ID: 312
     Lang: "\u53E4\u6A39"
     EnemySkillID: 
@@ -213,7 +213,7 @@ MonoBehaviour:
     enemySkillIDs: []
   - uniqueId:
       dataId: 313
-      displayName: "\u53E4\u6A39-\u96E3\u5EA6\u4E09"
+      displayName: "\u53E4\u6A39/\u96E3\u5EA6\u4E09"
     ID: 313
     Lang: "\u53E4\u6A39"
     EnemySkillID: 
@@ -221,6 +221,84 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 10
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 901
+      displayName: "Cobra/\u6E2C\u8A66 1"
+    ID: 901
+    Lang: Cobra
+    EnemySkillID: 900102, 900101, 900001
+    Level: "\u6E2C\u8A66 1"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 999
+    enemySkillIDs:
+    - 900102
+    - 900101
+    - 900001
+  - uniqueId:
+      dataId: 902
+      displayName: "Cobra/\u6E2C\u8A66 2"
+    ID: 902
+    Lang: Cobra
+    EnemySkillID: 900102, 900101, 900001
+    Level: "\u6E2C\u8A66 2"
+    Prefab: Hive
+    StartBattleSkillID: 900102
+    MaxHp: 999
+    enemySkillIDs:
+    - 900102
+    - 900101
+    - 900001
+  - uniqueId:
+      dataId: 903
+      displayName: "Cobra/\u6E2C\u8A66 3"
+    ID: 903
+    Lang: Cobra
+    EnemySkillID: 
+    Level: "\u6E2C\u8A66 3"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 999
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 904
+      displayName: "Nelson/\u6E2C\u8A66 1"
+    ID: 904
+    Lang: Nelson
+    EnemySkillID: 900102, 900101, 900001
+    Level: "\u6E2C\u8A66 1"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 999
+    enemySkillIDs:
+    - 900102
+    - 900101
+    - 900001
+  - uniqueId:
+      dataId: 905
+      displayName: "Nelson/\u6E2C\u8A66 2"
+    ID: 905
+    Lang: Nelson
+    EnemySkillID: 900102, 900101, 900001
+    Level: "\u6E2C\u8A66 2"
+    Prefab: Hive
+    StartBattleSkillID: 900102
+    MaxHp: 999
+    enemySkillIDs:
+    - 900102
+    - 900101
+    - 900001
+  - uniqueId:
+      dataId: 906
+      displayName: "Nelson/\u6E2C\u8A66 3"
+    ID: 906
+    Lang: Nelson
+    EnemySkillID: 
+    Level: "\u6E2C\u8A66 3"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 999
     enemySkillIDs: []
   useDataPath: 0
   dataPath: 

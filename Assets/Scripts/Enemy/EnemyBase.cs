@@ -89,7 +89,8 @@ namespace Enemy
         /// <returns></returns>
         public IEnumerator BattleStartActionRoutine()
         {
-            yield return ActionRoutine(enemyAbility.GetStartBattleSkill());
+            if(enemyAbility.UseStartBattleSkill())
+                yield return ActionRoutine(enemyAbility.GetStartBattleSkill());
         }
 
         
