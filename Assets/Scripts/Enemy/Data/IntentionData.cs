@@ -32,12 +32,22 @@ namespace Enemy.Data
         [SerializeField] private Sprite intentionSprite;
         [SerializeField] private string header;
         [SerializeField] private string content;
+        [SerializeField] private ActionType _actionType;
 
 
         public Sprite IntentionSprite => intentionSprite;
         public string Header => header;
         public string Content => content;
         public bool ShowIntentionValue => showIntentionValue;
+        public ActionType ActionType => _actionType;
 
+    }
+
+    [Flags]
+    public enum ActionType
+    {
+        None = 0,
+        Attack = 2,
+        AddBuff = 4
     }
 }

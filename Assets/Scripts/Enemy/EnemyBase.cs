@@ -105,6 +105,8 @@ namespace Enemy
         
         public virtual IEnumerator ActionRoutine(EnemySkill skill)
         {
+            if(skill.intention.ActionType == ActionType.Attack)
+                PlayDefaultAttackFeedback();
             skill.PlaySkill();
             yield return null;
         }
