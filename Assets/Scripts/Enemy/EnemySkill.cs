@@ -58,10 +58,7 @@ namespace Enemy.Data
 
             var gameActions = GameActionFactory.GetGameActions(skillInfos,
                 new List<CharacterBase>() { _enemyBase }, actionSource);
-            foreach (var gameAction in gameActions)
-            {
-                GameActionExecutor.AddAction(gameAction, 0);
-            }
+            GameActionExecutor.AddAction(gameActions, 0.5f);
         }
 
         /// <summary>
