@@ -1,0 +1,186 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: "\u9632\u79A6"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+  isDevelopCard: 0
+  developLevelInfo:
+    ID: 
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: 
+    DesLang: 
+    TargetChoose: 0
+    skillIDs: []
+    EffectInfos: []
+  cardId: 6
+  _levelInfos:
+  - ID: 130101
+    GroupID: 6
+    SkillID: 2000001
+    ManaCost: 1
+    UpgradeCost: 10
+    Class: 3
+    MaxLevel: 0
+    TitleLang: "\u9632\u79A6"
+    DesLang: "\u7372\u5F971\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000001
+    EffectInfos: []
+  - ID: 130102
+    GroupID: 6
+    SkillID: 2000002
+    ManaCost: 1
+    UpgradeCost: 20
+    Class: 3
+    MaxLevel: 0
+    TitleLang: "\u9632\u79A6"
+    DesLang: "\u7372\u5F972\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000002
+    EffectInfos: []
+  - ID: 130103
+    GroupID: 6
+    SkillID: 2000003
+    ManaCost: 1
+    UpgradeCost: 50
+    Class: 3
+    MaxLevel: 0
+    TitleLang: "\u9632\u79A6"
+    DesLang: "\u7372\u5F973\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000003
+    EffectInfos: []
+  - ID: 130104
+    GroupID: 6
+    SkillID: 2000004
+    ManaCost: 1
+    UpgradeCost: 100
+    Class: 3
+    MaxLevel: 0
+    TitleLang: "\u9632\u79A6"
+    DesLang: "\u7372\u5F974\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000004
+    EffectInfos: []
+  - ID: 130105
+    GroupID: 6
+    SkillID: 2000005
+    ManaCost: 1
+    UpgradeCost: 300
+    Class: 3
+    MaxLevel: 0
+    TitleLang: "\u9632\u79A6"
+    DesLang: "\u7372\u5F975\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000005
+    EffectInfos: []
+  - ID: 130106
+    GroupID: 6
+    SkillID: 2000006
+    ManaCost: 1
+    UpgradeCost: 500
+    Class: 3
+    MaxLevel: 0
+    TitleLang: "\u9632\u79A6"
+    DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000006
+    EffectInfos: []
+  - ID: 130107
+    GroupID: 6
+    SkillID: 2000007
+    ManaCost: 1
+    UpgradeCost: 1000
+    Class: 3
+    MaxLevel: 0
+    TitleLang: "\u9632\u79A6"
+    DesLang: "\u7372\u5F977\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000007
+    EffectInfos: []
+  - ID: 130108
+    GroupID: 6
+    SkillID: 2000008
+    ManaCost: 1
+    UpgradeCost: 1500
+    Class: 3
+    MaxLevel: 0
+    TitleLang: "\u9632\u79A6"
+    DesLang: "\u7372\u5F978\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000008
+    EffectInfos: []
+  - ID: 130109
+    GroupID: 6
+    SkillID: 2000009
+    ManaCost: 1
+    UpgradeCost: 3000
+    Class: 3
+    MaxLevel: 0
+    TitleLang: "\u9632\u79A6"
+    DesLang: "\u7372\u5F979\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000009
+    EffectInfos: []
+  - ID: 130110
+    GroupID: 6
+    SkillID: 2000010
+    ManaCost: 1
+    UpgradeCost: 0
+    Class: 3
+    MaxLevel: 1
+    TitleLang: "\u9632\u79A6"
+    DesLang: "\u7372\u5F9710\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000010
+    EffectInfos: []
+  exhaustAfterPlay: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
+  useDefaultAttackFeedback: 0
+  useCustomFeedback: 0
+  cardName: 
+  cardSprite: {fileID: 0}
+  rarity: 0
+  description: 
