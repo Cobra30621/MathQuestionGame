@@ -233,7 +233,7 @@ namespace Combat
             var encounterName = GameManager.CurrentEnemyEncounter;
             currentEncounter = enemyEncounterOverview.FindUniqueId(encounterName.Id);
             characterHandler.BuildEnemies(currentEncounter.enemyList);
-            characterHandler.BuildAllies(GameManager.MainAllyData);
+            characterHandler.BuildAllies(GameManager.allyData);
 
             backgroundContainer.OpenSelectedBackground();
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Card.Data;
 using Data;
 using Data.Encounter;
+using Data.Stage;
 using DataPersistence;
 using Managers;
 using Map;
@@ -33,6 +34,8 @@ namespace NueGames.Managers
         [InlineEditor()]
         [SerializeField] private GameplayData gameplayData;
 
+
+        
         
         #region Cache
         public GameplayData GameplayData => gameplayData;
@@ -42,7 +45,8 @@ namespace NueGames.Managers
         
         public List<CardData> CurrentCardsList;
         
-        public AllyData MainAllyData;
+        public AllyData allyData;
+        public StageData stageData;
         
         public EncounterName CurrentEnemyEncounter;
 
@@ -59,7 +63,7 @@ namespace NueGames.Managers
             PlayerData = data.PlayerData;
             gameplayData = gameplayDataFileHandler.GuidToData<GameplayData>(data.GamePlayDataId);
             CurrentCardsList = cardDataFileHandler.GuidToData<CardData>(data.PlayerData.CardDataGuids);
-            MainAllyData = allyDataFileHandler.GuidToData<AllyData>(data.PlayerData.AllyDataGuid);
+            allyData = allyDataFileHandler.GuidToData<AllyData>(data.PlayerData.AllyDataGuid);
             SetRelicList(data.PlayerData.Relics);
         }
 
@@ -68,7 +72,7 @@ namespace NueGames.Managers
             data.PlayerData = PlayerData;
             data.GamePlayDataId = gameplayDataFileHandler.DataToGuid(gameplayData);
             data.PlayerData.CardDataGuids =  cardDataFileHandler.DataToGuid(CurrentCardsList);
-            data.PlayerData.AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData);
+            data.PlayerData.AllyDataGuid = allyDataFileHandler.DataToGuid(allyData);
             data.PlayerData.Relics = _relicManager.GetRelicNames();
         }
         
@@ -94,24 +98,23 @@ namespace NueGames.Managers
 
         private void SetInitData()
         {
-            MainAllyData = gameplayData.InitialAllyData;
-            SetRelicList(gameplayData.InitialRelic);
+            SetRelicList(allyData.initialRelic);
             CurrentCardsList = new List<CardData>();
-            foreach (var cardData in GameplayData.InitalDeck.CardList)
+            foreach (var cardData in allyData.InitialDeck.CardList)
                 CurrentCardsList.Add(cardData);
             
-            PlayerData = new PlayerData(gameplayData)
+            PlayerData = new PlayerData(gameplayData, allyData)
             {
                 CardDataGuids = cardDataFileHandler.DataToGuid(CurrentCardsList),
-                AllyDataGuid = allyDataFileHandler.DataToGuid(MainAllyData),
+                AllyDataGuid = allyDataFileHandler.DataToGuid(allyData),
                 Relics = _relicManager.GetRelicNames(),
             };
             
             MoneyManager.Instance.SetMoney(gameplayData.InitMoney);
             
-            UIManager.Instance.RewardCanvas.SetCardReward(gameplayData.CardRewardData);
+            UIManager.Instance.RewardCanvas.SetCardReward(allyData.CardRewardData);
 
-            MapManager.Instance.Initialized(gameplayData.MapConfigs);
+            MapManager.Instance.Initialized(stageData);
             QuestionManager.Instance.GenerateQuestions();
         }
 
@@ -119,7 +122,7 @@ namespace NueGames.Managers
         {
             SaveManager.Instance.LoadGame();
             
-            UIManager.Instance.RewardCanvas.SetCardReward(gameplayData.CardRewardData);
+            UIManager.Instance.RewardCanvas.SetCardReward(allyData.CardRewardData);
         }
 
         #endregion
@@ -138,6 +141,11 @@ namespace NueGames.Managers
         public void SetGameplayData(GameplayData gameplayData)
         {
             this.gameplayData = gameplayData;
+        }
+        
+        public void SetAllyData(AllyData allyData)
+        {
+            this.allyData = allyData;
         }
 
         

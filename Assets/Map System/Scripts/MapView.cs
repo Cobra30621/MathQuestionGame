@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Map_System.Scripts.MapData;
 using NueGames.Managers;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 
@@ -20,10 +22,9 @@ namespace Map
         public MapManager mapManager => MapManager.Instance;
         public MapOrientation orientation;
 
-        [Tooltip(
-            "List of all the MapConfig scriptable objects from the Assets folder that might be used to construct maps. " +
-            "Similar to Acts in Slay The Spire (define general layout, types of bosses.)")]
-        public List<MapConfig> allMapConfigs;
+        [Required]
+        public NodeBlueprintData nodeBlueprintData;
+     
         public GameObject nodePrefab;
         [Tooltip("Offset of the start/end nodes of the map from the edges of the screen")]
         public float orientationOffset;
@@ -129,7 +130,7 @@ namespace Map
 
         protected virtual void SetMapName(Map m)
         {
-            UIManager.Instance.InformationCanvas.SetRoomText($"{m.configName}");
+            UIManager.Instance.InformationCanvas.SetRoomText($"{m.mapName}");
         }
 
         protected virtual void CreateMapParent()
@@ -157,7 +158,7 @@ namespace Map
         {
             var mapNodeObject = Instantiate(nodePrefab, mapParent.transform);
             var mapNode = mapNodeObject.GetComponent<MapNode>();
-            var blueprint = GetBlueprint(node.blueprintName);
+            var blueprint = GetBlueprint(node.nodeType);
             mapNode.SetUp(node, blueprint);
             mapNode.transform.localPosition = node.position;
             return mapNode;
@@ -338,21 +339,12 @@ namespace Map
             return MapNodes.FirstOrDefault(n => n.Node.point.Equals(p));
         }
 
-        protected MapConfig GetConfig(string configName)
-        {
-            return allMapConfigs.FirstOrDefault(c => c.name == configName);
-        }
+
 
         protected NodeBlueprint GetBlueprint(NodeType type)
         {
-            var config = GetConfig(mapManager.CurrentMap.configName);
-            return config.nodeBlueprints.FirstOrDefault(n => n.nodeType == type);
+            return nodeBlueprintData.GetNodeBlueprint(type);
         }
-
-        protected NodeBlueprint GetBlueprint(string blueprintName)
-        {
-            var config = GetConfig(mapManager.CurrentMap.configName);
-            return config.nodeBlueprints.FirstOrDefault(n => n.name == blueprintName);
-        }
+        
     }
 }

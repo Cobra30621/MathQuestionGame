@@ -22,7 +22,7 @@ namespace CompleteAndWin
 
         public void UpdateUI()
         {
-            mapName.text = "突破地圖:" + MapManager.Instance.CurrentMap.configName;
+            mapName.text = "突破地圖:" + MapManager.Instance.CurrentMap.mapName;
         }
 
         public void EnterNextMap()

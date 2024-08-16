@@ -46,7 +46,7 @@ namespace NueGames.UI
             SetHealthText(GameManager.PlayerData.AllyHealthData.CurrentHealth,
                 GameManager.PlayerData.AllyHealthData.MaxHealth);
             SetGoldText(MoneyManager.Instance.Money);
-            SetNameText(GameManager.MainAllyData.CharacterName);
+            SetNameText(GameManager.allyData.CharacterName);
         }
         #endregion
         

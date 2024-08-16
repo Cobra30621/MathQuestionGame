@@ -1525,7 +1525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1614362813
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1696,6 +1696,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2133601806, guid: 0f20f68f48abf2844b9f1fb520647c03, type: 3}
+      propertyPath: allyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 621ddd3ce6aa142d0945b431e8681f64, type: 2}
+    - target: {fileID: 2133601806, guid: 0f20f68f48abf2844b9f1fb520647c03, type: 3}
+      propertyPath: stageData
+      value: 
+      objectReference: {fileID: 11400000, guid: 592614dcf419442e1a8158ee6145e133, type: 2}
     - target: {fileID: 2133601806, guid: 0f20f68f48abf2844b9f1fb520647c03, type: 3}
       propertyPath: GameplayData
       value: 

@@ -10,6 +10,7 @@ using NueGames.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 using NueGames.Combat;
+using NueGames.Data.Characters;
 using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
 using NueGames.Power;
@@ -34,6 +35,10 @@ namespace Tool
         [InlineEditor()]
         [LabelText("遊戲設定")]
         public GameplayData GameplayData;
+        
+        [InlineEditor()]
+        [LabelText("玩家資料")]
+        public AllyData allyData;
         
         [LabelText("產生的敵人們")]
         public EncounterName enemyEncounter;
@@ -81,6 +86,7 @@ namespace Tool
         private void SetDevelopModeData()
         {
             GameManager.Instance.SetGameplayData(GameplayData);
+            GameManager.Instance.SetAllyData(allyData);
             GameManager.Instance.SetEnemyEncounter(enemyEncounter);
             QuestionManager.Instance.SetQuestionSetting(QuestionSetting); 
             

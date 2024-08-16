@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c3c35b36654e8ea64577ae23c5b255, type: 3}
+  m_Name: Easy
+  m_EditorClassIdentifier: 
+  uniqueId:
+    dataId: 722421e1-f637-4ca9-8ef0-799ac5d80321
+    displayName: "\u7C21\u55AE"
+  stageName: "\u7C21\u55AE"
+  maps:
+  - mapName: "\u7B2C\u4E00\u5C64"
+    layers:
+    - nodeDatas:
+      - nodeTypeClips:
+        - nodeType: 0
+          weight: 1
+      - nodeTypeClips:
+        - nodeType: 0
+          weight: 1
+      - nodeTypeClips:
+        - nodeType: 0
+          weight: 1
+      distanceFromPreviousLayer:
+        min: 1
+        max: 1
+      nodesApartDistance: 2
+      randomizePosition: 0.295
+    - nodeDatas:
+      - nodeTypeClips:
+        - nodeType: 0
+          weight: 1
+      distanceFromPreviousLayer:
+        min: 1
+        max: 1
+      nodesApartDistance: 2
+      randomizePosition: 0.147
+    encounterStage:
+      weakEnemyCount: 2
+      weakEnemies:
+        weightClip:
+        - encounter:
+            id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+          weight: 1
+      strongEnemies:
+        weightClip:
+        - encounter:
+            id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+          weight: 1
+      eliteEnemies:
+        weightClip:
+        - encounter:
+            id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+          weight: 1
+      bossEnemies:
+        weightClip:
+        - encounter:
+            id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+          weight: 1
+    nodeBlueprintData: {fileID: 11400000, guid: c88b2f47d6f3747e79d8d987401d3f63, type: 2}
