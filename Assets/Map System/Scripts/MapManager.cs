@@ -67,6 +67,11 @@ namespace Map
         {
             selectedNode = node;
         }
+
+        public NodeType GetCurrentNodeType()
+        {
+            return selectedNode.Node.nodeType;
+        }
         
         public void OnRoomCompleted()
         {

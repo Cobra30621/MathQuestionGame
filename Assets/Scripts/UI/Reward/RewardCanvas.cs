@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Card.Data;
+using Map;
 using Money;
 using NueGames.Card;
 using NueGames.Data.Collection;
@@ -38,14 +39,14 @@ namespace NueGames.UI.Reward
         }
 
 
-        public void ShowReward(List<RewardType> rewardTypes)
+        public void ShowReward(List<RewardType> rewardTypes, NodeType nodeType)
         {
             UIManager.RewardCanvas.gameObject.SetActive(true);
             UIManager.RewardCanvas.PrepareCanvas();
             
             foreach (var rewardType in rewardTypes)
             {
-                UIManager.RewardCanvas.BuildReward(rewardType);
+                UIManager.RewardCanvas.BuildReward(rewardType, nodeType);
             }
         }
 
@@ -53,7 +54,7 @@ namespace NueGames.UI.Reward
         {
             rewardPanelRoot.gameObject.SetActive(true);
         }
-        public void BuildReward(RewardType rewardType)
+        public void BuildReward(RewardType rewardType, NodeType nodeType)
         {
             var rewardClone = Instantiate(rewardContainerPrefab, rewardRoot);
             _currentRewardsList.Add(rewardClone);
@@ -61,8 +62,10 @@ namespace NueGames.UI.Reward
             switch (rewardType)
             {
                 case RewardType.Gold:
-                    var rewardGold = rewardContainerData.GetRandomGoldReward(out var goldRewardData);
-                    rewardClone.BuildReward(goldRewardData.RewardSprite,goldRewardData.RewardDescription);
+                    var rewardGold = rewardContainerData.GetRandomGoldReward(nodeType);
+                    var goldRewardData = rewardContainerData.GoldRewardData;
+                    rewardClone.BuildReward(goldRewardData.RewardSprite,
+                        goldRewardData.RewardDescription + $" {rewardGold}");
                     rewardClone.RewardButton.onClick.AddListener(()=>GetGoldReward(rewardClone,rewardGold));
                     break;
                 case RewardType.Card:
@@ -71,7 +74,8 @@ namespace NueGames.UI.Reward
                     _cardRewardList.Clear();
                     foreach (var cardData in rewardCardList)
                         _cardRewardList.Add(cardData);
-                    rewardClone.BuildReward(cardRewardData.RewardSprite,cardRewardData.RewardDescription);
+                    rewardClone.BuildReward(cardRewardData.RewardSprite,
+                        cardRewardData.RewardDescription);
                     rewardClone.RewardButton.onClick.AddListener(()=>GetCardReward(rewardClone,3));
                     break;
                 case RewardType.Relic:

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Data.Encounter;
 using Enemy;
 using Feedback;
+using Map;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Data.Encounter;
@@ -361,10 +362,11 @@ namespace Combat
 
             MainAlly.ClearAllPower();
             UIManager.CombatCanvas.gameObject.SetActive(false);
+            var currentNodeType = MapManager.Instance.GetCurrentNodeType();
             UIManager.RewardCanvas.ShowReward(new List<RewardType>()
             {
                 RewardType.Card, RewardType.Gold
-            });
+            }, currentNodeType);
         }
 
         #endregion

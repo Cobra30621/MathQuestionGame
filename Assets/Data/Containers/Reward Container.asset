@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ee6923251c40c0a25c5714f844ad43, type: 3}
   m_Name: Reward Container
   m_EditorClassIdentifier: 
-  cardRewardDataList:
-  - {fileID: 11400000, guid: 1f5066664148a174195b3eaf5084811e, type: 2}
-  goldRewardDataList:
-  - {fileID: 11400000, guid: bef18396ce6d1a94489b81eacda6328e, type: 2}
+  cardRewardData: {fileID: 11400000, guid: d032bbaa522744b3e86d3e61324dd930, type: 2}
+  goldRewardData: {fileID: 11400000, guid: bef18396ce6d1a94489b81eacda6328e, type: 2}
+  _itemDropData: {fileID: 11400000, guid: a69587f66b3f242c896a898a474da71e, type: 2}

@@ -75,7 +75,7 @@ namespace NueGames.Encounter
             UIManager.Instance.RewardCanvas.ShowReward(new List<RewardType>()
             {
                 rewardType
-            });
+            }, NodeType.Treasure);
         }
         
         private void EnterCombatRoom(EncounterName encounter)
