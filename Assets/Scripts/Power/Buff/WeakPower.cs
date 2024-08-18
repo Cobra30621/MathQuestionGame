@@ -6,7 +6,7 @@ using UnityEngine;
 namespace NueGames.Power
 {
     /// <summary>
-    /// 虛弱，受到的傷害變 0.75 倍
+    /// 虛弱，造成的傷害變 0.5 倍
     /// </summary>
     public class WeakPower : PowerBase
     {
@@ -20,7 +20,7 @@ namespace NueGames.Power
         
         public override float AtDamageGive(float damage)
         {
-            return damage * 0.75f;
+            return damage * 0.5f;
         }
     }
 }

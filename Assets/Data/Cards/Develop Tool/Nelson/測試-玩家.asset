@@ -21,21 +21,43 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: cardAction
-      Entry: 7
-      Data: 0|CardAction.Damage, Assembly-CSharp
-    - Name: damageValue
-      Entry: 3
-      Data: 25
-    - Name: 
-      Entry: 8
+    - Name: customerFeedback
+      Entry: 6
       Data: 
-  value: 1
-  actionTargetType: 1
-  manaCost: 1
+  isDevelopCard: 1
+  developLevelInfo:
+    ID: 
+    GroupID: 
+    SkillID: 20003
+    ManaCost: 0
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: Test_Buff_4_stacks
+    DesLang: 
+    TargetChoose: 0
+    skillIDs:
+    - 20003
+    EffectInfos:
+    - SkillID: 20003
+      EffectID: 20003
+      EffectParameter: 
+      EffectParameterList: 5704000004000000
+      Target: 0
+      ps: 
+  cardId: 
+  _levelInfos: []
+  _allyClassType: 0
   exhaustAfterPlay: 0
-  fxName: 0
-  fxSpawnPosition: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
+  useDefaultAttackFeedback: 0
+  useCustomFeedback: 0
   cardName: "\u6E2C\u8A66-\u73A9\u5BB6"
   cardSprite: {fileID: 21300000, guid: deb20f18003224931880f65cab644b4c, type: 3}
   rarity: 0

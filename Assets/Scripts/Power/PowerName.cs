@@ -12,6 +12,8 @@
         Invincible = 3,
         Poison = 6,
         Fire = 7,
+        // not official coded
+        Weak = 1111,
         //
 
 
@@ -26,8 +28,7 @@
 
 
 
-
-        Weak = 5,
+        
         BloodFury = 6,
         Hardcore = 7,
         Miss = 8,
