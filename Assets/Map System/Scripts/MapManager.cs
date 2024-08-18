@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using Data;
-using Data.Stage;
 using Map_System.Scripts.MapData;
 using Newtonsoft.Json;
 using NueGames.Encounter;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using Stage;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 

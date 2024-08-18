@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Card.Data;
 using Data;
 using Data.Encounter;
-using Data.Stage;
 using DataPersistence;
 using Managers;
 using Map;
@@ -18,6 +17,7 @@ using NueGames.Encounter;
 using NueGames.Relic;
 using Question;
 using Sirenix.OdinInspector;
+using Stage;
 using UnityEngine;
 
 namespace NueGames.Managers
@@ -34,6 +34,8 @@ namespace NueGames.Managers
         [InlineEditor()]
         [SerializeField] private GameplayData gameplayData;
 
+        [Required]
+        [SerializeField] private StageSelectedHandler _stageSelectedHandler;
 
         
         
@@ -45,13 +47,14 @@ namespace NueGames.Managers
         
         public List<CardData> CurrentCardsList;
         
-        public AllyData allyData;
-        public StageData stageData;
-        
         public EncounterName CurrentEnemyEncounter;
 
         public bool CanSelectCards;
 
+        public StageSelectedHandler StageSelectedHandler => _stageSelectedHandler;
+
+        public AllyData allyData => _stageSelectedHandler.GetAllyData();
+        private StageData stageData;
         
         #endregion
         
@@ -63,7 +66,8 @@ namespace NueGames.Managers
             PlayerData = data.PlayerData;
             gameplayData = gameplayDataFileHandler.GuidToData<GameplayData>(data.GamePlayDataId);
             CurrentCardsList = cardDataFileHandler.GuidToData<CardData>(data.PlayerData.CardDataGuids);
-            allyData = allyDataFileHandler.GuidToData<AllyData>(data.PlayerData.AllyDataGuid);
+            _stageSelectedHandler.SetAllyData(
+                allyDataFileHandler.GuidToData<AllyData>(data.PlayerData.AllyDataGuid));
             SetRelicList(data.PlayerData.Relics);
         }
 
@@ -72,7 +76,8 @@ namespace NueGames.Managers
             data.PlayerData = PlayerData;
             data.GamePlayDataId = gameplayDataFileHandler.DataToGuid(gameplayData);
             data.PlayerData.CardDataGuids =  cardDataFileHandler.DataToGuid(CurrentCardsList);
-            data.PlayerData.AllyDataGuid = allyDataFileHandler.DataToGuid(allyData);
+            data.PlayerData.AllyDataGuid = allyDataFileHandler.DataToGuid(
+                _stageSelectedHandler.GetAllyData());
             data.PlayerData.Relics = _relicManager.GetRelicNames();
         }
         
@@ -145,7 +150,7 @@ namespace NueGames.Managers
         
         public void SetAllyData(AllyData allyData)
         {
-            this.allyData = allyData;
+            _stageSelectedHandler.SetAllyData(allyData);
         }
 
         

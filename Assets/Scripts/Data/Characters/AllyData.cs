@@ -23,6 +23,12 @@ namespace NueGames.Data.Characters
         
         [LabelText("玩家初始遺物")]
         public List<RelicName> initialRelic;
+        
 
+        [LabelText("大圖像")]
+        public Sprite Sprite;
+
+        [LabelText("選擇的小 Icon")]
+        public Sprite Icon;
     }
 }

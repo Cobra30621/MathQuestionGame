@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Data.Stage;
 using NueGames.Data.Characters;
 using NueGames.Data.Settings;
 using NueGames.Managers;
 using NueGames.Utils;
 using Question;
 using Sirenix.OdinInspector;
+using Stage;
 using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
@@ -42,6 +42,8 @@ public class MainMenuManager : MonoBehaviour
         yield return null;
         sceneChanger.OpenMapScene();
     }
+    
+    
     public void ContinueGame()
     {
         GameManager.Instance.ContinueGame();
