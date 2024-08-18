@@ -1,17 +1,44 @@
 using System.Collections.Generic;
+using NueGames.Managers;
+using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Stage
 {
     public class StageSelectedUI : MonoBehaviour
     {
         private int _currentStageIndex;
-        private List<StageName> _stageDataList;
+        private List<StageName> _stageNameList;
+
+        [Required]
+        [SerializeField]
+        private TextMeshProUGUI currentStageNameText;
+
+        [Required]
+        [SerializeField]
+        private Button previousButton;
+
+        [Required]
+        [SerializeField]
+        private Button nextButton;
+
+        [Required]
+        [SerializeField] private StageDataOverview _stageDataOverview;
+
+        private void Start()
+        {
+            previousButton.onClick.AddListener(SetPrevious);
+            nextButton.onClick.AddListener(SetNext);
+        }
 
         public void Init(List<StageName> stageDataList)
         {
-            _stageDataList = stageDataList;
+            _stageNameList = stageDataList;
             _currentStageIndex = 0;
+
+            OnStageSelected();
             UpdateUI();
         }
 
@@ -20,24 +47,34 @@ namespace Stage
             if (_currentStageIndex > 0)
             {
                 _currentStageIndex--;
+                OnStageSelected();
                 UpdateUI();
             }
         }
-
+        
         public void SetNext()
         {
-            if (_currentStageIndex < _stageDataList.Count - 1)
+            if (_currentStageIndex < _stageNameList.Count - 1)
             {
                 _currentStageIndex++;
+                OnStageSelected();
                 UpdateUI();
             }
         }
 
         private void UpdateUI()
         {
-            // Update the UI elements with the data of the current stage
-            StageName currentStageData = _stageDataList[_currentStageIndex];
-            // Add your code to update the UI elements with the stage data
+            var stageName = _stageNameList[_currentStageIndex];
+            var stageData = _stageDataOverview.FindUniqueId(stageName.Id);
+            currentStageNameText.text = stageData.stageName;
+        }
+
+        private void OnStageSelected()
+        {
+            StageName currentStageName = _stageNameList[_currentStageIndex];
+            
+            var selectedHandler = GameManager.Instance.StageSelectedHandler;
+            selectedHandler.SetStageData(currentStageName);
         }
     }
 }

@@ -54,7 +54,7 @@ namespace NueGames.Managers
         public StageSelectedHandler StageSelectedHandler => _stageSelectedHandler;
 
         public AllyData allyData => _stageSelectedHandler.GetAllyData();
-        private StageData stageData;
+    
         
         #endregion
         
@@ -119,7 +119,7 @@ namespace NueGames.Managers
             
             UIManager.Instance.RewardCanvas.SetCardReward(allyData.CardRewardData);
 
-            MapManager.Instance.Initialized(stageData);
+            MapManager.Instance.Initialized(_stageSelectedHandler.GetStageData());
             QuestionManager.Instance.GenerateQuestions();
         }
 

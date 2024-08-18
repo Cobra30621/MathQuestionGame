@@ -24,6 +24,7 @@ namespace Stage
         
         [Required] [SerializeField] private CanvasGroup _canvasGroup;
 
+        private bool _haveAllySelected = false;
 
         public void Init(List<AllyData> allyData)
         {
@@ -61,6 +62,7 @@ namespace Stage
             description.text = selectedAllyData.CharacterDescription;
             character.sprite = selectedAllyData.Sprite;
 
+            _haveAllySelected = true;
         }
 
         public void ClosePanel()
@@ -68,6 +70,13 @@ namespace Stage
             _canvasGroup.alpha = 0;
             _canvasGroup.blocksRaycasts = false;
             _canvasGroup.interactable = false;
+
+            _haveAllySelected = false;
+        }
+
+        public bool HaveAllySelected()
+        {
+            return _haveAllySelected;
         }
     }
 }

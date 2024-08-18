@@ -13,7 +13,11 @@ namespace Map
 {
     public class MapManager : Singleton<MapManager>, IDataPersistence
     {
-
+        public StageName stageName;
+        
+        [Required]
+        public StageDataOverview stageDataOverview;
+        
         public StageData stageData;
         
         private int CurrentMapIndex;
@@ -82,9 +86,10 @@ namespace Map
 
 
         // 初始化地圖管理器，設定地圖配置數組
-        public void Initialized(StageData stage)
+        public void Initialized(StageName stageName)
         {
-            stageData = stage;
+            this.stageName = stageName;
+            stageData = stageDataOverview.FindUniqueId(this.stageName.Id);
             CurrentMapIndex = 0;
             needInitializedMap = true;
         }

@@ -30,9 +30,8 @@ namespace Stage
             startButton.onClick.AddListener(StartGame);
             backButton.onClick.AddListener(ClosePanel);
             
+           
             
-            
-
             ClosePanel();
         }
 
@@ -46,8 +45,14 @@ namespace Stage
                 return;
             }
             
+            // Set up listeners for stage and ally data changed events
             stageSelectedHandler.OnAllyDataChanged.AddListener(
                 allySelectedUI.OnAllySelected);
+            
+            // Can Click Start Button when allyData Have Selected
+            stageSelectedHandler.OnAllyDataChanged.AddListener(
+                (a)=> startButton.interactable = true
+            );
         }
 
         /// <summary>
@@ -71,7 +76,8 @@ namespace Stage
             _canvasGroup.alpha = 0;
             _canvasGroup.blocksRaycasts = false;
             _canvasGroup.interactable = false;
-            
+
+            startButton.interactable = false;
             allySelectedUI.ClosePanel();
         }
 
