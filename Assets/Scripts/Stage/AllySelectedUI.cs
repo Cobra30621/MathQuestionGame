@@ -58,7 +58,7 @@ namespace Stage
             
             // Update UI elements with the selected ally data
             characterName.text = selectedAllyData.CharacterName;
-            health.text = selectedAllyData.MaxHealth.ToString();
+            health.text =  $"HP: " + selectedAllyData.MaxHealth.ToString();
             description.text = selectedAllyData.CharacterDescription;
             character.sprite = selectedAllyData.Sprite;
 

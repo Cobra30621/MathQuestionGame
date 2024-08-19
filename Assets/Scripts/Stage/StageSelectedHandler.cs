@@ -11,10 +11,7 @@ namespace Stage
         private StageName _currentStageData;
         private AllyData _currentAllyData;
         
-        [SerializeField] private List<StageName> _stageDataList;
-        [InlineEditor]
-        [SerializeField] private List<AllyData> _allyDataList;
-
+        
         public UnityEvent<AllyData> OnAllyDataChanged;
         
         public void SetStageData(StageName stageData)
@@ -38,16 +35,6 @@ namespace Stage
         public AllyData GetAllyData()
         {
             return _currentAllyData;
-        }
-        
-        public List<StageName> GetStageDataList()
-        {
-            return _stageDataList;
-        }
-
-        public List<AllyData> GetAllyDataList()
-        {
-            return _allyDataList;
         }
     }
 }

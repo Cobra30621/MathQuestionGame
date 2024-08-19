@@ -13,25 +13,26 @@ namespace Stage
     {
         [Required] public Button startButton;
         [Required] public Button backButton;
-        [Required] [SerializeField]  private CanvasGroup _canvasGroup;
+        [Required] [SerializeField] private CanvasGroup _canvasGroup;
+
+        [Required] [InlineEditor] [LabelText("角色與難度選擇")] [SerializeField]
+        private AllyAndStageSetting allyAndStageSetting;
+
 
         [SerializeField] private StageDataOverview _stageDataOverview;
-        
+
         private StageSelectedHandler stageSelectedHandler;
         [Required] public StageSelectedUI stageSelectedUI;
         [Required] public AllySelectedUI allySelectedUI;
 
-        [Required]
-        [SerializeField] private SceneChanger sceneChanger;
+        [Required] [SerializeField] private SceneChanger sceneChanger;
 
         private void Awake()
         {
-
             startButton.onClick.AddListener(StartGame);
             backButton.onClick.AddListener(ClosePanel);
-            
-           
-            
+
+
             ClosePanel();
         }
 
@@ -44,14 +45,14 @@ namespace Stage
                 Debug.LogError("StageSelectedHandler is null");
                 return;
             }
-            
+
             // Set up listeners for stage and ally data changed events
             stageSelectedHandler.OnAllyDataChanged.AddListener(
                 allySelectedUI.OnAllySelected);
-            
+
             // Can Click Start Button when allyData Have Selected
             stageSelectedHandler.OnAllyDataChanged.AddListener(
-                (a)=> startButton.interactable = true
+                (a) => startButton.interactable = true
             );
         }
 
@@ -64,8 +65,8 @@ namespace Stage
             _canvasGroup.blocksRaycasts = true;
             _canvasGroup.interactable = true;
 
-            stageSelectedUI.Init(stageSelectedHandler.GetStageDataList());
-            allySelectedUI.Init(stageSelectedHandler.GetAllyDataList());
+            stageSelectedUI.Init(allyAndStageSetting.StageNameList);
+            allySelectedUI.Init(allyAndStageSetting.AllyDataList);
         }
 
         /// <summary>
@@ -88,7 +89,7 @@ namespace Stage
         {
             // Add your game logic to start the game
             Debug.Log("Starting the game...");
-            
+
             GameManager.Instance.NewGame();
             StartCoroutine(StartGameCoroutine());
         }

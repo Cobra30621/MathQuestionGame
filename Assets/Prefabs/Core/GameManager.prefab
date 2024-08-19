@@ -152,11 +152,10 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  _stageDataList:
-  - id: 722421e1-f637-4ca9-8ef0-799ac5d80321
-  _allyDataList:
-  - {fileID: 11400000, guid: 621ddd3ce6aa142d0945b431e8681f64, type: 2}
-  - {fileID: 11400000, guid: fc1a85bb53bd2694ea1143c9b9a6baf3, type: 2}
+  _stageAndAllySetting: {fileID: 11400000, guid: c2021567cd3ac454791254a0c4efb818, type: 2}
+  OnAllyDataChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3747954644409722071
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,8 +221,6 @@ MonoBehaviour:
   gameplayData: {fileID: 0}
   _stageSelectedHandler: {fileID: 927399313501667963}
   CurrentCardsList: []
-  allyData: {fileID: 0}
-  stageData: {fileID: 0}
   CurrentEnemyEncounter:
     id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
   CanSelectCards: 0
