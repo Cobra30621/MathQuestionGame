@@ -40,10 +40,10 @@ namespace NueGames.Power
             if (IsCharacterTurn(info))
             {
                 int fireAmount = Amount;
-                if (CombatManager.Instance.MainAlly.HasPower(PowerName.Kindle))
-                {
-                   fireAmount = Amount * 2;
-                }
+                // if (CombatManager.Instance.MainAlly.HasPower(PowerName.Kindle))
+                // {
+                //    fireAmount = Amount * 2;
+                // }
 
                 // 造成傷害
                 var damageInfo = new DamageInfo(fireAmount, GetActionSource(), fixDamage: true);
