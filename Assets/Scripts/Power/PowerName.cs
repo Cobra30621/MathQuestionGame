@@ -10,7 +10,8 @@
         Vulnerable = 1,
         Strength = 2,
         Invincible = 3,
-
+        Poison = 6,
+        Fire = 7,
         //
 
 
@@ -53,7 +54,6 @@
         MathAngry = 132,
 
         // 燃燒
-        Fire = 201,
         SuperFire = 202,
         Kindle = 203,
         GetGainManaPowerIfBeAttackByBurningEnemy = 211,
