@@ -182,6 +182,11 @@ namespace NueGames.Managers
             CurrentCardsList.Remove(cardData);
         }
 
+        public float GetMoneyDropRate()
+        {
+            return _stageSelectedHandler.GetMoneyDropRate();
+        }
+
         
         #endregion
 

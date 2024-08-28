@@ -8,6 +8,9 @@ namespace Stage
 {
     public class StageSelectedHandler : SerializedMonoBehaviour
     {
+        [Required]
+        [SerializeField] private StageDataOverview _stageDataOverview;
+        
         private StageName _currentStageData;
         private AllyData _currentAllyData;
         
@@ -35,6 +38,11 @@ namespace Stage
         public AllyData GetAllyData()
         {
             return _currentAllyData;
+        }
+
+        public float GetMoneyDropRate()
+        {
+            return _stageDataOverview.FindUniqueId(_currentStageData.Id).moneyDropRate;
         }
     }
 }

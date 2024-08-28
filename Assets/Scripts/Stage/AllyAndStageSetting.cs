@@ -7,8 +7,11 @@ namespace Stage
 {
     public class AllyAndStageSetting : ScriptableObject
     {
+        [LabelText("可選擇個關卡清單")]
         [SerializeField] private List<StageName> _stageDataList;
+        
         [InlineEditor]
+        [LabelText("可選擇的玩家清單")]
         [SerializeField] private List<AllyData> _allyDataList;
 
         public List<StageName> StageNameList => _stageDataList;

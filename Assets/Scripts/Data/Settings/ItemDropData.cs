@@ -1,8 +1,9 @@
 using System;
 using Map;
+using NueGames.Managers;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using static UnityEngine.Random;
 
 namespace Data.Settings
 {
@@ -24,7 +25,9 @@ namespace Data.Settings
 
         public int GetNodeDropMoney(NodeType nodeType)
         {
-            float rate = Random.Range(1f - randomMoneyRange, 1f + randomMoneyRange);
+            var moneyDropRate = GameManager.Instance.GetMoneyDropRate();
+            
+            float rate = Range(1f - randomMoneyRange, 1f + randomMoneyRange) * moneyDropRate;
             
             switch (nodeType)
             {

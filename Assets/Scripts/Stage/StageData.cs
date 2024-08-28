@@ -12,8 +12,11 @@ namespace Stage
     [CreateAssetMenu(fileName = "Stage Data", menuName = "Stage Data")]
     public class StageData : SODataBase<StageDataOverview>
     {
-        public string stageName;
+        [TableColumnWidth(150 )]
+        [LabelText("金錢掉落倍率")]
+        public float moneyDropRate = 1f;
         
+        [TableColumnWidth(700)]
         [LabelText("每一層數據")]
         public List<MapConfig> maps = new List<MapConfig>();
         

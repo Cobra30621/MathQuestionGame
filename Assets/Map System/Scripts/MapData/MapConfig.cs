@@ -13,6 +13,7 @@ namespace Map_System.Scripts.MapData
     [Serializable]
     public class MapConfig 
     {
+        [TableColumnWidth(10)]
         public string mapName;
         [LabelText("地圖層數設計")]
         [TableList(ShowIndexLabels = true)]

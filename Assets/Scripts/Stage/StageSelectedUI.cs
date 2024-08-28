@@ -66,7 +66,7 @@ namespace Stage
         {
             var stageName = _stageNameList[_currentStageIndex];
             var stageData = _stageDataOverview.FindUniqueId(stageName.Id);
-            currentStageNameText.text = stageData.stageName;
+            currentStageNameText.text = stageData.DisplayName;
         }
 
         private void OnStageSelected()
