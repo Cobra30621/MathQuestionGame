@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Data.Encounter;
 using NueGames.Encounter;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace NueGames.Data.Encounter
@@ -10,6 +11,7 @@ namespace NueGames.Data.Encounter
     [Serializable]
     public class EnemyEncounterList
     {
+        [LabelText("敵人清單")]
         public List<EnemyEncounterClip> weightClip;
         
         /// <summary>
@@ -38,7 +40,9 @@ namespace NueGames.Data.Encounter
     [Serializable]
     public class EnemyEncounterClip : IWeightedObject
     {
+        [LabelText("敵人")]
         [SerializeField] private EncounterName encounter;
+        [LabelText("出現權重")]
         [SerializeField] private int weight;
         /// <summary>
         /// 一場戰鬥的敵人清單

@@ -13,6 +13,8 @@ namespace Stage
     public class StageDataOverview : DataOverviewBase<StageDataOverview, StageData>
     {
 
+        [Title("開發者工具")]
+        
         [LabelText("複製用基底關卡")]
         public StageName blueprintStageName;
 

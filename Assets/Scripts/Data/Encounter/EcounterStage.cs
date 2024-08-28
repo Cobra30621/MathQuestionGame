@@ -1,5 +1,6 @@
 ﻿using System;
 using NueGames.Data.Encounter;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Data.Encounter
@@ -10,20 +11,16 @@ namespace Data.Encounter
     [Serializable]
     public class EncounterStage
     {
-        [Header("【敵人遭遇清單】")]
-        [Tooltip("較弱的一般敵人出現數量")] 
+        [LabelText("較弱的一般敵人出現數量")] 
         public int weakEnemyCount;
-        [Tooltip("1.較弱的一般敵人(出現在地圖前半)")]
+        [LabelText("1.較弱的一般敵人(出現在地圖前半)")]
         public EnemyEncounterList weakEnemies;
-        [Tooltip("2.較強的一般敵人(出現在地圖後半)")] 
+        [LabelText("2.較強的一般敵人(出現在地圖後半)")] 
         public EnemyEncounterList strongEnemies;
-        [Tooltip("3.菁英敵人")] 
+        [LabelText("3.菁英敵人")] 
         public EnemyEncounterList eliteEnemies;
-        [Tooltip("4.王")] 
+        [LabelText("4.王")] 
         public EnemyEncounterList bossEnemies;
-
-        // public RewardEncounterList rewards;
-
         
     }
 
