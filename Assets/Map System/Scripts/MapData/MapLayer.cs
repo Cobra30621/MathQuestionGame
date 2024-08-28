@@ -13,7 +13,8 @@ namespace Map
         [GUIColor(0.3f, 0.8f, 0.8f)]
         [LabelText("此節點事件清單-機率設定")]
         [TableList(ShowIndexLabels = true, AlwaysExpanded = true)]
-        [SerializeField] private List<NodeTypeClip> nodeTypeClips;
+        [ValidateInput("@nodeTypeClips.Count > 0", "節點事件清單不能為空")]
+        [SerializeField] public List<NodeTypeClip> nodeTypeClips;
 
 
         [VerticalGroup("每層的節點清單")] 

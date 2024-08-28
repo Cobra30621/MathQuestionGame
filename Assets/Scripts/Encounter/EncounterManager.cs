@@ -9,6 +9,7 @@ using NueGames.Data.Encounter;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Utils;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -34,6 +35,7 @@ namespace NueGames.Encounter
         }
 
         #region Enter Room
+        [Button]
         public void EnterNode(NodeType nodeType)
         {
             switch (nodeType)
@@ -65,11 +67,13 @@ namespace NueGames.Encounter
             SaveManager.Instance.SaveGame();
         }
 
+        [Button]
         private void EnterCampFire()
         {
             UIManager.Instance.CampFireCanvas.OpenCanvas();
         }
 
+        [Button]
         private void EnterRewardRoom(RewardType rewardType)
         {
             UIManager.Instance.RewardCanvas.ShowReward(new List<RewardType>()
@@ -78,6 +82,7 @@ namespace NueGames.Encounter
             }, NodeType.Treasure);
         }
         
+        [Button]
         private void EnterCombatRoom(EncounterName encounter)
         {
             GameManager.Instance.SetEnemyEncounter(encounter);

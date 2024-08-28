@@ -53,8 +53,9 @@ namespace NueGames.Data.Encounter
         /// </summary>
         public int Weight => weight;
 
-        public void SetEncounter(EncounterName name)
+        public void SetEncounter(EncounterName name, int w)
         {
+            weight = w;
             encounter = name;
         }
     }

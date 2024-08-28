@@ -1,7 +1,10 @@
+using System;
 using NueGames.Encounter;
 using NueGames.UI;
 using NueGames.Utils;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CampFire
 {
@@ -14,6 +17,8 @@ namespace CampFire
         [SerializeField] private ThrowCardPanel throwCardPanel;
 
         
+        [SerializeField] private Text healText;
+        
         private SceneChanger _sceneChanger;
         private void Awake()
         {
@@ -24,6 +29,9 @@ namespace CampFire
         {
             base.OpenCanvas();
             optionPanel.SetActive(true);
+            
+            int healAmount = (int) Math.Ceiling(GameManager.allyData.MaxHealth * CampFireManager.Instance.healPercent);
+            healText.text = $"回血 ({healAmount}";
         }
 
         public void Leave()
@@ -40,7 +48,6 @@ namespace CampFire
 
         public void Heal()
         {
-            Debug.Log("Heal");
             CampFireManager.Instance.Heal();
         }
 

@@ -22,7 +22,8 @@ namespace Map_System.Scripts.MapData
         [LabelText("地圖遭遇事件")]
         public EncounterStage encounterStage;
 
-        public int GridWidth => 2;
+        [HideInInspector]
+        public int GridWidth = 2;
 
   
 
