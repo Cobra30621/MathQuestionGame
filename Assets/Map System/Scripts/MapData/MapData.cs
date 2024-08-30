@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Map_System.Scripts.MapData;
 using UnityEngine;
 
 namespace Map

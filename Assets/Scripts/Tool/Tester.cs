@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Managers;
 using Map;
+using Map_System.Scripts.MapData;
 using NueGames.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -45,8 +46,8 @@ public class Tester : MonoBehaviour
     public RelicName relicName;
     private void GainRelic()
     {
-        RelicManager.Instance.GainRelic(relicName);
-        RelicManager.Instance.PrintCurrentRelicList();
+        GameManager.Instance.RelicManager.GainRelic(relicName);
+        GameManager.Instance.RelicManager.PrintCurrentRelicList();
     }
 
 
@@ -56,6 +57,6 @@ public class Tester : MonoBehaviour
         // MathQuestioningActionParameters parameters = new MathQuestioningActionParameters();
         // parameters.SetQuestionCountValue(true, 3);
         // enterMathQuestioningAction.SetValue(parameters);
-        // enterMathQuestioningAction.AddToBottom();
+        // enterMathQuestioningAction.AddAction();
     }
 }

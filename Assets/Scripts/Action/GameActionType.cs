@@ -5,11 +5,13 @@ namespace Action
         Damage = 1,
         
         
-        MultiDamage = 2,
+        MultiDamage = 20001,
+        MultiBlock = 20002,
         SuperDamage = 3,
-        ApplyPower = 10,
+        ApplyPower = 20003,
+        EnemyHpDamage = 20006,
         EnemyBlock = 12,
-        Block= 50,
+        Block= 2,
         GainMana = 51,
     }
 }

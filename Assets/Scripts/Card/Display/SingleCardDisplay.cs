@@ -16,8 +16,8 @@ namespace NueGames.Card
 
         public void UpdateUI(CardInfo cardInfo)
         {
-            nameTextField.text = cardInfo.CardData.CardName + $" {cardInfo.Level}";
-            descTextField.text = cardInfo.Description;
+            nameTextField.text = cardInfo.CardLevelInfo.TitleLang + $" {cardInfo.Level+1}";
+            descTextField.text = cardInfo.CardLevelInfo.DesLang;
             manaTextField.text = cardInfo.ManaCost.ToString();
             cardImage.sprite = cardInfo.CardData.CardSprite;
         }

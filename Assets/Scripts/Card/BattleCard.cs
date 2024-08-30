@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Action.Parameters;
+using Action.Sequence;
 using Card;
 using Card.Data;
 using Card.Display;
+using Combat;
 using GameAction;
 using NueGames.Action;
 using NueGames.Characters;
@@ -16,16 +18,12 @@ using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 using NueGames.Combat;
 using NueGames.Parameters;
+using Sirenix.Utilities;
 
 namespace NueGames.Card
 {
     public class BattleCard : CardBase,I2DTooltipTarget, IPointerDownHandler, IPointerUpHandler
     {
-        [Header("Base References")]
-        
-        [SerializeField] protected Dictionary<RarityType, SingleCardDisplay> cardUIDictionary;
-        protected SingleCardDisplay CurrentSingleCard;
-
 
         #region Cache
         public bool IsInactive { get; private set; }
@@ -53,6 +51,7 @@ namespace NueGames.Card
         {
             CachedTransform = transform;
             CachedWaitFrame = new WaitForEndOfFrame();
+
         }
 
         public override void Init(CardData cardData)
@@ -62,7 +61,7 @@ namespace NueGames.Card
             IsPlayable = true;
             Init(cardInfo);
             
-            ManaCost = CardLevelInfo.Mana;
+            ManaCost = CardLevelInfo.ManaCost;
             
             _camera = CollectionManager.HandController.cam;
             if (canvas)
@@ -83,13 +82,21 @@ namespace NueGames.Card
             
             SpendMana(ManaCost);
             
-            DoFXAction(_cardInfo.CardData, targetList);
+            DoCharacterFeedback(_cardInfo.CardData);
             DoAction(targetList);
             
             CollectionManager.OnCardPlayed(this);
         }
 
-        public void DoAction(List<CharacterBase> targetList)
+        public void DoAction(List<CharacterBase> specifiedTargets)
+        {
+            
+            var gameActions = GetGameActions(specifiedTargets);
+            
+            GameActionExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, specifiedTargets));
+        }
+
+        private List<GameActionBase> GetGameActions(List<CharacterBase> targetList)
         {
             ActionSource actionSource = new ActionSource()
             {
@@ -97,22 +104,27 @@ namespace NueGames.Card
                 SourceBattleCard = this,
                 SourceCharacter = CombatManager.MainAlly
             };
-            
-            foreach (var effectInfo in CardLevelInfo.EffectInfos)
+
+            if (_cardInfo.CardData.IsDevelopCard)
             {
-                var gameAction = GameActionFactory.GetGameAction(effectInfo, targetList, actionSource);
-                GameActionExecutor.AddToBottom(gameAction);
             }
+            else
+            {
+                CardLevelInfo.EffectInfos = CardManager.Instance.GetSkillInfos(CardLevelInfo.skillIDs);
+            }
+
+            var gameActions = GameActionFactory.GetGameActions(CardLevelInfo.EffectInfos, 
+                targetList, actionSource);
+
+            return gameActions;
         }
         
         /// <summary>
         /// 執行要撥放的特效
         /// </summary>
-        protected void DoFXAction(CardData cardData, List<CharacterBase> targetList)
+        protected void DoCharacterFeedback(CardData cardData)
         {
-            GameActionExecutor.AddToBottom(new FXAction(
-                new FxInfo(cardData.FxGo, cardData.FxSpawnPosition)
-                , targetList));
+
 
             if (cardData.UseDefaultAttackFeedback)
             {
@@ -130,11 +142,7 @@ namespace NueGames.Card
 
         
         #region Card Methods
-        public bool ActionTargetIsSingleEnemy()
-        {
-            return CardLevelInfo.ActionTargetType == ActionTargetType.Enemy;
-        }
-        
+  
         
         public virtual void Discard()
         {
@@ -165,7 +173,7 @@ namespace NueGames.Card
             if (isInactive == this.IsInactive) return; 
             
             IsInactive = isInactive;
-            CurrentSingleCard.SetPlayable(isInactive);
+            _cardDisplay.SetPlayable(isInactive);
         }
         
         

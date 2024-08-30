@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7182288824328528255}
+  - component: {fileID: 7728784021483733631}
   m_Layer: 0
   m_Name: ThunderBallFx
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7728784021483733631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7182288824328528252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30a3141789d4c6aafb68af0dfcaa046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxs:
+  - {fileID: 8827375441847194162}
 --- !u!1001 &7182288824099317257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136,5 +151,10 @@ PrefabInstance:
 --- !u!4 &8827375441847194161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1814315751473787960, guid: e9459def1a517a24ba482f9e639df7ff, type: 3}
+  m_PrefabInstance: {fileID: 7182288824099317257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8827375441847194162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1814315751473787963, guid: e9459def1a517a24ba482f9e639df7ff, type: 3}
   m_PrefabInstance: {fileID: 7182288824099317257}
   m_PrefabAsset: {fileID: 0}

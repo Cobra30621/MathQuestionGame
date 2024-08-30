@@ -1,0 +1,1799 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3da5b9a1c043d1b079d010acd170ad, type: 3}
+  m_Name: enemy skill info overview
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: dict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Enemy.Data.EnemySkillData,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 39
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 101001
+    - Name: $v
+      Entry: 7
+      Data: 2|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 101001
+    - Name: SkillID
+      Entry: 1
+      Data: 9101001
+    - Name: ps
+      Entry: 1
+      Data: "\u71C3\u71D2"
+    - Name: CD
+      Entry: 3
+      Data: 2
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0A\u7570\u5E38"
+    - Name: skillIDs
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9101001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 101002
+    - Name: $v
+      Entry: 7
+      Data: 4|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 101002
+    - Name: SkillID
+      Entry: 1
+      Data: 9101002
+    - Name: ps
+      Entry: 1
+      Data: "\u8B77\u76FE"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u9632\u79A6"
+    - Name: skillIDs
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9101002
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 101003
+    - Name: $v
+      Entry: 7
+      Data: 6|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 101003
+    - Name: SkillID
+      Entry: 1
+      Data: 9101003
+    - Name: ps
+      Entry: 1
+      Data: "\u60E1\u9B54\u737B\u796D"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9101003
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 102001
+    - Name: $v
+      Entry: 7
+      Data: 8|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 102001
+    - Name: SkillID
+      Entry: 1
+      Data: 9102001
+    - Name: ps
+      Entry: 1
+      Data: "\u71C3\u71D2"
+    - Name: CD
+      Entry: 3
+      Data: 2
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0A\u7570\u5E38"
+    - Name: skillIDs
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9102001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 102002
+    - Name: $v
+      Entry: 7
+      Data: 10|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 102002
+    - Name: SkillID
+      Entry: 1
+      Data: 9102002
+    - Name: ps
+      Entry: 1
+      Data: "\u8B77\u76FE"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u9632\u79A6"
+    - Name: skillIDs
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9102002
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 102003
+    - Name: $v
+      Entry: 7
+      Data: 12|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 102003
+    - Name: SkillID
+      Entry: 1
+      Data: 9102003
+    - Name: ps
+      Entry: 1
+      Data: "\u60E1\u9B54\u737B\u796D"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 13|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9102003
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 103001
+    - Name: $v
+      Entry: 7
+      Data: 14|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 103001
+    - Name: SkillID
+      Entry: 1
+      Data: 9103001
+    - Name: ps
+      Entry: 1
+      Data: "\u71C3\u71D2"
+    - Name: CD
+      Entry: 3
+      Data: 2
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0A\u7570\u5E38"
+    - Name: skillIDs
+      Entry: 7
+      Data: 15|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9103001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 103002
+    - Name: $v
+      Entry: 7
+      Data: 16|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 103002
+    - Name: SkillID
+      Entry: 1
+      Data: 9103002
+    - Name: ps
+      Entry: 1
+      Data: "\u8B77\u76FE"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u9632\u79A6"
+    - Name: skillIDs
+      Entry: 7
+      Data: 17|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9103002
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 103003
+    - Name: $v
+      Entry: 7
+      Data: 18|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 103003
+    - Name: SkillID
+      Entry: 1
+      Data: 9103003
+    - Name: ps
+      Entry: 1
+      Data: "\u60E1\u9B54\u737B\u796D"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 19|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9103003
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 111001
+    - Name: $v
+      Entry: 7
+      Data: 20|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 111001
+    - Name: SkillID
+      Entry: 1
+      Data: 9111001
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 21|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9111001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 112001
+    - Name: $v
+      Entry: 7
+      Data: 22|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 112001
+    - Name: SkillID
+      Entry: 1
+      Data: 9112001
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 23|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9112001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 113001
+    - Name: $v
+      Entry: 7
+      Data: 24|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 113001
+    - Name: SkillID
+      Entry: 1
+      Data: 9113001
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 25|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9113001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 201001
+    - Name: $v
+      Entry: 7
+      Data: 26|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 201001
+    - Name: SkillID
+      Entry: 1
+      Data: 9201001
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 27|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9201001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 201002
+    - Name: $v
+      Entry: 7
+      Data: 28|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 201002
+    - Name: SkillID
+      Entry: 1
+      Data: 9201002
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 29|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9201002
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 201003
+    - Name: $v
+      Entry: 7
+      Data: 30|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 201003
+    - Name: SkillID
+      Entry: 1
+      Data: 9201003
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 31|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9201003
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 202001
+    - Name: $v
+      Entry: 7
+      Data: 32|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 202001
+    - Name: SkillID
+      Entry: 1
+      Data: 9202001
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 33|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9202001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 202002
+    - Name: $v
+      Entry: 7
+      Data: 34|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 202002
+    - Name: SkillID
+      Entry: 1
+      Data: 9202002
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 35|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9202002
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 202003
+    - Name: $v
+      Entry: 7
+      Data: 36|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 202003
+    - Name: SkillID
+      Entry: 1
+      Data: 9202003
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 37|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9202003
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 203001
+    - Name: $v
+      Entry: 7
+      Data: 38|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 203001
+    - Name: SkillID
+      Entry: 1
+      Data: 9203001
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 39|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9203001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 203002
+    - Name: $v
+      Entry: 7
+      Data: 40|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 203002
+    - Name: SkillID
+      Entry: 1
+      Data: 9203002
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 41|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9203002
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 203003
+    - Name: $v
+      Entry: 7
+      Data: 42|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 203003
+    - Name: SkillID
+      Entry: 1
+      Data: 9203003
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 43|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9203003
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 211001
+    - Name: $v
+      Entry: 7
+      Data: 44|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 211001
+    - Name: SkillID
+      Entry: 1
+      Data: 9211001
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 45|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9211001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 211002
+    - Name: $v
+      Entry: 7
+      Data: 46|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 211002
+    - Name: SkillID
+      Entry: 1
+      Data: 9211002
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 47|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9211002
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 211003
+    - Name: $v
+      Entry: 7
+      Data: 48|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 211003
+    - Name: SkillID
+      Entry: 1
+      Data: 9211003
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 3
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 49|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9211003
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 211004
+    - Name: $v
+      Entry: 7
+      Data: 50|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 211004
+    - Name: SkillID
+      Entry: 1
+      Data: 9211004
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 51|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9211004
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 212001
+    - Name: $v
+      Entry: 7
+      Data: 52|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 212001
+    - Name: SkillID
+      Entry: 1
+      Data: 9212001
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 53|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9212001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 212002
+    - Name: $v
+      Entry: 7
+      Data: 54|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 212002
+    - Name: SkillID
+      Entry: 1
+      Data: 9212002
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 55|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9212002
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 212003
+    - Name: $v
+      Entry: 7
+      Data: 56|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 212003
+    - Name: SkillID
+      Entry: 1
+      Data: 9212003
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 3
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 57|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9212003
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 212004
+    - Name: $v
+      Entry: 7
+      Data: 58|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 212004
+    - Name: SkillID
+      Entry: 1
+      Data: 9212004
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 59|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9212004
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 213001
+    - Name: $v
+      Entry: 7
+      Data: 60|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 213001
+    - Name: SkillID
+      Entry: 1
+      Data: 9213001
+    - Name: ps
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
+    - Name: CD
+      Entry: 3
+      Data: -1
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 61|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9213001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 213002
+    - Name: $v
+      Entry: 7
+      Data: 62|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 213002
+    - Name: SkillID
+      Entry: 1
+      Data: 9213002
+    - Name: ps
+      Entry: 1
+      Data: "\u5206\u88C2\u7279\u6027\u89F8\u767C"
+    - Name: CD
+      Entry: 3
+      Data: 0
+    - Name: Intention
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: skillIDs
+      Entry: 7
+      Data: 63|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9213002
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 213003
+    - Name: $v
+      Entry: 7
+      Data: 64|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 213003
+    - Name: SkillID
+      Entry: 1
+      Data: 9213003
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 3
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 65|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9213003
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 213004
+    - Name: $v
+      Entry: 7
+      Data: 66|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 213004
+    - Name: SkillID
+      Entry: 1
+      Data: 9213004
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 67|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 9213004
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 900001
+    - Name: $v
+      Entry: 7
+      Data: 68|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 900001
+    - Name: SkillID
+      Entry: 1
+      Data: 19000001
+    - Name: ps
+      Entry: 1
+      Data: "\u6E2C\u8A66-\u602A\u7269\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 69|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 19000001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 900101
+    - Name: $v
+      Entry: 7
+      Data: 70|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 900101
+    - Name: SkillID
+      Entry: 1
+      Data: 19001001
+    - Name: ps
+      Entry: 1
+      Data: "\u6E2C\u8A66-\u602A\u7269\u4E0A\u72C0\u614B"
+    - Name: CD
+      Entry: 3
+      Data: 2
+    - Name: Intention
+      Entry: 1
+      Data: "\u5F37\u5316"
+    - Name: skillIDs
+      Entry: 7
+      Data: 71|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 19001001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 900102
+    - Name: $v
+      Entry: 7
+      Data: 72|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 900102
+    - Name: SkillID
+      Entry: 1
+      Data: 19002001
+    - Name: ps
+      Entry: 1
+      Data: "\u6E2C\u8A66-\u602A\u7269\u4E0A\u5168\u9AD4\u72C0\u614B"
+    - Name: CD
+      Entry: 3
+      Data: 3
+    - Name: Intention
+      Entry: 1
+      Data: "\u5F37\u5316"
+    - Name: skillIDs
+      Entry: 7
+      Data: 73|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 19002001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 910001
+    - Name: $v
+      Entry: 7
+      Data: 74|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 910001
+    - Name: SkillID
+      Entry: 1
+      Data: 19100001
+    - Name: ps
+      Entry: 1
+      Data: "\u6E2C\u8A66-\u602A\u7269\u653B\u64CA"
+    - Name: CD
+      Entry: 3
+      Data: 1
+    - Name: Intention
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: skillIDs
+      Entry: 7
+      Data: 75|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 19100001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 910101
+    - Name: $v
+      Entry: 7
+      Data: 76|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 910101
+    - Name: SkillID
+      Entry: 1
+      Data: 19101001
+    - Name: ps
+      Entry: 1
+      Data: "\u6E2C\u8A66-\u602A\u7269\u4E0A\u72C0\u614B"
+    - Name: CD
+      Entry: 3
+      Data: 2
+    - Name: Intention
+      Entry: 1
+      Data: "\u5F37\u5316"
+    - Name: skillIDs
+      Entry: 7
+      Data: 77|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 19101001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 910102
+    - Name: $v
+      Entry: 7
+      Data: 78|Enemy.Data.EnemySkillData, Assembly-CSharp
+    - Name: ID
+      Entry: 1
+      Data: 910102
+    - Name: SkillID
+      Entry: 1
+      Data: 19102001
+    - Name: ps
+      Entry: 1
+      Data: "\u6E2C\u8A66-\u602A\u7269\u4E0A\u5168\u9AD4\u72C0\u614B"
+    - Name: CD
+      Entry: 3
+      Data: 3
+    - Name: Intention
+      Entry: 1
+      Data: "\u5F37\u5316"
+    - Name: skillIDs
+      Entry: 7
+      Data: 79|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: 19102001
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  url: https://opensheet.elk.sh/1tCaaCrB-9xcP_sgVigBUC5hSNOEx9KzDwsomPIC7asU/EnemySkillA

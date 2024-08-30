@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Action.Parameters;
+using Combat;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -37,7 +38,7 @@ namespace NueGames.Power
             if (IsCharacterTurn(info))
             {
                 
-                GameActionExecutor.AddToBottom(new ApplyPowerAction(
+                GameActionExecutor.AddAction(new ApplyPowerAction(
                     3 * Amount, PowerName.Block, new List<CharacterBase>() {Owner},
                     GetActionSource()));
             }

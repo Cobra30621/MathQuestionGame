@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Map_System.Scripts.MapData;
 using UnityEngine;
 
 namespace Map
@@ -41,16 +42,14 @@ namespace Map
             // select all the nodes with connections:
             var nodesList = nodes.SelectMany(n => n).Where(n => n.incoming.Count > 0 || n.outgoing.Count > 0).ToList();
 
-            // pick a random name of the boss level for this map:
-            var bossNodeName = config.nodeBlueprints.Where(b => b.nodeType == NodeType.Boss).ToList().Random().name;
-            return new Map(conf.name, bossNodeName, conf.mapName, nodesList, new List<Point>());
+            return new Map(conf.mapName, nodesList, new List<Point>());
         }
 
         private static void GenerateLayerDistances()
         {
             layerDistances = new List<float>();
             foreach (var layer in config.layers)
-                layerDistances.Add(layer.distanceFromPreviousLayer.GetValue());
+                layerDistances.Add(layer.distanceFromPreviousLayer);
         }
 
         private static float GetDistanceToLayer(int layerIndex)
@@ -68,13 +67,11 @@ namespace Map
             // offset of this layer to make all the nodes centered:
             var offset = layer.nodesApartDistance * config.GridWidth / 2f;
 
-            for (var i = 0; i < layer.nodeDatas.Count; i++)
+            for (var i = 0; i < layer.nodeCount; i++)
             {
-                var nodeData = layer.nodeDatas[i];
-                var nodeType = nodeData.GetNodeTypeByWeight();
-                var blueprintName = config.nodeBlueprints.Where(b => b.nodeType == nodeType).ToList().Random().name;
-                
-                var node = new Node(nodeType, blueprintName, new Point(i, layerIndex))
+                var nodeType = layer.GetNodeTypeByWeight();
+           
+                var node = new Node(nodeType,  new Point(i, layerIndex))
                 {
                     position = new Vector2(-offset + i * layer.nodesApartDistance, GetDistanceToLayer(layerIndex))
                 };
@@ -145,7 +142,7 @@ namespace Map
             var path2 = new List<Point>();
             for (int i = 0; i < config.layers.Count; i++)
             {
-                int x = config.layers[i].nodeDatas.Count - 1;
+                int x = config.layers[i].nodeCount - 1;
                 
                 path2.Add(new Point(x, i));
             }

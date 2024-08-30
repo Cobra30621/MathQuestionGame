@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -14,7 +15,9 @@ namespace Card.Data
 
         public CardLevelInfo CardLevelInfo => cardLevelInfo;
 
-        public string Description => CardLevelInfo.Description;
+        public List<CardLevelInfo> CardLevelInfos;
+
+        public string Description => CardLevelInfo.DesLang;
         public int ManaCost;
 
         [SerializeField] private CardLevelInfo cardLevelInfo;

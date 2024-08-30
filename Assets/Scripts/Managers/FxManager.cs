@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using Action.Sequence;
 using NueGames.Enums;
 using NueGames.Utils;
 using Sirenix.OdinInspector;
@@ -30,17 +31,22 @@ namespace NueGames.Managers
         }
         
         
-        public void PlayFx(GameObject fxGo, Transform targetTransform)
+        public FXPlayer PlayFx(FXPlayer fxGo, Transform targetTransform)
         {
             Debug.Log($"fxGo {fxGo}");
-            Instantiate(fxGo, targetTransform);
+            var fxPlayer = Instantiate(fxGo, targetTransform);
+            fxPlayer.Play();
+
+            return fxPlayer;
         }
 
-        public void PlayFx(GameObject fxGo, Transform targetTransform, Vector3 fxPosition)
+        public FXPlayer PlayFx(FXPlayer fxGo, Transform targetTransform, Vector3 fxPosition)
         {
             Debug.Log($"fxGo {fxGo}");
-            var t = Instantiate(fxGo, targetTransform).GetComponent<Transform>();
-            t.position = fxPosition;
+            var fxPlayer = Instantiate(fxGo, targetTransform);
+            fxPlayer.Play();
+            fxPlayer.GetComponent<Transform>().position = fxPosition;
+            return fxPlayer;
         }
         
  

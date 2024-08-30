@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Action.Parameters;
+using Combat;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -15,12 +16,12 @@ namespace Question.QuestionAction
         
         public override void DoCorrectAction()
         {
-            GameActionExecutor.AddToBottom(new ApplyPowerAction(
+            GameActionExecutor.AddAction(new ApplyPowerAction(
                 BlockValue, PowerName.Block, 
                 new List<CharacterBase>(){CombatManager.Instance.MainAlly}, GetActionSource()));
             
-            GameActionExecutor.AddToBottom(new FXAction(CorrectFx, 
-            new List<CharacterBase>(){CombatManager.Instance.MainAlly}));
+            // GameActionExecutor.AddAction(new FXAction(CorrectFx, 
+            // new List<CharacterBase>(){CombatManager.Instance.MainAlly}));
         }
 
         public override void DoWrongAction()

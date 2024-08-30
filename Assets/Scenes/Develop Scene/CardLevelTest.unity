@@ -330,6 +330,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 969933884834585910, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1979365935293887311, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -361,6 +365,14 @@ PrefabInstance:
     - target: {fileID: 5185741467476391225, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252155663402360298, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.6918945
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252155663402360298, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -76.1333
       objectReference: {fileID: 0}
     - target: {fileID: 5287731204848092531, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
       propertyPath: serializationData.Prefab
@@ -507,6 +519,22 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 4156895131224392378, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+    - target: {fileID: 4156895131224392378, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131224392378, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"cardLevels","add_keys":null,"remove_keys":{"$id":0,"$type":"System.Object[],
+        mscorlib","$rlength":6,"$rcontent":[{"$id":1,"$type":"System.String, mscorlib","\u666e\u653b"},{"$id":2,"$type":"System.String,
+        mscorlib","\u885d\u649e"},{"$id":3,"$type":"System.String, mscorlib","\u666e\u653b"},{"$id":4,"$type":"System.String,
+        mscorlib","\u9003\u8dd1"},{"$id":5,"$type":"System.String, mscorlib","\u885d\u649e"},{"$id":6,"$type":"System.String,
+        mscorlib","\u666e\u653b"}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131224392378, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4156895131823666305, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -552,9 +580,61 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: d45597e2528c142c782d0a69b6524ea0, type: 2}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: saveDeck.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: saveDeck.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d8b556c7688a4833901d3a5cad41e8b, type: 2}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.ID
+      value: 110002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.Mana
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.Class
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.DesLang
+      value: "\u5C0D\u6575\u65B9\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F972\u9EDE\u8B77\u76FE\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.GroupID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.SkillID
+      value: 1000003, 2000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.ManaCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.TitleLang
+      value: "\u63EE\u528D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.UpgradeCost
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
       value: 1
@@ -562,6 +642,58 @@ PrefabInstance:
     - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
       value: '"path":"_cardLevelHandler","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[0].int1
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[0].int2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[1].int1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[1].int2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[0].Target
+      value: "\u6575\u65B9\u55AE\u9AD4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[1].Target
+      value: "\u6211\u65B9\u55AE\u9AD4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[0].SkillID
+      value: 1000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[1].SkillID
+      value: 2000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[0].EffectID
+      value: 20001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[1].EffectID
+      value: 20002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[0].ActionType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[0].Description
+      value: "\u50B7\u5BB3"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: cardInfo.cardLevelInfo.EffectInfos.Array.data[1].Description
+      value: "\u8B77\u76FE"
       objectReference: {fileID: 0}
     - target: {fileID: 4156895131823666306, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size

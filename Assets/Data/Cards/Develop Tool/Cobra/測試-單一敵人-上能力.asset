@@ -21,28 +21,39 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: cardAction
-      Entry: 7
-      Data: 0|CardAction.ApplyPower, Assembly-CSharp
-    - Name: value
-      Entry: 3
-      Data: 1
-    - Name: powerName
-      Entry: 3
-      Data: 22
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: customerFeedback
       Entry: 6
       Data: 
-  actionTargetType: 0
-  manaCost: 1
+  isDevelopCard: 1
+  developLevelInfo:
+    ID: 0
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
+    DesLang: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
+    TargetChoose: 1
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 0
+      EffectID: 10
+      EffectParameter: "\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
+      EffectParameterList: 0300000002000000
+      Target: 1
+      ps: 
+  cardId: 
+  _levelInfos: []
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
-  fxGo: {fileID: 5403046535671323747, guid: 58987db4057af416da36d5e3e8f7683d, type: 3}
-  fxSpawnPosition: 0
+  fxInfo:
+    fxPrefab: {fileID: 9217137000476708333, guid: 8d038ba3f664d485d9be71d35ddf5da9, type: 3}
+    FxSpawnPosition: 0
+    WaitMethod: 1
+    Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
   cardName: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"

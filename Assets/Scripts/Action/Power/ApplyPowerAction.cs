@@ -47,8 +47,8 @@ namespace NueGames.Action
         public ApplyPowerAction(SkillInfo skillInfo)
         {
             SkillInfo = skillInfo;
-            _applyValue = skillInfo.int1;
-            _targetPower =  PowerHelper.GetPowerName(skillInfo.int2);
+            _applyValue = skillInfo.EffectParameterList[1];
+            _targetPower =  PowerHelper.GetPowerName(skillInfo.EffectParameterList[0]);
         }
 
         /// <summary>

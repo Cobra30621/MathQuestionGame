@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2434382987201104898}
   - component: {fileID: 8938124815108339351}
+  - component: {fileID: 3270112293884571058}
   m_Layer: 0
   m_Name: GameActionManager
   m_TagString: Untagged
@@ -42,5 +43,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff2ab1d213f192c4591f9c92564277e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  SequenceManager: {fileID: 3270112293884571058}
+--- !u!114 &3270112293884571058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150535369488612937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fde981456249f5a32259be1c0b5d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

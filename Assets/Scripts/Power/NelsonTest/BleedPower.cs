@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Action.Parameters;
+using Combat;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -25,7 +26,7 @@ namespace NueGames.Power
             {
                 var damageInfo = new DamageInfo(1, GetActionSource(), fixDamage: true, canPierceArmor:true);
 
-                GameActionExecutor.AddToBottom(new DamageAction(damageInfo, new List<CharacterBase>() {Owner}));
+                GameActionExecutor.AddAction(new DamageAction(damageInfo, new List<CharacterBase>() {Owner}));
             }
         }
     }

@@ -10,9 +10,8 @@ namespace Map
     {
         public List<Node> nodes;
         public List<Point> path;
-        public string bossNodeName;
-        public string configName; // similar to the act name in Slay the Spire
-        public string mapName;
+        public string mapName; // similar to the act name in Slay the Spire
+
         
         // public Map()
         // {
@@ -20,10 +19,8 @@ namespace Map
         //     path = new List<Point>();
         // }
 
-        public Map(string configName, string bossNodeName, string mapName, List<Node> nodes, List<Point> path)
+        public Map( string mapName, List<Node> nodes, List<Point> path)
         {
-            this.configName = configName;
-            this.bossNodeName = bossNodeName;
             this.mapName = mapName;
             this.nodes = nodes;
             this.path = path;

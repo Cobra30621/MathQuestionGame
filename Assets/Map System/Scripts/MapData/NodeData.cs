@@ -11,7 +11,7 @@ namespace Map
     {
         [GUIColor(0.3f, 0.8f, 0.8f)]
         [VerticalGroup("單一節點事件-機率設定")]
-        [Title("此節點事件清單-機率設定")]
+        [LabelText("此節點事件清單-機率設定")]
         [TableList(ShowIndexLabels = true, AlwaysExpanded = true)]
         [SerializeField] private List<NodeTypeClip> nodeTypeClips;
         

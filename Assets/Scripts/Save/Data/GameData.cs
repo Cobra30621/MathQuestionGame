@@ -17,6 +17,10 @@ namespace Data
         /// </summary>
         public PlayerData PlayerData;
         /// <summary>
+        /// 玩家金錢
+        /// </summary>
+        public int Money;
+        /// <summary>
         /// 地圖資訊
         /// </summary>
         public string MapJson;

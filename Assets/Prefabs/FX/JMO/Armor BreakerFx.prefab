@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7297063065757239386}
+  - component: {fileID: 4659519887267935406}
   m_Layer: 0
   m_Name: Armor BreakerFx
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4659519887267935406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620147875121314511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30a3141789d4c6aafb68af0dfcaa046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxs:
+  - {fileID: 5437409650800665670}
 --- !u!1001 &9151824835662570162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,5 +131,10 @@ PrefabInstance:
 --- !u!4 &1770403707047022738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7462584402406634016, guid: 83ed1413ee10080449a8d8ea8ccd8077, type: 3}
+  m_PrefabInstance: {fileID: 9151824835662570162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5437409650800665670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3779750955566941940, guid: 83ed1413ee10080449a8d8ea8ccd8077, type: 3}
   m_PrefabInstance: {fileID: 9151824835662570162}
   m_PrefabAsset: {fileID: 0}

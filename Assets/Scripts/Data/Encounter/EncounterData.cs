@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using NueGames.Characters;
-using NueGames.Data.Characters;
-using NueGames.Enums;
-using NueGames.NueExtentions;
+using NueGames.Data.Encounter;
 using UnityEngine;
 
-namespace NueGames.Data.Encounter
+namespace Data.Encounter
 {
     [CreateAssetMenu(fileName = "Encounter Data", menuName = "Map/EncounterData", order = 4)]
     public class EncounterData : ScriptableObject

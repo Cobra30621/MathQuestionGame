@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Map
@@ -17,6 +18,8 @@ namespace Map
 
 namespace Map
 {
+    
+    
     [CreateAssetMenu]
     public class NodeBlueprint : ScriptableObject
     {

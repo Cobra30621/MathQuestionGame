@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NueGames.Characters;
+using NueGames.Data.Characters;
 using NueGames.Data.Settings;
 using NueGames.Relic;
 
@@ -14,8 +15,7 @@ namespace Data
     {
         public int DrawCount;
         public int MaxMana;
-        public int CurrentGold;
-        
+
         public AllyHealthData AllyHealthData;
         
         public string AllyDataGuid;
@@ -35,15 +35,14 @@ namespace Data
             AllyHealthData = new AllyHealthData();
         }
         
-        public PlayerData(GameplayData gameplayData)
+        public PlayerData(GameplayData gameplayData, AllyData allyData)
         {
             DrawCount = gameplayData.DrawCount;
             MaxMana = gameplayData.MaxMana;
-            CurrentGold = 0;
             AllyHealthData = new AllyHealthData()
             {
-                CurrentHealth = gameplayData.InitialAllyData.MaxHealth,
-                MaxHealth = gameplayData.InitialAllyData.MaxHealth
+                CurrentHealth = allyData.MaxHealth,
+                MaxHealth = allyData.MaxHealth
             };
         }
 

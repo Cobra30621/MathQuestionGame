@@ -60,7 +60,7 @@
 //             var damageInfo = new DamageInfo(damageValue, ActionSource);
 //             var damageAction = new DamageAction(damageInfo, TargetList, ActionSource, 0.5f);
 //          
-//             GameActionExecutor.AddToBottom(damageAction);
+//             GameActionExecutor.AddAction(damageAction);
 //         }
 //     }
 // }

@@ -1,0 +1,226 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: "\u5C04\u64CA"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+  isDevelopCard: 0
+  developLevelInfo:
+    ID: 0
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: 
+    DesLang: 
+    EffectInfos: []
+  cardId: 3
+  _levelInfos:
+  - ID: 120001
+    GroupID: 3
+    SkillID: 1000004
+    ManaCost: 1
+    UpgradeCost: 10
+    Class: 2
+    MaxLevel: 0
+    TitleLang: "\u5C04\u64CA"
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62104\u9EDE\u50B7\u5BB3\u3002"
+    EffectInfos:
+    - SkillID: 1000004
+      EffectID: 20001
+      EffectParameter: 4 ,1
+      EffectParameterList: 0400000001000000
+      Target: 1
+      ps: "\u50B7\u5BB3"
+  - ID: 120002
+    GroupID: 3
+    SkillID: 1000005
+    ManaCost: 1
+    UpgradeCost: 20
+    Class: 2
+    MaxLevel: 0
+    TitleLang: "\u5C04\u64CA"
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62105\u9EDE\u50B7\u5BB3\u3002"
+    EffectInfos:
+    - SkillID: 1000005
+      EffectID: 20001
+      EffectParameter: 5 ,1
+      EffectParameterList: 0500000001000000
+      Target: 1
+      ps: "\u50B7\u5BB3"
+  - ID: 120003
+    GroupID: 3
+    SkillID: 1000006
+    ManaCost: 1
+    UpgradeCost: 50
+    Class: 2
+    MaxLevel: 0
+    TitleLang: "\u5C04\u64CA"
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62106\u9EDE\u50B7\u5BB3\u3002"
+    EffectInfos:
+    - SkillID: 1000006
+      EffectID: 20001
+      EffectParameter: 6 ,1
+      EffectParameterList: 0600000001000000
+      Target: 1
+      ps: "\u50B7\u5BB3"
+  - ID: 120004
+    GroupID: 3
+    SkillID: 1000007
+    ManaCost: 1
+    UpgradeCost: 100
+    Class: 2
+    MaxLevel: 0
+    TitleLang: "\u5C04\u64CA"
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3\u3002"
+    EffectInfos:
+    - SkillID: 1000007
+      EffectID: 20001
+      EffectParameter: 7 ,1
+      EffectParameterList: 0700000001000000
+      Target: 1
+      ps: "\u50B7\u5BB3"
+  - ID: 120005
+    GroupID: 3
+    SkillID: 1000008
+    ManaCost: 1
+    UpgradeCost: 300
+    Class: 2
+    MaxLevel: 0
+    TitleLang: "\u5C04\u64CA"
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62108\u9EDE\u50B7\u5BB3\u3002"
+    EffectInfos:
+    - SkillID: 1000008
+      EffectID: 20001
+      EffectParameter: 8 ,1
+      EffectParameterList: 0800000001000000
+      Target: 1
+      ps: "\u50B7\u5BB3"
+  - ID: 120006
+    GroupID: 3
+    SkillID: 1000009
+    ManaCost: 1
+    UpgradeCost: 500
+    Class: 2
+    MaxLevel: 0
+    TitleLang: "\u5C04\u64CA"
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62109\u9EDE\u50B7\u5BB3\u3002"
+    EffectInfos:
+    - SkillID: 1000009
+      EffectID: 20001
+      EffectParameter: 9 ,1
+      EffectParameterList: 0900000001000000
+      Target: 1
+      ps: "\u50B7\u5BB3"
+  - ID: 120007
+    GroupID: 3
+    SkillID: 1000010
+    ManaCost: 1
+    UpgradeCost: 1000
+    Class: 2
+    MaxLevel: 0
+    TitleLang: "\u5C04\u64CA"
+    DesLang: "\u5C0D\u602A\u7269\u9020\u621010\u9EDE\u50B7\u5BB3\u3002"
+    EffectInfos:
+    - SkillID: 1000010
+      EffectID: 20001
+      EffectParameter: 10 ,1
+      EffectParameterList: 0a00000001000000
+      Target: 1
+      ps: "\u50B7\u5BB3"
+  - ID: 120008
+    GroupID: 3
+    SkillID: 1000011
+    ManaCost: 1
+    UpgradeCost: 1500
+    Class: 2
+    MaxLevel: 0
+    TitleLang: "\u5C04\u64CA"
+    DesLang: "\u5C0D\u602A\u7269\u9020\u621011\u9EDE\u50B7\u5BB3\u3002"
+    EffectInfos:
+    - SkillID: 1000011
+      EffectID: 20001
+      EffectParameter: 11 ,1
+      EffectParameterList: 0b00000001000000
+      Target: 1
+      ps: "\u50B7\u5BB3"
+  - ID: 120009
+    GroupID: 3
+    SkillID: 1000012, 3100011
+    ManaCost: 1
+    UpgradeCost: 3000
+    Class: 2
+    MaxLevel: 0
+    TitleLang: "\u5C04\u64CA"
+    DesLang: "\u5C0D\u602A\u7269\u9020\u621012\u9EDE\u50B7\u5BB3\uFF0C\u540C\u6642\u9020\u62101\u5C64\u6613\u50B7\u3002"
+    EffectInfos:
+    - SkillID: 1000012
+      EffectID: 20001
+      EffectParameter: 12 ,1
+      EffectParameterList: 0c00000001000000
+      Target: 1
+      ps: "\u50B7\u5BB3"
+    - SkillID: 3100011
+      EffectID: 20003
+      EffectParameter: 1,1
+      EffectParameterList: 0100000001000000
+      Target: 1
+      ps: "\u6613\u50B7"
+  - ID: 120010
+    GroupID: 3
+    SkillID: 1000012, 3100012
+    ManaCost: 1
+    UpgradeCost: 0
+    Class: 2
+    MaxLevel: 1
+    TitleLang: "\u5C04\u64CA"
+    DesLang: "\u5C0D\u602A\u7269\u9020\u621012\u9EDE\u50B7\u5BB3\uFF0C\u540C\u6642\u9020\u62102\u5C64\u6613\u50B7\u3002"
+    EffectInfos:
+    - SkillID: 1000012
+      EffectID: 20001
+      EffectParameter: 12 ,1
+      EffectParameterList: 0c00000001000000
+      Target: 1
+      ps: "\u50B7\u5BB3"
+    - SkillID: 3100012
+      EffectID: 20003
+      EffectParameter: 2,1
+      EffectParameterList: 0200000001000000
+      Target: 1
+      ps: "\u6613\u50B7"
+  exhaustAfterPlay: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
+  useDefaultAttackFeedback: 0
+  useCustomFeedback: 0
+  cardName: 
+  cardSprite: {fileID: 0}
+  rarity: 0
+  description: 

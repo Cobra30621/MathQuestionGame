@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
+using Tool;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities;
 
 namespace Card
@@ -11,6 +14,8 @@ namespace Card
     [CreateAssetMenu(fileName = "CardLevelData",menuName = "CardLevelData",order = 0)]
     public class CardLevelData :  ScriptableObject
     {
+        public bool IsLoading { get; private set; }
+        
         #region Private Variables
 
         [SerializeField]
@@ -33,42 +38,69 @@ namespace Card
             return cardInfos.ToList();
         }
 
+        public List<CardLevelInfo> GetLevelInfo(string cardId)
+        {
+            return GetAllCardInfo().
+                Where(x => x.GroupID == cardId).ToList();
+        }
+
+        public List<string> GetGroupIds()
+        {
+            var groupIds = cardInfos.
+                Select(card => card.GroupID).
+                Distinct().
+                ToList();
+            return groupIds;
+        }
+
         #endregion
 
         #region Private Methods
 
         [Button]
         [BoxGroup("LoadData")]
-        private void ParseDataFromGoogleSheet()
+        public void ParseDataFromGoogleSheet()
         {
-            GoogleSheetService.LoadDataArray<CardLevelInfo>(url , infos => cardInfos = infos);
+            IsLoading = true;
+            GoogleSheetService.LoadDataArray<CardLevelInfo>(url , infos =>
+            {
+                // 將空行列剔除
+                cardInfos = infos.Where(info => 
+                    !info.ID.IsNullOrWhitespace()).ToArray();;
+                Debug.Log($"CardLevelInfo Count: {infos.Length}");
+                
+                foreach (var cardLevelInfo in cardInfos)
+                {
+                    cardLevelInfo.skillIDs = Helper.ConvertStringToStringList(cardLevelInfo.SkillID);
+                }
+                
+                IsLoading = false;
+            });
         }
 
         #endregion
+        
+        
+        
     }
     
     [Serializable]
     public class CardLevelInfo
     {
-        public int ID;
-        public string EnGroupID;
+        public string ID;
         public string GroupID;
-        public string EffectID;
-        public int Mana;
-
+        public string SkillID;
+        public int ManaCost;
         public int UpgradeCost;
+        public AllyClassType Class;
         public bool MaxLevel;
-
-        public ActionTargetType ActionTargetType;
+        public string TitleLang;
+        public string DesLang;
+        public ActionTargetType TargetChoose;
         
-        public string Description;
-
+        public List<string> skillIDs;
+        
         public List<SkillInfo> EffectInfos;
-
-        public void SetEffect(List<SkillInfo> effectInfos)
-        {
-            EffectInfos = effectInfos;
-        }
     }
 
 }

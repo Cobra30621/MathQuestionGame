@@ -34,7 +34,7 @@ namespace NueGames.Action
         public GainManaAction(SkillInfo skillInfo)
         {
             SkillInfo = skillInfo;
-            _manaCount = skillInfo.int1;
+            _manaCount = skillInfo.EffectParameterList[0];
         }
         
         

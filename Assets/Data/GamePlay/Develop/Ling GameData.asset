@@ -15,8 +15,10 @@ MonoBehaviour:
   drawCount: 10
   maxMana: 3
   maxCardOnHand: 10
+  initMoney: 0
   initalDeck: {fileID: 11400000, guid: bfe316e207ab14efc9a086355664898e, type: 2}
-  rewardDeck: {fileID: 0}
-  cardPrefab: {fileID: 2689473134106589740, guid: a9728682a56595f4989b8f224d934689, type: 3}
+  cardRewardData: {fileID: 0}
+  battleCardPrefab: {fileID: 9037803414236952983, guid: a9728682a56595f4989b8f224d934689, type: 3}
   initialAllyDataData: {fileID: 11400000, guid: fc1a85bb53bd2694ea1143c9b9a6baf3, type: 2}
   initialRelic: 66000000
+  _mapConfigs: []

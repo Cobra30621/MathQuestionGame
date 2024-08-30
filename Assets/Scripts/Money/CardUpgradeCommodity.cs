@@ -36,9 +36,8 @@ namespace Money
             int cost = NeedCost();
             MoneyManager.Instance.Buy(cost);
 
-            var cardLevelHandler = CardManager.Instance.CardLevelHandler;
             string cardId = _cardInfo.CardData.CardId;
-            cardLevelHandler.UpgradeCard(cardId);
+            CardManager.Instance.UpgradeCard(cardId);
 
             _cardInfo = CardManager.Instance.CreateCardInfo(_cardInfo.CardData);
             ShopHandler.OnBuyCardUpgradeCommodity.Invoke(this);

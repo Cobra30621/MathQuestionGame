@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.Encounter;
 using Newtonsoft.Json;
 using NueGames.Data.Encounter;
 using NueGames.Enums;
@@ -14,15 +15,15 @@ namespace NueGames.Encounter
     [Serializable]
     public class MapEncounter
     {
-        public List<string> enemyList;
-        public List<string> eliteEnemyList;
-        public List<string> bossList;
+        public List<EncounterName> enemyList;
+        public List<EncounterName> eliteEnemyList;
+        public List<EncounterName> bossList;
 
         public int addCount = 10;
         
         public void GeneratorStageData(EncounterStage stage)
         {
-            enemyList = new List<string>();
+            enemyList = new List<EncounterName>();
             int weakEnemyCount = stage.weakEnemyCount;
             enemyList.AddRange(stage.weakEnemies.GetEncounterListByWeight(weakEnemyCount));
             enemyList.AddRange(stage.strongEnemies.GetEncounterListByWeight(addCount));
@@ -34,31 +35,28 @@ namespace NueGames.Encounter
         /// 取得一般敵人遭遇
         /// </summary>
         /// <returns></returns>
-        public EnemyEncounter GetEnemyEncounter()
+        public EncounterName GetEnemyEncounter()
         {
-            string encounterName = enemyList[0];
+            var encounterName = enemyList[0];
             enemyList.Remove(encounterName);
             
-            EnemyEncounter encounter = EncounterManager.Instance.GetEnemyEncounter(encounterName);
-            return encounter;
+            return encounterName;
         }
 
-        public EnemyEncounter GetEliteEncounter()
+        public EncounterName GetEliteEncounter()
         {
-            string encounterName = eliteEnemyList[0];
+            var encounterName = eliteEnemyList[0];
             eliteEnemyList.Remove(encounterName);
             
-            EnemyEncounter encounter = EncounterManager.Instance.GetEnemyEncounter(encounterName);
-            return encounter;
+            return encounterName;
         }
         
-        public EnemyEncounter GetBossEncounter()
+        public EncounterName GetBossEncounter()
         {
-            string encounterName = bossList[0];
+            var encounterName = bossList[0];
             bossList.Remove(encounterName);
             
-            EnemyEncounter encounter = EncounterManager.Instance.GetEnemyEncounter(encounterName);
-            return encounter;
+            return encounterName;
         }
 
 

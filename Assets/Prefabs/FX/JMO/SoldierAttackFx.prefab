@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7010805399001825213}
+  - component: {fileID: 4460129845766899105}
   m_Layer: 0
   m_Name: SoldierAttackFx
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4460129845766899105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010805399001825214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30a3141789d4c6aafb68af0dfcaa046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxs:
+  - {fileID: 1829279910579571548}
 --- !u!1001 &7010805400418056721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,5 +212,10 @@ PrefabInstance:
 --- !u!4 &1829279910579571545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8658603761447935924, guid: 7ca6d9121bfbc6c4f8ed01385bdbb1e9, type: 3}
+  m_PrefabInstance: {fileID: 7010805400449422573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1829279910579571548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8658603761447935921, guid: 7ca6d9121bfbc6c4f8ed01385bdbb1e9, type: 3}
   m_PrefabInstance: {fileID: 7010805400449422573}
   m_PrefabAsset: {fileID: 0}

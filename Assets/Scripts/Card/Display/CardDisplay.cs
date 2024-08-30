@@ -23,6 +23,11 @@ namespace Card.Display
             
             CurrentSingleCard.UpdateUI(cardInfo);
         }
+
+        public void SetPlayable(bool playable)
+        {
+            CurrentSingleCard.SetPlayable(playable);
+        }
         
 
         private void UpdateRarity(RarityType rarityType)

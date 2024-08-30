@@ -7,7 +7,7 @@ using UnityEngine;
 namespace NueGames.Data.Collection
 {
     /// <summary>
-    /// 給 Odin 套件取得 Asset
+    /// A static class for retrieving assets from specified directories.
     /// </summary>
     public static class AssetGetter 
     {
@@ -30,6 +30,11 @@ namespace NueGames.Data.Collection
         };
 
 #if UNITY_EDITOR // Editor-related code must be excluded from builds
+        /// <summary>
+        /// Retrieves assets based on the given DataName.
+        /// </summary>
+        /// <param name="dataName">The type of data to retrieve assets for.</param>
+        /// <returns>An IEnumerable of ValueDropdownItem containing the asset names and their corresponding objects.</returns>
         public static IEnumerable GetAssets(DataName dataName)
         {
             if (dataPaths.TryGetValue(dataName, out var root))
@@ -43,6 +48,11 @@ namespace NueGames.Data.Collection
             }
         }
         
+        /// <summary>
+        /// Retrieves assets from the specified root directory.
+        /// </summary>
+        /// <param name="root">The root directory to retrieve assets from.</param>
+        /// <returns>An IEnumerable of ValueDropdownItem containing the asset names and their corresponding objects.</returns>
         public static IEnumerable GetAssets(string root)
         {
             return UnityEditor.AssetDatabase.GetAllAssetPaths()

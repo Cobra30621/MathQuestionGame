@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Combat;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Enums;
@@ -28,7 +29,7 @@ namespace NueGames.Relic.Common
         protected override void OnAnswerCorrect()
         {
             CharacterBase ally = CombatManager.Instance.MainAlly;
-            GameActionExecutor.AddToBottom(new ApplyPowerAction(
+            GameActionExecutor.AddAction(new ApplyPowerAction(
                 1, PowerName.Strength, new List<CharacterBase>(){ally}, GetActionSource()));
         }
         

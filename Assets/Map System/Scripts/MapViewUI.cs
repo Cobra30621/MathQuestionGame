@@ -111,7 +111,7 @@ namespace Map
         {
             var mapNodeObject = Instantiate(nodePrefab, mapParent.transform);
             var mapNode = mapNodeObject.GetComponent<MapNode>();
-            var blueprint = GetBlueprint(node.blueprintName);
+            var blueprint = GetBlueprint(node.nodeType);
             mapNode.SetUp(node, blueprint);
             mapNode.transform.localPosition = GetNodePosition(node);
             return mapNode;

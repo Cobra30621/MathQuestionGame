@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Action.Parameters;
+using Action.Sequence;
 using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
@@ -12,8 +14,19 @@ namespace Card.Data
     [CreateAssetMenu(fileName = "Card Data", menuName = "Collection/Card", order = 0)]
     public class CardData : SerializedScriptableObject ,ISerializeReferenceByAssetGuid
     {
-        [SerializeField] private string cardId;
+        // equivalent to groupID now, I guess
 
+        [LabelText("開發者卡片")]
+        [SerializeField] private bool isDevelopCard;
+
+        [ShowIf("isDevelopCard")]
+        [LabelText("卡片效果")]
+        [SerializeField] private CardLevelInfo developLevelInfo;
+        
+        [ShowIf("@isDevelopCard == false")]
+        [SerializeField] private string cardId;
+        
+        [ShowIf("@isDevelopCard == false")]
         [SerializeField] private List<CardLevelInfo> _levelInfos;
         
         [FoldoutGroup("數值參數")]
@@ -23,13 +36,10 @@ namespace Card.Data
         [FoldoutGroup("數值參數")]
         [SerializeField] private bool exhaustIfNotPlay;
         
-        [FoldoutGroup("卡牌特效")]
-        [ValueDropdown("GetAssets")]
-        [SerializeField] private GameObject fxGo;
 
-        [FoldoutGroup("卡牌特效")]
-        [SerializeField] private FxSpawnPosition fxSpawnPosition;
-
+        [FoldoutGroup("卡牌特效")] 
+        [SerializeField] private FxInfo fxInfo;
+        
         [FoldoutGroup("角色動畫")] 
         [SerializeField] private bool useDefaultAttackFeedback;
         [FoldoutGroup("角色動畫")] 
@@ -52,19 +62,19 @@ namespace Card.Data
         [FoldoutGroup("顯示提示字")]
         private List<SpecialKeywords> specialKeywordsList;
 
+        
+        
 
         #region Cache
 
+        public bool IsDevelopCard => isDevelopCard;
         public string CardId => cardId;
         public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
         public RarityType Rarity => rarity;
         
-        
         public List<CardLevelInfo> LevelInfos => _levelInfos;
-
-        public GameObject FxGo => fxGo;
-        public FxSpawnPosition FxSpawnPosition => fxSpawnPosition;
+        public FxInfo FxInfo => fxInfo;
         public bool CanNotPlay => canNotPlay;
         public bool ExhaustIfNotPlay => exhaustAfterPlay;
         
@@ -107,9 +117,15 @@ namespace Card.Data
         
         public CardLevelInfo GetLevelInfo(int level)
         {
+            // 如果是開發者卡片，回傳開發者資訊
+            if (isDevelopCard)
+            {
+                return developLevelInfo;
+            }
+            
             if (level >= LevelInfos.Count)
             {
-                throw new Exception($"level {level} 超過 {cardName} 的 LevelInfos {LevelInfos.Count} 數量");
+                throw new Exception($"level {level} 超過 {name} 的 LevelInfos {LevelInfos.Count} 數量");
             }
             return LevelInfos[level];
         }

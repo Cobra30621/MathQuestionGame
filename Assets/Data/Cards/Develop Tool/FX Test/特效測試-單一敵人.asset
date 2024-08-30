@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: "\u7279\u6548\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+  isDevelopCard: 1
+  developLevelInfo:
+    ID: 0
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    Class: 1
+    MaxLevel: 0
+    TitleLang: "\u7279\u6548\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA"
+    DesLang: "\u7279\u6548\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA"
+    TargetChoose: 1
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 0
+      EffectID: 1
+      EffectParameter: 
+      EffectParameterList: 7a00000001000000
+      Target: 1
+      ps: 
+  cardId: 
+  _levelInfos: []
+  exhaustAfterPlay: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 9217137000476708333, guid: 8d038ba3f664d485d9be71d35ddf5da9, type: 3}
+    FxSpawnPosition: 0
+    WaitMethod: 1
+    Delay: 2
+  useDefaultAttackFeedback: 0
+  useCustomFeedback: 0
+  cardName: "\u7279\u6548\u6E2C\u8A66-\u653B\u64CA\u6575\u4EBA"
+  cardSprite: {fileID: 21300000, guid: db77a9106cafc094dac07202e305b5ca, type: 3}
+  rarity: 0
+  description: "\u7279\u6548\u6E2C\u8A66-\u653B\u64CA\u6575\u4EBA"

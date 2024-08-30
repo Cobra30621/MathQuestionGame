@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using Combat;
+using Data.Encounter;
 using Managers;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.Parameters;
-using NueGames.Relic;
 using UnityEngine;
 using UnityEngine.Events;
 using NueGames.Combat;
+using NueGames.Data.Characters;
 using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
 using NueGames.Power;
 using Question;
 using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace Tool
 {
@@ -27,27 +29,32 @@ namespace Tool
         /// <summary>
         /// 測試的事件
         /// </summary>
+        [LabelText("遊戲開始時，執行事件")]
         public UnityEvent TestEvent;
         
         [InlineEditor()]
+        [LabelText("遊戲設定")]
         public GameplayData GameplayData;
+        
         [InlineEditor()]
-        public EnemyEncounter EnemyEncounter;
+        [LabelText("玩家資料")]
+        public AllyData allyData;
+        
+        [LabelText("產生的敵人們")]
+        public EncounterName enemyEncounter;
 
+        [LabelText("問題設定")]
         public QuestionSetting QuestionSetting;
         
+        [LabelText("玩家初始獲得的能力")]
         public List<PowerName> allyPowerAtGameStart;
         
         
 
-        void Awake()
-        {
-            SetDevelopModeData();
-        }
-
         void Start()
         {
-           
+            SetDevelopModeData();
+            
             PlayTest();
 
             GenerateAllyPower();
@@ -79,7 +86,8 @@ namespace Tool
         private void SetDevelopModeData()
         {
             GameManager.Instance.SetGameplayData(GameplayData);
-            GameManager.Instance.SetEnemyEncounter(EnemyEncounter);
+            GameManager.Instance.SetAllyData(allyData);
+            GameManager.Instance.SetEnemyEncounter(enemyEncounter);
             QuestionManager.Instance.SetQuestionSetting(QuestionSetting); 
             
             GameManager.Instance.StartDevelopMode();
@@ -91,7 +99,7 @@ namespace Tool
             {
                 var ally = CombatManager.Instance.MainAlly;
                 
-                GameActionExecutor.AddToBottom(
+                GameActionExecutor.AddAction(
                     new ApplyPowerAction(1, powerName, 
                     new List<CharacterBase>(){ally}, null));
             }
