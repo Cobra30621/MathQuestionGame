@@ -5,12 +5,28 @@
     /// </summary>
     public enum PowerName
     {
-        None = 0,
-        
-        // 傷害計算相關
-        Block = 1,
+        // Buff
+        Thorns = 0,
+        Vulnerable = 1,
         Strength = 2,
-        Vulnerable = 4,
+        Invincible = 3,
+        Poison = 6,
+        Fire = 7,
+        //
+
+
+
+
+
+
+        None = 1000,
+        // 傷害計算相關
+        Block = 1001,
+
+
+
+
+
         Weak = 5,
         BloodFury = 6,
         Hardcore = 7,
@@ -18,30 +34,29 @@
         Shield = 9,
         Solid = 10,
         Bleed = 11,
-        
+
         // 戰鬥相關
         Stun = 22,
         SelfDestruct = 23,
-        
+
         // 卡牌與魔力相關
         MathMana = 41,
         GainManaAtRoundStart = 42,
         Overload = 43,
-        
+
         // 能力相關
         ReduceStrengthPowerAtEndOfTurn = 61,
-        
-        
+
+
         // 測試用
-        
+
         MathHappy = 131,
         MathAngry = 132,
-        
+
         // 燃燒
-        Fire = 201,
         SuperFire = 202,
         Kindle = 203,
         GetGainManaPowerIfBeAttackByBurningEnemy = 211,
-        
+
     }
 }

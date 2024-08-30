@@ -23,13 +23,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\u3002"
-    EffectInfos:
-    - SkillID: 1000003
-      EffectID: 20001
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
+    TargetChoose: 1
+    skillIDs:
+    - 1000003
+    EffectInfos: []
   - ID: 110002
     GroupID: 1
     SkillID: 1000003, 2000002
@@ -39,19 +36,11 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F972\u9EDE\u8B77\u76FE\u3002"
-    EffectInfos:
-    - SkillID: 1000003
-      EffectID: 20001
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 2000002
-      EffectID: 20002
-      EffectParameter: 2 ,1
-      EffectParameterList: 0200000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 1
+    skillIDs:
+    - 1000003
+    - 2000002
+    EffectInfos: []
   - ID: 110003
     GroupID: 1
     SkillID: 1000003, 2000003
@@ -61,19 +50,11 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F973\u9EDE\u8B77\u76FE\u3002"
-    EffectInfos:
-    - SkillID: 1000003
-      EffectID: 20001
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 2000003
-      EffectID: 20002
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 1
+    skillIDs:
+    - 1000003
+    - 2000003
+    EffectInfos: []
   - ID: 110004
     GroupID: 1
     SkillID: 1000003, 2000004
@@ -83,19 +64,11 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F974\u9EDE\u8B77\u76FE\u3002"
-    EffectInfos:
-    - SkillID: 1000003
-      EffectID: 20001
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 2000004
-      EffectID: 20002
-      EffectParameter: 4 ,1
-      EffectParameterList: 0400000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 1
+    skillIDs:
+    - 1000003
+    - 2000004
+    EffectInfos: []
   - ID: 110005
     GroupID: 1
     SkillID: 1000003, 2000005
@@ -105,19 +78,11 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F975\u9EDE\u8B77\u76FE\u3002"
-    EffectInfos:
-    - SkillID: 1000003
-      EffectID: 20001
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 2000005
-      EffectID: 20002
-      EffectParameter: 5 ,1
-      EffectParameterList: 0500000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 1
+    skillIDs:
+    - 1000003
+    - 2000005
+    EffectInfos: []
   - ID: 110006
     GroupID: 1
     SkillID: 1000003, 2000006
@@ -127,19 +92,11 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F976\u9EDE\u8B77\u76FE\u3002"
-    EffectInfos:
-    - SkillID: 1000003
-      EffectID: 20001
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 2000006
-      EffectID: 20002
-      EffectParameter: 6 ,1
-      EffectParameterList: 0600000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 1
+    skillIDs:
+    - 1000003
+    - 2000006
+    EffectInfos: []
   - ID: 110007
     GroupID: 1
     SkillID: 1000003, 2000007
@@ -149,19 +106,11 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F977\u9EDE\u8B77\u76FE\u3002"
-    EffectInfos:
-    - SkillID: 1000003
-      EffectID: 20001
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 2000007
-      EffectID: 20002
-      EffectParameter: 7 ,1
-      EffectParameterList: 0700000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 1
+    skillIDs:
+    - 1000003
+    - 2000007
+    EffectInfos: []
   - ID: 110008
     GroupID: 1
     SkillID: 1000003, 2000008
@@ -171,19 +120,11 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F978\u9EDE\u8B77\u76FE\u3002"
-    EffectInfos:
-    - SkillID: 1000003
-      EffectID: 20001
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 2000008
-      EffectID: 20002
-      EffectParameter: 8 ,1
-      EffectParameterList: 0800000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 1
+    skillIDs:
+    - 1000003
+    - 2000008
+    EffectInfos: []
   - ID: 110009
     GroupID: 1
     SkillID: 1000003, 2000009
@@ -193,19 +134,11 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F979\u9EDE\u8B77\u76FE\u3002"
-    EffectInfos:
-    - SkillID: 1000003
-      EffectID: 20001
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 2000009
-      EffectID: 20002
-      EffectParameter: 9 ,1
-      EffectParameterList: 0900000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 1
+    skillIDs:
+    - 1000003
+    - 2000009
+    EffectInfos: []
   - ID: 110010
     GroupID: 1
     SkillID: 1000003, 2000010
@@ -215,19 +148,11 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F9710\u9EDE\u8B77\u76FE\u3002"
-    EffectInfos:
-    - SkillID: 1000003
-      EffectID: 20001
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 2000010
-      EffectID: 20002
-      EffectParameter: 10 ,1
-      EffectParameterList: 0a00000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 1
+    skillIDs:
+    - 1000003
+    - 2000010
+    EffectInfos: []
   - ID: 110101
     GroupID: 2
     SkillID: 2000003
@@ -237,13 +162,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F973\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000003
-      EffectID: 20002
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000003
+    EffectInfos: []
   - ID: 110102
     GroupID: 2
     SkillID: 2000004
@@ -253,13 +175,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F974\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000004
-      EffectID: 20002
-      EffectParameter: 4 ,1
-      EffectParameterList: 0400000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000004
+    EffectInfos: []
   - ID: 110103
     GroupID: 2
     SkillID: 2000005
@@ -269,13 +188,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F975\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000005
-      EffectID: 20002
-      EffectParameter: 5 ,1
-      EffectParameterList: 0500000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000005
+    EffectInfos: []
   - ID: 110104
     GroupID: 2
     SkillID: 2000006
@@ -285,13 +201,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000006
-      EffectID: 20002
-      EffectParameter: 6 ,1
-      EffectParameterList: 0600000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000006
+    EffectInfos: []
   - ID: 110105
     GroupID: 2
     SkillID: 2000007
@@ -301,13 +214,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F977\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000007
-      EffectID: 20002
-      EffectParameter: 7 ,1
-      EffectParameterList: 0700000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000007
+    EffectInfos: []
   - ID: 110106
     GroupID: 2
     SkillID: 2000008
@@ -317,13 +227,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F978\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000008
-      EffectID: 20002
-      EffectParameter: 8 ,1
-      EffectParameterList: 0800000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000008
+    EffectInfos: []
   - ID: 110107
     GroupID: 2
     SkillID: 2000009
@@ -333,13 +240,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F979\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000009
-      EffectID: 20002
-      EffectParameter: 9 ,1
-      EffectParameterList: 0900000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000009
+    EffectInfos: []
   - ID: 110108
     GroupID: 2
     SkillID: 2000010
@@ -349,13 +253,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F9710\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000010
-      EffectID: 20002
-      EffectParameter: 10 ,1
-      EffectParameterList: 0a00000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000010
+    EffectInfos: []
   - ID: 110109
     GroupID: 2
     SkillID: 2000011, 3000001
@@ -365,19 +266,11 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F9711\u9EDE\u8B77\u76FE\u4E26\u4E14\u7372\u5F971\u5C64\u53CD\u5F48"
-    EffectInfos:
-    - SkillID: 2000011
-      EffectID: 20002
-      EffectParameter: 11 ,1
-      EffectParameterList: 0b00000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
-    - SkillID: 3000001
-      EffectID: 20003
-      EffectParameter: 1,0
-      EffectParameterList: 0100000000000000
-      Target: 0
-      ps: "\u53CD\u5F48"
+    TargetChoose: 0
+    skillIDs:
+    - 2000011
+    - 3000001
+    EffectInfos: []
   - ID: 110110
     GroupID: 2
     SkillID: 2000012, 3000002
@@ -387,19 +280,11 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F9712\u9EDE\u8B77\u76FE\u4E26\u4E14\u7372\u5F972\u5C64\u53CD\u5F48"
-    EffectInfos:
-    - SkillID: 2000012
-      EffectID: 20002
-      EffectParameter: 12 ,1
-      EffectParameterList: 0c00000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
-    - SkillID: 3000002
-      EffectID: 20003
-      EffectParameter: 2,0
-      EffectParameterList: 0200000000000000
-      Target: 0
-      ps: "\u53CD\u5F48"
+    TargetChoose: 0
+    skillIDs:
+    - 2000012
+    - 3000002
+    EffectInfos: []
   - ID: 120001
     GroupID: 3
     SkillID: 1000004
@@ -409,13 +294,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5C04\u64CA"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62104\u9EDE\u50B7\u5BB3\u3002"
-    EffectInfos:
-    - SkillID: 1000004
-      EffectID: 20001
-      EffectParameter: 4 ,1
-      EffectParameterList: 0400000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
+    TargetChoose: 1
+    skillIDs:
+    - 1000004
+    EffectInfos: []
   - ID: 120002
     GroupID: 3
     SkillID: 1000005
@@ -425,13 +307,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5C04\u64CA"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62105\u9EDE\u50B7\u5BB3\u3002"
-    EffectInfos:
-    - SkillID: 1000005
-      EffectID: 20001
-      EffectParameter: 5 ,1
-      EffectParameterList: 0500000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
+    TargetChoose: 1
+    skillIDs:
+    - 1000005
+    EffectInfos: []
   - ID: 120003
     GroupID: 3
     SkillID: 1000006
@@ -441,13 +320,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5C04\u64CA"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62106\u9EDE\u50B7\u5BB3\u3002"
-    EffectInfos:
-    - SkillID: 1000006
-      EffectID: 20001
-      EffectParameter: 6 ,1
-      EffectParameterList: 0600000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
+    TargetChoose: 1
+    skillIDs:
+    - 1000006
+    EffectInfos: []
   - ID: 120004
     GroupID: 3
     SkillID: 1000007
@@ -457,13 +333,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5C04\u64CA"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3\u3002"
-    EffectInfos:
-    - SkillID: 1000007
-      EffectID: 20001
-      EffectParameter: 7 ,1
-      EffectParameterList: 0700000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
+    TargetChoose: 1
+    skillIDs:
+    - 1000007
+    EffectInfos: []
   - ID: 120005
     GroupID: 3
     SkillID: 1000008
@@ -473,13 +346,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5C04\u64CA"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62108\u9EDE\u50B7\u5BB3\u3002"
-    EffectInfos:
-    - SkillID: 1000008
-      EffectID: 20001
-      EffectParameter: 8 ,1
-      EffectParameterList: 0800000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
+    TargetChoose: 1
+    skillIDs:
+    - 1000008
+    EffectInfos: []
   - ID: 120006
     GroupID: 3
     SkillID: 1000009
@@ -489,13 +359,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5C04\u64CA"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62109\u9EDE\u50B7\u5BB3\u3002"
-    EffectInfos:
-    - SkillID: 1000009
-      EffectID: 20001
-      EffectParameter: 9 ,1
-      EffectParameterList: 0900000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
+    TargetChoose: 1
+    skillIDs:
+    - 1000009
+    EffectInfos: []
   - ID: 120007
     GroupID: 3
     SkillID: 1000010
@@ -505,13 +372,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5C04\u64CA"
     DesLang: "\u5C0D\u602A\u7269\u9020\u621010\u9EDE\u50B7\u5BB3\u3002"
-    EffectInfos:
-    - SkillID: 1000010
-      EffectID: 20001
-      EffectParameter: 10 ,1
-      EffectParameterList: 0a00000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
+    TargetChoose: 1
+    skillIDs:
+    - 1000010
+    EffectInfos: []
   - ID: 120008
     GroupID: 3
     SkillID: 1000011
@@ -521,13 +385,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5C04\u64CA"
     DesLang: "\u5C0D\u602A\u7269\u9020\u621011\u9EDE\u50B7\u5BB3\u3002"
-    EffectInfos:
-    - SkillID: 1000011
-      EffectID: 20001
-      EffectParameter: 11 ,1
-      EffectParameterList: 0b00000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
+    TargetChoose: 1
+    skillIDs:
+    - 1000011
+    EffectInfos: []
   - ID: 120009
     GroupID: 3
     SkillID: 1000012, 3100011
@@ -537,19 +398,11 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5C04\u64CA"
     DesLang: "\u5C0D\u602A\u7269\u9020\u621012\u9EDE\u50B7\u5BB3\uFF0C\u540C\u6642\u9020\u62101\u5C64\u6613\u50B7\u3002"
-    EffectInfos:
-    - SkillID: 1000012
-      EffectID: 20001
-      EffectParameter: 12 ,1
-      EffectParameterList: 0c00000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 3100011
-      EffectID: 20003
-      EffectParameter: 1,1
-      EffectParameterList: 0100000001000000
-      Target: 1
-      ps: "\u6613\u50B7"
+    TargetChoose: 1
+    skillIDs:
+    - 1000012
+    - 3100011
+    EffectInfos: []
   - ID: 120010
     GroupID: 3
     SkillID: 1000012, 3100012
@@ -559,19 +412,11 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u5C04\u64CA"
     DesLang: "\u5C0D\u602A\u7269\u9020\u621012\u9EDE\u50B7\u5BB3\uFF0C\u540C\u6642\u9020\u62102\u5C64\u6613\u50B7\u3002"
-    EffectInfos:
-    - SkillID: 1000012
-      EffectID: 20001
-      EffectParameter: 12 ,1
-      EffectParameterList: 0c00000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 3100012
-      EffectID: 20003
-      EffectParameter: 2,1
-      EffectParameterList: 0200000001000000
-      Target: 1
-      ps: "\u6613\u50B7"
+    TargetChoose: 1
+    skillIDs:
+    - 1000012
+    - 3100012
+    EffectInfos: []
   - ID: 120101
     GroupID: 4
     SkillID: 2000002
@@ -581,13 +426,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F972\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000002
-      EffectID: 20002
-      EffectParameter: 2 ,1
-      EffectParameterList: 0200000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000002
+    EffectInfos: []
   - ID: 120102
     GroupID: 4
     SkillID: 2000003
@@ -597,13 +439,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F973\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000003
-      EffectID: 20002
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000003
+    EffectInfos: []
   - ID: 120103
     GroupID: 4
     SkillID: 2000004
@@ -613,13 +452,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F974\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000004
-      EffectID: 20002
-      EffectParameter: 4 ,1
-      EffectParameterList: 0400000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000004
+    EffectInfos: []
   - ID: 120104
     GroupID: 4
     SkillID: 2000005
@@ -629,13 +465,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F975\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000005
-      EffectID: 20002
-      EffectParameter: 5 ,1
-      EffectParameterList: 0500000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000005
+    EffectInfos: []
   - ID: 120105
     GroupID: 4
     SkillID: 2000006
@@ -645,13 +478,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000006
-      EffectID: 20002
-      EffectParameter: 6 ,1
-      EffectParameterList: 0600000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000006
+    EffectInfos: []
   - ID: 120106
     GroupID: 4
     SkillID: 2000007
@@ -661,13 +491,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F977\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000007
-      EffectID: 20002
-      EffectParameter: 7 ,1
-      EffectParameterList: 0700000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000007
+    EffectInfos: []
   - ID: 120107
     GroupID: 4
     SkillID: 2000008
@@ -677,13 +504,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F978\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000008
-      EffectID: 20002
-      EffectParameter: 8 ,1
-      EffectParameterList: 0800000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000008
+    EffectInfos: []
   - ID: 120108
     GroupID: 4
     SkillID: 2000009
@@ -693,13 +517,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F979\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000009
-      EffectID: 20002
-      EffectParameter: 9 ,1
-      EffectParameterList: 0900000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000009
+    EffectInfos: []
   - ID: 120109
     GroupID: 4
     SkillID: 2000010
@@ -709,13 +530,10 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F9710\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000010
-      EffectID: 20002
-      EffectParameter: 10 ,1
-      EffectParameterList: 0a00000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000010
+    EffectInfos: []
   - ID: 120110
     GroupID: 4
     SkillID: 2000011
@@ -725,412 +543,530 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F9711\u9EDE\u8B77\u76FE"
-    EffectInfos:
-    - SkillID: 2000011
-      EffectID: 20002
-      EffectParameter: 11 ,1
-      EffectParameterList: 0b00000001000000
-      Target: 0
-      ps: "\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000011
+    EffectInfos: []
   - ID: 130001
     GroupID: 5
-    SkillID: 
+    SkillID: 1000003
     ManaCost: 1
     UpgradeCost: 10
     Class: 3
     MaxLevel: 0
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\u3002"
+    TargetChoose: 1
+    skillIDs:
+    - 1000003
     EffectInfos: []
   - ID: 130002
     GroupID: 5
-    SkillID: 
+    SkillID: 1000004
     ManaCost: 1
     UpgradeCost: 20
     Class: 3
     MaxLevel: 0
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62104\u9EDE\u50B7\u5BB3\u3002"
+    TargetChoose: 1
+    skillIDs:
+    - 1000004
     EffectInfos: []
   - ID: 130003
     GroupID: 5
-    SkillID: 
+    SkillID: 1000005
     ManaCost: 1
     UpgradeCost: 50
     Class: 3
     MaxLevel: 0
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62105\u9EDE\u50B7\u5BB3\u3002"
+    TargetChoose: 1
+    skillIDs:
+    - 1000005
     EffectInfos: []
   - ID: 130004
     GroupID: 5
-    SkillID: 
+    SkillID: 1000006
     ManaCost: 1
     UpgradeCost: 100
     Class: 3
     MaxLevel: 0
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62106\u9EDE\u50B7\u5BB3\u3002"
+    TargetChoose: 1
+    skillIDs:
+    - 1000006
     EffectInfos: []
   - ID: 130005
     GroupID: 5
-    SkillID: 
+    SkillID: 1100006
     ManaCost: 1
     UpgradeCost: 300
     Class: 3
     MaxLevel: 0
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62106\u9EDE\u50B7\u5BB3"
+    TargetChoose: 0
+    skillIDs:
+    - 1100006
     EffectInfos: []
   - ID: 130006
     GroupID: 5
-    SkillID: 
+    SkillID: 1100007
     ManaCost: 1
     UpgradeCost: 500
     Class: 3
     MaxLevel: 0
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3"
+    TargetChoose: 0
+    skillIDs:
+    - 1100007
     EffectInfos: []
   - ID: 130007
     GroupID: 5
-    SkillID: 
+    SkillID: 1100008
     ManaCost: 1
     UpgradeCost: 1000
     Class: 3
     MaxLevel: 0
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62108\u9EDE\u50B7\u5BB3"
+    TargetChoose: 0
+    skillIDs:
+    - 1100008
     EffectInfos: []
   - ID: 130008
     GroupID: 5
-    SkillID: 
+    SkillID: 1100009
     ManaCost: 1
     UpgradeCost: 1500
     Class: 3
     MaxLevel: 0
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62109\u9EDE\u50B7\u5BB3"
+    TargetChoose: 0
+    skillIDs:
+    - 1100009
     EffectInfos: []
   - ID: 130009
     GroupID: 5
-    SkillID: 
+    SkillID: 1100010
     ManaCost: 1
     UpgradeCost: 3000
     Class: 3
     MaxLevel: 0
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u621010\u9EDE\u50B7\u5BB3"
+    TargetChoose: 0
+    skillIDs:
+    - 1100010
     EffectInfos: []
   - ID: 130010
     GroupID: 5
-    SkillID: 
+    SkillID: 1100010, 3200001
     ManaCost: 1
     UpgradeCost: 0
     Class: 3
     MaxLevel: 1
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u621010\u9EDE\u50B7\u5BB3\uFF0C\u540C\u6642\u63D0\u53471\u9EDE\u529B\u91CF"
+    TargetChoose: 0
+    skillIDs:
+    - 1100010
+    - 3200001
     EffectInfos: []
   - ID: 130101
     GroupID: 6
-    SkillID: 
+    SkillID: 2000001
     ManaCost: 1
     UpgradeCost: 10
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9632\u79A6"
-    DesLang: 
+    DesLang: "\u7372\u5F971\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000001
     EffectInfos: []
   - ID: 130102
     GroupID: 6
-    SkillID: 
+    SkillID: 2000002
     ManaCost: 1
     UpgradeCost: 20
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9632\u79A6"
-    DesLang: 
+    DesLang: "\u7372\u5F972\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000002
     EffectInfos: []
   - ID: 130103
     GroupID: 6
-    SkillID: 
+    SkillID: 2000003
     ManaCost: 1
     UpgradeCost: 50
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9632\u79A6"
-    DesLang: 
+    DesLang: "\u7372\u5F973\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000003
     EffectInfos: []
   - ID: 130104
     GroupID: 6
-    SkillID: 
+    SkillID: 2000004
     ManaCost: 1
     UpgradeCost: 100
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9632\u79A6"
-    DesLang: 
+    DesLang: "\u7372\u5F974\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000004
     EffectInfos: []
   - ID: 130105
     GroupID: 6
-    SkillID: 
+    SkillID: 2000005
     ManaCost: 1
     UpgradeCost: 300
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9632\u79A6"
-    DesLang: 
+    DesLang: "\u7372\u5F975\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000005
     EffectInfos: []
   - ID: 130106
     GroupID: 6
-    SkillID: 
+    SkillID: 2000006
     ManaCost: 1
     UpgradeCost: 500
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9632\u79A6"
-    DesLang: 
+    DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000006
     EffectInfos: []
   - ID: 130107
     GroupID: 6
-    SkillID: 
+    SkillID: 2000007
     ManaCost: 1
     UpgradeCost: 1000
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9632\u79A6"
-    DesLang: 
+    DesLang: "\u7372\u5F977\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000007
     EffectInfos: []
   - ID: 130108
     GroupID: 6
-    SkillID: 
+    SkillID: 2000008
     ManaCost: 1
     UpgradeCost: 1500
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9632\u79A6"
-    DesLang: 
+    DesLang: "\u7372\u5F978\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000008
     EffectInfos: []
   - ID: 130109
     GroupID: 6
-    SkillID: 
+    SkillID: 2000009
     ManaCost: 1
     UpgradeCost: 3000
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9632\u79A6"
-    DesLang: 
+    DesLang: "\u7372\u5F979\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000009
     EffectInfos: []
   - ID: 130110
     GroupID: 6
-    SkillID: 
+    SkillID: 2000010
     ManaCost: 1
     UpgradeCost: 0
     Class: 3
     MaxLevel: 1
     TitleLang: "\u9632\u79A6"
-    DesLang: 
+    DesLang: "\u7372\u5F9710\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000010
     EffectInfos: []
   - ID: 140001
     GroupID: 7
-    SkillID: 
+    SkillID: 1000001
     ManaCost: 1
     UpgradeCost: 10
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: 
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3"
+    TargetChoose: 1
+    skillIDs:
+    - 1000001
     EffectInfos: []
   - ID: 140002
     GroupID: 7
-    SkillID: 
+    SkillID: 1000051
     ManaCost: 1
     UpgradeCost: 20
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: 
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C2\u6B21"
+    TargetChoose: 1
+    skillIDs:
+    - 1000051
     EffectInfos: []
   - ID: 140003
     GroupID: 7
-    SkillID: 
+    SkillID: 1000052
     ManaCost: 1
     UpgradeCost: 50
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: 
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C3\u6B21"
+    TargetChoose: 1
+    skillIDs:
+    - 1000052
     EffectInfos: []
   - ID: 140004
     GroupID: 7
-    SkillID: 
+    SkillID: 1000053
     ManaCost: 1
     UpgradeCost: 100
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: 
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C4\u6B21"
+    TargetChoose: 1
+    skillIDs:
+    - 1000053
     EffectInfos: []
   - ID: 140005
     GroupID: 7
-    SkillID: 
+    SkillID: 1000054
     ManaCost: 1
     UpgradeCost: 300
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: 
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C5\u6B21"
+    TargetChoose: 1
+    skillIDs:
+    - 1000054
     EffectInfos: []
   - ID: 140006
     GroupID: 7
-    SkillID: 
+    SkillID: 1000055
     ManaCost: 1
     UpgradeCost: 500
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: 
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C6\u6B21"
+    TargetChoose: 1
+    skillIDs:
+    - 1000055
     EffectInfos: []
   - ID: 140007
     GroupID: 7
-    SkillID: 
+    SkillID: 1000056
     ManaCost: 1
     UpgradeCost: 1000
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: 
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C7\u6B21"
+    TargetChoose: 1
+    skillIDs:
+    - 1000056
     EffectInfos: []
   - ID: 140008
     GroupID: 7
-    SkillID: 
+    SkillID: 1000057
     ManaCost: 1
     UpgradeCost: 1500
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: 
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C8\u6B21"
+    TargetChoose: 1
+    skillIDs:
+    - 1000057
     EffectInfos: []
   - ID: 140009
     GroupID: 7
-    SkillID: 
+    SkillID: 1000067
     ManaCost: 2
     UpgradeCost: 3000
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: 
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62102\u9EDE\u50B7\u5BB3\uFF0C9\u6B21"
+    TargetChoose: 1
+    skillIDs:
+    - 1000067
     EffectInfos: []
   - ID: 140010
     GroupID: 7
-    SkillID: 
+    SkillID: 1000068
     ManaCost: 2
     UpgradeCost: 0
     Class: 4
     MaxLevel: 1
     TitleLang: "\u7A81\u523A"
-    DesLang: 
+    DesLang: "\u5C0D\u602A\u7269\u9020\u62102\u9EDE\u50B7\u5BB3\uFF0C10\u6B21"
+    TargetChoose: 1
+    skillIDs:
+    - 1000068
     EffectInfos: []
   - ID: 140101
     GroupID: 8
-    SkillID: 
+    SkillID: 2000001
     ManaCost: 1
     UpgradeCost: 10
     Class: 4
     MaxLevel: 0
     TitleLang: "\u96B1\u533F"
-    DesLang: 
+    DesLang: "\u7372\u5F971\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000001
     EffectInfos: []
   - ID: 140102
     GroupID: 8
-    SkillID: 
+    SkillID: 2000002
     ManaCost: 1
     UpgradeCost: 20
     Class: 4
     MaxLevel: 0
     TitleLang: "\u96B1\u533F"
-    DesLang: 
+    DesLang: "\u7372\u5F972\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000002
     EffectInfos: []
   - ID: 140103
     GroupID: 8
-    SkillID: 
+    SkillID: 2000003
     ManaCost: 1
     UpgradeCost: 50
     Class: 4
     MaxLevel: 0
     TitleLang: "\u96B1\u533F"
-    DesLang: 
+    DesLang: "\u7372\u5F973\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000003
     EffectInfos: []
   - ID: 140104
     GroupID: 8
-    SkillID: 
+    SkillID: 2000004
     ManaCost: 1
     UpgradeCost: 100
     Class: 4
     MaxLevel: 0
     TitleLang: "\u96B1\u533F"
-    DesLang: 
+    DesLang: "\u7372\u5F974\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000004
     EffectInfos: []
   - ID: 140105
     GroupID: 8
-    SkillID: 
+    SkillID: 2000005
     ManaCost: 1
     UpgradeCost: 300
     Class: 4
     MaxLevel: 0
     TitleLang: "\u96B1\u533F"
-    DesLang: 
+    DesLang: "\u7372\u5F975\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000005
     EffectInfos: []
   - ID: 140106
     GroupID: 8
-    SkillID: 
+    SkillID: 2000006
     ManaCost: 1
     UpgradeCost: 500
     Class: 4
     MaxLevel: 0
     TitleLang: "\u96B1\u533F"
-    DesLang: 
+    DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000006
     EffectInfos: []
   - ID: 140107
     GroupID: 8
-    SkillID: 
+    SkillID: 2000007
     ManaCost: 1
     UpgradeCost: 1000
     Class: 4
     MaxLevel: 0
     TitleLang: "\u96B1\u533F"
-    DesLang: 
+    DesLang: "\u7372\u5F977\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000007
     EffectInfos: []
   - ID: 140108
     GroupID: 8
-    SkillID: 
+    SkillID: 2000008
     ManaCost: 1
     UpgradeCost: 1500
     Class: 4
     MaxLevel: 0
     TitleLang: "\u96B1\u533F"
-    DesLang: 
+    DesLang: "\u7372\u5F978\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000008
     EffectInfos: []
   - ID: 140109
     GroupID: 8
-    SkillID: 
+    SkillID: 2000009
     ManaCost: 1
     UpgradeCost: 3000
     Class: 4
     MaxLevel: 0
     TitleLang: "\u96B1\u533F"
-    DesLang: 
+    DesLang: "\u7372\u5F979\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000009
     EffectInfos: []
   - ID: 140110
     GroupID: 8
-    SkillID: 
+    SkillID: 2000010
     ManaCost: 1
     UpgradeCost: 0
     Class: 4
     MaxLevel: 1
     TitleLang: "\u96B1\u533F"
-    DesLang: 
+    DesLang: "\u7372\u5F9710\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs:
+    - 2000010
     EffectInfos: []
   - ID: 110201
     GroupID: 9
@@ -1141,6 +1077,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5805\u786C"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 110202
     GroupID: 9
@@ -1151,6 +1089,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5805\u786C"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 110203
     GroupID: 9
@@ -1161,6 +1101,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u5805\u786C"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 110301
     GroupID: 10
@@ -1171,6 +1113,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u88DD\u5099"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 110302
     GroupID: 10
@@ -1181,6 +1125,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u88DD\u5099"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 110303
     GroupID: 10
@@ -1191,6 +1137,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u88DD\u5099"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 110401
     GroupID: 11
@@ -1201,6 +1149,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5C16\u523A"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 110402
     GroupID: 11
@@ -1211,6 +1161,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5C16\u523A"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 110403
     GroupID: 11
@@ -1221,6 +1173,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u5C16\u523A"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 120201
     GroupID: 12
@@ -1231,6 +1185,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5F31\u9EDE"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 120202
     GroupID: 12
@@ -1241,6 +1197,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5F31\u9EDE"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 120203
     GroupID: 12
@@ -1251,6 +1209,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u5F31\u9EDE"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 120301
     GroupID: 13
@@ -1261,6 +1221,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u84C4\u529B"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 120302
     GroupID: 13
@@ -1271,6 +1233,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u84C4\u529B"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 120303
     GroupID: 13
@@ -1281,6 +1245,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u84C4\u529B"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 120401
     GroupID: 14
@@ -1291,6 +1257,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u9677\u9631"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 120402
     GroupID: 14
@@ -1301,6 +1269,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u9677\u9631"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 120403
     GroupID: 14
@@ -1311,6 +1281,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u9677\u9631"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 130201
     GroupID: 15
@@ -1321,6 +1293,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u8679\u5438"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 130202
     GroupID: 15
@@ -1331,6 +1305,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u8679\u5438"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 130203
     GroupID: 15
@@ -1341,6 +1317,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u8679\u5438"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 130301
     GroupID: 16
@@ -1351,6 +1329,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u80FD\u91CF"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 130302
     GroupID: 16
@@ -1361,6 +1341,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u80FD\u91CF"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 130303
     GroupID: 16
@@ -1371,6 +1353,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u80FD\u91CF"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 130401
     GroupID: 17
@@ -1381,6 +1365,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u9695\u77F3"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 130402
     GroupID: 17
@@ -1391,6 +1377,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u9695\u77F3"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 130403
     GroupID: 17
@@ -1401,6 +1389,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u9695\u77F3"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 140201
     GroupID: 18
@@ -1411,6 +1401,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5857\u6BD2"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 140202
     GroupID: 18
@@ -1421,6 +1413,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u5857\u6BD2"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 140203
     GroupID: 18
@@ -1431,6 +1425,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u5857\u6BD2"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 140301
     GroupID: 19
@@ -1441,6 +1437,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u6495\u88C2"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 140302
     GroupID: 19
@@ -1451,6 +1449,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u6495\u88C2"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 140303
     GroupID: 19
@@ -1461,6 +1461,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u6495\u88C2"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 140401
     GroupID: 20
@@ -1471,24 +1473,90 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u9041\u9003"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 140402
     GroupID: 20
     SkillID: 
-    ManaCost: 3
+    ManaCost: 2
     UpgradeCost: 3000
     Class: 4
     MaxLevel: 0
     TitleLang: "\u9041\u9003"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   - ID: 140403
     GroupID: 20
     SkillID: 
-    ManaCost: 2
+    ManaCost: 1
     UpgradeCost: 0
     Class: 4
     MaxLevel: 1
     TitleLang: "\u9041\u9003"
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
+    EffectInfos: []
+  - ID: 100001
+    GroupID: 21
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u6A5F\u6703"
+    DesLang: "\u62BD\u5169\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD\u4E00\u5F35"
+    TargetChoose: 0
+    skillIDs: []
+    EffectInfos: []
+  - ID: 100002
+    GroupID: 22
+    SkillID: 
+    ManaCost: 3
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u5168\u80FD"
+    DesLang: "\u672C\u5C40\u5C0D\u6230\u4E2D\uFF0C\u6240\u6709\u7684\u5361\u724C\u6D88\u8017\u8B8A\u70BA1"
+    TargetChoose: 0
+    skillIDs: []
+    EffectInfos: []
+  - ID: 100003
+    GroupID: 23
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u5077\u8972"
+    DesLang: "\u9020\u621010\u9EDE\u50B7\u5BB3\uFF0C\u5982\u679C\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u9B54\u529B\u6D88\u8017\u70BA0"
+    TargetChoose: 0
+    skillIDs: []
+    EffectInfos: []
+  - ID: 100004
+    GroupID: 24
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u4F11\u7720"
+    DesLang: "\u56DE\u5408\u7D50\u675F\uFF0C\u7D66\u81EA\u8EAB20\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs: []
+    EffectInfos: []
+  - ID: 100005
+    GroupID: 25
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u6295\u8CC7"
+    DesLang: "\u4E0B\u4E00\u56DE\u5408\uFF0C\u7372\u5F97\u984D\u5916\u76841\u9EDE\u9B54\u529B"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []

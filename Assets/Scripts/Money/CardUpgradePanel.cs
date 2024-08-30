@@ -3,6 +3,7 @@ using Card;
 using Card.Data;
 using Card.Display;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,8 @@ namespace Money
         [SerializeField] private UICard before, after;
         [SerializeField] private Button upgrade;
         private CardUpgradeCommodity _commodity;
+        public TextMeshProUGUI BeforeDiscription;
+        public TextMeshProUGUI AfterDiscription;
 
 
         private void Awake()
@@ -30,16 +33,20 @@ namespace Money
             _commodity = commodity;
             var cardInfo = commodity.CardInfo;
             before.Init(cardInfo);
+            BeforeDiscription.text = cardInfo.Description;
             if (cardInfo.CardLevelInfo.MaxLevel)
             {
                 after.gameObject.SetActive(false);
                 upgrade.interactable = false;
+                upgrade.gameObject.SetActive(false);
             }
             else
             {
                 after.gameObject.SetActive(true);
                 upgrade.interactable = true;
-                after.Init(new CardInfo(cardInfo.CardData, cardInfo.Level + 1));
+                var afterCardInfo = new CardInfo(cardInfo.CardData, cardInfo.Level + 1); 
+                after.Init(afterCardInfo);
+                AfterDiscription.text = afterCardInfo.Description;
             }
         }
 

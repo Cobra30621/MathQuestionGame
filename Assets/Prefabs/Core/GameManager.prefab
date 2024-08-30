@@ -99,6 +99,63 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   dataReference: {fileID: 11400000, guid: bbb31b7f76af544a9b8fa1b56b6ad682, type: 2}
+--- !u!1 &3103111430097388491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3943215656414572241}
+  - component: {fileID: 927399313501667963}
+  m_Layer: 0
+  m_Name: StageSelectedHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3943215656414572241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3103111430097388491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3747954644409722057}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &927399313501667963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3103111430097388491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858bd5eb6e924173b232ecbd37ea7024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _stageDataOverview: {fileID: 11400000, guid: 2fd9e1c80388240ff9f730425d21de3b, type: 2}
+  OnAllyDataChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3747954644409722071
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +189,7 @@ Transform:
   - {fileID: 4426554491014107267}
   - {fileID: 3114496004273676565}
   - {fileID: 6278246831807956331}
+  - {fileID: 3943215656414572241}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -161,9 +219,10 @@ MonoBehaviour:
   gameplayDataFileHandler: {fileID: 1532746533581411832}
   _relicManager: {fileID: 733801562864062279}
   gameplayData: {fileID: 0}
+  _stageSelectedHandler: {fileID: 927399313501667963}
   CurrentCardsList: []
-  MainAllyData: {fileID: 11400000, guid: fc1a85bb53bd2694ea1143c9b9a6baf3, type: 2}
-  CurrentEnemyEncounter: {fileID: 0}
+  CurrentEnemyEncounter:
+    id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
   CanSelectCards: 0
 --- !u!1 &6065209682066806550
 GameObject:

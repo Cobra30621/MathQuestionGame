@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Action.Parameters;
+using Combat;
 using Feedback;
 using NueGames.Combat;
 using NueGames.Enums;
@@ -98,7 +99,7 @@ namespace NueGames.Characters
         [SerializeField] private  Dictionary<string, IFeedback> feedbackDict = new Dictionary<string, IFeedback>();
         [SerializeField] protected List<IFeedback> Feedbacks;
 
-        private void SetUpFeedbackDict()
+        protected void SetUpFeedbackDict()
         {
             feedbackDict = new Dictionary<string, IFeedback>();
             foreach (var feedBack in Feedbacks)
@@ -140,10 +141,6 @@ namespace NueGames.Characters
         #endregion
         
         
-        public virtual void BuildCharacter()
-        {
-            SetUpFeedbackDict();
-        }
         
         public CharacterStats GetCharacterStats()
         {

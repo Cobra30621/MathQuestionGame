@@ -13,6 +13,9 @@ namespace Card
         [SerializeField] private DeckData saveDeck;
         [Required]
         [SerializeField] private readonly CardLevelHandler _cardLevelHandler;
+
+        [Required] [SerializeField] private SkillData skillData;
+        
         public CardLevelHandler CardLevelHandler => _cardLevelHandler;
 
         public UnityEvent<List<CardInfo>> CardInfoUpdated;
@@ -31,7 +34,11 @@ namespace Card
             
             CardInfoUpdated.Invoke(cardInfos);
         }
-        
+
+        public List<SkillInfo> GetSkillInfos(List<string> skillIds)
+        {
+            return skillIds.ConvertAll(id => skillData.GetSkillInfo(id));
+        }
 
         public List<CardInfo> GetAllCardInfos()
         {

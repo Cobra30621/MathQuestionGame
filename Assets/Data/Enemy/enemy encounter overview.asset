@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ba38e469c84b088ed3937f5fb956e9, type: 3}
+  m_Name: enemy encounter overview
+  m_EditorClassIdentifier: 
+  ids:
+  - uniqueId:
+      dataId: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+      displayName: Test
+    enemyList:
+    - id: 101
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 23350bb9-c64b-4773-8b9e-269746eb51e0
+      displayName: Cobra Test
+    enemyList:
+    - id: 901
+    - id: 902
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 97801a6b-0a03-46d9-b8a0-8f30e128daf1
+      displayName: Nelson Test
+    enemyList:
+    - id: 904
+    targetBackgroundType: 0
+  useDataPath: 0
+  dataPath: 
+  sortingByDisplayName: 0

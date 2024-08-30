@@ -53,15 +53,17 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  maps:
-  - {fileID: 11400000, guid: 69257d6960a40427aa827a5dbfbb3887, type: 2}
-  - {fileID: 11400000, guid: 85d769fabe145423fbe3388bc3536881, type: 2}
+  stageName:
+    id: 722421e1-f637-4ca9-8ef0-799ac5d80321
+  stageDataOverview: {fileID: 11400000, guid: 2fd9e1c80388240ff9f730425d21de3b, type: 2}
+  stageData: {fileID: 0}
   CurrentMap:
     nodes: []
     path: []
-    bossNodeName: 
-    configName: 
-  showMap:
+    mapName: 
+  showMapEvent:
     m_PersistentCalls:
       m_Calls: []
   needInitializedMap: 0
+  selectedNode: {fileID: 0}
+  Locked: 0

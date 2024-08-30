@@ -20,7 +20,11 @@ namespace Card.Display
         protected CardInfo _cardInfo;
         public CardData CardData => _cardInfo.CardData;
         public CardLevelInfo CardLevelInfo => _cardInfo.CardLevelInfo;
-        public ActionTargetType ActionTargetType => CardLevelInfo.ActionTargetType;
+        
+        public ActionTargetType TargetChoose => CardLevelInfo.TargetChoose;
+        
+        public bool SpecifiedEnemyTarget => 
+            CardLevelInfo.TargetChoose == ActionTargetType.SpecifiedEnemy;
 
         [SerializeField] protected CardDisplay _cardDisplay;
 

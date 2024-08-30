@@ -1,0 +1,290 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf41986ef96842929b036ef4ad78e204, type: 3}
+  m_Name: new intention data
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: cc0cb7ea0d2ee45c7ba3c834dd6907a9, type: 3}
+    - {fileID: 21300000, guid: 856c13d6063c44f2f8321166b3ff7641, type: 3}
+    - {fileID: 21300000, guid: 72d3c51638fd24daa80044368f28dc3c, type: 3}
+    - {fileID: 21300000, guid: c92610f591b32475abe71f6c3aee378d, type: 3}
+    - {fileID: 21300000, guid: 846f4d6d146e042ccbfc2da69575a804, type: 3}
+    - {fileID: 21300000, guid: 479f45128442a45b5b0d7ecb3d8cd466, type: 3}
+    - {fileID: 21300000, guid: 28498432f2b604cdfa218f4ba0690288, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Intentions
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Enemy.Data.Intention,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 8
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: $v
+      Entry: 7
+      Data: 2|Enemy.Data.Intention, Assembly-CSharp
+    - Name: showIntentionValue
+      Entry: 5
+      Data: true
+    - Name: intentionSprite
+      Entry: 10
+      Data: 0
+    - Name: header
+      Entry: 1
+      Data: "\u653B\u64CA"
+    - Name: content
+      Entry: 1
+      Data: "\u9019\u540D\u6575\u4EBA\u5373\u5C07\u5C0D\u4F60\u9020\u6210\u50B7\u5BB3"
+    - Name: _actionType
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u9632\u79A6"
+    - Name: $v
+      Entry: 7
+      Data: 3|Enemy.Data.Intention, Assembly-CSharp
+    - Name: showIntentionValue
+      Entry: 5
+      Data: false
+    - Name: intentionSprite
+      Entry: 10
+      Data: 1
+    - Name: header
+      Entry: 1
+      Data: "\u9632\u79A6"
+    - Name: content
+      Entry: 1
+      Data: "\u9632\u79A6"
+    - Name: _actionType
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u653B\u64CA\u4E26\u4E0A\u7570\u5E38"
+    - Name: $v
+      Entry: 7
+      Data: 4|Enemy.Data.Intention, Assembly-CSharp
+    - Name: showIntentionValue
+      Entry: 5
+      Data: false
+    - Name: intentionSprite
+      Entry: 10
+      Data: 2
+    - Name: header
+      Entry: 1
+      Data: "\u653B\u64CA\u4E26\u4E0A\u7570\u5E38"
+    - Name: content
+      Entry: 1
+      Data: "\u9019\u540D\u6575\u4EBA\u5373\u5C07\u5C0D\u4F60\u9020\u6210\u50B7\u5BB3\uFF0C\u4E26\u7D66\u4E88\u4F60\u7570\u5E38\u72C0\u614B"
+    - Name: _actionType
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u4E0A\u7570\u5E38"
+    - Name: $v
+      Entry: 7
+      Data: 5|Enemy.Data.Intention, Assembly-CSharp
+    - Name: showIntentionValue
+      Entry: 5
+      Data: false
+    - Name: intentionSprite
+      Entry: 10
+      Data: 3
+    - Name: header
+      Entry: 1
+      Data: "\u7B56\u7565"
+    - Name: content
+      Entry: 1
+      Data: "\u9019\u540D\u6575\u4EBA\u5373\u5C07\u5C0D\u4F60\u65BD\u52A0\u8CA0\u9762\u6548\u679C"
+    - Name: _actionType
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u5F37\u5316"
+    - Name: $v
+      Entry: 7
+      Data: 6|Enemy.Data.Intention, Assembly-CSharp
+    - Name: showIntentionValue
+      Entry: 5
+      Data: false
+    - Name: intentionSprite
+      Entry: 10
+      Data: 4
+    - Name: header
+      Entry: 1
+      Data: "\u7B56\u7565"
+    - Name: content
+      Entry: 1
+      Data: "\u9019\u540D\u6575\u4EBA\u8981\u9032\u884C\u5F37\u5316"
+    - Name: _actionType
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: $v
+      Entry: 7
+      Data: 7|Enemy.Data.Intention, Assembly-CSharp
+    - Name: showIntentionValue
+      Entry: 5
+      Data: false
+    - Name: intentionSprite
+      Entry: 10
+      Data: 5
+    - Name: header
+      Entry: 1
+      Data: "\u4E0D\u660E"
+    - Name: content
+      Entry: 1
+      Data: "\u9019\u500B\u6575\u4EBA\u7684\u610F\u5716\u4E0D\u660E\uFF08\u4F46\u4E0D\u662F\u653B\u64CA\uFF09"
+    - Name: _actionType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u56DE\u5FA9"
+    - Name: $v
+      Entry: 7
+      Data: 8|Enemy.Data.Intention, Assembly-CSharp
+    - Name: showIntentionValue
+      Entry: 5
+      Data: false
+    - Name: intentionSprite
+      Entry: 10
+      Data: 6
+    - Name: header
+      Entry: 1
+      Data: "\u56DE\u5FA9"
+    - Name: content
+      Entry: 6
+      Data: 
+    - Name: _actionType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u653B\u64CA\u4E26\u9632\u79A6"
+    - Name: $v
+      Entry: 7
+      Data: 9|Enemy.Data.Intention, Assembly-CSharp
+    - Name: showIntentionValue
+      Entry: 5
+      Data: false
+    - Name: intentionSprite
+      Entry: 10
+      Data: 0
+    - Name: header
+      Entry: 1
+      Data: "\u653B\u64CA\u4E26\u9632\u79A6"
+    - Name: content
+      Entry: 1
+      Data: "\u9019\u540D\u6575\u4EBA\u5373\u5C07\u5C0D\u4F60\u9020\u6210\u50B7\u5BB3\uFF0C\u4E26\u9032\u884C\u683C\u6A94"
+    - Name: _actionType
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

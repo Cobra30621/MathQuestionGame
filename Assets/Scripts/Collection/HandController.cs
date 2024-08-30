@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Enemy;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Enums;
@@ -6,7 +7,7 @@ using NueGames.Managers;
 using UnityEngine;
 using Kalkatos.DottedArrow;
 using NueGames.Combat;
-using CombatManager = NueGames.Combat.CombatManager;
+using CombatManager = Combat.CombatManager;
 
 namespace NueGames.Collection
 {
@@ -300,7 +301,7 @@ namespace NueGames.Collection
                 cardTransform.position = cardPos;
                 
 
-                ActionTargetType actionTargetType = _heldBattleCard.ActionTargetType;
+                ActionTargetType actionTargetType = _heldBattleCard.TargetChoose;
                 characterHighlightController.OnDraggedCardOutsideHand(actionTargetType);
 
                 if (!GameManager.CanSelectCards || _mouseInsideHand)
@@ -347,18 +348,13 @@ namespace NueGames.Collection
             {
                 CharacterBase hitCharacter = GetHitCharacter(mousePos);
                 
-                if (EnablePlayCard(_heldBattleCard.ActionTargetType, hitCharacter))
+                if (EnablePlayCard(_heldBattleCard.SpecifiedEnemyTarget, hitCharacter))
                 {
                     backToHand = false;
-                    // //  Arrow Effect for the uiCard's ActionTargetType is single enemy
-                    // if (_heldCard.ActionTargetIsSingleEnemy())
-                    // {
-                    //     RemoveCardFromHand(_usingSelectingEffectCardIndex);
-                    // }
-
-                    var targetList = GetTargetList(_heldBattleCard.ActionTargetType, hitCharacter);
                     
-                    _heldBattleCard.Use(targetList);
+                    var specified = new List<CharacterBase>(){hitCharacter};
+                    
+                    _heldBattleCard.Use(specified);
                     DeactivateSelectingSingleEnemyEffect();
                 }
             }
@@ -380,10 +376,10 @@ namespace NueGames.Collection
         /// <param name="hitCharacter"></param>
         /// <param name="usableWithoutTarget"></param>
         /// <returns></returns>
-        private bool EnablePlayCard(ActionTargetType cardActionTarget, CharacterBase hitCharacter)
+        private bool EnablePlayCard(bool specifiedEnemyTarget, CharacterBase hitCharacter)
         {
-            // 只有目標是敵人時，才一定需要碰到目標
-            if (cardActionTarget == ActionTargetType.Enemy)
+            // 只有目標是單一敵人時，才一定需要碰到目標
+            if (specifiedEnemyTarget)
             {
                 // 如果 hitCharacter 沒有碰到任何目標，回傳 false
                 if (hitCharacter == null)
@@ -402,38 +398,7 @@ namespace NueGames.Collection
 
         }
 
-        /// <summary>
-        /// 取得目標對象的清單
-        /// </summary>
-        /// <param name="cardActionTarget"></param>
-        /// <param name="hitTarget"></param>
-        /// <returns></returns>
-        private List<CharacterBase> GetTargetList(ActionTargetType cardActionTarget, CharacterBase hitTarget)
-        {
-            List<CharacterBase> targetList = new List<CharacterBase>();
-            switch (cardActionTarget)
-            {
-                case ActionTargetType.Ally:
-                    targetList.Add(CombatManager.MainAlly);
-                    break;
-                case ActionTargetType.Enemy:
-                    if (hitTarget.IsCharacterType(CharacterType.Enemy))
-                    {
-                        targetList.Add(hitTarget);
-                    }
-                    break;
-                case ActionTargetType.AllEnemies:
-                    targetList.AddRange(CombatManager.Enemies);
-                    break;
-                case ActionTargetType.RandomEnemy:
-                    throw new System.NotImplementedException();
-                    break;
-
-            }
-
-            return targetList;
-        }
-        
+       
         
         /// <summary>
         /// 取得畫面碰到的角色
@@ -489,7 +454,7 @@ namespace NueGames.Collection
         {
             // Card is outside of the hand, so is considered "held" ready to be used
             _heldBattleCard = hand[_dragged];
-            _isUsingSelectingEffectCard = _heldBattleCard.ActionTargetIsSingleEnemy();
+            _isUsingSelectingEffectCard = _heldBattleCard.SpecifiedEnemyTarget;
             if (_isUsingSelectingEffectCard)
             {
                 _usingSelectingEffectCardIndex = _dragged;
@@ -526,7 +491,7 @@ namespace NueGames.Collection
             // Check uiCard Action Target Is Single Enemy
             if (_heldBattleCard != null)
             {
-                if (_heldBattleCard.ActionTargetIsSingleEnemy())
+                if (_heldBattleCard.SpecifiedEnemyTarget)
                 {
                     HandleSelectingSingleEnemyEffect(selectedEnemy);
                 }
@@ -557,7 +522,6 @@ namespace NueGames.Collection
         {
             characterHighlightController.ActivateEnemyHighlight(selectedEnemy);
             arrowController.OnEnterEnemy();
-            CombatManager.SetSelectedEnemy(selectedEnemy);
             _heldBattleCard?.UpdateCardDisplay();
         }
         
@@ -565,7 +529,6 @@ namespace NueGames.Collection
         {
             characterHighlightController.DeactivateEnemyHighlights();
             arrowController.OnLeaveEnemy();
-            CombatManager.SetSelectedEnemy(null);
             _heldBattleCard?.UpdateCardDisplay();
         }
 

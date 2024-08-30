@@ -1,4 +1,5 @@
-﻿using NueGames.Data.Containers;
+﻿using Enemy.Data;
+using NueGames.Data.Containers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,7 @@ namespace NueGames.Characters
         [Header("Enemy Canvas Settings")]
         [SerializeField] private Image intentImage;
         [SerializeField] private TextMeshProUGUI nextActionValueText;
-        public EnemyIntentionData IntentionData;
+        public Intention Intention;
         public GameObject IntentionGO => intentionGO;
         public Image IntentImage => intentImage;
         public TextMeshProUGUI NextActionValueText => nextActionValueText;
@@ -19,7 +20,7 @@ namespace NueGames.Characters
         public override void ShowTooltipInfo()
         {
             var tooltipManager = TooltipManager.Instance;
-            ShowTooltipInfo(tooltipManager,IntentionData.Content,IntentionData.Header,descriptionRoot);
+            ShowTooltipInfo(tooltipManager,Intention.Content,Intention.Header,descriptionRoot);
             ShowPowerTooltipInfo();
         }
     }

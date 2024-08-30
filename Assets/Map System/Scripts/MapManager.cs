@@ -1,9 +1,11 @@
 ﻿using System.Linq;
 using Data;
+using Map_System.Scripts.MapData;
 using Newtonsoft.Json;
 using NueGames.Encounter;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using Stage;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
@@ -11,9 +13,13 @@ namespace Map
 {
     public class MapManager : Singleton<MapManager>, IDataPersistence
     {
-        [ReadOnly]
-        [SerializeField] private MapConfig[] _maps;
-
+        public StageName stageName;
+        
+        [Required]
+        public StageDataOverview stageDataOverview;
+        
+        public StageData stageData;
+        
         private int CurrentMapIndex;
 
         public Map CurrentMap;
@@ -65,6 +71,11 @@ namespace Map
         {
             selectedNode = node;
         }
+
+        public NodeType GetCurrentNodeType()
+        {
+            return selectedNode.Node.nodeType;
+        }
         
         public void OnRoomCompleted()
         {
@@ -75,9 +86,10 @@ namespace Map
 
 
         // 初始化地圖管理器，設定地圖配置數組
-        public void Initialized(MapConfig[] maps)
+        public void Initialized(StageName stageName)
         {
-            _maps = maps;
+            this.stageName = stageName;
+            stageData = stageDataOverview.FindUniqueId(this.stageName.Id);
             CurrentMapIndex = 0;
             needInitializedMap = true;
         }
@@ -94,14 +106,14 @@ namespace Map
         public void GenerateNewMap()
         {
             // 檢查當前地圖索引是否有效
-            if (CurrentMapIndex < 0 || CurrentMapIndex >= _maps.Length)
+            if (CurrentMapIndex < 0 || CurrentMapIndex >= stageData.maps.Count)
             {
                 Debug.LogError($"Invalid CurrentMapIndex: {CurrentMapIndex}");
                 return;
             }
 
             // 根據當前地圖配置生成新地圖
-            var mapConfig = _maps[CurrentMapIndex];
+            var mapConfig = stageData.maps[CurrentMapIndex];
             var map = MapGenerator.GetMap(mapConfig);
             CurrentMap = map;
             Debug.Log(map.ToJson());
@@ -130,7 +142,7 @@ namespace Map
         [Button]
         public bool IsLastMap()
         {
-            var isLastMap = CurrentMapIndex == _maps.Length - 1;
+            var isLastMap = CurrentMapIndex == stageData.maps.Count() - 1;
             return isLastMap;
         }
         

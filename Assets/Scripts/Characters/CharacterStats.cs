@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Action.Parameters;
+using Combat;
 using Newtonsoft.Json;
 using NueGames.Combat;
 using NueGames.Enums;
@@ -50,13 +51,13 @@ namespace NueGames.Characters
 
         
         #region Setup 初始設定
-        public CharacterStats(int maxHealth, CharacterBase characterBase)
+        public CharacterStats(int maxHealth, CharacterBase characterBase, CharacterCanvas characterCanvas)
         {
             owner = characterBase;
             MaxHealth = maxHealth;
-            CurrentHealth = maxHealth;
             
-            
+            SetCharacterCanvasEvent(characterCanvas);
+            SetCurrentHealth(maxHealth);
         }
 
         public void SetCharacterCanvasEvent(CharacterCanvas characterCanvas)

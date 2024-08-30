@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Action;
 using Action.Parameters;
 using Card;
+using Combat;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -19,7 +20,7 @@ namespace GameAction
             var gameActions = new List<GameActionBase>();
             foreach (var effectInfo in skillInfos)
             {
-                var gameAction = GameActionFactory.GetGameAction(effectInfo, targets, actionSource);
+                var gameAction = GetGameAction(effectInfo, targets, actionSource);
                 gameActions.Add(gameAction);
                 
             }
@@ -27,21 +28,40 @@ namespace GameAction
             return gameActions;
         }
         
-        public static GameActionBase GetGameAction(SkillInfo skillInfo, List<CharacterBase> targets, 
+        public static GameActionBase GetGameAction(SkillInfo skillInfo, List<CharacterBase> specifiedTargets, 
             ActionSource actionSource)
         {
             GameActionBase action = BuildAction(skillInfo);
 
-            // 如果 ActionTargetType 指定是玩家，將 TargetList 改成玩家
-            // 有可能卡片指定對象是敵人，但有部分效果對應到玩家
-            if (skillInfo.Target == ActionTargetType.Ally)
-            {
-                targets = new List<CharacterBase>(){CombatManager.Instance.MainAlly};
-            }
+            var targets = GetTargets(skillInfo.Target, specifiedTargets);
             
             action.SetBasicValue(targets, actionSource);
             return action;
         }
+
+
+        public static List<CharacterBase> GetTargets(ActionTargetType targetType, List<CharacterBase> specifiedTargets)
+        {
+            List<CharacterBase> targetList = new List<CharacterBase>();
+            switch (targetType)
+            {
+                case ActionTargetType.Ally:
+                    targetList.Add(CombatManager.Instance.MainAlly);
+                    break;
+                case ActionTargetType.SpecifiedEnemy:
+                    targetList = specifiedTargets;
+                    break;
+                case ActionTargetType.AllEnemies:
+                    targetList.AddRange(CombatManager.Instance.Enemies);
+                    break;
+                case ActionTargetType.RandomEnemy:
+                    targetList.Add(CombatManager.Instance.RandomEnemy);
+                    break;
+            }
+
+            return targetList;
+        }
+        
 
         private static GameActionBase BuildAction(SkillInfo skillInfo)
         {

@@ -1,4 +1,5 @@
-﻿using NueGames.Managers;
+﻿using Combat;
+using NueGames.Managers;
 using UnityEngine;
 using NueGames.Combat;
 using Sirenix.OdinInspector;

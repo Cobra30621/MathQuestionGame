@@ -12,6 +12,7 @@ using NueGames.Parameters;
 using NueGames.Power;
 using Sirenix.Utilities;
 using UnityEngine;
+using CombatManager = Combat.CombatManager;
 
 namespace NueGames.Combat
 {
