@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6278246831807956331}
   - component: {fileID: 733801562864062279}
+  - component: {fileID: 6596468521151200242}
   m_Layer: 0
   m_Name: RelicManager
   m_TagString: Untagged
@@ -44,6 +45,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 246d54cb69c44aff8d68ed8932f056c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: CurrentRelicDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[NueGames.Relic.RelicName,
+        Assembly-CSharp],[NueGames.Relic.RelicBase, Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[NueGames.Relic.RelicName,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  relicsData: {fileID: 11400000, guid: eb8fc65b91d0abd4b87df478163e214b, type: 2}
+  relicLevelHandler: {fileID: 6596468521151200242}
+--- !u!114 &6596468521151200242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750073106364264311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6046535ae90645748df822865cec9e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: relicLevels
+      Entry: 6
+      Data: 
+    - Name: haveGainedRelic
+      Entry: 6
+      Data: 
   relicsData: {fileID: 11400000, guid: eb8fc65b91d0abd4b87df478163e214b, type: 2}
 --- !u!1 &2308058709268137224
 GameObject:

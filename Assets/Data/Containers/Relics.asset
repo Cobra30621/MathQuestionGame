@@ -12,26 +12,188 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b52170168094794961d68f72b4f05a2, type: 3}
   m_Name: Relics
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: f4a56fbe39e3a5b4396cdc335010fb85, type: 3}
+    - {fileID: 21300000, guid: a5e2f85e3c120234cb73169bfa368bca, type: 3}
+    - {fileID: 21300000, guid: a06f26bd1f8d2cf4e867a8f80fda6b95, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _relicDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[NueGames.Relic.RelicName,
+        Assembly-CSharp],[NueGames.Data.Containers.RelicData, Assembly-CSharp]],
+        mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[NueGames.Relic.RelicName,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 102
+    - Name: $v
+      Entry: 7
+      Data: 2|NueGames.Data.Containers.RelicData, Assembly-CSharp
+    - Name: Title
+      Entry: 1
+      Data: "\u9B54\u529B\u7522\u751F\u5668"
+    - Name: descriptions
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 1
+      Data: test1
+    - Name: 
+      Entry: 1
+      Data: test2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: iconSprite
+      Entry: 10
+      Data: 0
+    - Name: isDeveloping
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 103
+    - Name: $v
+      Entry: 7
+      Data: 4|NueGames.Data.Containers.RelicData, Assembly-CSharp
+    - Name: Title
+      Entry: 1
+      Data: "\u74F6\u5B50"
+    - Name: descriptions
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 1
+      Data: OWO
+    - Name: 
+      Entry: 1
+      Data: OAO
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: iconSprite
+      Entry: 10
+      Data: 1
+    - Name: isDeveloping
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 105
+    - Name: $v
+      Entry: 7
+      Data: 6|NueGames.Data.Containers.RelicData, Assembly-CSharp
+    - Name: Title
+      Entry: 1
+      Data: "\u529B\u91CF\u7522\u751F"
+    - Name: descriptions
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 1
+      Data: test1
+    - Name: 
+      Entry: 1
+      Data: test2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: iconSprite
+      Entry: 10
+      Data: 2
+    - Name: isDeveloping
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   relicBasePrefab: {fileID: 834500992459023877, guid: ea17c585bf0c38c4ab08d1edf1952ab1, type: 3}
   relicList:
   - Title: "\u9B54\u529B\u7522\u751F\u5668"
     descriptions:
     - test1
     - test2
-    relicName: 102
     iconSprite: {fileID: 21300000, guid: f4a56fbe39e3a5b4396cdc335010fb85, type: 3}
     isDeveloping: 0
   - Title: "\u74F6\u5B50"
     descriptions:
     - OWO
     - OAO
-    relicName: 102
     iconSprite: {fileID: 21300000, guid: a5e2f85e3c120234cb73169bfa368bca, type: 3}
     isDeveloping: 0
   - Title: "\u529B\u91CF\u7522\u751F"
     descriptions:
     - test1
     - test2
-    relicName: 103
     iconSprite: {fileID: 21300000, guid: a06f26bd1f8d2cf4e867a8f80fda6b95, type: 3}
     isDeveloping: 1

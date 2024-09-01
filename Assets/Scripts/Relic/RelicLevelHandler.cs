@@ -1,94 +1,87 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Data;
 using NueGames.Data.Containers;
+using NueGames.Relic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace NueGames.Relic
+
+
+public class RelicLevelHandler : SerializedMonoBehaviour, IDataPersistence
 {
-    public class RelicLevelHandler : SerializedMonoBehaviour, IDataPersistence
+    [SerializeField] public Dictionary<RelicName, RelicLevelInfo> relicLevelInfos;
+
+    [SerializeField]
+    public RelicsData relicsData;
+
+    public void InitRelicLevels()
     {
-        [SerializeField]
-        private Dictionary<string, int> relicLevels;
+        relicLevelInfos = new Dictionary<RelicName, RelicLevelInfo>();
 
-        [SerializeField]
-        private Dictionary<string, bool> haveGainedRelic;
-        
-        [SerializeField]
-        public RelicsData relicsData;
-
-        public void InitRelicLevels()
+        foreach (var pair in relicsData.RelicDict)
         {
-            relicLevels = new Dictionary<string, int>();
-            haveGainedRelic = new Dictionary<string, bool>();
-            
-            foreach (var relicData in relicsData.RelicList)
+            var relicId = pair.Key;
+            relicLevelInfos[relicId] = new RelicLevelInfo { Level = 0, HasGained = false };
+        }
+    }
+
+    public int UpgradeRelic(RelicName name)
+    {
+        bool contain = relicLevelInfos.TryGetValue(name, out var relicSaveInfo);
+
+        Debug.Log($"Upgrade relic {name} to {relicSaveInfo.Level + 1}");
+        if (contain)
+        {
+            relicSaveInfo.Level++;
+        }
+
+        SaveManager.Instance.SaveGame();
+
+        return relicSaveInfo.Level;
+    }
+
+    public void OnGainRelic(RelicName relicName)
+    {
+        relicLevelInfos[relicName].HasGained = true;
+    }
+
+
+    public RelicLevelInfo GetRelicSaveInfo(RelicName relicName)
+    {
+        return relicLevelInfos.TryGetValue(relicName, out var relicSaveInfo) ? 
+            relicSaveInfo : new RelicLevelInfo();
+    }
+    
+
+    public void LoadData(GameData data)
+    {
+        InitRelicLevels();
+
+        var loadRelicInfo = data.relicInfo;
+        if (loadRelicInfo != null)
+        {
+            // SaveDeck content takes precedence
+            foreach (var relicId in relicLevelInfos.Keys.ToList())
             {
-                var relicId = relicData.RelicName.ToString();
-                relicLevels[relicId] = 0;
-                haveGainedRelic[relicId] = false;
-            }
-        }
-
-        public int UpgradeRelic(RelicName name)
-        {
-            bool contain = relicLevels.TryGetValue(name.ToString(), out var relicLevel);
-
-            Debug.Log($"Upgrade relic {name} to {relicLevel + 1}");
-            if (contain)
-            {
-                relicLevels[name.ToString()]++;
-            }
-
-            SaveManager.Instance.SaveGame();
-
-            return relicLevels[name.ToString()];
-        }
-
-        public void OnGainRelic(RelicName relicName)
-        {
-            haveGainedRelic[relicName.ToString()] = true;
-        }
-
-        public int GetRelicLevel(RelicName name)
-        {
-            return relicLevels.TryGetValue(name.ToString(), out var relicLevel) ? relicLevel : 0;
-        }
-        
-        public bool HasGainRelic(RelicName relicName)
-        {
-            return haveGainedRelic.TryGetValue(relicName.ToString(), out var hasGain) && hasGain;
-        }
-
-        public void LoadData(GameData data)
-        {
-            InitRelicLevels();
-
-            var loadRelicLevels = data.relicLevels;
-            var loadHaveGainRelics = data.haveGainRelics;
-            if (loadRelicLevels != null)
-            {
-                // SaveDeck content takes precedence
-                foreach (var relicId in relicLevels.Keys.ToList())
+                if (loadRelicInfo.ContainsKey(relicId))
                 {
-                    if (loadRelicLevels.ContainsKey(relicId))
-                    {
-                        relicLevels[relicId] = loadRelicLevels[relicId];
-                    }
-
-                    if (loadHaveGainRelics.ContainsKey(relicId))
-                    {
-                        haveGainedRelic[relicId] = loadHaveGainRelics[relicId];
-                    }
+                    relicLevelInfos[relicId] = loadRelicInfo[relicId];
                 }
             }
         }
-
-        public void SaveData(GameData data)
-        {
-            data.relicLevels = relicLevels;
-            data.haveGainRelics = haveGainedRelic;
-        }
     }
+
+    public void SaveData(GameData data)
+    {
+        data.relicInfo = relicLevelInfos;
+    }
+}
+
+[Serializable]
+public class RelicLevelInfo
+{
+    public int Level;
+    public bool HasGained;
 }

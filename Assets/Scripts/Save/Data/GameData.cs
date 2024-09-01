@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Data;
 using NueGames.Data.Collection;
 using NueGames.Encounter;
+using NueGames.Relic;
 using Question;
 
 namespace Data
@@ -41,8 +42,6 @@ namespace Data
         
         
         // 遺物等級資料
-        public Dictionary<string, int> relicLevels;
-
-        public Dictionary<string, bool> haveGainRelics;
+        public Dictionary<RelicName, RelicLevelInfo> relicInfo;
     }
 }

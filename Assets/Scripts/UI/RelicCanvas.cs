@@ -16,6 +16,11 @@ public class RelicCanvas : CanvasBase
     private RelicManager RelicManager => GameManager.Instance.RelicManager;
 
 
+    private void Awake()
+    {
+        RelicManager.OnRelicUpdated.AddListener(OnGainRelic);
+        Debug.Log("Add Event");
+    }
 
 
     /// <summary>

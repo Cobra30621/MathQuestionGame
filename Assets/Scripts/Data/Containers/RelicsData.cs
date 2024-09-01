@@ -12,11 +12,12 @@ namespace  NueGames.Data.Containers
     /// 所有遺物的資料
     /// </summary>
     [CreateAssetMenu(fileName = "Relics", menuName = "NueDeck/Containers/Relics", order = 2)]
-    public class RelicsData : ScriptableObject
+    public class RelicsData : SerializedScriptableObject
     {
         [SerializeField] private RelicIconsBase relicBasePrefab;
-        [SerializeField] private List<RelicData> relicList;
 
+        [SerializeField] private Dictionary<RelicName, RelicData> _relicDict;
+        
         /// <summary>
         /// 能力 Icon 的遊戲物件(Prefab)
         /// </summary>
@@ -24,11 +25,19 @@ namespace  NueGames.Data.Containers
         /// <summary>
         /// 能力清單
         /// </summary>
-        public List<RelicData> RelicList => relicList;
+        public Dictionary<RelicName, RelicData> RelicDict => _relicDict;
 
         public RelicData GetRelicData(RelicName relicName)
         {
-            return RelicList.FirstOrDefault(x => x.RelicName == relicName);
+            if (_relicDict.TryGetValue(relicName, out var data))
+            {
+                return data;
+            }
+            else
+            {
+                Debug.LogError($"RelicData not found: {relicName}");
+                return null;
+            }
         }
     }
 
@@ -44,17 +53,12 @@ namespace  NueGames.Data.Containers
         [ValidateInput("@descriptions.Count>1", "描述數量必須大於1(包含升級後)")]
         private List<string> descriptions;
         
-        [SerializeField] private RelicName relicName;
         
         [SerializeField] private Sprite iconSprite;
         
         [LabelText("正在開發中的卡片")] 
         [SerializeField] private bool isDeveloping;
         
-        /// <summary>
-        /// 編號
-        /// </summary>
-        public RelicName RelicName => relicName;
         /// <summary>
         /// Icon
         /// </summary>

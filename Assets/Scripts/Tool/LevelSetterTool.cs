@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Card;
 using Card.Data;
 using NueGames.Collection;
+using NueGames.Managers;
+using NueGames.Relic;
+using Relic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -10,15 +13,22 @@ namespace Tool
 {
     
     
-    public class CardLevelSetterTool : SerializedMonoBehaviour
+    public class LevelSetterTool : SerializedMonoBehaviour
     {
         [LabelText("遊戲開始時，設定等級資料")]
         public bool setDataWhenGameStarted;
         
         [TableList(AlwaysExpanded = true)]
         public List<CardLevel> cardDataLevels;
-
+        
+        [TableList(AlwaysExpanded = true)]
+        public List<RelicInfo> relicInfos;
+        
         private CardLevelHandler levelHandler => CardManager.Instance.CardLevelHandler;
+
+        private RelicManager relicManager => GameManager.Instance.RelicManager;
+        
+        
         
 
         private void Start()
@@ -28,9 +38,8 @@ namespace Tool
                 SetCardLevel();
             }
         }
-
-
-        [Button("創建卡片等級清單")]
+        
+        [Button("創建等級清單")]
         public void GetCurrentCardLevel()
         {
             levelHandler.InitDictionary();
@@ -42,6 +51,8 @@ namespace Tool
                 cardDataLevels.Add(new CardLevel(cardData, pair.Value));
             }
 
+            relicManager.relicLevelHandler.InitRelicLevels();
+            relicInfos = relicManager.GetAllRelicInfo();
         }
 
 
@@ -59,6 +70,11 @@ namespace Tool
             CardManager.Instance.UpdateCardInfos();
         }
 
+        [Button("設定遺物資訊")]
+        public void SetRelicSaveInfo()
+        {
+            relicManager.SetRelicsInfo(relicInfos);
+        }
     }
     
     public class CardLevel

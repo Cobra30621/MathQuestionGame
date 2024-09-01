@@ -12,6 +12,10 @@ namespace Relic
     public class RelicManager : SerializedMonoBehaviour
     {
         protected UIManager UIManager => UIManager.Instance;
+
+        public UnityEvent<Dictionary<RelicName, RelicBase>> OnRelicUpdated =
+            new UnityEvent<Dictionary<RelicName, RelicBase>>();
+
         public Dictionary<RelicName, RelicBase> CurrentRelicDict = new Dictionary<RelicName, RelicBase>();
         public RelicsData relicsData;
 
@@ -48,9 +52,7 @@ namespace Relic
             
             relicLevelHandler.OnGainRelic(targetRelic);
             
-            UIManager.RelicCanvas.OnGainRelic(CurrentRelicDict);
-            
-            Debug.Log("GainRelic: " + targetRelic);
+            OnRelicUpdated.Invoke(CurrentRelicDict);
         }
 
         /// <summary>
@@ -59,33 +61,42 @@ namespace Relic
         /// <returns></returns>
         public List<RelicInfo> GetAllRelicInfo()
         {
-            var datas = relicsData.RelicList.Where(x => !x.IsDeveloping).ToList();
-
-            var relicInfos = datas.ConvertAll(x => GetRelicInfo(x.RelicName)).ToList();
+            var relicInfos = relicsData.RelicDict.Keys.
+                ToList().
+                ConvertAll(GetRelicInfo).
+                ToList();
 
             return relicInfos;
+        }
+
+        public void SetRelicsInfo(List<RelicInfo> infos)
+        {
+            foreach (var info in infos)
+            {
+                relicLevelHandler.relicLevelInfos[info.relicName] = info.relicLevelInfo;
+
+                if (CurrentRelicDict.TryGetValue(info.relicName, out var value))
+                {
+                    value.RelicInfo = info;
+                }
+            }
+            
         }
         
 
         private RelicInfo GetRelicInfo(RelicName targetRelic)
         {
-            RelicData data = relicsData.RelicList.FirstOrDefault(x => x.RelicName == targetRelic);
-            int level = relicLevelHandler.GetRelicLevel(targetRelic);
-            bool hasGained = relicLevelHandler.HasGainRelic(targetRelic);
-
+            RelicData data = relicsData.GetRelicData(targetRelic);
+       
             var info = new RelicInfo()
             {
                 relicName = targetRelic,
                 data = data,
-                level = level,
-                haveGain = hasGained
+                relicLevelInfo = relicLevelHandler.GetRelicSaveInfo(targetRelic)
             };
 
             return info;
         }
-
-
-
         
 
         /// <summary>
@@ -96,9 +107,9 @@ namespace Relic
         public void UpgradeRelic(RelicName relicName)
         {
             var level = relicLevelHandler.UpgradeRelic(relicName);
-            CurrentRelicDict[relicName].RelicInfo.level = level;
+            CurrentRelicDict[relicName].RelicInfo.relicLevelInfo.Level = level;
 
-            UIManager.RelicCanvas.OnGainRelic(CurrentRelicDict);
+            OnRelicUpdated.Invoke(CurrentRelicDict);
         }
         
         public List<RelicName> GetRelicNames()

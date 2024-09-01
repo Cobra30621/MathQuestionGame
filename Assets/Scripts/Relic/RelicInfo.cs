@@ -11,13 +11,11 @@ namespace Relic
         
         public RelicData data;
 
-        public int level;
-
-        public bool haveGain;
+        public RelicLevelInfo relicLevelInfo;
         
         public string GetDescription()
         {
-            return data.GetDescription(level);
+            return data.GetDescription(relicLevelInfo.Level);
         }
     }
 }
