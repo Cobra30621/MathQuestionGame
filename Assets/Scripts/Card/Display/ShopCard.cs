@@ -1,5 +1,6 @@
 using Card.Data;
 using Money;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Card.Display
@@ -10,14 +11,24 @@ namespace Card.Display
         private ICardShopUI _cardShopUI;
 
         public UICard UICard;
+
+        [Required]
+        public GameObject unGainCard;
+        
         
         public void SetData(CardUpgradeCommodity commodity, ICardShopUI cardShopUI, CardInfo cardInfo)
         {
             _commodity = commodity;   
             _cardShopUI = cardShopUI;
-            UICard.Init(cardInfo);
+
+            if (cardInfo.CardSaveLevel.HasGained)
+            {
+                UICard.OnCardChose += OpenUpgradePanel;
+            }
             
-            UICard.OnCardChose += OpenUpgradePanel;
+            UICard.Init(cardInfo);
+            unGainCard.SetActive(!cardInfo.CardSaveLevel.HasGained);
+            
         }
 
         public void OpenUpgradePanel()

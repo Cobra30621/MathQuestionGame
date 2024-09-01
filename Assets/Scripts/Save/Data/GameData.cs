@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Card;
 using Data;
 using NueGames.Data.Collection;
 using NueGames.Encounter;
@@ -38,7 +39,7 @@ namespace Data
         /// </summary>
         public QuestionSetting QuestionSetting;
         // 卡片等級字典
-        public Dictionary<string, int> cardLevels;
+        public Dictionary<string, CardSaveLevel> cardLevels;
         
         
         // 遺物等級資料

@@ -63,6 +63,14 @@ namespace Sheets
             {
                 var cardLevelInfos = getter.cardLevelData.GetLevelInfo(cardData.CardId);
                 cardData.SetCardLevels(cardLevelInfos);
+                if (cardLevelInfos != null && cardLevelInfos.Count > 0)
+                {
+                    cardData.AllyClassType = cardLevelInfos[0].Class;
+                }
+                else
+                {
+                    Debug.LogError("Could not find card level info for " + cardData.CardId);
+                }
             }
         }
         

@@ -56,6 +56,15 @@ namespace Relic
         }
 
         /// <summary>
+        /// 取得商店用的遺物清單
+        /// </summary>
+        /// <returns></returns>
+        public List<RelicInfo> GetShopRelicInfo()
+        {
+            return GetAllRelicInfo().Where(r => !r.data.IsDeveloping).ToList();
+        }
+        
+        /// <summary>
         /// 取得所有的遺物清單
         /// </summary>
         /// <returns></returns>

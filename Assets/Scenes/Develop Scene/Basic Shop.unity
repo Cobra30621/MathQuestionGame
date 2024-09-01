@@ -336,6 +336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8899585562032150652, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8899585562032150652, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b794c4a219734be9b96eea204872d3e, type: 3}
 --- !u!114 &47973223 stripped
@@ -1648,7 +1652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 12
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
@@ -1660,47 +1664,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[2]
-      value: '"path":"cardDataLevels.[0].Level","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",0}'
+      value: '"path":"cardDataLevels.[0].HasGained","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",true}'
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[3]
-      value: '"path":"cardDataLevels.[1].cardData","value":$eref:1'
+      value: '"path":"cardDataLevels.[0].Level","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",1}'
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[4]
+      value: '"path":"cardDataLevels.[1].cardData","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[5]
+      value: '"path":"cardDataLevels.[1].HasGained","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",true}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[6]
       value: '"path":"cardDataLevels.[1].Level","value":{"$id":0,"$type":"System.Int32,
         mscorlib",0}'
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[5]
+      propertyPath: serializationData.PrefabModifications.Array.data[7]
       value: '"path":"cardDataLevels.[2].cardData","value":$eref:2'
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[6]
+      propertyPath: serializationData.PrefabModifications.Array.data[8]
+      value: '"path":"cardDataLevels.[2].HasGained","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",true}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[9]
       value: '"path":"cardDataLevels.[2].Level","value":{"$id":0,"$type":"System.Int32,
         mscorlib",0}'
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[7]
+      propertyPath: serializationData.PrefabModifications.Array.data[10]
       value: '"path":"cardDataLevels.[3].cardData","value":$eref:3'
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[8]
+      propertyPath: serializationData.PrefabModifications.Array.data[11]
       value: '"path":"cardDataLevels.[3].Level","value":{"$id":0,"$type":"System.Int32,
         mscorlib",0}'
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[9]
+      propertyPath: serializationData.PrefabModifications.Array.data[12]
       value: '"path":"cardDataLevels.[4]","value":{"$id":0,"$type":"Tool.CardLevel,
-        Assembly-CSharp","cardData":$eref:4,"Level":0}'
+        Assembly-CSharp","cardData":$eref:4,"Level":0,"HasGained":false}'
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[10]
+      propertyPath: serializationData.PrefabModifications.Array.data[13]
       value: '"path":"cardDataLevels.[4].cardData","value":$eref:4'
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[11]
+      propertyPath: serializationData.PrefabModifications.Array.data[14]
+      value: '"path":"cardDataLevels.[4].HasGained","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",false}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[15]
       value: '"path":"cardDataLevels.[4].Level","value":{"$id":0,"$type":"System.Int32,
         mscorlib",0}'
       objectReference: {fileID: 0}
@@ -2052,7 +2076,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2058554557}
         m_TargetAssemblyTypeName: Money.CardShopUI, Assembly-CSharp
-        m_MethodName: ShowCardCommodities
+        m_MethodName: ShowAllCommodities
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

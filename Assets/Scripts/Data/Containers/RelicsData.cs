@@ -18,13 +18,9 @@ namespace  NueGames.Data.Containers
 
         [SerializeField] private Dictionary<RelicName, RelicData> _relicDict;
         
-        /// <summary>
-        /// 能力 Icon 的遊戲物件(Prefab)
-        /// </summary>
+
         public RelicIconsBase RelicBasePrefab => relicBasePrefab;
-        /// <summary>
-        /// 能力清單
-        /// </summary>
+   
         public Dictionary<RelicName, RelicData> RelicDict => _relicDict;
 
         public RelicData GetRelicData(RelicName relicName)

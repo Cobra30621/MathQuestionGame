@@ -19,9 +19,11 @@ namespace Tool
         public bool setDataWhenGameStarted;
         
         [TableList(AlwaysExpanded = true)]
+        [LabelText("卡片等級")]
         public List<CardLevel> cardDataLevels;
         
         [TableList(AlwaysExpanded = true)]
+        [LabelText("遺物等級")]
         public List<RelicInfo> relicInfos;
         
         private CardLevelHandler levelHandler => CardManager.Instance.CardLevelHandler;
@@ -48,7 +50,7 @@ namespace Tool
             foreach (var pair in levelHandler.cardLevels)
             {
                 var cardData = levelHandler.SaveCard.GetCard(pair.Key);
-                cardDataLevels.Add(new CardLevel(cardData, pair.Value));
+                cardDataLevels.Add(new CardLevel(cardData, pair.Value.Level, pair.Value.HasGained));
             }
 
             relicManager.relicLevelHandler.InitRelicLevels();
@@ -59,10 +61,14 @@ namespace Tool
         [Button("設定卡片等級")]
         public void SetCardLevel()
         {
-            var cardLevels = new Dictionary<string, int>();
+            var cardLevels = new Dictionary<string, CardSaveLevel>();
             foreach (var cardInfo in cardDataLevels)
             {
-                cardLevels[cardInfo.cardData.CardId] = cardInfo.Level;
+                cardLevels[cardInfo.cardData.CardId] = new CardSaveLevel()
+                {
+                    Level = cardInfo.Level,
+                    HasGained = cardInfo.HasGained
+                };
             }
 
             levelHandler.cardLevels = cardLevels;
@@ -87,13 +93,17 @@ namespace Tool
         [LabelText("等級")]
         public int Level;
 
+        [LabelText("已獲取過")]
+        public bool HasGained;
+
         private int LevelRange => cardData.LevelInfos.Count - 1;
         
         
-        public CardLevel(CardData cardData, int level)
+        public CardLevel(CardData cardData, int level, bool hasGained)
         {
             this.cardData = cardData;
             Level = level;
+            HasGained = hasGained;
         }
     }
 }

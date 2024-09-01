@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using Card.Data;
+using Data;
+using DataPersistence;
+using NueGames.Enums;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Card
 {
-    public class CardManager : Singleton<CardManager>
+    public class CardManager : Singleton<CardManager>, IDataPersistence
     {
         [Required]
         [SerializeField] private DeckData saveDeck;
@@ -20,12 +23,46 @@ namespace Card
 
         public UnityEvent<List<CardInfo>> CardInfoUpdated;
 
+        public List<CardData> CurrentCardsList;
 
+
+        [Required] [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler;
+
+        public void SetCurrenCardsList(List<CardData> cardData)
+        {
+            CurrentCardsList = cardData;
+        }
+
+        public void SetInitCard(List<CardData> cardDatas)
+        {
+            foreach (var cardData in cardDatas)
+            {
+                GainCard(cardData);
+            }
+        }
+
+        public List<string> GetCardGuid()
+        {
+            return cardDataFileHandler.DataToGuid(CurrentCardsList);
+        }
+        
+        public void GainCard(CardData cardData)
+        {
+            CurrentCardsList.Add(cardData);
+            
+            _cardLevelHandler.OnGainCard(cardData.CardId);
+        }
+
+        public void ThrowCard(CardData cardData)
+        {
+            CurrentCardsList.Remove(cardData);
+        }
+        
+        
         public void UpgradeCard(string cardId)
         {
             _cardLevelHandler.UpgradeCard(cardId);
             UpdateCardInfos();
-            
         }
 
         public void UpdateCardInfos()
@@ -39,6 +76,11 @@ namespace Card
         {
             return skillIds.ConvertAll(id => skillData.GetSkillInfo(id));
         }
+        
+        public List<CardInfo> GetCardInfosWithAlly(AllyClassType classType)
+        {
+            return GetAllCardInfos().Where(info => info.CardData.AllyClassType == classType).ToList();
+        }
 
         public List<CardInfo> GetAllCardInfos()
         {
@@ -46,6 +88,8 @@ namespace Card
 
             return cardInfos;
         }
+
+        
 
         public List<CardInfo> CreateCardInfos(List<CardData> cardData)
         {
@@ -62,7 +106,18 @@ namespace Card
             var cardInfo = new CardInfo(cardData, level);
 
             return cardInfo;
-        }       
+        }
 
+        public void LoadData(GameData data)
+        {
+            SetCurrenCardsList(
+                cardDataFileHandler.GuidToData<CardData>(data.PlayerData.CardDataGuids));
+        }
+
+        public void SaveData(GameData data)
+        {
+            data.PlayerData.CardDataGuids =  cardDataFileHandler.DataToGuid(
+                CurrentCardsList);
+        }
     }
 }

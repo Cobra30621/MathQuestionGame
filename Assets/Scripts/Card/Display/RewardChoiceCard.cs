@@ -1,4 +1,5 @@
 using System;
+using Card;
 using Card.Data;
 using Card.Display;
 using NueGames.Data.Collection;
@@ -26,7 +27,7 @@ namespace NueGames.Card
         private void OnChoice()
         {
             if (GameManager != null)
-                GameManager.CurrentCardsList.Add(uiCard.CardData);
+                CardManager.Instance.GainCard(uiCard.CardData);
 
             if (UIManager != null)
                 UIManager.RewardCanvas.ChoicePanel.DisablePanel();

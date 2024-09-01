@@ -1,4 +1,5 @@
 using System;
+using Card;
 using Card.Data;
 using Card.Display;
 using NueGames.Data.Collection;
@@ -21,7 +22,7 @@ namespace NueGames.Card
         
         public void ThrowCard()
         {
-            GameManager.Instance.ThrowCard( uiCard.CardData);
+            CardManager.Instance.ThrowCard( uiCard.CardData);
         }
 
     }

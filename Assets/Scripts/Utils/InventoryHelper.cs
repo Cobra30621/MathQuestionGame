@@ -1,4 +1,6 @@
 ﻿using System;
+using Card;
+using Card.Data;
 using NueGames.Enums;
 using NueGames.Managers;
 using UnityEngine;
@@ -16,7 +18,7 @@ namespace NueGames.Utils
             switch (inventoryType)
             {
                 case InventoryTypes.CurrentDeck:
-                    UIManager.OpenInventory(GameManager.Instance.CurrentCardsList,"Current Cards");
+                    UIManager.OpenInventory(CardManager.Instance.CurrentCardsList,"Current Cards");
                     break;
                 case InventoryTypes.DrawPile:
                     UIManager.OpenInventory(CollectionManager.Instance.DrawPile,"Draw Pile");

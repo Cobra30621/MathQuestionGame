@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Card;
+using Card.Data;
 using Card.Display;
+using NueGames.Enums;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -31,11 +33,23 @@ namespace Money
         }
 
         [Button]
-        public void ShowCardCommodities()
+        public void ShowAllCommodities()
+        {
+            var cardInfos = CardManager.Instance.GetAllCardInfos();
+            ShowCommodities(cardInfos);
+        }
+
+        [Button]
+        public void ShowCardCommodities(AllyClassType classType)
+        {
+            var cardInfos = CardManager.Instance.GetCardInfosWithAlly(classType);
+            ShowCommodities(cardInfos);
+        }
+
+        public void ShowCommodities(List<CardInfo> cardInfos)
         {
             DestroyPreviousUI();
 
-            var cardInfos = CardManager.Instance.GetAllCardInfos();
             Debug.Log($"prefab {prefab.name}");
             foreach (var cardInfo in cardInfos)
             {
@@ -44,6 +58,8 @@ namespace Money
                 card.SetData(new CardUpgradeCommodity(cardInfo), this, cardInfo);
             }
         }
+        
+        
         
         /// <summary>  
         /// Destroys the previously created UI elements.

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Card;
 using Card.Data;
 using Data;
 using Data.Encounter;
@@ -25,7 +26,7 @@ namespace NueGames.Managers
     [DefaultExecutionOrder(-10)]
     public class GameManager : Singleton<GameManager>, IDataPersistence
     {
-        [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler, allyDataFileHandler, gameplayDataFileHandler;
+        [SerializeField] private ScriptableObjectFileHandler allyDataFileHandler, gameplayDataFileHandler;
 
         [SerializeField] private RelicManager _relicManager;
         public RelicManager RelicManager => _relicManager;
@@ -45,7 +46,7 @@ namespace NueGames.Managers
         [ShowInInspector]
         public PlayerData PlayerData { get; private set; }
         
-        public List<CardData> CurrentCardsList;
+        
         
         public EncounterName CurrentEnemyEncounter;
 
@@ -65,7 +66,8 @@ namespace NueGames.Managers
         {
             PlayerData = data.PlayerData;
             gameplayData = gameplayDataFileHandler.GuidToData<GameplayData>(data.GamePlayDataId);
-            CurrentCardsList = cardDataFileHandler.GuidToData<CardData>(data.PlayerData.CardDataGuids);
+            
+ 
             _stageSelectedHandler.SetAllyData(
                 allyDataFileHandler.GuidToData<AllyData>(data.PlayerData.AllyDataGuid));
             SetRelicList(data.PlayerData.Relics);
@@ -75,7 +77,7 @@ namespace NueGames.Managers
         {
             data.PlayerData = PlayerData;
             data.GamePlayDataId = gameplayDataFileHandler.DataToGuid(gameplayData);
-            data.PlayerData.CardDataGuids =  cardDataFileHandler.DataToGuid(CurrentCardsList);
+            
             data.PlayerData.AllyDataGuid = allyDataFileHandler.DataToGuid(
                 _stageSelectedHandler.GetAllyData());
             data.PlayerData.Relics = _relicManager.GetRelicNames();
@@ -104,13 +106,13 @@ namespace NueGames.Managers
         private void SetInitData()
         {
             SetRelicList(allyData.initialRelic);
-            CurrentCardsList = new List<CardData>();
-            foreach (var cardData in allyData.InitialDeck.CardList)
-                CurrentCardsList.Add(cardData);
+            
+            CardManager.Instance.SetInitCard(allyData.InitialDeck.CardList);
+      
             
             PlayerData = new PlayerData(gameplayData, allyData)
             {
-                CardDataGuids = cardDataFileHandler.DataToGuid(CurrentCardsList),
+                CardDataGuids = CardManager.Instance.GetCardGuid(),
                 AllyDataGuid = allyDataFileHandler.DataToGuid(allyData),
                 Relics = _relicManager.GetRelicNames(),
             };
@@ -176,11 +178,7 @@ namespace NueGames.Managers
         {
             _relicManager.GainRelic(relicNames);
         }
-
-        public void ThrowCard(CardData cardData)
-        {
-            CurrentCardsList.Remove(cardData);
-        }
+        
 
         public float GetMoneyDropRate()
         {

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Card;
 using Card.Display;
 using NueGames.Card;
 using NueGames.Data.Collection;
@@ -32,7 +33,7 @@ namespace CampFire
         {
             DestroyPreviousUI();
             
-            foreach (var cardData in GameManager.Instance.CurrentCardsList)
+            foreach (var cardData in CardManager.Instance.CurrentCardsList)
             {
                 var cardBase = Instantiate(throwBattleCardUI, spawnPos);
                 _spawnedCardList.Add(cardBase);

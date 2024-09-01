@@ -10,8 +10,11 @@ namespace Card.Data
     {
         [ShowInInspector]
         public CardData CardData { get; private set; }
+
+        public int Level => CardSaveLevel.Level;
+
         [ShowInInspector]
-        public int Level { get; private set; }
+        public CardSaveLevel CardSaveLevel { get; private set; }
 
         public CardLevelInfo CardLevelInfo => cardLevelInfo;
 
@@ -22,12 +25,22 @@ namespace Card.Data
 
         [SerializeField] private CardLevelInfo cardLevelInfo;
 
+        public CardInfo(CardData cardData, CardSaveLevel cardSaveLevel)
+        {
+            CardData = cardData;
+            CardSaveLevel = cardSaveLevel;
+            cardLevelInfo = cardData.GetLevelInfo(CardSaveLevel.Level);
+            
+        }
+
         public CardInfo(CardData cardData, int level)
         {
             CardData = cardData;
-            Level = level;
-            cardLevelInfo = cardData.GetLevelInfo(level);
-            
+            CardSaveLevel = new CardSaveLevel()
+            {
+                Level = level
+            };
+            cardLevelInfo = cardData.GetLevelInfo(CardSaveLevel.Level);
         }
         
     }

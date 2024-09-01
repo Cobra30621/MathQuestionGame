@@ -28,6 +28,8 @@ namespace Card.Data
         
         [ShowIf("@isDevelopCard == false")]
         [SerializeField] private List<CardLevelInfo> _levelInfos;
+
+        [SerializeField] private AllyClassType _allyClassType;
         
         [FoldoutGroup("數值參數")]
         [SerializeField] private bool exhaustAfterPlay;
@@ -105,6 +107,9 @@ namespace Card.Data
         
 
         public bool ExhaustAfterPlay => exhaustAfterPlay;
+        
+        public AllyClassType AllyClassType
+        { get => _allyClassType; set => _allyClassType = value; }
 
         #endregion
 

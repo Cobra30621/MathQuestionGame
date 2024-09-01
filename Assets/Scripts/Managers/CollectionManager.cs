@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Card;
 using Card.Data;
 using Combat;
 using NueGames.Card;
@@ -136,7 +137,7 @@ namespace NueGames.Managers
         }
         public void SetGameDeck()
         {
-            foreach (var i in GameManager.CurrentCardsList) 
+            foreach (var i in CardManager.Instance.CurrentCardsList) 
                 DrawPile.Add(i);
         }
 

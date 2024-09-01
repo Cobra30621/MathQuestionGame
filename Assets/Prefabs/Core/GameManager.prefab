@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3747954644409722057}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &733801562864062279
 MonoBehaviour:
@@ -80,6 +80,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  OnRelicUpdated:
+    m_PersistentCalls:
+      m_Calls: []
   relicsData: {fileID: 11400000, guid: eb8fc65b91d0abd4b87df478163e214b, type: 2}
   relicLevelHandler: {fileID: 6596468521151200242}
 --- !u!114 &6596468521151200242
@@ -103,10 +106,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: relicLevels
-      Entry: 6
-      Data: 
-    - Name: haveGainedRelic
+    - Name: relicLevelInfos
       Entry: 6
       Data: 
   relicsData: {fileID: 11400000, guid: eb8fc65b91d0abd4b87df478163e214b, type: 2}
@@ -140,7 +140,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3747954644409722057}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5885686703067263783
 MonoBehaviour:
@@ -194,7 +194,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3747954644409722057}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &927399313501667963
 MonoBehaviour:
@@ -250,7 +250,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7404480640121284348}
   - {fileID: 4426554491014107267}
   - {fileID: 3114496004273676565}
   - {fileID: 6278246831807956331}
@@ -279,70 +278,14 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  cardDataFileHandler: {fileID: 975806491830183042}
   allyDataFileHandler: {fileID: 5885686703067263783}
   gameplayDataFileHandler: {fileID: 1532746533581411832}
   _relicManager: {fileID: 733801562864062279}
   gameplayData: {fileID: 0}
   _stageSelectedHandler: {fileID: 927399313501667963}
-  CurrentCardsList: []
   CurrentEnemyEncounter:
     id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
   CanSelectCards: 0
---- !u!1 &6065209682066806550
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7404480640121284348}
-  - component: {fileID: 975806491830183042}
-  m_Layer: 0
-  m_Name: Card Data File Handler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7404480640121284348
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6065209682066806550}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3747954644409722057}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &975806491830183042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6065209682066806550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 912f235a7ee44a5bbea93b23cbf2a6c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  dataReference: {fileID: 11400000, guid: 4c6e57eef9f084eff8b27b456663c8df, type: 2}
 --- !u!1 &9112977989295313738
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +316,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3747954644409722057}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1532746533581411832
 MonoBehaviour:

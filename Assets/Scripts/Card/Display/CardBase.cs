@@ -95,11 +95,18 @@ namespace Card.Display
 
         #region Tool Tip
 
+        private bool NeedShowTooltip()
+        {
+            return _cardInfo.CardSaveLevel.HasGained;
+        }
+        
         
         protected virtual void ShowTooltipInfo()
         {
+            if(!NeedShowTooltip()) return;
             if (!descriptionRoot) return;
             if (CardData.KeywordsList == null) return;
+            
            
             var tooltipManager = TooltipManager.Instance;
             Debug.Log($"CardData.KeywordsList{CardData.KeywordsList.Count}");

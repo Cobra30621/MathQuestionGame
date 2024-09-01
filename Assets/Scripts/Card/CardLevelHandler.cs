@@ -12,46 +12,61 @@ namespace Card
     public class CardLevelHandler : SerializedMonoBehaviour, IDataPersistence
     {
         // TEST
-        public Dictionary<string, int> cardLevels;
+        public Dictionary<string, CardSaveLevel> cardLevels;
         public DeckData SaveCard;
-        [Button("初始化字典")]
+
+        
+        [Button("Initialize Dictionary")]
         public void InitDictionary()
         {
-            cardLevels = new Dictionary<string, int>();
+            cardLevels = new Dictionary<string, CardSaveLevel>();
             foreach (var cardData in SaveCard.CardList)
             {
                 var cardId = cardData.CardId;
-                cardLevels[cardId] = 0;
+                cardLevels[cardId] = new CardSaveLevel { Level = 0, HasGained = false };
             }
         }
-        
+
         public void UpgradeCard(string id)
         {
-            bool contain = cardLevels.TryGetValue(id, out var cardLevel);
+            bool contain = cardLevels.TryGetValue(id, out var cardSaveLevel);
 
-            Debug.Log($"升級卡牌 {id} 到 {cardLevel + 1}");
+            Debug.Log($"Upgrade card {id} to {cardSaveLevel.Level + 1}");
             if (contain)
             {
-                cardLevels[id]++;
+                cardSaveLevel.Level++;
+            }
+
+            SaveManager.Instance.SaveGame();
+        }
+
+        public void OnGainCard(string id)
+        {
+            bool contain = cardLevels.TryGetValue(id, out var cardSaveLevel);
+
+            Debug.Log($"Gain card {id}");
+            if (contain)
+            {
+                cardSaveLevel.HasGained = true;
             }
             
             SaveManager.Instance.SaveGame();
         }
-        
-        public int GetCardLevel(string id)
+
+        public CardSaveLevel GetCardLevel(string id)
         {
-            return cardLevels.TryGetValue(id, out var cardLevel) ? cardLevel : 0;
+            return cardLevels.TryGetValue(id, out var cardSaveLevel) ? cardSaveLevel : new CardSaveLevel();
         }
-        
-        
+
+
         public void LoadData(GameData data)
         {
             InitDictionary();
-            
+
             var loadCardLevels = data.cardLevels;
             if (loadCardLevels != null)
             {
-                // 存檔內容，要以 SaveDeck 中的資料為主
+                // SaveDeck content takes precedence
                 foreach (var cardId in cardLevels.Keys.ToList())
                 {
                     if (loadCardLevels.ContainsKey(cardId))
@@ -61,12 +76,20 @@ namespace Card
                 }
             }
         }
-        
+
         public void SaveData(GameData data)
         {
             data.cardLevels = cardLevels;
         }
-        
-        
     }
+    
+    [Serializable]
+    public class CardSaveLevel
+    {
+        [LabelText("等級")]
+        public int Level;
+        [LabelText("已獲取過")]
+        public bool HasGained;
+    }
+
 }
