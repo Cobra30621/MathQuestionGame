@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 
 namespace NueGames.UI
 {
-    public class CanvasBase : SerializedMonoBehaviour
+    public class CanvasBase : MonoBehaviour
     {
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;

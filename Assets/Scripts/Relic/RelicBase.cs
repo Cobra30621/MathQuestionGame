@@ -5,6 +5,7 @@ using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
+using Relic;
 
 namespace NueGames.Relic
 {
@@ -34,6 +35,9 @@ namespace NueGames.Relic
         /// 計數器數值發生變動
         /// </summary>
         public System.Action<int> OnCounterChange;
+
+
+        public RelicInfo RelicInfo;
 
         
         #region SetUp

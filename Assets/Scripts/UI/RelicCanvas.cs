@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Managers;
 using NueGames.Relic;
 using NueGames.UI;
 using UnityEngine;
 using NueGames.Managers;
+using Relic;
 
 public class RelicCanvas : CanvasBase
 {
@@ -14,22 +15,26 @@ public class RelicCanvas : CanvasBase
     
     private RelicManager RelicManager => GameManager.Instance.RelicManager;
 
+
+
+
     /// <summary>
     /// 取得 Relic 時
     /// </summary>
     /// <param name="relicClip"></param>
-    public void OnGainRelic(RelicClip relicClip)
+    public void OnGainRelic(Dictionary<RelicName, RelicBase> relicDict)
     {
-        var clone = Instantiate(RelicBasePrefab, relicIconSpawnRoot);
-        clone.SetRelicClip(relicClip);
-    }
-    
-    public void ShowCurrentRelicList()
-    {
-        foreach (var relicClip in RelicManager.CurrentRelicList)
+        foreach (Transform child in relicIconSpawnRoot)
+        {
+            Destroy(child);
+        }
+        
+        Debug.Log(relicDict.Keys);
+        
+        foreach (var pair in relicDict)
         {
             var clone = Instantiate(RelicBasePrefab, relicIconSpawnRoot);
-            clone.SetRelicClip(relicClip);
+            clone.SetRelicClip(pair.Value);
         }
     }
 }

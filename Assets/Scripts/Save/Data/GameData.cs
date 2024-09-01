@@ -38,5 +38,11 @@ namespace Data
         public QuestionSetting QuestionSetting;
         // 卡片等級字典
         public Dictionary<string, int> cardLevels;
+        
+        
+        // 遺物等級資料
+        public Dictionary<string, int> relicLevels;
+
+        public Dictionary<string, bool> haveGainRelics;
     }
 }

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using Combat;
-using Managers;
 using NueGames.Enums;
 using NueGames.Power;
 
@@ -40,10 +39,10 @@ namespace NueGames.Combat
             }
 
             // 遺物系統瑪娜加成
-            var relics = GameManager.Instance.RelicManager.CurrentRelicList;
-            foreach (var relicClip in relics)
+            var relics = GameManager.Instance.RelicManager.CurrentRelicDict.Values;
+            foreach (var relicBase in relics)
             {
-                gainValue = relicClip.Relic.AtGainTurnStartMana(gainValue);
+                gainValue = relicBase.AtGainTurnStartMana(gainValue);
             }
             
             // 每回合開始，將瑪娜歸零

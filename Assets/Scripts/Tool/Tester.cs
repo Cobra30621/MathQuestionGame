@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Managers;
 using Map;
 using Map_System.Scripts.MapData;
 using NueGames.Collection;
@@ -47,7 +46,6 @@ public class Tester : MonoBehaviour
     private void GainRelic()
     {
         GameManager.Instance.RelicManager.GainRelic(relicName);
-        GameManager.Instance.RelicManager.PrintCurrentRelicList();
     }
 
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Combat;
 using Data.Encounter;
-using Managers;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Enums;

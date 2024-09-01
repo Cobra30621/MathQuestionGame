@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NueGames.Relic;
 using NueGames.UI;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace  NueGames.Data.Containers
@@ -30,18 +31,25 @@ namespace  NueGames.Data.Containers
             return RelicList.FirstOrDefault(x => x.RelicName == relicName);
         }
     }
-    
-    
+
+
     [Serializable]
     public class RelicData
     {
-        [SerializeField] private string titleText;
+        [LabelText("名稱")]
+        public string Title;
         
-        [SerializeField][TextArea] private string contentText;
+        [LabelText("不同等級遺物描述")]
+        [SerializeField]
+        [ValidateInput("@descriptions.Count>1", "描述數量必須大於1(包含升級後)")]
+        private List<string> descriptions;
         
         [SerializeField] private RelicName relicName;
         
         [SerializeField] private Sprite iconSprite;
+        
+        [LabelText("正在開發中的卡片")] 
+        [SerializeField] private bool isDeveloping;
         
         /// <summary>
         /// 編號
@@ -51,28 +59,12 @@ namespace  NueGames.Data.Containers
         /// Icon
         /// </summary>
         public Sprite IconSprite => iconSprite;
+
+        public bool IsDeveloping => isDeveloping;
         
-        /// <summary>
-        /// 名稱
-        /// </summary>
-        public string GetHeader(string overrideKeywordHeader = "")
+        public string GetDescription(int level)
         {
-            if(titleText != "")
-                return titleText;
-            return string.IsNullOrEmpty(overrideKeywordHeader) ? relicName.ToString() : overrideKeywordHeader;
-        }
-
-        /// <summary>
-        /// 能力說明
-        /// </summary>
-        public string GetContent(string overrideContent = "")
-        {
-            return string.IsNullOrEmpty(overrideContent) ? contentText : overrideContent;
-        }
-
-        public override string ToString()
-        {
-            return $"{nameof(titleText)}: {titleText}, {nameof(contentText)}: {contentText}, {nameof(relicName)}: {relicName}";
+            return descriptions[level];
         }
     }
 }

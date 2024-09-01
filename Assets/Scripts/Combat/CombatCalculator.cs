@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Action.Parameters;
 using GameListener;
 using Kalkatos.DottedArrow;
-using Managers;
 using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -66,15 +65,15 @@ namespace NueGames.Combat
 
             bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
             // 計算遺物能力加成
-            foreach (var relicClip in GameManager.Instance.RelicManager.CurrentRelicList)
+            foreach (var relicBase in GameManager.Instance.RelicManager.CurrentRelicDict.Values)
             {
                 if (selfIsAlly)
                 {
-                    orderClips.Add(new CalculateOrderClip(relicClip.Relic.DamageCalculateOrder, relicClip.Relic.AtDamageGive));
+                    orderClips.Add(new CalculateOrderClip(relicBase.DamageCalculateOrder, relicBase.AtDamageGive));
                 }
                 else
                 {
-                    orderClips.Add(new CalculateOrderClip(relicClip.Relic.DamageCalculateOrder, relicClip.Relic.AtDamageReceive));
+                    orderClips.Add(new CalculateOrderClip(relicBase.DamageCalculateOrder, relicBase.AtDamageReceive));
                 }
             }
             
@@ -106,11 +105,11 @@ namespace NueGames.Combat
 
             bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
             // 計算遺物能力加成
-            foreach (var relicClip in GameManager.Instance.RelicManager.CurrentRelicList)
+            foreach (var relicBase in GameManager.Instance.RelicManager.CurrentRelicDict.Values)
             {
                 if (selfIsAlly) // 格檔發起者是玩家，遺物給予加成
                 {
-                    orderClips.Add(new CalculateOrderClip(relicClip.Relic.BlockCalculateOrder, relicClip.Relic.ModifyBlock));
+                    orderClips.Add(new CalculateOrderClip(relicBase.BlockCalculateOrder, relicBase.ModifyBlock));
                 }
             }
             
