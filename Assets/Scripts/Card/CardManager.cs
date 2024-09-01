@@ -77,10 +77,20 @@ namespace Card
             return skillIds.ConvertAll(id => skillData.GetSkillInfo(id));
         }
         
-        public List<CardInfo> GetCardInfosWithAlly(AllyClassType classType)
+        public List<CardInfo> GetCardInfos(AllyClassType classType)
         {
             return GetAllCardInfos().Where(info => info.CardData.AllyClassType == classType).ToList();
         }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
+        public List<CardInfo> GetAllAllyClassCardInfos()
+        {
+            return GetAllCardInfos().Where(info => info.CardData.AllyClassType != AllyClassType.General).ToList();
+        }
+        
 
         public List<CardInfo> GetAllCardInfos()
         {

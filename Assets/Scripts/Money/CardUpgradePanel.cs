@@ -3,6 +3,7 @@ using Card;
 using Card.Data;
 using Card.Display;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,9 @@ namespace Money
         [SerializeField] private UICard before, after;
         [SerializeField] private Button upgrade;
         private CardUpgradeCommodity _commodity;
+
+        [Required]
+        [SerializeField] private TextMeshProUGUI moneyText, stoneText;
 
 
         private void Awake()
@@ -41,6 +45,15 @@ namespace Money
                 upgrade.interactable = true;
                 after.Init(new CardInfo(cardInfo.CardData, cardInfo.Level + 1));
             }
+
+            var needCost = _commodity.NeedCost();
+
+            moneyText.text = needCost.TryGetValue(CoinType.Money, out var value) ? 
+                $"所需金幣: {value}" : $"所需金幣: 0";
+            
+            stoneText.text = needCost.TryGetValue(CoinType.Stone, out value) ? 
+                $"所需寶石: {value}" : $"所需寶石: 0";
+            
         }
 
         [Button]

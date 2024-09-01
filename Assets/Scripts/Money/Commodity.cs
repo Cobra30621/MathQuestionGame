@@ -1,11 +1,21 @@
-﻿namespace Money
+﻿using System.Collections.Generic;
+
+namespace Money
 {
     public interface Commodity
     {
-        int NeedCost();
+
+
+        Dictionary<CoinType, int> NeedCost();
 
         bool EnableBuy();
 
         void Buy();
+    }
+
+    public enum CoinType
+    {
+        Money,
+        Stone
     }
 }

@@ -1,4 +1,5 @@
-﻿using Card;
+﻿using System.Collections.Generic;
+using Card;
 using Card.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -15,17 +16,24 @@ namespace Money
         {
             _cardInfo = cardInfo;
         }
-        
-        
-        public int NeedCost()
+
+
+        public Dictionary<CoinType, int> NeedCost()
         {
-            return _cardInfo.CardLevelInfo.UpgradeCost;
+            return new Dictionary<CoinType, int>()
+            {
+                { CoinType.Money, _cardInfo.CardLevelInfo.UpgradeCost },
+            };
         }
 
         public bool EnableBuy()
         {
             bool notMaxLevel = !_cardInfo.CardLevelInfo.MaxLevel;
-            bool enoughMoney = MoneyManager.Instance.EnoughMoney(NeedCost());
+
+            var needCost = NeedCost();
+            int needMoney = needCost[CoinType.Money];
+
+            bool enoughMoney = MoneyManager.Instance.EnoughMoney(needMoney);
             
             return notMaxLevel && enoughMoney;
         }
@@ -33,8 +41,10 @@ namespace Money
         [Button]
         public void Buy()
         {
-            int cost = NeedCost();
-            MoneyManager.Instance.Buy(cost);
+            var needCost = NeedCost();
+            int needMoney = needCost[CoinType.Money];
+            
+            MoneyManager.Instance.Buy(needMoney);
 
             string cardId = _cardInfo.CardData.CardId;
             CardManager.Instance.UpgradeCard(cardId);
