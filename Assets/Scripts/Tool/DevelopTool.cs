@@ -32,10 +32,6 @@ namespace Tool
         public UnityEvent TestEvent;
         
         [InlineEditor()]
-        [LabelText("遊戲設定")]
-        public GameplayData GameplayData;
-        
-        [InlineEditor()]
         [LabelText("玩家資料")]
         public AllyData allyData;
         
@@ -84,7 +80,6 @@ namespace Tool
 
         private void SetDevelopModeData()
         {
-            GameManager.Instance.SetGameplayData(GameplayData);
             GameManager.Instance.SetAllyData(allyData);
             GameManager.Instance.SetEnemyEncounter(enemyEncounter);
             QuestionManager.Instance.SetQuestionSetting(QuestionSetting); 

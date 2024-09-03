@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Card;
 using Data;
+using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Encounter;
 using NueGames.Relic;
@@ -11,17 +12,24 @@ namespace Data
     public class GameData
     {
         /// <summary>
-        /// 遊戲初始設定資料的 id
+        /// 玩家選擇的角色 ID
         /// </summary>
-        public string GamePlayDataId;
+        public string AllyDataGuid;
+        
+        
+        public AllyHealthData AllyHealthData;
+        
         /// <summary>
-        /// 玩家資訊
+        /// 卡牌資料
         /// </summary>
-        public PlayerData PlayerData;
+        public List<string> CardDataGuids;
+        
         /// <summary>
-        /// 玩家金錢
+        /// 遺物資料
         /// </summary>
-        public int Money;
+        public List<RelicName> Relics;
+        
+        
         /// <summary>
         /// 地圖資訊
         /// </summary>
@@ -38,11 +46,6 @@ namespace Data
         /// 問題設定
         /// </summary>
         public QuestionSetting QuestionSetting;
-        // 卡片等級字典
-        public Dictionary<string, CardSaveLevel> cardLevels;
         
-        
-        // 遺物等級資料
-        public Dictionary<RelicName, RelicLevelInfo> relicInfo;
     }
 }

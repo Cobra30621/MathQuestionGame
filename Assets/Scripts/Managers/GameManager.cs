@@ -6,7 +6,7 @@ using Data;
 using Data.Encounter;
 using DataPersistence;
 using Map;
-using Money;
+using Coin;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Characters;
@@ -33,6 +33,7 @@ namespace NueGames.Managers
         
         [Header("Settings")]
         [InlineEditor()]
+        [Required]
         [SerializeField] private GameplayData gameplayData;
 
         [Required]
@@ -42,11 +43,7 @@ namespace NueGames.Managers
         
         #region Cache
         public GameplayData GameplayData => gameplayData;
-        
-        [ShowInInspector]
-        public PlayerData PlayerData { get; private set; }
-        
-        
+  
         
         public EncounterName CurrentEnemyEncounter;
 
@@ -55,8 +52,39 @@ namespace NueGames.Managers
         public StageSelectedHandler StageSelectedHandler => _stageSelectedHandler;
 
         public AllyData allyData => _stageSelectedHandler.GetAllyData();
-    
+
+        public AllyHealthData AllyHealthData;
         
+        #endregion
+
+        #region 檢查第一次進入遊戲
+
+        protected override void DoAtAwake()
+        {
+            base.DoAtAwake();
+            CheckFirstEnterGame();
+        }
+
+
+        private void CheckFirstEnterGame()
+        {
+            if (SaveManager.Instance.IsFirstEnterGame())
+            {
+                CoinManager.Instance.SetMoney(gameplayData.InitMoney);
+                CoinManager.Instance.SetStone(gameplayData.InitStone);
+                CardManager.Instance.CardLevelHandler.InitDictionary();
+                RelicManager.relicLevelHandler.InitRelicLevels();
+                
+                SaveManager.Instance.SavePermanentGame();
+                SaveManager.Instance.SetHaveEnterGame();
+            }
+            else
+            {
+                SaveManager.Instance.LoadPermanentGame();
+            }
+        }
+        
+
         #endregion
         
         
@@ -64,27 +92,22 @@ namespace NueGames.Managers
 
         public void LoadData(GameData data)
         {
-            PlayerData = data.PlayerData;
-            gameplayData = gameplayDataFileHandler.GuidToData<GameplayData>(data.GamePlayDataId);
+            AllyHealthData = data.AllyHealthData;
             
- 
             _stageSelectedHandler.SetAllyData(
-                allyDataFileHandler.GuidToData<AllyData>(data.PlayerData.AllyDataGuid));
-            SetRelicList(data.PlayerData.Relics);
+                allyDataFileHandler.GuidToData<AllyData>(data.AllyDataGuid));
+
         }
 
         public void SaveData(GameData data)
         {
-            data.PlayerData = PlayerData;
-            data.GamePlayDataId = gameplayDataFileHandler.DataToGuid(gameplayData);
+            data.AllyHealthData = AllyHealthData;
             
-            data.PlayerData.AllyDataGuid = allyDataFileHandler.DataToGuid(
+            data.AllyDataGuid = allyDataFileHandler.DataToGuid(
                 _stageSelectedHandler.GetAllyData());
-            data.PlayerData.Relics = _relicManager.GetRelicNames();
         }
         
         #endregion
-
 
 
         #region Start Game
@@ -95,7 +118,7 @@ namespace NueGames.Managers
             Debug.Log("New Game");
 
             SetInitData();
-            SaveManager.Instance.SaveGame();
+            SaveManager.Instance.SaveSingleGame();
         }
 
         public void StartDevelopMode()
@@ -105,29 +128,17 @@ namespace NueGames.Managers
 
         private void SetInitData()
         {
-            SetRelicList(allyData.initialRelic);
-            
+            _relicManager.GainRelic(allyData.initialRelic);
             CardManager.Instance.SetInitCard(allyData.InitialDeck.CardList);
-      
-            
-            PlayerData = new PlayerData(gameplayData, allyData)
-            {
-                CardDataGuids = CardManager.Instance.GetCardGuid(),
-                AllyDataGuid = allyDataFileHandler.DataToGuid(allyData),
-                Relics = _relicManager.GetRelicNames(),
-            };
-            
-            MoneyManager.Instance.SetMoney(gameplayData.InitMoney);
-            
-            UIManager.Instance.RewardCanvas.SetCardReward(allyData.CardRewardData);
-
             MapManager.Instance.Initialized(_stageSelectedHandler.GetStageData());
             QuestionManager.Instance.GenerateQuestions();
+            
+            UIManager.Instance.RewardCanvas.SetCardReward(allyData.CardRewardData);
         }
 
         public void ContinueGame()
         {
-            SaveManager.Instance.LoadGame();
+            SaveManager.Instance.LoadSingleGame();
             
             UIManager.Instance.RewardCanvas.SetCardReward(allyData.CardRewardData);
         }
@@ -143,12 +154,7 @@ namespace NueGames.Managers
             clone.Init(targetData);
             return clone;
         }
-
         
-        public void SetGameplayData(GameplayData gameplayData)
-        {
-            this.gameplayData = gameplayData;
-        }
         
         public void SetAllyData(AllyData allyData)
         {
@@ -164,20 +170,17 @@ namespace NueGames.Managers
 
         public void HealAlly(float percent)
         {
-            var healthData = PlayerData.AllyHealthData;
+            var healthData = AllyHealthData;
             int heal = Mathf.CeilToInt(healthData.MaxHealth * percent);
 
             int afterHealHp = Math.Min(healthData.CurrentHealth + heal, healthData.MaxHealth);
             
-            PlayerData.SetHealth(afterHealHp
+            AllyHealthData.SetHealth(afterHealHp
                 ,healthData.MaxHealth);
             UIManager.Instance.InformationCanvas.ResetCanvas();
         }
         
-        private void SetRelicList(List<RelicName> relicNames)
-        {
-            _relicManager.GainRelic(relicNames);
-        }
+      
         
 
         public float GetMoneyDropRate()
@@ -187,8 +190,6 @@ namespace NueGames.Managers
 
         
         #endregion
-
-
         
     }
 }

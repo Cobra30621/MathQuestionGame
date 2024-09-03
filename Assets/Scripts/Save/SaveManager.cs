@@ -13,9 +13,14 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SaveManager : Singleton<SaveManager>
 {
+    [LabelText("單局存檔資訊")]
     [ShowInInspector] private GameData _gameData;
+    [LabelText("永久存檔資訊")]
+    [ShowInInspector] private PermanentGameData _permanentGameData;
     [ShowInInspector] [ReadOnly] private List<IDataPersistence> dataPersistenceObjects;
-
+    [ShowInInspector] [ReadOnly] private List<IPermanentDataPersistence> permanentObjects;
+    
+    
     [LabelText("在 Awake 時，就進行讀檔")]
     [SerializeField] private bool loadOnAwake;
 
@@ -26,19 +31,16 @@ public class SaveManager : Singleton<SaveManager>
 
         if (loadOnAwake)
         {
-            LoadGame();
+            LoadSingleGame();
         }
     }
     
-    [Button]
-    public void ClearGameData()
-    {
-        _gameData = new GameData();
-        ES3Handler.Clear();
-    }
+    
+
+    #region Single Game
 
     [Button("讀檔")]
-    public void LoadGame()
+    public void LoadSingleGame()
     {
         dataPersistenceObjects = FindAllDataPersistenceObjects();
         // load any saved Skill from a file using the Skill handler
@@ -57,8 +59,8 @@ public class SaveManager : Singleton<SaveManager>
             dataPersistenceObj.LoadData(_gameData);
         }
     }
-[Button("存檔")]
-    public void SaveGame()
+    [Button("存檔")]
+    public void SaveSingleGame()
     {
         dataPersistenceObjects = FindAllDataPersistenceObjects();
         // if we don't have any gameData to save, log a warning here
@@ -78,11 +80,7 @@ public class SaveManager : Singleton<SaveManager>
         ES3Handler.Save(_gameData);
     }
 
-    private void OnApplicationQuit() 
-    {
-        SaveGame();
-    }
-
+  
     private List<IDataPersistence> FindAllDataPersistenceObjects() 
     {
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>()
@@ -90,4 +88,92 @@ public class SaveManager : Singleton<SaveManager>
 
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
+    
+    [Button]
+    public void ClearGameData()
+    {
+        _gameData = new GameData();
+        ES3Handler.ClearGameData();
+    }
+
+    #endregion
+
+    #region PermanentGame
+
+    
+    [Button]
+    public void ClearAllData()
+    {
+        _gameData = new GameData();
+        _permanentGameData = new PermanentGameData();
+        ES3Handler.ClearAllData();
+    }
+    
+    
+    public bool IsFirstEnterGame()
+    {
+        return ES3Handler.IsFirstEnterGame();
+    }
+
+    public void SetHaveEnterGame()
+    {
+        ES3Handler.SetHaveEnterGame();
+    }
+    
+    
+    [Button("讀取永久存檔")]
+    public void LoadPermanentGame()
+    {
+        permanentObjects = FindAllPermanentDataPersistenceObjects();
+        // load any saved PermanentGameData from a file using the PermanentGameData handler
+        this._permanentGameData = ES3Handler.LoadPermanent();
+
+        // start a new game if the PermanentGameData is null and we're configured to initialize it for debugging purposes
+        if (this._permanentGameData == null) 
+        {
+            this._permanentGameData = new PermanentGameData();
+        }
+    
+        // push the loaded PermanentGameData to all other scripts that need it
+        foreach (IPermanentDataPersistence permanentObj in permanentObjects) 
+        {
+            permanentObj.LoadData(_permanentGameData);
+        }
+    }
+
+    [Button("儲存永久存檔")]
+    public void SavePermanentGame()
+    {
+        permanentObjects = FindAllPermanentDataPersistenceObjects();
+        // if we don't have any PermanentGameData to save, log a warning here
+        if (this._permanentGameData == null)
+        {
+            _permanentGameData = new PermanentGameData();
+        }
+
+        // pass the PermanentGameData to other scripts so they can update it
+        foreach (IPermanentDataPersistence permanentObj in permanentObjects) 
+        { 
+            permanentObj.SaveData(_permanentGameData);
+        }
+
+        // save that PermanentGameData to a file using the PermanentGameData handler
+        ES3Handler.SavePermanent(_permanentGameData);
+    }
+
+    private List<IPermanentDataPersistence> FindAllPermanentDataPersistenceObjects() 
+    {
+        IEnumerable<IPermanentDataPersistence> permanentObjects = FindObjectsOfType<MonoBehaviour>()
+            .OfType<IPermanentDataPersistence>();
+
+        return new List<IPermanentDataPersistence>(permanentObjects);
+    }
+    
+
+    #endregion
+    private void OnApplicationQuit() 
+    {
+        SaveSingleGame();
+    }
+
 }

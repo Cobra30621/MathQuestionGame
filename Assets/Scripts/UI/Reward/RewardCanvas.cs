@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Card.Data;
 using Map;
-using Money;
+using Coin;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Data.Collection.RewardData;
@@ -116,9 +116,9 @@ namespace NueGames.UI.Reward
         #region Private Methods
         private void GetGoldReward(RewardContainer rewardContainer,int amount)
         {
-            MoneyManager.Instance.AddMoney(amount);
+            CoinManager.Instance.AddMoney(amount);
             _currentRewardsList.Remove(rewardContainer);
-            UIManager.InformationCanvas.SetGoldText(MoneyManager.Instance.Money);
+            UIManager.InformationCanvas.SetGoldText(CoinManager.Instance.Money);
             Destroy(rewardContainer.gameObject);
         }
 

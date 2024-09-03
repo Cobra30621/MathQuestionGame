@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Money
+namespace Coin
 {
     public interface Commodity
     {
@@ -13,9 +13,5 @@ namespace Money
         void Buy();
     }
 
-    public enum CoinType
-    {
-        Money,
-        Stone
-    }
+    
 }

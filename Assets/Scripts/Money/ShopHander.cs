@@ -2,7 +2,7 @@
 using Card;
 using UnityEngine.Events;
 
-namespace Money
+namespace Coin
 {
     public class ShopHandler
     {

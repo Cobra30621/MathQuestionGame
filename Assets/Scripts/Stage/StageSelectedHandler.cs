@@ -11,7 +11,9 @@ namespace Stage
         [Required]
         [SerializeField] private StageDataOverview _stageDataOverview;
         
+        [SerializeField]
         private StageName _currentStageData;
+        [SerializeField]
         private AllyData _currentAllyData;
         
         
@@ -19,15 +21,15 @@ namespace Stage
         
         public void SetStageData(StageName stageData)
         {
+            Debug.Log($"Set {stageData.Id}");
             _currentStageData = stageData;
-            // Additional logic to handle the selected stage
         }
 
         public void SetAllyData(AllyData allyData)
         {
+            Debug.Log($"Set {allyData.CharacterName}");
             _currentAllyData = allyData;
             OnAllyDataChanged.Invoke(_currentAllyData);
-            // Additional logic to handle the selected ally
         }
 
         public StageName GetStageData()

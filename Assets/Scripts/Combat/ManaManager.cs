@@ -29,7 +29,7 @@ namespace NueGames.Combat
         /// </summary>
         public void HandleAtTurnStartMana()
         {
-            int gainValue = GameManager.PlayerData.MaxMana;
+            int gainValue = CombatManager.MaxMana();
             var allyPowers = CombatManager.MainAlly.GetPowerDict();
             
             // 能力系統瑪娜加成

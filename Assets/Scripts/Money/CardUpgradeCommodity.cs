@@ -4,7 +4,7 @@ using Card.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Money
+namespace Coin
 {
     public class CardUpgradeCommodity : Commodity
     {
@@ -29,11 +29,8 @@ namespace Money
         public bool EnableBuy()
         {
             bool notMaxLevel = !_cardInfo.CardLevelInfo.MaxLevel;
-
-            var needCost = NeedCost();
-            int needMoney = needCost[CoinType.Money];
-
-            bool enoughMoney = MoneyManager.Instance.EnoughMoney(needMoney);
+            
+            bool enoughMoney = CoinManager.Instance.EnoughCoin(NeedCost());
             
             return notMaxLevel && enoughMoney;
         }
@@ -41,10 +38,7 @@ namespace Money
         [Button]
         public void Buy()
         {
-            var needCost = NeedCost();
-            int needMoney = needCost[CoinType.Money];
-            
-            MoneyManager.Instance.Buy(needMoney);
+            CoinManager.Instance.Buy(NeedCost());
 
             string cardId = _cardInfo.CardData.CardId;
             CardManager.Instance.UpgradeCard(cardId);

@@ -3,7 +3,7 @@ using NueGames.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Money
+namespace Coin
 {
     /// <summary>
     /// The ShopCanvas class handles the opening and closing of the shop UI canvas.

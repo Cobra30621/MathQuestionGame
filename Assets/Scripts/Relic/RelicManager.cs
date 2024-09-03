@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Data;
 using NueGames.Data.Containers;
 using NueGames.Managers;
 using NueGames.Relic;
@@ -9,7 +10,7 @@ using UnityEngine.Events;
 
 namespace Relic
 {
-    public class RelicManager : SerializedMonoBehaviour
+    public class RelicManager : SerializedMonoBehaviour, IDataPersistence
     {
         protected UIManager UIManager => UIManager.Instance;
 
@@ -121,10 +122,14 @@ namespace Relic
             OnRelicUpdated.Invoke(CurrentRelicDict);
         }
         
-        public List<RelicName> GetRelicNames()
+        public void LoadData(GameData data)
         {
-            return CurrentRelicDict.Keys.ToList();
+            GainRelic(data.Relics);
         }
-        
+
+        public void SaveData(GameData data)
+        {
+            data.Relics = CurrentRelicDict.Keys.ToList();
+        }
     }
 }

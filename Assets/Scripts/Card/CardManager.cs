@@ -121,12 +121,12 @@ namespace Card
         public void LoadData(GameData data)
         {
             SetCurrenCardsList(
-                cardDataFileHandler.GuidToData<CardData>(data.PlayerData.CardDataGuids));
+                cardDataFileHandler.GuidToData<CardData>(data.CardDataGuids));
         }
 
         public void SaveData(GameData data)
         {
-            data.PlayerData.CardDataGuids =  cardDataFileHandler.DataToGuid(
+            data.CardDataGuids =  cardDataFileHandler.DataToGuid(
                 CurrentCardsList);
         }
     }

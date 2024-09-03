@@ -8,6 +8,7 @@ using Map;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Data.Encounter;
+using NueGames.Data.Settings;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Utils.Background;
@@ -29,9 +30,16 @@ namespace Combat
 
         [Required] [SerializeField] private IFeedback allyTurnStartFeedback, enemyTurnStartFeedback;
 
+        [Required]
+        [SerializeField] private GameplayData _gameplayData;
 
         #region Mana
 
+        public int MaxMana()
+        {
+            return _gameplayData.MaxMana;
+        }
+        
         public int CurrentMana => _manaManager.CurrentMana;
 
         public Action<int> OnGainMana
@@ -47,6 +55,16 @@ namespace Combat
 
         #endregion
 
+        #region Draw
+
+        public int DrawCount()
+        {
+            return _gameplayData.DrawCount;
+        }
+
+        #endregion
+        
+        
         #region Character
 
         public Transform GetMainAllyTransform()
@@ -259,7 +277,7 @@ namespace Combat
             RoundNumber++;
 
             _manaManager.HandleAtTurnStartMana();
-            CollectionManager.DrawCards(GameManager.PlayerData.DrawCount);
+            CollectionManager.DrawCards(DrawCount());
             GameManager.CanSelectCards = false;
 
             OnRoundStart?.Invoke(GetRoundInfo());
@@ -353,7 +371,7 @@ namespace Combat
 
         private IEnumerator WinCombatRoutine()
         {
-            GameManager.PlayerData.SetHealth(
+            GameManager.AllyHealthData.SetHealth(
                 MainAlly.GetCharacterStats().CurrentHealth, MainAlly.GetCharacterStats().MaxHealth);
 
             CollectionManager.ClearPiles();

@@ -31,7 +31,7 @@ namespace NueGames.Characters
             allyCanvas.InitCanvas();
             CharacterStats = new CharacterStats(_allyData.MaxHealth, this, allyCanvas);
             
-            var data = GameManager.PlayerData.AllyHealthData;
+            var data = GameManager.AllyHealthData;
             
             if (data != null)
             {
@@ -40,7 +40,7 @@ namespace NueGames.Characters
             }
             else
             {
-                GameManager.PlayerData.SetHealth(CharacterStats.CurrentHealth,CharacterStats.MaxHealth);
+                GameManager.AllyHealthData.SetHealth(CharacterStats.CurrentHealth,CharacterStats.MaxHealth);
             }
             
             OnDeath += OnDeathAction;
@@ -83,6 +83,12 @@ namespace NueGames.Characters
         {
             get => currentHealth;
             set => currentHealth = value;
+        }
+
+        public void SetHealth(int afterHealHp, int healthDataMaxHealth)
+        {
+            CurrentHealth = afterHealHp;
+            MaxHealth = healthDataMaxHealth;
         }
     }
 }

@@ -9,7 +9,7 @@ using UnityEngine;
 
 
 
-public class RelicLevelHandler : SerializedMonoBehaviour, IDataPersistence
+public class RelicLevelHandler : SerializedMonoBehaviour, IPermanentDataPersistence
 {
     [SerializeField] public Dictionary<RelicName, RelicLevelInfo> relicLevelInfos;
 
@@ -37,7 +37,7 @@ public class RelicLevelHandler : SerializedMonoBehaviour, IDataPersistence
             relicSaveInfo.Level++;
         }
 
-        SaveManager.Instance.SaveGame();
+        SaveManager.Instance.SavePermanentGame();
 
         return relicSaveInfo.Level;
     }
@@ -55,7 +55,7 @@ public class RelicLevelHandler : SerializedMonoBehaviour, IDataPersistence
     }
     
 
-    public void LoadData(GameData data)
+    public void LoadData(PermanentGameData data)
     {
         InitRelicLevels();
 
@@ -73,7 +73,7 @@ public class RelicLevelHandler : SerializedMonoBehaviour, IDataPersistence
         }
     }
 
-    public void SaveData(GameData data)
+    public void SaveData(PermanentGameData data)
     {
         data.relicInfo = relicLevelInfos;
     }

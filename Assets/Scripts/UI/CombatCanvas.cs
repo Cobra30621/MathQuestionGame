@@ -58,7 +58,7 @@ namespace NueGames.UI
             drawPileTextField.text = $"{CollectionManager.DrawPile.Count.ToString()}";
             discardPileTextField.text = $"{CollectionManager.DiscardPile.Count.ToString()}";
             exhaustPileTextField.text =  $"{CollectionManager.ExhaustPile.Count.ToString()}";
-            manaTextTextField.text = $"{CombatManager.CurrentMana}/{GameManager.PlayerData.MaxMana}";
+            manaTextTextField.text = $"{CombatManager.CurrentMana}/{CombatManager.MaxMana()}";
         }
 
         public void OnMathManaChange()
@@ -70,7 +70,7 @@ namespace NueGames.UI
         {
            onManaChangeFeedback.Play(); 
            manaTextTextField.text = $"{CombatManager.CurrentMana}/" +
-                                    $"{GameManager.PlayerData.MaxMana}";
+                                    $"{CombatManager.MaxMana()}";
         }
 
         public override void ResetCanvas()

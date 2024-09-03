@@ -7,7 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Money
+namespace Coin
 {
     public class CardUpgradePanel : MonoBehaviour
     {
@@ -17,7 +17,7 @@ namespace Money
         private CardUpgradeCommodity _commodity;
 
         [Required]
-        [SerializeField] private TextMeshProUGUI moneyText, stoneText;
+        [SerializeField] private TextMeshProUGUI moneyText, stoneText, titleText, levelText;
 
 
         private void Awake()
@@ -48,6 +48,10 @@ namespace Money
 
             var needCost = _commodity.NeedCost();
 
+
+            titleText.text = $"選擇進化 {cardInfo.CardLevelInfo.TitleLang}";
+            levelText.text = $"等級 {cardInfo.Level + 1}/{cardInfo.CardLevelInfos.Count}";
+            
             moneyText.text = needCost.TryGetValue(CoinType.Money, out var value) ? 
                 $"所需金幣: {value}" : $"所需金幣: 0";
             

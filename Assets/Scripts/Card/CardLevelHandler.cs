@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Card
 {
-    public class CardLevelHandler : SerializedMonoBehaviour, IDataPersistence
+    public class CardLevelHandler : SerializedMonoBehaviour, IPermanentDataPersistence
     {
         // TEST
         public Dictionary<string, CardSaveLevel> cardLevels;
@@ -37,29 +37,28 @@ namespace Card
                 cardSaveLevel.Level++;
             }
 
-            SaveManager.Instance.SaveGame();
+            SaveManager.Instance.SavePermanentGame();
         }
 
         public void OnGainCard(string id)
         {
-            bool contain = cardLevels.TryGetValue(id, out var cardSaveLevel);
+            cardLevels.TryGetValue(id, out var cardSaveLevel);
 
             Debug.Log($"Gain card {id}");
-            if (contain)
+            if (cardSaveLevel != null && !cardSaveLevel.HasGained)
             {
                 cardSaveLevel.HasGained = true;
+                SaveManager.Instance.SavePermanentGame();
             }
-            
-            SaveManager.Instance.SaveGame();
         }
 
         public CardSaveLevel GetCardLevel(string id)
         {
             return cardLevels.TryGetValue(id, out var cardSaveLevel) ? cardSaveLevel : new CardSaveLevel();
         }
+        
 
-
-        public void LoadData(GameData data)
+        public void LoadData(PermanentGameData data)
         {
             InitDictionary();
 
@@ -77,7 +76,7 @@ namespace Card
             }
         }
 
-        public void SaveData(GameData data)
+        public void SaveData(PermanentGameData data)
         {
             data.cardLevels = cardLevels;
         }

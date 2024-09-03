@@ -8,7 +8,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Money
+namespace Coin
 {
     public interface ICardShopUI
     {

@@ -1,5 +1,5 @@
 using Card.Data;
-using Money;
+using Coin;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

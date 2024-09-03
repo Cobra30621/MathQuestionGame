@@ -1,4 +1,4 @@
-﻿using Money;
+﻿using Coin;
 using NueGames.Managers;
 using TMPro;
 using UnityEngine;
@@ -38,14 +38,14 @@ namespace NueGames.UI
 
         public override void ResetCanvas()
         {
-            if (GameManager.PlayerData == null)
+            if (GameManager.AllyHealthData == null)
             {
                 return;
             }
             
-            SetHealthText(GameManager.PlayerData.AllyHealthData.CurrentHealth,
-                GameManager.PlayerData.AllyHealthData.MaxHealth);
-            SetGoldText(MoneyManager.Instance.Money);
+            SetHealthText(GameManager.AllyHealthData.CurrentHealth,
+                GameManager.AllyHealthData.MaxHealth);
+            SetGoldText(CoinManager.Instance.Money);
             SetNameText(GameManager.allyData.CharacterName);
         }
         #endregion

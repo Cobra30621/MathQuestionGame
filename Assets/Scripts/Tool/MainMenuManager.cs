@@ -12,10 +12,6 @@ using UnityEngine;
 public class MainMenuManager : MonoBehaviour
 {
     [InlineEditor()]
-    [LabelText("基礎數值")]
-    public GameplayData GameplayData ;
-
-    [InlineEditor()]
     [LabelText("玩家資料")]
     public AllyData allyData;
     
@@ -28,7 +24,6 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private OnlineQuestionDownloader onlineQuestionDownloader;
     public void NewGame()
     {
-        GameManager.Instance.SetGameplayData(GameplayData);
         GameManager.Instance.SetAllyData(allyData);
         questionSettingUI.SetQuestionSetting();
         GameManager.Instance.NewGame();
@@ -53,6 +48,11 @@ public class MainMenuManager : MonoBehaviour
     public void ExitGame()
     {
         sceneChanger.ExitApp();
+    }
+
+    public void OpenShop()
+    {
+        UIManager.Instance.ShopCanvas.OpenCanvas();
     }
     
 }

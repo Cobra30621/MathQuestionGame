@@ -1,56 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using NueGames.Characters;
-using NueGames.Data.Characters;
-using NueGames.Data.Settings;
-using NueGames.Relic;
-
-namespace Data
-{
-    /// <summary>
-    /// 玩家資料(存檔用)
-    /// </summary>
-    [Serializable]
-    public class PlayerData
-    {
-        public int DrawCount;
-        public int MaxMana;
-
-        public AllyHealthData AllyHealthData;
-        
-        public string AllyDataGuid;
-        
-        /// <summary>
-        /// 卡牌資料
-        /// </summary>
-        public List<string> CardDataGuids;
-        
-        /// <summary>
-        /// 遺物資料
-        /// </summary>
-        public List<RelicName> Relics;
-
-        public PlayerData()
-        {
-            AllyHealthData = new AllyHealthData();
-        }
-        
-        public PlayerData(GameplayData gameplayData, AllyData allyData)
-        {
-            DrawCount = gameplayData.DrawCount;
-            MaxMana = gameplayData.MaxMana;
-            AllyHealthData = new AllyHealthData()
-            {
-                CurrentHealth = allyData.MaxHealth,
-                MaxHealth = allyData.MaxHealth
-            };
-        }
-
-        public void SetHealth(int newCurrentHealth, int newMaxHealth)
-        {
-            AllyHealthData.CurrentHealth = newCurrentHealth;
-            AllyHealthData.MaxHealth = newMaxHealth;
-        }
-
-    }
-}
+﻿// using System;
+// using System.Collections.Generic;
+// using NueGames.Characters;
+// using NueGames.Data.Characters;
+// using NueGames.Data.Settings;
+// using NueGames.Relic;
+//
+// namespace Data
+// {
+//     /// <summary>
+//     /// 玩家資料(存檔用)
+//     /// </summary>
+//     [Serializable]
+//     public class PlayerData
+//     {
+//
+//         public AllyHealthData AllyHealthData;
+//         
+//         public string AllyDataGuid;
+//         
+//         
+//
+//         public PlayerData()
+//         {
+//             AllyHealthData = new AllyHealthData();
+//         }
+//         
+//         public PlayerData(AllyData allyData)
+//         {
+//             AllyHealthData = new AllyHealthData()
+//             {
+//                 CurrentHealth = allyData.MaxHealth,
+//                 MaxHealth = allyData.MaxHealth
+//             };
+//         }
+//
+//         public void SetHealth(int newCurrentHealth, int newMaxHealth)
+//         {
+//             AllyHealthData.CurrentHealth = newCurrentHealth;
+//             AllyHealthData.MaxHealth = newMaxHealth;
+//         }
+//
+//     }
+// }

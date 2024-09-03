@@ -32,7 +32,10 @@ namespace NueGames.Data.Settings
         [LabelText("初始金錢")]
         [SerializeField] private int initMoney;
         
-
+        [FoldoutGroup("基礎設定")]
+        [LabelText("初始寶石")]
+        [SerializeField] private int initStone;
+        
 
         [FoldoutGroup("基礎設定")]
         [LabelText("卡牌的 Prefab")]
@@ -44,6 +47,7 @@ namespace NueGames.Data.Settings
         public int MaxCardOnHand => maxCardOnHand;
         public BattleCard BattleCardPrefab => battleCardPrefab;
         public int InitMoney => initMoney;
+        public int InitStone => initStone;
 
         #endregion
     }

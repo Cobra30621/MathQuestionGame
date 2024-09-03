@@ -64,7 +64,7 @@ namespace NueGames.Encounter
             }
             Debug.Log($"EnterNode {nodeType}");
             
-            SaveManager.Instance.SaveGame();
+            SaveManager.Instance.SaveSingleGame();
         }
 
         [Button]

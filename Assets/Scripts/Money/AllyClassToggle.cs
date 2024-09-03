@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Money
+namespace Coin
 {
     public class AllyClassToggle : MonoBehaviour
     {
