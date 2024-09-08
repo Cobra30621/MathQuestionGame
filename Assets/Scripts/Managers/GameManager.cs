@@ -7,6 +7,7 @@ using Data.Encounter;
 using DataPersistence;
 using Map;
 using Coin;
+using Money;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Characters;

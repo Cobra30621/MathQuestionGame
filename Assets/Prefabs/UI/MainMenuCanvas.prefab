@@ -2277,7 +2277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438b4a728ef922d4eaab6a412b259b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameplayData: {fileID: 11400000, guid: dd29da37b58a7496a90ee015e332876f, type: 2}
   allyData: {fileID: 11400000, guid: 621ddd3ce6aa142d0945b431e8681f64, type: 2}
   stageData: {fileID: 11400000, guid: 592614dcf419442e1a8158ee6145e133, type: 2}
   questionSettingUI: {fileID: 9154513481147150613}
@@ -4466,7 +4465,7 @@ MonoBehaviour:
   startButton: {fileID: 8047019093102596324}
   backButton: {fileID: 2068159991080909962}
   _canvasGroup: {fileID: 4738523240266248487}
-  allyAndStageSetting: {fileID: 0}
+  allyAndStageSetting: {fileID: 11400000, guid: c2021567cd3ac454791254a0c4efb818, type: 2}
   _stageDataOverview: {fileID: 0}
   stageSelectedUI: {fileID: 7927167046208096957}
   allySelectedUI: {fileID: 4953506634620672380}

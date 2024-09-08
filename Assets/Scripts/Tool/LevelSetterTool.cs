@@ -37,6 +37,7 @@ namespace Tool
         {
             if (setDataWhenGameStarted)
             {
+                SetRelicSaveInfo();
                 SetCardLevel();
             }
         }
@@ -64,11 +65,13 @@ namespace Tool
             var cardLevels = new Dictionary<string, CardSaveLevel>();
             foreach (var cardInfo in cardDataLevels)
             {
-                cardLevels[cardInfo.cardData.CardId] = new CardSaveLevel()
+                var cardSaveLevel= new CardSaveLevel()
                 {
                     Level = cardInfo.Level,
                     HasGained = cardInfo.HasGained
                 };
+
+                cardLevels[cardInfo.cardData.CardId] = cardSaveLevel;
             }
 
             levelHandler.cardLevels = cardLevels;

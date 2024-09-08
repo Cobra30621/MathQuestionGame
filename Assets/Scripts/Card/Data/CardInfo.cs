@@ -18,8 +18,6 @@ namespace Card.Data
 
         public CardLevelInfo CardLevelInfo => cardLevelInfo;
 
-        public List<CardLevelInfo> CardLevelInfos;
-
         public string Description => CardLevelInfo.DesLang;
         public int ManaCost;
 

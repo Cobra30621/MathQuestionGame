@@ -1132,7 +1132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075278134763003534, guid: f4013d3459e7e8141bdf38f5fa58416b, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8539056878642388646, guid: f4013d3459e7e8141bdf38f5fa58416b, type: 3}
       propertyPath: m_Name
@@ -1196,7 +1196,12 @@ MonoBehaviour:
   currentHealthBar: {fileID: 1424275894148750784}
   intentImage: {fileID: 1299379180789283011}
   nextActionValueText: {fileID: 2911335580396430737}
-  IntentionData: {fileID: 0}
+  Intention:
+    showIntentionValue: 0
+    intentionSprite: {fileID: 0}
+    header: 
+    content: 
+    _actionType: 0
 --- !u!114 &6775776604672554816 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8038948658416760749, guid: f4013d3459e7e8141bdf38f5fa58416b, type: 3}

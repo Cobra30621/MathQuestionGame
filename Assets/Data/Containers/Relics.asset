@@ -177,23 +177,54 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: upgradeCost
+      Entry: 7
+      Data: 8|System.Collections.Generic.Dictionary`2[[Coin.CoinType, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 9|System.Collections.Generic.EnumEqualityComparer`1[[Coin.CoinType, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 3
+      Data: 1000
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 3
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   relicBasePrefab: {fileID: 834500992459023877, guid: ea17c585bf0c38c4ab08d1edf1952ab1, type: 3}
-  relicList:
-  - Title: "\u9B54\u529B\u7522\u751F\u5668"
-    descriptions:
-    - test1
-    - test2
-    iconSprite: {fileID: 21300000, guid: f4a56fbe39e3a5b4396cdc335010fb85, type: 3}
-    isDeveloping: 0
-  - Title: "\u74F6\u5B50"
-    descriptions:
-    - OWO
-    - OAO
-    iconSprite: {fileID: 21300000, guid: a5e2f85e3c120234cb73169bfa368bca, type: 3}
-    isDeveloping: 0
-  - Title: "\u529B\u91CF\u7522\u751F"
-    descriptions:
-    - test1
-    - test2
-    iconSprite: {fileID: 21300000, guid: a06f26bd1f8d2cf4e867a8f80fda6b95, type: 3}
-    isDeveloping: 1

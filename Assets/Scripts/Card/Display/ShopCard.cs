@@ -1,5 +1,6 @@
 using Card.Data;
 using Coin;
+using Money;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace Card.Display
 {
     public class ShopCard : MonoBehaviour
     {
+        [ShowInInspector]
         private CardUpgradeCommodity _commodity;
         private ICardShopUI _cardShopUI;
 

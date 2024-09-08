@@ -3,8 +3,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Coin
+namespace Money
 {
+    /// <summary>
+    /// Handles the toggling of ally class options in the game.
+    /// </summary>
     public class AllyClassToggle : MonoBehaviour
     {
         [Required]
@@ -12,7 +15,5 @@ namespace Coin
 
         [Required]
         public TextMeshProUGUI info;
-
-
     }
 }

@@ -1,9 +1,8 @@
-using NueGames.Enums;
 using NueGames.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Coin
+namespace Money
 {
     /// <summary>
     /// The ShopCanvas class handles the opening and closing of the shop UI canvas.
@@ -12,6 +11,8 @@ namespace Coin
     {
         [Required]
         [SerializeField] private CardShopUI _cardShopUI; // Reference to the CardShopUI component.
+
+        [Required] [SerializeField] private RelicShopUI _relicShopUI;
         
         /// <summary>
         /// Opens the shop canvas and shows the ally class card panel by default.
@@ -56,6 +57,9 @@ namespace Coin
         public void OpenRelicPanel()
         {
             CloseAllPanel();
+            
+            _relicShopUI.gameObject.SetActive(true);
+            _relicShopUI.ShowCommodities();
         }
 
         /// <summary>
@@ -64,6 +68,7 @@ namespace Coin
         private void CloseAllPanel()
         {
             _cardShopUI.gameObject.SetActive(false);
+            _relicShopUI.gameObject.SetActive(false);
         }
         
     }

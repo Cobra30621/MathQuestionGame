@@ -1,14 +1,16 @@
-﻿using System;
-using Card;
-using Card.Data;
+﻿using Card.Data;
 using Card.Display;
+using Coin;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Coin
+namespace Money
 {
+    /// <summary>
+    /// Handles the display and interaction of the card upgrade panel in the game.
+    /// </summary>
     public class CardUpgradePanel : MonoBehaviour
     {
         [SerializeField] private GameObject mainPanel;
@@ -37,7 +39,6 @@ namespace Coin
             if (cardInfo.CardLevelInfo.MaxLevel)
             {
                 after.gameObject.SetActive(false);
-                upgrade.interactable = false;
             }
             else
             {
@@ -47,10 +48,11 @@ namespace Coin
             }
 
             var needCost = _commodity.NeedCost();
-
+            upgrade.interactable = !cardInfo.CardLevelInfo.MaxLevel
+                                   && commodity.EnableBuy();
 
             titleText.text = $"選擇進化 {cardInfo.CardLevelInfo.TitleLang}";
-            levelText.text = $"等級 {cardInfo.Level + 1}/{cardInfo.CardLevelInfos.Count}";
+            levelText.text = $"等級 {cardInfo.Level + 1}/{cardInfo.CardData.LevelInfos.Count}";
             
             moneyText.text = needCost.TryGetValue(CoinType.Money, out var value) ? 
                 $"所需金幣: {value}" : $"所需金幣: 0";

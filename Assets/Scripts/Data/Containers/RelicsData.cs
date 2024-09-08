@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Coin;
+using Money;
 using NueGames.Relic;
 using NueGames.UI;
 using Sirenix.OdinInspector;
@@ -17,11 +19,15 @@ namespace  NueGames.Data.Containers
         [SerializeField] private RelicIconsBase relicBasePrefab;
 
         [SerializeField] private Dictionary<RelicName, RelicData> _relicDict;
-        
+
+        [LabelText("升級所需資源")]
+        [SerializeField] private Dictionary<CoinType, int> upgradeCost;
 
         public RelicIconsBase RelicBasePrefab => relicBasePrefab;
    
         public Dictionary<RelicName, RelicData> RelicDict => _relicDict;
+        
+        public Dictionary<CoinType, int> UpgradeCost => upgradeCost;
 
         public RelicData GetRelicData(RelicName relicName)
         {
@@ -64,6 +70,10 @@ namespace  NueGames.Data.Containers
         
         public string GetDescription(int level)
         {
+            if (level >= descriptions.Count)
+            {
+                return "";
+            }
             return descriptions[level];
         }
     }

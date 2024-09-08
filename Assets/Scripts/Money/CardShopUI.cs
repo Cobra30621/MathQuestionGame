@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Card;
 using Card.Data;
 using Card.Display;
+using Coin;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Coin
+namespace Money
 {
     public interface ICardShopUI
     {

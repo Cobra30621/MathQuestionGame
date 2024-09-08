@@ -4,7 +4,8 @@ using UnityEngine.EventSystems;
 
 namespace Card.Display
 {
-    public class UICard : CardBase,IPointerEnterHandler,IPointerDownHandler,IPointerExitHandler,IPointerUpHandler
+    public class UICard : CardBase,
+        IPointerEnterHandler,IPointerDownHandler,IPointerExitHandler,IPointerUpHandler
     {
         [SerializeField] private float showScaleRate = 1.15f;
  

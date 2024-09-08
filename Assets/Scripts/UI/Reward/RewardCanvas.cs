@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Card.Data;
 using Map;
 using Coin;
+using Money;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Data.Collection.RewardData;

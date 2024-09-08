@@ -1,3 +1,5 @@
+// File: /Users/cobra/Desktop/Unity/Develop/MathQuestionGame/Assets/Scripts/Relic/RelicLevelHandler.cs
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +9,9 @@ using NueGames.Relic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-
-
+/// <summary>
+/// Handles the leveling and saving of relics in the game.
+/// </summary>
 public class RelicLevelHandler : SerializedMonoBehaviour, IPermanentDataPersistence
 {
     [SerializeField] public Dictionary<RelicName, RelicLevelInfo> relicLevelInfos;
@@ -82,6 +85,11 @@ public class RelicLevelHandler : SerializedMonoBehaviour, IPermanentDataPersiste
 [Serializable]
 public class RelicLevelInfo
 {
+    public bool IsMaxLevel()
+    {
+        return Level > 0;
+    }
+    
     public int Level;
     public bool HasGained;
 }

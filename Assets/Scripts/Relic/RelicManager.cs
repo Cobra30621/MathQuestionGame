@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿// File: /Users/cobra/Desktop/Unity/Develop/MathQuestionGame/Assets/Scripts/Relic/RelicManager.cs
+
+using System.Collections.Generic;
 using System.Linq;
+using Coin;
 using Data;
+using Money;
 using NueGames.Data.Containers;
 using NueGames.Managers;
 using NueGames.Relic;
@@ -10,6 +14,9 @@ using UnityEngine.Events;
 
 namespace Relic
 {
+    /// <summary>
+    /// Manages the collection and upgrade of relics in the game.
+    /// </summary>
     public class RelicManager : SerializedMonoBehaviour, IDataPersistence
     {
         protected UIManager UIManager => UIManager.Instance;
@@ -26,10 +33,9 @@ namespace Relic
      
 
         /// <summary>
-        /// 玩家獲得遺物
+        /// Gains a relic for the player.
         /// </summary>
-        /// <param name="targetRelic"></param>
-        /// <returns></returns>
+        /// <param name="relicNames">The names of the relics to gain.</param>
         public void GainRelic(List<RelicName> relicNames)
         {
             foreach (var relicName in relicNames)
@@ -39,36 +45,35 @@ namespace Relic
         }
         
         /// <summary>
-        /// 玩家獲得遺物
+        /// Gains a single relic for the player.
         /// </summary>
-        /// <param name="targetRelic"></param>
-        /// <returns></returns>
+        /// <param name="relicName">The name of the relic to gain.</param>
         [Button]
-        public void GainRelic(RelicName targetRelic)
+        public void GainRelic(RelicName relicName)
         {
-            var relicBase = RelicGenerator.GetRelic(targetRelic);
-            var info = GetRelicInfo(targetRelic);
+            var relicBase = RelicGenerator.GetRelic(relicName);
+            var info = GetRelicInfo(relicName);
             relicBase.RelicInfo = info;
-            CurrentRelicDict[targetRelic] = relicBase;
+            CurrentRelicDict[relicName] = relicBase;
             
-            relicLevelHandler.OnGainRelic(targetRelic);
+            relicLevelHandler.OnGainRelic(relicName);
             
             OnRelicUpdated.Invoke(CurrentRelicDict);
         }
 
         /// <summary>
-        /// 取得商店用的遺物清單
+        /// Retrieves a list of relics to display in the shop.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A list of relic information for the shop.</returns>
         public List<RelicInfo> GetShopRelicInfo()
         {
             return GetAllRelicInfo().Where(r => !r.data.IsDeveloping).ToList();
         }
         
         /// <summary>
-        /// 取得所有的遺物清單
+        /// Retrieves a list of all relics in the game.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A list of relic information for all relics.</returns>
         public List<RelicInfo> GetAllRelicInfo()
         {
             var relicInfos = relicsData.RelicDict.Keys.
@@ -110,16 +115,22 @@ namespace Relic
         
 
         /// <summary>
-        /// 升級卡牌
+        /// Upgrades a relic for the player.
         /// </summary>
-        /// <param name="relicName"></param>
+        /// <param name="relicName">The name of the relic to upgrade.</param>
         [Button]
         public void UpgradeRelic(RelicName relicName)
         {
             var level = relicLevelHandler.UpgradeRelic(relicName);
-            CurrentRelicDict[relicName].RelicInfo.relicLevelInfo.Level = level;
+            if(CurrentRelicDict.TryGetValue(relicName, out var value))
+                value.RelicInfo.relicLevelInfo.Level = level;
 
             OnRelicUpdated.Invoke(CurrentRelicDict);
+        }
+        
+        public Dictionary<CoinType, int> UpgradeNeedCost()
+        {
+            return relicsData.UpgradeCost;
         }
         
         public void LoadData(GameData data)
