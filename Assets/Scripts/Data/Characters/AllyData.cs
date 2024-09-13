@@ -16,6 +16,7 @@ namespace NueGames.Data.Characters
         public AllyBase prefab;
       
         [LabelText("玩家初始卡牌")]
+        [InlineEditor]
         public DeckData InitialDeck;
         
         [LabelText("玩家獎勵卡組")]

@@ -89,7 +89,7 @@ public class SaveManager : Singleton<SaveManager>
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
     
-    [Button]
+    [Button("清除單局遊戲資料")]
     public void ClearGameData()
     {
         _gameData = new GameData();
@@ -101,7 +101,7 @@ public class SaveManager : Singleton<SaveManager>
     #region PermanentGame
 
     
-    [Button]
+    [Button("清除所有資料")]
     public void ClearAllData()
     {
         _gameData = new GameData();

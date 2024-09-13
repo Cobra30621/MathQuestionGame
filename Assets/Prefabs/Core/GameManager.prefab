@@ -257,6 +257,7 @@ Transform:
   - {fileID: 3114496004273676565}
   - {fileID: 6278246831807956331}
   - {fileID: 3943215656414572241}
+  - {fileID: 3141516959272838343}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -290,8 +291,54 @@ MonoBehaviour:
     id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
   CanSelectCards: 0
   AllyHealthData:
-    maxHealth: 0
-    currentHealth: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+--- !u!1 &6224990028852952788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3141516959272838343}
+  - component: {fileID: 4696957168806796471}
+  m_Layer: 0
+  m_Name: FirstEnterGameHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3141516959272838343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224990028852952788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3747954644409722057}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4696957168806796471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224990028852952788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf532db8e6d425d85ced5acd02448c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameplayData: {fileID: 11400000, guid: dd29da37b58a7496a90ee015e332876f, type: 2}
+  IsDevelopMode: 1
 --- !u!1 &9112977989295313738
 GameObject:
   m_ObjectHideFlags: 0

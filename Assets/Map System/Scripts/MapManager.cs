@@ -150,6 +150,8 @@ namespace Map
         {
             CurrentMap = JsonConvert.DeserializeObject<Map>(data.MapJson, 
                 new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
+            CurrentMapIndex = data.CurrentMapIndex;
+
         }
 
 
@@ -162,6 +164,7 @@ namespace Map
                 new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
             
             data.MapJson = json;
+            data.CurrentMapIndex = CurrentMapIndex;
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Card
 
         public void SetInitCard(List<CardData> cardDatas)
         {
+            CurrentCardsList = new List<CardData>();
             foreach (var cardData in cardDatas)
             {
                 GainCard(cardData);

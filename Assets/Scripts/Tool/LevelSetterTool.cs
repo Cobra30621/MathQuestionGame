@@ -65,6 +65,7 @@ namespace Tool
             var cardLevels = new Dictionary<string, CardSaveLevel>();
             foreach (var cardInfo in cardDataLevels)
             {
+                Debug.Log(cardInfo);
                 var cardSaveLevel= new CardSaveLevel()
                 {
                     Level = cardInfo.Level,

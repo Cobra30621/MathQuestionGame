@@ -41,7 +41,6 @@ namespace NueGames.Managers
         [SerializeField] private StageSelectedHandler _stageSelectedHandler;
 
         
-        
         #region Cache
         public GameplayData GameplayData => gameplayData;
   
@@ -58,36 +57,6 @@ namespace NueGames.Managers
         
         #endregion
 
-        #region 檢查第一次進入遊戲
-
-        protected override void DoAtAwake()
-        {
-            base.DoAtAwake();
-            CheckFirstEnterGame();
-        }
-
-
-        private void CheckFirstEnterGame()
-        {
-            if (SaveManager.Instance.IsFirstEnterGame())
-            {
-                CoinManager.Instance.SetMoney(gameplayData.InitMoney);
-                CoinManager.Instance.SetStone(gameplayData.InitStone);
-                CardManager.Instance.CardLevelHandler.InitDictionary();
-                RelicManager.relicLevelHandler.InitRelicLevels();
-                
-                SaveManager.Instance.SavePermanentGame();
-                SaveManager.Instance.SetHaveEnterGame();
-            }
-            else
-            {
-                SaveManager.Instance.LoadPermanentGame();
-            }
-        }
-        
-
-        #endregion
-        
         
         #region Save, Load Data
 
@@ -111,28 +80,29 @@ namespace NueGames.Managers
         #endregion
 
 
-        #region Start Game
+        #region Start Single Game
 
         public void NewGame()
         {
             SaveManager.Instance.ClearGameData();
             Debug.Log("New Game");
 
-            SetInitData();
+            CreateSingleGameData();
             SaveManager.Instance.SaveSingleGame();
         }
 
         public void StartDevelopMode()
         {
-            SetInitData();
+            CreateSingleGameData();
         }
 
-        private void SetInitData()
+        private void CreateSingleGameData()
         {
             _relicManager.GainRelic(allyData.initialRelic);
             CardManager.Instance.SetInitCard(allyData.InitialDeck.CardList);
             MapManager.Instance.Initialized(_stageSelectedHandler.GetStageData());
             QuestionManager.Instance.GenerateQuestions();
+            AllyHealthData = new AllyHealthData(allyData.MaxHealth);
             
             UIManager.Instance.RewardCanvas.SetCardReward(allyData.CardRewardData);
         }

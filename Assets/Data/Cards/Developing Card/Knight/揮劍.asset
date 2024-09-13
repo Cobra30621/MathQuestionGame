@@ -35,6 +35,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: 
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   cardId: 1
   _levelInfos:
@@ -47,13 +49,9 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\u3002"
-    EffectInfos:
-    - SkillID: 1000003
-      EffectID: 20001
-      EffectParameter: 3 ,1
-      EffectParameterList: 0300000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
+    TargetChoose: 0
+    skillIDs: []
+    EffectInfos: []
   - ID: 110002
     GroupID: 1
     SkillID: 1000003, 2000002
@@ -63,6 +61,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F972\u9EDE\u8B77\u76FE\u3002"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 1000003
       EffectID: 20001
@@ -85,6 +85,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F973\u9EDE\u8B77\u76FE\u3002"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 1000003
       EffectID: 20001
@@ -107,6 +109,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F974\u9EDE\u8B77\u76FE\u3002"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 1000003
       EffectID: 20001
@@ -129,6 +133,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F975\u9EDE\u8B77\u76FE\u3002"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 1000003
       EffectID: 20001
@@ -151,6 +157,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F976\u9EDE\u8B77\u76FE\u3002"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 1000003
       EffectID: 20001
@@ -173,6 +181,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F977\u9EDE\u8B77\u76FE\u3002"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 1000003
       EffectID: 20001
@@ -195,6 +205,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F978\u9EDE\u8B77\u76FE\u3002"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 1000003
       EffectID: 20001
@@ -217,6 +229,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F979\u9EDE\u8B77\u76FE\u3002"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 1000003
       EffectID: 20001
@@ -239,6 +253,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u63EE\u528D"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\uFF0C\u7372\u5F9710\u9EDE\u8B77\u76FE\u3002"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 1000003
       EffectID: 20001
@@ -252,6 +268,7 @@ MonoBehaviour:
       EffectParameterList: 0a00000001000000
       Target: 0
       ps: "\u8B77\u76FE"
+  _allyClassType: 0
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0

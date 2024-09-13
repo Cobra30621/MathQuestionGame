@@ -70,20 +70,16 @@ namespace NueGames.Characters
     [Serializable]
     public class AllyHealthData
     {
-        [SerializeField] private int maxHealth;
-        [SerializeField] private int currentHealth;
-        
-        public int MaxHealth
+        public int MaxHealth;
+
+        public int CurrentHealth;
+
+        public AllyHealthData(int maxHealth)
         {
-            get => maxHealth;
-            set => maxHealth = value;
+            MaxHealth = maxHealth;
+            CurrentHealth = maxHealth;
         }
 
-        public int CurrentHealth
-        {
-            get => currentHealth;
-            set => currentHealth = value;
-        }
 
         public void SetHealth(int afterHealHp, int healthDataMaxHealth)
         {

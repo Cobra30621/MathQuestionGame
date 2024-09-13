@@ -15,6 +15,7 @@ namespace DataPersistence
         {
             ES3.DeleteKey("gameData");
             ES3.DeleteKey("permanentGameData");
+            ES3.DeleteKey("firstEnterGame");
         }
 
         public static bool IsFirstEnterGame()
