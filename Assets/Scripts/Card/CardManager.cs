@@ -112,7 +112,7 @@ namespace Card
 
         public CardInfo CreateCardInfo(CardData cardData)
         {
-            var level = _cardLevelHandler.GetCardLevel(cardData.CardId);
+            var level = _cardLevelHandler.GetSaveInfo(cardData.CardId);
 
             var cardInfo = new CardInfo(cardData, level);
 

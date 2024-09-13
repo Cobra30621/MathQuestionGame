@@ -23,13 +23,13 @@ namespace Card.Display
             _commodity = commodity;   
             _cardShopUI = cardShopUI;
 
-            if (cardInfo.CardSaveLevel.HasGained)
+            if (cardInfo.CardSaveInfo.HasGained)
             {
                 UICard.OnCardChose += OpenUpgradePanel;
             }
             
             UICard.Init(cardInfo);
-            unGainCard.SetActive(!cardInfo.CardSaveLevel.HasGained);
+            unGainCard.SetActive(!cardInfo.CardSaveInfo.HasGained);
             
         }
 

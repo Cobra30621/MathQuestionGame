@@ -43,18 +43,29 @@ namespace Tool
         
         [LabelText("玩家初始獲得的能力")]
         public List<PowerName> allyPowerAtGameStart;
-        
+
+        [Required]
+        [SerializeField] private LevelSetterTool _levelSetterTool;
         
 
-        void Start()
+        private void Start()
         {
+            if(GameManager.Instance.IsDeveloperMode)
+                StartDevelopMode();
+        }
+
+
+        public void StartDevelopMode()
+        {
+            _levelSetterTool.SetSaveInfos();
+            
             SetDevelopModeData();
             
             PlayTest();
 
             GenerateAllyPower();
-            
         }
+        
 
         private void Update()
         {

@@ -105,10 +105,7 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: relicLevelInfos
-      Entry: 6
-      Data: 
+    SerializationNodes: []
   relicsData: {fileID: 11400000, guid: eb8fc65b91d0abd4b87df478163e214b, type: 2}
 --- !u!1 &2308058709268137224
 GameObject:
@@ -287,6 +284,8 @@ MonoBehaviour:
   _relicManager: {fileID: 733801562864062279}
   gameplayData: {fileID: 11400000, guid: dd29da37b58a7496a90ee015e332876f, type: 2}
   _stageSelectedHandler: {fileID: 927399313501667963}
+  isDevelopMode: 1
+  _firstEnterGameHandler: {fileID: 4696957168806796471}
   CurrentEnemyEncounter:
     id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
   CanSelectCards: 0
@@ -338,7 +337,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplayData: {fileID: 11400000, guid: dd29da37b58a7496a90ee015e332876f, type: 2}
-  IsDevelopMode: 1
 --- !u!1 &9112977989295313738
 GameObject:
   m_ObjectHideFlags: 0

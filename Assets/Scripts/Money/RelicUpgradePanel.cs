@@ -45,7 +45,7 @@ namespace Money
             before.Init(relicInfo);
 
             // Check if the relic is at max level
-            if (relicInfo.relicLevelInfo.IsMaxLevel())
+            if (relicInfo.relicSaveInfo.IsMaxLevel())
             {
                 after.gameObject.SetActive(false);
             }
@@ -53,15 +53,15 @@ namespace Money
             {
                 after.gameObject.SetActive(true);
                 after.Init(new RelicInfo(
-                    relicInfo.relicName, relicInfo.data, new RelicLevelInfo(){Level = 1}));
+                    relicInfo.relicName, relicInfo.data, new RelicSaveInfo(){Level = 1}));
             }
 
             var needCost = _commodity.NeedCost();
-            upgrade.interactable = !relicInfo.relicLevelInfo.IsMaxLevel()
+            upgrade.interactable = !relicInfo.relicSaveInfo.IsMaxLevel()
                                    && commodity.EnableBuy();
 
             titleText.text = $"選擇進化 {relicInfo.data.Title}";
-            levelText.text = $"等級 {relicInfo.relicLevelInfo.Level + 1}/{2}";
+            levelText.text = $"等級 {relicInfo.relicSaveInfo.Level + 1}/{2}";
             
             moneyText.text = needCost.TryGetValue(CoinType.Money, out var value) ? 
                 $"所需金幣: {value}" : $"所需金幣: 0";

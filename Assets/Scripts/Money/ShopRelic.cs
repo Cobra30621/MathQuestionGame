@@ -27,14 +27,14 @@ namespace Money
             _commodity = commodity;   
             _relicShopUI = relicShopUI;
 
-            if (relicInfo.relicLevelInfo.HasGained)
+            if (relicInfo.relicSaveInfo.HasGained)
             {
                 Debug.Log("Subscribe OnRelicChose");
                 UIRelic.OnRelicChose += OpenUpgradePanel;
             }
             
             UIRelic.Init(relicInfo);
-            unGainRelic.SetActive(!relicInfo.relicLevelInfo.HasGained);
+            unGainRelic.SetActive(!relicInfo.relicSaveInfo.HasGained);
             
         }
 

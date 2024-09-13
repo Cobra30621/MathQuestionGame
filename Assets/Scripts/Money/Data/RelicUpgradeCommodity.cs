@@ -26,7 +26,7 @@ namespace Money.Data
 
         public bool EnableBuy()
         {
-            bool notMaxLevel = !_relicInfo.relicLevelInfo.IsMaxLevel();
+            bool notMaxLevel = !_relicInfo.relicSaveInfo.IsMaxLevel();
             
             bool enoughMoney = CoinManager.Instance.EnoughCoin(NeedCost());
             

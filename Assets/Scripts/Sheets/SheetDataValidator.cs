@@ -18,7 +18,6 @@ namespace Sheets
         /// <summary>
         /// Validates the data from Google Sheets.
         /// </summary>
-        [Button("驗證")]
         public void ValidateSheet()
         {
             ValidateEnemySkillData();

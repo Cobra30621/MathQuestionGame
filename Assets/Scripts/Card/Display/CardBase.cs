@@ -97,7 +97,7 @@ namespace Card.Display
 
         private bool NeedShowTooltip()
         {
-            return _cardInfo.CardSaveLevel.HasGained;
+            return _cardInfo.CardSaveInfo.HasGained;
         }
         
         

@@ -84,20 +84,6 @@ namespace Relic
             return relicInfos;
         }
 
-        public void SetRelicsInfo(List<RelicInfo> infos)
-        {
-            foreach (var info in infos)
-            {
-                relicLevelHandler.relicLevelInfos[info.relicName] = info.relicLevelInfo;
-
-                if (CurrentRelicDict.TryGetValue(info.relicName, out var value))
-                {
-                    value.RelicInfo = info;
-                }
-            }
-            
-        }
-        
 
         private RelicInfo GetRelicInfo(RelicName targetRelic)
         {
@@ -107,7 +93,7 @@ namespace Relic
             {
                 relicName = targetRelic,
                 data = data,
-                relicLevelInfo = relicLevelHandler.GetRelicSaveInfo(targetRelic)
+                relicSaveInfo = relicLevelHandler.GetRelicSaveInfo(targetRelic)
             };
 
             return info;
@@ -123,7 +109,7 @@ namespace Relic
         {
             var level = relicLevelHandler.UpgradeRelic(relicName);
             if(CurrentRelicDict.TryGetValue(relicName, out var value))
-                value.RelicInfo.relicLevelInfo.Level = level;
+                value.RelicInfo.relicSaveInfo.Level = level;
 
             OnRelicUpdated.Invoke(CurrentRelicDict);
         }

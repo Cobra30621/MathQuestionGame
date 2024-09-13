@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Card;
+using Card.Data;
 using NueGames.Relic;
+using Relic;
 
 namespace Data
 {
@@ -11,9 +13,9 @@ namespace Data
         public int stone;
         
         // 卡片等級字典
-        public Dictionary<string, CardSaveLevel> cardLevels;
+        public Dictionary<string, CardSaveInfo> cardLevels;
         
         // 遺物等級資料
-        public Dictionary<RelicName, RelicLevelInfo> relicInfo;
+        public Dictionary<RelicName, RelicSaveInfo> relicInfo;
     }
 }

@@ -16,21 +16,7 @@ namespace NueGames.Managers
         [SerializeField] private GameplayData gameplayData;
 
 
-        [LabelText("開發模式")] [SerializeField]
-        private bool IsDevelopMode;
-        
-
-        private void Awake()
-        {
-            if (IsDevelopMode)
-            {
-                return;
-            }
-            
-            CheckFirstEnterGame();
-        }
-
-        private void CheckFirstEnterGame()
+        public void CheckFirstEnterGame()
         {
             if (SaveManager.Instance.IsFirstEnterGame())
             {
@@ -48,7 +34,7 @@ namespace NueGames.Managers
             CoinManager.Instance.SetMoney(gameplayData.InitMoney);
             CoinManager.Instance.SetStone(gameplayData.InitStone);
             CardManager.Instance.CardLevelHandler.InitDictionary();
-            GameManager.Instance.RelicManager.relicLevelHandler.InitRelicLevels();
+            GameManager.Instance.RelicManager.relicLevelHandler.InitRelicSaveInfo();
                 
             SaveManager.Instance.SavePermanentGame();
             SaveManager.Instance.SetHaveEnterGame();

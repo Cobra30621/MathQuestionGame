@@ -20,6 +20,7 @@ using Question;
 using Relic;
 using Sirenix.OdinInspector;
 using Stage;
+using Tool;
 using UnityEngine;
 
 namespace NueGames.Managers
@@ -40,6 +41,12 @@ namespace NueGames.Managers
         [Required]
         [SerializeField] private StageSelectedHandler _stageSelectedHandler;
 
+        [LabelText("開發者模式")]
+        [SerializeField] private bool isDevelopMode;
+        
+        [Required]
+        [SerializeField] private FirstEnterGameHandler _firstEnterGameHandler;
+        
         
         #region Cache
         public GameplayData GameplayData => gameplayData;
@@ -54,9 +61,27 @@ namespace NueGames.Managers
         public AllyData allyData => _stageSelectedHandler.GetAllyData();
 
         public AllyHealthData AllyHealthData;
+
+        public bool IsDeveloperMode => isDevelopMode;
         
         #endregion
 
+        #region 開發者模式
+
+        private void Start()
+        {
+            if (!isDevelopMode)
+            {
+                _firstEnterGameHandler.CheckFirstEnterGame();
+            }
+        }
+
+
+        
+
+        #endregion
+        
+        
         
         #region Save, Load Data
 
