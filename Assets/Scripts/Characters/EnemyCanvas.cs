@@ -1,5 +1,6 @@
 ﻿using Enemy.Data;
 using NueGames.Data.Containers;
+using NueGames.Managers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,8 +20,7 @@ namespace NueGames.Characters
 
         public override void ShowTooltipInfo()
         {
-            var tooltipManager = TooltipManager.Instance;
-            ShowTooltipInfo(tooltipManager,Intention.Content,Intention.Header,descriptionRoot);
+            ShowTooltipInfo(Intention.Content,Intention.Header,descriptionRoot);
             ShowPowerTooltipInfo();
         }
     }

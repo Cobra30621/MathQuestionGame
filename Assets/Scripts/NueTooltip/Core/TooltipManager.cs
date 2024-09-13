@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using NueGames.Data.Containers;
+using NueGames.Managers;
+using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
 using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
 using UnityEngine;
 
-namespace NueGames.NueDeck.ThirdParty.NueTooltip.Core
+namespace NueTooltip.Core
 {
     public class TooltipManager : MonoBehaviour
     {
-        public static TooltipManager Instance;
-        
         [Header("References")]
         [SerializeField] private TooltipController tooltipController;
         [SerializeField] private CursorController cursorController;
@@ -31,21 +32,9 @@ namespace NueGames.NueDeck.ThirdParty.NueTooltip.Core
         private CursorController CursorController => cursorController;
 
         private int _currentShownTooltipCount;
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                transform.parent = null;
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
-            
-        }
+
+        public static TooltipManager Instance => GameManager.Instance.TooltipManager;
+    
 
         private IEnumerator ShowRoutine(float delay = 0)
         {

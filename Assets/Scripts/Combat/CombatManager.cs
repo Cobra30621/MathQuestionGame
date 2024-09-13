@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Data.Encounter;
 using Enemy;
 using Feedback;
+using Managers;
 using Map;
 using NueGames.Characters;
 using NueGames.Combat;

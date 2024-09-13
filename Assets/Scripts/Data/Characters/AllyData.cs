@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Card.Data;
-using NueGames.CharacterAbility;
 using NueGames.Characters;
 using NueGames.Data.Collection.RewardData;
 using NueGames.Relic;

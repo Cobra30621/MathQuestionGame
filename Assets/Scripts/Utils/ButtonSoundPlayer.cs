@@ -1,3 +1,4 @@
+using Managers;
 using NueGames.Data.Containers;
 using NueGames.Managers;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace NueGames.Utils
 
         private Button _btn;
         private SoundProfileData SoundProfileData => soundProfileData;
-        private AudioManager AudioManager => AudioManager.Instance;
+        private AudioManager AudioManager => GameManager.Instance.AudioManager;
         private void Awake()
         {
             _btn = GetComponent<Button>();

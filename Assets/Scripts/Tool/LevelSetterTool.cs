@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Card;
 using Card.Data;
+using Managers;
 using NueGames.Managers;
 using NueGames.Relic;
 using Relic;
@@ -15,29 +16,16 @@ namespace Tool
     /// </summary>
     public class LevelSetterTool : SerializedMonoBehaviour
     {
-        [LabelText("Set level data when game started")]
-        public bool setDataWhenGameStarted;
-
         [TableList(AlwaysExpanded = true)] [LabelText("卡片清單")]
         public List<CardLevel> cardDataLevels;
 
         [LabelText("遺物清單")]
         public Dictionary<RelicName, RelicSaveInfo> relicInfos;
         
-        
-
-        private CardLevelHandler levelHandler => CardManager.Instance.CardLevelHandler;
+        private CardLevelHandler cardLevelHandler => CardManager.Instance.CardLevelHandler;
 
         private RelicLevelHandler relicLevelHandler => GameManager.Instance.RelicManager.relicLevelHandler;
        
-        /// <summary>
-        /// Sets the save info for cards and relics.
-        /// </summary>
-        public void SetSaveInfos()
-        {
-            SetRelicSaveInfo();
-            SetCardSaveInfo();
-        }
 
         /// <summary>
         /// Retrieves the current card and relic levels.
@@ -45,16 +33,16 @@ namespace Tool
         [Button("創建存檔清單")]
         public void CreateSaveInfos()
         {
-            levelHandler.InitDictionary();
+            cardLevelHandler.InitDictionary();
             cardDataLevels = new List<CardLevel>();
 
-            foreach (var pair in levelHandler.cardSaveInfos)
+            foreach (var pair in cardLevelHandler.cardSaveInfos)
             {
-                var cardData = levelHandler.SaveCard.GetCard(pair.Key);
+                var cardData = cardLevelHandler.SaveCard.GetCard(pair.Key);
                 cardDataLevels.Add(new CardLevel(cardData, pair.Value.Level, pair.Value.HasGained));
             }
 
-            relicLevelHandler.InitRelicSaveInfo();
+            relicLevelHandler.InitDictionary();
             relicInfos = relicLevelHandler.relicSaveInfos;
         }
 
@@ -77,7 +65,7 @@ namespace Tool
                 cardLevels[cardInfo.cardData.CardId] = cardSaveLevel;
             }
 
-            levelHandler.SetSaveInfo(cardLevels);
+            cardLevelHandler.SetSaveInfo(cardLevels);
             CardManager.Instance.UpdateCardInfos();
         }
 

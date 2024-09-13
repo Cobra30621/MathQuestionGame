@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Managers;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Managers;
@@ -8,45 +9,9 @@ namespace CampFire
 {
     public class CampFireManager : MonoBehaviour
     {
-        #region Instance(Singleton)
+        public static CampFireManager Instance => GameManager.Instance.CampFireManager;
 
-        private static CampFireManager instance;
-
-        public static CampFireManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = FindObjectOfType<CampFireManager>();
-
-                    if (instance == null)
-                    {
-                        Debug.LogError($"The GameObject with {typeof(CampFireManager)} does not exist in the scene, " +
-                                       $"yet its method is being called.\n" +
-                                       $"Please add {typeof(CampFireManager)} to the scene.");
-                    }
-                }
-
-                return instance;
-            }
-        }
-
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-
-
-        #endregion
+       
 
         public float healPercent = 0.3f;
 

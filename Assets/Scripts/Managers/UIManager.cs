@@ -1,30 +1,28 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using CampFire;
 using Card.Data;
-using Coin;
 using Money;
-using NueGames.CharacterAbility;
-using NueGames.Data.Collection;
 using NueGames.UI;
 using NueGames.UI.Reward;
 using NueGames.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace NueGames.Managers
+namespace Managers
 {
     [DefaultExecutionOrder(-4)]
-    public class UIManager : Singleton<UIManager>
+    public class UIManager : MonoBehaviour
     {
+        public static UIManager Instance => GameManager.Instance.UIManager;
+        
+        
         [Header("Canvases")] [SerializeField] private CombatCanvas combatCanvas;
         [SerializeField] private InformationCanvas informationCanvas;
         [SerializeField] private RewardCanvas rewardCanvas;
         [SerializeField] private InventoryCanvas inventoryCanvas;
         [SerializeField] private RelicCanvas relicCanvas;
         [SerializeField] private CampFireCanvas campFireCanvas;
-        [SerializeField] private CharacterSkillUI characterSkillUI;
         [SerializeField] private ShopCanvas shopCanvas;
 
         [Header("Fader")] [SerializeField] private CanvasGroup fader;
@@ -38,7 +36,6 @@ namespace NueGames.Managers
         public InventoryCanvas InventoryCanvas => inventoryCanvas;
         public RelicCanvas RelicCanvas => relicCanvas;
         public CampFireCanvas CampFireCanvas => campFireCanvas;
-        public CharacterSkillUI CharacterSkillUI => characterSkillUI;
         
         public ShopCanvas ShopCanvas => shopCanvas;
 

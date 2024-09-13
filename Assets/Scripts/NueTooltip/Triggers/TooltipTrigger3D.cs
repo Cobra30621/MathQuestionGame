@@ -12,7 +12,7 @@ namespace NueGames.NueDeck.ThirdParty.NueTooltip.Triggers
 
         public void OnMouseExit()
         {
-            HideTooltipInfo(TooltipManager.Instance);
+            HideTooltipInfo();
         }
     }
 }

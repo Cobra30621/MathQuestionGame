@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using NueGames.Data.Characters;
 using NueGames.Managers;
 using NueGames.Utils;

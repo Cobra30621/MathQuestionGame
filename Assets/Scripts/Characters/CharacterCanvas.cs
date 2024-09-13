@@ -15,11 +15,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using NueGames.Combat;
 using NueGames.Power;
+using NueTooltip.Core;
 
 namespace NueGames.Characters
 {
     [RequireComponent(typeof(Canvas))]
-    public abstract class CharacterCanvas : MonoBehaviour,I2DTooltipTarget
+    public abstract class CharacterCanvas : MonoBehaviour, I2DTooltipTarget
     {
         [Header("References")]
         [SerializeField] protected Transform statusIconRoot;
@@ -35,12 +36,7 @@ namespace NueGames.Characters
         protected Dictionary<PowerName, PowerIconsBase> StatusDict = new Dictionary<PowerName, PowerIconsBase>();
 
         protected Canvas TargetCanvas;
-        
-        protected FxManager FxManager => FxManager.Instance;
-        protected GameManager GameManager => GameManager.Instance;
-        protected CombatManager CombatManager => CombatManager.Instance;
-        protected CollectionManager CollectionManager => CollectionManager.Instance;
-        protected UIManager UIManager => UIManager.Instance;
+
 
         #endregion
         
@@ -105,7 +101,7 @@ namespace NueGames.Characters
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            HideTooltipInfo(TooltipManager.Instance);
+            HideTooltipInfo();
         }
 
         #endregion
@@ -118,23 +114,21 @@ namespace NueGames.Characters
 
         protected void ShowPowerTooltipInfo()
         {
-            var tooltipManager = TooltipManager.Instance;
-
             foreach (var powerIconBase in StatusDict)
             {
                 PowerData powerData = powerIconBase.Value.MyPowerData;
-                ShowTooltipInfo(tooltipManager,powerData.GetContent(),powerData.GetHeader(),descriptionRoot);
+                ShowTooltipInfo(powerData.GetContent(),powerData.GetHeader(),descriptionRoot);
             }
         }
         
-        public void ShowTooltipInfo(TooltipManager tooltipManager, string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default,Camera cam = null, float delayShow =0)
+        public void ShowTooltipInfo(string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default,Camera cam = null, float delayShow =0)
         {
-            tooltipManager.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);
+            TooltipManager.Instance.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);
         }
 
-        public void HideTooltipInfo(TooltipManager tooltipManager)
+        public void HideTooltipInfo()
         {
-            tooltipManager.HideTooltip();
+            TooltipManager.Instance.HideTooltip();
         }
         
 

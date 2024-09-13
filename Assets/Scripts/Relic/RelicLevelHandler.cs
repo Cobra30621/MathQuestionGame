@@ -4,6 +4,7 @@ using System.Linq;
 using Data;
 using NueGames.Data.Containers;
 using NueGames.Relic;
+using Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -25,7 +26,7 @@ namespace Relic
         /// <summary>
         /// Initializes the relic level dictionary.
         /// </summary>
-        public void InitRelicSaveInfo()
+        public void InitDictionary()
         {
             haveInitDict = true;
             relicSaveInfos = new Dictionary<RelicName, RelicSaveInfo>();
@@ -92,7 +93,7 @@ namespace Relic
         /// <param name="data">The game data.</param>
         public void LoadData(PermanentGameData data)
         {
-            InitRelicSaveInfo();
+            InitDictionary();
 
             var loadRelicInfo = data.relicInfo;
             if (loadRelicInfo != null)

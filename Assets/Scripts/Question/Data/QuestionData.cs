@@ -15,7 +15,6 @@ namespace Question
             var questionClips = questionClip
                 .Where(clip => clip.publisher == publisher && clip.grade == grade)
                 .ToList();
-            Debug.Log(questionClips.Count);
             var questions = new List<Question>();
             foreach (var clip in questionClips)
             {

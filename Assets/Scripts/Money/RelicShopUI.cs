@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Coin;
+using Managers;
 using Money.Data;
 using NueGames.Managers;
 using Relic;
