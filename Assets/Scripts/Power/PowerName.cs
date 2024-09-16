@@ -14,6 +14,7 @@
         Fire = 7,
         // not official coded
         Weak = 1111,
+        Trap = 1112,
         //
 
 
