@@ -1,4 +1,7 @@
 using Sirenix.OdinInspector;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 
 // A generic Singleton class for SerializedMonoBehaviours.
@@ -24,26 +27,38 @@ public abstract class Singleton<T> : SerializedMonoBehaviour where T : Serialize
                 }
                 else
                 {
-                    #if ! UNITY_EDITOR
+#if !UNITY_EDITOR
                    // If instance is found, ensure it persists across scene changes.
-                                DontDestroyOnLoad(instance);             
-                    #endif
-                    
+                    DontDestroyOnLoad(instance);   
+                    Debug.Log($"Singleton of type {typeof(T)} found in the scene.");
+#endif
+
+#if UNITY_EDITOR
+                    if (EditorApplication.isPlaying)
+                    {
+                        DontDestroyOnLoad(instance);
+                        Debug.Log($"Singleton of type {typeof(T)} found in the scene.");
+    
+                    }
+#endif
                 }
             }
+
             return instance;
         }
     }
 
     // Called when the instance is first created.
-    protected virtual void Awake()
+    void Awake()
     {
+
         // If instance is not assigned, assign this instance to it and make it persistent.
         if (instance == null)
         {
             instance = this as T;
             DontDestroyOnLoad(gameObject);
             DoAtAwake(); // Customizable method called at Awake.
+            Debug.Log($"Singleton of type {typeof(T)} found in the scene. OWO");
         }
         else
         {

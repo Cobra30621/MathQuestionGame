@@ -93,7 +93,8 @@ namespace NueGames.Card
             
             var gameActions = GetGameActions(specifiedTargets);
             
-            GameActionExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, gameActions[0].TargetList));
+            var targetList = gameActions.Count > 0  ?  gameActions[0].TargetList : new List<CharacterBase>();
+            GameActionExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, targetList));
         }
 
         private List<GameActionBase> GetGameActions(List<CharacterBase> specifiedTargets)
