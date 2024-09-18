@@ -31,7 +31,7 @@ namespace NueGames.Power
             if (source != null)
             {
                 GameActionExecutor.AddAction(
-                    new ApplyPowerAction(4, PowerName.Weak, 
+                    new ApplyPowerAction(2, PowerName.Weak, 
                         new List<CharacterBase>() {info.ActionSource.SourceCharacter}, GetActionSource()));
                 // 觸發後減層數 1 
                 GameActionExecutor.AddAction(
