@@ -53,6 +53,10 @@ namespace Combat
         {
             _manaManager.AddMana(mana);
         }
+        public void SetMana(int mana)
+        {
+            _manaManager.SetMana(mana);
+        }
 
         #endregion
 

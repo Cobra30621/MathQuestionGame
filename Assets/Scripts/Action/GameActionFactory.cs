@@ -79,6 +79,8 @@ namespace GameAction
                     return new MultiBlockAction(skillInfo);
                 case GameActionType.GainMana:
                     return new GainManaAction(skillInfo);
+                case GameActionType.Meteorite:
+                    return new MeteoriteAction(skillInfo);
                 default:
                     Debug.LogError("无效的技能类型");
                     return new NullAction(skillInfo);
