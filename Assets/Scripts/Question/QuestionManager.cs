@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Data;
+using Managers;
 using MoreMountains.Feedbacks;
 using NueGames.Action.MathAction;
 using NueGames.Enums;
@@ -17,8 +18,9 @@ namespace Question
     /// <summary>
     /// 答題模式管理器
     /// </summary>
-    public class QuestionManager : Singleton<QuestionManager>, IDataPersistence
+    public class QuestionManager : MonoBehaviour, IDataPersistence
     {
+        public static QuestionManager Instance => GameManager.Instance.QuestionManager;
         
         /// <summary>
         /// 答題介面
@@ -136,7 +138,7 @@ namespace Question
         
        
 
-        protected override void DoAtAwake()
+        void Awake()
         {
             isQuestioning = false;
         }

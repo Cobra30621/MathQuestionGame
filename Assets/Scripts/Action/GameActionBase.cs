@@ -26,7 +26,7 @@ namespace NueGames.Action
         /// <summary>
         /// 行為目標對象
         /// </summary>
-        protected List<CharacterBase> TargetList;
+        public List<CharacterBase> TargetList { get; protected set; }
         
         /// <summary>
         /// 行為來源

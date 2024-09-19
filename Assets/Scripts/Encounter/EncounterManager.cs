@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using Data;
 using Data.Encounter;
 using DataPersistence;
+using Managers;
 using Map;
 using Newtonsoft.Json;
 using NueGames.Data.Encounter;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Utils;
+using Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,13 +19,15 @@ using UnityEngine.Serialization;
 
 namespace NueGames.Encounter
 {
-    public class EncounterManager : Singleton<EncounterManager> ,IDataPersistence
+    public class EncounterManager : MonoBehaviour,IDataPersistence
     {
         public MapEncounter mapEncounter;
 
         public SceneChanger sceneChanger;
 
         private EncounterStage _encounterStage;
+
+        public static EncounterManager Instance => GameManager.Instance.EncounterManager;
 
         
         public void GenerateNewMapEncounter(EncounterStage stage)

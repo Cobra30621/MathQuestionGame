@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Combat;
 using Data.Encounter;
+using Managers;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Enums;
@@ -43,18 +44,26 @@ namespace Tool
         
         [LabelText("玩家初始獲得的能力")]
         public List<PowerName> allyPowerAtGameStart;
-        
-        
 
-        void Start()
+        private void Start()
         {
+            Debug.Log("開發者模式");
+            if(GameManager.Instance.IsDeveloperMode)
+                StartDevelopMode();
+        }
+
+
+        [Button]
+        public void StartDevelopMode()
+        {
+            Debug.Log("設定開發者清單");
             SetDevelopModeData();
             
             PlayTest();
 
             GenerateAllyPower();
-            
         }
+        
 
         private void Update()
         {
@@ -75,8 +84,8 @@ namespace Tool
         public void PlayTest()
         {
             TestEvent.Invoke();
-            
         }
+
 
         private void SetDevelopModeData()
         {

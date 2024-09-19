@@ -11,10 +11,10 @@ namespace Card.Data
         [ShowInInspector]
         public CardData CardData { get; private set; }
 
-        public int Level => CardSaveLevel.Level;
+        public int Level => CardSaveInfo.Level;
 
         [ShowInInspector]
-        public CardSaveLevel CardSaveLevel { get; private set; }
+        public CardSaveInfo CardSaveInfo { get; private set; }
 
         public CardLevelInfo CardLevelInfo => cardLevelInfo;
 
@@ -23,23 +23,30 @@ namespace Card.Data
 
         [SerializeField] private CardLevelInfo cardLevelInfo;
 
-        public CardInfo(CardData cardData, CardSaveLevel cardSaveLevel)
+        public CardInfo(CardData cardData, CardSaveInfo cardSaveInfo)
         {
             CardData = cardData;
-            CardSaveLevel = cardSaveLevel;
-            cardLevelInfo = cardData.GetLevelInfo(CardSaveLevel.Level);
+            CardSaveInfo = cardSaveInfo;
+            cardLevelInfo = cardData.GetLevelInfo(CardSaveInfo.Level);
             
         }
 
         public CardInfo(CardData cardData, int level)
         {
             CardData = cardData;
-            CardSaveLevel = new CardSaveLevel()
+            CardSaveInfo = new CardSaveInfo()
             {
                 Level = level
             };
-            cardLevelInfo = cardData.GetLevelInfo(CardSaveLevel.Level);
+            cardLevelInfo = cardData.GetLevelInfo(CardSaveInfo.Level);
         }
         
+    }
+    
+    [Serializable]
+    public class CardSaveInfo
+    {
+        [LabelText("等級")] public int Level;
+        [LabelText("已獲取過")] public bool HasGained;
     }
 }

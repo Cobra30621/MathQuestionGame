@@ -3,15 +3,19 @@ using System.Linq;
 using Card.Data;
 using Data;
 using DataPersistence;
+using Managers;
 using NueGames.Enums;
+using NueGames.Managers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Card
 {
-    public class CardManager : Singleton<CardManager>, IDataPersistence
+    public class CardManager : SerializedMonoBehaviour, IDataPersistence
     {
+        public static CardManager Instance => GameManager.Instance.CardManager;
+        
         [Required]
         [SerializeField] private DeckData saveDeck;
         [Required]
@@ -112,7 +116,7 @@ namespace Card
 
         public CardInfo CreateCardInfo(CardData cardData)
         {
-            var level = _cardLevelHandler.GetCardLevel(cardData.CardId);
+            var level = _cardLevelHandler.GetSaveInfo(cardData.CardId);
 
             var cardInfo = new CardInfo(cardData, level);
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Combat;
+using Managers;
 using NueGames.Enums;
 using NueGames.Power;
 
@@ -72,6 +73,21 @@ namespace NueGames.Combat
             {
                 OnGainMana?.Invoke(mana);
             }
+        }
+        /// <summary>
+        /// 設定瑪娜值
+        /// <summary>
+        public void SetMana(int mana)
+        {
+            CurrentMana = mana;
+            OnGainMana?.Invoke(mana);
+        }
+        /// <summary>
+        /// 取得瑪娜值
+        /// <summary>
+        public int GetMana()
+        {
+            return CurrentMana;
         }
     }
 }

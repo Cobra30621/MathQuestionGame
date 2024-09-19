@@ -110,13 +110,14 @@ MonoBehaviour:
   TestEvent:
     m_PersistentCalls:
       m_Calls: []
-  GameplayData: {fileID: 11400000, guid: 699903d0236c43c43964bc88e127de7f, type: 2}
+  allyData: {fileID: 11400000, guid: 621ddd3ce6aa142d0945b431e8681f64, type: 2}
   enemyEncounter:
     id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
   QuestionSetting:
     Grades: 
     Publishers: 
   allyPowerAtGameStart: 
+  _levelSetterTool: {fileID: 2466699180288306852}
 --- !u!114 &2466699180288306852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +159,9 @@ MonoBehaviour:
     - Name: Level
       Entry: 3
       Data: 2
+    - Name: HasGained
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -170,6 +174,9 @@ MonoBehaviour:
     - Name: Level
       Entry: 3
       Data: 4
+    - Name: HasGained
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -182,6 +189,9 @@ MonoBehaviour:
     - Name: Level
       Entry: 3
       Data: 7
+    - Name: HasGained
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -194,6 +204,9 @@ MonoBehaviour:
     - Name: Level
       Entry: 3
       Data: 3
+    - Name: HasGained
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -204,6 +217,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
   setDataWhenGameStarted: 0
+  relicInfos: []
 --- !u!1 &4460161426109008673
 GameObject:
   m_ObjectHideFlags: 0

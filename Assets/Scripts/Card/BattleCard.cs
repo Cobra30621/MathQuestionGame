@@ -78,7 +78,7 @@ namespace NueGames.Card
         {
             if (!IsPlayable) return;
 
-            HideTooltipInfo(TooltipManager.Instance);
+            HideTooltipInfo();
             
             SpendMana(ManaCost);
             
@@ -93,10 +93,10 @@ namespace NueGames.Card
             
             var gameActions = GetGameActions(specifiedTargets);
             
-            GameActionExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, specifiedTargets));
+            GameActionExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, gameActions[0].TargetList));
         }
 
-        private List<GameActionBase> GetGameActions(List<CharacterBase> targetList)
+        private List<GameActionBase> GetGameActions(List<CharacterBase> specifiedTargets)
         {
             ActionSource actionSource = new ActionSource()
             {
@@ -114,7 +114,7 @@ namespace NueGames.Card
             }
 
             var gameActions = GameActionFactory.GetGameActions(CardLevelInfo.EffectInfos, 
-                targetList, actionSource);
+                specifiedTargets, actionSource);
 
             return gameActions;
         }

@@ -1,4 +1,5 @@
 ﻿using Combat;
+using Managers;
 using NueGames.Managers;
 using UnityEngine;
 using NueGames.Combat;

@@ -8,6 +8,7 @@ using NueGames.Managers;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
 using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
 using NueGames.Power;
+using NueTooltip.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -78,12 +79,12 @@ namespace Card.Display
 
         public virtual void OnPointerExit(PointerEventData eventData)
         {
-            HideTooltipInfo(TooltipManager.Instance);
+            HideTooltipInfo();
         }
 
         public virtual void OnPointerDown(PointerEventData eventData)
         {
-            HideTooltipInfo(TooltipManager.Instance);
+            HideTooltipInfo();
         }
 
         public virtual void OnPointerUp(PointerEventData eventData)
@@ -97,7 +98,7 @@ namespace Card.Display
 
         private bool NeedShowTooltip()
         {
-            return _cardInfo.CardSaveLevel.HasGained;
+            return _cardInfo.CardSaveInfo.HasGained;
         }
         
         
@@ -114,7 +115,7 @@ namespace Card.Display
             {
                 var specialKeyword = tooltipManager.SpecialKeywordData.SpecialKeywordBaseList.Find(x=>x.SpecialKeyword == cardDataSpecialKeyword);
                 if (specialKeyword != null)
-                    ShowTooltipInfo(tooltipManager,specialKeyword.GetContent(),specialKeyword.GetHeader(),descriptionRoot,CursorType.Default,
+                    ShowTooltipInfo(specialKeyword.GetContent(),specialKeyword.GetHeader(),descriptionRoot,CursorType.Default,
                         _camera);
             }
             
@@ -123,19 +124,19 @@ namespace Card.Display
             {
                 PowerData powerData = tooltipManager.PowersData.GetPowerData(powerType);
                 if(powerData != null)
-                    ShowTooltipInfo(tooltipManager,powerData.GetContent(),powerData.GetHeader(),descriptionRoot,CursorType.Default,
+                    ShowTooltipInfo(powerData.GetContent(),powerData.GetHeader(),descriptionRoot,CursorType.Default,
                         _camera);
             }
         }
 
-        public virtual void ShowTooltipInfo(TooltipManager tooltipManager, string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default,Camera cam = null, float delayShow =0)
+        public virtual void ShowTooltipInfo(string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default,Camera cam = null, float delayShow =0)
         {
-            tooltipManager.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);
+            TooltipManager.Instance.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);
         }
 
-        public virtual void HideTooltipInfo(TooltipManager tooltipManager)
+        public virtual void HideTooltipInfo()
         {
-            tooltipManager.HideTooltip();
+            TooltipManager.Instance.HideTooltip();
         }
         
         private List<PowerName> GetActionsPowerTypes()

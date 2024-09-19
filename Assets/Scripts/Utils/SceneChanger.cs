@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Managers;
 using NueGames.Managers;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
 using UnityEngine;

@@ -6,6 +6,7 @@ using NueGames.Enums;
 using NueGames.Managers;
 using UnityEngine;
 using Kalkatos.DottedArrow;
+using Managers;
 using NueGames.Combat;
 using CombatManager = Combat.CombatManager;
 

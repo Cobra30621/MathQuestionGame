@@ -11,24 +11,24 @@ namespace Relic
         
         public RelicData data;
 
-        public RelicLevelInfo relicLevelInfo;
+        public RelicSaveInfo relicSaveInfo;
 
 
         public RelicInfo()
         {
         }
 
-        public RelicInfo(RelicName relicName, RelicData data, RelicLevelInfo relicLevelInfo)
+        public RelicInfo(RelicName relicName, RelicData data, RelicSaveInfo relicSaveInfo)
         {
             this.relicName = relicName;
             this.data = data;
-            this.relicLevelInfo = relicLevelInfo;
+            this.relicSaveInfo = relicSaveInfo;
         }
 
 
         public string GetDescription()
         {
-            return data.GetDescription(relicLevelInfo.Level);
+            return data.GetDescription(relicSaveInfo.Level);
         }
     }
 }

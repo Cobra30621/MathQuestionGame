@@ -71,6 +71,7 @@ namespace Sheets
                 {
                     Debug.LogError("Could not find card level info for " + cardData.CardId);
                 }
+                EditorUtility.SetDirty(cardData);
             }
         }
         

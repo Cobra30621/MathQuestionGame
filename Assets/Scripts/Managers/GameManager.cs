@@ -1,45 +1,90 @@
 using System;
-using System.Collections.Generic;
+using CampFire;
 using Card;
 using Card.Data;
 using Data;
 using Data.Encounter;
 using DataPersistence;
 using Map;
-using Coin;
 using Money;
 using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Characters;
-using NueGames.Data.Collection;
-using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
 using NueGames.Encounter;
-using NueGames.Relic;
+using NueGames.Managers;
+using NueTooltip.Core;
 using Question;
 using Relic;
+using Save;
 using Sirenix.OdinInspector;
 using Stage;
 using UnityEngine;
 
-namespace NueGames.Managers
+namespace Managers
 {
-    [DefaultExecutionOrder(-10)]
     public class GameManager : Singleton<GameManager>, IDataPersistence
     {
-        [SerializeField] private ScriptableObjectFileHandler allyDataFileHandler, gameplayDataFileHandler;
-
-        [SerializeField] private RelicManager _relicManager;
-        public RelicManager RelicManager => _relicManager;
+        [Title("設定")] 
         
-        [Header("Settings")]
+        [LabelText("開發者模式")]
+        [SerializeField] private bool isDevelopMode;
+        
+        
         [InlineEditor()]
         [Required]
         [SerializeField] private GameplayData gameplayData;
-
+        
+        
+        [Title("工具")] 
+        [SerializeField] private ScriptableObjectFileHandler allyDataFileHandler, gameplayDataFileHandler;
+        
         [Required]
         [SerializeField] private StageSelectedHandler _stageSelectedHandler;
 
+        #region Manager
+        
+        [Title("管理器")] 
+        [Required]
+        public RelicManager RelicManager;
+
+        [Required]
+        public AudioManager AudioManager;
+
+        [Required]
+        public FxManager FxManager;
+
+        [Required]
+        public TooltipManager TooltipManager;
+        
+        [Required]
+        public GameActionExecutor GameActionManager;
+
+        [Required]
+        public MapManager MapManager;
+
+        [Required]
+        public EncounterManager EncounterManager;
+
+        [Required]
+        public CoinManager CoinManager;
+
+        [Required]
+        public CardManager CardManager;
+
+        [Required]
+        public SaveManager SaveManager;
+
+        [Required]
+        public UIManager UIManager;
+        
+        [Required]
+        public QuestionManager QuestionManager;
+
+        [Required] public CampFireManager CampFireManager;
+        
+        #endregion
+        
         
         #region Cache
         public GameplayData GameplayData => gameplayData;
@@ -54,9 +99,13 @@ namespace NueGames.Managers
         public AllyData allyData => _stageSelectedHandler.GetAllyData();
 
         public AllyHealthData AllyHealthData;
+
+        public bool IsDeveloperMode => isDevelopMode;
         
         #endregion
 
+        
+        
         
         #region Save, Load Data
 
@@ -98,7 +147,7 @@ namespace NueGames.Managers
 
         private void CreateSingleGameData()
         {
-            _relicManager.GainRelic(allyData.initialRelic);
+            RelicManager.GainRelic(allyData.initialRelic);
             CardManager.Instance.SetInitCard(allyData.InitialDeck.CardList);
             MapManager.Instance.Initialized(_stageSelectedHandler.GetStageData());
             QuestionManager.Instance.GenerateQuestions();

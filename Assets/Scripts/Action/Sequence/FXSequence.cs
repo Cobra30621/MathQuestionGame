@@ -55,6 +55,8 @@ namespace Action.Sequence
                     case FxSpawnPosition.EachTarget:
                         foreach (var target in TargetList)
                         {
+                            Debug.Log($"{target}");
+                            Debug.Log($"{target.name}");
                             fxPlayer = FxManager.PlayFx(_fxInfo.FxPrefab, spawnTransform, 
                                 target.transform.position);
                             playingFXs.Add(fxPlayer);

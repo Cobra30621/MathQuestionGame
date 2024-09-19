@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using Action.Sequence;
+using Managers;
 using NueGames.Enums;
 using NueGames.Utils;
 using Sirenix.OdinInspector;
@@ -9,8 +10,10 @@ using Random = UnityEngine.Random;
 
 namespace NueGames.Managers
 {
-    public class FxManager : Singleton<FxManager>
+    public class FxManager : SerializedMonoBehaviour
     {
+        public static FxManager Instance => GameManager.Instance.FxManager;
+        
         [Header("Floating Text")]
         [SerializeField] private FloatingText floatingTextPrefab;
         

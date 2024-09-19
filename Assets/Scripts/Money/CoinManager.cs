@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Data;
+using Managers;
+using NueGames.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,8 +16,11 @@ namespace Money
     /// <summary>
     /// Manages the player's money and stone coins.
     /// </summary>
-    public class CoinManager : Singleton<CoinManager>, IPermanentDataPersistence
+    public class CoinManager : MonoBehaviour, IPermanentDataPersistence
     {
+        public static CoinManager Instance => GameManager.Instance.CoinManager;
+        
+        
         [SerializeField] private int money;
         [SerializeField] private int stone;
 

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace NueGames.Managers
 {
-    public class AudioManager : Singleton<AudioManager>
+    public class AudioManager : MonoBehaviour
     {
 
         [SerializeField]private AudioSource musicSource;
@@ -18,7 +18,7 @@ namespace NueGames.Managers
         
         private Dictionary<AudioActionType, SoundProfileData> _audioDict = new Dictionary<AudioActionType, SoundProfileData>();
         
-        protected override void DoAtAwake()
+        protected void Awake()
         {
             for (int i = 0; i < Enum.GetValues(typeof(AudioActionType)).Length; i++)
                 _audioDict.Add((AudioActionType)i,soundProfileDataList.FirstOrDefault(x=>x.AudioType == (AudioActionType)i));

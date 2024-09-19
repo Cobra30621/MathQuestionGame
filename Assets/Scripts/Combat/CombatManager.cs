@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Data.Encounter;
 using Enemy;
 using Feedback;
+using Managers;
 using Map;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -51,6 +52,10 @@ namespace Combat
         public void AddMana(int mana)
         {
             _manaManager.AddMana(mana);
+        }
+        public void SetMana(int mana)
+        {
+            _manaManager.SetMana(mana);
         }
 
         #endregion

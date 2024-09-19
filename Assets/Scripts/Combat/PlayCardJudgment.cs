@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Combat;
+using Managers;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Enums;

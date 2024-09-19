@@ -1,6 +1,7 @@
 ﻿using System;
 using Card;
 using Card.Data;
+using Managers;
 using NueGames.Enums;
 using NueGames.Managers;
 using UnityEngine;

@@ -5,6 +5,7 @@ using System.Linq;
 using Action.Parameters;
 using Action.Sequence;
 using DG.Tweening;
+using Managers;
 using NueGames.Action;
 using NueGames.Parameters;
 using NueGames.Power;
@@ -20,33 +21,13 @@ namespace NueGames.Managers
     /// </summary>
     public class GameActionExecutor : SerializedMonoBehaviour
     {
-        
+
         /// <summary>
         /// 單例模式
         /// </summary>
-        public static GameActionExecutor Instance { get; private set; }
+        public static GameActionExecutor Instance => GameManager.Instance.GameActionManager;
 
         public SequenceManager SequenceManager;
-
-        #region SetUp (初始化)
-        private void Awake()
-        {
-            if (Instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            else
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-
-        }
-
-
-
-        #endregion
 
         
         #region 將遊戲行為加入執行緒

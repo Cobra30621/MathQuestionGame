@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 using Data;
+using Managers;
 using Map_System.Scripts.MapData;
 using Newtonsoft.Json;
 using NueGames.Encounter;
+using NueGames.Managers;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using Stage;
@@ -11,7 +13,7 @@ using UnityEngine.SceneManagement;
 
 namespace Map
 {
-    public class MapManager : Singleton<MapManager>, IDataPersistence
+    public class MapManager : SerializedMonoBehaviour, IDataPersistence
     {
         public StageName stageName;
         
@@ -32,7 +34,10 @@ namespace Map
 
         public bool Locked;
 
-        protected override void DoAtAwake()
+        public static MapManager Instance => GameManager.Instance.MapManager;
+        
+        
+        private void Awake()
         {
             SceneManager.sceneLoaded += (scene, mode) =>
             {

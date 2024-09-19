@@ -1,8 +1,10 @@
 using System;
 using Card;
+using Managers;
 using Money;
 using NueGames.Data.Settings;
 using Relic;
+using Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -10,27 +12,18 @@ namespace NueGames.Managers
 {
     public class FirstEnterGameHandler : MonoBehaviour
     {
-        [Header("Settings")]
-        [InlineEditor()]
-        [Required]
-        [SerializeField] private GameplayData gameplayData;
+        [Header("Settings")] [InlineEditor()] [Required] [SerializeField]
+        private GameplayData gameplayData;
 
-
-        [LabelText("開發模式")] [SerializeField]
-        private bool IsDevelopMode;
-        
 
         private void Awake()
         {
-            if (IsDevelopMode)
-            {
-                return;
-            }
-            
             CheckFirstEnterGame();
         }
 
-        private void CheckFirstEnterGame()
+
+        [Button]
+        public void CheckFirstEnterGame()
         {
             if (SaveManager.Instance.IsFirstEnterGame())
             {
@@ -48,8 +41,8 @@ namespace NueGames.Managers
             CoinManager.Instance.SetMoney(gameplayData.InitMoney);
             CoinManager.Instance.SetStone(gameplayData.InitStone);
             CardManager.Instance.CardLevelHandler.InitDictionary();
-            GameManager.Instance.RelicManager.relicLevelHandler.InitRelicLevels();
-                
+            GameManager.Instance.RelicManager.relicLevelHandler.InitDictionary();
+
             SaveManager.Instance.SavePermanentGame();
             SaveManager.Instance.SetHaveEnterGame();
         }

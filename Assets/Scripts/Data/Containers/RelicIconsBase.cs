@@ -1,9 +1,12 @@
-﻿using MoreMountains.Tools;
+﻿using Managers;
+using MoreMountains.Tools;
 using NueGames.Data.Containers;
+using NueGames.Managers;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
 using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
 using NueGames.Relic;
+using NueTooltip.Core;
 using Relic;
 using TMPro;
 using UnityEngine;
@@ -23,6 +26,9 @@ namespace NueGames.UI
         public Image StatusImage => statusImage;
 
         public TextMeshProUGUI StatusValueText => statusValueText;
+
+        public TooltipManager TooltipManager => GameManager.Instance.TooltipManager;
+        
 
         public void SetRelicClip( RelicBase relicBase)
         {
@@ -54,25 +60,25 @@ namespace NueGames.UI
         public void OnPointerEnter(PointerEventData eventData)
         {
             var description = Relic.RelicInfo.GetDescription(); 
-            ShowTooltipInfo(TooltipManager.Instance, description , 
+            ShowTooltipInfo(description , 
                 Relic.RelicInfo.data.Title);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            HideTooltipInfo(TooltipManager.Instance);
+            HideTooltipInfo();
         }
         
-        public void ShowTooltipInfo(TooltipManager tooltipManager, string content, string header = "",
+        public void ShowTooltipInfo(string content, string header = "",
             Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default, Camera cam = null,
             float delayShow = 0)
         {
-            tooltipManager.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);
+            TooltipManager.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);
         }
 
-        public void HideTooltipInfo(TooltipManager tooltipManager)
+        public void HideTooltipInfo()
         {
-            TooltipManager.Instance.HideTooltip();
+            TooltipManager.HideTooltip();
         }
 
         #endregion

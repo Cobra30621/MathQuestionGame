@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Card;
 using Card.Data;
 using Combat;
+using Managers;
 using NueGames.Card;
 using NueGames.Collection;
 using NueGames.Data.Collection;

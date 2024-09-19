@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Coin;
+using Managers;
 using NueGames.Managers;
 using Relic;
 using UnityEngine;
@@ -26,7 +27,7 @@ namespace Money.Data
 
         public bool EnableBuy()
         {
-            bool notMaxLevel = !_relicInfo.relicLevelInfo.IsMaxLevel();
+            bool notMaxLevel = !_relicInfo.relicSaveInfo.IsMaxLevel();
             
             bool enoughMoney = CoinManager.Instance.EnoughCoin(NeedCost());
             
