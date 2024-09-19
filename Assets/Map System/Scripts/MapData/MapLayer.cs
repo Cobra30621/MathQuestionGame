@@ -10,7 +10,7 @@ namespace Map
     public class MapLayer
     {
         [TableColumnWidth(200), VerticalGroup("每層的節點清單")]
-        [GUIColor(0.3f, 0.8f, 0.8f)]
+        [GUIColor("#46A3FF")]
         [LabelText("此節點事件清單-機率設定")]
         [TableList(ShowIndexLabels = true, AlwaysExpanded = true)]
         [ValidateInput("@nodeTypeClips.Count > 0", "節點事件清單不能為空")]

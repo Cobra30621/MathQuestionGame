@@ -17,9 +17,11 @@ namespace Map_System.Scripts.MapData
         public string mapName;
         [LabelText("地圖層數設計")]
         [TableList(ShowIndexLabels = true)]
+        [GUIColor("#FFFFAA")]
         public List<MapLayer> layers;
         
         [LabelText("地圖遭遇事件")]
+        [GUIColor("#02F78E")]
         public EncounterStage encounterStage;
 
         [HideInInspector]

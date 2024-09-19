@@ -18,6 +18,7 @@ namespace Stage
         
         [TableColumnWidth(700)]
         [LabelText("每一層數據")]
+        [GUIColor("#FF9797")]
         public List<MapConfig> maps = new List<MapConfig>();
         
     }

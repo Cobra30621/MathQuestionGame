@@ -1,4 +1,6 @@
+using Data.Encounter;
 using Data.Settings;
+using Enemy;
 using Enemy.Data;
 using NueGames.Data.Containers;
 using NueGames.Data.Settings;
@@ -17,10 +19,19 @@ namespace Tool
         [Required] [InlineEditor] [LabelText("可選擇的玩家與關卡")]
         public AllyAndStageSetting AllyAndStageSetting;
 
-        [Required] [InlineEditor] [LabelText("所有的關卡設計")]
+        [Required] [InlineEditor] [LabelText("所有關卡")]
         public StageDataOverview StageDataOverview;
-        
 
+        
+        
+        [Title("敵人")]
+        [Required] [InlineEditor] [LabelText("敵人遭遇設計")]
+        public EnemyEncounterOverview EncounterOverview;
+        
+        [Required] [InlineEditor] [LabelText("敵人 Prefab")]
+        public EnemyPrefabData EnemyPrefabData;
+        
+        
         [Title("基礎設定")] 
         [Required] [InlineEditor] [LabelText("遊戲基礎設定")]
         public GameplayData GameplayData;

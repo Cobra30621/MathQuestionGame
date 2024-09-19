@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67ba38e469c84b088ed3937f5fb956e9, type: 3}
-  m_Name: enemy encounter overview
+  m_Name: "\u6575\u4EBA\u906D\u9047\u8A2D\u5B9A"
   m_EditorClassIdentifier: 
   ids:
   - uniqueId:
@@ -32,6 +32,20 @@ MonoBehaviour:
       displayName: Nelson Test
     enemyList:
     - id: 904
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: a32cd04f-8ee4-42d7-ab77-555f4a254d0a
+      displayName: "\u4F4E\u968E\u60E1\u9B54"
+    enemyList:
+    - id: 101
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 8316a764-a8dd-4a88-ae57-c0e4aa4b2497
+      displayName: "\u60E1\u9B54\u7FA4"
+    enemyList:
+    - id: 111
+    - id: 101
+    - id: 101
     targetBackgroundType: 0
   useDataPath: 0
   dataPath: 
