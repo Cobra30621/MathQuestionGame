@@ -74,5 +74,20 @@ namespace NueGames.Combat
                 OnGainMana?.Invoke(mana);
             }
         }
+        /// <summary>
+        /// 設定瑪娜值
+        /// <summary>
+        public void SetMana(int mana)
+        {
+            CurrentMana = mana;
+            OnGainMana?.Invoke(mana);
+        }
+        /// <summary>
+        /// 取得瑪娜值
+        /// <summary>
+        public int GetMana()
+        {
+            return CurrentMana;
+        }
     }
 }

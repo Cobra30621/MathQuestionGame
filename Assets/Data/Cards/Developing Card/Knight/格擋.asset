@@ -35,6 +35,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: 
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   cardId: 2
   _levelInfos:
@@ -47,6 +49,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F973\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 2000003
       EffectID: 20002
@@ -63,6 +67,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F974\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 2000004
       EffectID: 20002
@@ -79,6 +85,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F975\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 2000005
       EffectID: 20002
@@ -95,6 +103,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 2000006
       EffectID: 20002
@@ -111,6 +121,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F977\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 2000007
       EffectID: 20002
@@ -127,6 +139,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F978\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 2000008
       EffectID: 20002
@@ -143,6 +157,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F979\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 2000009
       EffectID: 20002
@@ -159,6 +175,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F9710\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 2000010
       EffectID: 20002
@@ -175,6 +193,8 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F9711\u9EDE\u8B77\u76FE\u4E26\u4E14\u7372\u5F971\u5C64\u53CD\u5F48"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 2000011
       EffectID: 20002
@@ -197,6 +217,8 @@ MonoBehaviour:
     MaxLevel: 1
     TitleLang: "\u683C\u64CB"
     DesLang: "\u7372\u5F9712\u9EDE\u8B77\u76FE\u4E26\u4E14\u7372\u5F972\u5C64\u53CD\u5F48"
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos:
     - SkillID: 2000012
       EffectID: 20002
@@ -210,6 +232,7 @@ MonoBehaviour:
       EffectParameterList: 0200000000000000
       Target: 0
       ps: "\u53CD\u5F48"
+  _allyClassType: 0
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
@@ -220,7 +243,7 @@ MonoBehaviour:
     Delay: 3
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardName: 
-  cardSprite: {fileID: 0}
+  cardName: "\u683C\u64CB"
+  cardSprite: {fileID: 21300000, guid: 571929568553449329538fac2be4e511, type: 3}
   rarity: 0
   description: 
