@@ -35,9 +35,12 @@ MonoBehaviour:
     MaxLevel: 0
     TitleLang: 
     DesLang: 
+    TargetChoose: 0
+    skillIDs: []
     EffectInfos: []
   cardId: 5
   _levelInfos: []
+  _allyClassType: 0
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
@@ -46,10 +49,9 @@ MonoBehaviour:
     FxSpawnPosition: 0
     WaitMethod: 0
     Delay: -1
-  fxSpawnPosition: 0
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardName: 
-  cardSprite: {fileID: 0}
+  cardName: "\u65BD\u6CD5"
+  cardSprite: {fileID: 21300000, guid: f8c04224d69884b12969a01069ae70ab, type: 3}
   rarity: 0
   description: 
