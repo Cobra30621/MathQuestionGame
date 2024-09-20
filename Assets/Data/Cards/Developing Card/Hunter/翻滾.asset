@@ -50,9 +50,14 @@ MonoBehaviour:
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F972\u9EDE\u8B77\u76FE"
     TargetChoose: 0
-    skillIDs:
-    - 2000002
-    EffectInfos: []
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 2000002
+      EffectID: 20002
+      EffectParameter: 2 ,1
+      EffectParameterList: 0200000001000000
+      Target: 0
+      ps: "\u8B77\u76FE"
   - ID: 120102
     GroupID: 4
     SkillID: 2000003
@@ -63,9 +68,14 @@ MonoBehaviour:
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F973\u9EDE\u8B77\u76FE"
     TargetChoose: 0
-    skillIDs:
-    - 2000003
-    EffectInfos: []
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 2000003
+      EffectID: 20002
+      EffectParameter: 3 ,1
+      EffectParameterList: 0300000001000000
+      Target: 0
+      ps: "\u8B77\u76FE"
   - ID: 120103
     GroupID: 4
     SkillID: 2000004
@@ -76,9 +86,14 @@ MonoBehaviour:
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F974\u9EDE\u8B77\u76FE"
     TargetChoose: 0
-    skillIDs:
-    - 2000004
-    EffectInfos: []
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 2000004
+      EffectID: 20002
+      EffectParameter: 4 ,1
+      EffectParameterList: 0400000001000000
+      Target: 0
+      ps: "\u8B77\u76FE"
   - ID: 120104
     GroupID: 4
     SkillID: 2000005
@@ -89,9 +104,14 @@ MonoBehaviour:
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F975\u9EDE\u8B77\u76FE"
     TargetChoose: 0
-    skillIDs:
-    - 2000005
-    EffectInfos: []
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 2000005
+      EffectID: 20002
+      EffectParameter: 5 ,1
+      EffectParameterList: 0500000001000000
+      Target: 0
+      ps: "\u8B77\u76FE"
   - ID: 120105
     GroupID: 4
     SkillID: 2000006
@@ -102,9 +122,14 @@ MonoBehaviour:
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
     TargetChoose: 0
-    skillIDs:
-    - 2000006
-    EffectInfos: []
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 2000006
+      EffectID: 20002
+      EffectParameter: 6 ,1
+      EffectParameterList: 0600000001000000
+      Target: 0
+      ps: "\u8B77\u76FE"
   - ID: 120106
     GroupID: 4
     SkillID: 2000007
@@ -115,9 +140,14 @@ MonoBehaviour:
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F977\u9EDE\u8B77\u76FE"
     TargetChoose: 0
-    skillIDs:
-    - 2000007
-    EffectInfos: []
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 2000007
+      EffectID: 20002
+      EffectParameter: 7 ,1
+      EffectParameterList: 0700000001000000
+      Target: 0
+      ps: "\u8B77\u76FE"
   - ID: 120107
     GroupID: 4
     SkillID: 2000008
@@ -128,9 +158,14 @@ MonoBehaviour:
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F978\u9EDE\u8B77\u76FE"
     TargetChoose: 0
-    skillIDs:
-    - 2000008
-    EffectInfos: []
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 2000008
+      EffectID: 20002
+      EffectParameter: 8 ,1
+      EffectParameterList: 0800000001000000
+      Target: 0
+      ps: "\u8B77\u76FE"
   - ID: 120108
     GroupID: 4
     SkillID: 2000009
@@ -141,9 +176,14 @@ MonoBehaviour:
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F979\u9EDE\u8B77\u76FE"
     TargetChoose: 0
-    skillIDs:
-    - 2000009
-    EffectInfos: []
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 2000009
+      EffectID: 20002
+      EffectParameter: 9 ,1
+      EffectParameterList: 0900000001000000
+      Target: 0
+      ps: "\u8B77\u76FE"
   - ID: 120109
     GroupID: 4
     SkillID: 2000010
@@ -154,9 +194,14 @@ MonoBehaviour:
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F9710\u9EDE\u8B77\u76FE"
     TargetChoose: 0
-    skillIDs:
-    - 2000010
-    EffectInfos: []
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 2000010
+      EffectID: 20002
+      EffectParameter: 10 ,1
+      EffectParameterList: 0a00000001000000
+      Target: 0
+      ps: "\u8B77\u76FE"
   - ID: 120110
     GroupID: 4
     SkillID: 2000011
@@ -167,10 +212,15 @@ MonoBehaviour:
     TitleLang: "\u7FFB\u6EFE"
     DesLang: "\u7372\u5F9711\u9EDE\u8B77\u76FE"
     TargetChoose: 0
-    skillIDs:
-    - 2000011
-    EffectInfos: []
-  _allyClassType: 2
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 2000011
+      EffectID: 20002
+      EffectParameter: 11 ,1
+      EffectParameterList: 0b00000001000000
+      Target: 0
+      ps: "\u8B77\u76FE"
+  _allyClassType: 0
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
@@ -181,7 +231,7 @@ MonoBehaviour:
     Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardName: 
-  cardSprite: {fileID: 0}
+  cardName: "\u7FFB\u6EFE"
+  cardSprite: {fileID: 21300000, guid: 38bd71cbf991b4b16b63b5aa51a72e6f, type: 3}
   rarity: 0
   description: 

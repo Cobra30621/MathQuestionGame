@@ -130,7 +130,6 @@ namespace Managers
 
 
         #region Start Single Game
-
         public void NewGame()
         {
             SaveManager.Instance.ClearGameData();
