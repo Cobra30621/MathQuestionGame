@@ -10,6 +10,7 @@ using NueGames.Data.Collection;
 using NueGames.Enums;
 using UnityEngine;
 using NueGames.Combat;
+using Sirenix.OdinInspector;
 
 namespace NueGames.Managers
 {
@@ -37,12 +38,20 @@ namespace NueGames.Managers
         protected CombatManager CombatManager => CombatManager.Instance;
 
         protected UIManager UIManager => UIManager.Instance;
-
+        [ShowInInspector]
+        [LabelText("已使用卡牌數量")]
+        public int UsedCardCount { get; private set; }
         #endregion
        
         #region Setup
         protected override void DoAtAwake()
         {
+            CombatManager.OnRoundStart += (roundInfo)=>
+            {
+                ResetUsedCardCount();
+            };
+            
+            UsedCardCount = 0;
             SetupPileDict();
         }
 
@@ -128,6 +137,7 @@ namespace NueGames.Managers
         }
         public void OnCardPlayed(BattleCard targetBattleCard)
         {
+            UsedCardCount++;
             if (targetBattleCard.CardData.ExhaustAfterPlay)
                 targetBattleCard.Exhaust();
             else
@@ -262,7 +272,11 @@ namespace NueGames.Managers
         #endregion
 
         #region Private Methods
-
+        private void ResetUsedCardCount()
+        {
+            
+            UsedCardCount = 0;
+        }
         private void ReshuffleDiscardPile()
         {
             foreach (var i in DiscardPile) 
