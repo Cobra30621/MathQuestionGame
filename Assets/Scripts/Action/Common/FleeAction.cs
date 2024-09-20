@@ -37,6 +37,13 @@ namespace NueGames.Action
         /// </summary>
         protected override void DoMainAction()
         {
+            // make a 無敵 buff
+            //public override float AtDamageReceive(float damage)
+            // {
+            // return damage * 1.5f;
+            // }
+            // calculate order 用 finalchange
+            
             // 無敵
             if (CombatManager.CurrentCombatStateType == CombatStateType.AllyTurn)
                 CombatManager.EndTurn();
