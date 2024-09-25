@@ -81,6 +81,8 @@ namespace GameAction
                     return new GainManaAction(skillInfo);
                 case GameActionType.Meteorite:
                     return new MeteoriteAction(skillInfo);
+                case GameActionType.Flee:
+                    return new FleeAction(skillInfo);
                 default:
                     Debug.LogError("无效的技能类型");
                     return new NullAction(skillInfo);

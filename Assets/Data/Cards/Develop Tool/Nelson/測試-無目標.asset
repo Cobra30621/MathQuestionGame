@@ -28,16 +28,23 @@ MonoBehaviour:
   developLevelInfo:
     ID: 
     GroupID: 
-    SkillID: 
+    SkillID: 1111
     ManaCost: 0
     UpgradeCost: 0
     Class: 0
     MaxLevel: 0
-    TitleLang: 
+    TitleLang: "\u9041\u9003"
     DesLang: 
     TargetChoose: 0
-    skillIDs: []
-    EffectInfos: []
+    skillIDs:
+    - 1111
+    EffectInfos:
+    - SkillID: 1111
+      EffectID: 1111
+      EffectParameter: 
+      EffectParameterList: 
+      Target: 0
+      ps: 
   cardId: 
   _levelInfos: []
   _allyClassType: 0
