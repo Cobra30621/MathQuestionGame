@@ -67,7 +67,7 @@ namespace Map
             // offset of this layer to make all the nodes centered:
             var offset = layer.nodesApartDistance * config.GridWidth / 2f;
 
-            for (var i = 0; i < layer.nodeCount; i++)
+            for (var i = 0; i < layer.NodeCount; i++)
             {
                 var nodeType = layer.GetNodeTypeByWeight();
            
@@ -142,7 +142,7 @@ namespace Map
             var path2 = new List<Point>();
             for (int i = 0; i < config.layers.Count; i++)
             {
-                int x = config.layers[i].nodeCount - 1;
+                int x = config.layers[i].NodeCount - 1;
                 
                 path2.Add(new Point(x, i));
             }
