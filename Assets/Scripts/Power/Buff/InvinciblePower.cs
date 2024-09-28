@@ -14,12 +14,12 @@ namespace NueGames.Power
         public InvinciblePower()
         {
             DecreaseOverTurn = true;
-            DamageCalculateOrder = CalculateOrder.MultiplyAndDivide;
+            DamageCalculateOrder = CalculateOrder.FinalChange;
         }
 
         public override float AtDamageReceive(float damage)
         {
-            return damage * 0;
+            return 0;
         }
     }
 }

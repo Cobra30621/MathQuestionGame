@@ -16,11 +16,11 @@ namespace Map
         [ValidateInput("@nodeTypeClips.Count > 0", "節點事件清單不能為空")]
         [SerializeField] public List<NodeTypeClip> nodeTypeClips;
         
-        public int nodeCount => nodeCountRange.GetValue();
+        public int NodeCount => nodeCount;
 
         [VerticalGroup("每層的節點清單")] 
         [LabelText("節點數量")]
-        public IntMinMax nodeCountRange = new IntMinMax(){min = 2, max = 3};
+        public int nodeCount = 2;
         
         [VerticalGroup("距離設定")]
         [LabelText("與前一層的距離")]

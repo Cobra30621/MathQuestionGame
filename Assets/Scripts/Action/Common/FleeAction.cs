@@ -3,13 +3,14 @@ using Card;
 using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Enums;
-using NueGames.Combat;
+using NueGames.Power;
 
 namespace NueGames.Action
 
 {
     public class FleeAction : GameActionBase
     {
+        private int _applyValue;
         /// <summary>
         /// 內部系統用
         /// </summary>
@@ -17,10 +18,6 @@ namespace NueGames.Action
         /// <param name="powerName"></param>
         /// <param name="targetList"></param>
         /// <param name="actionSource"></param>
-        public FleeAction()
-        {
-            
-        }
 
         /// <summary>
         /// 讀表用的建構值
@@ -37,14 +34,11 @@ namespace NueGames.Action
         /// </summary>
         protected override void DoMainAction()
         {
-            // make a 無敵 buff
-            //public override float AtDamageReceive(float damage)
-            // {
-            // return damage * 1.5f;
-            // }
-            // calculate order 用 finalchange
-            
-            // 無敵
+            _applyValue = 1;
+            foreach (var target in TargetList)
+            {
+                target.ApplyPower(PowerName.Invincible, _applyValue);
+            }
             if (CombatManager.CurrentCombatStateType == CombatStateType.AllyTurn)
                 CombatManager.EndTurn();
         }
