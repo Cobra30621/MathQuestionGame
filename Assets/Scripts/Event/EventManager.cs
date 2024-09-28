@@ -1,0 +1,54 @@
+using UnityEngine;
+using System.Linq;
+using Managers;
+using NueGames.Encounter;
+using Sirenix.OdinInspector;
+using UnityEngine.Events;
+
+namespace NueGames.Event
+{
+    /// <summary>
+    /// 处理事件的执行和选项的管理
+    /// </summary>
+    public class EventManager : MonoBehaviour
+    {
+        [LabelText("事件清單")]
+        [InlineEditor]
+        public EventList eventList;
+
+        public static UnityEvent OnLeaveEventSystem = new UnityEvent();
+        public static UnityEvent<Option> OnExecuteCompleted = new UnityEvent<Option>();
+
+
+    
+        
+        /// <summary>
+        /// 从事件列表中获取随机事件
+        /// </summary>
+        public Event GetRandomEvent()
+        {
+            if (eventList.Events == null || eventList.Events.Count == 0)
+            {
+                return null;
+            }
+            int randomIndex = Random.Range(0, eventList.Events.Count);
+            return eventList.Events[randomIndex];
+        }
+
+        /// <summary>
+        /// 处理选项执行完成的回调
+        /// </summary>
+        public static void OnOptionExecuteCompleted(Option option)
+        {
+            Debug.Log($"选项 '{option.OptionText}' 执行完成");
+            // 在这里添加选项执行完成后的逻辑
+            OnExecuteCompleted.Invoke(option);
+        }
+
+        public static void LeaveEventSystem()
+        {
+            OnLeaveEventSystem.Invoke();
+            EncounterManager.Instance.OnRoomCompleted();
+        }
+    }
+}

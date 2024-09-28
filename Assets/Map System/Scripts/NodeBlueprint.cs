@@ -12,7 +12,7 @@ namespace Map
         CampFire = 11,
         Treasure,
         Store,
-        Mystery,
+        Event,
     }
 }
 

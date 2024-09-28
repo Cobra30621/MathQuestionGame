@@ -12,6 +12,7 @@ using NueGames.Characters;
 using NueGames.Data.Characters;
 using NueGames.Data.Settings;
 using NueGames.Encounter;
+using NueGames.Event;
 using NueGames.Managers;
 using NueTooltip.Core;
 using Question;
@@ -82,6 +83,8 @@ namespace Managers
         public QuestionManager QuestionManager;
 
         [Required] public CampFireManager CampFireManager;
+
+        [Required] public EventManager EventManager;
         
         #endregion
         

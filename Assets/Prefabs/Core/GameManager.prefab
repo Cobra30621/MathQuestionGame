@@ -254,6 +254,51 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+--- !u!1 &882213217713372745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7881602840618744711}
+  - component: {fileID: 7001388557004299777}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7881602840618744711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882213217713372745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3747954644409722057}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7001388557004299777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882213217713372745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca664bc456d60452d9a1d573adc4cf29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventList: {fileID: 11400000, guid: 6677ff95e4947463ca5ad5ef66a75b0c, type: 2}
 --- !u!1 &1133116464533797558
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +503,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  loadOnAwake: 0
 --- !u!1 &1750073106364264311
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +923,7 @@ Transform:
   - {fileID: 6825162757547279164}
   - {fileID: 5452148620238755620}
   - {fileID: 1471419990224551327}
+  - {fileID: 7881602840618744711}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -904,11 +949,10 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   isDevelopMode: 1
+  gameplayData: {fileID: 11400000, guid: dd29da37b58a7496a90ee015e332876f, type: 2}
   allyDataFileHandler: {fileID: 5885686703067263783}
   gameplayDataFileHandler: {fileID: 1532746533581411832}
-  gameplayData: {fileID: 11400000, guid: dd29da37b58a7496a90ee015e332876f, type: 2}
   _stageSelectedHandler: {fileID: 927399313501667963}
-  _firstEnterGameHandler: {fileID: 4696957168806796471}
   RelicManager: {fileID: 733801562864062279}
   AudioManager: {fileID: 1851387753749071005}
   FxManager: {fileID: 6448810225252440185}
@@ -922,6 +966,7 @@ MonoBehaviour:
   UIManager: {fileID: 6825162757547279167}
   QuestionManager: {fileID: 5671948440152947245}
   CampFireManager: {fileID: 5452148620238755621}
+  EventManager: {fileID: 7001388557004299777}
   CurrentEnemyEncounter:
     id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
   CanSelectCards: 0
@@ -2018,6 +2063,22 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 3047054461245588028, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+    - target: {fileID: 3152204943570056631, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152204943570056631, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152204943570056631, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152204943570056631, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4837968965061558674, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
       propertyPath: serializationData.Prefab
       value: 

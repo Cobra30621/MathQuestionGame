@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CampFire;
 using Card.Data;
 using Money;
+using NueGames.Event;
 using NueGames.UI;
 using NueGames.UI.Reward;
 using NueGames.Utils;
@@ -24,6 +25,7 @@ namespace Managers
         [SerializeField] private RelicCanvas relicCanvas;
         [SerializeField] private CampFireCanvas campFireCanvas;
         [SerializeField] private ShopCanvas shopCanvas;
+        [SerializeField] private EventCanvas eventCanvas;
 
         [Header("Fader")] [SerializeField] private CanvasGroup fader;
         [SerializeField] private float fadeSpeed = 1f;
@@ -38,6 +40,8 @@ namespace Managers
         public CampFireCanvas CampFireCanvas => campFireCanvas;
         
         public ShopCanvas ShopCanvas => shopCanvas;
+        
+        public EventCanvas EventCanvas => eventCanvas;
 
         #endregion
 

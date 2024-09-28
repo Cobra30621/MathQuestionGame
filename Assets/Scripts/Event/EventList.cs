@@ -1,0 +1,24 @@
+using UnityEngine;
+using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using UnityEditor;
+
+namespace NueGames.Event
+{
+    /// <summary>
+    /// 包含事件集合的可脚本化对象
+    /// </summary>
+    [CreateAssetMenu(fileName = "New Event List", menuName = "Event/Event List")]
+    public class EventList : SerializedScriptableObject
+    {
+        public List<Event> Events;
+
+
+        [Button]
+        public void Save()
+        {
+            EditorUtility.SetDirty(this);
+            AssetDatabase.SaveAssets();
+        }
+    }
+}

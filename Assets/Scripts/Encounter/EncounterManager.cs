@@ -8,6 +8,7 @@ using Map;
 using Newtonsoft.Json;
 using NueGames.Data.Encounter;
 using NueGames.Enums;
+using NueGames.Event;
 using NueGames.Managers;
 using NueGames.Utils;
 using Save;
@@ -61,7 +62,8 @@ namespace NueGames.Encounter
                 case NodeType.Boss:
                     EnterCombatRoom(mapEncounter.GetBossEncounter());
                     break;
-                case NodeType.Mystery:
+                case NodeType.Event:
+                    EnterEventRoom();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -95,6 +97,12 @@ namespace NueGames.Encounter
             sceneChanger.OpenCombatScene();
         }
 
+        [Button]
+        private void EnterEventRoom()
+        {
+            UIManager.Instance.EventCanvas.OpenCanvas();
+        }
+        
         #endregion
 
         public void OnRoomCompleted()
