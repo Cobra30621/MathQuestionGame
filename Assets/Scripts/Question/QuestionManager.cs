@@ -6,8 +6,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Data;
 using Managers;
-using MoreMountains.Feedbacks;
-using NueGames.Action.MathAction;
 using NueGames.Enums;
 using NueGames.Managers;
 using Question.QuestionAction;
@@ -34,12 +32,7 @@ namespace Question
         /// 答題按鈕
         /// </summary>
         [SerializeField] private AnswerButtonBase[] answerButtons;
-
-        /// <summary>
-        /// 卡牌管理器
-        /// </summary>
-        private CollectionManager CollectionManager => CollectionManager.Instance;
-
+        
 
         #region Public 變數
         /// <summary>
@@ -193,12 +186,6 @@ namespace Question
         
 
         #region Public Method
-
-        [Button("Enter Question")]
-        public void EnterQuestion()
-        {
-            
-        }
         
         /// <summary>
         /// 進入答題模式
@@ -256,10 +243,6 @@ namespace Question
             answerRecord.Clear();
             isQuestioning = true;
             
-            if (CollectionManager)
-                CollectionManager.HandController.DisableDragging();
-
-            
             // 進入答題介面
             questionController.EnterQuestionMode();
             while (waitPlayingAnimation) yield return null; // 等待開頭反饋特效
@@ -306,8 +289,6 @@ namespace Question
         public void OnQuestioningFinish()
         {
             questionController.ClosePanel();
-            EnableDragging();
-            // isQuestioning = false;
         }
         
         
@@ -350,11 +331,7 @@ namespace Question
             }
         }
         
-        private void EnableDragging()
-        {
-            if (CollectionManager)
-                CollectionManager.HandController.EnableDragging();
-        }
+  
 
         
         #endregion

@@ -29,8 +29,11 @@ namespace NueGames.Event
         /// </summary>
         public void ExecuteEffect()
         {
-            Effect.Execute();
-            EventManager.OnOptionExecuteCompleted(this);
+            Effect.Execute(() =>
+            {
+                EventManager.OnOptionExecuteCompleted(this);
+            });
+            
         }
     }
 }

@@ -2431,27 +2431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6571b98663ba0a04cb60718bd36b8834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: OnAnswerQuestion
-      Entry: 6
-      Data: 
-    - Name: OnAnswerCorrect
-      Entry: 6
-      Data: 
-    - Name: OnAnswerWrong
-      Entry: 6
-      Data: 
-    - Name: OnQuestioningModeEnd
-      Entry: 6
-      Data: 
   questionController: {fileID: 6933779548279769729}
   questionGenerator: {fileID: 631274316755946036}
   answerButtons:
@@ -2472,8 +2451,8 @@ MonoBehaviour:
   waitAnswer: 0
   waitPlayingAnimation: 0
   QuestionSetting:
-    Grades: 
-    Publishers: 
+    Grades: 00000000
+    Publishers: 00000000
 --- !u!114 &6933779548279769729
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,9 +7,11 @@ namespace NueGames.Event.Effect
             
         }
 
-        public void Execute()
+        public void Execute(System.Action onComplete)
         {
             EventManager.LeaveEventSystem();
+            
+            onComplete.Invoke();
         }
 
         public bool IsSelectable()

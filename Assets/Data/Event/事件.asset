@@ -42,10 +42,35 @@ MonoBehaviour:
           specifyCard: {fileID: 0}
           specifyCoin: 100
           specifyRelic: 0
+        QuestionMode: 0
       OptionText: "\u62FF\u5BF6\u7BB1"
       AfterSelectionText: "\u62FF\u5230\u5BF6\u7BB1\u4E86"
     - EffectData:
         EffectType: 0
         RewardData: []
+        QuestionMode: 0
       OptionText: "\u96E2\u958B"
       AfterSelectionText: 
+  - Text: "\u6578\u5B78\u7B54\u984C"
+    nameText: "\u4F60\u8001\u5E2B"
+    Description: "\u7B54\u5C0D\u6578\u5B78\u984C\u76EE\u6709\u597D\u5EB7"
+    eventSprite: {fileID: 21300000, guid: 4c6503d12cac245d386e9c334bddf0b4, type: 3}
+    OptionData:
+    - EffectData:
+        EffectType: 3
+        RewardData:
+        - RewardType: 0
+          ItemGainType: 0
+          CoinGainType: 0
+          specifyCard: {fileID: 0}
+          specifyCoin: 100
+          specifyRelic: 0
+        QuestionMode: 1
+      OptionText: "\u6211\u8981\u7B54\u984C"
+      AfterSelectionText: "\u6253\u5B8C\u984C\u76EE\u4E86"
+    - EffectData:
+        EffectType: 0
+        RewardData: []
+        QuestionMode: 0
+      OptionText: "\u96E2\u958B"
+      AfterSelectionText: "\u6211\u8A0E\u53AD\u6578\u5B78"

@@ -9,7 +9,7 @@ namespace  NueGames.Event.Effect
     {
         void Init(EffectData effectData);
         
-        void Execute();
+        void Execute(System.Action onComplete);
         bool IsSelectable();
     }
 }

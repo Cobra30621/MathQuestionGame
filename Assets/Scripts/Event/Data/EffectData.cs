@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using NueGames.Event.Effect;
+using Question;
 using Reward;
 using Sirenix.OdinInspector;
 
@@ -15,5 +16,9 @@ namespace NueGames.Event
 
         [LabelText("獎勵")]
         public  List<RewardData> RewardData;
+
+
+        [LabelText("問題難度")]
+        public QuestionMode QuestionMode;
     }
 }

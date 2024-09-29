@@ -44,6 +44,8 @@ namespace NueGames.Event
                     return new LeaveEffect();
                 case EffectType.Reward:
                     return new GetRewardEffect();
+                case EffectType.MathQuestion:
+                    return new QuestionEffect();
                 default:
                     return null;
             }
