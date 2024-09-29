@@ -24,7 +24,16 @@ namespace Card.Data
             return cardData;
         }
         
-        
+        public CardData GetRandomCard()
+        {
+            if (CardList.Count == 0)
+            {
+                Debug.LogError($"No cards in the deck {name}!");
+                return null;
+            }
+            var cardData = CardList[Random.Range(0, CardList.Count)];
+            return cardData;
+        }
 
 #if UNITY_EDITOR // Editor-related code must be excluded from builds
         private IEnumerable GetAssets()

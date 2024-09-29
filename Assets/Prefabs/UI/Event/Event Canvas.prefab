@@ -654,6 +654,14 @@ MonoBehaviour:
   - {fileID: 5526471671415530058}
   - {fileID: 8709855967498040967}
   leaveButton: {fileID: 132262823841563069}
+  currentEvent:
+    data:
+      Text: 
+      nameText: 
+      Description: 
+      eventSprite: {fileID: 0}
+      OptionData: []
+    Options: []
 --- !u!1 &8802295302268915014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,6 +1284,10 @@ PrefabInstance:
     - target: {fileID: 6211563811556311458, guid: c91c2958e96824ab6983ac3c29a11153, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346475837686378833, guid: c91c2958e96824ab6983ac3c29a11153, type: 3}
+      propertyPath: isLeaveButton
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7041267001213997468, guid: c91c2958e96824ab6983ac3c29a11153, type: 3}
       propertyPath: m_text

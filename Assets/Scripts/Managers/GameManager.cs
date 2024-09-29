@@ -17,6 +17,7 @@ using NueGames.Managers;
 using NueTooltip.Core;
 using Question;
 using Relic;
+using Reward;
 using Save;
 using Sirenix.OdinInspector;
 using Stage;
@@ -85,6 +86,9 @@ namespace Managers
         [Required] public CampFireManager CampFireManager;
 
         [Required] public EventManager EventManager;
+
+        [Required]
+        public RewardManager RewardManager;
         
         #endregion
         
@@ -105,6 +109,7 @@ namespace Managers
 
         public bool IsDeveloperMode => isDevelopMode;
         
+
         #endregion
 
         
@@ -155,14 +160,12 @@ namespace Managers
             QuestionManager.Instance.GenerateQuestions();
             AllyHealthData = new AllyHealthData(allyData.MaxHealth);
             
-            UIManager.Instance.RewardCanvas.SetCardReward(allyData.CardRewardData);
         }
 
         public void ContinueGame()
         {
             SaveManager.Instance.LoadSingleGame();
             
-            UIManager.Instance.RewardCanvas.SetCardReward(allyData.CardRewardData);
         }
 
         #endregion

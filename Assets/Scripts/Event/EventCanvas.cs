@@ -21,6 +21,8 @@ namespace NueGames.Event
         
         private EventManager eventManager => GameManager.EventManager;
 
+        [SerializeField] private Event currentEvent;
+        
 
         private void Awake()
         {
@@ -42,16 +44,16 @@ namespace NueGames.Event
         [Button]
         public void ShowEvent()
         {
-            Event currentEvent = eventManager.GetRandomEvent();
-            if (currentEvent != null)
+            currentEvent = eventManager.GetRandomEvent();
+            if (currentEvent!= null)
             {
-                eventText.text = currentEvent.Text;
-                nameText.text = currentEvent.nameText;
-                image.sprite = currentEvent.eventSprite;
+                eventText.text = currentEvent.data.Text;
+                nameText.text = currentEvent.data.nameText;
+                image.sprite = currentEvent.data.eventSprite;
                 
                 for (int i = 0; i < optionButtons.Length; i++)
                 {
-                    if (i < currentEvent.Options.Count)
+                    if (i < currentEvent.data.OptionData.Count)
                     {
                         optionButtons[i].gameObject.SetActive(true);
                         optionButtons[i].SetUI(currentEvent.Options[i]);
@@ -72,7 +74,7 @@ namespace NueGames.Event
         /// <param name="option">执行完成的选项</param>
         public void OnOptionExecuteCompleted(Option option)
         {
-            eventText.text = option.AfterSelectionText;
+            eventText.text = option.data.AfterSelectionText;
             // 在这里可以添加更多的逻辑,比如隐藏选项按钮,显示继续按钮等
             foreach (var optionButton in optionButtons)
             {

@@ -8,8 +8,10 @@ using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Data.Collection.RewardData;
 using NueGames.Data.Containers;
+using NueGames.Encounter;
 using NueGames.Enums;
 using NueGames.NueExtentions;
+using Reward;
 using UnityEngine;
 
 namespace NueGames.UI.Reward
@@ -17,7 +19,6 @@ namespace NueGames.UI.Reward
     public class RewardCanvas : CanvasBase
     {
         [Header("References")]
-        [SerializeField] private RewardContainerData rewardContainerData;
         [SerializeField] private Transform rewardRoot;
         [SerializeField] private RewardContainer rewardContainerPrefab;
         [SerializeField] private Transform rewardPanelRoot;
@@ -25,6 +26,8 @@ namespace NueGames.UI.Reward
         [SerializeField] private Transform choice2DCardSpawnRoot;
         [SerializeField] private RewardChoiceCard rewardChoiceCardUIPrefab;
         [SerializeField] private ChoicePanel choicePanel;
+
+        [SerializeField] private RoomFinishHandler roomFinishHandler;
         
         private readonly List<RewardContainer> _currentRewardsList = new List<RewardContainer>();
         private readonly List<RewardChoiceCard> _spawnedChoiceList = new List<RewardChoiceCard>();
@@ -32,22 +35,23 @@ namespace NueGames.UI.Reward
 
         public ChoicePanel ChoicePanel => choicePanel;
         
+        /// <summary>
+        /// 回到地圖在選擇後
+        /// </summary>
+        private bool backToMap;
+        
         #region Public Methods
+        
 
-        public void SetCardReward(CardRewardData cardRewardData)
+        public void ShowReward(List<RewardData> rewardDatas, NodeType nodeType, bool backToMap = true)
         {
-            rewardContainerData.SetCardRewardData(cardRewardData);
-        }
-
-
-        public void ShowReward(List<RewardType> rewardTypes, NodeType nodeType)
-        {
+            this.backToMap = backToMap;
             UIManager.RewardCanvas.gameObject.SetActive(true);
             UIManager.RewardCanvas.PrepareCanvas();
             
-            foreach (var rewardType in rewardTypes)
+            foreach (var rewardData in rewardDatas)
             {
-                UIManager.RewardCanvas.BuildReward(rewardType, nodeType);
+                UIManager.RewardCanvas.BuildReward(rewardData, nodeType);
             }
         }
 
@@ -55,35 +59,35 @@ namespace NueGames.UI.Reward
         {
             rewardPanelRoot.gameObject.SetActive(true);
         }
-        public void BuildReward(RewardType rewardType, NodeType nodeType)
+
+
+   
+        public void BuildReward(RewardData rewardData, NodeType nodeType)
         {
             var rewardClone = Instantiate(rewardContainerPrefab, rewardRoot);
             _currentRewardsList.Add(rewardClone);
+            string rewardText = "";
             
-            switch (rewardType)
+            switch (rewardData.RewardType)
             {
                 case RewardType.Gold:
-                    var rewardGold = rewardContainerData.GetRandomGoldReward(nodeType);
-                    var goldRewardData = rewardContainerData.GoldRewardData;
-                    rewardClone.BuildReward(goldRewardData.RewardSprite,
-                        goldRewardData.RewardDescription + $" {rewardGold}");
-                    rewardClone.RewardButton.onClick.AddListener(()=>GetGoldReward(rewardClone,rewardGold));
+                    int money = RewardManager.Instance.GetMoney(rewardData, nodeType);
+                    rewardText = $"+ {money}";
+                    rewardClone.RewardButton.onClick.AddListener(()=>GetGoldReward(rewardClone, money));
                     break;
                 case RewardType.Card:
-                    var cardRewardData = rewardContainerData.CardRewardData;
-                    var rewardCardList = cardRewardData.RewardCardList;
-                    _cardRewardList.Clear();
-                    foreach (var cardData in rewardCardList)
-                        _cardRewardList.Add(cardData);
-                    rewardClone.BuildReward(cardRewardData.RewardSprite,
-                        cardRewardData.RewardDescription);
-                    rewardClone.RewardButton.onClick.AddListener(()=>GetCardReward(rewardClone,3));
+                    var cardRewardList = RewardManager.Instance.GetCardList(rewardData, 3);
+                    rewardText = "卡片獎勵";
+                    rewardClone.RewardButton.onClick.AddListener(()=>GetCardReward(rewardClone,cardRewardList));
                     break;
                 case RewardType.Relic:
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(rewardType), rewardType, null);
+                    throw new ArgumentOutOfRangeException(nameof(RewardType), rewardData.RewardType, null);
             }
+
+            var sprite = RewardManager.Instance.GetRewardSprite(rewardData.RewardType);
+            rewardClone.BuildReward(sprite, rewardText);
         }
         
         public override void ResetCanvas()
@@ -112,28 +116,40 @@ namespace NueGames.UI.Reward
             ChoicePanel.DisablePanel();
         }
 
+        public void OnClickNextButton()
+        {
+            if (backToMap)
+            {
+                roomFinishHandler.BackToMap();
+            }
+            else
+            {
+                CloseCanvas();
+            }
+        }
+        
         #endregion
         
         #region Private Methods
         private void GetGoldReward(RewardContainer rewardContainer,int amount)
         {
-            CoinManager.Instance.AddMoney(amount);
+            CoinManager.Instance.AddCoin(amount, CoinType.Money);
             _currentRewardsList.Remove(rewardContainer);
             UIManager.InformationCanvas.SetGoldText(CoinManager.Instance.Money);
             Destroy(rewardContainer.gameObject);
         }
 
-        private void GetCardReward(RewardContainer rewardContainer,int amount = 3)
+        private void GetCardReward(RewardContainer rewardContainer, List<CardData> cardData)
         {
             ChoicePanel.gameObject.SetActive(true);
             
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < cardData.Count; i++)
             {
                 Transform spawnTransform = choice2DCardSpawnRoot;
               
                 var choice = Instantiate(rewardChoiceCardUIPrefab, spawnTransform);
-                
-                var reward = _cardRewardList.RandomItem();
+
+                var reward = cardData[i];
                 choice.BuildReward(reward);
                 choice.uiCard.OnCardChose += ResetChoice;
                 

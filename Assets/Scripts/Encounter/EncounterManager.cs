@@ -11,6 +11,7 @@ using NueGames.Enums;
 using NueGames.Event;
 using NueGames.Managers;
 using NueGames.Utils;
+using Reward;
 using Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -55,7 +56,14 @@ namespace NueGames.Encounter
                     EnterCampFire();
                     break;
                 case NodeType.Treasure:
-                    EnterRewardRoom(RewardType.Card);
+                    EnterRewardRoom(new List<RewardData>()
+                    {
+                        new()
+                        {
+                            RewardType = RewardType.Card,
+                            ItemGainType =  ItemGainType.Character
+                        }
+                    });
                     break;
                 case NodeType.Store:
                     break;
@@ -80,12 +88,9 @@ namespace NueGames.Encounter
         }
 
         [Button]
-        private void EnterRewardRoom(RewardType rewardType)
+        private void EnterRewardRoom(List<RewardData> rewards)
         {
-            UIManager.Instance.RewardCanvas.ShowReward(new List<RewardType>()
-            {
-                rewardType
-            }, NodeType.Treasure);
+            UIManager.Instance.RewardCanvas.ShowReward(rewards, NodeType.Treasure);
         }
         
         [Button]

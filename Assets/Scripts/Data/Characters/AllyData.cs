@@ -19,7 +19,7 @@ namespace NueGames.Data.Characters
         public DeckData InitialDeck;
         
         [LabelText("玩家獎勵卡組")]
-        public CardRewardData CardRewardData;
+        public DeckData CardRewardData;
         
         [LabelText("玩家初始遺物")]
         public List<RelicName> initialRelic;

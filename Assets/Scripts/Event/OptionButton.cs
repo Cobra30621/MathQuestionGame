@@ -20,10 +20,18 @@ namespace NueGames.Event
         [ShowInInspector]
         private Option currentOption;
 
+        [SerializeField][LabelText("是離開按鈕")]
+        private bool isLeaveButton;
+
 
         private void Awake()
         {
             button.onClick.AddListener(OnSelect);
+
+            if (isLeaveButton)
+            {
+                currentOption = EventManager.Instance.GetLeaveOption();
+            }
         }
 
 
@@ -34,7 +42,7 @@ namespace NueGames.Event
         public void SetUI(Option option)
         {
             currentOption = option;
-            optionText.text = option.OptionText;
+            optionText.text = option.data.OptionText;
         }
 
         /// <summary>

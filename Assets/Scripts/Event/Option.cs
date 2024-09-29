@@ -11,15 +11,19 @@ namespace NueGames.Event
     public class Option
     {
         [LabelText("效果")]
-        
         public IEffect Effect;
-        
-        [LabelText("選項名稱")]
-        public string OptionText;
-        
-        [LabelText("選擇後的描述")]
-        public string AfterSelectionText;
 
+        [LabelText("選項資料")]
+        public OptionData data;
+        
+        
+        public Option(IEffect effect, OptionData optionData)
+        {
+            Effect = effect;
+            data = optionData;
+        }
+        
+        
         /// <summary>
         /// 执行选项的效果
         /// </summary>

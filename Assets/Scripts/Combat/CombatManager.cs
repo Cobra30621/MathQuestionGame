@@ -14,6 +14,7 @@ using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Utils.Background;
 using Question;
+using Reward;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -386,9 +387,13 @@ namespace Combat
             MainAlly.ClearAllPower();
             UIManager.CombatCanvas.gameObject.SetActive(false);
             var currentNodeType = MapManager.Instance.GetCurrentNodeType();
-            UIManager.RewardCanvas.ShowReward(new List<RewardType>()
+            UIManager.RewardCanvas.ShowReward(new List<RewardData>()
             {
-                RewardType.Card, RewardType.Gold
+                new()
+                {
+                    RewardType = RewardType.Card,
+                    ItemGainType =  ItemGainType.Character
+                }
             }, currentNodeType);
         }
 

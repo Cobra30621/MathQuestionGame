@@ -11,14 +11,8 @@ namespace NueGames.Event
     [CreateAssetMenu(fileName = "New Event List", menuName = "Event/Event List")]
     public class EventList : SerializedScriptableObject
     {
-        public List<Event> Events;
+        public List<EventData> Events;
 
 
-        [Button]
-        public void Save()
-        {
-            EditorUtility.SetDirty(this);
-            AssetDatabase.SaveAssets();
-        }
     }
 }

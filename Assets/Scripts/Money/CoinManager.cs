@@ -32,11 +32,7 @@ namespace Money
         /// </summary>
         public static UnityEvent<int, CoinType> OnCoinChanged = new UnityEvent<int, CoinType>();
 
-
-        public void AddMoney(int add)
-        {
-            AddCoin(add, CoinType.Money);
-        }
+        
 
         /// <summary>
         /// Adds the specified amount of the given coin type to the player's total.

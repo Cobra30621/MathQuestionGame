@@ -26,9 +26,7 @@ namespace Data.Settings
 
         public int GetNodeDropMoney(NodeType nodeType)
         {
-            var moneyDropRate = GameManager.Instance.GetMoneyDropRate();
-            
-            float rate = Range(1f - randomMoneyRange, 1f + randomMoneyRange) * moneyDropRate;
+            float rate = Range(1f - randomMoneyRange, 1f + randomMoneyRange);
             
             switch (nodeType)
             {
@@ -44,6 +42,11 @@ namespace Data.Settings
                     Debug.LogError("nodeType: " + nodeType + " not supported drop Money");
                     return 0;
             }
+        }
+
+        public int GetNodeDropStone(NodeType nodeType)
+        {
+            return questionDropStone;
         }
     }
 }

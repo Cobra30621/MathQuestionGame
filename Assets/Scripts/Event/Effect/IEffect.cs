@@ -7,6 +7,8 @@ namespace  NueGames.Event.Effect
     /// </summary>
     public interface IEffect
     {
+        void Init(EffectData effectData);
+        
         void Execute();
         bool IsSelectable();
     }

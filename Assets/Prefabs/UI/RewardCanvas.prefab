@@ -907,8 +907,6 @@ GameObject:
   - component: {fileID: 6516443465321225089}
   - component: {fileID: 1960091423992165413}
   - component: {fileID: 528851263815729151}
-  - component: {fileID: 5160966767101886050}
-  - component: {fileID: 1887347665638486300}
   m_Layer: 0
   m_Name: NextButton
   m_TagString: Untagged
@@ -1019,14 +1017,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1887347665638486300}
-        m_TargetAssemblyTypeName: NueGames.Encounter.LeaveBattleButton, Assembly-CSharp
-        m_MethodName: LeaveBattle
+      - m_Target: {fileID: 3898378851536909489}
+        m_TargetAssemblyTypeName: NueGames.UI.Reward.RewardCanvas, Assembly-CSharp
+        m_MethodName: OnClickNextButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1044,39 +1042,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundProfileData: {fileID: 11400000, guid: 2d30565e54caf3e40a21dfdac091b79e, type: 2}
---- !u!114 &5160966767101886050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5904982284142632224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a7e3f294a7c2c44eb6cffeb9f94b306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1887347665638486300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5904982284142632224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7306d716cb79412f83f28ab490cd9a63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
 --- !u!1 &6622826289790236740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,6 +1405,8 @@ GameObject:
   - component: {fileID: 7733704880889306847}
   - component: {fileID: 6729079409543448640}
   - component: {fileID: 1348999898596760135}
+  - component: {fileID: 6310443696682188730}
+  - component: {fileID: 6190553160865683547}
   m_Layer: 0
   m_Name: RewardCanvas
   m_TagString: Untagged
@@ -1481,15 +1448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354e83f72cd44271a70cfc99db01f969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   rewardContainerData: {fileID: 11400000, guid: 576255f7c5abd6d44800bc419cf6fbf8, type: 2}
   rewardRoot: {fileID: 8356462358083751223}
   rewardContainerPrefab: {fileID: 4144854971553763347, guid: 7728fa9ef774a574fa112e56a3a8c0ef, type: 3}
@@ -1497,6 +1455,7 @@ MonoBehaviour:
   choice2DCardSpawnRoot: {fileID: 4296046879590768356}
   rewardChoiceCardUIPrefab: {fileID: 9015980609332245709, guid: 5aa071d4980754ef59cfccd4a842723c, type: 3}
   choicePanel: {fileID: 3729220889032712400}
+  roomFinishHandler: {fileID: 6190553160865683547}
 --- !u!223 &7733704880889306847
 Canvas:
   m_ObjectHideFlags: 0
@@ -1558,3 +1517,36 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
+--- !u!114 &6310443696682188730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9173700988199943096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7e3f294a7c2c44eb6cffeb9f94b306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6190553160865683547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9173700988199943096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7306d716cb79412f83f28ab490cd9a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
