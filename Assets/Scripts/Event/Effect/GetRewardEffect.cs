@@ -31,8 +31,8 @@ namespace NueGames.Event.Effect
         /// </summary>
         public void Execute(System.Action onComplete)
         {
-            UIManager.Instance.RewardCanvas.ShowReward(_rewardData, NodeType.Event, false);
-            onComplete.Invoke();
+            UIManager.Instance.RewardCanvas.ShowReward(_rewardData, NodeType.Event, false, onComplete);
+      
         }
 
         

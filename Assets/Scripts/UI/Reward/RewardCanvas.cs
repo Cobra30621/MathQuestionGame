@@ -39,13 +39,19 @@ namespace NueGames.UI.Reward
         /// 回到地圖在選擇後
         /// </summary>
         private bool backToMap;
+
+        /// <summary>
+        /// 離開獎勵界面後，執行的事件
+        /// </summary>
+        private System.Action onLeave;
         
         #region Public Methods
         
 
-        public void ShowReward(List<RewardData> rewardDatas, NodeType nodeType, bool backToMap = true)
+        public void ShowReward(List<RewardData> rewardDatas, NodeType nodeType, bool backToMap = true, System.Action onLeave = null)
         {
             this.backToMap = backToMap;
+            this.onLeave = onLeave;
             UIManager.RewardCanvas.gameObject.SetActive(true);
             UIManager.RewardCanvas.PrepareCanvas();
             
@@ -131,6 +137,7 @@ namespace NueGames.UI.Reward
             }
             else
             {
+                onLeave?.Invoke();
                 CloseCanvas();
             }
         }

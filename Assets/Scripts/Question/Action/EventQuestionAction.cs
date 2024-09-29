@@ -14,9 +14,8 @@ namespace Question.QuestionAction
         
         public override void DoCorrectAction()
         {
-            UIManager.Instance.RewardCanvas.ShowReward(RewardData, NodeType.Event, false);
+            UIManager.Instance.RewardCanvas.ShowReward(RewardData, NodeType.Event, false, onComplete);
             
-            onComplete.Invoke();
         }
 
         public override void DoWrongAction()
