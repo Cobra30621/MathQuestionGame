@@ -9,7 +9,7 @@ namespace NueGames.Event.Effect
 
         public void Execute(System.Action onComplete)
         {
-            EventManager.LeaveEventSystem();
+            EventManager.Instance.LeaveEventSystem();
             
             onComplete.Invoke();
         }

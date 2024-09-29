@@ -1,3 +1,5 @@
+using Sirenix.OdinInspector;
+
 namespace Reward
 {
     /// <summary>
@@ -5,7 +7,9 @@ namespace Reward
     /// </summary>
     public enum CoinGainType
     {
-        NodeType, // 節點
-        Specify // 指定
+        [LabelText("使用基礎掉落率")]
+        NodeType, 
+        [LabelText("指定數值")]
+        Specify 
     }
 }

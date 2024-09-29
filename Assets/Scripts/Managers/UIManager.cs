@@ -68,6 +68,7 @@ namespace Managers
                     SetCanvas(RewardCanvas, false, true);
                     SetCanvas(RelicCanvas, false, false);
                     SetCanvas(CampFireCanvas, false, false);
+                    SetCanvas(EventCanvas, false, false);
                     break;
                 case "1- Map":
                     SetCanvas(CombatCanvas, false, true);
@@ -75,6 +76,7 @@ namespace Managers
                     SetCanvas(RewardCanvas, false, true);
                     SetCanvas(RelicCanvas, true, true);
                     SetCanvas(CampFireCanvas, false, false);
+                    SetCanvas(EventCanvas, false, true);
                     break;
                 case "2- Combat Scene":
                     SetCanvas(CombatCanvas, false, true);
@@ -82,6 +84,7 @@ namespace Managers
                     SetCanvas(RewardCanvas, false, true);
                     SetCanvas(RelicCanvas, true, true);
                     SetCanvas(CampFireCanvas, false, false);
+                    SetCanvas(EventCanvas, false, false);
                     break;
                 case "3-CompleteMap":
                 case "4-Win":
@@ -90,6 +93,7 @@ namespace Managers
                     SetCanvas(RewardCanvas, false, true);
                     SetCanvas(RelicCanvas, false, true);
                     SetCanvas(CampFireCanvas, false, false);
+                    SetCanvas(EventCanvas, false, false);
                     break;
             }
         }

@@ -21,7 +21,9 @@ namespace Data.Settings
 
         [LabelText("金錢隨機浮動")] public float randomMoneyRange;
         
+        [LabelText("答題掉錢")]
         public int questionDropMoney;
+        [LabelText("答題寶石")]
         public int questionDropStone;
 
         public int GetNodeDropMoney(NodeType nodeType)
@@ -38,6 +40,8 @@ namespace Data.Settings
                     return (int) Math.Floor(bossDropMoney * rate);
                 case NodeType.Treasure:
                     return (int) Math.Floor(treasureRoomDropMoney * rate);
+                case NodeType.Event:
+                    return (int) Math.Floor(questionDropMoney * rate);
                 default:
                     Debug.LogError("nodeType: " + nodeType + " not supported drop Money");
                     return 0;

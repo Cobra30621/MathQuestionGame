@@ -11,6 +11,7 @@ namespace NueGames.Event
     [CreateAssetMenu(fileName = "New Event List", menuName = "Event/Event List")]
     public class EventList : SerializedScriptableObject
     {
+        [TableList(AlwaysExpanded = true)]
         public List<EventData> Events;
 
 

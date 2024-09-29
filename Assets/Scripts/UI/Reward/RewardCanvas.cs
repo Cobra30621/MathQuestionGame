@@ -70,7 +70,7 @@ namespace NueGames.UI.Reward
             
             switch (rewardData.RewardType)
             {
-                case RewardType.Gold:
+                case RewardType.Money:
                     int money = RewardManager.Instance.GetMoney(rewardData, nodeType);
                     rewardText = $"+ {money}";
                     rewardClone.RewardButton.onClick.AddListener(()=>GetGoldReward(rewardClone, money));
@@ -79,6 +79,11 @@ namespace NueGames.UI.Reward
                     var cardRewardList = RewardManager.Instance.GetCardList(rewardData, 3);
                     rewardText = "卡片獎勵";
                     rewardClone.RewardButton.onClick.AddListener(()=>GetCardReward(rewardClone,cardRewardList));
+                    break;
+                case RewardType.Stone:
+                    int stone = RewardManager.Instance.GetStone(rewardData, nodeType);
+                    rewardText = $"+ {stone} ";
+                    rewardClone.RewardButton.onClick.AddListener(()=>GetStoneReward(rewardClone, stone));
                     break;
                 case RewardType.Relic:
                     break;
@@ -89,7 +94,9 @@ namespace NueGames.UI.Reward
             var sprite = RewardManager.Instance.GetRewardSprite(rewardData.RewardType);
             rewardClone.BuildReward(sprite, rewardText);
         }
+
         
+
         public override void ResetCanvas()
         {
             ResetRewards();
@@ -135,7 +142,13 @@ namespace NueGames.UI.Reward
         {
             CoinManager.Instance.AddCoin(amount, CoinType.Money);
             _currentRewardsList.Remove(rewardContainer);
-            UIManager.InformationCanvas.SetGoldText(CoinManager.Instance.Money);
+            Destroy(rewardContainer.gameObject);
+        }
+        
+        private void GetStoneReward(RewardContainer rewardContainer, int amount)
+        {
+            CoinManager.Instance.AddCoin(amount, CoinType.Stone);
+            _currentRewardsList.Remove(rewardContainer);
             Destroy(rewardContainer.gameObject);
         }
 

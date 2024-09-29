@@ -22,11 +22,13 @@ namespace NueGames.Event
         private EventManager eventManager => GameManager.EventManager;
 
         [SerializeField] private Event currentEvent;
+
+        [Required]
+        [SerializeField] private GameObject mask;
         
 
         private void Awake()
         {
-            EventManager.OnLeaveEventSystem.AddListener(CloseCanvas);
             EventManager.OnExecuteCompleted.AddListener(OnOptionExecuteCompleted);
         }
 
@@ -66,6 +68,7 @@ namespace NueGames.Event
             }
             
             leaveButton.gameObject.SetActive(false);
+            mask.SetActive(false);
         }
 
         /// <summary>
@@ -82,6 +85,7 @@ namespace NueGames.Event
             }
             
             leaveButton.gameObject.SetActive(true);
+            mask.SetActive(false);
         }
 
         public override void ResetCanvas()
@@ -92,6 +96,11 @@ namespace NueGames.Event
             {
                 button.gameObject.SetActive(false);
             }
+        }
+
+        public void OnOptionButtonClick()
+        {
+            mask.SetActive(true);
         }
     }
 }

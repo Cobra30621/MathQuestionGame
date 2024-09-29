@@ -28,10 +28,6 @@ namespace NueGames.Event.Effect
             QuestionManager.Instance.EnterQuestionMode(questionAction);
         }
 
-        public void Execute()
-        {
-            
-        }
 
         public bool IsSelectable()
         {

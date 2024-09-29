@@ -11,19 +11,23 @@ namespace NueGames.Event
     [Serializable]
     public class EventData
     {
-        
+        [BoxGroup("描述")]
         [LabelText("標題")]
         public string Text;
 
+        [BoxGroup("描述")]
         [LabelText("說話的人")]
         public string nameText;
 
+        [BoxGroup("描述")]
         [LabelText("事件描述")]
         public string Description;
 
+        [BoxGroup("描述")]
         [LabelText("事件圖片")]
         public Sprite eventSprite;
         
+        [BoxGroup("選項")]
         [LabelText("選項名稱")]
         public List<OptionData> OptionData;
     }

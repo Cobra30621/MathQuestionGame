@@ -32,11 +32,11 @@ MonoBehaviour:
         RewardData:
         - RewardType: 1
           ItemGainType: 0
-          CoinGainType: 0
+          CoinGainType: 1
           specifyCard: {fileID: 0}
-          specifyCoin: 0
+          specifyCoin: 100
           specifyRelic: 0
-        - RewardType: 0
+        - RewardType: 2
           ItemGainType: 0
           CoinGainType: 1
           specifyCard: {fileID: 0}
@@ -64,6 +64,12 @@ MonoBehaviour:
           CoinGainType: 0
           specifyCard: {fileID: 0}
           specifyCoin: 100
+          specifyRelic: 0
+        - RewardType: 1
+          ItemGainType: 0
+          CoinGainType: 1
+          specifyCard: {fileID: 0}
+          specifyCoin: 20
           specifyRelic: 0
         QuestionMode: 1
       OptionText: "\u6211\u8981\u7B54\u984C"

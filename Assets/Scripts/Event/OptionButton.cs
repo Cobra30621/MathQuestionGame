@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -50,6 +51,8 @@ namespace NueGames.Event
         /// </summary>
         public void OnSelect()
         {
+            UIManager.Instance.EventCanvas.OnOptionButtonClick();
+            
             if (currentOption != null)
             {
                 currentOption.ExecuteEffect();

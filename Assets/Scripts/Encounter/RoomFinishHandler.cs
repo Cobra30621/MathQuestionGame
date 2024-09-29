@@ -8,7 +8,7 @@ using UnityEngine;
 namespace NueGames.Encounter
 {
     [RequireComponent(typeof(SceneChanger))]
-    public class RoomFinishHandler : SerializedMonoBehaviour
+    public class RoomFinishHandler : MonoBehaviour
     {
         private SceneChanger _sceneChanger;
         private void Awake()

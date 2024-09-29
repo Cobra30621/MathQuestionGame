@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Linq;
 using Managers;
 using NueGames.Encounter;
+using NueGames.Utils;
 using Sirenix.OdinInspector;
 using Unity.CodeEditor;
 using UnityEngine.Events;
@@ -11,6 +12,7 @@ namespace NueGames.Event
     /// <summary>
     /// 处理事件的执行和选项的管理
     /// </summary>
+    [RequireComponent(typeof(SceneChanger))]
     public class EventManager : MonoBehaviour
     {
         [LabelText("事件清單")]
@@ -25,6 +27,13 @@ namespace NueGames.Event
 
 
         public static EventManager Instance => GameManager.Instance.EventManager;
+        
+        
+        private SceneChanger _sceneChanger;
+        private void Awake()
+        {
+            _sceneChanger = GetComponent<SceneChanger>();
+        }
         
         
         /// <summary>
@@ -64,10 +73,14 @@ namespace NueGames.Event
             OnExecuteCompleted.Invoke(option);
         }
 
-        public static void LeaveEventSystem()
+        public void LeaveEventSystem()
         {
             OnLeaveEventSystem.Invoke();
             EncounterManager.Instance.OnRoomCompleted();
+            
+            _sceneChanger.OpenMapScene();
         }
+        
+        
     }
 }
