@@ -21,6 +21,10 @@ namespace NueGames.Event
         [ShowIf("IsShowQuestionMode")]
         public QuestionMode QuestionMode;
 
+        [LabelText("血量調整數值")] [ShowIf("IsShowChangeHeartData")]
+        public int changeHealthValue;
+        
+
         private bool IsShowRewardData()
         {
             return EffectType == EffectType.Reward || EffectType == EffectType.MathQuestion;
@@ -29,6 +33,11 @@ namespace NueGames.Event
         private bool IsShowQuestionMode()
         {
             return EffectType == EffectType.MathQuestion;
+        }
+
+        private bool IsShowChangeHeartData()
+        {
+            return EffectType == EffectType.ChangeHealth;
         }
     }
 }

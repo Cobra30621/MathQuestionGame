@@ -33,6 +33,7 @@ namespace NueGames.UI
         {
             SetGoldText(CoinManager.Instance.Money);
             SetStoneText(CoinManager.Instance.Stone);
+            
         }
 
         #endregion

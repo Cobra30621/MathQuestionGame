@@ -1,4 +1,8 @@
+using System;
+using Feedback;
+using Managers;
 using NueGames.Characters;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,11 +10,27 @@ namespace Characters
 {
     public class AllyHealthHandler : MonoBehaviour
     {
+        [SerializeField]
         private int _maxHealth;
+        [SerializeField]
         private int _currentHealth;
 
         public UnityEvent<int> OnHealthChange = new UnityEvent<int>();
         public UnityEvent<int> OnDeath = new UnityEvent<int>();
+
+        [Required]
+        public IFeedback AddHealthFeedback;
+        [Required]
+        public IFeedback SubHealthFeedback;
+
+
+        private void Awake()
+        {
+            OnHealthChange.AddListener((value) =>
+            {
+                UIManager.Instance.InformationCanvas.SetHealthText(value, _maxHealth);
+            });
+        }
 
         public void Init(int maxHealth)
         {
@@ -28,14 +48,19 @@ namespace Characters
 
         public void AddHealth(int add)
         {
+            if (add >= 0)
+            {
+                AddHealthFeedback.Play();
+            }
+            else
+            {
+                SubHealthFeedback.Play();
+            }
+            
             SetHealth(_currentHealth + add);
         }
 
-        public void SubHealth(int sub)
-        {
-            SetHealth(_currentHealth - sub);
-        }
-
+        
         private void UpdateHealth()
         {
             OnHealthChange.Invoke(_currentHealth);

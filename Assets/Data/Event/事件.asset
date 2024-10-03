@@ -22,9 +22,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   Events:
-  - Text: "\u7372\u5F97\u5BF6\u7BB1"
+  - Text: "\u6E2C\u8A66\u5404\u7A2E\u529F\u80FD"
     nameText: "\u597D\u54E5\u54E5"
-    Description: "\u767C\u73FE\u4E00\u500B\u5BF6\u7BB1\uFF0C\u4F46\u5BF6\u7BB1\u524D\u65B9\u6709\u9677\u9631\uFF0C\u4F60\u60F3\u600E\u9EBC\u505A\uFF1F"
+    Description: "\u6E2C\u8A66\u5404\u7A2E\u529F\u80FD"
     eventSprite: {fileID: -2520759210819888809, guid: 8a1f96c93a153e34a98b5f6dd6bbfebd, type: 3}
     OptionData:
     - EffectData:
@@ -43,12 +43,28 @@ MonoBehaviour:
           specifyCoin: 100
           specifyRelic: 0
         QuestionMode: 0
+        changeHealthValue: 0
       OptionText: "\u62FF\u5BF6\u7BB1"
       AfterSelectionText: "\u62FF\u5230\u5BF6\u7BB1\u4E86"
+    - EffectData:
+        EffectType: 4
+        RewardData: []
+        QuestionMode: 0
+        changeHealthValue: 10
+      OptionText: "\u56DE 10 \u8840"
+      AfterSelectionText: "\u56DE\u8840\u6B50"
+    - EffectData:
+        EffectType: 4
+        RewardData: []
+        QuestionMode: 0
+        changeHealthValue: -20
+      OptionText: "\u6263 20 \u8840"
+      AfterSelectionText: "\u6263\u8840\u6B50"
     - EffectData:
         EffectType: 0
         RewardData: []
         QuestionMode: 0
+        changeHealthValue: 0
       OptionText: "\u96E2\u958B"
       AfterSelectionText: 
   - Text: "\u6578\u5B78\u7B54\u984C"
@@ -72,11 +88,13 @@ MonoBehaviour:
           specifyCoin: 20
           specifyRelic: 0
         QuestionMode: 1
+        changeHealthValue: 0
       OptionText: "\u6211\u8981\u7B54\u984C"
       AfterSelectionText: "\u6253\u5B8C\u984C\u76EE\u4E86"
     - EffectData:
         EffectType: 0
         RewardData: []
         QuestionMode: 0
+        changeHealthValue: 0
       OptionText: "\u96E2\u958B"
       AfterSelectionText: "\u6211\u8A0E\u53AD\u6578\u5B78"

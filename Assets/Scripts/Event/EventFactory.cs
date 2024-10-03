@@ -46,6 +46,8 @@ namespace NueGames.Event
                     return new GetRewardEffect();
                 case EffectType.MathQuestion:
                     return new QuestionEffect();
+                case EffectType.ChangeHealth:
+                    return new ChangeHealthEffect();
                 default:
                     return null;
             }
