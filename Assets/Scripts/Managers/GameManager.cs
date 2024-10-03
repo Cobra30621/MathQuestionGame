@@ -2,6 +2,7 @@ using System;
 using CampFire;
 using Card;
 using Card.Data;
+using Characters;
 using Data;
 using Data.Encounter;
 using DataPersistence;
@@ -105,7 +106,7 @@ namespace Managers
 
         public AllyData allyData => _stageSelectedHandler.GetAllyData();
 
-        public AllyHealthData AllyHealthData;
+        public AllyHealthHandler AllyHealthHandler;
 
         public bool IsDeveloperMode => isDevelopMode;
         
@@ -119,7 +120,7 @@ namespace Managers
 
         public void LoadData(GameData data)
         {
-            AllyHealthData = data.AllyHealthData;
+            AllyHealthHandler.SetAllyHealthData(data.AllyHealthData);
             
             _stageSelectedHandler.SetAllyData(
                 allyDataFileHandler.GuidToData<AllyData>(data.AllyDataGuid));
@@ -128,7 +129,7 @@ namespace Managers
 
         public void SaveData(GameData data)
         {
-            data.AllyHealthData = AllyHealthData;
+            data.AllyHealthData = AllyHealthHandler.GetAllyHealthData();
             
             data.AllyDataGuid = allyDataFileHandler.DataToGuid(
                 _stageSelectedHandler.GetAllyData());
@@ -158,7 +159,7 @@ namespace Managers
             CardManager.Instance.SetInitCard(allyData.InitialDeck.CardList);
             MapManager.Instance.Initialized(_stageSelectedHandler.GetStageData());
             QuestionManager.Instance.GenerateQuestions();
-            AllyHealthData = new AllyHealthData(allyData.MaxHealth);
+            AllyHealthHandler.Init(allyData.MaxHealth);
             
         }
 
@@ -195,13 +196,7 @@ namespace Managers
 
         public void HealAlly(float percent)
         {
-            var healthData = AllyHealthData;
-            int heal = Mathf.CeilToInt(healthData.MaxHealth * percent);
-
-            int afterHealHp = Math.Min(healthData.CurrentHealth + heal, healthData.MaxHealth);
-            
-            AllyHealthData.SetHealth(afterHealHp
-                ,healthData.MaxHealth);
+            AllyHealthHandler.HealByPercent(percent);
             UIManager.Instance.InformationCanvas.ResetCanvas();
         }
         

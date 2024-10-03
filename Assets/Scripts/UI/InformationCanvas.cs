@@ -51,13 +51,9 @@ namespace NueGames.UI
 
         public override void ResetCanvas()
         {
-            if (GameManager.AllyHealthData == null)
-            {
-                return;
-            }
-            
-            SetHealthText(GameManager.AllyHealthData.CurrentHealth,
-                GameManager.AllyHealthData.MaxHealth);
+            var healthData = GameManager.AllyHealthHandler.GetAllyHealthData();
+            SetHealthText(healthData.CurrentHealth,
+                healthData.MaxHealth);
             SetGoldText(CoinManager.Instance.Money);
             SetStoneText(CoinManager.Instance.Stone);
             

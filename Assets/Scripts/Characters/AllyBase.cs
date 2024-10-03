@@ -26,16 +26,12 @@ namespace NueGames.Characters
             allyCanvas.InitCanvas();
             CharacterStats = new CharacterStats(_allyData.MaxHealth, this, allyCanvas);
             
-            var data = GameManager.AllyHealthData;
+            var data = GameManager.AllyHealthHandler.GetAllyHealthData();
             
             if (data != null)
             {
                 CharacterStats.CurrentHealth = data.CurrentHealth;
                 CharacterStats.MaxHealth = data.MaxHealth;
-            }
-            else
-            {
-                GameManager.AllyHealthData.SetHealth(CharacterStats.CurrentHealth,CharacterStats.MaxHealth);
             }
             
             OnDeath += OnDeathAction;

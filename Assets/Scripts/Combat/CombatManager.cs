@@ -377,8 +377,8 @@ namespace Combat
 
         private IEnumerator WinCombatRoutine()
         {
-            GameManager.AllyHealthData.SetHealth(
-                MainAlly.GetCharacterStats().CurrentHealth, MainAlly.GetCharacterStats().MaxHealth);
+            GameManager.AllyHealthHandler.SetHealth(
+                MainAlly.GetCharacterStats().CurrentHealth);
 
             CollectionManager.ClearPiles();
 
