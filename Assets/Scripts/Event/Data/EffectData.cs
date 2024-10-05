@@ -24,6 +24,10 @@ namespace NueGames.Event
         [LabelText("血量調整數值")] [ShowIf("IsShowChangeHeartData")]
         public int changeHealthValue;
         
+        [LabelText("支付獲得獎勵")]
+        [ShowIf("IsShowPayAndGainData")]
+        public PayAndGainData PayAndGainData;
+        
 
         private bool IsShowRewardData()
         {
@@ -38,6 +42,11 @@ namespace NueGames.Event
         private bool IsShowChangeHeartData()
         {
             return EffectType == EffectType.ChangeHealth;
+        }
+        
+        private bool IsShowPayAndGainData()
+        {
+            return EffectType == EffectType.PayAndGain;
         }
     }
 }

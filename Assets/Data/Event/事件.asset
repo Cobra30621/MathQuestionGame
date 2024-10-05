@@ -28,7 +28,7 @@ MonoBehaviour:
     eventSprite: {fileID: -2520759210819888809, guid: 8a1f96c93a153e34a98b5f6dd6bbfebd, type: 3}
     OptionData:
     - EffectData:
-        EffectType: 1
+        EffectType: 5
         RewardData:
         - RewardType: 1
           ItemGainType: 0
@@ -44,13 +44,29 @@ MonoBehaviour:
           specifyRelic: 0
         QuestionMode: 0
         changeHealthValue: 0
-      OptionText: "\u62FF\u5BF6\u7BB1"
-      AfterSelectionText: "\u62FF\u5230\u5BF6\u7BB1\u4E86"
+        PayAndGainData:
+          PaymentType: 1
+          needHealth: 0
+          needMoney: 99999
+          RewardData:
+          - RewardType: 2
+            ItemGainType: 0
+            CoinGainType: 0
+            specifyCard: {fileID: 0}
+            specifyCoin: 0
+            specifyRelic: 0
+      OptionText: "100 \u91D1\u5E63\u62FF\u5361\u7247"
+      AfterSelectionText: "\u90A3\u9053\u5361\u7247"
     - EffectData:
         EffectType: 4
         RewardData: []
         QuestionMode: 0
         changeHealthValue: 10
+        PayAndGainData:
+          PaymentType: 0
+          needHealth: 0
+          needMoney: 0
+          RewardData: []
       OptionText: "\u56DE 10 \u8840"
       AfterSelectionText: "\u56DE\u8840\u6B50"
     - EffectData:
@@ -58,15 +74,31 @@ MonoBehaviour:
         RewardData: []
         QuestionMode: 0
         changeHealthValue: -20
+        PayAndGainData:
+          PaymentType: 0
+          needHealth: 0
+          needMoney: 0
+          RewardData: []
       OptionText: "\u6263 20 \u8840"
       AfterSelectionText: "\u6263\u8840\u6B50"
     - EffectData:
-        EffectType: 0
+        EffectType: 5
         RewardData: []
         QuestionMode: 0
         changeHealthValue: 0
-      OptionText: "\u96E2\u958B"
-      AfterSelectionText: 
+        PayAndGainData:
+          PaymentType: 0
+          needHealth: 20
+          needMoney: 0
+          RewardData:
+          - RewardType: 0
+            ItemGainType: 0
+            CoinGainType: 1
+            specifyCard: {fileID: 0}
+            specifyCoin: 344
+            specifyRelic: 0
+      OptionText: "\u6263 20 \u8840\uFF0C\u62FF\u91D1\u5E63"
+      AfterSelectionText: "\u734E\u52F5\u8B9A"
   - Text: "\u6578\u5B78\u7B54\u984C"
     nameText: "\u4F60\u8001\u5E2B"
     Description: "\u7B54\u5C0D\u6578\u5B78\u984C\u76EE\u6709\u597D\u5EB7"
@@ -89,6 +121,11 @@ MonoBehaviour:
           specifyRelic: 0
         QuestionMode: 1
         changeHealthValue: 0
+        PayAndGainData:
+          PaymentType: 0
+          needHealth: 0
+          needMoney: 0
+          RewardData: []
       OptionText: "\u6211\u8981\u7B54\u984C"
       AfterSelectionText: "\u6253\u5B8C\u984C\u76EE\u4E86"
     - EffectData:
@@ -96,5 +133,10 @@ MonoBehaviour:
         RewardData: []
         QuestionMode: 0
         changeHealthValue: 0
+        PayAndGainData:
+          PaymentType: 0
+          needHealth: 0
+          needMoney: 0
+          RewardData: []
       OptionText: "\u96E2\u958B"
       AfterSelectionText: "\u6211\u8A0E\u53AD\u6578\u5B78"

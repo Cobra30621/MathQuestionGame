@@ -11,7 +11,9 @@ namespace NueGames.Event.Effect
         [LabelText("數學答題")]
         MathQuestion = 3,
         [LabelText("改變血量")]
-        ChangeHealth,
+        ChangeHealth = 4,
+        [LabelText("支付後獲得獎勵")]
+        PayAndGain = 5,
         
     }
 }

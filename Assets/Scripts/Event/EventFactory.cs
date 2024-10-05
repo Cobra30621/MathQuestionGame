@@ -48,6 +48,8 @@ namespace NueGames.Event
                     return new QuestionEffect();
                 case EffectType.ChangeHealth:
                     return new ChangeHealthEffect();
+                case EffectType.PayAndGain:
+                    return new PayAndGainEffect();
                 default:
                     return null;
             }
