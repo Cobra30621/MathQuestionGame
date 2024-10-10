@@ -36,6 +36,7 @@ MonoBehaviour:
     TitleLang: 
     DesLang: 
     TargetChoose: 0
+    ExhaustAfterPlay: 0
     skillIDs: []
     EffectInfos: []
   cardId: 5
@@ -50,6 +51,7 @@ MonoBehaviour:
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62103\u9EDE\u50B7\u5BB3\u3002"
     TargetChoose: 1
+    ExhaustAfterPlay: 0
     skillIDs:
     - 1000003
     EffectInfos: []
@@ -63,6 +65,7 @@ MonoBehaviour:
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62104\u9EDE\u50B7\u5BB3\u3002"
     TargetChoose: 1
+    ExhaustAfterPlay: 0
     skillIDs:
     - 1000004
     EffectInfos: []
@@ -76,6 +79,7 @@ MonoBehaviour:
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62105\u9EDE\u50B7\u5BB3\u3002"
     TargetChoose: 1
+    ExhaustAfterPlay: 0
     skillIDs:
     - 1000005
     EffectInfos: []
@@ -89,6 +93,7 @@ MonoBehaviour:
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u602A\u7269\u9020\u62106\u9EDE\u50B7\u5BB3\u3002"
     TargetChoose: 1
+    ExhaustAfterPlay: 0
     skillIDs:
     - 1000006
     EffectInfos: []
@@ -102,6 +107,7 @@ MonoBehaviour:
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62106\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
+    ExhaustAfterPlay: 0
     skillIDs:
     - 1100006
     EffectInfos: []
@@ -115,6 +121,7 @@ MonoBehaviour:
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
+    ExhaustAfterPlay: 0
     skillIDs:
     - 1100007
     EffectInfos: []
@@ -128,6 +135,7 @@ MonoBehaviour:
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62108\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
+    ExhaustAfterPlay: 0
     skillIDs:
     - 1100008
     EffectInfos: []
@@ -141,6 +149,7 @@ MonoBehaviour:
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62109\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
+    ExhaustAfterPlay: 0
     skillIDs:
     - 1100009
     EffectInfos: []
@@ -154,12 +163,13 @@ MonoBehaviour:
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u621010\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
+    ExhaustAfterPlay: 0
     skillIDs:
     - 1100010
     EffectInfos: []
   - ID: 130010
     GroupID: 5
-    SkillID: 1100010, 3200001
+    SkillID: 1100010, 3020001
     ManaCost: 1
     UpgradeCost: 0
     Class: 3
@@ -167,9 +177,10 @@ MonoBehaviour:
     TitleLang: "\u65BD\u6CD5"
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u621010\u9EDE\u50B7\u5BB3\uFF0C\u540C\u6642\u63D0\u53471\u9EDE\u529B\u91CF"
     TargetChoose: 0
+    ExhaustAfterPlay: 0
     skillIDs:
     - 1100010
-    - 3200001
+    - 3020001
     EffectInfos: []
   _allyClassType: 3
   exhaustAfterPlay: 0

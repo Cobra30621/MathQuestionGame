@@ -97,7 +97,7 @@ namespace Card
         public string TitleLang;
         public string DesLang;
         public ActionTargetType TargetChoose;
-        
+        public bool ExhaustAfterPlay;
         public List<string> skillIDs;
         
         public List<SkillInfo> EffectInfos;

@@ -10,11 +10,13 @@
         Vulnerable = 1,
         Strength = 2,
         Invincible = 3,
+        Frenzy = 4,
         Poison = 6,
         Fire = 7,
         // not official coded
         Weak = 1111,
         Trap = 1112,
+        FrenzyHelper = 1113,
         //
 
 
