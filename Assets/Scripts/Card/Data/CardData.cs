@@ -79,7 +79,6 @@ namespace Card.Data
         public FxInfo FxInfo => fxInfo;
         public bool CanNotPlay => canNotPlay;
         public bool ExhaustIfNotPlay => exhaustAfterPlay;
-        
         public bool UseDefaultAttackFeedback => useDefaultAttackFeedback;
         public bool UseCustomFeedback
         {
