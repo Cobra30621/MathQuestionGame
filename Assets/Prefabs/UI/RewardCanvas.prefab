@@ -38,8 +38,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 700}
+  m_AnchoredPosition: {x: -1.4091, y: -8.8702}
+  m_SizeDelta: {x: 1431.2783, y: 724.8364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2753420810945079730
 CanvasRenderer:
@@ -62,15 +62,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.84148407, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.72156864}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5ddd44ba29122425f8ed86cc1741468f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -115,8 +115,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -50, y: -50}
+  m_AnchoredPosition: {x: 0.5578003, y: 0.17340088}
+  m_SizeDelta: {x: -23.6478, y: -25.1107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2753420811919632565
 CanvasRenderer:
@@ -133,13 +133,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2753420811919632566}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.59741014, g: 0.7075472, b: 0.7009482, a: 1}
+  m_Color: {r: 0.21176471, g: 0.20392157, b: 0.07450981, a: 0.7647059}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -827,15 +827,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u9EDE\u64CA\u4EE5\u9818\u53D6\u500B\u5225\u734E\u52F5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9e18b53076efa2241807c9f6e756d5f1, type: 2}
-  m_sharedMaterial: {fileID: -1470829451554156410, guid: 9e18b53076efa2241807c9f6e756d5f1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 98d46c4683ea0234ebf11bbd86f9a823, type: 2}
+  m_sharedMaterial: {fileID: -5983068599249183672, guid: 98d46c4683ea0234ebf11bbd86f9a823, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -852,13 +852,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1262,7 +1262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8356462358083751223}
-  - component: {fileID: 6198051753525312137}
+  - component: {fileID: 6938901929208619163}
   m_Layer: 5
   m_Name: RewardRoot
   m_TagString: Untagged
@@ -1290,7 +1290,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -50, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6198051753525312137
+--- !u!114 &6938901929208619163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1299,18 +1299,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8608688845014410297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 100
+    m_Left: 200
+    m_Right: 12
+    m_Top: 200
     m_Bottom: 0
-  m_ChildAlignment: 1
-  m_Spacing: 50
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -1448,7 +1448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354e83f72cd44271a70cfc99db01f969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardContainerData: {fileID: 11400000, guid: 576255f7c5abd6d44800bc419cf6fbf8, type: 2}
   rewardRoot: {fileID: 8356462358083751223}
   rewardContainerPrefab: {fileID: 4144854971553763347, guid: 7728fa9ef774a574fa112e56a3a8c0ef, type: 3}
   rewardPanelRoot: {fileID: 3975758537094236638}
@@ -1541,12 +1540,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7306d716cb79412f83f28ab490cd9a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []

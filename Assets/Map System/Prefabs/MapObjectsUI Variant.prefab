@@ -62,7 +62,11 @@ PrefabInstance:
     - target: {fileID: 5337413451174954175, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 5337413451174954175, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337413451174954175, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: serializationData.SerializedFormat
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6173653652465991376, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
       propertyPath: m_Name
       value: MapObjectsUI Variant
@@ -88,11 +92,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: 3
-  allMapConfigs:
-  - {fileID: 0}
+  nodeBlueprintData: {fileID: 0}
   nodePrefab: {fileID: 5037388882644343366, guid: d1c61babba3d845e89d15d136ce9793b, type: 3}
   orientationOffset: -4
-  background: {fileID: 21300000, guid: 154be9da94274494592f60439cfd560e, type: 3}
+  background: {fileID: 21300000, guid: aca1acd389dfc45ea8aa20c26caa7829, type: 3}
   backgroundColor:
     serializedVersion: 2
     rgba: 4294967295
