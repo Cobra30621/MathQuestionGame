@@ -199,6 +199,15 @@ namespace NueGames.Characters
         }
 
         /// <summary>
+        /// 直接設定怪物死亡
+        /// </summary>
+        public void SetDeath()
+        {
+            CurrentHealth = 0;
+            CheckIsDeath(new DamageInfo(0, new ActionSource()));
+        }
+
+        /// <summary>
         /// 判斷是否死亡
         /// </summary>
         /// <param name="damageInfo"></param>

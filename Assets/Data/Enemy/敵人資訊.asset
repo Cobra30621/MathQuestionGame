@@ -223,58 +223,186 @@ MonoBehaviour:
     MaxHp: 10
     enemySkillIDs: []
   - uniqueId:
+      dataId: 401
+      displayName: "\u9CE5\u4EBA/\u96E3\u5EA6\u4E00"
+    ID: 401
+    Lang: "\u9CE5\u4EBA"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 402
+      displayName: "\u9CE5\u4EBA/\u96E3\u5EA6\u4E8C"
+    ID: 402
+    Lang: "\u9CE5\u4EBA"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E8C"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 403
+      displayName: "\u9CE5\u4EBA/\u96E3\u5EA6\u4E09"
+    ID: 403
+    Lang: "\u9CE5\u4EBA"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E09"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 411
+      displayName: "\u91CE\u751F\u9CE5\u4EBA/\u96E3\u5EA6\u4E00"
+    ID: 411
+    Lang: "\u91CE\u751F\u9CE5\u4EBA"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 412
+      displayName: "\u91CE\u751F\u9CE5\u4EBA/\u96E3\u5EA6\u4E8C"
+    ID: 412
+    Lang: "\u91CE\u751F\u9CE5\u4EBA"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E8C"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 413
+      displayName: "\u91CE\u751F\u9CE5\u4EBA/\u96E3\u5EA6\u4E09"
+    ID: 413
+    Lang: "\u91CE\u751F\u9CE5\u4EBA"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E09"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 501
+      displayName: "\u6A5F\u5668\u58EB\u5175/\u96E3\u5EA6\u4E00"
+    ID: 501
+    Lang: "\u6A5F\u5668\u58EB\u5175"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 502
+      displayName: "\u6A5F\u5668\u58EB\u5175/\u96E3\u5EA6\u4E8C"
+    ID: 502
+    Lang: "\u6A5F\u5668\u58EB\u5175"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E8C"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 503
+      displayName: "\u6A5F\u5668\u58EB\u5175/\u96E3\u5EA6\u4E09"
+    ID: 503
+    Lang: "\u6A5F\u5668\u58EB\u5175"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E09"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 511
+      displayName: "\u6A5F\u5668\u5718/\u96E3\u5EA6\u4E00"
+    ID: 511
+    Lang: "\u6A5F\u5668\u5718"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 512
+      displayName: "\u6A5F\u5668\u5718/\u96E3\u5EA6\u4E8C"
+    ID: 512
+    Lang: "\u6A5F\u5668\u5718"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E8C"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
+      dataId: 513
+      displayName: "\u6A5F\u5668\u5718/\u96E3\u5EA6\u4E09"
+    ID: 513
+    Lang: "\u6A5F\u5668\u5718"
+    EnemySkillID: 
+    Level: "\u96E3\u5EA6\u4E09"
+    Prefab: 
+    StartBattleSkillID: 
+    MaxHp: 0
+    enemySkillIDs: []
+  - uniqueId:
       dataId: 901
       displayName: "Cobra/\u6E2C\u8A66 1"
     ID: 901
     Lang: Cobra
-    EnemySkillID: 900102, 900101, 900001
-    Level: "\u6E2C\u8A66 1"
-    Prefab: Soldier
-    StartBattleSkillID: 
-    MaxHp: 999
-    enemySkillIDs:
-    - 900102
-    - 900101
-    - 900001
-  - uniqueId:
-      dataId: 902
-      displayName: "Cobra/\u6E2C\u8A66 2"
-    ID: 902
-    Lang: Cobra
-    EnemySkillID: 900102, 900101, 900001
-    Level: "\u6E2C\u8A66 2"
-    Prefab: Soldier
-    StartBattleSkillID: 900102
-    MaxHp: 999
-    enemySkillIDs:
-    - 900102
-    - 900101
-    - 900001
-  - uniqueId:
-      dataId: 903
-      displayName: "Cobra/\u6E2C\u8A66 3"
-    ID: 903
-    Lang: Cobra
-    EnemySkillID: 
-    Level: "\u6E2C\u8A66 3"
-    Prefab: Soldier
-    StartBattleSkillID: 
-    MaxHp: 999
-    enemySkillIDs: []
-  - uniqueId:
-      dataId: 904
-      displayName: "Nelson/\u6E2C\u8A66 1"
-    ID: 904
-    Lang: Nelson
-    EnemySkillID: 910001, 910102, 910101
+    EnemySkillID: 900101
     Level: "\u6E2C\u8A66 1"
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 999
     enemySkillIDs:
-    - 910001
-    - 910102
+    - 900101
+  - uniqueId:
+      dataId: 902
+      displayName: "Cobra/\u6E2C\u8A66 2"
+    ID: 902
+    Lang: Cobra
+    EnemySkillID: 900102
+    Level: "\u6E2C\u8A66 2"
+    Prefab: Soldier
+    StartBattleSkillID: 
+    MaxHp: 999
+    enemySkillIDs:
+    - 900102
+  - uniqueId:
+      dataId: 903
+      displayName: "Cobra/\u6E2C\u8A66 3"
+    ID: 903
+    Lang: Cobra
+    EnemySkillID: 900001
+    Level: "\u6E2C\u8A66 3"
+    Prefab: Birdman
+    StartBattleSkillID: 
+    MaxHp: 999
+    enemySkillIDs:
+    - 900001
+  - uniqueId:
+      dataId: 904
+      displayName: "Nelson/\u6E2C\u8A66 1"
+    ID: 904
+    Lang: Nelson
+    EnemySkillID: 910101, 910001
+    Level: "\u6E2C\u8A66 1"
+    Prefab: Hive
+    StartBattleSkillID: 
+    MaxHp: 999
+    enemySkillIDs:
     - 910101
+    - 910001
   - uniqueId:
       dataId: 905
       displayName: "Nelson/\u6E2C\u8A66 2"

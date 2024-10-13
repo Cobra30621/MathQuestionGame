@@ -1,3 +1,5 @@
+using Sirenix.OdinInspector;
+
 namespace Action
 {
     public enum GameActionType
@@ -18,5 +20,11 @@ namespace Action
         EnemyBlock = 12,
         Block= 2,
         GainMana = 51,
+        
+        // Enemy
+        [LabelText("生成敵人")]
+        SpawnEnemy = 30001,
+        [LabelText("分裂")]
+        SplitEnemy = 30002
     }
 }

@@ -174,7 +174,14 @@ namespace NueGames.Characters
         {
             CharacterStats.Heal(value);
         }
-        
+
+        /// <summary>
+        /// 直接設定死亡
+        /// </summary>
+        public void SetDeath()
+        {
+            CharacterStats.SetDeath();
+        }
         
         protected virtual void OnDeathAction(DamageInfo damageInfo)
         {

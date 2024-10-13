@@ -7,7 +7,7 @@ namespace Tool
     {
         public static List<string> ConvertStringToStringList(string input)
         {
-            if (input.Trim() == "")
+            if (input == null ||  input.Trim() == "")
             {
                 return new List<string>();
             }

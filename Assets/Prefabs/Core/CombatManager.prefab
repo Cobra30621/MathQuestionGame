@@ -2052,6 +2052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e647a62e3ba942b2b78ac6838d808e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAX_ENEMY_COUNT: 4
   enemyPosList:
   - {fileID: 4305065158385358273}
   - {fileID: 2452178601341196022}
@@ -2060,6 +2061,7 @@ MonoBehaviour:
   allyPos: {fileID: 719666315382614374}
   _enemyBuilder: {fileID: 6907522448744634378}
   MainAlly: {fileID: 0}
+  spawnEnemyFXPrefab: {fileID: 2289971061572332243, guid: 4d051c74d3bbb44f18571f0074e3fbf1, type: 3}
 --- !u!114 &6907522448744634378
 MonoBehaviour:
   m_ObjectHideFlags: 0

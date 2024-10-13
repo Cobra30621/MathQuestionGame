@@ -111,6 +111,9 @@ namespace Enemy
             yield return null;
         }
 
-        
+        public void SetMaxHealth(int maxHealth)
+        {
+            CharacterStats = new CharacterStats(maxHealth, this, EnemyCanvas);
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Action;
+using Action.Enemy;
 using Action.Parameters;
 using Card;
 using Combat;
@@ -85,8 +86,12 @@ namespace GameAction
                     return new FleeAction(skillInfo);
                 case GameActionType.Tear:
                     return new TearAction(skillInfo);
+                case GameActionType.SpawnEnemy:
+                    return new SpawnEnemyAction(skillInfo);
+                case GameActionType.SplitEnemy:
+                    return new SplitEnemyAction(skillInfo);
                 default:
-                    Debug.LogError("无效的技能类型");
+                    Debug.LogError($"无效的技能类型 {skillInfo.EffectID}");
                     return new NullAction(skillInfo);
             }
         }

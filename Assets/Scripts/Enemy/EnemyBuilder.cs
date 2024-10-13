@@ -14,7 +14,12 @@ namespace Enemy
         public EnemyPrefabData enemyPrefabData;
 
         public CharacterHandler characterHandler;
-        
+
+        public EnemyBase Build(string id, Transform spawnPos)
+        {
+            var enemyData =sheetDataGetter.enemyData.FindUniqueId(id);
+            return Build(enemyData, spawnPos);
+        }
 
         public EnemyBase Build(EnemyName enemyName, Transform spawnPos)
         {
@@ -31,9 +36,6 @@ namespace Enemy
 
             return clone;
         }
-        
-        
-        
         
     }
 }

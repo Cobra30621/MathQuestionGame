@@ -55,20 +55,26 @@ MonoBehaviour:
             specifyCard: {fileID: 0}
             specifyCoin: 0
             specifyRelic: 0
-      OptionText: "100 \u91D1\u5E63\u62FF\u5361\u7247"
+      OptionText: "99999 \u91D1\u5E63\u62FF\u5361\u7247"
       AfterSelectionText: "\u90A3\u9053\u5361\u7247"
     - EffectData:
-        EffectType: 4
+        EffectType: 5
         RewardData: []
         QuestionMode: 0
         changeHealthValue: 10
         PayAndGainData:
           PaymentType: 0
           needHealth: 0
-          needMoney: 0
-          RewardData: []
-      OptionText: "\u56DE 10 \u8840"
-      AfterSelectionText: "\u56DE\u8840\u6B50"
+          needMoney: 100
+          RewardData:
+          - RewardType: 3
+            ItemGainType: 0
+            CoinGainType: 0
+            specifyCard: {fileID: 0}
+            specifyCoin: 0
+            specifyRelic: 0
+      OptionText: "100 \u91D1\u5E63\u62FF\u907A\u7269"
+      AfterSelectionText: "\u62FF\u907A\u7269"
     - EffectData:
         EffectType: 4
         RewardData: []
