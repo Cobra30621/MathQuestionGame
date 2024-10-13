@@ -12802,7 +12802,7 @@ MonoBehaviour:
       Data: 19000001
     - Name: EffectID
       Entry: 3
-      Data: 30001
+      Data: 30003
     - Name: EffectParameter
       Entry: 1
       Data: 901, 2, 5
@@ -12829,7 +12829,7 @@ MonoBehaviour:
       Data: 
     - Name: Target
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: ps
       Entry: 1
       Data: "\u6E2C\u8A66-\u60E1\u9B54\u737B\u796D"
@@ -12901,19 +12901,22 @@ MonoBehaviour:
       Data: 19002001
     - Name: EffectID
       Entry: 3
-      Data: 30002
+      Data: 30010
     - Name: EffectParameter
       Entry: 1
-      Data: 903
+      Data: 1,1
     - Name: EffectParameterList
       Entry: 7
       Data: 539|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
       Data: 1
     - Name: 
       Entry: 3
-      Data: 903
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
@@ -12925,7 +12928,7 @@ MonoBehaviour:
       Data: 1
     - Name: ps
       Entry: 1
-      Data: "\u6E2C\u8A66-\u602A\u7269\u5206\u88C2"
+      Data: "\u6E2C\u8A66-\u602A\u7269\u7D66\u4E88\u724C"
     - Name: 
       Entry: 8
       Data: 
@@ -14681,10 +14684,10 @@ MonoBehaviour:
     Target: 0
     ps: "\u653B\u64CA"
   - SkillID: 19000001
-    EffectID: 30001
+    EffectID: 30003
     EffectParameter: 901, 2, 5
     EffectParameterList: 850300000200000005000000
-    Target: 0
+    Target: 1
     ps: "\u6E2C\u8A66-\u60E1\u9B54\u737B\u796D"
   - SkillID: 19001001
     EffectID: 30001
@@ -14693,11 +14696,11 @@ MonoBehaviour:
     Target: 1
     ps: "\u6E2C\u8A66-\u602A\u7269\u7522\u602A\u7269"
   - SkillID: 19002001
-    EffectID: 30002
-    EffectParameter: 903
-    EffectParameterList: 87030000
+    EffectID: 30010
+    EffectParameter: 1,1
+    EffectParameterList: 0100000001000000
     Target: 1
-    ps: "\u6E2C\u8A66-\u602A\u7269\u5206\u88C2"
+    ps: "\u6E2C\u8A66-\u602A\u7269\u7D66\u4E88\u724C"
   - SkillID: 19100001
     EffectID: 20001
     EffectParameter: 10,1

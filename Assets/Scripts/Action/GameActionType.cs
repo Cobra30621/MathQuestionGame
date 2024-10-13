@@ -28,5 +28,7 @@ namespace Action
         SplitEnemy = 30002,
         [LabelText("惡魔獻祭")]
         DemonicSacrifice = 30003,
+        [LabelText("給予卡牌到牌堆")]
+        AddCardToPile = 30010,
     }
 }

@@ -17,7 +17,14 @@ namespace Card
         public static CardManager Instance => GameManager.Instance.CardManager;
         
         [Required]
+        [LabelText("會放入存檔的卡片")]
         [SerializeField] private DeckData saveDeck;
+
+        [Required]
+        [LabelText("其他卡片")]
+        [SerializeField] private DeckData otherCardDeck;
+        
+        
         [Required]
         [SerializeField] private readonly CardLevelHandler _cardLevelHandler;
 
@@ -123,6 +130,36 @@ namespace Card
             return cardInfo;
         }
 
+        public bool GetCardDataWithId(string id, out CardData cardData)
+        {
+            // 尋找儲存的卡片
+            foreach (var data in saveDeck.CardList)
+            {
+                if (id == data.CardId)
+                {
+                    cardData = data;
+                    return true;
+                }
+            }
+            
+            // 尋找其他的卡片
+            foreach (var data in otherCardDeck.CardList)
+            {
+                if (id == data.CardId)
+                {
+                    cardData = data;
+                    return true;
+                }
+            }
+
+            Debug.LogError("找不到卡片 " + id);
+            cardData = null;
+            return false;
+
+        }
+        
+        
+        
         public void LoadData(GameData data)
         {
             SetCurrenCardsList(

@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 
 namespace NueGames.Enums
 {
@@ -8,9 +9,13 @@ namespace NueGames.Enums
     [Serializable]
     public enum PileType
     {
-        Draw,
-        Hand,
-        Discard,
-        Exhaust
+        [LabelText("抽牌堆")]
+        Draw = 0,
+        [LabelText("手牌")]
+        Hand = 1,
+        [LabelText("棄牌堆")]
+        Discard = 2,
+        [LabelText("消耗堆")]
+        Exhaust = 3
     }
 }

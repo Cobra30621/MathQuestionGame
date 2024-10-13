@@ -209,6 +209,20 @@ namespace NueGames.Managers
             AddCardToPile(parameter.TargetPile, targetBattleCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
         }
+
+
+        public void AddCardToPile(PileType targetPile, string cardId)
+        {
+            CardData cardData;
+            var find = CardManager.Instance.GetCardDataWithId(cardId, out cardData);
+
+            if (find)
+            {
+                AddCardToPile(targetPile, cardData);
+            }
+            
+        }
+        
         
         /// <summary>
         /// 新增卡排至牌組
