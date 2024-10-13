@@ -115,5 +115,10 @@ namespace Enemy
         {
             CharacterStats = new CharacterStats(maxHealth, this, EnemyCanvas);
         }
+
+        public string GetId()
+        {
+            return data.ID;
+        }
     }
 }

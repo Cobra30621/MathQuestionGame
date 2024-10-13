@@ -25,6 +25,8 @@ namespace Action
         [LabelText("生成敵人")]
         SpawnEnemy = 30001,
         [LabelText("分裂")]
-        SplitEnemy = 30002
+        SplitEnemy = 30002,
+        [LabelText("惡魔獻祭")]
+        DemonicSacrifice = 30003,
     }
 }

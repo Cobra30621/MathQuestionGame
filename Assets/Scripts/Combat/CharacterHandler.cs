@@ -109,6 +109,27 @@ namespace Combat
 
         #endregion
 
+        /// <summary>
+        /// 取的指定 id 的敵人
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="output"></param>
+        /// <returns></returns>
+        public bool GetEnemyWithId(string id,  out EnemyBase output)
+        {
+            foreach (var enemy in Enemies)
+            {
+                if (enemy.GetId() == id)
+                {
+                    output = enemy;
+                    return true;
+                }
+            }
+
+            output = null;
+            return false;
+        }
+        
         
         public void OnAllyDeath(AllyBase targetAlly)
         {
