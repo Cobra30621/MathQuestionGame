@@ -17,7 +17,6 @@
         // not official coded
         Weak = 1111,
         Trap = 1112,
-        FrenzyHelper = 1113,
         Reinforce = 1114,
         //
 

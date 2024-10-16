@@ -28,13 +28,12 @@ namespace NueGames.Power
         {
             var source = info.ActionSource.SourceCharacter;
             var originalDamage = info.DamageValue;
+            int stackAmount = Mathf.CeilToInt(originalDamage * 0.5f);
             Debug.Log(source);
             if (source != null)
             {
-                // Apply一個類似力量的Power : 
-                
                 GameActionExecutor.AddAction(
-                    new ApplyPowerAction(2, PowerName.FrenzyHelper, 
+                    new ApplyPowerAction(stackAmount, PowerName.Strength, 
                         new List<CharacterBase>(){Owner}, GetActionSource()));
                 // 觸發後減層數 1 
                 GameActionExecutor.AddAction(

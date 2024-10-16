@@ -27,10 +27,14 @@ namespace NueGames.Power
         
         protected override void OnDead(DamageInfo damageInfo)
         {
+            List<CharacterBase> targets = new List<CharacterBase>();
+            var allEnemy = CombatManager.Instance.Enemies;
+            targets.AddRange(allEnemy);
+
             // 對全體敵方單位施加強化
             GameActionExecutor.AddAction(
                 new ApplyPowerAction(1, PowerName.Reinforce, 
-                    new List<CharacterBase>() {}, GetActionSource()));
+                    targets, GetActionSource()));
         }
     }
 }
