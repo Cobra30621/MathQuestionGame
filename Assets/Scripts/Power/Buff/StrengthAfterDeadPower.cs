@@ -15,15 +15,23 @@ namespace NueGames.Power
     /// <summary>
     /// 強化
     /// </summary>
-    public class ReinforceAfterDeadPower : PowerBase
+    public class StrengthAfterDeadPower : PowerBase
     {
-        public override PowerName PowerName => PowerName.ReinforceAfterDead;
+        public override PowerName PowerName => PowerName.StrengthAfterDead;
 
-        public ReinforceAfterDeadPower()
+        public StrengthAfterDeadPower()
         {
             
         }
-        
+        public override void SubscribeAllEvent()
+        {
+            Owner.OnDeath += OnDead;
+        }
+
+        public override void UnSubscribeAllEvent()
+        {
+            Owner.OnDeath -= OnDead;
+        }
         
         protected override void OnDead(DamageInfo damageInfo)
         {
@@ -33,7 +41,7 @@ namespace NueGames.Power
 
             // 對全體敵方單位施加強化
             GameActionExecutor.AddAction(
-                new ApplyPowerAction(1, PowerName.Reinforce, 
+                new ApplyPowerAction(1, PowerName.Strength, 
                     targets, GetActionSource()));
         }
     }
