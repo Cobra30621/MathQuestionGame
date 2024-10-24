@@ -33,7 +33,7 @@ namespace NueGames.Power
         {
             if (IsCharacterTurn(info))
             {
-                if (CombatManager.Instance.MainAlly.HasPower(PowerName.Solid))
+                if (CombatManager.Instance.MainAlly.HasPower(PowerName.Equip))
                 {
                     
                 }
