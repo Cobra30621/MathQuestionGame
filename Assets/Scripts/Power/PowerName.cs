@@ -16,8 +16,8 @@
         StrengthAfterDead = 11,
         Shield = 12,
         Equip = 13,
+        Weak = 15,
         // not official coded
-        Weak = 1111,
         Trap = 1112,
         //
 
