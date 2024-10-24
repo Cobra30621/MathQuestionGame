@@ -14,6 +14,7 @@
         Poison = 6,
         Fire = 7,
         StrengthAfterDead = 11,
+        Shield = 12,
         // not official coded
         Weak = 1111,
         Trap = 1112,
@@ -35,7 +36,6 @@
         BloodFury = 6,
         Hardcore = 7,
         Miss = 8,
-        Shield = 9,
         Solid = 10,
         Bleed = 11,
 
