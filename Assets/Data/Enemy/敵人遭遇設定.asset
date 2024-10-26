@@ -14,11 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ids:
   - uniqueId:
+      dataId: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+      displayName: Test
+    enemyList:
+    - id: 101
+    - id: 101
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 23350bb9-c64b-4773-8b9e-269746eb51e0
+      displayName: Cobra Test
+    enemyList:
+    - id: 901
+    - id: 902
+    targetBackgroundType: 0
+  - uniqueId:
       dataId: 97801a6b-0a03-46d9-b8a0-8f30e128daf1
       displayName: Nelson Test
     enemyList:
     - id: 904
-    - id: 905
     targetBackgroundType: 0
   - uniqueId:
       dataId: a32cd04f-8ee4-42d7-ab77-555f4a254d0a

@@ -306,6 +306,11 @@ MonoBehaviour:
       RewardData: []
       QuestionMode: 0
       changeHealthValue: 0
+      PayAndGainData:
+        PaymentType: 0
+        needHealth: 0
+        needMoney: 0
+        RewardData: []
     OptionText: "\u96E2\u958B"
     AfterSelectionText: 
 --- !u!114 &3841892041188851855
@@ -380,6 +385,7 @@ MonoBehaviour:
       Entry: 10
       Data: 0
   saveDeck: {fileID: 11400000, guid: 0d8b556c7688a4833901d3a5cad41e8b, type: 2}
+  otherCardDeck: {fileID: 11400000, guid: ae42016b604e14f5c92a99e308398d31, type: 2}
   skillData: {fileID: 11400000, guid: fcdcaa925d8d8446db1919662da02639, type: 2}
   CardInfoUpdated:
     m_PersistentCalls:
@@ -2249,6 +2255,10 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 4837968966122091227, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+    - target: {fileID: 5809459676723386309, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5959557791875154573, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
