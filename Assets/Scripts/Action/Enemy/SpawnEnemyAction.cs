@@ -4,19 +4,21 @@ using NueGames.Action;
 namespace Action.Enemy
 {
     /// <summary>
-    /// This class represents an action to spawn enemies in the game.
-    /// It inherits from GameActionBase and is responsible for handling the logic of spawning enemies.
+    /// 此类表示游戏中生成敌人的动作。
     /// </summary>
     public class SpawnEnemyAction : GameActionBase
     {
+        // 要生成的敌人数量
         private readonly int _spawnCount;
+        // 要生成的敌人ID
         private readonly string _spawnEnemyId;
 
+
         /// <summary>
-        /// Constructor for the SpawnEnemyAction class.
-        /// Initializes the spawn count and enemy ID based on the provided skill information.
+        /// SpawnEnemyAction类的构造函数。
+        /// 根据提供的技能信息初始化生成数量和敌人ID。
         /// </summary>
-        /// <param name="skillInfo">The skill information containing the necessary parameters for spawning enemies.</param>
+        /// <param name="skillInfo">包含生成敌人所需参数的技能信息。</param>
         public SpawnEnemyAction(SkillInfo skillInfo)
         {
             SkillInfo = skillInfo;
@@ -25,8 +27,20 @@ namespace Action.Enemy
         }
 
         /// <summary>
-        /// Performs the main action of spawning enemies.
-        /// Accesses the character handler to build the specified number of enemies with the given ID.
+        /// SpawnEnemyAction类的另一个构造函数。
+        /// 直接使用提供的敌人ID和生成数量进行初始化。
+        /// </summary>
+        /// <param name="spawnEnemyId">要生成的敌人ID。</param>
+        /// <param name="spawnCount">要生成的敌人数量。</param>
+        public SpawnEnemyAction(string spawnEnemyId, int spawnCount)
+        {
+            _spawnEnemyId = spawnEnemyId;
+            _spawnCount = spawnCount;
+        }
+        
+        /// <summary>
+        /// 执行生成敌人的主要动作。
+        /// 访问角色处理器以构建指定数量和ID的敌人。
         /// </summary>
         protected override void DoMainAction()
         {

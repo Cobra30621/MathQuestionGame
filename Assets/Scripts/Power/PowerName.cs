@@ -13,6 +13,8 @@
         Frenzy = 4,
         Poison = 6,
         Fire = 7,
+        SplitEnemy = 9,
+        
         StrengthAfterDead = 11,
         Shield = 12,
         Equip = 13,
@@ -38,7 +40,6 @@
         BloodFury = 6,
         Hardcore = 7,
         Miss = 8,
-        Solid = 10,
         Bleed = 11,
 
         // 戰鬥相關

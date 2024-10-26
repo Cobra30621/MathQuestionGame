@@ -95,12 +95,13 @@ MonoBehaviour:
       displayName: "\u53F2\u840A\u59C6/\u96E3\u5EA6\u4E00"
     ID: 201
     Lang: "\u53F2\u840A\u59C6"
-    EnemySkillID: 
+    EnemySkillID: 202003
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Hive
-    StartBattleSkillID: 
+    StartBattleSkillID: 202001
     MaxHp: 10
-    enemySkillIDs: []
+    enemySkillIDs:
+    - 202003
   - uniqueId:
       dataId: 202
       displayName: "\u53F2\u840A\u59C6/\u96E3\u5EA6\u4E8C"

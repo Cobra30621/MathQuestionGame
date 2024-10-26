@@ -1,7 +1,10 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using Action.Enemy;
 using Action.Parameters;
 using Combat;
 using Enemy.Data;
+using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
 using Sheets;
@@ -23,12 +26,14 @@ namespace Enemy
 
         private CharacterHandler _characterHandler;
         
+        private SheetDataGetter _sheetDataGetter;
         
         
         #region SetUp
         public void BuildCharacter(EnemyData enemyData, SheetDataGetter sheetDataGetter
             ,CharacterHandler characterHandler)
         {
+            _sheetDataGetter = sheetDataGetter;
             _characterHandler = characterHandler;
             
             data = enemyData;
@@ -64,6 +69,22 @@ namespace Enemy
             enemyAbility.UpdateSkillsCd();
             SetIntentionUI();
         }
+
+        /// <summary>
+        /// 設置分裂行動
+        /// </summary>
+        public void SetSplitEnemySkill()
+        {
+            
+            var spawnAction = new SplitEnemyAction(GetId(), GetHealth());
+            var intention = _sheetDataGetter.GetIntention("分裂");
+            
+            currentSkill = new EnemySkill(
+                new List<GameActionBase>(){spawnAction}, intention);
+            
+            SetIntentionUI();
+        }
+        
         
         public void SetIntentionUI()
         {
@@ -77,8 +98,8 @@ namespace Enemy
                 EnemyCanvas.NextActionValueText.gameObject.SetActive(false);
             }
             
-            EnemyCanvas.IntentImage.sprite = currentSkill.intention.IntentionSprite;
-            EnemyCanvas.Intention = currentSkill.intention;
+            EnemyCanvas.IntentImage.sprite = currentSkill._intention.IntentionSprite;
+            EnemyCanvas.Intention = currentSkill._intention;
             EnemyCanvas.IntentionGO.gameObject.SetActive(true);
         }
 
@@ -105,7 +126,7 @@ namespace Enemy
         
         public virtual IEnumerator ActionRoutine(EnemySkill skill)
         {
-            if(skill.intention.ActionType == ActionType.Attack)
+            if(skill._intention.ActionType == ActionType.Attack)
                 PlayDefaultAttackFeedback();
             skill.PlaySkill();
             yield return null;

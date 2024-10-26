@@ -22,18 +22,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: cardAction
-      Entry: 7
-      Data: 0|CardAction.Damage, Assembly-CSharp
-    - Name: damageValue
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: customerFeedback
       Entry: 7
-      Data: 1|NueGames.Characters.CustomerFeedbackSetting, Assembly-CSharp
+      Data: 0|NueGames.Characters.CustomerFeedbackSetting, Assembly-CSharp
     - Name: targetCharacter
       Entry: 10
       Data: 0
@@ -43,11 +34,38 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  actionTargetType: 0
-  manaCost: 0
+  isDevelopCard: 1
+  developLevelInfo:
+    ID: 
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: 
+    DesLang: 
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    EffectInfos:
+    - SkillID: 
+      EffectID: 1
+      EffectParameter: 
+      EffectParameterList: 0100000001000000
+      Target: 1
+      ps: 
+  cardId: 
+  _levelInfos: []
+  _allyClassType: 0
   exhaustAfterPlay: 0
-  fxGo: {fileID: 5403046535671323747, guid: 58987db4057af416da36d5e3e8f7683d, type: 3}
-  fxSpawnPosition: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
   useDefaultAttackFeedback: 1
   useCustomFeedback: 0
   cardName: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA"

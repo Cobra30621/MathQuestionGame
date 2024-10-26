@@ -62,6 +62,9 @@ namespace Combat
             Enemies.Add(enemy);
 
             Instantiate(spawnEnemyFXPrefab, spawnPos);
+            
+            // 執行開始的行動
+            StartCoroutine(enemy.BattleStartActionRoutine());
         }
 
         public void BuildAndSetEnemyHealth(string id, int health)
@@ -71,6 +74,9 @@ namespace Combat
             var enemy = _enemyBuilder.Build(id, GetEnemyPos());
             Enemies.Add(enemy);
             enemy.SetMaxHealth(health);
+
+            // 執行開始的行動
+            StartCoroutine(enemy.BattleStartActionRoutine());
         }
 
         public void BuildAllies(AllyData allyData)
@@ -87,13 +93,14 @@ namespace Combat
         {
             if (!ReachMaxEnemyCount())
             {
-                return enemyPosList[Enemies.Count ];
+                foreach (var enemyPos in enemyPosList)
+                {
+                    if(enemyPos.childCount == 0) return enemyPos;  
+                }
+                
             }
-            else
-            {
-               
-                return enemyPosList[0];
-            }
+            return enemyPosList[0];
+            
         }
 
         private bool ReachMaxEnemyCount()

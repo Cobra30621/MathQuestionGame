@@ -4,6 +4,7 @@ using Action.Parameters;
 using Card;
 using Combat;
 using GameAction;
+using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Managers;
@@ -14,22 +15,32 @@ using UnityEngine;
 
 namespace Enemy.Data
 {
+    /// <summary>
+    /// 敌人技能类,用于管理敌人的技能相关信息和行为
+    /// </summary>
     [Serializable]
     public class EnemySkill
     {
          #region Variable
-         [SerializeField] private int currentCd;
+         [SerializeField] private int currentCd; // 当前冷却时间
          
-         private EnemyBase _enemyBase;
+         private EnemyBase _enemyBase; // 敌人基类引用
 
-         private EnemySkillData _skillData;
+         private EnemySkillData _skillData; // 技能数据
 
-         public List<SkillInfo> skillInfos;
+         public List<SkillInfo> skillInfos; // 技能信息列表
 
-         public Intention intention;
+         public Intention _intention; // 意图
+         
+         // 内部系统用
+         public bool useSheetInfos; // 是否使用表格信息
+         public List<GameActionBase> _gameActions; // 游戏动作列表
          
          #endregion
 
+         /// <summary>
+         /// 使用表格数据初始化敌人技能
+         /// </summary>
          public EnemySkill(EnemySkillData skillData, EnemyBase enemyBaseBase, SheetDataGetter getter)
          {
              _skillData = skillData;
@@ -37,18 +48,29 @@ namespace Enemy.Data
              
              currentCd = 0;
              skillInfos = _skillData.skillIDs.ConvertAll(getter.GetSkillInfo);
-             intention = getter.GetIntention(skillData.Intention);
+             _intention = getter.GetIntention(skillData.Intention);
+
+             useSheetInfos = true;
          }
 
-
+         /// <summary>
+         /// 设定在内部系统行动
+         /// </summary>
+         public EnemySkill(List<GameActionBase> gameActions, Intention intention)
+         {
+             _gameActions = gameActions;
+             _intention = intention;
+             useSheetInfos = false;
+         }
 
         /// <summary>
-        /// Plays the skillData on the provided target list.
+        /// 执行技能
         /// </summary>
-        /// <param name="targetList">The list of target characters.</param>
         public void PlaySkill()
         {
-            currentCd = _skillData.CD;
+            // 更新 CD
+            if(useSheetInfos)
+                currentCd = _skillData.CD;
             
             ActionSource actionSource = new ActionSource()
             {
@@ -56,13 +78,17 @@ namespace Enemy.Data
                 SourceCharacter = _enemyBase
             };
 
-            var gameActions = GameActionFactory.GetGameActions(skillInfos,
-                new List<CharacterBase>() { _enemyBase }, actionSource);
-            GameActionExecutor.AddAction(gameActions, 0.5f);
+            if (useSheetInfos)
+            {
+                _gameActions = GameActionFactory.GetGameActions(skillInfos,
+                    new List<CharacterBase>() { _enemyBase }, actionSource);
+            }
+            
+            GameActionExecutor.AddAction(_gameActions, 0.5f);
         }
 
         /// <summary>
-        /// Updates the cooldown of the skillData.
+        /// 更新技能冷却时间
         /// </summary>
         public void UpdateSkillCd()
         {
@@ -73,11 +99,15 @@ namespace Enemy.Data
             }
         }
 
-
+        /// <summary>
+        /// 获取意图值
+        /// </summary>
+        /// <param name="value">输出的意图值</param>
+        /// <returns>是否成功获取意图值</returns>
         public bool GetIntentionValue(out int value)
         {
             // Debug.Log($"Enemy Skill {_skillData}, Enemy {_enemy.name}");
-            if (intention.ShowIntentionValue)
+            if (_intention.ShowIntentionValue)
             {
                 value = -1;
                 
@@ -98,11 +128,10 @@ namespace Enemy.Data
             return false;
         }
 
-
         /// <summary>
-        /// Checks if the skillData can be played.
+        /// 检查技能是否可以使用
         /// </summary>
-        /// <returns>True if the skillData can be played, otherwise false.</returns>
+        /// <returns>技能是否可以使用</returns>
         public bool CanPlay()
         {
             return currentCd <= 0 ;
