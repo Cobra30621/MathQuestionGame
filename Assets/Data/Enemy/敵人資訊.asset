@@ -97,7 +97,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6"
     EnemySkillID: 202003
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: Hive
+    Prefab: Soldier
     StartBattleSkillID: 202001
     MaxHp: 10
     enemySkillIDs:
@@ -109,7 +109,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6"
     EnemySkillID: 
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: Hive
+    Prefab: Soldier
     StartBattleSkillID: 
     MaxHp: 10
     enemySkillIDs: []
@@ -120,7 +120,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6"
     EnemySkillID: 
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: Hive
+    Prefab: Soldier
     StartBattleSkillID: 
     MaxHp: 10
     enemySkillIDs: []
@@ -129,12 +129,13 @@ MonoBehaviour:
       displayName: "\u53F2\u840A\u59C6\u738B/\u96E3\u5EA6\u4E00"
     ID: 211
     Lang: "\u53F2\u840A\u59C6\u738B"
-    EnemySkillID: 
+    EnemySkillID: 211004
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Hive
-    StartBattleSkillID: 
-    MaxHp: 10
-    enemySkillIDs: []
+    StartBattleSkillID: 211001
+    MaxHp: 20
+    enemySkillIDs:
+    - 211004
   - uniqueId:
       dataId: 212
       displayName: "\u53F2\u840A\u59C6\u738B/\u96E3\u5EA6\u4E8C"

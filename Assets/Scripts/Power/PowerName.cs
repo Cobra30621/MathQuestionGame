@@ -1,4 +1,6 @@
-﻿namespace NueGames.Power
+﻿using Sirenix.OdinInspector;
+
+namespace NueGames.Power
 {
     /// <summary>
     /// 能力類型
@@ -13,13 +15,19 @@
         Frenzy = 4,
         Poison = 6,
         Fire = 7,
+        [LabelText("分裂")]
         SplitEnemy = 9,
+        [LabelText("史萊姆王分裂")]
+        KingSmileSplit = 10,
         
         StrengthAfterDead = 11,
         Shield = 12,
         Equip = 13,
         Charge = 14,
         Weak = 15,
+        
+        [LabelText("黏液")]
+        Smile = 21,
         // not official coded
         Trap = 1112,
         //

@@ -2,16 +2,13 @@ using Enemy;
 
 namespace NueGames.Power
 {
-    /// <summary>
-    /// 分裂敌人能力类
-    /// </summary>
-    public class SplitEnemyPower : PowerBase
+    public class KingSmileSplitPower : PowerBase
     {
-        /// <summary>
-        /// 能力名称
-        /// </summary>
-        public override PowerName PowerName => PowerName.SplitEnemy;
-
+        public override PowerName PowerName => PowerName.KingSmileSplit;
+        
+        
+        
+        
         /// <summary>
         /// 订阅所有事件
         /// </summary>
@@ -39,8 +36,8 @@ namespace NueGames.Power
             if ((float)health / maxHealth < 0.5f)
             {
                 var enemy = (EnemyBase)Owner;
-                // 设置敌人为分裂状态
-                enemy.SetSplitEnemySkill();
+                // 设置敌人为分裂状态，並獲得黏液能力
+                enemy.SetSplitEnemySkillAndGainSmilePower();
                 
                 // 清除当前能力
                 Owner.ClearPower(PowerName);

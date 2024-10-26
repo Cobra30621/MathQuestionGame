@@ -7,6 +7,8 @@ using Enemy.Data;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
+using NueGames.Parameters;
+using NueGames.Power;
 using Sheets;
 using Tool;
 using UnityEngine;
@@ -69,6 +71,29 @@ namespace Enemy
             enemyAbility.UpdateSkillsCd();
             SetIntentionUI();
         }
+        
+        
+        /// <summary>
+        /// 設置分裂行動並獲得黏液
+        /// </summary>
+        public void SetSplitEnemySkillAndGainSmilePower()
+        {
+            
+            var spawnAction = new SplitEnemyAction(GetId(), GetHealth());
+            var intention = _sheetDataGetter.GetIntention("分裂");
+            var applyPowerAction = new ApplyPowerAction(1, PowerName.Smile,
+                new List<CharacterBase>() { this }, new ActionSource()
+                {
+                    SourceType = SourceType.Enemy,
+                    SourceCharacter = this
+                });
+            
+            currentSkill = new EnemySkill(
+                new List<GameActionBase>(){spawnAction, applyPowerAction}, intention);
+            
+            SetIntentionUI();
+        }
+        
 
         /// <summary>
         /// 設置分裂行動

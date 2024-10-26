@@ -34,7 +34,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 272
+      Data: 273
     - Name: 
       Entry: 7
       Data: 
@@ -12244,7 +12244,7 @@ MonoBehaviour:
       Data: 20003
     - Name: EffectParameter
       Entry: 1
-      Data: 9,1
+      Data: 10,1
     - Name: EffectParameterList
       Entry: 7
       Data: 511|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -12253,7 +12253,7 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 3
-      Data: 9
+      Data: 10
     - Name: 
       Entry: 3
       Data: 1
@@ -12433,7 +12433,7 @@ MonoBehaviour:
       Data: 20003
     - Name: EffectParameter
       Entry: 1
-      Data: 9,1
+      Data: 10,1
     - Name: EffectParameterList
       Entry: 7
       Data: 519|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -12442,7 +12442,7 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 3
-      Data: 9
+      Data: 10
     - Name: 
       Entry: 3
       Data: 1
@@ -12622,7 +12622,7 @@ MonoBehaviour:
       Data: 20003
     - Name: EffectParameter
       Entry: 1
-      Data: 9,1
+      Data: 10,1
     - Name: EffectParameterList
       Entry: 7
       Data: 527|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -12631,7 +12631,7 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 3
-      Data: 9
+      Data: 10
     - Name: 
       Entry: 3
       Data: 1
@@ -13073,6 +13073,54 @@ MonoBehaviour:
     - Name: ps
       Entry: 1
       Data: "\u6E2C\u8A66-\u602A\u7269\u4E0A\u5168\u9AD4\u72C0\u614B"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 19201002
+    - Name: $v
+      Entry: 7
+      Data: 546|Card.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 19201002
+    - Name: EffectID
+      Entry: 3
+      Data: 30001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 201, 1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 547|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 201
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 1
+    - Name: ps
+      Entry: 1
+      Data: "\u53F2\u840A\u59C6\u5206\u88C2"
     - Name: 
       Entry: 8
       Data: 
@@ -14613,8 +14661,8 @@ MonoBehaviour:
     ps: "\u653B\u64CA"
   - SkillID: 9211001
     EffectID: 20003
-    EffectParameter: 9,1
-    EffectParameterList: 0900000001000000
+    EffectParameter: 10,1
+    EffectParameterList: 0a00000001000000
     Target: 1
     ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
   - SkillID: 9211002
@@ -14637,8 +14685,8 @@ MonoBehaviour:
     ps: "\u653B\u64CA"
   - SkillID: 9212001
     EffectID: 20003
-    EffectParameter: 9,1
-    EffectParameterList: 0900000001000000
+    EffectParameter: 10,1
+    EffectParameterList: 0a00000001000000
     Target: 1
     ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
   - SkillID: 9212002
@@ -14661,8 +14709,8 @@ MonoBehaviour:
     ps: "\u653B\u64CA"
   - SkillID: 9213001
     EffectID: 20003
-    EffectParameter: 9,1
-    EffectParameterList: 0900000001000000
+    EffectParameter: 10,1
+    EffectParameterList: 0a00000001000000
     Target: 1
     ps: "\u958B\u5834\u5206\u88C2\u7279\u6027"
   - SkillID: 9213002
@@ -14719,3 +14767,9 @@ MonoBehaviour:
     EffectParameterList: 0400000002000000
     Target: 2
     ps: "\u6E2C\u8A66-\u602A\u7269\u4E0A\u5168\u9AD4\u72C0\u614B"
+  - SkillID: 19201002
+    EffectID: 30001
+    EffectParameter: 201, 1
+    EffectParameterList: c900000001000000
+    Target: 1
+    ps: "\u53F2\u840A\u59C6\u5206\u88C2"
