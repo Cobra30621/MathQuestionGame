@@ -43,5 +43,10 @@ namespace NueGames.Action
                 damageAction.DoAction();
             }
         }
+        
+        public override (int, int) GetDamageBasicInfo()
+        {
+            return (_damage, _times);
+        }
     }
 }

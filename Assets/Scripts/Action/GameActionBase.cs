@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Action.Parameters;
 using Card;
 using Combat;
@@ -34,6 +35,19 @@ namespace NueGames.Action
         public ActionSource ActionSource;
 
         public SkillInfo SkillInfo { get; protected set; }
+
+        /// <summary>
+        /// 取得傷害基礎值。
+        /// 回傳一個包含兩個整數的 tuple，分別為傷害基礎值和傷害次數。
+        /// </summary>
+        /// <returns>
+        /// 包含兩個整數的 tuple，分別為傷害基礎值和傷害次數。
+        /// 預設值為 (-1, 1)。
+        /// </returns>
+        public virtual (int, int) GetDamageBasicInfo()
+        {
+            return (-1, 1);
+        }
         
         #endregion
         

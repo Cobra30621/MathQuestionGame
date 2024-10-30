@@ -52,5 +52,23 @@ namespace NueGames.Action
                 GameActionExecutor.AddAction(damageAction);
             }
         }
+
+        
+        
+        public override (int, int) GetDamageBasicInfo()
+        {
+            return (GetDamage(), 1);
+        }
+        
+        private int GetDamage()
+        {
+            float totalDamage = _basicValue;
+            if (!TargetList[0].HasPower(_judgePower))
+            {
+                totalDamage += _extraDamage;
+            }
+
+            return (int)totalDamage;
+        }
     }
 }

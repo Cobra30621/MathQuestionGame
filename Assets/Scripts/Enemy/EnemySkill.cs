@@ -72,11 +72,7 @@ namespace Enemy.Data
             if(useSheetInfos)
                 currentCd = _skillData.CD;
             
-            ActionSource actionSource = new ActionSource()
-            {
-                SourceType = SourceType.Enemy,
-                SourceCharacter = _enemyBase
-            };
+            var actionSource = GetActionScoure();
 
             if (useSheetInfos)
             {
@@ -86,6 +82,8 @@ namespace Enemy.Data
             
             GameActionExecutor.AddAction(_gameActions, 0.5f);
         }
+
+        
 
         /// <summary>
         /// 更新技能冷却时间
@@ -102,17 +100,23 @@ namespace Enemy.Data
         /// <summary>
         /// 获取意图值
         /// </summary>
-        /// <param name="value">输出的意图值</param>
+        /// <param name="info">输出的意图值</param>
         /// <returns>是否成功获取意图值</returns>
-        public bool GetIntentionValue(out int value)
+        public bool GetIntentionValue(out string info)
         {
-            // Debug.Log($"Enemy Skill {_skillData}, Enemy {_enemy.name}");
             if (_intention.ShowIntentionValue)
             {
-                value = -1;
+                _gameActions = GameActionFactory.GetGameActions(skillInfos,
+                    new List<CharacterBase>() { _enemyBase }, GetActionScoure());
                 
-                // TODO : 
-                var damageInfo = new DamageInfo(-1,
+                var (damage, times) = _gameActions[0].GetDamageBasicInfo();
+
+                if (damage == -1)
+                {
+                    Debug.LogError($"{_gameActions[0]} 請設置 GetDamage Basic Info Function，以此顯示傷害數值");
+                }
+                
+                var damageInfo = new DamageInfo(damage,
                     new ActionSource()
                     {
                         SourceType = SourceType.Enemy,
@@ -120,11 +124,14 @@ namespace Enemy.Data
                     }
                     );
                 damageInfo.SetTarget(CombatManager.Instance.MainAlly);
-                value = CombatCalculator.GetDamageValue(damageInfo);
+                var finalDamage = CombatCalculator.GetDamageValue(damageInfo);
+
+                info = times > 1 ? $"{finalDamage} x {times}" : $"{finalDamage}";
+                
                 return true;
             }
 
-            value = -1;
+            info = "";
             return false;
         }
 
@@ -135,6 +142,16 @@ namespace Enemy.Data
         public bool CanPlay()
         {
             return currentCd <= 0 ;
+        }
+        
+        private ActionSource GetActionScoure()
+        {
+            ActionSource actionSource = new ActionSource()
+            {
+                SourceType = SourceType.Enemy,
+                SourceCharacter = _enemyBase
+            };
+            return actionSource;
         }
     }
 }

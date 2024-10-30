@@ -113,10 +113,10 @@ namespace Enemy
         
         public void SetIntentionUI()
         {
-            if (currentSkill.GetIntentionValue(out int value))
+            if (currentSkill.GetIntentionValue(out string info))
             {
                 EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
-                EnemyCanvas.NextActionValueText.text = $"{value}";
+                EnemyCanvas.NextActionValueText.text = info;
             }
             else
             {

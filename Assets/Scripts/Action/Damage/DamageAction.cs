@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Action.Parameters;
 using Card;
 using NueGames.Card;
@@ -59,6 +60,11 @@ namespace NueGames.Action
                 PlaySpawnTextFx($"{_damageInfo.GetDamageValue()}", target.TextSpawnRoot);
                 target.BeAttacked(_damageInfo);
             }
+        }
+
+        public override (int, int) GetDamageBasicInfo()
+        {
+            return (_damage, 1);
         }
     }
 }
