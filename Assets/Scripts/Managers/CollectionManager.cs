@@ -248,6 +248,10 @@ namespace NueGames.Managers
         public void RemoveCardFromPile(PileType targetPile, CardData cardData)
         {
             PileDict[targetPile].Remove(cardData);
+            if (targetPile == PileType.Hand)
+            {
+                HandController.RemoveCardFromHand(cardData);
+            }
         }
         
         /// <summary>
@@ -259,6 +263,16 @@ namespace NueGames.Managers
             var clone = GameManager.BuildAndGetCard(cardData, HandController.drawTransform);
             HandController.AddCardToHand(clone);
         }
+
+        /// <summary>
+        /// 從手牌移除卡牌
+        /// </summary>
+        /// <param name="cardData"></param>
+        public void RemoveCardFromHand(int index)
+        {
+            HandController.RemoveCardFromHand(index);
+        }
+
 
         #endregion
         

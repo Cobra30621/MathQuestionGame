@@ -38,7 +38,7 @@ namespace Card.Data
         [FoldoutGroup("數值參數")]
         [SerializeField] private bool exhaustIfNotPlay;
         
-
+        
         [FoldoutGroup("卡牌特效")] 
         [SerializeField] private FxInfo fxInfo;
         

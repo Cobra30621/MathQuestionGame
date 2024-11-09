@@ -19,6 +19,7 @@ namespace NueGames.Action
         protected override void DoMainAction()
         {
             CollectionManager.AddCardToPile(_pileType, addCardId);
+            
         }
     }
 }

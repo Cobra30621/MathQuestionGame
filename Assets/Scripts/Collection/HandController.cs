@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Card.Data;
 using Enemy;
 using NueGames.Card;
 using NueGames.Characters;
@@ -658,7 +659,12 @@ namespace NueGames.Collection
 
             hand.RemoveAt(index);
         }
-
+        
+        public void RemoveCardFromHand(CardData cardData)
+        {
+            hand.Find(card => card.CardData == cardData).Discard();
+        }
+        
         #endregion
 
         #region Editor

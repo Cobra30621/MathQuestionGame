@@ -16,6 +16,7 @@ namespace Action
         Meteorite = 1110,
         Flee = 1111,
         Tear = 1112,
+        RemoveCardFromPile = 1113,
         
         EnemyBlock = 12,
         Block= 2,
