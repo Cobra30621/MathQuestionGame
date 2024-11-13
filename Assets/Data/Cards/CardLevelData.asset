@@ -1403,7 +1403,7 @@ MonoBehaviour:
     EffectInfos: []
   - ID: 130201
     GroupID: 15
-    SkillID: 
+    SkillID: 4010003
     ManaCost: 1
     UpgradeCost: 1000
     Class: 3
@@ -1412,11 +1412,12 @@ MonoBehaviour:
     DesLang: "\u6839\u64DA\u6575\u65B9\u6578\u91CF\u7372\u5F97\u8B77\u76FE"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4010003
     EffectInfos: []
   - ID: 130202
     GroupID: 15
-    SkillID: 
+    SkillID: 4010004
     ManaCost: 1
     UpgradeCost: 3000
     Class: 3
@@ -1425,11 +1426,12 @@ MonoBehaviour:
     DesLang: "\u6839\u64DA\u6575\u65B9\u6578\u91CF\u7372\u5F97\u8B77\u76FEx2"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4010004
     EffectInfos: []
   - ID: 130203
     GroupID: 15
-    SkillID: 
+    SkillID: 4010005
     ManaCost: 1
     UpgradeCost: 0
     Class: 3
@@ -1438,11 +1440,12 @@ MonoBehaviour:
     DesLang: "\u6839\u64DA\u6575\u65B9\u6578\u91CF\u7372\u5F97\u8B77\u76FEx3"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4010005
     EffectInfos: []
   - ID: 130301
     GroupID: 16
-    SkillID: 
+    SkillID: 4000001
     ManaCost: 0
     UpgradeCost: 1000
     Class: 3
@@ -1451,11 +1454,12 @@ MonoBehaviour:
     DesLang: "\u7372\u5F971\u9EDEmana"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4000001
     EffectInfos: []
   - ID: 130302
     GroupID: 16
-    SkillID: 
+    SkillID: 4000002
     ManaCost: 0
     UpgradeCost: 3000
     Class: 3
@@ -1464,11 +1468,12 @@ MonoBehaviour:
     DesLang: "\u7372\u5F972\u9EDEmana"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4000002
     EffectInfos: []
   - ID: 130303
     GroupID: 16
-    SkillID: 
+    SkillID: 4000003
     ManaCost: 0
     UpgradeCost: 0
     Class: 3
@@ -1477,46 +1482,50 @@ MonoBehaviour:
     DesLang: "\u7372\u5F973\u9EDEmana"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4000003
     EffectInfos: []
   - ID: 130401
     GroupID: 17
-    SkillID: 
+    SkillID: 4020003
     ManaCost: 1
     UpgradeCost: 1000
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9695\u77F3"
     DesLang: "\u6839\u64DA\u6575\u4EBA\u6578\u91CF\u9020\u6210\u5168\u9AD4\u50B7\u5BB3x2"
-    TargetChoose: 0
+    TargetChoose: 2
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4020003
     EffectInfos: []
   - ID: 130402
     GroupID: 17
-    SkillID: 
+    SkillID: 4020004
     ManaCost: 1
     UpgradeCost: 3000
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9695\u77F3"
     DesLang: "\u6839\u64DA\u6575\u4EBA\u6578\u91CF\u9020\u6210\u5168\u9AD4\u50B7\u5BB3x4"
-    TargetChoose: 0
+    TargetChoose: 2
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4020004
     EffectInfos: []
   - ID: 130403
     GroupID: 17
-    SkillID: 
+    SkillID: 4020005
     ManaCost: 1
     UpgradeCost: 0
     Class: 3
     MaxLevel: 1
     TitleLang: "\u9695\u77F3"
     DesLang: "\u6839\u64DA\u6575\u4EBA\u6578\u91CF\u9020\u6210\u5168\u9AD4\u50B7\u5BB3x25"
-    TargetChoose: 0
+    TargetChoose: 2
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4020005
     EffectInfos: []
   - ID: 140201
     GroupID: 18
@@ -1562,7 +1571,7 @@ MonoBehaviour:
     EffectInfos: []
   - ID: 140301
     GroupID: 19
-    SkillID: 
+    SkillID: 4030003
     ManaCost: 1
     UpgradeCost: 1000
     Class: 4
@@ -1571,11 +1580,12 @@ MonoBehaviour:
     DesLang: "\u6839\u64DA\u4E4B\u524D\u6253\u51FA\u7684\u5361\u724C\u9020\u6210\u50B7\u5BB3x2"
     TargetChoose: 1
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4030003
     EffectInfos: []
   - ID: 140302
     GroupID: 19
-    SkillID: 
+    SkillID: 4030004
     ManaCost: 1
     UpgradeCost: 3000
     Class: 4
@@ -1584,11 +1594,12 @@ MonoBehaviour:
     DesLang: "\u6839\u64DA\u4E4B\u524D\u6253\u51FA\u7684\u5361\u724C\u9020\u6210\u50B7\u5BB3x3"
     TargetChoose: 1
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4030004
     EffectInfos: []
   - ID: 140303
     GroupID: 19
-    SkillID: 
+    SkillID: 4030005
     ManaCost: 1
     UpgradeCost: 0
     Class: 4
@@ -1597,7 +1608,8 @@ MonoBehaviour:
     DesLang: "\u6839\u64DA\u4E4B\u524D\u6253\u51FA\u7684\u5361\u724C\u9020\u6210\u50B7\u5BB3x4"
     TargetChoose: 1
     ExhaustAfterPlay: 0
-    skillIDs: []
+    skillIDs:
+    - 4030005
     EffectInfos: []
   - ID: 140401
     GroupID: 20

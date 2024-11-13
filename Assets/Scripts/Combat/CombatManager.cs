@@ -81,6 +81,8 @@ namespace Combat
         public AllyBase MainAlly => characterHandler.MainAlly;
 
         public List<EnemyBase> Enemies => characterHandler.Enemies;
+        
+        public int EnemyCount => Enemies.Count;
 
         public EnemyBase RandomEnemy => characterHandler.RandomEnemy();
 

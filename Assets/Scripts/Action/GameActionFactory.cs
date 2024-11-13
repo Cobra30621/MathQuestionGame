@@ -80,12 +80,8 @@ namespace GameAction
                     return new MultiBlockAction(skillInfo);
                 case GameActionType.GainMana:
                     return new GainManaAction(skillInfo);
-                case GameActionType.Meteorite:
-                    return new MeteoriteAction(skillInfo);
                 case GameActionType.Flee:
                     return new FleeAction(skillInfo);
-                case GameActionType.Tear:
-                    return new TearAction(skillInfo);
                 case GameActionType.SpawnEnemy:
                     return new SpawnEnemyAction(skillInfo);
                 case GameActionType.SplitEnemy:
@@ -96,6 +92,8 @@ namespace GameAction
                     return new AddCardToPileAction(skillInfo);
                 case GameActionType.RemoveCardFromPile:
                     return new RemoveCardFromPileAction(skillInfo);
+                case GameActionType.DamageByCount:
+                    return new DamageByCountAction(skillInfo);
                 default:
                     Debug.LogError($"无效的技能类型 {skillInfo.EffectID}");
                     return new NullAction(skillInfo);

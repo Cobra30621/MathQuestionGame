@@ -12,10 +12,9 @@ namespace Action
         SuperDamage = 3,
         ApplyPower = 20003,
         EnemyHpDamage = 20006,
+        DamageByCount = 20010,
         // not official coded action start from 111
-        Meteorite = 1110,
         Flee = 1111,
-        Tear = 1112,
         RemoveCardFromPile = 1113,
         
         EnemyBlock = 12,
