@@ -12,6 +12,8 @@ namespace Action
         SuperDamage = 3,
         ApplyPower = 20003,
         EnemyHpDamage = 20006,
+        GainMana = 20007,
+        BlockByCount = 20009,
         DamageByCount = 20010,
         // not official coded action start from 111
         Flee = 1111,
@@ -19,7 +21,7 @@ namespace Action
         
         EnemyBlock = 12,
         Block= 2,
-        GainMana = 51,
+        
         
         // Enemy
         [LabelText("生成敵人")]

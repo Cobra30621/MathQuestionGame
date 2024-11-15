@@ -94,6 +94,8 @@ namespace GameAction
                     return new RemoveCardFromPileAction(skillInfo);
                 case GameActionType.DamageByCount:
                     return new DamageByCountAction(skillInfo);
+                case GameActionType.BlockByCount:
+                    return new BlockByCountAction(skillInfo);
                 default:
                     Debug.LogError($"无效的技能类型 {skillInfo.EffectID}");
                     return new NullAction(skillInfo);
