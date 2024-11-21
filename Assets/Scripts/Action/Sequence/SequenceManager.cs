@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -15,6 +16,9 @@ namespace Action.Sequence
         [ShowInInspector]
         private bool isExecuting = false;
 
+        [ShowInInspector]
+        private bool actionCompleted;
+
         public void AddSequence(ISequence action)
         {
             sequenceQueue.Enqueue(action);
@@ -31,9 +35,19 @@ namespace Action.Sequence
             while (sequenceQueue.Count > 0)
             {
                 currentSequence = sequenceQueue.Dequeue();
-                bool actionCompleted = false;
-                
-                yield return currentSequence.Execute(() => actionCompleted = true);
+                actionCompleted = false;
+                try
+                {
+                    StartCoroutine(currentSequence.Execute(() =>
+                    {
+                        actionCompleted = true;
+                    }));
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError("Action Execution Failed:\n" +  e);
+                    actionCompleted = true; // Assuming action completed in case of an error
+                }
                 
                 yield return new WaitUntil(() => actionCompleted);
             }

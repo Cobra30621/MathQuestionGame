@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using NueGames.Action;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Action.Sequence
 {
     public class DelaySequence : ISequence
     {
+        [ShowInInspector]
         private List<GameActionBase> _actions;
+        
+        [ShowInInspector]
         private float _delay = 0;
 
 
