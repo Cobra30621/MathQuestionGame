@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Data.Encounter;
 using Enemy;
 using Feedback;
@@ -85,6 +86,11 @@ namespace Combat
         public int EnemyCount => Enemies.Count;
 
         public EnemyBase RandomEnemy => characterHandler.RandomEnemy();
+
+        public int GetEnemyTotalHealth()
+        {
+            return Enemies.Sum(enemy => enemy.GetHealth());
+        }
 
         #endregion
 

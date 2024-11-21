@@ -12,6 +12,8 @@ namespace NueGames.Power
         /// </summary>
         public override PowerName PowerName => PowerName.SplitEnemy;
 
+        public override bool ShowAmount => false;
+
         /// <summary>
         /// 订阅所有事件
         /// </summary>
@@ -40,7 +42,7 @@ namespace NueGames.Power
             {
                 var enemy = (EnemyBase)Owner;
                 // 设置敌人为分裂状态
-                enemy.SetSplitEnemySkill();
+                enemy.SetSplitEnemySkill($"{Amount}");
                 
                 // 清除当前能力
                 Owner.ClearPower(PowerName);

@@ -59,6 +59,11 @@ namespace NueGames.Power
         /// 發動事件，所需的計數
         /// </summary>
         public int NeedCounter;
+
+        /// <summary>
+        /// UI 顯示層數
+        /// </summary>
+        public virtual bool ShowAmount => true;
         
         
         #region SetUp

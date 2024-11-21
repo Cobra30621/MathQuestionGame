@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using Action.Parameters;
 using Card;
+using NueGames.Characters;
 using NueGames.Managers;
 
 namespace NueGames.Action
@@ -17,10 +19,13 @@ namespace NueGames.Action
         private int _times;
         
 
-        public MultiDamageAction(int damage, int times)
+        public MultiDamageAction(int damage, int times, 
+            List<CharacterBase> targets, ActionSource actionSource)
         {
             _damage = damage;
             _times = times;
+            TargetList = targets;
+            ActionSource = actionSource;
         }
 
         /// <summary>

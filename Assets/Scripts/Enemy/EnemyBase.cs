@@ -74,34 +74,12 @@ namespace Enemy
         
         
         /// <summary>
-        /// 設置分裂行動並獲得黏液
-        /// </summary>
-        public void SetSplitEnemySkillAndGainSmilePower()
-        {
-            
-            var spawnAction = new SplitEnemyAction(GetId(), GetHealth());
-            var intention = _sheetDataGetter.GetIntention("分裂");
-            var applyPowerAction = new ApplyPowerAction(1, PowerName.Smile,
-                new List<CharacterBase>() { this }, new ActionSource()
-                {
-                    SourceType = SourceType.Enemy,
-                    SourceCharacter = this
-                });
-            
-            currentSkill = new EnemySkill(
-                new List<GameActionBase>(){spawnAction, applyPowerAction}, intention);
-            
-            SetIntentionUI();
-        }
-        
-
-        /// <summary>
         /// 設置分裂行動
         /// </summary>
-        public void SetSplitEnemySkill()
+        public void SetSplitEnemySkill(string enemyId)
         {
             
-            var spawnAction = new SplitEnemyAction(GetId(), GetHealth());
+            var spawnAction = new SplitEnemyAction(enemyId, GetHealth());
             var intention = _sheetDataGetter.GetIntention("分裂");
             
             currentSkill = new EnemySkill(

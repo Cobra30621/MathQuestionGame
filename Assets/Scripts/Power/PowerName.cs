@@ -17,8 +17,6 @@ namespace NueGames.Power
         Fire = 7,
         [LabelText("分裂")]
         SplitEnemy = 9,
-        [LabelText("史萊姆王分裂")]
-        KingSmileSplit = 10,
         
         StrengthAfterDead = 11,
         Shield = 12,
@@ -26,8 +24,6 @@ namespace NueGames.Power
         Charge = 14,
         Weak = 15,
         
-        [LabelText("黏液")]
-        Smile = 21,
         // not official coded
         Trap = 1112,
         //
