@@ -7,8 +7,6 @@ namespace Enemy.Data
     [Serializable]
     public class EnemySkillData
     {
-        public string ID;
-        
         public string SkillID;
 
         public string ps;

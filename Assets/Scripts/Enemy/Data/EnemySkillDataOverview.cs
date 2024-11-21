@@ -33,7 +33,7 @@ namespace Enemy.Data
             {
                 // 將空行列剔除
                 EnemySkills = infos.Where(info => 
-                    !info.ID.IsNullOrWhitespace()).ToArray();;
+                    !info.SkillID.IsNullOrWhitespace()).ToArray();;
                 Debug.Log($"EnemySkillData Count: {EnemySkills.Length}");
 
                 foreach (var skillData in EnemySkills)
@@ -63,13 +63,13 @@ namespace Enemy.Data
             dict = new Dictionary<string, EnemySkillData>();
             foreach (var enemyAction   in EnemySkills)
             {
-                if (dict.ContainsKey(enemyAction.ID))
+                if (dict.ContainsKey(enemyAction.SkillID))
                 {
-                    Debug.LogError($"Duplicate ID: {enemyAction.ID}");
+                    Debug.LogError($"Duplicate ID: {enemyAction.SkillID}");
                 }
                 else
                 {
-                    dict.Add(enemyAction.ID, enemyAction);
+                    dict.Add(enemyAction.SkillID, enemyAction);
                 }
             }
         }

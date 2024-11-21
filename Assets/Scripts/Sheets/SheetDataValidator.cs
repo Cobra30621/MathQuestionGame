@@ -88,10 +88,10 @@ namespace Sheets
             {
                 foreach (var skillID in enemySkillData.skillIDs)
                 {
-                    getter.skillData.GetSkillInfo(skillID, $"EnemySkill {enemySkillData.ID}: ");
+                    getter.skillData.GetSkillInfo(skillID, $"EnemySkill {enemySkillData.SkillID}: ");
                 }
 
-                getter.intentionData.GetIntention(enemySkillData.Intention, $"EnemySkill {enemySkillData.ID}: ");
+                getter.intentionData.GetIntention(enemySkillData.Intention, $"EnemySkill {enemySkillData.SkillID}: ");
             }
         }
 

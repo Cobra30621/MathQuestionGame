@@ -74,6 +74,8 @@ namespace GameAction
                     return new MultiDamageAction(skillInfo);
                 case GameActionType.ApplyPower:
                     return new ApplyPowerAction(skillInfo);
+                case GameActionType.EnemyHpDamage:
+                    return new EnemyHpDamageAction(skillInfo);
                 case GameActionType.Block:
                     return new ApplyBlockAction(skillInfo);
                 case GameActionType.MultiBlock:
