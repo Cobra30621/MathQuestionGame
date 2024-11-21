@@ -56,7 +56,6 @@ namespace Tool
         [Button]
         public void StartDevelopMode()
         {
-            Debug.Log("設定開發者清單");
             SetDevelopModeData();
             
             PlayTest();

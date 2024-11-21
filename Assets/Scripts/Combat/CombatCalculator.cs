@@ -35,8 +35,6 @@ namespace NueGames.Combat
                 return  Mathf.RoundToInt(info.DamageValue);
             }
             
-            Debug.Log($"ActionSource {info.ActionSource}");
-            
             return GetDamageValue(info.DamageValue, info.ActionSource.SourceCharacter, info.Target);
         }
         

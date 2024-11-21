@@ -20,7 +20,6 @@ public class RelicCanvas : CanvasBase
     private void Awake()
     {
         RelicManager.OnRelicUpdated.AddListener(OnGainRelic);
-        Debug.Log("Add Event");
     }
 
 

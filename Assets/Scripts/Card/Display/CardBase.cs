@@ -110,7 +110,6 @@ namespace Card.Display
             
            
             var tooltipManager = TooltipManager.Instance;
-            Debug.Log($"CardData.KeywordsList{CardData.KeywordsList.Count}");
             foreach (var cardDataSpecialKeyword in CardData.KeywordsList)
             {
                 var specialKeyword = tooltipManager.SpecialKeywordData.SpecialKeywordBaseList.Find(x=>x.SpecialKeyword == cardDataSpecialKeyword);
@@ -119,7 +118,6 @@ namespace Card.Display
                         _camera);
             }
             
-            Debug.Log($"GetActionsPowerTypes(){GetActionsPowerTypes()}");
             foreach (var powerType in GetActionsPowerTypes())
             {
                 PowerData powerData = tooltipManager.PowersData.GetPowerData(powerType);

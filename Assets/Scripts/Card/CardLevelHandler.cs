@@ -61,7 +61,6 @@ namespace Card
             CheckHaveInitDict();
             cardSaveInfos.TryGetValue(id, out var cardSaveLevel);
 
-            Debug.Log($"Gain card {id}");
             if (cardSaveLevel != null && !cardSaveLevel.HasGained)
             {
                 cardSaveLevel.HasGained = true;

@@ -66,7 +66,6 @@ namespace NueGames.Managers
             PileDict.Add(PileType.Discard, DiscardPile);
             PileDict.Add(PileType.Exhaust, ExhaustPile);
             
-            Debug.Log("SetupPileDict");
         }
 
         #endregion
