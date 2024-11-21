@@ -507,6 +507,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 10.662598
       objectReference: {fileID: 0}
+    - target: {fileID: 5169874192263613399, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -80.82715
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312470012348539602, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 47.944824
+      objectReference: {fileID: 0}
     - target: {fileID: 5586799554685539913, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -934,7 +942,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a98bdd8349c66492e84573047c60899a, type: 2}
     - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: enemyEncounter.id
-      value: 23350bb9-c64b-4773-8b9e-269746eb51e0
+      value: 8611c6cb-bce1-4b43-8683-d52ea1ed9632
       objectReference: {fileID: 0}
     - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: allyPowerAtGameStart.Array.size
@@ -982,9 +990,17 @@ PrefabInstance:
       value: "\u904A\u6232\u53EF\u8A2D\u5B9A\u6771\u897F\u6574\u7406"
       objectReference: {fileID: 0}
     - target: {fileID: 1850791680627898550, guid: 70dd497a4bff74c8ba9ebbfd269c9969, type: 3}
+      propertyPath: SaveDeck
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d8b556c7688a4833901d3a5cad41e8b, type: 2}
+    - target: {fileID: 1850791680627898550, guid: 70dd497a4bff74c8ba9ebbfd269c9969, type: 3}
       propertyPath: EnemyPrefabData
       value: 
       objectReference: {fileID: 11400000, guid: 89f6bf46d877c2443ad8322052e244e8, type: 2}
+    - target: {fileID: 1850791680627898550, guid: 70dd497a4bff74c8ba9ebbfd269c9969, type: 3}
+      propertyPath: GainInBattleDeck
+      value: 
+      objectReference: {fileID: 11400000, guid: ae42016b604e14f5c92a99e308398d31, type: 2}
     - target: {fileID: 1850791680627898551, guid: 70dd497a4bff74c8ba9ebbfd269c9969, type: 3}
       propertyPath: m_RootOrder
       value: 10

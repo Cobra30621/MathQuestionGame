@@ -93,66 +93,60 @@ MonoBehaviour:
       displayName: "\u53F2\u840A\u59C6/\u96E3\u5EA6\u4E00"
     ID: 201
     Lang: "\u53F2\u840A\u59C6"
-    EnemySkillID: 9201002, 9201003
+    EnemySkillID: 9201003
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Soldier
     StartBattleSkillID: 9201001
     MaxHp: 10
     enemySkillIDs:
-    - 9201002
     - 9201003
   - uniqueId:
       dataId: 202
       displayName: "\u53F2\u840A\u59C6/\u96E3\u5EA6\u4E8C"
     ID: 202
     Lang: "\u53F2\u840A\u59C6"
-    EnemySkillID: 9202002, 9202003
+    EnemySkillID: 9202003
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: Soldier
     StartBattleSkillID: 9202001
     MaxHp: 10
     enemySkillIDs:
-    - 9202002
     - 9202003
   - uniqueId:
       dataId: 203
       displayName: "\u53F2\u840A\u59C6/\u96E3\u5EA6\u4E09"
     ID: 203
     Lang: "\u53F2\u840A\u59C6"
-    EnemySkillID: 9203002, 9203003
+    EnemySkillID: 9203003
     Level: "\u96E3\u5EA6\u4E09"
     Prefab: Soldier
     StartBattleSkillID: 9203001
     MaxHp: 10
     enemySkillIDs:
-    - 9203002
     - 9203003
   - uniqueId:
       dataId: 211
       displayName: "\u53F2\u840A\u59C6\u738B/\u96E3\u5EA6\u4E00"
     ID: 211
     Lang: "\u53F2\u840A\u59C6\u738B"
-    EnemySkillID: 9211002, 9211003, 9211004
+    EnemySkillID: 9211004
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Hive
     StartBattleSkillID: 9211001
-    MaxHp: 20
+    MaxHp: 15
     enemySkillIDs:
-    - 9211002
-    - 9211003
     - 9211004
   - uniqueId:
       dataId: 212
       displayName: "\u53F2\u840A\u59C6\u738B/\u96E3\u5EA6\u4E8C"
     ID: 212
     Lang: "\u53F2\u840A\u59C6\u738B"
-    EnemySkillID: 9212002, 9212003, 9212004
+    EnemySkillID: 9212003, 9212004
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: Hive
     StartBattleSkillID: 9212001
-    MaxHp: 10
+    MaxHp: 15
     enemySkillIDs:
-    - 9212002
     - 9212003
     - 9212004
   - uniqueId:
@@ -160,13 +154,12 @@ MonoBehaviour:
       displayName: "\u53F2\u840A\u59C6\u738B/\u96E3\u5EA6\u4E09"
     ID: 213
     Lang: "\u53F2\u840A\u59C6\u738B"
-    EnemySkillID: 9213002, 9213003, 9213004
+    EnemySkillID: 9213003, 9213004
     Level: "\u96E3\u5EA6\u4E09"
     Prefab: Hive
     StartBattleSkillID: 9213001
     MaxHp: 10
     enemySkillIDs:
-    - 9213002
     - 9213003
     - 9213004
   - uniqueId:
