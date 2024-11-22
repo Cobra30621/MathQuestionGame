@@ -146,6 +146,11 @@ namespace Combat
         /// </summary>
         public static Action<TurnInfo> OnTurnEnd;
 
+        public static Action<int> OnBattleWin;
+
+        public static System.Action OnBattleStart;
+        
+
 
         /// <summary>
         /// 取得玩家/敵人回合資訊
@@ -263,6 +268,7 @@ namespace Combat
 
         private IEnumerator StartCombatRoutine()
         {
+            
             var encounterName = GameManager.CurrentEnemyEncounter;
             currentEncounter = enemyEncounterOverview.FindUniqueId(encounterName.Id);
             characterHandler.BuildEnemies(currentEncounter.enemyList);
@@ -279,7 +285,7 @@ namespace Combat
             UIManager.InformationCanvas.gameObject.SetActive(true);
 
             yield return new WaitForSeconds(0.1f);
-
+            OnBattleStart?.Invoke();
             yield return BattleStartEnemyRoutine();
 
             CurrentCombatStateType = CombatStateType.RoundStart;
@@ -385,6 +391,7 @@ namespace Combat
 
         private IEnumerator WinCombatRoutine()
         {
+            OnBattleWin.Invoke(RoundNumber);
             GameManager.AllyHealthHandler.SetHealth(
                 MainAlly.GetCharacterStats().CurrentHealth);
 

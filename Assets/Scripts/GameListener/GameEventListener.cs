@@ -107,6 +107,15 @@ namespace GameListener
         {
             
         }
+
+        protected virtual void OnBattleStart()
+        {
+            
+        }
+        protected virtual void OnBattleWin(int roundNumber)
+        {
+            
+        }
         
         /// <summary>
         /// 回合開始獲得瑪娜加成

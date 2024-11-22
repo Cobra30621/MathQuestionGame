@@ -5,6 +5,9 @@ using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
+using NueGames.Characters;
+using UnityEngine;
+using Combat;
 using Relic;
 
 namespace NueGames.Relic
@@ -39,6 +42,10 @@ namespace NueGames.Relic
 
         public RelicInfo RelicInfo;
 
+        public CharacterBase MainAlly => CombatManager.Instance.MainAlly;
+        
+        protected CombatManager CombatManager => CombatManager.Instance;
+
         
         #region SetUp
 
@@ -64,7 +71,10 @@ namespace NueGames.Relic
         #endregion
         
         #region 工具
-        
+        public bool IsCharacterTurn(TurnInfo info)
+        {
+            return info.CharacterType == CharacterType.Ally;
+        }
         protected ActionSource GetActionSource()
         {
             return new ActionSource()
