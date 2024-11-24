@@ -26,6 +26,11 @@ namespace Tool
 
         public static List<int> ConvertStringToIntList(string input)
         {
+            if (input == null ||  input.Trim() == "")
+            {
+                return new List<int>();
+            }
+            
             List<int> numbers = new List<int>();
 
             string[] parts = input.Split(',');

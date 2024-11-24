@@ -72,11 +72,12 @@ namespace Sheets
                         enemySkillID, $"Enemy {enemyData.ID}: ");
                 }
 
-                if (enemyData.StartBattleSkillID != "")
+                foreach (var enemySkillID in enemyData.startBattleSkillIDs)
                 {
-                    getter.enemySkillData.GetEnemySkillData(enemyData.StartBattleSkillID, $"Enemy {enemyData.ID}: ");
+                    getter.enemySkillData.GetEnemySkillData(
+                        enemySkillID, $"Enemy {enemyData.ID}: ");
                 }
-
+                
                 getter.enemyPrefabData.GetPrefab(enemyData.Prefab, $"Enemy {enemyData.ID}: ");
             }
         }

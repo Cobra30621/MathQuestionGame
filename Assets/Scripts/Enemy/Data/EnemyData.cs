@@ -17,6 +17,7 @@ namespace Enemy.Data
         public string StartBattleSkillID;
         public int MaxHp;
         
+        public List<string> startBattleSkillIDs = new List<string>();
         public List<string> enemySkillIDs;
     }
     

@@ -113,8 +113,15 @@ namespace Enemy
         /// <returns></returns>
         public IEnumerator BattleStartActionRoutine()
         {
-            if(enemyAbility.UseStartBattleSkill())
-                yield return ActionRoutine(enemyAbility.GetStartBattleSkill());
+            if (enemyAbility.UseStartBattleSkill())
+            {
+                var startBattleSkills = enemyAbility.GetStartBattleSkill();
+
+                foreach (var startBattleSkill in startBattleSkills)
+                {
+                    yield return ActionRoutine(startBattleSkill);
+                }
+            }
         }
 
         

@@ -9,7 +9,7 @@ namespace Enemy.Data
     public class EnemyAbility
     {
         [SerializeField] private List<EnemySkill> _enemySkills;
-        [SerializeField] private EnemySkill _startBattleSkill;
+        [SerializeField] private List<EnemySkill> _startBattleSkills;
         
 
         public EnemyAbility(EnemyData data, EnemyBase enemyBase, SheetDataGetter getter)
@@ -18,9 +18,16 @@ namespace Enemy.Data
                 ConvertAll(id => 
                     new EnemySkill(getter.GetEnemySkillInfo(id), enemyBase, getter));
 
-            if(!data.StartBattleSkillID.IsNullOrWhitespace())
-                _startBattleSkill = new EnemySkill(
-                    getter.GetEnemySkillInfo(data.StartBattleSkillID), enemyBase, getter);
+            if (!data.StartBattleSkillID.IsNullOrWhitespace())
+            {
+                _startBattleSkills = new List<EnemySkill>();
+                foreach (var skillID in data.startBattleSkillIDs)
+                {
+                    _startBattleSkills.Add(new EnemySkill(
+                        getter.GetEnemySkillInfo(skillID), enemyBase, getter
+                    ));
+                }
+            }
         }
 
         /// <summary>
@@ -44,12 +51,12 @@ namespace Enemy.Data
 
         public bool UseStartBattleSkill()
         {
-            return _startBattleSkill != null;
+            return _startBattleSkills != null;
         }
         
-        public EnemySkill GetStartBattleSkill()
+        public List<EnemySkill> GetStartBattleSkill()
         {
-            return _startBattleSkill;
+            return _startBattleSkills;
         }
 
 
