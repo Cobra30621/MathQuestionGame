@@ -90,6 +90,10 @@ namespace NueGames.Power
                 GameActionExecutor.AddAction(actions, 2f);
                 
             }
+            else
+            {
+                StackPower(-1);
+            }
         }
     }
 }

@@ -81,8 +81,6 @@ namespace Combat
 
         public void BuildAllies(AllyData allyData)
         {
-            if(ReachMaxEnemyCount()) return;
-            
             var clone = Instantiate(allyData.prefab, allyPos);
             clone.BuildCharacter(allyData, this);
             MainAlly = clone;

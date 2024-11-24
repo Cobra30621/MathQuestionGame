@@ -386,7 +386,7 @@ namespace Combat
 
         private IEnumerator WinCombatRoutine()
         {
-            OnBattleWin.Invoke(RoundNumber);
+            OnBattleWin?.Invoke(RoundNumber);
             GameManager.AllyHealthHandler.SetHealth(
                 MainAlly.GetCharacterStats().CurrentHealth);
 
