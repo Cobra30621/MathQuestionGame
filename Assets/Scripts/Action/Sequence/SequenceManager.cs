@@ -36,18 +36,11 @@ namespace Action.Sequence
             {
                 currentSequence = sequenceQueue.Dequeue();
                 actionCompleted = false;
-                try
+
+                yield return currentSequence.Execute(() =>
                 {
-                    StartCoroutine(currentSequence.Execute(() =>
-                    {
-                        actionCompleted = true;
-                    }));
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError("Action Execution Failed:\n" +  e);
-                    actionCompleted = true; // Assuming action completed in case of an error
-                }
+                    actionCompleted = true;
+                });
                 
                 yield return new WaitUntil(() => actionCompleted);
             }

@@ -115,7 +115,7 @@ namespace NueGames.Action
 
         public override string ToString()
         {
-            return $"{nameof(TargetList)}: {TargetList}, {nameof(ActionSource)}: {ActionSource}";
+            return $"{SkillInfo}\n{nameof(TargetList)}: {TargetList}\n{nameof(ActionSource)}: {ActionSource}";
         }
     }
 }

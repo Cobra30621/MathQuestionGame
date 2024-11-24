@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NueGames.Action;
@@ -23,10 +24,18 @@ namespace Action.Sequence
 
         public override IEnumerator Execute(System.Action onComplete)
         {
-            foreach (var action in _actions)
+            try
             {
-                action.DoAction();
+                foreach (var action in _actions)
+                {
+                    action.DoAction();
+                }
             }
+            catch (Exception e)
+            {
+                Debug.LogError("Action Execution Failed:\n" +  e);
+            }
+            
 
             yield return new WaitForSeconds(_delay);
             
