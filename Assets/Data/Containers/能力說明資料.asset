@@ -49,7 +49,7 @@ MonoBehaviour:
     iconSprite: {fileID: 21300000, guid: 4c6503d12cac245d386e9c334bddf0b4, type: 3}
   - titleText: "\u5206\u88C2"
     contentText: "\u7576\u8840\u91CF\u4F4E\u65BC 50 % \u6642\uFF0C\u5728\u6575\u4EBA\u7684\u56DE\u5408\u9032\u884C\u5206\u88C2"
-    powerName: 9
+    powerName: 16
     iconSprite: {fileID: 21300000, guid: b5f5839c0c638184d90210de34685b87, type: 3}
   - titleText: "\u53F2\u840A\u59C6\u738B\u5206\u88C2"
     contentText: "\u7576\u8840\u91CF\u4F4E\u65BC 50 % \u6642\uFF0C\u5728\u6575\u4EBA\u7684\u56DE\u5408\u9032\u884C\u5206\u88C2\uFF0C\u4E26\u7372\u7684\u9ECF\u6DB2"
@@ -68,14 +68,15 @@ MonoBehaviour:
     contentText: "\u6BCF 1 \u5C64\u4F7F\u4E0B 1 \u56DE\u5408\u5C11 1 \u9EDE\u884C\u52D5\u503C\uFF08\u9B54\u529B\uFF09"
     powerName: 43
     iconSprite: {fileID: 21300000, guid: 169d213802dc448719043e9e837b329a, type: 3}
-  - titleText: "\u8840\u6012"
-    contentText: "\u73A9\u5BB6\u53D7\u5230\u50B7\u5BB3\u589E\u52A030\uFF05,\u9020\u62102\u500D\u50B7\u5BB3"
-    powerName: 6
-    iconSprite: {fileID: 21300000, guid: 169d213802dc448719043e9e837b329a, type: 3}
-  - titleText: "\u6975\u9650"
-    contentText: "\u7576\u73A9\u5BB6\u7B54\u932F\u984C\u76EE\u6642\u7ACB\u5373\u6B7B\u4EA1"
+  - titleText: "\u71C3\u71D2"
+    contentText: "\u6BCF\u56DE\u5408\u6263\u5C64\u6578\u7684\u8840\u91CF"
     powerName: 7
-    iconSprite: {fileID: 21300000, guid: a663e108a795d420280fff1653fb52c0, type: 3}
+    iconSprite: {fileID: 21300000, guid: 6c370224fbe9e486c86dd3f71d7a1e72, type: 3}
+  - titleText: "\u60E1\u9B54\u737B\u796D"
+    contentText: "5 \u56DE\u5408\u5F8C\uFF0C\u81EA\u6BBA\u4E26\u5C07\u8840\u91CF\u7D66\u4E88\u60E1\u9B54\u738B\uFF0C\u4E26\u7D66\u4ED6
+      5 \u9EDE\u529B\u91CF"
+    powerName: 8
+    iconSprite: {fileID: 21300000, guid: 313f1b24ff320f34ba3fb34f0a654345, type: 3}
   - titleText: "\u5931\u624B"
     contentText: "\u73A9\u5BB6\u9020\u6210\u50B7\u5BB3\u70BA0"
     powerName: 8

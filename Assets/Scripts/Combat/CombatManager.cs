@@ -85,12 +85,7 @@ namespace Combat
         
         public int EnemyCount => Enemies.Count;
 
-        public EnemyBase RandomEnemy => characterHandler.RandomEnemy();
-
-        public int GetEnemyTotalHealth()
-        {
-            return Enemies.Sum(enemy => enemy.GetHealth());
-        }
+        
 
         #endregion
 
@@ -410,6 +405,33 @@ namespace Combat
                     ItemGainType =  ItemGainType.Character
                 }
             }, currentNodeType);
+        }
+
+        #endregion
+
+        #region 取得角色資訊
+
+        public EnemyBase RandomEnemy => characterHandler.RandomEnemy();
+
+        public int GetEnemyTotalHealth()
+        {
+            return Enemies.Sum(enemy => enemy.GetHealth());
+        }
+
+        public bool GetEnemyById(string id, out CharacterBase enemy)
+        {
+            // find in Enemies by enemy.id = id
+            foreach (var enemyBase in Enemies)
+            {
+                if (enemyBase.GetId() == id)
+                {
+                    enemy = enemyBase;
+                    return true;
+                }
+            }
+
+            enemy = null;
+            return false;
         }
 
         #endregion
