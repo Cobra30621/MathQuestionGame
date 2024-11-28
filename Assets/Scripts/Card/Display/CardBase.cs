@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Action;
 using Card.Data;
 using NSubstitute.Core;
 using NueGames.Data.Containers;
@@ -114,16 +115,14 @@ namespace Card.Display
             {
                 var specialKeyword = tooltipManager.SpecialKeywordData.SpecialKeywordBaseList.Find(x=>x.SpecialKeyword == cardDataSpecialKeyword);
                 if (specialKeyword != null)
-                    ShowTooltipInfo(specialKeyword.GetContent(),specialKeyword.GetHeader(),descriptionRoot,CursorType.Default,
-                        _camera);
+                    ShowTooltipInfo(specialKeyword.GetContent(),specialKeyword.GetHeader(),descriptionRoot);
             }
             
             foreach (var powerType in GetActionsPowerTypes())
             {
                 PowerData powerData = tooltipManager.PowersData.GetPowerData(powerType);
                 if(powerData != null)
-                    ShowTooltipInfo(powerData.GetContent(),powerData.GetHeader(),descriptionRoot,CursorType.Default,
-                        _camera);
+                    ShowTooltipInfo(powerData.GetContent(),powerData.GetHeader(),descriptionRoot);
             }
         }
 
@@ -141,14 +140,14 @@ namespace Card.Display
         {
             List<PowerName> powerTypes = new List<PowerName>();
             
-            // TODO GetActionsPowerTypes()
-            // foreach (var cardActionData in CardData.CardActionDataList)
-            // {
-            //     if (cardActionData.actionName == ActionName.ApplyPower)
-            //     {
-            //         powerTypes.Add(cardActionData.powerName);
-            //     }
-            // }
+            foreach (var effectInfo in CardLevelInfo.EffectInfos)
+            {
+                if (effectInfo.EffectID == GameActionType.ApplyPower)
+                {
+                    PowerName powerName = (PowerName)effectInfo.EffectParameterList[0];
+                    powerTypes.Add(powerName);
+                }
+            }
             return powerTypes;
         }
 

@@ -13,13 +13,10 @@ namespace NueGames.Power
     {
         public override PowerName PowerName => PowerName.Block;
 
-        public BlockPower()
-        {
-            // ClearAtNextTurn = true;
-        }
 
         public override void SubscribeAllEvent()
         {
+            Debug.Log($"Subscirbe Block {Owner.name}");
             CombatManager.OnTurnStart += OnTurnStart;
         }
 
@@ -31,6 +28,8 @@ namespace NueGames.Power
 
         protected override void OnTurnStart(TurnInfo info)
         {
+            
+            Debug.Log($"Character Turn:  {Owner.name} {info}" + IsCharacterTurn(info));
             if (IsCharacterTurn(info))
             {
                 if (CombatManager.Instance.MainAlly.HasPower(PowerName.Equip))

@@ -47,7 +47,6 @@ namespace NueGames.Power
 
         protected override void OnTurnStart(TurnInfo info)
         {
-            Debug.Log("OnTurnStart");
             if (IsCharacterTurn(info))
             {
                 if (Amount == 1)
@@ -56,7 +55,6 @@ namespace NueGames.Power
                 }
                 else
                 {
-                    Debug.Log("stackPower");
                     StackPower(-1);
                 }
             }
