@@ -85,12 +85,7 @@ namespace Combat
         
         public int EnemyCount => Enemies.Count;
 
-        public EnemyBase RandomEnemy => characterHandler.RandomEnemy();
-
-        public int GetEnemyTotalHealth()
-        {
-            return Enemies.Sum(enemy => enemy.GetHealth());
-        }
+        
 
         #endregion
 
@@ -145,6 +140,11 @@ namespace Combat
         /// 玩家/敵人回合結束時觸發
         /// </summary>
         public static Action<TurnInfo> OnTurnEnd;
+
+        public static Action<int> OnBattleWin;
+
+        public static System.Action OnBattleStart;
+        
 
 
         /// <summary>
@@ -263,6 +263,7 @@ namespace Combat
 
         private IEnumerator StartCombatRoutine()
         {
+            
             var encounterName = GameManager.CurrentEnemyEncounter;
             currentEncounter = enemyEncounterOverview.FindUniqueId(encounterName.Id);
             characterHandler.BuildEnemies(currentEncounter.enemyList);
@@ -279,7 +280,7 @@ namespace Combat
             UIManager.InformationCanvas.gameObject.SetActive(true);
 
             yield return new WaitForSeconds(0.1f);
-
+            OnBattleStart?.Invoke();
             yield return BattleStartEnemyRoutine();
 
             CurrentCombatStateType = CombatStateType.RoundStart;
@@ -385,6 +386,7 @@ namespace Combat
 
         private IEnumerator WinCombatRoutine()
         {
+            OnBattleWin?.Invoke(RoundNumber);
             GameManager.AllyHealthHandler.SetHealth(
                 MainAlly.GetCharacterStats().CurrentHealth);
 
@@ -403,6 +405,33 @@ namespace Combat
                     ItemGainType =  ItemGainType.Character
                 }
             }, currentNodeType);
+        }
+
+        #endregion
+
+        #region 取得角色資訊
+
+        public EnemyBase RandomEnemy => characterHandler.RandomEnemy();
+
+        public int GetEnemyTotalHealth()
+        {
+            return Enemies.Sum(enemy => enemy.GetHealth());
+        }
+
+        public bool GetEnemyById(string id, out CharacterBase enemy)
+        {
+            // find in Enemies by enemy.id = id
+            foreach (var enemyBase in Enemies)
+            {
+                if (enemyBase.GetId() == id)
+                {
+                    enemy = enemyBase;
+                    return true;
+                }
+            }
+
+            enemy = null;
+            return false;
         }
 
         #endregion

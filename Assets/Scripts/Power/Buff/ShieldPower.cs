@@ -25,15 +25,15 @@ namespace NueGames.Power
 
         public override void SubscribeAllEvent()
         {
-            CombatManager.OnTurnStart += OnTurnStart;
+            CombatManager.OnTurnEnd += OnTurnEnd;
         }
 
         public override void UnSubscribeAllEvent()
         {
-            CombatManager.OnTurnStart -= OnTurnStart;
+            CombatManager.OnTurnEnd -= OnTurnEnd;
         }
 
-        protected override void OnTurnStart(TurnInfo info)
+        protected override void OnTurnEnd(TurnInfo info)
         {
             if (IsCharacterTurn(info))
             {

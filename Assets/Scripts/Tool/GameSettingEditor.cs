@@ -1,3 +1,4 @@
+using Card.Data;
 using Data.Encounter;
 using Data.Settings;
 using Enemy;
@@ -49,5 +50,14 @@ namespace Tool
 
         [Required] [InlineEditor] [LabelText("意圖說明資料")]
         public IntentionData IntentionData;
+
+        [Title("卡牌")] 
+        [Required] [InlineEditor] [LabelText("存檔用卡組")]
+        public DeckData SaveDeck;
+        
+        [Required] [InlineEditor] [LabelText("戰鬥中可獲得的卡片")]
+        public DeckData GainInBattleDeck;
+        
+        
     }
 }

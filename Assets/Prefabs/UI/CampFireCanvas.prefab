@@ -213,10 +213,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NueDeck.Scripts.UI.CanvasBase, Assembly-CSharp
-        m_MethodName: CloseCanvas
-        m_Mode: 1
+      - m_Target: {fileID: 6094876760619141176}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3402,15 +3402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39815ed1944405e9348fa812d73c346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   optionPanel: {fileID: 8110164035611099408}
   characterSkillLevelUpPanel: {fileID: 8110164036326898587}
   throwCardPanel: {fileID: 6421665634570975669}

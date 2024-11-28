@@ -8,7 +8,7 @@
         SpecifiedEnemy = 1,
         Ally = 0,
         AllEnemies = 2,
-        RandomEnemy,
+        RandomEnemy = 3,
         WithoutTarget
     }
 }

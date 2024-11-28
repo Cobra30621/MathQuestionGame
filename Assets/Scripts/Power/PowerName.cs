@@ -15,14 +15,18 @@ namespace NueGames.Power
         Frenzy = 4,
         Poison = 6,
         Fire = 7,
+        [LabelText("惡魔獻祭")]
+        DemonicSacrifice = 8,
+        
         [LabelText("分裂")]
-        SplitEnemy = 9,
+        SplitEnemy = 16,
         
         StrengthAfterDead = 11,
         Shield = 12,
         Equip = 13,
         Charge = 14,
         Weak = 15,
+       
         
         // not official coded
         Trap = 1112,
@@ -43,7 +47,7 @@ namespace NueGames.Power
         
         BloodFury = 6,
         Hardcore = 7,
-        Miss = 8,
+        Miss = 99998,
         Bleed = 11,
 
         // 戰鬥相關

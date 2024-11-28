@@ -22,7 +22,9 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Birdman
     StartBattleSkillID: 9101003
-    MaxHp: 10
+    MaxHp: 25
+    startBattleSkillIDs:
+    - 9101003
     enemySkillIDs:
     - 9101001
     - 9101002
@@ -35,7 +37,9 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: Birdman
     StartBattleSkillID: 9102003
-    MaxHp: 10
+    MaxHp: 75
+    startBattleSkillIDs:
+    - 9102003
     enemySkillIDs:
     - 9102001
     - 9102002
@@ -48,7 +52,9 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E09"
     Prefab: Birdman
     StartBattleSkillID: 9103003
-    MaxHp: 10
+    MaxHp: 100
+    startBattleSkillIDs:
+    - 9103003
     enemySkillIDs:
     - 9103001
     - 9103002
@@ -61,7 +67,8 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Soldier
     StartBattleSkillID: 
-    MaxHp: 10
+    MaxHp: 100
+    startBattleSkillIDs: []
     enemySkillIDs:
     - 9111001
   - uniqueId:
@@ -73,7 +80,8 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: Soldier
     StartBattleSkillID: 
-    MaxHp: 10
+    MaxHp: 200
+    startBattleSkillIDs: []
     enemySkillIDs:
     - 9112001
   - uniqueId:
@@ -85,7 +93,8 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E09"
     Prefab: Soldier
     StartBattleSkillID: 
-    MaxHp: 10
+    MaxHp: 300
+    startBattleSkillIDs: []
     enemySkillIDs:
     - 9113001
   - uniqueId:
@@ -93,80 +102,130 @@ MonoBehaviour:
       displayName: "\u53F2\u840A\u59C6/\u96E3\u5EA6\u4E00"
     ID: 201
     Lang: "\u53F2\u840A\u59C6"
-    EnemySkillID: 9201002, 9201003
+    EnemySkillID: 9201003
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Soldier
     StartBattleSkillID: 9201001
-    MaxHp: 10
+    MaxHp: 50
+    startBattleSkillIDs:
+    - 9201001
     enemySkillIDs:
-    - 9201002
     - 9201003
   - uniqueId:
       dataId: 202
       displayName: "\u53F2\u840A\u59C6/\u96E3\u5EA6\u4E8C"
     ID: 202
     Lang: "\u53F2\u840A\u59C6"
-    EnemySkillID: 9202002, 9202003
+    EnemySkillID: 9202003
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: Soldier
     StartBattleSkillID: 9202001
-    MaxHp: 10
+    MaxHp: 75
+    startBattleSkillIDs:
+    - 9202001
     enemySkillIDs:
-    - 9202002
     - 9202003
   - uniqueId:
       dataId: 203
       displayName: "\u53F2\u840A\u59C6/\u96E3\u5EA6\u4E09"
     ID: 203
     Lang: "\u53F2\u840A\u59C6"
-    EnemySkillID: 9203002, 9203003
+    EnemySkillID: 9203003
     Level: "\u96E3\u5EA6\u4E09"
     Prefab: Soldier
     StartBattleSkillID: 9203001
-    MaxHp: 10
+    MaxHp: 100
+    startBattleSkillIDs:
+    - 9203001
     enemySkillIDs:
-    - 9203002
     - 9203003
   - uniqueId:
       dataId: 211
-      displayName: "\u53F2\u840A\u59C6\u738B/\u96E3\u5EA6\u4E00"
+      displayName: "\u53F2\u840A\u59C6\u738B(\u524D)/\u96E3\u5EA6\u4E00"
     ID: 211
-    Lang: "\u53F2\u840A\u59C6\u738B"
-    EnemySkillID: 9211002, 9211003, 9211004
+    Lang: "\u53F2\u840A\u59C6\u738B(\u524D)"
+    EnemySkillID: 9211004
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Hive
     StartBattleSkillID: 9211001
-    MaxHp: 20
+    MaxHp: 100
+    startBattleSkillIDs:
+    - 9211001
     enemySkillIDs:
-    - 9211002
-    - 9211003
     - 9211004
   - uniqueId:
       dataId: 212
-      displayName: "\u53F2\u840A\u59C6\u738B/\u96E3\u5EA6\u4E8C"
+      displayName: "\u53F2\u840A\u59C6\u738B(\u524D)/\u96E3\u5EA6\u4E8C"
     ID: 212
-    Lang: "\u53F2\u840A\u59C6\u738B"
-    EnemySkillID: 9212002, 9212003, 9212004
+    Lang: "\u53F2\u840A\u59C6\u738B(\u524D)"
+    EnemySkillID: 9212003, 9212004
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: Hive
     StartBattleSkillID: 9212001
-    MaxHp: 10
+    MaxHp: 200
+    startBattleSkillIDs:
+    - 9212001
     enemySkillIDs:
-    - 9212002
     - 9212003
     - 9212004
   - uniqueId:
       dataId: 213
-      displayName: "\u53F2\u840A\u59C6\u738B/\u96E3\u5EA6\u4E09"
+      displayName: "\u53F2\u840A\u59C6\u738B(\u524D)/\u96E3\u5EA6\u4E09"
     ID: 213
-    Lang: "\u53F2\u840A\u59C6\u738B"
-    EnemySkillID: 9213002, 9213003, 9213004
+    Lang: "\u53F2\u840A\u59C6\u738B(\u524D)"
+    EnemySkillID: 9213003, 9213004
     Level: "\u96E3\u5EA6\u4E09"
     Prefab: Hive
     StartBattleSkillID: 9213001
-    MaxHp: 10
+    MaxHp: 300
+    startBattleSkillIDs:
+    - 9213001
     enemySkillIDs:
-    - 9213002
+    - 9213003
+    - 9213004
+  - uniqueId:
+      dataId: 221
+      displayName: "\u53F2\u840A\u59C6\u738B(\u5F8C)/\u96E3\u5EA6\u4E00"
+    ID: 221
+    Lang: "\u53F2\u840A\u59C6\u738B(\u5F8C)"
+    EnemySkillID: 9211003, 9211004
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: Hive
+    StartBattleSkillID: 9211001
+    MaxHp: 100
+    startBattleSkillIDs:
+    - 9211001
+    enemySkillIDs:
+    - 9211003
+    - 9211004
+  - uniqueId:
+      dataId: 222
+      displayName: "\u53F2\u840A\u59C6\u738B(\u5F8C)/\u96E3\u5EA6\u4E8C"
+    ID: 222
+    Lang: "\u53F2\u840A\u59C6\u738B(\u5F8C)"
+    EnemySkillID: 9212003, 9212004
+    Level: "\u96E3\u5EA6\u4E8C"
+    Prefab: Hive
+    StartBattleSkillID: 9212001
+    MaxHp: 200
+    startBattleSkillIDs:
+    - 9212001
+    enemySkillIDs:
+    - 9212003
+    - 9212004
+  - uniqueId:
+      dataId: 223
+      displayName: "\u53F2\u840A\u59C6\u738B(\u5F8C)/\u96E3\u5EA6\u4E09"
+    ID: 223
+    Lang: "\u53F2\u840A\u59C6\u738B(\u5F8C)"
+    EnemySkillID: 9213003, 9213004
+    Level: "\u96E3\u5EA6\u4E09"
+    Prefab: Hive
+    StartBattleSkillID: 9213001
+    MaxHp: 300
+    startBattleSkillIDs:
+    - 9213001
+    enemySkillIDs:
     - 9213003
     - 9213004
   - uniqueId:
@@ -178,7 +237,9 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Hive
     StartBattleSkillID: 9301001
-    MaxHp: 10
+    MaxHp: 25
+    startBattleSkillIDs:
+    - 9301001
     enemySkillIDs:
     - 9301002
   - uniqueId:
@@ -190,7 +251,9 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: Hive
     StartBattleSkillID: 9302001
-    MaxHp: 10
+    MaxHp: 75
+    startBattleSkillIDs:
+    - 9302001
     enemySkillIDs:
     - 9302002
   - uniqueId:
@@ -202,7 +265,9 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E09"
     Prefab: Hive
     StartBattleSkillID: 9303001
-    MaxHp: 10
+    MaxHp: 100
+    startBattleSkillIDs:
+    - 9303001
     enemySkillIDs:
     - 9303002
   - uniqueId:
@@ -214,7 +279,9 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: Hive
     StartBattleSkillID: 9311001
-    MaxHp: 10
+    MaxHp: 100
+    startBattleSkillIDs:
+    - 9311001
     enemySkillIDs:
     - 9311002
     - 9311003
@@ -227,7 +294,9 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: Hive
     StartBattleSkillID: 9312001
-    MaxHp: 10
+    MaxHp: 200
+    startBattleSkillIDs:
+    - 9312001
     enemySkillIDs:
     - 9312002
     - 9312003
@@ -240,7 +309,9 @@ MonoBehaviour:
     Level: "\u96E3\u5EA6\u4E09"
     Prefab: Hive
     StartBattleSkillID: 9313001
-    MaxHp: 10
+    MaxHp: 300
+    startBattleSkillIDs:
+    - 9313001
     enemySkillIDs:
     - 9313002
     - 9313003
@@ -254,6 +325,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
       dataId: 402
@@ -265,6 +337,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
       dataId: 403
@@ -276,6 +349,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
       dataId: 411
@@ -287,6 +361,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
       dataId: 412
@@ -298,6 +373,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
       dataId: 413
@@ -309,6 +385,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
       dataId: 501
@@ -317,9 +394,11 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u58EB\u5175"
     EnemySkillID: 9501002
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: 
+    Prefab: Hive
     StartBattleSkillID: 9501001
-    MaxHp: 0
+    MaxHp: 25
+    startBattleSkillIDs:
+    - 9501001
     enemySkillIDs:
     - 9501002
   - uniqueId:
@@ -329,9 +408,11 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u58EB\u5175"
     EnemySkillID: 9502002
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: 
+    Prefab: Hive
     StartBattleSkillID: 9502001
-    MaxHp: 0
+    MaxHp: 75
+    startBattleSkillIDs:
+    - 9502001
     enemySkillIDs:
     - 9502002
   - uniqueId:
@@ -341,9 +422,11 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u58EB\u5175"
     EnemySkillID: 9502002
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: 
+    Prefab: Hive
     StartBattleSkillID: 9503001
-    MaxHp: 0
+    MaxHp: 100
+    startBattleSkillIDs:
+    - 9503001
     enemySkillIDs:
     - 9502002
   - uniqueId:
@@ -353,9 +436,12 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u5718"
     EnemySkillID: 9511003
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: 
+    Prefab: Hive
     StartBattleSkillID: 9511001, 9511002
-    MaxHp: 0
+    MaxHp: 100
+    startBattleSkillIDs:
+    - 9511001
+    - 9511002
     enemySkillIDs:
     - 9511003
   - uniqueId:
@@ -365,9 +451,12 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u5718"
     EnemySkillID: 9512003
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: 
+    Prefab: Hive
     StartBattleSkillID: 9512001, 9512002
-    MaxHp: 0
+    MaxHp: 200
+    startBattleSkillIDs:
+    - 9512001
+    - 9512002
     enemySkillIDs:
     - 9512003
   - uniqueId:
@@ -377,9 +466,12 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u5718"
     EnemySkillID: 9513003
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: 
+    Prefab: Hive
     StartBattleSkillID: 9513001, 9513002
-    MaxHp: 0
+    MaxHp: 300
+    startBattleSkillIDs:
+    - 9513001
+    - 9513002
     enemySkillIDs:
     - 9513003
   - uniqueId:
@@ -392,6 +484,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 999
+    startBattleSkillIDs: []
     enemySkillIDs:
     - 900101
   - uniqueId:
@@ -404,6 +497,7 @@ MonoBehaviour:
     Prefab: Soldier
     StartBattleSkillID: 
     MaxHp: 999
+    startBattleSkillIDs: []
     enemySkillIDs:
     - 900102
   - uniqueId:
@@ -416,6 +510,7 @@ MonoBehaviour:
     Prefab: Birdman
     StartBattleSkillID: 
     MaxHp: 999
+    startBattleSkillIDs: []
     enemySkillIDs:
     - 900001
   - uniqueId:
@@ -428,6 +523,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 200
+    startBattleSkillIDs: []
     enemySkillIDs:
     - 910001
   - uniqueId:
@@ -440,6 +536,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 999
+    startBattleSkillIDs: []
     enemySkillIDs:
     - 910001
   - uniqueId:
@@ -452,6 +549,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 999
+    startBattleSkillIDs: []
     enemySkillIDs: []
   useDataPath: 0
   dataPath: 

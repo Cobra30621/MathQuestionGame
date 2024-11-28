@@ -79,7 +79,7 @@ namespace Enemy
         public void SetSplitEnemySkill(string enemyId)
         {
             
-            var spawnAction = new SplitEnemyAction(enemyId, GetHealth());
+            var spawnAction = new SplitEnemyAction(enemyId, this);
             var intention = _sheetDataGetter.GetIntention("分裂");
             
             currentSkill = new EnemySkill(
@@ -113,8 +113,15 @@ namespace Enemy
         /// <returns></returns>
         public IEnumerator BattleStartActionRoutine()
         {
-            if(enemyAbility.UseStartBattleSkill())
-                yield return ActionRoutine(enemyAbility.GetStartBattleSkill());
+            if (enemyAbility.UseStartBattleSkill())
+            {
+                var startBattleSkills = enemyAbility.GetStartBattleSkill();
+
+                foreach (var startBattleSkill in startBattleSkills)
+                {
+                    yield return ActionRoutine(startBattleSkill);
+                }
+            }
         }
 
         

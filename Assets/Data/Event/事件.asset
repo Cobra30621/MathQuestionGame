@@ -22,108 +22,19 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   Events:
-  - Text: "\u6E2C\u8A66\u5404\u7A2E\u529F\u80FD"
-    nameText: "\u597D\u54E5\u54E5"
-    Description: "\u6E2C\u8A66\u5404\u7A2E\u529F\u80FD"
-    eventSprite: {fileID: -2520759210819888809, guid: 8a1f96c93a153e34a98b5f6dd6bbfebd, type: 3}
-    OptionData:
-    - EffectData:
-        EffectType: 5
-        RewardData:
-        - RewardType: 1
-          ItemGainType: 0
-          CoinGainType: 1
-          specifyCard: {fileID: 0}
-          specifyCoin: 100
-          specifyRelic: 0
-        - RewardType: 2
-          ItemGainType: 0
-          CoinGainType: 1
-          specifyCard: {fileID: 0}
-          specifyCoin: 100
-          specifyRelic: 0
-        QuestionMode: 0
-        changeHealthValue: 0
-        PayAndGainData:
-          PaymentType: 1
-          needHealth: 0
-          needMoney: 99999
-          RewardData:
-          - RewardType: 2
-            ItemGainType: 0
-            CoinGainType: 0
-            specifyCard: {fileID: 0}
-            specifyCoin: 0
-            specifyRelic: 0
-      OptionText: "99999 \u91D1\u5E63\u62FF\u5361\u7247"
-      AfterSelectionText: "\u90A3\u9053\u5361\u7247"
-    - EffectData:
-        EffectType: 5
-        RewardData: []
-        QuestionMode: 0
-        changeHealthValue: 10
-        PayAndGainData:
-          PaymentType: 0
-          needHealth: 0
-          needMoney: 100
-          RewardData:
-          - RewardType: 3
-            ItemGainType: 0
-            CoinGainType: 0
-            specifyCard: {fileID: 0}
-            specifyCoin: 0
-            specifyRelic: 0
-      OptionText: "100 \u91D1\u5E63\u62FF\u907A\u7269"
-      AfterSelectionText: "\u62FF\u907A\u7269"
-    - EffectData:
-        EffectType: 4
-        RewardData: []
-        QuestionMode: 0
-        changeHealthValue: -20
-        PayAndGainData:
-          PaymentType: 0
-          needHealth: 0
-          needMoney: 0
-          RewardData: []
-      OptionText: "\u6263 20 \u8840"
-      AfterSelectionText: "\u6263\u8840\u6B50"
-    - EffectData:
-        EffectType: 5
-        RewardData: []
-        QuestionMode: 0
-        changeHealthValue: 0
-        PayAndGainData:
-          PaymentType: 0
-          needHealth: 20
-          needMoney: 0
-          RewardData:
-          - RewardType: 0
-            ItemGainType: 0
-            CoinGainType: 1
-            specifyCard: {fileID: 0}
-            specifyCoin: 344
-            specifyRelic: 0
-      OptionText: "\u6263 20 \u8840\uFF0C\u62FF\u91D1\u5E63"
-      AfterSelectionText: "\u734E\u52F5\u8B9A"
   - Text: "\u6578\u5B78\u7B54\u984C"
-    nameText: "\u4F60\u8001\u5E2B"
-    Description: "\u7B54\u5C0D\u6578\u5B78\u984C\u76EE\u6709\u597D\u5EB7"
+    nameText: 
+    Description: "\u6709\u4E00\u500B\u672A\u77E5\u7684\u8EAB\u5F71\u5728\u524D\u65B9\uFF0C\u662F\u5426\u8981\u907F\u958B\uFF1F"
     eventSprite: {fileID: 21300000, guid: 4c6503d12cac245d386e9c334bddf0b4, type: 3}
     OptionData:
     - EffectData:
         EffectType: 3
         RewardData:
-        - RewardType: 0
-          ItemGainType: 0
-          CoinGainType: 0
-          specifyCard: {fileID: 0}
-          specifyCoin: 100
-          specifyRelic: 0
         - RewardType: 1
           ItemGainType: 0
           CoinGainType: 1
           specifyCard: {fileID: 0}
-          specifyCoin: 20
+          specifyCoin: 10
           specifyRelic: 0
         QuestionMode: 1
         changeHealthValue: 0
@@ -132,8 +43,8 @@ MonoBehaviour:
           needHealth: 0
           needMoney: 0
           RewardData: []
-      OptionText: "\u6211\u8981\u7B54\u984C"
-      AfterSelectionText: "\u6253\u5B8C\u984C\u76EE\u4E86"
+      OptionText: "\u7B54\u6578\u5B78\u984C"
+      AfterSelectionText: "\u6578\u5B78\u597D\u96E3"
     - EffectData:
         EffectType: 0
         RewardData: []
@@ -146,3 +57,38 @@ MonoBehaviour:
           RewardData: []
       OptionText: "\u96E2\u958B"
       AfterSelectionText: "\u6211\u8A0E\u53AD\u6578\u5B78"
+  - Text: "\u5BF6\u7BB1"
+    nameText: 
+    Description: "\u767C\u73FE\u4E00\u500B\u5BF6\u7BB1\uFF0C\u4F46\u5BF6\u7BB1\u524D\u65B9\u6709\u9677\u9631\uFF0C\u4F60\u60F3\u600E\u9EBC\u505A\uFF1F"
+    eventSprite: {fileID: 21300000, guid: c84821376df5741479c3100d970e10ba, type: 3}
+    OptionData:
+    - EffectData:
+        EffectType: 5
+        RewardData: []
+        QuestionMode: 0
+        changeHealthValue: 0
+        PayAndGainData:
+          PaymentType: 0
+          needHealth: 20
+          needMoney: 0
+          RewardData:
+          - RewardType: 2
+            ItemGainType: 0
+            CoinGainType: 0
+            specifyCard: {fileID: 0}
+            specifyCoin: 0
+            specifyRelic: 0
+      OptionText: "\u53D7\u523020 \u751F\u547D\u503C\u50B7\u5BB3\uFF0C\u7372\u5F97\u4E00\u5F35\u5361\u724C "
+      AfterSelectionText: "\u597D\u75DB"
+    - EffectData:
+        EffectType: 0
+        RewardData: []
+        QuestionMode: 0
+        changeHealthValue: 0
+        PayAndGainData:
+          PaymentType: 0
+          needHealth: 0
+          needMoney: 0
+          RewardData: []
+      OptionText: "\u5FCD\u75DB\u653E\u68C4\u96E2\u958B"
+      AfterSelectionText: 

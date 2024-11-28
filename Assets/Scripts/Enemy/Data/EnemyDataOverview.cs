@@ -45,6 +45,7 @@ namespace Enemy
                     enemyInfo.SetDataId($"{enemyInfo.ID}");
                     enemyInfo.SetDisplayName($"{enemyInfo.Lang}/{enemyInfo.Level}");
                     enemyInfo.enemySkillIDs = Helper.ConvertStringToStringList(enemyInfo.EnemySkillID);
+                    enemyInfo.startBattleSkillIDs = Helper.ConvertStringToStringList(enemyInfo.StartBattleSkillID);
                     
                     AddData(enemyInfo);
                 }

@@ -20,7 +20,7 @@ namespace Enemy.Data
         #region Private Variables
 
         [SerializeField] [LabelWidth(30)] [LabelText("Url:")] [BoxGroup("LoadData")]
-        private string url = "https://opensheet.elk.sh/1tCaaCrB-9xcP_sgVigBUC5hSNOEx9KzDwsomPIC7asU/EnemySkillA";
+        private string url = "https://opensheet.elk.sh/1tCaaCrB-9xcP_sgVigBUC5hSNOEx9KzDwsomPIC7asU/EnemyIntentionA";
 
         #endregion
 

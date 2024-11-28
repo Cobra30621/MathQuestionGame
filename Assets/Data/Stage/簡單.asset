@@ -27,15 +27,15 @@ MonoBehaviour:
       nodesApartDistance: 2
       randomizePosition: 0.295
     - nodeTypeClips:
-      - nodeType: 14
+      - nodeType: 0
+        weight: 1
+      - nodeType: 11
         weight: 1
       nodeCount: 2
       distanceFromPreviousLayer: 3
       nodesApartDistance: 2
       randomizePosition: 0.295
     - nodeTypeClips:
-      - nodeType: 1
-        weight: 1
       - nodeType: 0
         weight: 1
       nodeCount: 1
@@ -44,7 +44,7 @@ MonoBehaviour:
       randomizePosition: 0.147
     - nodeTypeClips:
       - nodeType: 11
-        weight: 1
+        weight: 2
       - nodeType: 12
         weight: 1
       nodeCount: 2
@@ -70,34 +70,39 @@ MonoBehaviour:
       weakEnemies:
         weightClip:
         - encounter:
-            id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+            id: e7d7b04c-c225-4c68-820f-0040e0a89d33
+          weight: 1
+        - encounter:
+            id: 2134e1cd-2c8a-495e-a2c5-4f73597744e6
           weight: 1
       strongEnemies:
         weightClip:
         - encounter:
-            id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+            id: e30f2837-0d04-4195-93ba-f240487b47cb
           weight: 1
+        - encounter:
+            id: 68d6c939-dfb7-4af2-9d75-e9a9f3f282ff
+          weight: 0
+        - encounter:
+            id: fe352b0b-f734-46df-b904-2522c34f67d7
+          weight: 0
       eliteEnemies:
         weightClip:
         - encounter:
-            id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+            id: 8611c6cb-bce1-4b43-8683-d52ea1ed9632
           weight: 1
+        - encounter:
+            id: 5f16597d-245c-4ba9-9688-8db399aefe10
+          weight: 0
       bossEnemies:
         weightClip:
         - encounter:
-            id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+            id: 930e0a32-5c3e-4d82-9151-0ac88f75e0e5
           weight: 1
-    GridWidth: 2
-  - mapName: "\u7B2C\u4E8C\u5C64"
-    layers: []
-    encounterStage:
-      weakEnemyCount: 0
-      weakEnemies:
-        weightClip: []
-      strongEnemies:
-        weightClip: []
-      eliteEnemies:
-        weightClip: []
-      bossEnemies:
-        weightClip: []
+        - encounter:
+            id: c34194b5-6fcb-4685-a70c-6e6871393b39
+          weight: 1
+        - encounter:
+            id: 761e3d04-cd92-4c37-97c2-d04841d15f7b
+          weight: 1
     GridWidth: 2

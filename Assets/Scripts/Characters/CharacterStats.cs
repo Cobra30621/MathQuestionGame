@@ -90,6 +90,7 @@ namespace NueGames.Characters
                 powerBase.SetOwner(owner);
                 powerBase.SubscribeAllEvent();
                 powerBase.StackPower(value);
+                powerBase.Init();
                 
                 PowerDict.Add(targetPower, powerBase);
             }

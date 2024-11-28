@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
@@ -86,3 +87,5 @@ namespace Sheets
         }
     }
 }
+
+#endif

@@ -36,16 +36,18 @@ MonoBehaviour:
     TitleLang: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
     DesLang: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
     TargetChoose: 1
+    ExhaustAfterPlay: 0
     skillIDs: []
     EffectInfos:
     - SkillID: 0
-      EffectID: 10
+      EffectID: 20003
       EffectParameter: "\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
       EffectParameterList: 0300000002000000
       Target: 1
       ps: 
   cardId: 
   _levelInfos: []
+  _allyClassType: 0
   exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0

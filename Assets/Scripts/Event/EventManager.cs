@@ -4,7 +4,6 @@ using Managers;
 using NueGames.Encounter;
 using NueGames.Utils;
 using Sirenix.OdinInspector;
-using Unity.CodeEditor;
 using UnityEngine.Events;
 
 namespace NueGames.Event

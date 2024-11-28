@@ -19,6 +19,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: f4a56fbe39e3a5b4396cdc335010fb85, type: 3}
     - {fileID: 21300000, guid: a5e2f85e3c120234cb73169bfa368bca, type: 3}
     - {fileID: 21300000, guid: a06f26bd1f8d2cf4e867a8f80fda6b95, type: 3}
+    - {fileID: 21300000, guid: df37094116f93493ab33a754137b7715, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -44,7 +45,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 6
     - Name: 
       Entry: 7
       Data: 
@@ -172,6 +173,132 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 10001
+    - Name: $v
+      Entry: 7
+      Data: 8|NueGames.Data.Containers.RelicData, Assembly-CSharp
+    - Name: Title
+      Entry: 1
+      Data: "\u76FE\u724C"
+    - Name: descriptions
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 1
+      Data: test1
+    - Name: 
+      Entry: 1
+      Data: test2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: iconSprite
+      Entry: 10
+      Data: 3
+    - Name: isDeveloping
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 10002
+    - Name: $v
+      Entry: 7
+      Data: 10|NueGames.Data.Containers.RelicData, Assembly-CSharp
+    - Name: Title
+      Entry: 1
+      Data: "\u96DE\u817F"
+    - Name: descriptions
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 1
+      Data: test1
+    - Name: 
+      Entry: 1
+      Data: test2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: iconSprite
+      Entry: 10
+      Data: 3
+    - Name: isDeveloping
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 10003
+    - Name: $v
+      Entry: 7
+      Data: 12|NueGames.Data.Containers.RelicData, Assembly-CSharp
+    - Name: Title
+      Entry: 1
+      Data: "\u528D"
+    - Name: descriptions
+      Entry: 7
+      Data: 13|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 1
+      Data: test1
+    - Name: 
+      Entry: 1
+      Data: test2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: iconSprite
+      Entry: 10
+      Data: 3
+    - Name: isDeveloping
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -179,12 +306,12 @@ MonoBehaviour:
       Data: 
     - Name: upgradeCost
       Entry: 7
-      Data: 8|System.Collections.Generic.Dictionary`2[[Coin.CoinType, Assembly-CSharp],[System.Int32,
+      Data: 14|System.Collections.Generic.Dictionary`2[[Money.CoinType, Assembly-CSharp],[System.Int32,
         mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 9|System.Collections.Generic.EnumEqualityComparer`1[[Coin.CoinType, Assembly-CSharp]],
-        mscorlib
+      Data: 15|System.Collections.Generic.EnumEqualityComparer`1[[Money.CoinType,
+        Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 0

@@ -73,6 +73,8 @@ namespace NueGames.Power
             Owner = owner;
         }
         
+        public virtual void Init(){}
+        
         #endregion
         
         
@@ -96,9 +98,7 @@ namespace NueGames.Power
         {
             if (IsActive)
             {
-                Amount += stackAmount;
-                Owner.OnPowerChanged?.Invoke(PowerName, Amount);
-                
+                SetPowerAmount(Amount + stackAmount);
             }
             else
             {
@@ -113,6 +113,12 @@ namespace NueGames.Power
             }
 
             CheckClearPower();
+        }
+
+        public virtual void SetPowerAmount(int amount)
+        {
+            Amount = amount;
+            Owner.OnPowerChanged?.Invoke(PowerName, Amount);
         }
         
 
