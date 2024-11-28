@@ -72,7 +72,9 @@ namespace NueGames.Characters
         {
             if (StatusDict.ContainsKey(targetPower))
             {
-                Destroy(StatusDict[targetPower].gameObject);
+                if(StatusDict[targetPower] != null)
+                    Destroy(StatusDict[targetPower].gameObject);
+                
                 StatusDict.Remove(targetPower);
             }
         }
