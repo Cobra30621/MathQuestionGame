@@ -309,6 +309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u958B\u767C\u8005\u6E2C\u8A66\u5668"
       objectReference: {fileID: 0}
+    - target: {fileID: 607283629099232260, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 607283629099232314, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -407,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
@@ -421,10 +425,6 @@ PrefabInstance:
       propertyPath: serializationData.PrefabModifications.Array.data[2]
       value: '"path":"cardDataLevels.[0].Level","value":{"$id":0,"$type":"System.Int32,
         mscorlib",0}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[3]
-      value: '"path":"cardDataLevels.[4]","value":null'
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: relicInfos.Array.data[0].data.descriptions.Array.size
@@ -482,6 +482,10 @@ PrefabInstance:
     - target: {fileID: 1850791680627898549, guid: 70dd497a4bff74c8ba9ebbfd269c9969, type: 3}
       propertyPath: m_Name
       value: "\u904A\u6232\u53EF\u8A2D\u5B9A\u6771\u897F\u6574\u7406"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850791680627898549, guid: 70dd497a4bff74c8ba9ebbfd269c9969, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1850791680627898550, guid: 70dd497a4bff74c8ba9ebbfd269c9969, type: 3}
       propertyPath: EnemyPrefabData

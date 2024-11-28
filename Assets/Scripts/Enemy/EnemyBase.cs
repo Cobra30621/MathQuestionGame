@@ -79,7 +79,7 @@ namespace Enemy
         public void SetSplitEnemySkill(string enemyId)
         {
             
-            var spawnAction = new SplitEnemyAction(enemyId, GetHealth());
+            var spawnAction = new SplitEnemyAction(enemyId, this);
             var intention = _sheetDataGetter.GetIntention("分裂");
             
             currentSkill = new EnemySkill(

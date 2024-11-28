@@ -1,5 +1,7 @@
 using Card;
+using Enemy;
 using NueGames.Action;
+using NueGames.Characters;
 
 namespace Action.Enemy
 {
@@ -18,6 +20,8 @@ namespace Action.Enemy
         /// </summary>
         private readonly int _health;
 
+        private CharacterBase _sourceEnemy;
+
         /// <summary>
         /// 构造函数,通过技能信息初始化
         /// </summary>
@@ -31,11 +35,11 @@ namespace Action.Enemy
         /// 构造函数,直接指定敌人ID和生命值
         /// </summary>
         /// <param name="spawnEnemyId">要生成的敌人ID</param>
-        /// <param name="health">生成的敌人的生命值</param>
-        public SplitEnemyAction(string spawnEnemyId, int health)
+        /// <param name="sourceEnemy">指定要複製的的人(用於取得血量)</param>
+        public SplitEnemyAction(string spawnEnemyId, EnemyBase sourceEnemy)
         {
             _spawnEnemyId = spawnEnemyId;
-            _health = health;
+            _sourceEnemy = sourceEnemy;
         }
         
         /// <summary>
@@ -46,7 +50,13 @@ namespace Action.Enemy
             var characterHandler = CombatManager.characterHandler;
 
             // 生成新的敌人并设置其生命值
-            characterHandler.BuildAndSetEnemyHealth(_spawnEnemyId, _health);
+            if (_sourceEnemy != null)
+            {
+                var health = _sourceEnemy.GetHealth();
+                characterHandler.BuildAndSetEnemyHealth(_spawnEnemyId, health);
+            }
+            
+            
         }
     }
 }
