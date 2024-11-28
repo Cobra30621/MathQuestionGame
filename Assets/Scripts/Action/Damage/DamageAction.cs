@@ -57,7 +57,7 @@ namespace NueGames.Action
             {
                 _damageInfo.SetTarget(target);
                 
-                PlaySpawnTextFx($"{_damageInfo.GetDamageValue()}", target.TextSpawnRoot);
+                PlaySpawnTextFx($"{_damageInfo.GetAfterBlockDamage()}", target.TextSpawnRoot);
                 target.BeAttacked(_damageInfo);
             }
         }

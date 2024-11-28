@@ -41,6 +41,8 @@ namespace Card.Data
                 Level = level
             };
             cardLevelInfo = cardData.GetLevelInfo(CardSaveInfo.Level);
+            
+            ManaCost = cardLevelInfo.ManaCost;
         }
         
     }

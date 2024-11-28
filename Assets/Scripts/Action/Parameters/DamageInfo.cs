@@ -96,6 +96,12 @@ namespace Action.Parameters
         {
             var target = Target;
             var damageValue = GetDamageValue();
+
+            if (target == null)
+            {
+                return damageValue;
+            }
+            
             var remainingDamage = damageValue;
             if (!CanPierceArmor)
             {
