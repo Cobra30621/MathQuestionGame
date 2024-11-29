@@ -5,6 +5,7 @@ using Money;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Managers;
+using Save;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -22,6 +23,7 @@ namespace Tool
         [SerializeField] private Button addMoneyButton;
         [SerializeField] private Button addStoneButton;
         [SerializeField] private Button killAllButton;
+        [SerializeField] private Button clearSaveDataButton;
 
         private void Start()
         {
@@ -40,6 +42,7 @@ namespace Tool
             addMoneyButton.onClick.AddListener(OnAddMoneyClick);
             addStoneButton.onClick.AddListener(OnAddStoneClick);
             killAllButton.onClick.AddListener(KillAllEnemy);
+            clearSaveDataButton.onClick.AddListener(ClearSaveData);
         }
 
         private void OnAddMoneyClick()
@@ -77,6 +80,11 @@ namespace Tool
             var damageInfo = new DamageInfo(999, new ActionSource(), fixDamage: true, canPierceArmor:true);
 
             GameActionExecutor.AddAction(new DamageAction(damageInfo, targets));
+        }
+
+        public void ClearSaveData()
+        {
+            SaveManager.Instance.ClearAllData();
         }
 
         public void OpenCheatPanel()
