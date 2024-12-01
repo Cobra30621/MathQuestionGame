@@ -303,6 +303,9 @@ namespace Combat
 
         private IEnumerator AllyTurnRoutine()
         {
+            // 等待遊戲行為序列完成
+            yield return new WaitUntil(() => !GameActionExecutor.Instance.IsExecuting);
+            
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Ally));
 
             allyTurnStartFeedback.Play();
@@ -332,6 +335,9 @@ namespace Combat
 
         private IEnumerator EnemyTurnRoutine()
         {
+            // 等待遊戲行為序列完成
+            yield return new WaitUntil(() => !GameActionExecutor.Instance.IsExecuting);
+            
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Enemy));
             CollectionManager.DiscardHand();
 

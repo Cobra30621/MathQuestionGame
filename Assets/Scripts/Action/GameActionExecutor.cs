@@ -29,6 +29,8 @@ namespace NueGames.Managers
 
         public SequenceManager SequenceManager;
 
+        public bool IsExecuting => SequenceManager.IsExecuting;
+        
         
         #region 將遊戲行為加入執行緒
 
