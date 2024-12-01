@@ -1,7 +1,11 @@
 using System;
+using System.Collections.Generic;
 using Managers;
 using Map;
+using NueGames.Data.Containers;
 using NueGames.Managers;
+using NueGames.Relic;
+using Reward;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using static UnityEngine.Random;
@@ -26,6 +30,10 @@ namespace Data.Settings
         [LabelText("答題寶石")]
         public int questionDropStone;
 
+        [LabelText("遺物獎勵清單")] public List<RelicName> RewardRelics;
+        [Required]
+        [LabelText("遺物資料")] public RelicsData relicsData;
+
         public int GetNodeDropMoney(NodeType nodeType)
         {
             float rate = Range(1f - randomMoneyRange, 1f + randomMoneyRange);
@@ -46,6 +54,15 @@ namespace Data.Settings
                     Debug.LogError("nodeType: " + nodeType + " not supported drop Money");
                     return 0;
             }
+        }
+
+        public (RelicName, RelicData) GetRelicData(NodeType nodeType)
+        {
+            var relicName = RewardRelics.Random();
+
+            var data = relicsData.GetRelicData(relicName);
+
+            return (relicName, data);
         }
 
         public int GetNodeDropStone(NodeType nodeType)

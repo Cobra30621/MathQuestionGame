@@ -5,6 +5,7 @@ using Data.Settings;
 using Managers;
 using Map;
 using NueGames.Data.Containers;
+using NueGames.Relic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ namespace Reward
 
         [Required]
         [InlineEditor]
-        public RewardContainerData RewardContainerData;  
+        public RewardContainerData RewardContainerData; 
         
         public static RewardManager Instance => GameManager.Instance.RewardManager;
 
@@ -94,6 +95,11 @@ namespace Reward
             }
 
             return (int) Math.Floor(basicStone * stoneDropRate);
+        }
+
+        public (RelicName, RelicData) GetRelic(NodeType nodeType)
+        {
+            return ItemDropData.GetRelicData(nodeType);
         }
     }
 }
