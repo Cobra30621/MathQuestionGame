@@ -31,7 +31,7 @@ public class RelicCanvas : CanvasBase
     {
         foreach (Transform child in relicIconSpawnRoot)
         {
-            Destroy(child);
+            Destroy(child.gameObject);
         }
         
         Debug.Log(relicDict.Keys);
