@@ -998,7 +998,7 @@ MonoBehaviour:
   EventManager: {fileID: 7001388557004299777}
   RewardManager: {fileID: 7452432360151209579}
   CurrentEnemyEncounter:
-    id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+    id: e7d7b04c-c225-4c68-820f-0040e0a89d33
   CanSelectCards: 0
   AllyHealthHandler: {fileID: 7730181081979982815}
 --- !u!1 &3934308068005616353
@@ -1997,6 +1997,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -35.914
       objectReference: {fileID: 0}
+    - target: {fileID: 7866926539439168329, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7866926539439168329, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
     - target: {fileID: 8270657709656062772, guid: 41de21b66bf2e1049a541557b553649f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
