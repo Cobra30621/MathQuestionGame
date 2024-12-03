@@ -1,3 +1,4 @@
+using System;
 using NueGames.Managers;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -5,9 +6,15 @@ using UnityEngine;
 
 namespace Question
 {
-    public class QuestionSettingUI : SerializedMonoBehaviour
+    public class QuestionSettingUI : MonoBehaviour
     {
         [SerializeField] private TMP_Dropdown publishDropdown, gradeDropdown;
+
+        private void Start()
+        {
+            publishDropdown.onValueChanged.AddListener((e)=>SetQuestionSetting());
+            gradeDropdown.onValueChanged.AddListener((e)=>SetQuestionSetting());
+        }
 
 
         public void SetQuestionSetting()

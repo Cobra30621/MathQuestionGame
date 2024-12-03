@@ -158,7 +158,6 @@ namespace Managers
             RelicManager.GainRelic(allyData.initialRelic);
             CardManager.Instance.SetInitCard(allyData.InitialDeck.CardList);
             MapManager.Instance.Initialized(_stageSelectedHandler.GetStageData());
-            QuestionManager.Instance.GenerateQuestions();
             AllyHealthHandler.Init(allyData.MaxHealth);
             
         }

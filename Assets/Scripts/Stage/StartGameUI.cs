@@ -4,6 +4,7 @@ using Managers;
 using NueGames.Data.Characters;
 using NueGames.Managers;
 using NueGames.Utils;
+using Question;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -98,8 +99,7 @@ namespace Stage
 
         private IEnumerator StartGameCoroutine()
         {
-            // onlineQuestionDownloader.GetQuestion();
-            // yield return new WaitForSeconds(5);
+            QuestionManager.Instance.StartDownloadOnlineQuestions();
             yield return null;
             sceneChanger.OpenMapScene();
         }

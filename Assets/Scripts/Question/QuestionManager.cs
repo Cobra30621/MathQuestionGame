@@ -9,7 +9,9 @@ using Managers;
 using NueGames.Enums;
 using NueGames.Managers;
 using Question.QuestionAction;
+using Question.QuestionLoader;
 using Sirenix.OdinInspector;
+using UnityEngine.Serialization;
 
 namespace Question
 {
@@ -23,11 +25,28 @@ namespace Question
         /// <summary>
         /// 答題介面
         /// </summary>
+        [Required]
         [SerializeField] private QuestionController questionController;
+
         /// <summary>
-        /// 題目產生器
+        /// 線上問題下載器
         /// </summary>
-        [SerializeField] private IQuestionGenerator questionGenerator;
+        [Required]
+        [SerializeField] private OnlineQuestionDownloader onlineQuestionDownloader;
+        
+        /// <summary>
+        /// 本地端題目產生器
+        /// </summary>
+        [Required]
+        [SerializeField] private IQuestionGetter localQuestionGetter;
+        
+        /// <summary>
+        /// 線上題目產生器
+        /// </summary>
+        [Required]
+        [SerializeField] private IQuestionGetter onlineQuestionGetter;
+        
+        
         /// <summary>
         /// 答題按鈕
         /// </summary>
@@ -186,6 +205,11 @@ namespace Question
         
 
         #region Public Method
+
+        public void StartDownloadOnlineQuestions()
+        {
+            onlineQuestionDownloader.DownloadQuestion(QuestionSetting.Publishers[0], QuestionSetting.Grades[0]);
+        }
         
         /// <summary>
         /// 進入答題模式
@@ -315,7 +339,16 @@ namespace Question
         [Button("GenerateQuestions")]
         public void GenerateQuestions()
         {
-            questionList = questionGenerator.GetQuestions(QuestionSetting);
+            if (onlineQuestionGetter.EnableGetQuestion())
+            {
+                questionList = onlineQuestionGetter.GetQuestions(QuestionSetting);
+                Debug.Log($"Get online question count: {questionList.Count}");
+            }
+            else
+            {
+                questionList = localQuestionGetter.GetQuestions(QuestionSetting);
+                Debug.Log($"Get local question count: {questionList.Count}");
+            }
         }
         
         private void PlayAfterQuestioningAction()

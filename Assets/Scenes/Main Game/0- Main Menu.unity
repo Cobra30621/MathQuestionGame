@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd340eefc6b4eedbd09d92ec409822b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestionData: {fileID: 11400000, guid: e3611fad9cf8f4f4a88eafafbf5bbc73, type: 2}
+  questions: []
   generateCountForEachChapter: 2
   hard: 1
   maxChapter: 12
@@ -1147,6 +1147,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 47.944824
       objectReference: {fileID: 0}
+    - target: {fileID: 5314099126001780345, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5314099126001780345, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
     - target: {fileID: 5586799554685539913, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: serializationData.Prefab
       value: 

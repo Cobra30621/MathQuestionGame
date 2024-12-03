@@ -2149,6 +2149,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e22c850f364456814cabf656008416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2773255775328795428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5617697884724034349}
+  - component: {fileID: 7866926539439168329}
+  - component: {fileID: 7154230856530658928}
+  m_Layer: 0
+  m_Name: "\u7DDA\u4E0A\u984C\u76EE\u53D6\u5F97\u5668"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5617697884724034349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773255775328795428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3528570657471176879}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7866926539439168329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773255775328795428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a65ac18746043938ce97797eb20a0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  onlineQuestionDownloader: {fileID: 7154230856530658928}
+  minNeedQuestionCount: 5
+--- !u!114 &7154230856530658928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773255775328795428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd340eefc6b4eedbd09d92ec409822b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questions: []
+  generateCountForEachChapter: 2
+  hard: 1
+  maxChapter: 12
+  data:
+    problem:
+    - problemLink: ea5cf927a7d3e6a6fa83ddd6d4044bfb
+      ansLink: 8496cc4870220470bb2cd53af3cc0588
+      answer: 4
+    - problemLink: c9c8e3d739b7fe60a6b9274ed07f5b9d
+      ansLink: 05b5aa2317dcb18a4b543f693db090c1
+      answer: 4
 --- !u!1 &2815669365376287384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,6 +2496,7 @@ Transform:
   - {fileID: 3528570657128799697}
   - {fileID: 207277206955746884}
   - {fileID: 4909406682285458538}
+  - {fileID: 5617697884724034349}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2432,7 +2513,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionController: {fileID: 6933779548279769729}
-  questionGenerator: {fileID: 631274316755946036}
+  onlineQuestionDownloader: {fileID: 7154230856530658928}
+  localQuestionGetter: {fileID: 631274316755946036}
+  onlineQuestionGetter: {fileID: 7866926539439168329}
   answerButtons:
   - {fileID: 5903871676263868929}
   - {fileID: 9056882454097635058}
@@ -5290,7 +5373,7 @@ GameObject:
   - component: {fileID: 4909406682285458538}
   - component: {fileID: 631274316755946036}
   m_Layer: 0
-  m_Name: LocalQuestionGenerator
+  m_Name: "\u672C\u5730\u7AEF\u984C\u76EE\u53D6\u5F97\u5668"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

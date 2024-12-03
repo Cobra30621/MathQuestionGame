@@ -6,6 +6,7 @@ using NueGames.Data.Settings;
 using NueGames.Managers;
 using NueGames.Utils;
 using Question;
+using Question.QuestionLoader;
 using Sirenix.OdinInspector;
 using Stage;
 using UnityEngine;
@@ -20,21 +21,20 @@ public class MainMenuManager : MonoBehaviour
     [LabelText("關卡資料")]
     public StageData stageData;
 
-    [SerializeField] private QuestionSettingUI questionSettingUI;
+    
     [SerializeField] private SceneChanger sceneChanger;
-    [SerializeField] private OnlineQuestionDownloader onlineQuestionDownloader;
+    
+    
     public void NewGame()
     {
         GameManager.Instance.SetAllyData(allyData);
-        questionSettingUI.SetQuestionSetting();
         GameManager.Instance.NewGame();
         StartCoroutine(StartGameCoroutine());
     }
 
     private IEnumerator StartGameCoroutine()
     {
-        // onlineQuestionDownloader.GetQuestion();
-        // yield return new WaitForSeconds(5);
+        QuestionManager.Instance.StartDownloadOnlineQuestions();
         yield return null;
         sceneChanger.OpenMapScene();
     }

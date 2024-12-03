@@ -11,7 +11,7 @@ namespace Question
     /// <summary>
     /// 讀取本地端的數學題目(Demo 版用)
     /// </summary>
-    public class LocalQuestionGenerator : IQuestionGenerator
+    public class LocalQuestionGetter : IQuestionGetter
     {
         [SerializeField] private QuestionData questionData;
         /// <summary>
@@ -33,6 +33,11 @@ namespace Question
             questions.Shuffle();
 
             return questions;
+        }
+
+        public override bool EnableGetQuestion()
+        {
+            return true;
         }
     }
 }
