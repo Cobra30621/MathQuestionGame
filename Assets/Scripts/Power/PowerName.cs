@@ -18,7 +18,7 @@ namespace NueGames.Power
         [LabelText("惡魔獻祭")]
         DemonicSacrifice = 8,
         
-        [LabelText("分裂")]
+        [LabelText("不穩定")]
         SplitEnemy = 16,
         
         StrengthAfterDead = 11,

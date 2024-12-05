@@ -21,6 +21,7 @@ namespace NueGames.UI
             MyPowerData = powerData;
             StatusImage.sprite = powerData.IconSprite;
             
+            StatusValueText.gameObject.SetActive(!powerData.HideAmount);
         }
 
         public void SetStatusValue(int statusValue)

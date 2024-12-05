@@ -4,7 +4,9 @@ using System.Linq;
 using NueGames.Enums;
 using NueGames.Power;
 using NueGames.UI;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace NueGames.Data.Containers
 {
@@ -54,6 +56,9 @@ namespace NueGames.Data.Containers
         [SerializeField] private PowerName powerName;
         
         [SerializeField] private Sprite iconSprite;
+
+        [LabelText("隱藏層數")]
+        [SerializeField] private bool hideAmount = false;
         
         /// <summary>
         /// 能力類型
@@ -63,6 +68,8 @@ namespace NueGames.Data.Containers
         /// 能力 Icon
         /// </summary>
         public Sprite IconSprite => iconSprite;
+
+        public bool HideAmount => hideAmount;
         
         /// <summary>
         /// 能力名稱

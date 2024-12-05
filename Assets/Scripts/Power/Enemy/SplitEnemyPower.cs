@@ -12,8 +12,6 @@ namespace NueGames.Power
         /// </summary>
         public override PowerName PowerName => PowerName.SplitEnemy;
 
-        public override bool ShowAmount => false;
-
         /// <summary>
         /// 订阅所有事件
         /// </summary>
