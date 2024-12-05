@@ -74,7 +74,7 @@ namespace NueTooltip.Core
             _tooltipTextList[_currentShownTooltipCount-1].gameObject.SetActive(true);
             _tooltipTextList[_currentShownTooltipCount-1].SetText(contentText,headerText);
             
-            Debug.Log($"{headerText}: {tooltipTargetTransform}, {tooltipTargetTransform.position} {cam}");
+            // Debug.Log($"{headerText}: {tooltipTargetTransform}, {tooltipTargetTransform?.position} {cam}");
             TooltipController.SetFollowPos(tooltipTargetTransform,cam);
             
             if (canChangeCursor)

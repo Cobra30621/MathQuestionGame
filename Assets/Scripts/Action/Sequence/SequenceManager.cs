@@ -12,6 +12,8 @@ namespace Action.Sequence
         private Queue<ISequence> sequenceQueue = new Queue<ISequence>();
 
         [ShowInInspector] private ISequence currentSequence;
+
+        public bool IsExecuting => isExecuting;
         
         [ShowInInspector]
         private bool isExecuting = false;

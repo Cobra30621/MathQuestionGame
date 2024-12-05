@@ -20,7 +20,7 @@ MonoBehaviour:
     Lang: "\u4F4E\u968E\u60E1\u9B54"
     EnemySkillID: 9101001, 9101002
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: Birdman
+    Prefab: Demon
     StartBattleSkillID: 9101003
     MaxHp: 25
     startBattleSkillIDs:
@@ -35,7 +35,7 @@ MonoBehaviour:
     Lang: "\u4F4E\u968E\u60E1\u9B54"
     EnemySkillID: 9102001, 9102002
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: Birdman
+    Prefab: Demon
     StartBattleSkillID: 9102003
     MaxHp: 75
     startBattleSkillIDs:
@@ -50,7 +50,7 @@ MonoBehaviour:
     Lang: "\u4F4E\u968E\u60E1\u9B54"
     EnemySkillID: 9103001, 9103002
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: Birdman
+    Prefab: Demon
     StartBattleSkillID: 9103003
     MaxHp: 100
     startBattleSkillIDs:
@@ -65,7 +65,7 @@ MonoBehaviour:
     Lang: "\u60E1\u9B54\u738B"
     EnemySkillID: 9111001
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: Soldier
+    Prefab: DemonKing
     StartBattleSkillID: 
     MaxHp: 100
     startBattleSkillIDs: []
@@ -78,7 +78,7 @@ MonoBehaviour:
     Lang: "\u60E1\u9B54\u738B"
     EnemySkillID: 9112001
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: Soldier
+    Prefab: DemonKing
     StartBattleSkillID: 
     MaxHp: 200
     startBattleSkillIDs: []
@@ -91,7 +91,7 @@ MonoBehaviour:
     Lang: "\u60E1\u9B54\u738B"
     EnemySkillID: 9113001
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: Soldier
+    Prefab: DemonKing
     StartBattleSkillID: 
     MaxHp: 300
     startBattleSkillIDs: []
@@ -104,7 +104,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6"
     EnemySkillID: 9201003
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: Soldier
+    Prefab: Slime
     StartBattleSkillID: 9201001
     MaxHp: 50
     startBattleSkillIDs:
@@ -118,7 +118,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6"
     EnemySkillID: 9202003
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: Soldier
+    Prefab: Slime
     StartBattleSkillID: 9202001
     MaxHp: 75
     startBattleSkillIDs:
@@ -132,7 +132,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6"
     EnemySkillID: 9203003
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: Soldier
+    Prefab: Slime
     StartBattleSkillID: 9203001
     MaxHp: 100
     startBattleSkillIDs:
@@ -146,7 +146,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6\u738B(\u524D)"
     EnemySkillID: 9211004
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: Hive
+    Prefab: SlimeKing
     StartBattleSkillID: 9211001
     MaxHp: 100
     startBattleSkillIDs:
@@ -160,7 +160,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6\u738B(\u524D)"
     EnemySkillID: 9212003, 9212004
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: Hive
+    Prefab: SlimeKing
     StartBattleSkillID: 9212001
     MaxHp: 200
     startBattleSkillIDs:
@@ -175,7 +175,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6\u738B(\u524D)"
     EnemySkillID: 9213003, 9213004
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: Hive
+    Prefab: SlimeKing
     StartBattleSkillID: 9213001
     MaxHp: 300
     startBattleSkillIDs:
@@ -190,7 +190,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6\u738B(\u5F8C)"
     EnemySkillID: 9211003, 9211004
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: Hive
+    Prefab: SlimeKing
     StartBattleSkillID: 9211001
     MaxHp: 100
     startBattleSkillIDs:
@@ -205,7 +205,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6\u738B(\u5F8C)"
     EnemySkillID: 9212003, 9212004
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: Hive
+    Prefab: SlimeKing
     StartBattleSkillID: 9212001
     MaxHp: 200
     startBattleSkillIDs:
@@ -220,7 +220,7 @@ MonoBehaviour:
     Lang: "\u53F2\u840A\u59C6\u738B(\u5F8C)"
     EnemySkillID: 9213003, 9213004
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: Hive
+    Prefab: SlimeKing
     StartBattleSkillID: 9213001
     MaxHp: 300
     startBattleSkillIDs:
@@ -235,7 +235,7 @@ MonoBehaviour:
     Lang: "\u6A39\u7CBE"
     EnemySkillID: 9301002
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: Hive
+    Prefab: Tree
     StartBattleSkillID: 9301001
     MaxHp: 25
     startBattleSkillIDs:
@@ -249,7 +249,7 @@ MonoBehaviour:
     Lang: "\u6A39\u7CBE"
     EnemySkillID: 9302002
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: Hive
+    Prefab: Tree
     StartBattleSkillID: 9302001
     MaxHp: 75
     startBattleSkillIDs:
@@ -263,7 +263,7 @@ MonoBehaviour:
     Lang: "\u6A39\u7CBE"
     EnemySkillID: 9303002
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: Hive
+    Prefab: Tree
     StartBattleSkillID: 9303001
     MaxHp: 100
     startBattleSkillIDs:
@@ -277,7 +277,7 @@ MonoBehaviour:
     Lang: "\u53E4\u6A39"
     EnemySkillID: 9311002, 9311003
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: Hive
+    Prefab: OldTree
     StartBattleSkillID: 9311001
     MaxHp: 100
     startBattleSkillIDs:
@@ -292,7 +292,7 @@ MonoBehaviour:
     Lang: "\u53E4\u6A39"
     EnemySkillID: 9312002, 9312003
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: Hive
+    Prefab: OldTree
     StartBattleSkillID: 9312001
     MaxHp: 200
     startBattleSkillIDs:
@@ -307,7 +307,7 @@ MonoBehaviour:
     Lang: "\u53E4\u6A39"
     EnemySkillID: 9313002, 9313003
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: Hive
+    Prefab: OldTree
     StartBattleSkillID: 9313001
     MaxHp: 300
     startBattleSkillIDs:
@@ -394,7 +394,7 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u58EB\u5175"
     EnemySkillID: 9501002
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: Hive
+    Prefab: Soldier
     StartBattleSkillID: 9501001
     MaxHp: 25
     startBattleSkillIDs:
@@ -408,7 +408,7 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u58EB\u5175"
     EnemySkillID: 9502002
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: Hive
+    Prefab: Soldier
     StartBattleSkillID: 9502001
     MaxHp: 75
     startBattleSkillIDs:
@@ -422,7 +422,7 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u58EB\u5175"
     EnemySkillID: 9502002
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: Hive
+    Prefab: Soldier
     StartBattleSkillID: 9503001
     MaxHp: 100
     startBattleSkillIDs:
@@ -436,7 +436,7 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u5718"
     EnemySkillID: 9511003
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: Hive
+    Prefab: SoldierUnit
     StartBattleSkillID: 9511001, 9511002
     MaxHp: 100
     startBattleSkillIDs:
@@ -451,7 +451,7 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u5718"
     EnemySkillID: 9512003
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: Hive
+    Prefab: SoldierUnit
     StartBattleSkillID: 9512001, 9512002
     MaxHp: 200
     startBattleSkillIDs:
@@ -466,7 +466,7 @@ MonoBehaviour:
     Lang: "\u6A5F\u5668\u5718"
     EnemySkillID: 9513003
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: Hive
+    Prefab: SoldierUnit
     StartBattleSkillID: 9513001, 9513002
     MaxHp: 300
     startBattleSkillIDs:

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using MoreMountains.Feedbacks;
 using NueGames.Data.Containers;
@@ -23,7 +24,14 @@ namespace Feedback
 
         public void Play(PowerName targetPower, bool gainPower)
         {
-            StartCoroutine(PlayFeedBack(targetPower, gainPower));
+            try
+            {
+                StartCoroutine(PlayFeedBack(targetPower, gainPower));
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e.Message);
+            }
         }
 
         private IEnumerator PlayFeedBack(PowerName targetPower, bool gainPower)

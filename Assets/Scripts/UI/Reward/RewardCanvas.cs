@@ -11,6 +11,8 @@ using NueGames.Data.Containers;
 using NueGames.Encounter;
 using NueGames.Enums;
 using NueGames.NueExtentions;
+using NueGames.Relic;
+using Relic;
 using Reward;
 using UnityEngine;
 
@@ -73,6 +75,7 @@ namespace NueGames.UI.Reward
             var rewardClone = Instantiate(rewardContainerPrefab, rewardRoot);
             _currentRewardsList.Add(rewardClone);
             string rewardText = "";
+            var sprite = RewardManager.Instance.GetRewardSprite(rewardData.RewardType);
             
             switch (rewardData.RewardType)
             {
@@ -92,12 +95,16 @@ namespace NueGames.UI.Reward
                     rewardClone.RewardButton.onClick.AddListener(()=>GetStoneReward(rewardClone, stone));
                     break;
                 case RewardType.Relic:
+                    var (relicName, relicData) = RewardManager.Instance.GetRelic(nodeType);
+                    rewardText = $"{relicData.Title}";
+                    sprite = relicData.IconSprite;
+                    rewardClone.RewardButton.onClick.AddListener(()=>GetRelicReward(rewardClone, relicName));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(RewardType), rewardData.RewardType, null);
             }
 
-            var sprite = RewardManager.Instance.GetRewardSprite(rewardData.RewardType);
+            
             rewardClone.BuildReward(sprite, rewardText);
         }
 
@@ -181,6 +188,15 @@ namespace NueGames.UI.Reward
             
             Destroy(rewardContainer.gameObject);
         }
+
+        private void GetRelicReward(RewardContainer rewardContainer, RelicName relicName)
+        {
+            GameManager.RelicManager.GainRelic(relicName);
+            _currentRewardsList.Remove(rewardContainer);
+            Destroy(rewardContainer.gameObject);
+        }
+        
+        
         #endregion
         
     }

@@ -918,7 +918,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2133601806}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: ContinueGame
         m_Mode: 1
@@ -1655,7 +1655,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5947388173325907511}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NueGames.Utils.SceneChanger, Assembly-CSharp
         m_MethodName: ExitApp
         m_Mode: 1
@@ -2110,8 +2110,6 @@ GameObject:
   - component: {fileID: 4079471535938771060}
   - component: {fileID: 4079471535938771059}
   - component: {fileID: 4079471535938771058}
-  - component: {fileID: 2133601806}
-  - component: {fileID: 5947388173325907511}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -2205,35 +2203,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 183
---- !u!114 &2133601806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4079471535938771057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 438b4a728ef922d4eaab6a412b259b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allyData: {fileID: 11400000, guid: 621ddd3ce6aa142d0945b431e8681f64, type: 2}
-  stageData: {fileID: 11400000, guid: 592614dcf419442e1a8158ee6145e133, type: 2}
-  questionSettingUI: {fileID: 9154513481147150613}
-  sceneChanger: {fileID: 5947388173325907511}
-  onlineQuestionDownloader: {fileID: 0}
---- !u!114 &5947388173325907511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4079471535938771057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a7e3f294a7c2c44eb6cffeb9f94b306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4115635485945626997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,7 +2798,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2133601806}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: OpenShop
         m_Mode: 1
@@ -4321,6 +4290,7 @@ GameObject:
   - component: {fileID: 6978336218040246893}
   - component: {fileID: 5550853761382417279}
   - component: {fileID: 4738523240266248487}
+  - component: {fileID: 6504429243665127177}
   m_Layer: 5
   m_Name: Start Game UI
   m_TagString: Untagged
@@ -4409,7 +4379,7 @@ MonoBehaviour:
   _stageDataOverview: {fileID: 0}
   stageSelectedUI: {fileID: 7927167046208096957}
   allySelectedUI: {fileID: 4953506634620672380}
-  sceneChanger: {fileID: 5947388173325907511}
+  sceneChanger: {fileID: 6504429243665127177}
 --- !u!225 &4738523240266248487
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4422,6 +4392,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6504429243665127177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8445076677479067430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7e3f294a7c2c44eb6cffeb9f94b306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8500706154359787611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4667,14 +4649,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2061957930842029168, guid: 449cf56307f8f49589201d246e9b2861, type: 3}
   m_PrefabInstance: {fileID: 4357953535381182946}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9154513481147150613 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4859896527373560055, guid: 449cf56307f8f49589201d246e9b2861, type: 3}
-  m_PrefabInstance: {fileID: 4357953535381182946}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c06d02516ea4446c8aa0600742aaed99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

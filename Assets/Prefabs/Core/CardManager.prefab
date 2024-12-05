@@ -52,10 +52,7 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: cardLevels
-      Entry: 6
-      Data: 
+    SerializationNodes: []
   SaveCard: {fileID: 11400000, guid: 0d8b556c7688a4833901d3a5cad41e8b, type: 2}
 --- !u!1 &4156895131823666307
 GameObject:
@@ -117,6 +114,7 @@ MonoBehaviour:
       Entry: 10
       Data: 0
   saveDeck: {fileID: 11400000, guid: 0d8b556c7688a4833901d3a5cad41e8b, type: 2}
+  otherCardDeck: {fileID: 11400000, guid: ae42016b604e14f5c92a99e308398d31, type: 2}
   skillData: {fileID: 11400000, guid: fcdcaa925d8d8446db1919662da02639, type: 2}
   CardInfoUpdated:
     m_PersistentCalls:

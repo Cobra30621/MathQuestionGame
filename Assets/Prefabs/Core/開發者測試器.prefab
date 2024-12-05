@@ -112,12 +112,11 @@ MonoBehaviour:
       m_Calls: []
   allyData: {fileID: 11400000, guid: 621ddd3ce6aa142d0945b431e8681f64, type: 2}
   enemyEncounter:
-    id: 25ee4174-5e0e-4720-a481-b0f32b24ba96
+    id: 97801a6b-0a03-46d9-b8a0-8f30e128daf1
   QuestionSetting:
     Grades: 
     Publishers: 
   allyPowerAtGameStart: 
-  _levelSetterTool: {fileID: 2466699180288306852}
 --- !u!114 &2466699180288306852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,8 +215,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  setDataWhenGameStarted: 0
-  relicInfos: []
+    - Name: relicInfos
+      Entry: 6
+      Data: 
 --- !u!1 &4460161426109008673
 GameObject:
   m_ObjectHideFlags: 0
