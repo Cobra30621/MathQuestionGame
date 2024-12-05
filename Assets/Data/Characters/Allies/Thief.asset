@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d037adff9e04706b4a24a2529895710, type: 3}
-  m_Name: Knight
+  m_Name: Thief
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,12 +21,12 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  characterName: "\u9A0E\u58EB"
-  characterDescription: "\u9A0E\u58EB\u7684\u7279\u6027"
+  characterName: "\u76DC\u8CCA"
+  characterDescription: 
   maxHealth: 75
-  prefab: {fileID: 4481275099794884273, guid: 54f755eb3b85d4532b7cfe2db4176b6a, type: 3}
-  InitialDeck: {fileID: 11400000, guid: ddbbd9cf737b843e88df2d1a048d68ee, type: 2}
-  CardRewardData: {fileID: 11400000, guid: 2fb49434a78834b6f80611579b376300, type: 2}
-  initialRelic: 1127000013270000
-  Sprite: {fileID: 21300000, guid: a6ce452d1a90b43be93c1df3c544b8da, type: 3}
-  Icon: {fileID: 21300000, guid: a6ce452d1a90b43be93c1df3c544b8da, type: 3}
+  prefab: {fileID: 95458028045728566, guid: 1a4adb68145824426b4c0332041848f4, type: 3}
+  InitialDeck: {fileID: 11400000, guid: d8027921c3ae04d808730c34c5b37ed4, type: 2}
+  CardRewardData: {fileID: 11400000, guid: 8e39708be78e84330b798c7d2f133a37, type: 2}
+  initialRelic: 
+  Sprite: {fileID: 21300000, guid: e56a3cce53c0a429dab8819cdcd47a17, type: 3}
+  Icon: {fileID: 21300000, guid: e56a3cce53c0a429dab8819cdcd47a17, type: 3}

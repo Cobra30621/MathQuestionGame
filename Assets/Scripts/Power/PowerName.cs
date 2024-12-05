@@ -31,18 +31,15 @@ namespace NueGames.Power
         // not official coded
         Trap = 1112,
         //
-
-
-
-
-
-
         None = 1000,
         // 傷害計算相關
         Block = 1001,
 
 
 
+        
+        
+        
 
         
         BloodFury = 6,
