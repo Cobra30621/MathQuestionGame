@@ -3,19 +3,16 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using System.Text;
 using Question;
 using Sirenix.OdinInspector;
-using UnityEditor;
 using UnityEngine.Networking;
 
 
 #if UNITY_EDITOR
+using UnityEditor;
+
+#endif
+
 public class QuestionDownloader : MonoBehaviour
 {
    
@@ -183,10 +180,10 @@ public class QuestionDownloader : MonoBehaviour
                 question.OptionSprite = answerSprite;
             }
         }
-
+#if UNITY_EDITOR
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        
+#endif
     }
     
 
@@ -204,4 +201,4 @@ public class QuestionDownloader : MonoBehaviour
         public string answer;
     }
 }
-#endif
+

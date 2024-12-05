@@ -6,6 +6,8 @@ using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Managers;
 using Save;
+using Sheets;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -24,7 +26,11 @@ namespace Tool
         [SerializeField] private Button addStoneButton;
         [SerializeField] private Button killAllButton;
         [SerializeField] private Button clearSaveDataButton;
+        [SerializeField] private Button loadSheetButton;
 
+        [Required]
+        [SerializeField] private SheetDataLoader _sheetDataLoader;
+        
         private void Start()
         {
             // 初始化時隱藏面板
@@ -43,6 +49,7 @@ namespace Tool
             addStoneButton.onClick.AddListener(OnAddStoneClick);
             killAllButton.onClick.AddListener(KillAllEnemy);
             clearSaveDataButton.onClick.AddListener(ClearSaveData);
+            loadSheetButton.onClick.AddListener(LoadSheet);
         }
 
         private void OnAddMoneyClick()
@@ -97,6 +104,11 @@ namespace Tool
         {
             if (cheatPanel != null)
                 cheatPanel.SetActive(false);
+        }
+        
+        public void LoadSheet()
+        {
+            _sheetDataLoader.Load();
         }
     }
 }
