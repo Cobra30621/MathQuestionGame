@@ -108,6 +108,7 @@ namespace Tool
         
         public void LoadSheet()
         {
+            Debug.Log("開始讀取表單");
             _sheetDataLoader.Load();
         }
     }

@@ -13,31 +13,8 @@ using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [InlineEditor()]
-    [LabelText("玩家資料")]
-    public AllyData allyData;
-    
-    [InlineEditor()]
-    [LabelText("關卡資料")]
-    public StageData stageData;
 
-    
     [SerializeField] private SceneChanger sceneChanger;
-    
-    
-    public void NewGame()
-    {
-        GameManager.Instance.SetAllyData(allyData);
-        GameManager.Instance.NewGame();
-        StartCoroutine(StartGameCoroutine());
-    }
-
-    private IEnumerator StartGameCoroutine()
-    {
-        QuestionManager.Instance.StartDownloadOnlineQuestions();
-        yield return null;
-        sceneChanger.OpenMapScene();
-    }
     
     
     public void ContinueGame()
