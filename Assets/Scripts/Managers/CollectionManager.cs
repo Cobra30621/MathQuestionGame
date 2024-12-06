@@ -108,7 +108,7 @@ namespace NueGames.Managers
         {
             foreach (var cardBase in HandController.hand)
             {
-                if (cardBase.CardData.ExhaustIfNotPlay)
+                if (cardBase.CardInfo.ExhaustIfNotPlay)
                 {
                     cardBase.Exhaust();
                 }
@@ -137,7 +137,7 @@ namespace NueGames.Managers
         public void OnCardPlayed(BattleCard targetBattleCard)
         {
             UsedCardCount++;
-            if (targetBattleCard.CardData.ExhaustAfterPlay)
+            if (targetBattleCard.CardInfo.ExhaustAfterPlay)
                 targetBattleCard.Exhaust();
             else
                 targetBattleCard.Discard();

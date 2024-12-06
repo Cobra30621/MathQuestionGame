@@ -23,6 +23,13 @@ namespace Card.Data
 
         [SerializeField] private CardLevelInfo cardLevelInfo;
 
+        public bool ExhaustAfterPlay => cardLevelInfo.ExhaustAfterPlay;
+        
+        
+        public bool ExhaustIfNotPlay => false;
+        
+        
+        
         public CardInfo(CardData cardData, CardSaveInfo cardSaveInfo)
         {
             CardData = cardData;

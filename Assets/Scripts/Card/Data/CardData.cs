@@ -32,8 +32,6 @@ namespace Card.Data
         [SerializeField] private AllyClassType _allyClassType;
         
         [FoldoutGroup("數值參數")]
-        [SerializeField] private bool exhaustAfterPlay;
-        [FoldoutGroup("數值參數")]
         [SerializeField] private bool canNotPlay;
         [FoldoutGroup("數值參數")]
         [SerializeField] private bool exhaustIfNotPlay;
@@ -78,7 +76,6 @@ namespace Card.Data
         public List<CardLevelInfo> LevelInfos => _levelInfos;
         public FxInfo FxInfo => fxInfo;
         public bool CanNotPlay => canNotPlay;
-        public bool ExhaustIfNotPlay => exhaustAfterPlay;
         public bool UseDefaultAttackFeedback => useDefaultAttackFeedback;
         public bool UseCustomFeedback
         {
@@ -105,7 +102,6 @@ namespace Card.Data
         public string MyDescription { get; set; }
         
 
-        public bool ExhaustAfterPlay => exhaustAfterPlay;
         
         public AllyClassType AllyClassType
         { get => _allyClassType; set => _allyClassType = value; }

@@ -19,6 +19,8 @@ namespace Card.Display
     {
         [SerializeField] protected Transform descriptionRoot;
 
+        public CardInfo CardInfo => _cardInfo;
+        
         protected CardInfo _cardInfo;
         public CardData CardData => _cardInfo.CardData;
         public CardLevelInfo CardLevelInfo => _cardInfo.CardLevelInfo;

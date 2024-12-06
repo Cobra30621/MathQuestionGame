@@ -21,7 +21,7 @@ namespace NueGames.Power
         
         public override float AtDamageGive(float damage)
         {
-            return damage + Amount*2;
+            return damage + Amount;
         }
     }
 }
