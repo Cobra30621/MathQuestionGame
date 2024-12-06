@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: "\u80FD\u91CF"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+  isDevelopCard: 0
+  developLevelInfo:
+    ID: 
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: 
+    DesLang: 
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    EffectInfos: []
+  cardId: 16
+  _levelInfos:
+  - ID: 130301
+    GroupID: 16
+    SkillID: 4000001
+    ManaCost: 0
+    UpgradeCost: 1000
+    Class: 3
+    MaxLevel: 0
+    TitleLang: "\u80FD\u91CF"
+    DesLang: "\u7372\u5F971\u9EDEmana"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs:
+    - 4000001
+    EffectInfos: []
+  - ID: 130302
+    GroupID: 16
+    SkillID: 4000002
+    ManaCost: 0
+    UpgradeCost: 3000
+    Class: 3
+    MaxLevel: 0
+    TitleLang: "\u80FD\u91CF"
+    DesLang: "\u7372\u5F972\u9EDEmana"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs:
+    - 4000002
+    EffectInfos: []
+  - ID: 130303
+    GroupID: 16
+    SkillID: 4000003
+    ManaCost: 0
+    UpgradeCost: 0
+    Class: 3
+    MaxLevel: 1
+    TitleLang: "\u80FD\u91CF"
+    DesLang: "\u7372\u5F973\u9EDEmana"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs:
+    - 4000003
+    EffectInfos: []
+  _allyClassType: 3
+  exhaustAfterPlay: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
+  useDefaultAttackFeedback: 0
+  useCustomFeedback: 0
+  cardName: "\u80FD\u91CF"
+  cardSprite: {fileID: 21300000, guid: b4994b3b5d0fa4307b9a778c36ec3df6, type: 3}
+  rarity: 0
+  description: 

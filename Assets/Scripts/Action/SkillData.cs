@@ -61,6 +61,7 @@ namespace Card
         [BoxGroup("LoadData")]
         public void ParseDataFromGoogleSheet()
         {
+            Debug.Log($"Url {url}");
             IsLoading = true;
             GoogleSheetService.LoadDataArray<SkillInfo>(url , infos =>
             {
