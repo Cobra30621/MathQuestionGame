@@ -107,10 +107,9 @@ namespace Card.Display
         
         protected virtual void ShowTooltipInfo()
         {
-            if(!NeedShowTooltip()) return;
-            if (!descriptionRoot) return;
-            if (CardData.KeywordsList == null) return;
-            
+            // if(!NeedShowTooltip()) return;
+            // if (!descriptionRoot) return;
+            // if (CardData.KeywordsList == null) return;
            
             var tooltipManager = TooltipManager.Instance;
             foreach (var cardDataSpecialKeyword in CardData.KeywordsList)
@@ -123,8 +122,11 @@ namespace Card.Display
             foreach (var powerType in GetActionsPowerTypes())
             {
                 PowerData powerData = tooltipManager.PowersData.GetPowerData(powerType);
-                if(powerData != null)
+                if (powerData != null)
+                {
                     ShowTooltipInfo(powerData.GetContent(),powerData.GetHeader(),descriptionRoot);
+                }
+                    
             }
         }
 
@@ -150,6 +152,7 @@ namespace Card.Display
                     powerTypes.Add(powerName);
                 }
             }
+            
             return powerTypes;
         }
 

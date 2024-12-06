@@ -18,8 +18,15 @@ namespace NueGames.NueDeck.ThirdParty.NueTooltip.Core
             _rectTransform = GetComponent<RectTransform>();
         }
         
-        public void SetFollowPos(Transform staticTargetTransform = null,Camera cam =null)
+        public void SetFollowPos(Transform staticTargetTransform = null,Camera cam =null, bool focusFollow = false)
         {
+            // 強制跟隨滑鼠位置
+            if (focusFollow)
+            {
+                _isFollowEnabled = true;
+                return;
+            }
+            
             if (staticTargetTransform)
             {
                 var mainCam = cam;

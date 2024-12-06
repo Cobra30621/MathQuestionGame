@@ -45,7 +45,7 @@ MonoBehaviour:
     - nodeTypeClips:
       - nodeType: 11
         weight: 2
-      - nodeType: 12
+      - nodeType: 14
         weight: 1
       nodeCount: 2
       distanceFromPreviousLayer: 3
@@ -53,6 +53,13 @@ MonoBehaviour:
       randomizePosition: 0.462
     - nodeTypeClips:
       - nodeType: 0
+        weight: 1
+      nodeCount: 1
+      distanceFromPreviousLayer: 3
+      nodesApartDistance: 0
+      randomizePosition: 0
+    - nodeTypeClips:
+      - nodeType: 14
         weight: 1
       nodeCount: 1
       distanceFromPreviousLayer: 3
