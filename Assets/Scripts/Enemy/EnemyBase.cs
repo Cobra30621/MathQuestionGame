@@ -91,19 +91,26 @@ namespace Enemy
         
         public void SetIntentionUI()
         {
-            if (currentSkill.GetIntentionValue(out string info))
+            // TODO : 修正
+            if (EnemyCanvas.NextActionValueText != null)
             {
-                EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
-                EnemyCanvas.NextActionValueText.text = info;
-            }
-            else
-            {
-                EnemyCanvas.NextActionValueText.gameObject.SetActive(false);
+                if (currentSkill.GetIntentionValue(out string info))
+                {
+                    EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
+                    EnemyCanvas.NextActionValueText.text = info;
+                }
+                else
+                {
+                    EnemyCanvas.NextActionValueText.gameObject.SetActive(false);
+                }
             }
             
             EnemyCanvas.IntentImage.sprite = currentSkill._intention.IntentionSprite;
             EnemyCanvas.Intention = currentSkill._intention;
-            EnemyCanvas.IntentionGO.gameObject.SetActive(true);
+            if (EnemyCanvas.IntentionGO != null)
+            {
+                EnemyCanvas.IntentionGO.gameObject.SetActive(true);
+            }
         }
 
         

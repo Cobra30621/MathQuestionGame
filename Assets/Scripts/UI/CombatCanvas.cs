@@ -68,7 +68,7 @@ namespace NueGames.UI
 
         public void OnManaChange(int value)
         {
-           onManaChangeFeedback.Play(); 
+           onManaChangeFeedback?.Play(); 
            manaTextTextField.text = $"{CombatManager.CurrentMana}/" +
                                     $"{CombatManager.MaxMana()}";
         }

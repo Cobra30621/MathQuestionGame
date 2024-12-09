@@ -21,7 +21,15 @@ namespace Feedback
 
         public override void Play()
         {
-            _mmfPlayer.PlayFeedbacks();
+            try
+            {
+                _mmfPlayer.PlayFeedbacks();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+            
         }
     }
 }
