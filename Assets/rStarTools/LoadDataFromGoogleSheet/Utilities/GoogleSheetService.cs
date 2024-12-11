@@ -2,9 +2,6 @@
 
 using System;
 using ThirdParty.Utilities;
-#if UNITY_EDITOR
-using rStar.Tools.Editor;
-#endif
 
 #endregion
 
@@ -16,8 +13,7 @@ namespace Utilities
 
         public static void LoadDataArray<T>(string url , Action<T[]> complete)
         {
-        #if UNITY_EDITOR
-            EditorWebRequest.Complete += delegate(string jsonText)
+            CustomerWebRequest.Complete += delegate(string jsonText)
             {
                 try
                 {
@@ -26,12 +22,11 @@ namespace Utilities
                 }
                 catch (Exception)
                 {
-                    EditorWebRequest.ClearAction();
+                    CustomerWebRequest.ClearAction();
                     throw;
                 }
             };
-            EditorWebRequest.Request(url);
-        #endif
+            CustomerWebRequest.Request(url);
         }
 
     #endregion
