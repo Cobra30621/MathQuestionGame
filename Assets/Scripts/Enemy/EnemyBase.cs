@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Action.Enemy;
 using Action.Parameters;
@@ -50,18 +51,27 @@ namespace Enemy
             CombatManager.OnRoundStart += SetThisRoundSkill;
             CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
         }
-        
-        
+
+        private void OnDestroy()
+        {
+            RemoveEvent();
+        }
+
         #endregion
         
         protected override void OnDeathAction(DamageInfo damageInfo)
         {
             base.OnDeathAction(damageInfo);
-            CombatManager.OnRoundStart -= SetThisRoundSkill;
-            CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
+            RemoveEvent();
            
             _characterHandler.OnEnemyDeath(this);
             Destroy(gameObject);
+        }
+
+        void RemoveEvent()
+        {
+            CombatManager.OnRoundStart -= SetThisRoundSkill;
+            CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
         }
         
         
@@ -91,26 +101,20 @@ namespace Enemy
         
         public void SetIntentionUI()
         {
-            // TODO : 修正
-            if (EnemyCanvas.NextActionValueText != null)
+            if (currentSkill.GetIntentionValue(out string info))
             {
-                if (currentSkill.GetIntentionValue(out string info))
-                {
-                    EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
-                    EnemyCanvas.NextActionValueText.text = info;
-                }
-                else
-                {
-                    EnemyCanvas.NextActionValueText.gameObject.SetActive(false);
-                }
+                EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
+                EnemyCanvas.NextActionValueText.text = info;
             }
-            
+            else
+            {
+                EnemyCanvas.NextActionValueText.gameObject.SetActive(false);
+            }
+                
             EnemyCanvas.IntentImage.sprite = currentSkill._intention.IntentionSprite;
             EnemyCanvas.Intention = currentSkill._intention;
-            if (EnemyCanvas.IntentionGO != null)
-            {
-                EnemyCanvas.IntentionGO.gameObject.SetActive(true);
-            }
+            EnemyCanvas.IntentionGO.gameObject.SetActive(true);
+            
         }
 
         

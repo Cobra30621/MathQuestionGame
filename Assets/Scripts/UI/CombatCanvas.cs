@@ -6,6 +6,7 @@ using NueGames.Managers;
 using NueGames.Power;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace NueGames.UI
 {
@@ -34,21 +35,16 @@ namespace NueGames.UI
             
         }
 
-        // private void OnEnable()
-        // {
-        //     CombatManager.OnGainMana += OnManaChange;
-        // }
-        //
-        // private void OnDisable()
-        // {
-        //     CombatManager.OnGainMana -= OnManaChange;
-        // }
-
-
-        private void Start()
+        private void OnEnable()
         {
             ManaManager.OnGainMana += OnManaChange;
         }
+        
+        private void OnDisable()
+        {
+            ManaManager.OnGainMana -= OnManaChange;
+        }
+        
 
         #endregion
 
