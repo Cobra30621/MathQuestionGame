@@ -1,4 +1,5 @@
-﻿using GameListener;
+﻿using Enemy;
+using GameListener;
 using NueGames.Combat;
 using NueGames.Enums;
 using UnityEngine;
@@ -17,8 +18,19 @@ namespace NueGames.Power
             CanNegativeStack = true;
             DamageCalculateOrder = CalculateOrder.AdditionAndSubtraction;
         }
-        
-        
+
+        public override void Init()
+        {
+            base.Init();
+            // 如果是敵人，更新意圖
+            if (Owner.IsCharacterType(CharacterType.Enemy))
+            {
+                var enemyBase = (EnemyBase) Owner;
+                enemyBase.SetIntentionUI();
+            }
+        }
+
+
         public override float AtDamageGive(float damage)
         {
             return damage + Amount;

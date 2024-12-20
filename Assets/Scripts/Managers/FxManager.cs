@@ -36,7 +36,6 @@ namespace NueGames.Managers
         
         public FXPlayer PlayFx(FXPlayer fxGo, Transform targetTransform)
         {
-            Debug.Log($"fxGo {fxGo}");
             var fxPlayer = Instantiate(fxGo, targetTransform);
             fxPlayer.Play();
 
@@ -45,7 +44,6 @@ namespace NueGames.Managers
 
         public FXPlayer PlayFx(FXPlayer fxGo, Transform targetTransform, Vector3 fxPosition)
         {
-            Debug.Log($"fxGo {fxGo}");
             var fxPlayer = Instantiate(fxGo, targetTransform);
             fxPlayer.Play();
             fxPlayer.GetComponent<Transform>().position = fxPosition;

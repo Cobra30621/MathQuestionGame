@@ -46,10 +46,8 @@ namespace Enemy
             EnemyCanvas.InitCanvas();
             
             CharacterStats = new CharacterStats(data.MaxHp, this, EnemyCanvas);
-            OnDeath += OnDeathAction;
-
-            CombatManager.OnRoundStart += SetThisRoundSkill;
-            CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
+            
+            SubscribeEvent();
         }
 
         private void OnDestroy()
@@ -68,10 +66,20 @@ namespace Enemy
             Destroy(gameObject);
         }
 
+        void SubscribeEvent()
+        {
+            CombatManager.OnRoundStart += SetThisRoundSkill;
+            CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
+            
+            OnDeath += OnDeathAction;
+        }
+
         void RemoveEvent()
         {
             CombatManager.OnRoundStart -= SetThisRoundSkill;
             CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
+
+            OnDeath -= OnDeathAction;
         }
         
         
@@ -101,8 +109,10 @@ namespace Enemy
         
         public void SetIntentionUI()
         {
+            Debug.Log("SetIntentionUI");
             if (currentSkill.GetIntentionValue(out string info))
             {
+                Debug.Log($"GetIntentionValue{info}");
                 EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
                 EnemyCanvas.NextActionValueText.text = info;
             }

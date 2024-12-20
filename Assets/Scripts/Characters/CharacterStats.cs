@@ -87,12 +87,11 @@ namespace NueGames.Characters
             else
             {
                 PowerBase powerBase = PowerGenerator.GetPower(targetPower);
+                PowerDict.Add(targetPower, powerBase);
                 powerBase.SetOwner(owner);
                 powerBase.SubscribeAllEvent();
                 powerBase.StackPower(value);
                 powerBase.Init();
-                
-                PowerDict.Add(targetPower, powerBase);
             }
         }
 
@@ -173,7 +172,7 @@ namespace NueGames.Characters
         public void BeAttacked(DamageInfo damageInfo)
         {
             if (IsDeath) return;
-            owner.OnAttacked?.Invoke(damageInfo);
+           
 
             var damageValue = damageInfo.GetDamageValue();
             var afterBlockDamage = damageInfo.GetAfterBlockDamage();
@@ -184,7 +183,10 @@ namespace NueGames.Characters
                 owner.OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
             }
             ReduceBlock(damageValue - afterBlockDamage);
+            owner.OnAttacked?.Invoke(damageInfo);
+            
             CheckIsDeath(damageInfo);
+            
         }
 
         /// <summary>
