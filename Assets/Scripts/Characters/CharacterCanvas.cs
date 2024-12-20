@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Combat;
@@ -96,14 +97,28 @@ namespace NueGames.Characters
         #endregion
 
         #region Pointer Events
+        private Coroutine tooltipCoroutine;
+
         public void OnPointerEnter(PointerEventData eventData)
         {
-            ShowTooltipInfo();
+            tooltipCoroutine = StartCoroutine(ShowTooltipAfterDelay(0.5f)); // 延遲 0.5 秒顯示提示
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (tooltipCoroutine != null)
+            {
+                StopCoroutine(tooltipCoroutine); // 停止顯示提示的協程
+                tooltipCoroutine = null;
+            }
             HideTooltipInfo();
+        }
+
+        private IEnumerator ShowTooltipAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            ShowTooltipInfo();
+            
         }
 
         #endregion

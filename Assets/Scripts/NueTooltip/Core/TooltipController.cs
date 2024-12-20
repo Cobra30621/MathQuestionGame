@@ -67,7 +67,7 @@ namespace NueGames.NueDeck.ThirdParty.NueTooltip.Core
         private void SetPosition()
         {
             if (_isFollowEnabled)
-                _followPos = Input.mousePosition;
+                _followPos = Input.mousePosition + new Vector3(50, 100, 0);
             else
             {
                 if (_followCam && _lastStaticTarget)
