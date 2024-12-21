@@ -11,15 +11,16 @@ using NueGames.Combat;
 using NueGames.Parameters;
 using NueGames.Power;
 using Sheets;
+using Sirenix.OdinInspector;
 using Tool;
 using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyBase : CharacterBase
+    public class Enemy : CharacterBase
     {
-        [SerializeField] protected EnemyCanvas enemyCanvas;
-        public EnemyCanvas EnemyCanvas => enemyCanvas;
+        [Required]
+        [SerializeField] protected IntentionDisplay intentionDisplay;
 
         private EnemyData data;
 
@@ -43,51 +44,47 @@ namespace Enemy
             enemyAbility = new EnemyAbility(enemyData, this, sheetDataGetter);
 
             SetUpFeedbackDict();
-            EnemyCanvas.InitCanvas();
+            _characterCanvas.InitCanvas();
             
-            CharacterStats = new CharacterStats(data.MaxHp, this, EnemyCanvas);
+            CharacterStats = new CharacterStats(data.MaxHp, this, _characterCanvas);
             
             SubscribeEvent();
         }
 
-        private void OnDestroy()
+        protected override void SubscribeEvent()
         {
-            RemoveEvent();
+            base.SubscribeEvent();
+            
+            CombatManager.OnRoundStart += SetThisRoundSkill;
         }
+
+
+        protected override void UnsubscribeEvent()
+        {
+            base.UnsubscribeEvent();
+            CombatManager.OnRoundStart -= SetThisRoundSkill;
+        }
+        
+        
 
         #endregion
         
         protected override void OnDeathAction(DamageInfo damageInfo)
         {
             base.OnDeathAction(damageInfo);
-            RemoveEvent();
+           
            
             _characterHandler.OnEnemyDeath(this);
             Destroy(gameObject);
         }
 
-        void SubscribeEvent()
-        {
-            CombatManager.OnRoundStart += SetThisRoundSkill;
-            CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
-            
-            OnDeath += OnDeathAction;
-        }
-
-        void RemoveEvent()
-        {
-            CombatManager.OnRoundStart -= SetThisRoundSkill;
-            CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
-
-            OnDeath -= OnDeathAction;
-        }
         
         
         private void SetThisRoundSkill(RoundInfo info)
         {
             currentSkill = enemyAbility.GetNextSkill();
             enemyAbility.UpdateSkillsCd();
-            SetIntentionUI();
+            UpdateIntentionDisplay();
         }
         
         
@@ -102,29 +99,14 @@ namespace Enemy
             
             currentSkill = new EnemySkill(
                 new List<GameActionBase>(){spawnAction}, intention);
-            
-            SetIntentionUI();
+
+            UpdateIntentionDisplay();
         }
         
         
-        public void SetIntentionUI()
+        public void UpdateIntentionDisplay()
         {
-            Debug.Log("SetIntentionUI");
-            if (currentSkill.GetIntentionValue(out string info))
-            {
-                Debug.Log($"GetIntentionValue{info}");
-                EnemyCanvas.NextActionValueText.gameObject.SetActive(true);
-                EnemyCanvas.NextActionValueText.text = info;
-            }
-            else
-            {
-                EnemyCanvas.NextActionValueText.gameObject.SetActive(false);
-            }
-                
-            EnemyCanvas.IntentImage.sprite = currentSkill._intention.IntentionSprite;
-            EnemyCanvas.Intention = currentSkill._intention;
-            EnemyCanvas.IntentionGO.gameObject.SetActive(true);
-            
+            intentionDisplay.Show(currentSkill);
         }
 
         
@@ -165,7 +147,7 @@ namespace Enemy
 
         public void SetMaxHealth(int maxHealth)
         {
-            CharacterStats = new CharacterStats(maxHealth, this, EnemyCanvas);
+            CharacterStats = new CharacterStats(maxHealth, this, _characterCanvas);
         }
 
         public string GetId()

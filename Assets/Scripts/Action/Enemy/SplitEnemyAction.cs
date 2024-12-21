@@ -36,7 +36,7 @@ namespace Action.Enemy
         /// </summary>
         /// <param name="spawnEnemyId">要生成的敌人ID</param>
         /// <param name="sourceEnemy">指定要複製的的人(用於取得血量)</param>
-        public SplitEnemyAction(string spawnEnemyId, EnemyBase sourceEnemy)
+        public SplitEnemyAction(string spawnEnemyId, global::Enemy.Enemy sourceEnemy)
         {
             _spawnEnemyId = spawnEnemyId;
             _sourceEnemy = sourceEnemy;

@@ -24,7 +24,7 @@ namespace Enemy.Data
          #region Variable
          [SerializeField] private int currentCd; // 当前冷却时间
          
-         private EnemyBase _enemyBase; // 敌人基类引用
+         private Enemy _enemy; // 敌人基类引用
 
          private EnemySkillData _skillData; // 技能数据
 
@@ -41,10 +41,10 @@ namespace Enemy.Data
          /// <summary>
          /// 使用表格数据初始化敌人技能
          /// </summary>
-         public EnemySkill(EnemySkillData skillData, EnemyBase enemyBaseBase, SheetDataGetter getter)
+         public EnemySkill(EnemySkillData skillData, Enemy enemy, SheetDataGetter getter)
          {
              _skillData = skillData;
-             _enemyBase = enemyBaseBase;
+             _enemy = enemy;
              
              currentCd = 0;
              skillInfos = _skillData.skillIDs.ConvertAll(getter.GetSkillInfo);
@@ -77,7 +77,7 @@ namespace Enemy.Data
             if (useSheetInfos)
             {
                 _gameActions = GameActionFactory.GetGameActions(skillInfos,
-                    new List<CharacterBase>() { _enemyBase }, actionSource);
+                    new List<CharacterBase>() { _enemy }, actionSource);
             }
             
             GameActionExecutor.AddAction(_gameActions, 0.5f);
@@ -107,7 +107,7 @@ namespace Enemy.Data
             if (_intention.ShowIntentionValue)
             {
                 _gameActions = GameActionFactory.GetGameActions(skillInfos,
-                    new List<CharacterBase>() { _enemyBase }, GetActionScoure());
+                    new List<CharacterBase>() { _enemy }, GetActionScoure());
                 
                 var (damage, times) = _gameActions[0].GetDamageBasicInfo();
 
@@ -120,7 +120,7 @@ namespace Enemy.Data
                     new ActionSource()
                     {
                         SourceType = SourceType.Enemy,
-                        SourceCharacter = _enemyBase
+                        SourceCharacter = _enemy
                     }
                     );
                 damageInfo.SetTarget(CombatManager.Instance.MainAlly);
@@ -149,7 +149,7 @@ namespace Enemy.Data
             ActionSource actionSource = new ActionSource()
             {
                 SourceType = SourceType.Enemy,
-                SourceCharacter = _enemyBase
+                SourceCharacter = _enemy
             };
             return actionSource;
         }

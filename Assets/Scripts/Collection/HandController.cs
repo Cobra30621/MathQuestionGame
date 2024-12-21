@@ -481,13 +481,13 @@ namespace NueGames.Collection
         private void HandleCardSelectingSingleEnemy(Vector2 mousePos)
         {
             // Check Mouse Inside Enemy Bounds
-            EnemyBase selectedEnemy= null;
+            Enemy.Enemy selectedEnemy= null;
             RaycastHit hit;
             var mainRay = _mainCam.ScreenPointToRay(mousePos);
             
             if (Physics.Raycast(mainRay, out hit, 1000, targetLayer))
             {
-                selectedEnemy = hit.collider.gameObject.GetComponent<EnemyBase>();
+                selectedEnemy = hit.collider.gameObject.GetComponent<Enemy.Enemy>();
             }
             
             // Check uiCard Action Target Is Single Enemy
@@ -500,7 +500,7 @@ namespace NueGames.Collection
             }
         }
 
-        private void HandleSelectingSingleEnemyEffect(EnemyBase selectedEnemy)
+        private void HandleSelectingSingleEnemyEffect(Enemy.Enemy selectedEnemy)
         {
             if (selectedEnemy != null)
             {
@@ -520,7 +520,7 @@ namespace NueGames.Collection
             }
         }
 
-        private void ActivateSelectingSingleEnemyEffect(EnemyBase selectedEnemy)
+        private void ActivateSelectingSingleEnemyEffect(Enemy.Enemy selectedEnemy)
         {
             characterHighlightController.ActivateEnemyHighlight(selectedEnemy);
             arrowController.OnEnterEnemy();

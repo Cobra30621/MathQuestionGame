@@ -31,7 +31,7 @@ namespace Action.Enemy
         
         protected override void DoMainAction()
         {
-            EnemyBase targetEnemy;
+            global::Enemy.Enemy targetEnemy;
             var find = CombatManager.characterHandler.GetEnemyWithId(targetEnemyId, out targetEnemy);
             Debug.Log($"Find {targetEnemy}");
             if (find)

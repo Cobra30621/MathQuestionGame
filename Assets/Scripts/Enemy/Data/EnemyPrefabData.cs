@@ -7,10 +7,10 @@ namespace Enemy
 {
     public class EnemyPrefabData : ScriptableObject
     {
-        public List<EnemyBase> prefabs;
+        public List<Enemy> prefabs;
 
 
-        public EnemyBase GetPrefab(string name, string whoFinding = "")
+        public Enemy GetPrefab(string name, string whoFinding = "")
         {
             var first = prefabs.FirstOrDefault(p => p.name == name);
 
