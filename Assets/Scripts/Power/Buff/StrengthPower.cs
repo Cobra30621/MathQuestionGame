@@ -25,8 +25,8 @@ namespace NueGames.Power
             // 如果是敵人，更新意圖
             if (Owner.IsCharacterType(CharacterType.Enemy))
             {
-                var enemyBase = (EnemyBase) Owner;
-                enemyBase.SetIntentionUI();
+                var enemy = (Enemy.Enemy) Owner;
+                enemy.UpdateIntentionDisplay();
             }
         }
 

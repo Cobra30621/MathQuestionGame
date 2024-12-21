@@ -22,8 +22,13 @@ namespace NueGames.Characters
     {
         [Header("Base settings")]
         [SerializeField] private CharacterType characterType;
+        [Required]
         [SerializeField] private Transform textSpawnRoot;
+        [Required]
+        [SerializeField] protected CharacterCanvas _characterCanvas;
 
+        public CharacterCanvas CharacterCanvas => _characterCanvas;
+        
         #region Cache
 
         /// <summary>
@@ -35,10 +40,8 @@ namespace NueGames.Characters
         /// 文字特效生成處
         /// </summary>
         public Transform TextSpawnRoot => textSpawnRoot;
-        protected FxManager FxManager => FxManager.Instance;
         protected GameManager GameManager => GameManager.Instance;
         protected CombatManager CombatManager => CombatManager.Instance;
-        protected CollectionManager CollectionManager => CollectionManager.Instance;
         protected UIManager UIManager => UIManager.Instance;
 
         #endregion
@@ -85,6 +88,30 @@ namespace NueGames.Characters
         ///  事件: 當清除能力時觸發
         /// </summary>
         public Action<PowerName> OnPowerCleared;
+        
+        
+        protected virtual void SubscribeEvent()
+        {
+            
+            CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
+            
+            OnDeath += OnDeathAction;
+        }
+
+        protected virtual void UnsubscribeEvent()
+        {
+            
+            CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
+
+            OnDeath -= OnDeathAction;
+        }
+        
+        private void OnDestroy()
+        {
+            UnsubscribeEvent();
+        }
+
+        
 
         #endregion
 
@@ -93,7 +120,8 @@ namespace NueGames.Characters
 
         [SerializeField] protected  IFeedback defaultAttackFeedback;
         [SerializeField] protected IFeedback beAttackFeedback;
-        [SerializeField] protected PowerFeedback gainPowerFeedback;
+        [SerializeField] protected PowerFeedback gainPowerFeedbackPrefab;
+        [SerializeField] protected Transform powerFeedbackSpawn;
         [SerializeField] protected IFeedback onDeadFeedback;
 
         [ReadOnly]
@@ -143,21 +171,7 @@ namespace NueGames.Characters
         
         
         
-        public CharacterStats GetCharacterStats()
-        {
-            return CharacterStats;
-        }
-
         
-        /// <summary>
-        /// 檢查此玩家是否為指定的類別(Enemy, Ally)
-        /// </summary>
-        /// <param name="checkType"></param>
-        /// <returns></returns>
-        public bool IsCharacterType(CharacterType checkType)
-        {
-            return characterType == checkType;
-        }
         
         #region Damage
         /// <summary>
@@ -186,6 +200,7 @@ namespace NueGames.Characters
         protected virtual void OnDeathAction(DamageInfo damageInfo)
         {
             onDeadFeedback?.Play();
+            UnsubscribeEvent();
         }
 
 
@@ -212,7 +227,9 @@ namespace NueGames.Characters
         public void ApplyPower(PowerName targetPower,int value)
         {
             CharacterStats.ApplyPower(targetPower, value);
-            gainPowerFeedback?.Play(targetPower, value > 0);
+            
+            var powerFeedback = Instantiate(gainPowerFeedbackPrefab, powerFeedbackSpawn);
+            powerFeedback.Play(targetPower, value > 0);
         }
         
         /// <summary>
@@ -221,7 +238,7 @@ namespace NueGames.Characters
         public void MultiplyPower(PowerName targetPower,int value)
         {
             CharacterStats.MultiplyPower(targetPower, value);
-            gainPowerFeedback?.Play(targetPower, true);
+            gainPowerFeedbackPrefab.Play(targetPower, true);
         }
 
         /// <summary>
@@ -231,7 +248,9 @@ namespace NueGames.Characters
         public void ClearPower(PowerName targetPower)
         {
             CharacterStats.ClearPower(targetPower);
-            gainPowerFeedback?.Play(targetPower, false);
+            
+            var powerFeedback = Instantiate(gainPowerFeedbackPrefab, powerFeedbackSpawn);
+            powerFeedback.Play(targetPower, false);
         }
 
         /// <summary>
@@ -274,6 +293,22 @@ namespace NueGames.Characters
         
         #endregion
 
+        
+        public CharacterStats GetCharacterStats()
+        {
+            return CharacterStats;
+        }
+
+        
+        /// <summary>
+        /// 檢查此玩家是否為指定的類別(Enemy, Ally)
+        /// </summary>
+        /// <param name="checkType"></param>
+        /// <returns></returns>
+        public bool IsCharacterType(CharacterType checkType)
+        {
+            return characterType == checkType;
+        }
 
         public override string ToString()
         {

@@ -12,7 +12,7 @@ namespace NueGames.Data.Characters
     public class AllyData : CharacterDataBase, ISerializeReferenceByAssetGuid
     {
         [LabelText("玩家 Prefab")]
-        public AllyBase prefab;
+        public Ally prefab;
       
         [LabelText("玩家初始卡牌")]
         [InlineEditor]

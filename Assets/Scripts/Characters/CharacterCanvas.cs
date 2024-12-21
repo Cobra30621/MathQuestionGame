@@ -21,19 +21,19 @@ using NueTooltip.Core;
 namespace NueGames.Characters
 {
     [RequireComponent(typeof(Canvas))]
-    public abstract class CharacterCanvas : MonoBehaviour, I2DTooltipTarget
+    public class CharacterCanvas : MonoBehaviour
     {
         [Header("References")]
         [SerializeField] protected Transform statusIconRoot;
         [SerializeField] protected Transform highlightRoot;
-        [SerializeField] protected Transform descriptionRoot;
+        
         [SerializeField] protected PowersData powersData;
-        [SerializeField] protected GameObject intentionGO;
+
         [SerializeField] protected TextMeshProUGUI currentHealthText;
         [SerializeField] protected Image currentHealthBar;
         
         #region Cache
-
+        
         protected Dictionary<PowerName, PowerIconsBase> StatusDict = new Dictionary<PowerName, PowerIconsBase>();
 
         protected Canvas TargetCanvas;
@@ -96,60 +96,8 @@ namespace NueGames.Characters
        
         #endregion
 
-        #region Pointer Events
-        private Coroutine tooltipCoroutine;
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            tooltipCoroutine = StartCoroutine(ShowTooltipAfterDelay(0.5f)); // 延遲 0.5 秒顯示提示
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            if (tooltipCoroutine != null)
-            {
-                StopCoroutine(tooltipCoroutine); // 停止顯示提示的協程
-                tooltipCoroutine = null;
-            }
-            HideTooltipInfo();
-        }
-
-        private IEnumerator ShowTooltipAfterDelay(float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            ShowTooltipInfo();
-            
-        }
-
-        #endregion
-
-        #region Tooltip
-        public virtual void ShowTooltipInfo()
-        {
-            ShowPowerTooltipInfo();
-        }
-
-        protected void ShowPowerTooltipInfo()
-        {
-            foreach (var powerIconBase in StatusDict)
-            {
-                PowerData powerData = powerIconBase.Value.MyPowerData;
-                ShowTooltipInfo(powerData.GetContent(),powerData.GetHeader(),descriptionRoot);
-            }
-        }
         
-        public void ShowTooltipInfo(string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default,Camera cam = null, float delayShow =0)
-        {
-            TooltipManager.Instance.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);
-        }
-
-        public void HideTooltipInfo()
-        {
-            TooltipManager.Instance.HideTooltip();
-        }
         
-
-        #endregion
        
     }
 }

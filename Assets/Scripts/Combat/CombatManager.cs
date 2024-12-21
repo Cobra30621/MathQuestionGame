@@ -79,9 +79,9 @@ namespace Combat
             return MainAlly.transform;
         }
         
-        public AllyBase MainAlly => characterHandler.MainAlly;
+        public Ally MainAlly => characterHandler.MainAlly;
 
-        public List<EnemyBase> Enemies => characterHandler.Enemies;
+        public List<Enemy.Enemy> Enemies => characterHandler.Enemies;
         
         public int EnemyCount => Enemies.Count;
 
@@ -346,7 +346,7 @@ namespace Combat
 
             var waitDelay = new WaitForSeconds(0.5f);
 
-            var CoroutineEnemies = new List<EnemyBase>(Enemies) { };
+            var CoroutineEnemies = new List<Enemy.Enemy>(Enemies) { };
 
             foreach (var currentEnemy in CoroutineEnemies)
             {
@@ -417,7 +417,7 @@ namespace Combat
 
         #region 取得角色資訊
 
-        public EnemyBase RandomEnemy => characterHandler.RandomEnemy();
+        public Enemy.Enemy RandomEnemy => characterHandler.RandomEnemy();
 
         public int GetEnemyTotalHealth()
         {
