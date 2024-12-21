@@ -33,11 +33,11 @@ namespace NueGames.Power
       
             if (source != null)
             {
-                GameActionExecutor.AddAction(
+                GameActionExecutor.ExecuteImmediately(
                     new ApplyPowerAction(stackAmount, PowerName.Strength, 
                         new List<CharacterBase>(){Owner}, GetActionSource()));
                 // 觸發後減層數 1 
-                GameActionExecutor.AddAction(
+                GameActionExecutor.ExecuteImmediately(
                     new ApplyPowerAction(-1, PowerName, 
                         new List<CharacterBase>(){Owner}, GetActionSource()));
             }

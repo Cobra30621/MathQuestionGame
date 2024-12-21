@@ -84,7 +84,19 @@ MonoBehaviour:
     skillIDs:
     - 1000007
     - 2000002
-    EffectInfos: []
+    EffectInfos:
+    - SkillID: 1000007
+      EffectID: 20001
+      EffectParameter: 7 ,1
+      EffectParameterList: 0700000001000000
+      Target: 1
+      ps: "\u50B7\u5BB3"
+    - SkillID: 2000002
+      EffectID: 20002
+      EffectParameter: 2 ,1
+      EffectParameterList: 0200000001000000
+      Target: 0
+      ps: "\u8B77\u76FE"
   - ID: 110004
     GroupID: 1
     SkillID: 1000007, 2000003
@@ -194,7 +206,7 @@ MonoBehaviour:
   canNotPlay: 0
   exhaustIfNotPlay: 0
   fxInfo:
-    fxPrefab: {fileID: 0}
+    fxPrefab: {fileID: 5542730973998125453, guid: 516c4b8f0bd0f0749a2d8afc3d3c82a2, type: 3}
     FxSpawnPosition: 0
     WaitMethod: 1
     Delay: -1

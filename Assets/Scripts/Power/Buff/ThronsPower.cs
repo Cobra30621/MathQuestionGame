@@ -45,13 +45,13 @@ namespace NueGames.Power
             {
                 // 造成與層數相等的傷害
                 var damageInfo = new DamageInfo(Amount, GetActionSource(), fixDamage: true);
-                GameActionExecutor.AddAction(new DamageAction(damageInfo, new List<CharacterBase>() {info.ActionSource.SourceCharacter}));
-                Debug.Log("ThornsPower反彈傷害");
+                GameActionExecutor.ExecuteImmediately(new DamageAction(damageInfo, new List<CharacterBase>() {info.ActionSource.SourceCharacter}));
+         
                 // 反彈後減層數 1 
-                GameActionExecutor.AddAction(
+                GameActionExecutor.ExecuteImmediately(
                     new ApplyPowerAction(-1, PowerName, 
                         new List<CharacterBase>(){Owner}, GetActionSource()));
-                Debug.Log("ThornsPower層數減少");
+      
             }
         }
 
