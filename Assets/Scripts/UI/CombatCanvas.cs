@@ -7,6 +7,7 @@ using NueGames.Power;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace NueGames.UI
 {
@@ -27,6 +28,8 @@ namespace NueGames.UI
         [SerializeField] private IFeedback onManaChangeFeedback;
         public GameObject CombatLosePanel => combatLosePanel;
 
+        [SerializeField] private Button endTurnButton; 
+        
 
         #region Setup
         private void Awake()
@@ -44,7 +47,13 @@ namespace NueGames.UI
         {
             ManaManager.OnGainMana -= OnManaChange;
         }
-        
+
+        private void Update()
+        {
+            bool isAllyTurn = CombatManager.CurrentCombatStateType == CombatStateType.AllyTurn;
+            
+            endTurnButton.interactable = isAllyTurn;
+        }
 
         #endregion
 
@@ -77,8 +86,7 @@ namespace NueGames.UI
 
         public void EndTurn()
         {
-            if (CombatManager.CurrentCombatStateType == CombatStateType.AllyTurn)
-                CombatManager.EndTurn();
+            CombatManager.EndTurn();
         }
         #endregion
     }

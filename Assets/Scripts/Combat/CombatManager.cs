@@ -202,6 +202,9 @@ namespace Combat
 
         public void EndTurn()
         {
+            // 玩家無法操作手牌
+            CollectionManager.HandController.DisableDragging();
+            
             OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Ally)); // 玩家回合結束
 
             CurrentCombatStateType = CombatStateType.EnemyTurn;
@@ -303,6 +306,8 @@ namespace Combat
 
         private IEnumerator AllyTurnRoutine()
         {
+            // 玩家可以操作手牌
+            CollectionManager.HandController.EnableDragging();
             // 等待遊戲行為序列完成
             yield return new WaitUntil(() => !GameActionExecutor.Instance.IsExecuting);
             
