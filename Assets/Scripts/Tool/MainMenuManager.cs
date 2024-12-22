@@ -20,7 +20,7 @@ public class MainMenuManager : MonoBehaviour
     public void ContinueGame()
     {
         GameManager.Instance.ContinueGame();
-        sceneChanger.OpenMapScene();
+        StartCoroutine(sceneChanger.OpenMapScene());
     }
 
     public void ExitGame()

@@ -27,6 +27,9 @@ namespace Managers
         [SerializeField] private ShopCanvas shopCanvas;
         [SerializeField] private EventCanvas eventCanvas;
 
+
+        [SerializeField] private GameObject lockControlMask;
+
         [Header("Fader")] [SerializeField] private CanvasGroup fader;
         [SerializeField] private float fadeSpeed = 1f;
 
@@ -117,16 +120,42 @@ namespace Managers
         }
 
 
-        public void ChangeScene(SceneType scene)
+        public IEnumerator ChangeScene(SceneType scene)
         {
-            StartCoroutine(ChangeSceneRoutine(scene));
+            LockUIControl();
+            yield return Fade(true);
+            
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.LoadScene((int)scene);
+
+            void OnSceneLoaded(Scene loadedScene, LoadSceneMode mode)
+            {
+                SceneManager.sceneLoaded -= OnSceneLoaded;
+                StartCoroutine(FadeOutAfterSceneLoad());
+            }
         }
 
-        private IEnumerator ChangeSceneRoutine(SceneType scene)
+        private IEnumerator FadeOutAfterSceneLoad()
         {
-            SceneManager.LoadScene((int)scene);
-            yield return StartCoroutine(Fade(false));
+            UnlockUIControl();
+            yield return Fade(false);
         }
+
+        
+        private void LockUIControl()
+        {
+            Debug.Log("lock");
+            lockControlMask.SetActive(true);
+        }
+        
+        private void UnlockUIControl()
+        {
+            Debug.Log("unlock");
+            lockControlMask.SetActive(false);
+        }   
+        
+        
+        
         
         public IEnumerator Fade(bool isIn)
         {
