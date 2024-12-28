@@ -92,6 +92,7 @@ namespace Card
         public string SkillID;
         public int ManaCost;
         public int UpgradeCost;
+        public int UpgradeCostStone;
         public AllyClassType Class;
         public bool MaxLevel;
         public string TitleLang;
