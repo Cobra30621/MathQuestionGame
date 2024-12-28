@@ -64,6 +64,11 @@ namespace NueGames.Managers
         {
             Instance.SequenceManager.AddSequence(fxSequence);
         }
+
+        public static void DoCoroutine(IEnumerator coroutine)
+        {
+            Instance.StartCoroutine(coroutine);
+        }
         
 
         #endregion

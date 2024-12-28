@@ -1,8 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
 using Action.Parameters;
 using Card;
 using NueGames.Characters;
 using NueGames.Managers;
+using UnityEngine;
 
 namespace NueGames.Action
 {
@@ -40,14 +42,22 @@ namespace NueGames.Action
 
         protected override void DoMainAction()
         {
+            GameActionExecutor.DoCoroutine(DamageCoroutine());
+        }
+
+        private IEnumerator DamageCoroutine()
+        {
             for (int i = 0; i < _times; i++)
             {
                 var damageInfo = new DamageInfo(_damage, ActionSource);
                 var damageAction = new DamageAction(damageInfo, TargetList);
          
                 damageAction.DoAction();
+                yield return new WaitForSeconds(0.1f);
             }
         }
+        
+        
         
         public override (int, int) GetDamageBasicInfo()
         {
