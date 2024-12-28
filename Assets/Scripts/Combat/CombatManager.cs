@@ -414,6 +414,11 @@ namespace Combat
                 {
                     RewardType = RewardType.Card,
                     ItemGainType =  ItemGainType.Character
+                },
+                new ()
+                {
+                    RewardType =  RewardType.Money,
+                    CoinGainType =  CoinGainType.NodeType
                 }
             }, currentNodeType);
         }
