@@ -75,7 +75,7 @@ namespace Question.QuestionLoader
                 }
                 else
                 {
-                    Debug.LogError($"API request failed. {url}\nError: {www.error}");
+                    Debug.LogWarning($"API request failed. {url}\nError: {www.error}");
                 }
             }
         }

@@ -476,8 +476,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6619236169260507774, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6619236169260507774, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8686100058178527450, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
       propertyPath: m_Sprite
@@ -525,8 +529,12 @@ PrefabInstance:
       value: -312.49472
       objectReference: {fileID: 0}
     - target: {fileID: 1845809307556461129, guid: 3b3c762e38e884b3280c1114e9b01131, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845809307556461129, guid: 3b3c762e38e884b3280c1114e9b01131, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2296355869784811990, guid: 3b3c762e38e884b3280c1114e9b01131, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1552,7 +1560,7 @@ PrefabInstance:
       objectReference: {fileID: 6190553160865683547, guid: ffd67f0562e69264b8c1b92677886e9f, type: 3}
     - target: {fileID: 7733704880889306847, guid: ffd67f0562e69264b8c1b92677886e9f, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9173700988199943096, guid: ffd67f0562e69264b8c1b92677886e9f, type: 3}
       propertyPath: m_Name
@@ -1727,6 +1735,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5577072890025511961, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6447349071978735998, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: m_Name
       value: CombatCanvas
@@ -1772,6 +1784,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2388636854935074172}
     m_Modifications:
+    - target: {fileID: 3743088515860256819, guid: c1c32a49312804dc1a4389f3bc0f96ce, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743088515860256819, guid: c1c32a49312804dc1a4389f3bc0f96ce, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7230015588898139316, guid: c1c32a49312804dc1a4389f3bc0f96ce, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2041,6 +2061,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6847296479639637027, guid: 5a47293b830c145e8abdbe39f5e44d17, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6847296479639637052, guid: 5a47293b830c145e8abdbe39f5e44d17, type: 3}
       propertyPath: m_Name
       value: Shop Canvas
@@ -2205,6 +2229,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2388636854935074172}
     m_Modifications:
+    - target: {fileID: 105207354782379963, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 105207354782379963, guid: 91852a4120dd65c4a8d77c2314c3b2f7, type: 3}
       propertyPath: m_SortingOrder
       value: 5
