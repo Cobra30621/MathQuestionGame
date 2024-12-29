@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2536fd3d3b56478aaeccd97c92f75fd6, type: 3}
+  m_Name: AudioConfigSO
+  m_EditorClassIdentifier: 
+  audioList:
+  - id: GainBlock
+    clip: {fileID: 8300000, guid: 53429a7c07d33d949b71bdb5c4d5b6d8, type: 3}
+    volume: 1
+  - id: RemoveBlock
+    clip: {fileID: 8300000, guid: 400bfadff74d1423c93ffffb0666fa04, type: 3}
+    volume: 1
+  - id: Button
+    clip: {fileID: 8300000, guid: 801a894d272f24eb5ad28f5219e62bfe, type: 3}
+    volume: 1

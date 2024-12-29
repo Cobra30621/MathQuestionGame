@@ -58,6 +58,12 @@ namespace NueGames.Characters
         #region Public Methods
         public void ApplyStatus(PowerName targetPower, int value)
         {
+            // 格檔不需要在上面
+            if (targetPower == PowerName.Block)
+            {
+                return;
+            }
+            
             if (!StatusDict.ContainsKey(targetPower))
             {
                 var targetData = powersData.GetPowerData(targetPower);

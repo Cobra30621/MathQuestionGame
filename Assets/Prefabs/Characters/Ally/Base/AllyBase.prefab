@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 427851342450566183, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2835035829201671620, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2382,6 +2386,7 @@ MonoBehaviour:
   powerFeedbackSpawn: {fileID: 6654695264913351366}
   onDeadFeedback: {fileID: 1959991856480674582}
   Feedbacks: []
+  blockFeedback: {fileID: 8930427944825838761}
 --- !u!224 &6654695264913351366 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1060939403143051385, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
@@ -2401,5 +2406,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6e22c850f364456814cabf656008416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8930427944825838761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2957822857515419158, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+  m_PrefabInstance: {fileID: 5972631625919109823}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c9646d27d44315b9e1eae0577ff218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

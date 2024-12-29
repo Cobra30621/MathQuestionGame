@@ -143,6 +143,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e22c850f364456814cabf656008416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5577806363432438719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2957822857515419158, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+  m_PrefabInstance: {fileID: 7233930414211009961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497829263762011987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c9646d27d44315b9e1eae0577ff218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6998382408650455714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8828415525500291317, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
@@ -228,6 +239,7 @@ MonoBehaviour:
   powerFeedbackSpawn: {fileID: 7700350135363925456}
   onDeadFeedback: {fileID: 3293349063477261312}
   Feedbacks: []
+  blockFeedback: {fileID: 5577806363432438719}
   intentionDisplay: {fileID: 3751964730338066513}
   currentSkill:
     currentCd: 0

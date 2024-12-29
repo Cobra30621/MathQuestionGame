@@ -77,9 +77,9 @@ namespace NueGames.Characters
         /// </summary>
         /// <param name="targetPower"></param>
         /// <param name="value"></param>
-        public void ApplyPower(PowerName targetPower,int value)
+        public bool ApplyPower(PowerName targetPower,int value)
         {
-            // Debug.Log($"{owner.name} apply {targetPower} {value}");
+            bool isNewPower = false;
             if (PowerDict.TryGetValue(targetPower, out var power))
             {
                 power.StackPower(value);
@@ -92,7 +92,11 @@ namespace NueGames.Characters
                 powerBase.SubscribeAllEvent();
                 powerBase.StackPower(value);
                 powerBase.Init();
+                
+                isNewPower = true;
             }
+            
+            return isNewPower;
         }
 
         
@@ -182,25 +186,18 @@ namespace NueGames.Characters
             {
                 owner.OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
             }
-            ReduceBlock(damageValue - afterBlockDamage);
+
+            int reduceBlockValue =  damageValue - afterBlockDamage;
+            if (reduceBlockValue > 0)
+            {
+                owner.ApplyPower(PowerName.Block, -reduceBlockValue);
+            }
             owner.OnAttacked?.Invoke(damageInfo);
             
             CheckIsDeath(damageInfo);
             
         }
-
-        /// <summary>
-        /// 降低格檔值
-        /// </summary>
-        /// <param name="damageValue"></param>
-        private void ReduceBlock(int damageValue)
-        {
-            if (PowerDict.ContainsKey(PowerName.Block))
-            {
-                ApplyPower(PowerName.Block,- damageValue);
-            }
-        }
-
+        
         /// <summary>
         /// 直接設定怪物死亡
         /// </summary>

@@ -128,6 +128,9 @@ namespace NueGames.Characters
         [SerializeField] private  Dictionary<string, IFeedback> feedbackDict = new Dictionary<string, IFeedback>();
         [SerializeField] protected List<IFeedback> Feedbacks;
 
+        [Required]
+        [SerializeField] private BlockFeedback blockFeedback;
+
         protected void SetUpFeedbackDict()
         {
             feedbackDict = new Dictionary<string, IFeedback>();
@@ -226,10 +229,45 @@ namespace NueGames.Characters
         /// <param name="value"></param>
         public void ApplyPower(PowerName targetPower,int value)
         {
-            CharacterStats.ApplyPower(targetPower, value);
+            bool isNewPower= CharacterStats.ApplyPower(targetPower, value);
             
-            var powerFeedback = Instantiate(gainPowerFeedbackPrefab, powerFeedbackSpawn);
-            powerFeedback.Play(targetPower, value > 0);
+            if (targetPower == PowerName.Block)
+            {
+                bool havePower = CharacterStats.PowerDict.TryGetValue(PowerName.Block, out PowerBase power);
+                bool clearPower = !havePower;
+                int blockValue =  clearPower ? 0 : power.Amount;                
+                
+                PlayBlockFeedback(isNewPower, clearPower, value < 0, blockValue);
+            }
+            else
+            {
+                var powerFeedback = Instantiate(gainPowerFeedbackPrefab, powerFeedbackSpawn);
+                powerFeedback.Play(targetPower, value > 0);
+            }
+        }
+
+        private void PlayBlockFeedback(bool isNewPower, bool isClearPower, bool isNegative, int amount)
+        {
+            Debug.Log("isNewPower: " + isNewPower + " isClearPower: " + isClearPower + " isNegative: " + isNegative + " amount: " + amount);
+            if (isNewPower)
+            {
+                blockFeedback.PlayGainBlock(amount);
+            }
+            else
+            {
+                if (isClearPower)
+                {
+                    blockFeedback.PlayRemoveBlock();
+                }
+                else if (isNegative)
+                {
+                    blockFeedback.PlayReduceBlock(amount);
+                }
+                else
+                {
+                    blockFeedback.PlayBlockChange(amount);
+                }
+            }
         }
         
         /// <summary>
