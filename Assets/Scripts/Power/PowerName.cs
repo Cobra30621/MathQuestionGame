@@ -35,40 +35,7 @@ namespace NueGames.Power
         // 傷害計算相關
         Block = 1001,
 
-
-
-        
-        
-        
-
-        
-        BloodFury = 6,
-        Hardcore = 7,
-        Miss = 99998,
-        Bleed = 11,
-
-        // 戰鬥相關
-        Stun = 22,
-        SelfDestruct = 23,
-
-        // 卡牌與魔力相關
-        MathMana = 41,
-        GainManaAtRoundStart = 42,
-        Overload = 43,
-
         // 能力相關
-        ReduceStrengthPowerAtEndOfTurn = 61,
-
-
-        // 測試用
-
-        MathHappy = 131,
-        MathAngry = 132,
-
-        // 燃燒
-        SuperFire = 202,
-        Kindle = 203,
-        GetGainManaPowerIfBeAttackByBurningEnemy = 211,
-
+        ReduceStrengthPowerAtEndOfTurn = 61
     }
 }
