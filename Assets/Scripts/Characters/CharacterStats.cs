@@ -133,10 +133,15 @@ namespace NueGames.Characters
         }
         
         /// <summary>
-        /// 遊戲回合結束時，通知持有的能力更新狀態
+        /// 角色回合開始時，通知持有的能力更新狀態
         /// </summary>
-        public void HandleAllPowerOnRoundEnd(RoundInfo info)
+        public void HandleAllPowerOnTurnStart(TurnInfo info)
         {
+            if (!owner.IsCharacterType(info.CharacterType))
+            {
+                return;
+            }
+            
             var copyPowerDict = new Dictionary<PowerName, PowerBase> (PowerDict);
             foreach (PowerBase power in copyPowerDict.Values)
             {

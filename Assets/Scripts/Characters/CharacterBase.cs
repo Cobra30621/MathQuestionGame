@@ -93,7 +93,7 @@ namespace NueGames.Characters
         protected virtual void SubscribeEvent()
         {
             
-            CombatManager.OnRoundEnd += CharacterStats.HandleAllPowerOnRoundEnd;
+            CombatManager.OnTurnStart += CharacterStats.HandleAllPowerOnTurnStart;
             
             OnDeath += OnDeathAction;
         }
@@ -101,7 +101,7 @@ namespace NueGames.Characters
         protected virtual void UnsubscribeEvent()
         {
             
-            CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
+            CombatManager.OnTurnStart -= CharacterStats.HandleAllPowerOnTurnStart;
 
             OnDeath -= OnDeathAction;
         }
@@ -286,9 +286,16 @@ namespace NueGames.Characters
         public void ClearPower(PowerName targetPower)
         {
             CharacterStats.ClearPower(targetPower);
-            
-            var powerFeedback = Instantiate(gainPowerFeedbackPrefab, powerFeedbackSpawn);
-            powerFeedback.Play(targetPower, false);
+
+            if (targetPower == PowerName.Block)
+            {
+                blockFeedback.PlayRemoveBlock();
+            }
+            else
+            {
+                var powerFeedback = Instantiate(gainPowerFeedbackPrefab, powerFeedbackSpawn);
+                powerFeedback.Play(targetPower, false);
+            }
         }
 
         /// <summary>

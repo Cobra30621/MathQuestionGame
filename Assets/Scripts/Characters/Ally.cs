@@ -34,11 +34,7 @@ namespace NueGames.Characters
         protected override void OnDeathAction(DamageInfo damageInfo)
         {
             base.OnDeathAction(damageInfo);
-            if (CombatManager != null)
-            {
-                CombatManager.OnRoundEnd -= CharacterStats.HandleAllPowerOnRoundEnd;
-                _characterHandler.OnAllyDeath(this);
-            }
+            _characterHandler.OnAllyDeath(this);
 
             Destroy(gameObject);
         }
