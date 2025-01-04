@@ -73,13 +73,18 @@ namespace NueGames.Characters
         
         #region Power 能力
         /// <summary>
-        /// 賦予能力
+        /// 賦予角色能力或疊加現有能力
         /// </summary>
-        /// <param name="targetPower"></param>
-        /// <param name="value"></param>
-        public bool ApplyPower(PowerName targetPower,int value)
+        /// <param name="targetPower">目標能力名稱</param>
+        /// <param name="value">能力值或疊加值</param>
+        /// <returns>
+        /// Item1 (haveFindPower): 是否成功找到對應能力
+        /// Item2 (isNewPower): 是否為新增的能力
+        /// </returns>
+        public (bool, bool) ApplyPower(PowerName targetPower,int value)
         {
             bool isNewPower = false;
+            bool haveFindPower = true;
             if (PowerDict.TryGetValue(targetPower, out var power))
             {
                 power.StackPower(value);
@@ -87,16 +92,24 @@ namespace NueGames.Characters
             else
             {
                 PowerBase powerBase = PowerGenerator.GetPower(targetPower);
-                PowerDict.Add(targetPower, powerBase);
-                powerBase.SetOwner(owner);
-                powerBase.SubscribeAllEvent();
-                powerBase.StackPower(value);
-                powerBase.Init();
+                if (powerBase != null)
+                {
+                    PowerDict.Add(targetPower, powerBase);
+                    powerBase.SetOwner(owner);
+                    powerBase.SubscribeAllEvent();
+                    powerBase.StackPower(value);
+                    powerBase.Init();
                 
-                isNewPower = true;
+                    isNewPower = true;
+                }
+                else
+                {
+                    haveFindPower = false;
+                }
+                
             }
             
-            return isNewPower;
+            return (haveFindPower, isNewPower);
         }
 
         

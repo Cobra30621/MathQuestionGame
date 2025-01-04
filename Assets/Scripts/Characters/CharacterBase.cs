@@ -229,7 +229,13 @@ namespace NueGames.Characters
         /// <param name="value"></param>
         public void ApplyPower(PowerName targetPower,int value)
         {
-            bool isNewPower= CharacterStats.ApplyPower(targetPower, value);
+            var (haveFindPower, isNewPower) = CharacterStats.ApplyPower(targetPower, value);
+
+            // 沒找到能力，不播特效
+            if (!haveFindPower)
+            {
+                return;
+            }
             
             if (targetPower == PowerName.Block)
             {
@@ -248,7 +254,6 @@ namespace NueGames.Characters
 
         private void PlayBlockFeedback(bool isNewPower, bool isClearPower, bool isNegative, int amount)
         {
-            Debug.Log("isNewPower: " + isNewPower + " isClearPower: " + isClearPower + " isNegative: " + isNegative + " amount: " + amount);
             if (isNewPower)
             {
                 blockFeedback.PlayGainBlock(amount);
