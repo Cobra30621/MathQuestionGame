@@ -132,10 +132,13 @@ namespace NueGames.UI.Reward
         [Button("領取所有獎勵")]
         public void ReceiveRewards()
         {
+            
             // 是否有要選擇的獎勵
             bool haveChoiceReward = false;
             
             var nodeType = MapManager.Instance.GetCurrentNodeType();
+            
+            Debug.Log($"_rewardDatas: {_rewardDatas.Count}");
             foreach (var rewardData in _rewardDatas)
             {
                 switch (rewardData.RewardType)
