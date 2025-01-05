@@ -20,7 +20,6 @@ namespace NueGames.UI
         {
             // 尋找場景中的主攝影機
             Camera mainCamera = Camera.main;
-            Debug.LogWarning($"{gameObject.name} 找到主攝影機 {mainCamera}");
             if (mainCamera != null && _canvas != null)
             {
                 _canvas.worldCamera = mainCamera;

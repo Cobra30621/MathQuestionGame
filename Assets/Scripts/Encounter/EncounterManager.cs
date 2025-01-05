@@ -78,7 +78,7 @@ namespace NueGames.Encounter
             }
             Debug.Log($"EnterNode {nodeType}");
             
-            SaveManager.Instance.SaveSingleGame();
+            
         }
 
         [Button]
@@ -111,8 +111,9 @@ namespace NueGames.Encounter
         #endregion
 
         public void OnRoomCompleted()
-        {
+        {      
             MapManager.Instance.OnRoomCompleted();
+            SaveManager.Instance.SaveSingleGame();
         }
         
 

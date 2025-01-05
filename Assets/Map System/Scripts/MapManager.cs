@@ -156,6 +156,9 @@ namespace Map
                 new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
             CurrentMapIndex = data.CurrentMapIndex;
 
+            stageName = new StageName();
+            stageName.SetId(data.StageName);
+            stageData = stageDataOverview.FindUniqueId(stageName.Id);
         }
         
         public void SaveData(GameData data)
@@ -166,6 +169,7 @@ namespace Map
             
             data.MapJson = json;
             data.CurrentMapIndex = CurrentMapIndex;
+            data.StageName = stageName.Id;
         }
     }
 }
