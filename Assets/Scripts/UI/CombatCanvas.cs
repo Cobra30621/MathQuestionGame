@@ -1,4 +1,5 @@
 ﻿using System;
+using Combat;
 using Feedback;
 using NueGames.Combat;
 using NueGames.Enums;
@@ -50,7 +51,9 @@ namespace NueGames.UI
 
         private void Update()
         {
-            bool isAllyTurn = CombatManager.CurrentCombatStateType == CombatStateType.AllyTurn;
+            if(!CombatManager.HasInstance()) return;
+            
+            bool isAllyTurn = CombatManager.Instance.CurrentCombatStateType == CombatStateType.AllyTurn;
             
             endTurnButton.interactable = isAllyTurn;
         }
@@ -60,10 +63,10 @@ namespace NueGames.UI
         #region Public Methods
         public void SetPileTexts()
         {
-            drawPileTextField.text = $"{CollectionManager.DrawPile.Count.ToString()}";
-            discardPileTextField.text = $"{CollectionManager.DiscardPile.Count.ToString()}";
-            exhaustPileTextField.text =  $"{CollectionManager.ExhaustPile.Count.ToString()}";
-            manaTextTextField.text = $"{CombatManager.CurrentMana}/{CombatManager.MaxMana()}";
+            drawPileTextField.text = $"{CollectionManager.Instance.DrawPile.Count.ToString()}";
+            discardPileTextField.text = $"{CollectionManager.Instance.DiscardPile.Count.ToString()}";
+            exhaustPileTextField.text =  $"{CollectionManager.Instance.ExhaustPile.Count.ToString()}";
+            manaTextTextField.text = $"{CombatManager.Instance.CurrentMana}/{CombatManager.Instance.MaxMana()}";
         }
 
         public void OnMathManaChange()
@@ -74,8 +77,8 @@ namespace NueGames.UI
         public void OnManaChange(int value)
         {
            onManaChangeFeedback?.Play(); 
-           manaTextTextField.text = $"{CombatManager.CurrentMana}/" +
-                                    $"{CombatManager.MaxMana()}";
+           manaTextTextField.text = $"{CombatManager.Instance.CurrentMana}/" +
+                                    $"{CombatManager.Instance.MaxMana()}";
         }
 
         public override void ResetCanvas()
@@ -86,7 +89,7 @@ namespace NueGames.UI
 
         public void EndTurn()
         {
-            CombatManager.EndTurn();
+            CombatManager.Instance.EndTurn();
         }
         #endregion
     }
