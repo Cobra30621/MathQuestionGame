@@ -9,7 +9,7 @@ namespace NueGames.UI
         [SerializeField] private SceneChanger sceneChanger;
         public void BackToMenu()
         {
-            SaveManager.Instance.ClearGameData();
+            SaveManager.Instance.ClearSingleGameData();
             sceneChanger.OpenMainMenuScene();
         }
     }

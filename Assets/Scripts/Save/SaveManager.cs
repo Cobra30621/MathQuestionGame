@@ -31,21 +31,41 @@ namespace Save
 
         }
     
+        [Button("清除所有資料")]
+        public void ClearAllData()
+        {
+            _gameData = new GameData();
+            _permanentGameData = new PermanentGameData();
+            ES3Handler.ClearAllData();
+        }
     
 
-        #region Single Game
+        #region 單局遊戲
 
+        /// <summary>
+        /// 是否有正在遊玩中的單局遊戲
+        /// </summary>
+        /// <returns></returns>
+        public bool HasOngoingGame()
+        {
+            var hasOngoingGame = ES3Handler.LoadHasOngoingGame();
+            
+            return hasOngoingGame;
+        }
+        
+        
         [Button("讀檔")]
         public void LoadSingleGame()
         {
             dataPersistenceObjects = FindAllDataPersistenceObjects();
             // load any saved Skill from a file using the Skill handler
-            this._gameData = ES3Handler.Load();
+            this._gameData = ES3Handler.LoadSingleGame();
 
             // start a new game if the Skill is null and we're configured to initialize Skill for debugging purposes
             if (this._gameData == null ) 
             {
                 this._gameData = new GameData();
+                Debug.LogError("single game data is null in SaveManager");
             }
         
             // push the loaded Skill to all other scripts that need it
@@ -72,7 +92,8 @@ namespace Save
             }
 
             // save that Skill to a file using the Skill handler
-            ES3Handler.Save(_gameData);
+            ES3Handler.SetHasOngoingGame();
+            ES3Handler.SaveSingleGame(_gameData);
         }
 
   
@@ -85,26 +106,15 @@ namespace Save
         }
     
         [Button("清除單局遊戲資料")]
-        public void ClearGameData()
+        public void ClearSingleGameData()
         {
             _gameData = new GameData();
-            ES3Handler.ClearGameData();
+            ES3Handler.ClearSingleGameData();
         }
 
         #endregion
 
-        #region PermanentGame
-
-    
-        [Button("清除所有資料")]
-        public void ClearAllData()
-        {
-            _gameData = new GameData();
-            _permanentGameData = new PermanentGameData();
-            ES3Handler.ClearAllData();
-        }
-    
-    
+        #region 永久資料
         public bool IsFirstEnterGame()
         {
             return ES3Handler.IsFirstEnterGame();
@@ -112,7 +122,7 @@ namespace Save
 
         public void SetHaveEnterGame()
         {
-            ES3Handler.SetHaveEnterGame();
+            ES3Handler.SetFirstEnterGame();
         }
     
     

@@ -141,7 +141,7 @@ namespace Managers
         #region Start Single Game
         public void NewGame()
         {
-            SaveManager.Instance.ClearGameData();
+            SaveManager.Instance.ClearSingleGameData();
             Debug.Log("New Game");
 
             CreateSingleGameData();
