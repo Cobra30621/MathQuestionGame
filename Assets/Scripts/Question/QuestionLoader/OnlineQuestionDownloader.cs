@@ -39,7 +39,7 @@ namespace Question.QuestionLoader
         /// <returns></returns>
         private IEnumerator GetQuestionCoroutine(Publisher publisher, Grade grade)
         {
-            questions = new List<Question>();
+            var tempQuestions = new List<Question>();
         
             for (int chapter = 1; chapter < maxChapter + 1; chapter++)
             {
@@ -68,7 +68,7 @@ namespace Question.QuestionLoader
                         yield return DownloadImage(question, problem.problemLink, true);
                         yield return DownloadImage(question, problem.ansLink, false);
                 
-                        questions.Add(question);
+                        tempQuestions.Add(question);
                     }
                 
                     Debug.Log($"<color=green>API request success {url}</color>");
@@ -78,6 +78,8 @@ namespace Question.QuestionLoader
                     Debug.LogWarning($"API request failed. {url}\nError: {www.error}");
                 }
             }
+            
+            questions = tempQuestions;
         }
 
         /// <summary>
