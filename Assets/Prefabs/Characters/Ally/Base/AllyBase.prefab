@@ -116,6 +116,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4678785306233450104, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: managedReferences[1516083179272273929].Duration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678785306233450104, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[8410294301549133824].MaxPitch
       value: 1
       objectReference: {fileID: 0}
@@ -204,6 +208,10 @@ PrefabInstance:
       value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4678785306233450104, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: managedReferences[7392774806525444100].InitialPosition.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678785306233450104, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[8410294301549133824].RandomizeDuration
       value: 0
       objectReference: {fileID: 0}
@@ -252,8 +260,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4678785306233450104, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: managedReferences[7392774806525444097].DestinationPosition.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678785306233450104, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[8410294301549133824].Timing.NumberOfRepeats
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678785306233450104, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: managedReferences[7392774806525444100].AnimatePositionDuration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4678785306233450104, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[8410294301549133824].StopSoundOnFeedbackStop
@@ -329,7 +345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4678785306233450104, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[8410294301549133824].Timing.ContributeToTotalDuration
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4678785306233450104, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[8410294301549133824].Timing.MMFeedbacksDirectionCondition
