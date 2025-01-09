@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using MoreMountains.Feedbacks;
 using UnityEngine;
 
 namespace Feedback
 {
     [RequireComponent(typeof(MMF_Player))]
-    public class FeelFeedback :  IFeedback
+    public class FeelFeedback : IFeedback
     {
         private MMF_Player _mmfPlayer;
 
@@ -21,7 +22,16 @@ namespace Feedback
 
         public override void Play()
         {
-            _mmfPlayer.PlayFeedbacks();
+            try
+            {
+                _mmfPlayer.Initialization();
+                _mmfPlayer.PlayFeedbacks();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+
         }
     }
 }

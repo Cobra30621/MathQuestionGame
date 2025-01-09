@@ -21,9 +21,9 @@ namespace Combat
         
         // 所有敵人清單
         [ShowInInspector]
-        public List<EnemyBase> Enemies { get; private set; }
+        public List<Enemy.Enemy> Enemies { get; private set; }
         // 玩家
-        public AllyBase MainAlly;
+        public Ally MainAlly;
 
 
         [LabelText("效果生成敵人的特效")]
@@ -31,7 +31,7 @@ namespace Combat
         public GameObject spawnEnemyFXPrefab;
 
         
-        public EnemyBase RandomEnemy()
+        public Enemy.Enemy RandomEnemy()
         {
             return Enemies.RandomItem();
         }
@@ -40,7 +40,7 @@ namespace Combat
 
         public void BuildEnemies(List<EnemyName> enemyNames)
         {
-            Enemies = new List<EnemyBase>();
+            Enemies = new List<Enemy.Enemy>();
             foreach (var enemyData in enemyNames)
             {
                 var enemy = _enemyBuilder.Build(enemyData, GetEnemyPos());
@@ -120,7 +120,7 @@ namespace Combat
         /// <param name="id"></param>
         /// <param name="output"></param>
         /// <returns></returns>
-        public bool GetEnemyWithId(string id,  out EnemyBase output)
+        public bool GetEnemyWithId(string id,  out Enemy.Enemy output)
         {
             foreach (var enemy in Enemies)
             {
@@ -136,11 +136,11 @@ namespace Combat
         }
         
         
-        public void OnAllyDeath(AllyBase targetAlly)
+        public void OnAllyDeath(Ally targetAlly)
         {
             CombatManager.Instance.LoseCombat();
         }
-        public void OnEnemyDeath(EnemyBase targetEnemy)
+        public void OnEnemyDeath(Enemy.Enemy targetEnemy)
         {
             Enemies.Remove(targetEnemy);
             if (Enemies.Count<=0)

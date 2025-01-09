@@ -38,7 +38,7 @@ namespace CampFire
         {
             
             EncounterManager.Instance.OnRoomCompleted();
-            _sceneChanger.OpenMapScene();
+            StartCoroutine(_sceneChanger.OpenMapScene());
         }
         
         

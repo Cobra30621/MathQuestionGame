@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Action.Parameters;
 using Combat;
+using Enemy;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
@@ -29,14 +30,14 @@ namespace NueGames.Power
             var source = info.ActionSource.SourceCharacter;
             var originalDamage = info.DamageValue;
             int stackAmount = Mathf.CeilToInt(originalDamage * 0.5f);
-            Debug.Log(source);
+      
             if (source != null)
             {
-                GameActionExecutor.AddAction(
+                GameActionExecutor.ExecuteImmediately(
                     new ApplyPowerAction(stackAmount, PowerName.Strength, 
                         new List<CharacterBase>(){Owner}, GetActionSource()));
                 // 觸發後減層數 1 
-                GameActionExecutor.AddAction(
+                GameActionExecutor.ExecuteImmediately(
                     new ApplyPowerAction(-1, PowerName, 
                         new List<CharacterBase>(){Owner}, GetActionSource()));
             }

@@ -78,7 +78,7 @@ namespace NueGames.Encounter
             }
             Debug.Log($"EnterNode {nodeType}");
             
-            SaveManager.Instance.SaveSingleGame();
+            
         }
 
         [Button]
@@ -99,7 +99,7 @@ namespace NueGames.Encounter
             GameManager.Instance.SetEnemyEncounter(encounter);
             
             // 進入戰鬥場景
-            sceneChanger.OpenCombatScene();
+            StartCoroutine(sceneChanger.OpenCombatScene());
         }
 
         [Button]
@@ -111,8 +111,9 @@ namespace NueGames.Encounter
         #endregion
 
         public void OnRoomCompleted()
-        {
+        {      
             MapManager.Instance.OnRoomCompleted();
+            SaveManager.Instance.SaveSingleGame();
         }
         
 

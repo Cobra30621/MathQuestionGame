@@ -35,16 +35,16 @@ namespace Map
         public bool Locked;
 
         public static MapManager Instance => GameManager.Instance.MapManager;
+
+        [SerializeField] private Canvas canvas;
         
         
         private void Awake()
         {
             SceneManager.sceneLoaded += (scene, mode) =>
             {
-                Debug.Log("Load Scene");
                 if (scene.name == "1- Map")
                 {
-                    Debug.Log("Show Map");
                     ShowMap();
                 }
             };
@@ -55,7 +55,6 @@ namespace Map
             // 如果需要初始化（開新的遊戲），便建立新的地圖
             if (needInitializedMap)
             {
-                Debug.Log("initialized");
                 InitializedMap();
                 return;
             }
@@ -157,10 +156,10 @@ namespace Map
                 new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
             CurrentMapIndex = data.CurrentMapIndex;
 
+            stageName = new StageName();
+            stageName.SetId(data.StageName);
+            stageData = stageDataOverview.FindUniqueId(stageName.Id);
         }
-
-
-        
         
         public void SaveData(GameData data)
         {
@@ -170,6 +169,7 @@ namespace Map
             
             data.MapJson = json;
             data.CurrentMapIndex = CurrentMapIndex;
+            data.StageName = stageName.Id;
         }
     }
 }

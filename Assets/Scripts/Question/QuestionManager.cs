@@ -318,6 +318,7 @@ namespace Question
         
         void EnableAnswer(bool enable)
         {
+            Debug.Log($"EnableAnswer {enable}");
             foreach (var answerButton in answerButtons)
             {
                 answerButton.EnableAnswer(enable);

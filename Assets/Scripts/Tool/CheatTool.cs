@@ -97,7 +97,7 @@ namespace Tool
         public void OpenCheatPanel()
         {
             if (cheatPanel != null)
-                cheatPanel.SetActive(true);
+                cheatPanel.SetActive(!cheatPanel.activeSelf);
         }
 
         public void CloseCheatPanel()

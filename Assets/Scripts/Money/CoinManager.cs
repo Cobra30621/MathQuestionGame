@@ -42,11 +42,9 @@ namespace Money
             switch (type)
             {
                 case CoinType.Money:
-                    money += add;
                     SetMoney(money + add);
                     break;
                 case CoinType.Stone:
-                    stone += add;
                     SetStone(stone + add);
                     break;
             }

@@ -34,6 +34,11 @@ namespace NueGames.Managers
         
         #region 將遊戲行為加入執行緒
 
+        public static void ExecuteImmediately(GameActionBase action)
+        {
+            action.DoAction();
+        }
+        
         
         /// <summary>
         /// 將想執行的遊戲行為，加到"待執行的遊戲行為清單"
@@ -58,6 +63,11 @@ namespace NueGames.Managers
         public static void AddActionWithFX(FXSequence fxSequence)
         {
             Instance.SequenceManager.AddSequence(fxSequence);
+        }
+
+        public static void DoCoroutine(IEnumerator coroutine)
+        {
+            Instance.StartCoroutine(coroutine);
         }
         
 

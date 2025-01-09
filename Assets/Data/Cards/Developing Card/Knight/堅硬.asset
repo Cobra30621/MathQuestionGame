@@ -31,6 +31,7 @@ MonoBehaviour:
     SkillID: 
     ManaCost: 0
     UpgradeCost: 0
+    UpgradeCostStone: 0
     Class: 0
     MaxLevel: 0
     TitleLang: 
@@ -46,6 +47,7 @@ MonoBehaviour:
     SkillID: 3120001
     ManaCost: 2
     UpgradeCost: 1000
+    UpgradeCostStone: 10
     Class: 1
     MaxLevel: 0
     TitleLang: "\u5805\u786C"
@@ -60,10 +62,11 @@ MonoBehaviour:
     SkillID: 3120002
     ManaCost: 2
     UpgradeCost: 3000
+    UpgradeCostStone: 50
     Class: 1
     MaxLevel: 0
     TitleLang: "\u5805\u786C"
-    DesLang: "\u7372\u5F972\u5C64\u76D4\u7532"
+    DesLang: "\u7372\u5F973\u5C64\u76D4\u7532"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs:
@@ -74,17 +77,17 @@ MonoBehaviour:
     SkillID: 3120003
     ManaCost: 2
     UpgradeCost: 5000
+    UpgradeCostStone: 100
     Class: 1
     MaxLevel: 1
     TitleLang: "\u5805\u786C"
-    DesLang: "\u7372\u5F973\u5C64\u76D4\u7532"
+    DesLang: "\u7372\u5F976\u5C64\u76D4\u7532"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs:
     - 3120003
     EffectInfos: []
   _allyClassType: 1
-  exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
   fxInfo:

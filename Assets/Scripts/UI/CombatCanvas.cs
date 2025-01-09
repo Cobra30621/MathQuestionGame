@@ -1,4 +1,5 @@
 ﻿using System;
+using Combat;
 using Feedback;
 using NueGames.Combat;
 using NueGames.Enums;
@@ -6,6 +7,8 @@ using NueGames.Managers;
 using NueGames.Power;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace NueGames.UI
 {
@@ -26,6 +29,8 @@ namespace NueGames.UI
         [SerializeField] private IFeedback onManaChangeFeedback;
         public GameObject CombatLosePanel => combatLosePanel;
 
+        [SerializeField] private Button endTurnButton; 
+        
 
         #region Setup
         private void Awake()
@@ -34,20 +39,23 @@ namespace NueGames.UI
             
         }
 
-        // private void OnEnable()
-        // {
-        //     CombatManager.OnGainMana += OnManaChange;
-        // }
-        //
-        // private void OnDisable()
-        // {
-        //     CombatManager.OnGainMana -= OnManaChange;
-        // }
-
-
-        private void Start()
+        private void OnEnable()
         {
             ManaManager.OnGainMana += OnManaChange;
+        }
+        
+        private void OnDisable()
+        {
+            ManaManager.OnGainMana -= OnManaChange;
+        }
+
+        private void Update()
+        {
+            if(!CombatManager.HasInstance()) return;
+            
+            bool isAllyTurn = CombatManager.Instance.CurrentCombatStateType == CombatStateType.AllyTurn;
+            
+            endTurnButton.interactable = isAllyTurn;
         }
 
         #endregion
@@ -55,10 +63,10 @@ namespace NueGames.UI
         #region Public Methods
         public void SetPileTexts()
         {
-            drawPileTextField.text = $"{CollectionManager.DrawPile.Count.ToString()}";
-            discardPileTextField.text = $"{CollectionManager.DiscardPile.Count.ToString()}";
-            exhaustPileTextField.text =  $"{CollectionManager.ExhaustPile.Count.ToString()}";
-            manaTextTextField.text = $"{CombatManager.CurrentMana}/{CombatManager.MaxMana()}";
+            drawPileTextField.text = $"{CollectionManager.Instance.DrawPile.Count.ToString()}";
+            discardPileTextField.text = $"{CollectionManager.Instance.DiscardPile.Count.ToString()}";
+            exhaustPileTextField.text =  $"{CollectionManager.Instance.ExhaustPile.Count.ToString()}";
+            manaTextTextField.text = $"{CombatManager.Instance.CurrentMana}/{CombatManager.Instance.MaxMana()}";
         }
 
         public void OnMathManaChange()
@@ -68,9 +76,9 @@ namespace NueGames.UI
 
         public void OnManaChange(int value)
         {
-           onManaChangeFeedback.Play(); 
-           manaTextTextField.text = $"{CombatManager.CurrentMana}/" +
-                                    $"{CombatManager.MaxMana()}";
+           onManaChangeFeedback?.Play(); 
+           manaTextTextField.text = $"{CombatManager.Instance.CurrentMana}/" +
+                                    $"{CombatManager.Instance.MaxMana()}";
         }
 
         public override void ResetCanvas()
@@ -81,8 +89,7 @@ namespace NueGames.UI
 
         public void EndTurn()
         {
-            if (CombatManager.CurrentCombatStateType == CombatStateType.AllyTurn)
-                CombatManager.EndTurn();
+            CombatManager.Instance.EndTurn();
         }
         #endregion
     }

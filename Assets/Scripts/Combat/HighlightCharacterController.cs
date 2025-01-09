@@ -10,9 +10,9 @@ namespace NueGames.Combat
         private static CombatManager CombatManager => CombatManager.Instance;
 
 
-        public void ActivateEnemyHighlight(EnemyBase enemyBase)
+        public void ActivateEnemyHighlight(Enemy.Enemy enemy)
         {
-            enemyBase.EnemyCanvas.SetHighlight(true);
+            enemy.CharacterCanvas.SetHighlight(true);
         }
         
         public void OnDraggedCardOutsideHand(ActionTargetType targetTypeTargetType)
@@ -37,12 +37,12 @@ namespace NueGames.Combat
         void ActivateAllEnemyHighlights()
         {
             foreach (var currentEnemy in CombatManager.Enemies)
-                currentEnemy.EnemyCanvas.SetHighlight(true);
+                currentEnemy.CharacterCanvas.SetHighlight(true);
         }
 
         void ActivateAllAllyHighlights()
         {
-            CombatManager.MainAlly.AllyCanvas.SetHighlight(true);
+            CombatManager.MainAlly.CharacterCanvas.SetHighlight(true);
         }
         
         public void DeactivateAllHighlights()
@@ -53,13 +53,13 @@ namespace NueGames.Combat
         
         public void DeactivateAllyHighlights()
         {
-            CombatManager.MainAlly.AllyCanvas.SetHighlight(false);
+            CombatManager.MainAlly.CharacterCanvas.SetHighlight(false);
         }
         
         public void DeactivateEnemyHighlights()
         {
             foreach (var currentEnemy in CombatManager.Enemies)
-                currentEnemy.EnemyCanvas.SetHighlight(false);
+                currentEnemy.CharacterCanvas.SetHighlight(false);
         }
     }
 }

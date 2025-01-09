@@ -12,11 +12,11 @@ namespace Enemy.Data
         [SerializeField] private List<EnemySkill> _startBattleSkills;
         
 
-        public EnemyAbility(EnemyData data, EnemyBase enemyBase, SheetDataGetter getter)
+        public EnemyAbility(EnemyData data, Enemy enemy, SheetDataGetter getter)
         {
             _enemySkills = data.enemySkillIDs.
                 ConvertAll(id => 
-                    new EnemySkill(getter.GetEnemySkillInfo(id), enemyBase, getter));
+                    new EnemySkill(getter.GetEnemySkillInfo(id), enemy, getter));
 
             if (!data.StartBattleSkillID.IsNullOrWhitespace())
             {
@@ -24,7 +24,7 @@ namespace Enemy.Data
                 foreach (var skillID in data.startBattleSkillIDs)
                 {
                     _startBattleSkills.Add(new EnemySkill(
-                        getter.GetEnemySkillInfo(skillID), enemyBase, getter
+                        getter.GetEnemySkillInfo(skillID), enemy, getter
                     ));
                 }
             }

@@ -942,7 +942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb50ee18843aca43923ca3c8ff18d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundProfileData: {fileID: 11400000, guid: 2d30565e54caf3e40a21dfdac091b79e, type: 2}
 --- !u!1 &1806010519584507491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb50ee18843aca43923ca3c8ff18d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundProfileData: {fileID: 11400000, guid: 2d30565e54caf3e40a21dfdac091b79e, type: 2}
 --- !u!1 &4079471534471825752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,7 +2174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb50ee18843aca43923ca3c8ff18d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundProfileData: {fileID: 11400000, guid: 2d30565e54caf3e40a21dfdac091b79e, type: 2}
 --- !u!1 &4079471535938771057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,7 +2229,7 @@ Canvas:
   m_GameObject: {fileID: 4079471535938771057}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2297,6 +2294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneChanger: {fileID: 8441668830458522609}
+  continueButton: {fileID: 723414185528561454}
 --- !u!114 &8441668830458522609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2928,7 +2926,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb50ee18843aca43923ca3c8ff18d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundProfileData: {fileID: 11400000, guid: 2d30565e54caf3e40a21dfdac091b79e, type: 2}
 --- !u!1 &4475764740051184992
 GameObject:
   m_ObjectHideFlags: 0
@@ -4622,6 +4619,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1921079803844233104, guid: 449cf56307f8f49589201d246e9b2861, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2061957930842029168, guid: 449cf56307f8f49589201d246e9b2861, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4736,7 +4737,7 @@ PrefabInstance:
       objectReference: {fileID: 5865699084463164865, guid: 449cf56307f8f49589201d246e9b2861, type: 3}
     - target: {fileID: 6724109352672638907, guid: 449cf56307f8f49589201d246e9b2861, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 475
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6724109352672638907, guid: 449cf56307f8f49589201d246e9b2861, type: 3}
       propertyPath: m_AnchoredPosition.y

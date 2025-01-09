@@ -26,6 +26,7 @@ namespace Coin
             return new Dictionary<CoinType, int>()
             {
                 { CoinType.Money, _cardInfo.CardLevelInfo.UpgradeCost },
+                { CoinType.Stone , _cardInfo.CardLevelInfo.UpgradeCostStone}
             };
         }
 

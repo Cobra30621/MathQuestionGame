@@ -38,7 +38,7 @@ namespace NueGames.Power
             // 当生命值低于一半时
             if ((float)health / maxHealth < 0.5f)
             {
-                var enemy = (EnemyBase)Owner;
+                var enemy = (Enemy.Enemy)Owner;
                 // 设置敌人为分裂状态
                 enemy.SetSplitEnemySkill($"{Amount}");
                 

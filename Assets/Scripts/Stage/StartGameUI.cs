@@ -89,19 +89,16 @@ namespace Stage
         /// </summary>
         public void StartGame()
         {
-            // Add your game logic to start the game
-            Debug.Log("Starting the game...");
-
-            GameManager.Instance.NewGame();
             StartCoroutine(StartGameCoroutine());
         }
 
 
         private IEnumerator StartGameCoroutine()
         {
+            Debug.Log("Starting the game...");
+            GameManager.Instance.NewGame();
             QuestionManager.Instance.StartDownloadOnlineQuestions();
-            yield return null;
-            sceneChanger.OpenMapScene();
+            yield return sceneChanger.OpenMapScene();
         }
     }
 }

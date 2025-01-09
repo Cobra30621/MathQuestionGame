@@ -105,6 +105,8 @@ namespace NueGames.Action
         /// <param name="spawmRoot"></param>
         protected void PlaySpawnTextFx(string info, Transform spawmRoot)
         {
+            if (spawmRoot == null)
+                return;
            
             FxManager.SpawnFloatingText(spawmRoot,info);
         }

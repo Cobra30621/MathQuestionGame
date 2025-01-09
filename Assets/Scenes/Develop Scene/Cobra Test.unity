@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &141701358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,6 +503,10 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 4373583381838513307, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+    - target: {fileID: 4815654571431331093, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0053710938
+      objectReference: {fileID: 0}
     - target: {fileID: 4912800383277895921, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 10.662598
@@ -946,7 +950,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a98bdd8349c66492e84573047c60899a, type: 2}
     - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: enemyEncounter.id
-      value: 930e0a32-5c3e-4d82-9151-0ac88f75e0e5
+      value: 761e3d04-cd92-4c37-97c2-d04841d15f7b
       objectReference: {fileID: 0}
     - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: allyPowerAtGameStart.Array.size

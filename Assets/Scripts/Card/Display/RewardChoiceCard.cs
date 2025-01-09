@@ -5,6 +5,7 @@ using Card.Display;
 using Managers;
 using NueGames.Data.Collection;
 using NueGames.Managers;
+using NueGames.UI.Reward;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,29 +13,20 @@ namespace NueGames.Card
 {
     public class RewardChoiceCard : MonoBehaviour
     {
-        public GameManager GameManager => GameManager.Instance;
-        public UIManager UIManager => UIManager.Instance;
-
         public UICard uiCard;
-        
-        
-        public void BuildReward(CardData cardData)
+        private CardRewardChoicePanel _choicePanel;
+
+
+        public void BuildReward(CardData cardData, CardRewardChoicePanel choicePanel)
         {
+            _choicePanel = choicePanel;
             uiCard.Init(cardData);
             uiCard.OnCardChose += OnChoice;
         }
 
-
         private void OnChoice()
         {
-            if (GameManager != null)
-                CardManager.Instance.GainCard(uiCard.CardData);
-
-            if (UIManager != null)
-                UIManager.RewardCanvas.ChoicePanel.DisablePanel();
+            _choicePanel.ChoiceCard(this);
         }
-
-
-        
     }
 }

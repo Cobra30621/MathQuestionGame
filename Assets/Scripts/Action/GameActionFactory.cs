@@ -99,7 +99,7 @@ namespace GameAction
                 case GameActionType.BlockByCount:
                     return new BlockByCountAction(skillInfo);
                 default:
-                    Debug.LogError($"无效的技能类型 {skillInfo.EffectID}");
+                    Debug.LogError($"无效的技能类型 {skillInfo.EffectID}, 來自 {skillInfo.SkillID}");
                     return new NullAction(skillInfo);
             }
         }

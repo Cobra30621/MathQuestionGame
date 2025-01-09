@@ -48,14 +48,13 @@ MonoBehaviour:
   cardId: 
   _levelInfos: []
   _allyClassType: 0
-  exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
   fxInfo:
     fxPrefab: {fileID: 9217137000476708333, guid: 8d038ba3f664d485d9be71d35ddf5da9, type: 3}
     FxSpawnPosition: 0
-    WaitMethod: 1
-    Delay: 2
+    WaitMethod: 2
+    Delay: 0.5
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
   cardName: "\u7279\u6548\u6E2C\u8A66-\u653B\u64CA\u6575\u4EBA"

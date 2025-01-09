@@ -6,6 +6,7 @@ using NueGames.Data.Collection;
 using NueGames.Encounter;
 using NueGames.Relic;
 using Question;
+using Stage;
 
 namespace Data
 {
@@ -28,7 +29,11 @@ namespace Data
         /// 遺物資料
         /// </summary>
         public List<RelicName> Relics;
-        
+
+        /// <summary>
+        /// 關卡名稱
+        /// </summary>
+        public string StageName;
         
         /// <summary>
         /// 地圖資訊

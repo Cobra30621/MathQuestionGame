@@ -79,9 +79,9 @@ namespace Combat
             return MainAlly.transform;
         }
         
-        public AllyBase MainAlly => characterHandler.MainAlly;
+        public Ally MainAlly => characterHandler.MainAlly;
 
-        public List<EnemyBase> Enemies => characterHandler.Enemies;
+        public List<Enemy.Enemy> Enemies => characterHandler.Enemies;
         
         public int EnemyCount => Enemies.Count;
 
@@ -202,6 +202,9 @@ namespace Combat
 
         public void EndTurn()
         {
+            // 玩家無法操作手牌
+            CollectionManager.HandController.DisableDragging();
+            
             OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Ally)); // 玩家回合結束
 
             CurrentCombatStateType = CombatStateType.EnemyTurn;
@@ -303,6 +306,8 @@ namespace Combat
 
         private IEnumerator AllyTurnRoutine()
         {
+            // 玩家可以操作手牌
+            CollectionManager.HandController.EnableDragging();
             // 等待遊戲行為序列完成
             yield return new WaitUntil(() => !GameActionExecutor.Instance.IsExecuting);
             
@@ -346,7 +351,7 @@ namespace Combat
 
             var waitDelay = new WaitForSeconds(0.5f);
 
-            var CoroutineEnemies = new List<EnemyBase>(Enemies) { };
+            var CoroutineEnemies = new List<Enemy.Enemy>(Enemies) { };
 
             foreach (var currentEnemy in CoroutineEnemies)
             {
@@ -409,6 +414,11 @@ namespace Combat
                 {
                     RewardType = RewardType.Card,
                     ItemGainType =  ItemGainType.Character
+                },
+                new ()
+                {
+                    RewardType =  RewardType.Money,
+                    CoinGainType =  CoinGainType.NodeType
                 }
             }, currentNodeType);
         }
@@ -417,7 +427,7 @@ namespace Combat
 
         #region 取得角色資訊
 
-        public EnemyBase RandomEnemy => characterHandler.RandomEnemy();
+        public Enemy.Enemy RandomEnemy => characterHandler.RandomEnemy();
 
         public int GetEnemyTotalHealth()
         {

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.Audio;
+using Managers;
 using NueGames.Data.Containers;
 using NueGames.Enums;
 using UnityEngine;
@@ -14,15 +16,30 @@ namespace NueGames.Managers
         [SerializeField]private AudioSource sfxSource;
         [SerializeField]private AudioSource buttonSource;
         
-        [SerializeField] private List<SoundProfileData> soundProfileDataList;
+        // 用於存儲音效片段的字典
+        [SerializeField] private Dictionary<string, AudioClip> soundEffects = new Dictionary<string, AudioClip>();
+
+        [SerializeField] private AudioConfigSO sfxConfig;
+
+        public static AudioManager Instance => GameManager.Instance.AudioManager;
         
-        private Dictionary<AudioActionType, SoundProfileData> _audioDict = new Dictionary<AudioActionType, SoundProfileData>();
         
-        protected void Awake()
+        private void Awake()
         {
-            for (int i = 0; i < Enum.GetValues(typeof(AudioActionType)).Length; i++)
-                _audioDict.Add((AudioActionType)i,soundProfileDataList.FirstOrDefault(x=>x.AudioType == (AudioActionType)i));
+            // 初始化音訊字典
+            InitializeAudioDictionary();
         }
+
+
+        private void InitializeAudioDictionary()
+        {
+            soundEffects.Clear();
+            foreach (var audioData in sfxConfig.audioList)
+            {
+                soundEffects[audioData.id] = audioData.clip;
+            }
+        }
+        
         
         #region Public Methods
 
@@ -34,32 +51,19 @@ namespace NueGames.Managers
             musicSource.Play();
         }
 
-        public void PlayMusic(AudioActionType type)
-        {
-            var clip = _audioDict[type].GetRandomClip();
-            if (clip)
-                PlayMusic(clip);
-        }
 
-        public void PlayOneShot(AudioActionType type)
+        public void PlaySound(string soundName)
         {
-            var clip = _audioDict[type].GetRandomClip();
-            if (clip)
-                PlayOneShot(clip);
+            AudioData audioData = sfxConfig.GetAudioData(soundName);
+            if (audioData == null)
+            {
+                Debug.LogWarning($"音效 {soundName} 未找到！");
+                return;
+            }
+
+            sfxSource.PlayOneShot(audioData.clip, audioData.volume);
         }
         
-        public void PlayOneShotButton(AudioActionType type)
-        {
-            var clip = _audioDict[type].GetRandomClip();
-            if (clip)
-                PlayOneShotButton(clip);
-        }
-
-        public void PlayOneShot(AudioClip clip)
-        {
-            if (clip)
-                sfxSource.PlayOneShot(clip);
-        }
         
         public void PlayOneShotButton(AudioClip clip)
         {

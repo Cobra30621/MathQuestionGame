@@ -22,13 +22,13 @@ namespace NueGames.Utils
         }
 
         
-        public void OpenMapScene()
+        public IEnumerator OpenMapScene()
         {
-            StartCoroutine(DelaySceneChange(SceneType.Map));
+            yield return DelaySceneChange(SceneType.Map);
         }
-        public void OpenCombatScene()
+        public IEnumerator OpenCombatScene()
         {
-            StartCoroutine(DelaySceneChange(SceneType.Combat));
+            yield return DelaySceneChange(SceneType.Combat);
         }
 
         public void OpenCompleteMapScene()
@@ -43,8 +43,7 @@ namespace NueGames.Utils
         
         private IEnumerator DelaySceneChange(SceneType type)
         {
-            yield return UIManager.Fade(true);
-            UIManager.ChangeScene(type);
+            yield return UIManager.ChangeScene(type);
         }
 
         public void ExitApp()

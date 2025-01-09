@@ -62,6 +62,8 @@ namespace Map
 
         public static MapView Instance;
 
+        [SerializeField] private Canvas canvas;
+        
         public Map Map { get; protected set; }
 
         private void Awake()
@@ -110,7 +112,11 @@ namespace Map
             CreateMapBackground(m);
             
             SetMapName(m);
+
+            SetCanvasRenderMode();
         }
+
+        
 
         protected virtual void CreateMapBackground(Map m)
         {
@@ -345,6 +351,11 @@ namespace Map
         protected NodeBlueprint GetBlueprint(NodeType type)
         {
             return nodeBlueprintData.GetNodeBlueprint(type);
+        }
+        
+        private void SetCanvasRenderMode()
+        {
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
         }
         
     }

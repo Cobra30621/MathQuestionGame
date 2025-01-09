@@ -73,13 +73,18 @@ namespace NueGames.Characters
         
         #region Power 能力
         /// <summary>
-        /// 賦予能力
+        /// 賦予角色能力或疊加現有能力
         /// </summary>
-        /// <param name="targetPower"></param>
-        /// <param name="value"></param>
-        public void ApplyPower(PowerName targetPower,int value)
+        /// <param name="targetPower">目標能力名稱</param>
+        /// <param name="value">能力值或疊加值</param>
+        /// <returns>
+        /// Item1 (haveFindPower): 是否成功找到對應能力
+        /// Item2 (isNewPower): 是否為新增的能力
+        /// </returns>
+        public (bool, bool) ApplyPower(PowerName targetPower,int value)
         {
-            // Debug.Log($"{owner.name} apply {targetPower} {value}");
+            bool isNewPower = false;
+            bool haveFindPower = true;
             if (PowerDict.TryGetValue(targetPower, out var power))
             {
                 power.StackPower(value);
@@ -87,13 +92,24 @@ namespace NueGames.Characters
             else
             {
                 PowerBase powerBase = PowerGenerator.GetPower(targetPower);
-                powerBase.SetOwner(owner);
-                powerBase.SubscribeAllEvent();
-                powerBase.StackPower(value);
-                powerBase.Init();
+                if (powerBase != null)
+                {
+                    PowerDict.Add(targetPower, powerBase);
+                    powerBase.SetOwner(owner);
+                    powerBase.SubscribeAllEvent();
+                    powerBase.StackPower(value);
+                    powerBase.Init();
                 
-                PowerDict.Add(targetPower, powerBase);
+                    isNewPower = true;
+                }
+                else
+                {
+                    haveFindPower = false;
+                }
+                
             }
+            
+            return (haveFindPower, isNewPower);
         }
 
         
@@ -130,10 +146,15 @@ namespace NueGames.Characters
         }
         
         /// <summary>
-        /// 遊戲回合結束時，通知持有的能力更新狀態
+        /// 角色回合開始時，通知持有的能力更新狀態
         /// </summary>
-        public void HandleAllPowerOnRoundEnd(RoundInfo info)
+        public void HandleAllPowerOnTurnStart(TurnInfo info)
         {
+            if (!owner.IsCharacterType(info.CharacterType))
+            {
+                return;
+            }
+            
             var copyPowerDict = new Dictionary<PowerName, PowerBase> (PowerDict);
             foreach (PowerBase power in copyPowerDict.Values)
             {
@@ -173,7 +194,7 @@ namespace NueGames.Characters
         public void BeAttacked(DamageInfo damageInfo)
         {
             if (IsDeath) return;
-            owner.OnAttacked?.Invoke(damageInfo);
+           
 
             var damageValue = damageInfo.GetDamageValue();
             var afterBlockDamage = damageInfo.GetAfterBlockDamage();
@@ -183,22 +204,18 @@ namespace NueGames.Characters
             {
                 owner.OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
             }
-            ReduceBlock(damageValue - afterBlockDamage);
-            CheckIsDeath(damageInfo);
-        }
 
-        /// <summary>
-        /// 降低格檔值
-        /// </summary>
-        /// <param name="damageValue"></param>
-        private void ReduceBlock(int damageValue)
-        {
-            if (PowerDict.ContainsKey(PowerName.Block))
+            int reduceBlockValue =  damageValue - afterBlockDamage;
+            if (reduceBlockValue > 0)
             {
-                ApplyPower(PowerName.Block,- damageValue);
+                owner.ApplyPower(PowerName.Block, -reduceBlockValue);
             }
+            owner.OnAttacked?.Invoke(damageInfo);
+            
+            CheckIsDeath(damageInfo);
+            
         }
-
+        
         /// <summary>
         /// 直接設定怪物死亡
         /// </summary>

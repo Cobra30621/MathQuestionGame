@@ -77,7 +77,7 @@ namespace NueGames.Event
             OnLeaveEventSystem.Invoke();
             EncounterManager.Instance.OnRoomCompleted();
             
-            _sceneChanger.OpenMapScene();
+            StartCoroutine(_sceneChanger.OpenMapScene());
         }
         
         

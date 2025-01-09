@@ -2,40 +2,37 @@
 using System.Collections.Generic;
 using Card.Data;
 using Map;
-using Coin;
 using Money;
-using NueGames.Card;
-using NueGames.Data.Collection;
-using NueGames.Data.Collection.RewardData;
-using NueGames.Data.Containers;
 using NueGames.Encounter;
-using NueGames.Enums;
-using NueGames.NueExtentions;
 using NueGames.Relic;
 using Relic;
 using Reward;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace NueGames.UI.Reward
 {
     public class RewardCanvas : CanvasBase
     {
-        [Header("References")]
+        /// <summary>
+        /// 產生獎勵項目的節點
+        /// </summary>
         [SerializeField] private Transform rewardRoot;
-        [SerializeField] private RewardContainer rewardContainerPrefab;
-        [SerializeField] private Transform rewardPanelRoot;
-        [Header("Choice")]
-        [SerializeField] private Transform choice2DCardSpawnRoot;
-        [SerializeField] private RewardChoiceCard rewardChoiceCardUIPrefab;
-        [SerializeField] private ChoicePanel choicePanel;
-
-        [SerializeField] private RoomFinishHandler roomFinishHandler;
         
-        private readonly List<RewardContainer> _currentRewardsList = new List<RewardContainer>();
-        private readonly List<RewardChoiceCard> _spawnedChoiceList = new List<RewardChoiceCard>();
-        private readonly List<CardData> _cardRewardList = new List<CardData>();
+        /// <summary>
+        /// 獎勵容器預製體
+        /// </summary>
+        [SerializeField] private RewardContainer rewardContainerPrefab;
+        
+        /// <summary>
+        /// 房間完成處理器
+        /// </summary>
+        [SerializeField] private RoomFinishHandler roomFinishHandler;
 
-        public ChoicePanel ChoicePanel => choicePanel;
+        /// <summary>
+        /// 卡片獎勵選擇面板
+        /// </summary>
+        [SerializeField] private CardRewardChoicePanel cardRewardChoicePanel;
         
         /// <summary>
         /// 回到地圖在選擇後
@@ -47,33 +44,59 @@ namespace NueGames.UI.Reward
         /// </summary>
         private System.Action onLeave;
         
+        /// <summary>
+        /// 當前獎勵數據列表
+        /// </summary>
+        private List<RewardData> _rewardDatas;
+        
         #region Public Methods
         
 
+        /// <summary>
+        /// 顯示獎勵介面
+        /// </summary>
+        /// <param name="rewardDatas">獎勵數據列表</param>
+        /// <param name="nodeType">節點類型</param>
+        /// <param name="backToMap">是否在完成後返回地圖</param>
+        /// <param name="onLeave">離開時的回調函數</param>
         public void ShowReward(List<RewardData> rewardDatas, NodeType nodeType, bool backToMap = true, System.Action onLeave = null)
         {
             this.backToMap = backToMap;
             this.onLeave = onLeave;
-            UIManager.RewardCanvas.gameObject.SetActive(true);
-            UIManager.RewardCanvas.PrepareCanvas();
+            
+            OpenCanvas();
+            PrepareCanvas();
+            _rewardDatas = rewardDatas;
             
             foreach (var rewardData in rewardDatas)
             {
-                UIManager.RewardCanvas.BuildReward(rewardData, nodeType);
+                BuildReward(rewardData, nodeType);
             }
         }
 
-        public void PrepareCanvas()
+        /// <summary>
+        /// 準備獎勵畫布，清理舊的獎勵項目
+        /// </summary>
+        private void PrepareCanvas()
         {
-            rewardPanelRoot.gameObject.SetActive(true);
+            foreach (Transform child in rewardRoot)
+            {
+                Destroy(child.gameObject);
+            }
+            
+            cardRewardChoicePanel.Reset();
         }
 
 
    
+        /// <summary>
+        /// 建立單個獎勵項目
+        /// </summary>
+        /// <param name="rewardData">獎勵數據</param>
+        /// <param name="nodeType">節點類型</param>
         public void BuildReward(RewardData rewardData, NodeType nodeType)
         {
             var rewardClone = Instantiate(rewardContainerPrefab, rewardRoot);
-            _currentRewardsList.Add(rewardClone);
             string rewardText = "";
             var sprite = RewardManager.Instance.GetRewardSprite(rewardData.RewardType);
             
@@ -82,68 +105,89 @@ namespace NueGames.UI.Reward
                 case RewardType.Money:
                     int money = RewardManager.Instance.GetMoney(rewardData, nodeType);
                     rewardText = $"+ {money}";
-                    rewardClone.RewardButton.onClick.AddListener(()=>GetGoldReward(rewardClone, money));
                     break;
                 case RewardType.Card:
                     var cardRewardList = RewardManager.Instance.GetCardList(rewardData, 3);
                     rewardText = "卡片獎勵";
-                    rewardClone.RewardButton.onClick.AddListener(()=>GetCardReward(rewardClone,cardRewardList));
                     break;
                 case RewardType.Stone:
                     int stone = RewardManager.Instance.GetStone(rewardData, nodeType);
                     rewardText = $"+ {stone} ";
-                    rewardClone.RewardButton.onClick.AddListener(()=>GetStoneReward(rewardClone, stone));
                     break;
                 case RewardType.Relic:
                     var (relicName, relicData) = RewardManager.Instance.GetRelic(nodeType);
                     rewardText = $"{relicData.Title}";
                     sprite = relicData.IconSprite;
-                    rewardClone.RewardButton.onClick.AddListener(()=>GetRelicReward(rewardClone, relicName));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(RewardType), rewardData.RewardType, null);
             }
-
             
             rewardClone.BuildReward(sprite, rewardText);
         }
 
-        
-
-        public override void ResetCanvas()
+        /// <summary>
+        /// 領取所有獎勵
+        /// </summary>
+        [Button("領取所有獎勵")]
+        public void ReceiveRewards()
         {
-            ResetRewards();
-
-            ResetChoice();
-        }
-
-        private void ResetRewards()
-        {
-            foreach (var rewardContainer in _currentRewardsList)
-                Destroy(rewardContainer.gameObject);
-
-            _currentRewardsList?.Clear();
-        }
-
-        private void ResetChoice()
-        {
-            foreach (var choice in _spawnedChoiceList)
+            
+            // 是否有要選擇的獎勵
+            bool haveChoiceReward = false;
+            
+            var nodeType = MapManager.Instance.GetCurrentNodeType();
+            
+            Debug.Log($"_rewardDatas: {_rewardDatas.Count}");
+            foreach (var rewardData in _rewardDatas)
             {
-                Destroy(choice.gameObject);
+                switch (rewardData.RewardType)
+                {
+                    case RewardType.Money:
+                        GetGoldReward(RewardManager.Instance.GetMoney(rewardData, nodeType));
+                        break;
+                    case RewardType.Stone:
+                        GetStoneReward(RewardManager.Instance.GetStone(rewardData, nodeType));
+                        break;
+                    case RewardType.Card:
+                        var cardRewardList = RewardManager.Instance.GetCardList(rewardData, 3);
+                        GetCardReward(cardRewardList);
+                        haveChoiceReward = true;
+                        break;
+                    case RewardType.Relic:
+                        var (relicName, relicData) = RewardManager.Instance.GetRelic(nodeType);
+                        GetRelicReward(relicName);
+                        haveChoiceReward = true;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(RewardType), rewardData.RewardType, null);
+                }
             }
 
-            _spawnedChoiceList?.Clear();
-            ChoicePanel.DisablePanel();
+            // 如果沒有要選擇的獎勵，直接離開獎勵介面
+            if (!haveChoiceReward)
+            {
+                LeaveRewardCanvas();
+            }
         }
 
-        public void OnClickNextButton()
+
+  
+
+
+        /// <summary>
+        /// 離開獎勵畫布
+        /// </summary>
+        public void LeaveRewardCanvas()
         {
             if (backToMap)
             {
+                // 回到地圖(戰鬥後
                 roomFinishHandler.BackToMap();
             }
             else
             {
+                // 關閉介面
                 onLeave?.Invoke();
                 CloseCanvas();
             }
@@ -152,48 +196,41 @@ namespace NueGames.UI.Reward
         #endregion
         
         #region Private Methods
-        private void GetGoldReward(RewardContainer rewardContainer,int amount)
+        /// <summary>
+        /// 獲得金幣獎勵
+        /// </summary>
+        /// <param name="amount">金幣數量</param>
+        private void GetGoldReward(int amount)
         {
             CoinManager.Instance.AddCoin(amount, CoinType.Money);
-            _currentRewardsList.Remove(rewardContainer);
-            Destroy(rewardContainer.gameObject);
         }
         
-        private void GetStoneReward(RewardContainer rewardContainer, int amount)
+        /// <summary>
+        /// 獲得寶石獎勵
+        /// </summary>
+        /// <param name="amount">寶石數量</param>
+        private void GetStoneReward(int amount)
         {
             CoinManager.Instance.AddCoin(amount, CoinType.Stone);
-            _currentRewardsList.Remove(rewardContainer);
-            Destroy(rewardContainer.gameObject);
+
         }
 
-        private void GetCardReward(RewardContainer rewardContainer, List<CardData> cardData)
+        /// <summary>
+        /// 獲得卡片獎勵
+        /// </summary>
+        /// <param name="cardData">卡片數據列表</param>
+        private void GetCardReward(List<CardData> cardData)
         {
-            ChoicePanel.gameObject.SetActive(true);
-            
-            for (int i = 0; i < cardData.Count; i++)
-            {
-                Transform spawnTransform = choice2DCardSpawnRoot;
-              
-                var choice = Instantiate(rewardChoiceCardUIPrefab, spawnTransform);
-
-                var reward = cardData[i];
-                choice.BuildReward(reward);
-                choice.uiCard.OnCardChose += ResetChoice;
-                
-                _cardRewardList.Remove(reward);
-                _spawnedChoiceList.Add(choice);
-                _currentRewardsList.Remove(rewardContainer);
-                
-            }
-            
-            Destroy(rewardContainer.gameObject);
+            cardRewardChoicePanel.Show(cardData);
         }
 
-        private void GetRelicReward(RewardContainer rewardContainer, RelicName relicName)
+        /// <summary>
+        /// 獲得遺物獎勵
+        /// </summary>
+        /// <param name="relicName">遺物名稱</param>
+        private void GetRelicReward(RelicName relicName)
         {
             GameManager.RelicManager.GainRelic(relicName);
-            _currentRewardsList.Remove(rewardContainer);
-            Destroy(rewardContainer.gameObject);
         }
         
         

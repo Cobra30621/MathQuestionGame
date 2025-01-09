@@ -32,7 +32,7 @@ namespace NueGames.Encounter
             }
             else
             {
-                _sceneChanger.OpenMapScene();
+                StartCoroutine(_sceneChanger.OpenMapScene());
             }
         }
     }
