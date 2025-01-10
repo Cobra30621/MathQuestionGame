@@ -14,12 +14,15 @@ namespace NueGames.Card
         [SerializeField] protected TextMeshProUGUI descTextField;
         [SerializeField] protected TextMeshProUGUI manaTextField;
 
+        [SerializeField] protected Image backgroundImage;
+        
         public void UpdateUI(CardInfo cardInfo)
         {
             nameTextField.text = cardInfo.CardLevelInfo.TitleLang + $" {cardInfo.Level+1}";
             descTextField.text = cardInfo.CardLevelInfo.DesLang;
             manaTextField.text = cardInfo.ManaCost.ToString();
             cardImage.sprite = cardInfo.CardData.CardSprite;
+            backgroundImage.sprite = cardInfo.CardSprite.backgroundSprite;
         }
         
         public void SetPlayable(bool playable)

@@ -44,7 +44,7 @@ namespace Money
             {
                 after.gameObject.SetActive(true);
                 upgrade.interactable = true;
-                after.Init(new CardInfo(cardInfo.CardData, cardInfo.Level + 1));
+                after.Init(new CardInfo(cardInfo, cardInfo.Level + 1));
             }
 
             var needCost = _commodity.NeedCost();

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Card.Data
 {
@@ -23,6 +24,10 @@ namespace Card.Data
 
         [SerializeField] private CardLevelInfo cardLevelInfo;
 
+        public CardSprite CardSprite => _cardSprite;
+        
+        [SerializeField] private CardSprite _cardSprite;
+        
         public bool ExhaustAfterPlay => cardLevelInfo.ExhaustAfterPlay;
         
         
@@ -30,24 +35,25 @@ namespace Card.Data
         
         
         
-        public CardInfo(CardData cardData, CardSaveInfo cardSaveInfo)
+        public CardInfo(CardData cardData, CardSaveInfo cardSaveInfo, CardSprite cardSprite)
         {
             CardData = cardData;
             CardSaveInfo = cardSaveInfo;
             cardLevelInfo = cardData.GetLevelInfo(CardSaveInfo.Level);
+            _cardSprite = cardSprite;
             
             ManaCost = cardLevelInfo.ManaCost;
-            
         }
 
-        public CardInfo(CardData cardData, int level)
+        public CardInfo(CardInfo cardInfo, int level)
         {
-            CardData = cardData;
+            CardData = cardInfo.CardData;
+            _cardSprite = cardInfo.CardSprite;
             CardSaveInfo = new CardSaveInfo()
             {
                 Level = level
             };
-            cardLevelInfo = cardData.GetLevelInfo(CardSaveInfo.Level);
+            cardLevelInfo = CardData.GetLevelInfo(CardSaveInfo.Level);
             
             ManaCost = cardLevelInfo.ManaCost;
         }

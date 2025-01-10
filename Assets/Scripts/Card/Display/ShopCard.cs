@@ -3,6 +3,8 @@ using Coin;
 using Money;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Card.Display
 {
@@ -15,7 +17,7 @@ namespace Card.Display
         public UICard UICard;
 
         [Required]
-        public GameObject unGainCard;
+        public Image ungainCard;
         
         
         public void SetData(CardUpgradeCommodity commodity, ICardShopUI cardShopUI, CardInfo cardInfo)
@@ -29,8 +31,19 @@ namespace Card.Display
             }
             
             UICard.Init(cardInfo);
-            unGainCard.SetActive(!cardInfo.CardSaveInfo.HasGained);
-            
+
+            ungainCard.sprite = cardInfo.CardSprite.ungainCardSprite;
+
+            // 是否有得到卡牌過
+            if (cardInfo.CardSaveInfo.HasGained)
+            {
+                ungainCard.gameObject.SetActive(false);
+            }
+            else
+            {
+                ungainCard.gameObject.SetActive(true);
+                UICard.CloseAllDisplay();
+            }
         }
 
         public void OpenUpgradePanel()

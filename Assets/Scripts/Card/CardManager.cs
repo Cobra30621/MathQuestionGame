@@ -9,6 +9,7 @@ using NueGames.Managers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Card
 {
@@ -23,7 +24,12 @@ namespace Card
         [Required]
         [LabelText("其他卡片")]
         [SerializeField] private DeckData otherCardDeck;
+
+        [Required] [LabelText("角色卡片圖片")] [SerializeField]
+        private CharacterCardSprites characterCardSprites;
         
+        
+        [Required] [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler;
         
         [Required]
         [SerializeField] private readonly CardLevelHandler _cardLevelHandler;
@@ -37,7 +43,7 @@ namespace Card
         public List<CardData> CurrentCardsList;
 
 
-        [Required] [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler;
+        
 
         public void SetCurrenCardsList(List<CardData> cardData)
         {
@@ -123,9 +129,10 @@ namespace Card
 
         public CardInfo CreateCardInfo(CardData cardData)
         {
-            var level = _cardLevelHandler.GetSaveInfo(cardData.CardId);
+            var saveInfo = _cardLevelHandler.GetSaveInfo(cardData.CardId);
+            var cardSprite = characterCardSprites.GetSprite(cardData.AllyClassType);
 
-            var cardInfo = new CardInfo(cardData, level);
+            var cardInfo = new CardInfo(cardData, saveInfo, cardSprite);
 
             return cardInfo;
         }

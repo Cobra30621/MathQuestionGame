@@ -32,12 +32,18 @@ namespace Card.Display
 
         private void UpdateRarity(RarityType rarityType)
         {
+            CloseAllDisplay();
+            
+            CurrentSingleCard = cardUIDictionary[rarityType];
+            CurrentSingleCard.gameObject.SetActive(true);
+        }
+
+        public void CloseAllDisplay()
+        {
             foreach (var pair in cardUIDictionary)
             {
                 pair.Value.gameObject.SetActive(false);
             }
-            CurrentSingleCard = cardUIDictionary[rarityType];
-            CurrentSingleCard.gameObject.SetActive(true);
         }
     }
 }

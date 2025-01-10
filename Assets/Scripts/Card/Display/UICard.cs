@@ -37,5 +37,10 @@ namespace Card.Display
             OnCardChose?.Invoke();
             
         }
+
+        public void CloseAllDisplay()
+        {
+            _cardDisplay.CloseAllDisplay();
+        }
     }
 }
