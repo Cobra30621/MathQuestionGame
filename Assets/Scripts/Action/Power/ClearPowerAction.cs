@@ -1,14 +1,9 @@
 ﻿using System.Collections.Generic;
 using Action.Parameters;
-using NueGames.Card;
-using NueGames.Characters;
-using NueGames.Data.Collection;
-using NueGames.Enums;
+using Characters;
 using Power;
-using UnityEngine;
 
-
-namespace NueGames.Action
+namespace Action.Power
 {
     /// <summary>
     /// 清除能力

@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Action;
+using Action.Parameters;
+using Combat;
 using NueGames.Enums;
-using rStarTools.Scripts.ScriptableObjects.DataOverviews;
-using rStarTools.Scripts.StringList;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using Tool;
@@ -12,7 +11,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Utilities;
 
-namespace Card
+namespace Action
 {
     [CreateAssetMenu(fileName = "SkillData",menuName = "SkillData",order = 0)]
     public class SkillData : SerializedScriptableObject

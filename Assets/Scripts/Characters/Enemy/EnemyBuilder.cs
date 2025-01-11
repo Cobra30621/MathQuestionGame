@@ -1,11 +1,9 @@
-﻿using Card;
+﻿using Characters.Enemy.Data;
 using Combat;
-using Enemy.Data;
 using Sheets;
-using Tool;
 using UnityEngine;
 
-namespace Enemy
+namespace Characters.Enemy
 {
     public class EnemyBuilder : MonoBehaviour
     {

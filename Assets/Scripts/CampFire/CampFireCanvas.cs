@@ -1,8 +1,7 @@
 using System;
-using NueGames.Encounter;
+using Encounter;
 using NueGames.UI;
 using NueGames.Utils;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 

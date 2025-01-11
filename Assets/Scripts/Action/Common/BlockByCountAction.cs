@@ -1,13 +1,7 @@
-using System.Collections.Generic;
-using Card;
-using NueGames.Combat;
-using Action.Parameters;
-using NueGames.Characters;
-using NueGames.Managers;
 using Power;
 using UnityEngine;
 
-namespace NueGames.Action
+namespace Action.Common
 {
     
     public class BlockByCountAction : GameActionBase

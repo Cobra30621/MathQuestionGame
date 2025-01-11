@@ -1,19 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Action.Parameters;
+using Characters;
 using GameListener;
-using Kalkatos.DottedArrow;
 using Managers;
-using NueGames.Characters;
-using NueGames.Enums;
-using NueGames.Managers;
-using NueGames.Parameters;
-using Sirenix.Utilities;
 using UnityEngine;
-using CombatManager = Combat.CombatManager;
 
-namespace NueGames.Combat
+namespace Combat
 {
     /// <summary>
     /// 計算戰鬥的數值(傷害、格檔)

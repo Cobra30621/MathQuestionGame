@@ -1,6 +1,4 @@
-using Card;
-
-namespace NueGames.Action
+namespace Action.Common
 {
     public class NullAction : GameActionBase
     {

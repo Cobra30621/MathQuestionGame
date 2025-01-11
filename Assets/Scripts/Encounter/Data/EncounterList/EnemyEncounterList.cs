@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using Data.Encounter;
-using NueGames.Encounter;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace NueGames.Data.Encounter
+namespace Encounter.Data.EncounterList
 {
     [Serializable]
     public class EnemyEncounterList

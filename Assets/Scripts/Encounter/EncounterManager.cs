@@ -1,25 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using Data;
-using Data.Encounter;
-using DataPersistence;
+using Encounter.Data;
 using Managers;
 using Map;
-using Newtonsoft.Json;
-using NueGames.Data.Encounter;
-using NueGames.Enums;
-using NueGames.Event;
-using NueGames.Managers;
 using NueGames.Utils;
 using Reward;
 using Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
-
-namespace NueGames.Encounter
+namespace Encounter
 {
     public class EncounterManager : MonoBehaviour,IDataPersistence
     {

@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 using Action.Parameters;
-using Card;
-using NueGames.Characters;
-using NueGames.Managers;
+using Characters;
 using Power;
 
-namespace NueGames.Action
+namespace Action.Damage
 {
     /// <summary>
     /// 如果對象有 XX 能力，造成額外傷害

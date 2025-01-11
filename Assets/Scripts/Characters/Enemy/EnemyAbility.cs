@@ -1,10 +1,10 @@
 using System.Collections.Generic;
+using Characters.Enemy.Data;
 using Sheets;
 using Sirenix.Utilities;
-using Tool;
 using UnityEngine;
 
-namespace Enemy.Data
+namespace Characters.Enemy
 {
     public class EnemyAbility
     {

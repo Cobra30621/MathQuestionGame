@@ -1,13 +1,8 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using Data.Audio;
 using Managers;
-using NueGames.Data.Containers;
-using NueGames.Enums;
 using UnityEngine;
 
-namespace NueGames.Managers
+namespace Aduio
 {
     public class AudioManager : MonoBehaviour
     {

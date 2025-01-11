@@ -1,8 +1,8 @@
+using Characters;
+using Combat.Card;
 using Newtonsoft.Json;
 using NueGames.Card;
-using NueGames.Characters;
 using NueGames.Enums;
-using NueGames.Parameters;
 using NueGames.Relic;
 using Power;
 

@@ -2,14 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Data.Encounter;
-using Enemy;
+using Action;
+using Characters;
+using Characters.Ally;
+using Characters.Enemy;
+using Combat.Card;
+using Encounter.Data;
 using Feedback;
 using Managers;
 using Map;
-using NueGames.Characters;
-using NueGames.Combat;
-using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
 using NueGames.Enums;
 using NueGames.Managers;
@@ -81,7 +82,7 @@ namespace Combat
         
         public Ally MainAlly => characterHandler.MainAlly;
 
-        public List<Enemy.Enemy> Enemies => characterHandler.Enemies;
+        public List<Enemy> Enemies => characterHandler.Enemies;
         
         public int EnemyCount => Enemies.Count;
 
@@ -351,7 +352,7 @@ namespace Combat
 
             var waitDelay = new WaitForSeconds(0.5f);
 
-            var CoroutineEnemies = new List<Enemy.Enemy>(Enemies) { };
+            var CoroutineEnemies = new List<Enemy>(Enemies) { };
 
             foreach (var currentEnemy in CoroutineEnemies)
             {
@@ -427,7 +428,7 @@ namespace Combat
 
         #region 取得角色資訊
 
-        public Enemy.Enemy RandomEnemy => characterHandler.RandomEnemy();
+        public Enemy RandomEnemy => characterHandler.RandomEnemy();
 
         public int GetEnemyTotalHealth()
         {

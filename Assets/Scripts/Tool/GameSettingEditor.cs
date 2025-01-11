@@ -1,8 +1,7 @@
 using Card.Data;
-using Data.Encounter;
+using Characters.Enemy.Data;
 using Data.Settings;
-using Enemy;
-using Enemy.Data;
+using Encounter.Data;
 using NueGames.Data.Containers;
 using NueGames.Data.Settings;
 using Sirenix.OdinInspector;

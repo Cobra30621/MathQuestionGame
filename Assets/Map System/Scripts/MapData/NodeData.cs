@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using NueGames.Encounter;
+using Encounter.Data.EncounterList;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

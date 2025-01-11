@@ -1,4 +1,5 @@
-﻿using GameListener;
+﻿using Characters;
+using GameListener;
 using NueGames.Enums;
 
 namespace Power.Buff
@@ -22,7 +23,7 @@ namespace Power.Buff
             // 如果是敵人，更新意圖
             if (Owner.IsCharacterType(CharacterType.Enemy))
             {
-                var enemy = (global::Enemy.Enemy) Owner;
+                var enemy = (global::Characters.Enemy.Enemy) Owner;
                 enemy.UpdateIntentionDisplay();
             }
         }

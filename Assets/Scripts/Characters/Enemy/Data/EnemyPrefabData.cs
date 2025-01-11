@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NSubstitute.Core;
 using UnityEngine;
 
-namespace Enemy
+namespace Characters.Enemy.Data
 {
     public class EnemyPrefabData : ScriptableObject
     {

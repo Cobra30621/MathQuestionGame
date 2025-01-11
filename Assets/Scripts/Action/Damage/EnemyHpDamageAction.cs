@@ -1,10 +1,4 @@
-using System.Collections.Generic;
-using Action.Parameters;
-using Card;
-using NueGames.Action;
-using NueGames.Characters;
-
-namespace Action.Enemy
+namespace Action.Damage
 {
     
     public class EnemyHpDamageAction: GameActionBase

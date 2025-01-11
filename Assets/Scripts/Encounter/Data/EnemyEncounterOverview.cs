@@ -1,7 +1,6 @@
-﻿using NueGames.Data.Encounter;
-using rStarTools.Scripts.StringList;
+﻿using rStarTools.Scripts.StringList;
 
-namespace Data.Encounter
+namespace Encounter.Data
 {
     public class EnemyEncounterOverview : DataOverviewBase<EnemyEncounterOverview, EnemyEncounter>
     {

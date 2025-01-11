@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Enemy;
+using Characters.Enemy.Data;
 using NueGames.Enums;
 using rStarTools.Scripts.StringList;
 using UnityEngine;
 
-namespace Data.Encounter
+namespace Encounter.Data
 {
     /// <summary>
     /// 遭遇一場戰鬥的敵人清單

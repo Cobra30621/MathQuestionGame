@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using DG.Tweening;
-using NueGames.Encounter;
+using Encounter;
 using UnityEngine;
 
 namespace Map

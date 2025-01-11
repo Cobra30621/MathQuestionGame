@@ -1,15 +1,11 @@
-﻿using System;
-using Combat;
+﻿using Combat.Card;
 using Feedback;
-using NueGames.Combat;
-using NueGames.Enums;
-using NueGames.Managers;
+using NueGames.UI;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace NueGames.UI
+namespace Combat
 {
     public class CombatCanvas : CanvasBase
     {

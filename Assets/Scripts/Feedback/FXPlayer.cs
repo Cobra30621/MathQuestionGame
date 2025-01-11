@@ -1,11 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using MoreMountains.Feedbacks;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Action.Sequence
+namespace Feedback
 {
     public class FXPlayer :  MonoBehaviour
     {

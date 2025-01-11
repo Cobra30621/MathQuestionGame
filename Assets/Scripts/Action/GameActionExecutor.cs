@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Action.Parameters;
 using Action.Sequence;
-using DG.Tweening;
 using Managers;
-using NueGames.Action;
-using NueGames.Parameters;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-using UnityEngine;
 
-namespace NueGames.Managers
+namespace Action
 {
     /// <summary>
     /// 負責執行遊戲行為（GameAction）

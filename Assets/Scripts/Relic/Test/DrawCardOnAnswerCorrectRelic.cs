@@ -1,4 +1,5 @@
-﻿using NueGames.Action;
+﻿using Action;
+using Action.Card;
 using NueGames.Managers;
 
 namespace NueGames.Relic.Common

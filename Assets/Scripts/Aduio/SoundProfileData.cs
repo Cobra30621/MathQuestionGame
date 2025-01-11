@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using Map;
-using NueGames.Enums;
 using UnityEngine;
 
-namespace NueGames.Data.Containers
+namespace Aduio
 {
     [CreateAssetMenu(fileName = "Sound Profile", menuName = "NueDeck/Containers/SoundProfile", order = 1)]
     public class SoundProfileData : ScriptableObject

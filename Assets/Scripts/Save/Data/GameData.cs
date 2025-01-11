@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Card;
+using Characters.Ally;
 using Data;
-using NueGames.Characters;
+using Encounter;
 using NueGames.Data.Collection;
-using NueGames.Encounter;
 using NueGames.Relic;
 using Question;
 using Stage;

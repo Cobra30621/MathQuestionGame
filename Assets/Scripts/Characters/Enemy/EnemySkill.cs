@@ -1,19 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Action;
 using Action.Parameters;
-using Card;
+using Characters.Enemy.Data;
 using Combat;
-using GameAction;
-using NueGames.Action;
-using NueGames.Characters;
-using NueGames.Combat;
-using NueGames.Managers;
-using NueGames.Parameters;
 using Sheets;
-using Tool;
 using UnityEngine;
 
-namespace Enemy.Data
+namespace Characters.Enemy
 {
     /// <summary>
     /// 敌人技能类,用于管理敌人的技能相关信息和行为

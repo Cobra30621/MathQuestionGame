@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using Action;
+using Action.Damage;
 using Action.Parameters;
+using Characters;
 using Combat;
-using Money;
-using NueGames.Action;
-using NueGames.Characters;
+using Economy;
 using NueGames.Managers;
 using Save;
 using Sheets;

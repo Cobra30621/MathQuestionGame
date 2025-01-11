@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using Card;
-using Card.Display;
 using Managers;
 using NueGames.Card;
-using NueGames.Data.Collection;
-using NueGames.Managers;
 using UnityEngine;
 
 namespace CampFire

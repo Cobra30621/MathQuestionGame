@@ -1,8 +1,7 @@
-using System;
-using Card;
+using Combat.Card;
 using NueGames.Enums;
 
-namespace NueGames.Action
+namespace Action.Card
 {
     public class AddCardToPileAction : GameActionBase
     {

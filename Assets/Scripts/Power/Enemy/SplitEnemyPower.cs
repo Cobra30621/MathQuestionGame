@@ -36,7 +36,7 @@ namespace Power.Enemy
             // 当生命值低于一半时
             if ((float)health / maxHealth < 0.5f)
             {
-                var enemy = (global::Enemy.Enemy)Owner;
+                var enemy = (global::Characters.Enemy.Enemy)Owner;
                 // 设置敌人为分裂状态
                 enemy.SetSplitEnemySkill($"{Amount}");
                 

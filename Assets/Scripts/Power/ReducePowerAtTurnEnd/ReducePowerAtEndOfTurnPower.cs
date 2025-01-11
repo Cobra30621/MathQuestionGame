@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using Action;
+using Action.Power;
+using Characters;
 using Combat;
-using NueGames.Action;
-using NueGames.Characters;
 using NueGames.Managers;
 using UnityEngine.UI;
 

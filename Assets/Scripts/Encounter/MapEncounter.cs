@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using Data.Encounter;
-using Newtonsoft.Json;
-using NueGames.Data.Encounter;
-using NueGames.Enums;
-using UnityEngine;
+using Encounter.Data;
 
-namespace NueGames.Encounter
+namespace Encounter
 {
     /// <summary>
     /// 地圖遭遇事件資料

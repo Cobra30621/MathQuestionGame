@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Coin;
-using Money;
+using Economy;
 using NueGames.Relic;
 using NueGames.UI;
 using Sirenix.OdinInspector;

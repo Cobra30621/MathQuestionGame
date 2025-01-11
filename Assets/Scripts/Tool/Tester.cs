@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Combat.Card;
 using Managers;
 using Map;
 using Map_System.Scripts.MapData;
-using NueGames.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Relic;

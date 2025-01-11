@@ -1,14 +1,11 @@
-﻿
-using System.Collections.Generic;
-using Action.Sequence;
+﻿using System.Collections.Generic;
 using Managers;
-using NueGames.Enums;
 using NueGames.Utils;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace NueGames.Managers
+namespace Feedback
 {
     public class FxManager : SerializedMonoBehaviour
     {

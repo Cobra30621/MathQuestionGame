@@ -1,10 +1,6 @@
-using System.Collections.Generic;
-using Action.Parameters;
-using Card;
-using NueGames.Characters;
 using Power;
 
-namespace NueGames.Action
+namespace Action.Power
 {
     public class MultiBlockAction : GameActionBase
     {

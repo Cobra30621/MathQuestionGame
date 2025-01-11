@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Managers;
 using Map;
-using NueGames.Event;
 using Reward;
 
 namespace Question.QuestionAction

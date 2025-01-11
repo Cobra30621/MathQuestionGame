@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Action.Parameters;
-using Card;
-using NueGames.Characters;
-using NueGames.Managers;
+using Characters;
 using UnityEngine;
 
-namespace NueGames.Action
+namespace Action.Damage
 {
     public class MultiDamageAction : GameActionBase
     {

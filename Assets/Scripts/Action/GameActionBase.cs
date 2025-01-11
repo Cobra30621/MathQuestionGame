@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Action.Parameters;
 using Card;
+using Characters;
 using Combat;
-using NueGames.Card;
-using NueGames.Characters;
-using NueGames.Combat;
-using NueGames.Data.Characters;
-using NueGames.Data.Collection;
-using NueGames.Enums;
+using Combat.Card;
+using Feedback;
 using NueGames.Managers;
-using NueGames.Parameters;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-namespace NueGames.Action
+namespace Action
 {
     /// <summary>
     /// 用來實作遊戲行為（ex: 給予傷害、抽牌、回血）的基底 class

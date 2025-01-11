@@ -1,7 +1,5 @@
 ﻿using Action.Parameters;
 using Combat;
-using NueGames.Combat;
-using NueGames.Parameters;
 using Question;
 
 namespace GameListener

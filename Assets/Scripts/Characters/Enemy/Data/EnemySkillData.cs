@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine.Serialization;
 
-namespace Enemy.Data
+namespace Characters.Enemy.Data
 {
     [Serializable]
     public class EnemySkillData

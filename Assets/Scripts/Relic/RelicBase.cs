@@ -1,11 +1,8 @@
 ﻿using Action.Parameters;
+using Characters;
 using GameListener;
-using NueGames.Action;
-using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.Parameters;
-using NueGames.Characters;
 using UnityEngine;
 using Combat;
 using Relic;

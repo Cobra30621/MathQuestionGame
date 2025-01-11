@@ -1,6 +1,4 @@
 using Card;
-using Enemy;
-using NueGames.Action;
 using Power;
 using UnityEngine;
 
@@ -31,7 +29,7 @@ namespace Action.Enemy
         
         protected override void DoMainAction()
         {
-            global::Enemy.Enemy targetEnemy;
+            global::Characters.Enemy.Enemy targetEnemy;
             var find = CombatManager.characterHandler.GetEnemyWithId(targetEnemyId, out targetEnemy);
             Debug.Log($"Find {targetEnemy}");
             if (find)

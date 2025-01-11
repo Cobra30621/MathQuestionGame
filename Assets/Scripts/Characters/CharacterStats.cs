@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Action.Parameters;
+using Characters.Display;
 using Combat;
-using Newtonsoft.Json;
-using NueGames.Combat;
-using NueGames.Enums;
-using NueGames.Managers;
-using NueGames.Parameters;
 using Power;
-using UnityEngine;
 
-namespace NueGames.Characters
+namespace Characters
 {
     /// <summary>
     /// 角色數值，並提供修改數值方式(受到傷害、給予傷害、回血等等)

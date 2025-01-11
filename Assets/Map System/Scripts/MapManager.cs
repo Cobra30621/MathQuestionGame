@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using Data;
+using Encounter;
 using Managers;
 using Map_System.Scripts.MapData;
 using Newtonsoft.Json;
-using NueGames.Encounter;
 using NueGames.Managers;
 using UnityEngine;
 using Sirenix.OdinInspector;

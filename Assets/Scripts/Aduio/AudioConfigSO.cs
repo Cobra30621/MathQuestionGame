@@ -1,8 +1,8 @@
-namespace Data.Audio
-{
-    using UnityEngine;
-    using System.Collections.Generic;
+using System.Collections.Generic;
+using UnityEngine;
 
+namespace Aduio
+{
     [CreateAssetMenu(fileName = "AudioConfigSO", menuName = "Audio/AudioConfigSO")]
     public class AudioConfigSO : ScriptableObject
     {

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Action.Parameters;
-using NueGames.Action;
-using NueGames.Characters;
+using Characters;
 
 namespace Action.Enemy
 {

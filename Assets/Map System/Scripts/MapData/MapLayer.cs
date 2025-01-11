@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using NueGames.Encounter;
+using Encounter.Data.EncounterList;
 using OneLine;
 using Sirenix.OdinInspector;
 using UnityEngine;

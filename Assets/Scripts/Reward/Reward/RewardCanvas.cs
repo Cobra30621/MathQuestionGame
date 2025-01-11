@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Card.Data;
+using Economy;
+using Encounter;
 using Map;
-using Money;
-using NueGames.Encounter;
 using NueGames.Relic;
 using Relic;
 using Reward;

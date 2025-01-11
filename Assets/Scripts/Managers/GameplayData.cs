@@ -1,4 +1,5 @@
-﻿using NueGames.Card;
+﻿using Combat.Card;
+using NueGames.Card;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

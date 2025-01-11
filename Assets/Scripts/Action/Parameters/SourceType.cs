@@ -1,4 +1,4 @@
-﻿namespace NueGames.Parameters
+﻿namespace Action.Parameters
 {
     /// <summary>
     /// 行為的來源

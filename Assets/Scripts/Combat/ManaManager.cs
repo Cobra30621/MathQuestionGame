@@ -1,12 +1,7 @@
-﻿using NueGames.Managers;
-using System;
-using System.Collections.Generic;
-using Combat;
+﻿using System;
 using Managers;
-using NueGames.Enums;
 
-
-namespace NueGames.Combat
+namespace Combat
 {
     /// <summary>
     /// 管理戰鬥中的瑪娜

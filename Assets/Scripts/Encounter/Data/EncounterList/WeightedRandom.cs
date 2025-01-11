@@ -1,12 +1,9 @@
-﻿using Map;
-using NueGames.Data.Encounter;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-namespace NueGames.Encounter
+namespace Encounter.Data.EncounterList
 {
-    using System.Collections.Generic;
-    using System.Linq;
-
     public class WeightedRandom {
         /// <summary>
         /// 根據權重，隨機取的物件

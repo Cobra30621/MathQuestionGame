@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using Managers;
-using NueGames.Action;
-using NueGames.Characters;
 using NueGames.Managers;
 using UnityEngine;
 

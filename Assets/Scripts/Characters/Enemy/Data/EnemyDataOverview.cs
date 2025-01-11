@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Enemy.Data;
 using rStarTools.Scripts.StringList;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
@@ -8,7 +7,7 @@ using Tool;
 using UnityEngine;
 using Utilities;
 
-namespace Enemy
+namespace Characters.Enemy.Data
 {
     [CreateAssetMenu] 
     public class EnemyDataOverview : DataOverviewBase<EnemyDataOverview, EnemyData>

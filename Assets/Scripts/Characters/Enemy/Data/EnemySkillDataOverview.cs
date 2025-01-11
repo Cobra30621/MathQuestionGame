@@ -6,7 +6,7 @@ using Tool;
 using UnityEngine;
 using Utilities;
 
-namespace Enemy.Data
+namespace Characters.Enemy.Data
 {
     public class EnemySkillDataOverview : SerializedScriptableObject
     {

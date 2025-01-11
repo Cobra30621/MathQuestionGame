@@ -1,6 +1,6 @@
 using Card.Data;
-using Coin;
-using Money;
+using Economy.Shop;
+using Economy.Shop.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;

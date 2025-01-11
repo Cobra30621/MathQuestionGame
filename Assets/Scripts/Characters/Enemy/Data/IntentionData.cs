@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Enemy.Data
+namespace Characters.Enemy.Data
 {
     public class IntentionData : SerializedScriptableObject
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using Card;
 using Card.Data;
+using Combat.Card;
 using Managers;
 using NueGames.Enums;
 using NueGames.Managers;

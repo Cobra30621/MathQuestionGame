@@ -1,4 +1,4 @@
-namespace NueGames.Action
+namespace Action.Card
 {
     public class ChanceAction : GameActionBase
     {

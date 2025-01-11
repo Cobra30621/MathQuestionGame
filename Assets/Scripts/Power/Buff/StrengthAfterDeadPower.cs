@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using Action;
 using Action.Parameters;
+using Action.Power;
+using Characters;
 using Combat;
-using NueGames.Action;
-using NueGames.Characters;
 using NueGames.Managers;
 
 namespace Power.Buff

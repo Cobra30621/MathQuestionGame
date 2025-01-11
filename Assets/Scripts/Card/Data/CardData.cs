@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Action.Parameters;
 using Action.Sequence;
-using NueGames.Characters;
+using Characters.Display;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using Sirenix.OdinInspector;

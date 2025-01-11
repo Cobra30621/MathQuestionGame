@@ -1,5 +1,4 @@
 ﻿using Combat;
-using NueGames.Combat;
 using UnityEngine;
 
 namespace Power.Common

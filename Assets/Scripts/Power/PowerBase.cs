@@ -1,8 +1,7 @@
 ﻿using Action.Parameters;
+using Characters;
 using Combat;
 using GameListener;
-using NueGames.Characters;
-using NueGames.Parameters;
 using UnityEngine;
 
 namespace Power

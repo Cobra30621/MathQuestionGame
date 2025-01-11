@@ -1,9 +1,8 @@
-using System;
-using Card;
 using Card.Data;
+using Combat.Card;
 using NueGames.Enums;
-using NueGames.Collection;
-namespace NueGames.Action
+
+namespace Action.Card
 {
     public class RemoveCardFromPileAction : GameActionBase
     {

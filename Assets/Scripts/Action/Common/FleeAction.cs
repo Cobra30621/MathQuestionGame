@@ -1,11 +1,8 @@
-using Action.Parameters;
-using Card;
-using NueGames.Card;
-using NueGames.Data.Collection;
+using Combat;
 using NueGames.Enums;
 using Power;
 
-namespace NueGames.Action
+namespace Action.Common
 
 {
     public class FleeAction : GameActionBase

@@ -1,7 +1,6 @@
-﻿using NueGames.Characters;
-using NueGames.Combat;
+﻿using Characters;
+using Combat;
 using NueGames.Enums;
-using NueGames.Parameters;
 using NueGames.Relic;
 using Power;
 using UnityEngine;

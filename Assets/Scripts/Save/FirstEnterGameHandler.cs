@@ -1,7 +1,7 @@
 using System;
 using Card;
+using Economy;
 using Managers;
-using Money;
 using NueGames.Data.Settings;
 using Relic;
 using Save;

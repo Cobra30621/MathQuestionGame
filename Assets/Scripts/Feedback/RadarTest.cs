@@ -1,39 +1,41 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 
-/// </summary>
-public class RadarTest : MonoBehaviour
+namespace Feedback
 {
-    public UIPolygon uiPolygon;
-    List<float> datas = new List<float>();
-
-    void Start()
+    /// <summary>
+    /// 
+    /// </summary>
+    public class RadarTest : MonoBehaviour
     {
-        // N
-        datas.Add(0.92f);
-        // S
-        datas.Add(0.31f);
-        // R
-        datas.Add(0.36f);
-        // D
-        datas.Add(0.28f);
-        uiPolygon.DrawPolygon(datas);
-    }
+        public UIPolygon uiPolygon;
+        List<float> datas = new List<float>();
 
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
+        void Start()
         {
-            for(int i=0,cnt = datas.Count;i<cnt;++i)
-            {
-                datas[i] = Random.Range(0f, 1f);
-            }
-            
+            // N
+            datas.Add(0.92f);
+            // S
+            datas.Add(0.31f);
+            // R
+            datas.Add(0.36f);
+            // D
+            datas.Add(0.28f);
             uiPolygon.DrawPolygon(datas);
         }
-    }
 
+        private void Update()
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                for(int i=0,cnt = datas.Count;i<cnt;++i)
+                {
+                    datas[i] = Random.Range(0f, 1f);
+                }
+            
+                uiPolygon.DrawPolygon(datas);
+            }
+        }
+
+    }
 }

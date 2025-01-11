@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Action;
 using Action.Enemy;
 using Action.Parameters;
+using Characters.Display;
+using Characters.Enemy.Data;
 using Combat;
-using Enemy.Data;
-using NueGames.Action;
-using NueGames.Characters;
-using NueGames.Combat;
-using NueGames.Parameters;
 using Sheets;
 using Sirenix.OdinInspector;
-using Tool;
 using UnityEngine;
 
-namespace Enemy
+namespace Characters.Enemy
 {
     public class Enemy : CharacterBase
     {

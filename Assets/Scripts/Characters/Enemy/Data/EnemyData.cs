@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using rStarTools.Scripts.StringList;
-using Tool;
-using UnityEngine.Serialization;
 
-namespace Enemy.Data
+namespace Characters.Enemy.Data
 {
     [Serializable]
     public class EnemyData : DataBase<EnemyDataOverview>

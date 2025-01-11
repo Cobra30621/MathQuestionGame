@@ -1,16 +1,16 @@
 using System.Collections.Generic;
-using Action;
+using Action.Card;
+using Action.Common;
+using Action.Damage;
 using Action.Enemy;
 using Action.Parameters;
-using Card;
+using Action.Power;
+using Characters;
 using Combat;
-using NueGames.Action;
-using NueGames.Characters;
-using NueGames.Combat;
 using NueGames.Enums;
 using UnityEngine;
 
-namespace GameAction
+namespace Action
 {
     public static class GameActionFactory
     {

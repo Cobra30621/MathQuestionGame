@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using NueGames.Data.Characters;
+using Characters.Ally;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

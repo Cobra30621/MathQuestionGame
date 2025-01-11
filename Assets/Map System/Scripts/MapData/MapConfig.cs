@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Data.Encounter;
+using Encounter.Data;
 using Map;
 using Sirenix.OdinInspector;
 using UnityEngine;

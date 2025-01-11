@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using Action.Parameters;
 using Card;
-using NueGames.Characters;
 using System.Collections.Generic;
+using Action;
+using Action.Common;
+using Characters;
 using Combat;
-using NueGames.Action;
-using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.Combat;
 
 namespace NueGames.Relic.Knight
 {

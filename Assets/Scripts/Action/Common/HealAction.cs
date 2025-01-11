@@ -1,13 +1,8 @@
 ﻿using System.Collections.Generic;
 using Action.Parameters;
-using Card;
-using NueGames.Card;
-using NueGames.Characters;
-using NueGames.Data.Collection;
-using NueGames.Enums;
-using UnityEngine;
+using Characters;
 
-namespace NueGames.Action
+namespace Action.Common
 {
     /// <summary>
     /// 回血

@@ -1,16 +1,14 @@
 using System;
-using Combat;
-using Enemy;
-using NueGames.Enums;
+using Characters.Enemy;
 
-namespace NueGames.Combat
+namespace Combat
 {
     public class CharacterHighlightController
     {
         private static CombatManager CombatManager => CombatManager.Instance;
 
 
-        public void ActivateEnemyHighlight(Enemy.Enemy enemy)
+        public void ActivateEnemyHighlight(Enemy enemy)
         {
             enemy.CharacterCanvas.SetHighlight(true);
         }

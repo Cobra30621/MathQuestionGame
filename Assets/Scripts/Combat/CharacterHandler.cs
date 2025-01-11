@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Enemy;
+using Characters.Ally;
+using Characters.Enemy;
+using Characters.Enemy.Data;
 using Map;
-using NueGames.Characters;
-using NueGames.Data.Characters;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -18,7 +18,7 @@ namespace Combat
         [SerializeField] private EnemyBuilder _enemyBuilder;
 
         // 所有敵人清單
-        [ShowInInspector] public List<Enemy.Enemy> Enemies { get; private set; }
+        [ShowInInspector] public List<Enemy> Enemies { get; private set; }
 
         // 玩家
         public Ally MainAlly;
@@ -27,7 +27,7 @@ namespace Combat
         [LabelText("效果生成敵人的特效")] [Required] public GameObject spawnEnemyFXPrefab;
 
 
-        public Enemy.Enemy RandomEnemy()
+        public Enemy RandomEnemy()
         {
             return Enemies.Random();
         }
@@ -36,7 +36,7 @@ namespace Combat
 
         public void BuildEnemies(List<EnemyName> enemyNames)
         {
-            Enemies = new List<Enemy.Enemy>();
+            Enemies = new List<Enemy>();
             foreach (var enemyData in enemyNames)
             {
                 var enemy = _enemyBuilder.Build(enemyData, GetEnemyPos());
@@ -115,7 +115,7 @@ namespace Combat
         /// <param name="id"></param>
         /// <param name="output"></param>
         /// <returns></returns>
-        public bool GetEnemyWithId(string id, out Enemy.Enemy output)
+        public bool GetEnemyWithId(string id, out Enemy output)
         {
             foreach (var enemy in Enemies)
             {
@@ -136,7 +136,7 @@ namespace Combat
             CombatManager.Instance.LoseCombat();
         }
 
-        public void OnEnemyDeath(Enemy.Enemy targetEnemy)
+        public void OnEnemyDeath(Enemy targetEnemy)
         {
             Enemies.Remove(targetEnemy);
             if (Enemies.Count <= 0)

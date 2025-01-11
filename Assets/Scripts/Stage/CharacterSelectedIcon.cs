@@ -1,5 +1,5 @@
+using Characters.Ally;
 using Managers;
-using NueGames.Data.Characters;
 using NueGames.Managers;
 using Sirenix.OdinInspector;
 using UnityEngine;

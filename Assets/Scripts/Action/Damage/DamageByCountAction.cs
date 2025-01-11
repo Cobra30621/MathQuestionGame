@@ -1,9 +1,7 @@
-using Card;
-using NueGames.Combat;
 using Action.Parameters;
 using UnityEngine;
 
-namespace NueGames.Action
+namespace Action.Damage
 {
     
     public class DamageByCountAction : GameActionBase

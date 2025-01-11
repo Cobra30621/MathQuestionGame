@@ -1,7 +1,7 @@
 ﻿using System;
 using rStarTools.Scripts.StringList;
 
-namespace Data.Encounter
+namespace Encounter.Data
 {
     [Serializable]
     public class EncounterName : NameBase<EnemyEncounterOverview>

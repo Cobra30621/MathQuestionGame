@@ -1,11 +1,7 @@
 ﻿using Action.Parameters;
-using Card;
-using NueGames.Card;
-using NueGames.Data.Collection;
-using NueGames.Enums;
 using UnityEngine;
 
-namespace NueGames.Action
+namespace Action.Card
 {
     /// <summary>
     /// 抽卡

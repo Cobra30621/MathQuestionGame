@@ -1,11 +1,8 @@
-using System;
 using Map;
-using NueGames.Managers;
 using NueGames.Utils;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace NueGames.Encounter
+namespace Encounter
 {
     [RequireComponent(typeof(SceneChanger))]
     public class RoomFinishHandler : MonoBehaviour

@@ -1,4 +1,5 @@
 using Card.Data;
+using Combat.Card;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using Sirenix.OdinInspector;

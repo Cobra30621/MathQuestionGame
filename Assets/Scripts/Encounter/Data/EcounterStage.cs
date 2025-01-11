@@ -1,9 +1,8 @@
 ﻿using System;
-using NueGames.Data.Encounter;
+using Encounter.Data.EncounterList;
 using Sirenix.OdinInspector;
-using UnityEngine;
 
-namespace Data.Encounter
+namespace Encounter.Data
 {
     /// <summary>
     /// 一層地圖的遭遇資料

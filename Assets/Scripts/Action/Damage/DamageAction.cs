@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Action.Parameters;
-using Card;
-using NueGames.Card;
-using NueGames.Characters;
-using NueGames.Combat;
-using NueGames.Data.Collection;
-using NueGames.Enums;
-using UnityEngine;
-namespace NueGames.Action
+using Characters;
+
+namespace Action.Damage
 {
     /// <summary>
     /// 給予傷害
