@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using NueGames.NueExtentions;
-using Sirenix.OdinInspector;
+using Map;
 using UnityEngine;
 using Random = System.Random;
 
@@ -29,7 +27,7 @@ namespace Question
                     questions.AddRange(questionData.GetQuestion(publisher, grade));
                 }
             }
-            
+
             questions.Shuffle();
 
             return questions;

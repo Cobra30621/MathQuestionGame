@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Combat;
+﻿using System.Collections.Generic;
 using NueGames.Data.Containers;
-using NueGames.Enums;
-using NueGames.Managers;
+using NueGames.Power;
 using NueGames.UI;
-using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
-using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
-using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using NueGames.Combat;
-using NueGames.Power;
-using NueTooltip.Core;
 
 namespace NueGames.Characters
 {

@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using Enemy;
-using Feedback;
+using Map;
 using NueGames.Characters;
 using NueGames.Data.Characters;
-using NueGames.NueExtentions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -11,29 +10,26 @@ namespace Combat
 {
     public class CharacterHandler : MonoBehaviour
     {
-
         public int MAX_ENEMY_COUNT = 4;
-        
+
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private Transform allyPos;
-        
+
         [SerializeField] private EnemyBuilder _enemyBuilder;
-        
+
         // 所有敵人清單
-        [ShowInInspector]
-        public List<Enemy.Enemy> Enemies { get; private set; }
+        [ShowInInspector] public List<Enemy.Enemy> Enemies { get; private set; }
+
         // 玩家
         public Ally MainAlly;
 
 
-        [LabelText("效果生成敵人的特效")]
-        [Required]
-        public GameObject spawnEnemyFXPrefab;
+        [LabelText("效果生成敵人的特效")] [Required] public GameObject spawnEnemyFXPrefab;
 
-        
+
         public Enemy.Enemy RandomEnemy()
         {
-            return Enemies.RandomItem();
+            return Enemies.Random();
         }
 
         #region Build Characters
@@ -44,7 +40,7 @@ namespace Combat
             foreach (var enemyData in enemyNames)
             {
                 var enemy = _enemyBuilder.Build(enemyData, GetEnemyPos());
-                
+
                 Enemies.Add(enemy);
             }
         }
@@ -55,22 +51,22 @@ namespace Combat
         /// <param name="ids"></param>
         public void BuildEnemy(string id)
         {
-            if(ReachMaxEnemyCount()) return;
+            if (ReachMaxEnemyCount()) return;
 
             var spawnPos = GetEnemyPos();
             var enemy = _enemyBuilder.Build(id, spawnPos);
             Enemies.Add(enemy);
 
             Instantiate(spawnEnemyFXPrefab, spawnPos);
-            
+
             // 執行開始的行動
             StartCoroutine(enemy.BattleStartActionRoutine());
         }
 
         public void BuildAndSetEnemyHealth(string id, int health)
         {
-            if(ReachMaxEnemyCount()) return;
-            
+            if (ReachMaxEnemyCount()) return;
+
             var enemy = _enemyBuilder.Build(id, GetEnemyPos());
             Enemies.Add(enemy);
             enemy.SetMaxHealth(health);
@@ -85,7 +81,7 @@ namespace Combat
             clone.BuildCharacter(allyData, this);
             MainAlly = clone;
         }
-        
+
 
         private Transform GetEnemyPos()
         {
@@ -93,12 +89,11 @@ namespace Combat
             {
                 foreach (var enemyPos in enemyPosList)
                 {
-                    if(enemyPos.childCount == 0) return enemyPos;  
+                    if (enemyPos.childCount == 0) return enemyPos;
                 }
-                
             }
+
             return enemyPosList[0];
-            
         }
 
         private bool ReachMaxEnemyCount()
@@ -120,7 +115,7 @@ namespace Combat
         /// <param name="id"></param>
         /// <param name="output"></param>
         /// <returns></returns>
-        public bool GetEnemyWithId(string id,  out Enemy.Enemy output)
+        public bool GetEnemyWithId(string id, out Enemy.Enemy output)
         {
             foreach (var enemy in Enemies)
             {
@@ -134,19 +129,18 @@ namespace Combat
             output = null;
             return false;
         }
-        
-        
+
+
         public void OnAllyDeath(Ally targetAlly)
         {
             CombatManager.Instance.LoseCombat();
         }
+
         public void OnEnemyDeath(Enemy.Enemy targetEnemy)
         {
             Enemies.Remove(targetEnemy);
-            if (Enemies.Count<=0)
+            if (Enemies.Count <= 0)
                 CombatManager.Instance.WinCombat();
         }
-        
-        
     }
 }

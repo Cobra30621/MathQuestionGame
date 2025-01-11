@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using Managers;
 using NueGames.Data.Containers;
-using NueGames.Managers;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
-using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
 using UnityEngine;
 
 namespace NueTooltip.Core
@@ -13,7 +11,7 @@ namespace NueTooltip.Core
     {
         [Header("References")]
         [SerializeField] private TooltipController tooltipController;
-        [SerializeField] private CursorController cursorController;
+   
         [SerializeField] private TooltipText tooltipTextPrefab;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private SpecialKeywordData specialKeywordData;
@@ -29,7 +27,6 @@ namespace NueTooltip.Core
      
         private List<TooltipText> _tooltipTextList = new List<TooltipText>();
         private TooltipController TooltipController => tooltipController;
-        private CursorController CursorController => cursorController;
 
         private int _currentShownTooltipCount;
 
@@ -62,7 +59,7 @@ namespace NueTooltip.Core
             }
         }
         public void ShowTooltip(string contentText="",string headerText ="",Transform tooltipTargetTransform = null,
-            CursorType cursorType = CursorType.Default, Camera cam = null, float delayShow =0, bool focusFollow = true)
+             Camera cam = null, float delayShow =0, bool focusFollow = true)
         {
             StartCoroutine(ShowRoutine(delayShow));
             _currentShownTooltipCount++;
@@ -77,8 +74,6 @@ namespace NueTooltip.Core
             
             TooltipController.SetFollowPos(tooltipTargetTransform, cam, focusFollow);
             
-            if (canChangeCursor)
-                CursorController.SetActiveCursor(cursorType);
             
         }
 
@@ -90,8 +85,6 @@ namespace NueTooltip.Core
             foreach (var tooltipText in _tooltipTextList)
                 tooltipText.gameObject.SetActive(false);
 
-            if (canChangeCursor)
-                CursorController.SetActiveCursor(CursorType.Default);
            
         }
         

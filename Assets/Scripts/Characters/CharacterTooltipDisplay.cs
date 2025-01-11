@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using NueGames.Characters;
 using NueGames.Data.Containers;
-using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
 using NueTooltip.Core;
 using Sirenix.OdinInspector;
@@ -67,9 +65,9 @@ namespace Characters
             }
         }
         
-        public void ShowTooltipInfo(string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default,Camera cam = null, float delayShow =0)
+        public void ShowTooltipInfo(string content, string header = "", Transform tooltipStaticTransform = null, Camera cam = null, float delayShow =0)
         {
-            TooltipManager.Instance.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);
+            TooltipManager.Instance.ShowTooltip(content,header,tooltipStaticTransform, cam,delayShow);
         }
 
         public void HideTooltipInfo()

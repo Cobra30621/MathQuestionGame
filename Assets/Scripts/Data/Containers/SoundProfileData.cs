@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Map;
 using NueGames.Enums;
-using NueGames.NueExtentions;
 using UnityEngine;
 
 namespace NueGames.Data.Containers
@@ -15,6 +15,6 @@ namespace NueGames.Data.Containers
 
         public List<AudioClip> RandomClipList => randomClipList;
 
-        public AudioClip GetRandomClip() => RandomClipList.Count>0 ? RandomClipList.RandomItem():null;
+        public AudioClip GetRandomClip() => RandomClipList.Count>0 ? RandomClipList.Random():null;
     }
 }

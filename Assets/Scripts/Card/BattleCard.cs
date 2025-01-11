@@ -9,49 +9,44 @@ using Combat;
 using GameAction;
 using NueGames.Action;
 using NueGames.Characters;
-using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
+using NueGames.Parameters;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
-using NueGames.Combat;
-using NueGames.Parameters;
-using Sirenix.Utilities;
 
 namespace NueGames.Card
 {
-    public class BattleCard : CardBase,I2DTooltipTarget, IPointerDownHandler, IPointerUpHandler
+    public class BattleCard : CardBase, I2DTooltipTarget, IPointerDownHandler, IPointerUpHandler
     {
-
         #region Cache
+
         public bool IsInactive { get; private set; }
         public bool IsPlayable { get; private set; }
         public bool IsExhausted { get; private set; }
-        
+
         protected Transform CachedTransform { get; set; }
         protected WaitForEndOfFrame CachedWaitFrame { get; set; }
-        
-        
+
+
         public int ManaCost { get; private set; }
-        
-        
+
 
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;
-        
-        [Header("3D Settings")]
-        [SerializeField] private Canvas canvas;
-        
+
+        [Header("3D Settings")] [SerializeField]
+        private Canvas canvas;
+
         #endregion
-        
+
         #region Setup
+
         protected virtual void Awake()
         {
             CachedTransform = transform;
             CachedWaitFrame = new WaitForEndOfFrame();
-
         }
 
         public override void Init(CardData cardData)
@@ -60,15 +55,14 @@ namespace NueGames.Card
 
             IsPlayable = true;
             Init(cardInfo);
-            
+
             ManaCost = CardLevelInfo.ManaCost;
-            
+
             _camera = CollectionManager.HandController.cam;
             if (canvas)
                 canvas.worldCamera = _camera;
         }
 
-   
         #endregion
 
 
@@ -79,21 +73,20 @@ namespace NueGames.Card
             if (!IsPlayable) return;
 
             HideTooltipInfo();
-            
+
             SpendMana(ManaCost);
-            
+
             DoCharacterFeedback(_cardInfo.CardData);
             DoAction(targetList);
-            
+
             CollectionManager.OnCardPlayed(this);
         }
 
         public void DoAction(List<CharacterBase> specifiedTargets)
         {
-            
             var gameActions = GetGameActions(specifiedTargets);
-            
-            var targetList = gameActions.Count > 0  ?  gameActions[0].TargetList : new List<CharacterBase>();
+
+            var targetList = gameActions.Count > 0 ? gameActions[0].TargetList : new List<CharacterBase>();
             GameActionExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, targetList));
         }
 
@@ -114,19 +107,17 @@ namespace NueGames.Card
                 CardLevelInfo.EffectInfos = CardManager.Instance.GetSkillInfos(CardLevelInfo.skillIDs);
             }
 
-            var gameActions = GameActionFactory.GetGameActions(CardLevelInfo.EffectInfos, 
+            var gameActions = GameActionFactory.GetGameActions(CardLevelInfo.EffectInfos,
                 specifiedTargets, actionSource);
 
             return gameActions;
         }
-        
+
         /// <summary>
         /// 執行要撥放的特效
         /// </summary>
         protected void DoCharacterFeedback(CardData cardData)
         {
-
-
             if (cardData.UseDefaultAttackFeedback)
             {
                 CombatManager.Instance.MainAlly.PlayDefaultAttackFeedback();
@@ -139,12 +130,10 @@ namespace NueGames.Card
         }
 
         #endregion
-        
 
-        
+
         #region Card Methods
-  
-        
+
         public virtual void Discard()
         {
             if (IsExhausted) return;
@@ -152,7 +141,7 @@ namespace NueGames.Card
             CollectionManager.OnCardDiscarded(this);
             StartCoroutine(DiscardRoutine());
         }
-        
+
         public virtual void Exhaust()
         {
             if (IsExhausted) return;
@@ -167,23 +156,21 @@ namespace NueGames.Card
             if (!IsPlayable) return;
             CombatManager.AddMana(-value);
         }
-        
-        public virtual void SetInactiveMaterialState(bool isInactive) 
+
+        public virtual void SetInactiveMaterialState(bool isInactive)
         {
             if (!IsPlayable) return;
-            if (isInactive == this.IsInactive) return; 
-            
+            if (isInactive == this.IsInactive) return;
+
             IsInactive = isInactive;
             _cardDisplay.SetPlayable(isInactive);
         }
-        
-        
 
-        
         #endregion
-        
+
 
         #region Card Cost(卡牌花費改變)
+
         /// <summary>
         /// 降低魔力花費
         /// </summary>
@@ -208,17 +195,17 @@ namespace NueGames.Card
             _cardInfo.ManaCost = ManaCost;
             UpdateCardDisplay();
         }
-        
 
         #endregion
-        
-        
+
+
         #region Routines
+
         protected virtual IEnumerator DiscardRoutine()
         {
             var timer = 0f;
             transform.SetParent(CollectionManager.HandController.discardTransform);
-            
+
             var startPos = CachedTransform.localPosition;
             var endPos = Vector3.zero;
 
@@ -227,32 +214,31 @@ namespace NueGames.Card
 
             var startRot = CachedTransform.localRotation;
             var endRot = Quaternion.Euler(Random.value * 360, Random.value * 360, Random.value * 360);
-            
+
             while (true)
             {
-                timer += Time.deltaTime*5;
+                timer += Time.deltaTime * 5;
 
                 CachedTransform.localPosition = Vector3.Lerp(startPos, endPos, timer);
-                CachedTransform.localRotation = Quaternion.Lerp(startRot,endRot,timer);
+                CachedTransform.localRotation = Quaternion.Lerp(startRot, endRot, timer);
                 CachedTransform.localScale = Vector3.Lerp(startScale, endScale, timer);
-                
-                if (timer>=1f)  break;
-                
+
+                if (timer >= 1f) break;
+
                 yield return CachedWaitFrame;
             }
-            
+
             gameObject.SetActive(false);
 
             // if (destroy)
             //     Destroy(gameObject);
-           
         }
-        
+
         protected virtual IEnumerator ExhaustRoutine()
         {
             var timer = 0f;
             transform.SetParent(CollectionManager.HandController.exhaustTransform);
-            
+
             var startPos = CachedTransform.localPosition;
             var endPos = Vector3.zero;
 
@@ -261,27 +247,25 @@ namespace NueGames.Card
 
             var startRot = CachedTransform.localRotation;
             var endRot = Quaternion.Euler(Random.value * 360, Random.value * 360, Random.value * 360);
-            
+
             while (true)
             {
-                timer += Time.deltaTime*5;
+                timer += Time.deltaTime * 5;
 
                 CachedTransform.localPosition = Vector3.Lerp(startPos, endPos, timer);
-                CachedTransform.localRotation = Quaternion.Lerp(startRot,endRot,timer);
+                CachedTransform.localRotation = Quaternion.Lerp(startRot, endRot, timer);
                 CachedTransform.localScale = Vector3.Lerp(startScale, endScale, timer);
-                
-                if (timer>=1f)  break;
-                
+
+                if (timer >= 1f) break;
+
                 yield return CachedWaitFrame;
             }
 
             gameObject.SetActive(false);
             // if (destroy)
             //     Destroy(gameObject);
-           
         }
 
         #endregion
-        
     }
 }

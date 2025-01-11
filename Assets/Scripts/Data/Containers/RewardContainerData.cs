@@ -1,14 +1,7 @@
-﻿
-using System.Collections.Generic;
-using Data.Settings;
-using Map;
-using NueGames.Data.Collection;
-using NueGames.Data.Collection.RewardData;
-using NueGames.NueExtentions;
+﻿using System.Collections.Generic;
 using Reward;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace NueGames.Data.Containers
 {
