@@ -100,8 +100,8 @@ namespace NueGames.Characters
 
         protected virtual void UnsubscribeEvent()
         {
-            
             CombatManager.OnTurnStart -= CharacterStats.HandleAllPowerOnTurnStart;
+            ClearAllPower();
 
             OnDeath -= OnDeathAction;
         }
