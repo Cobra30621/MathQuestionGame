@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Action;
-using Action.Damage;
-using Action.Parameters;
-using Action.Power;
 using Characters;
 using Combat;
+using Effect;
+using Effect.Damage;
+using Effect.Parameters;
+using Effect.Power;
 
 namespace Power.Buff
 {
@@ -43,11 +43,11 @@ namespace Power.Buff
 
                 // 造成傷害
                 var damageInfo = new DamageInfo(fireAmount, GetActionSource(), fixDamage: true);
-                GameActionExecutor.AddAction(new DamageAction(damageInfo, new List<CharacterBase>() {Owner}));
+                EffectExecutor.AddAction(new DamageEffect(damageInfo, new List<CharacterBase>() {Owner}));
                 
                 // 燒血後減層數 1 
-                GameActionExecutor.AddAction(
-                    new ApplyPowerAction(-1, PowerName, 
+                EffectExecutor.AddAction(
+                    new ApplyPowerEffect(-1, PowerName, 
                         new List<CharacterBase>(){Owner}, GetActionSource()));
                 
                 

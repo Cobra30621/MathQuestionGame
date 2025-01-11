@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Action;
-using Action.Power;
 using Characters;
 using Characters.Ally;
 using Combat;
+using Effect;
+using Effect.Power;
 using Encounter.Data;
 using Managers;
 using NueGames.Enums;
@@ -100,8 +100,8 @@ namespace Tool
             {
                 var ally = CombatManager.Instance.MainAlly;
                 
-                GameActionExecutor.AddAction(
-                    new ApplyPowerAction(1, powerName, 
+                EffectExecutor.AddAction(
+                    new ApplyPowerEffect(1, powerName, 
                     new List<CharacterBase>(){ally}, null));
             }
         }

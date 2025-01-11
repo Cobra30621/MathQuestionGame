@@ -1,5 +1,5 @@
-﻿using Action;
-using Action.Card;
+﻿using Effect;
+using Effect.Card;
 using Relic.Data;
 
 namespace Relic.Test
@@ -33,7 +33,7 @@ namespace Relic.Test
             
             if (Counter >= NeedCounter)
             {
-                GameActionExecutor.AddAction(new DrawCardAction(
+                EffectExecutor.AddAction(new DrawCardAction(
                     drawAmonut, GetActionSource()));
 
                 Counter = 0;

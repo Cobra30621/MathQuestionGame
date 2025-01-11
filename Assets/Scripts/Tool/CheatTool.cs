@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using Action;
-using Action.Damage;
-using Action.Parameters;
 using Characters;
 using Combat;
 using Economy;
+using Effect;
+using Effect.Damage;
+using Effect.Parameters;
 using Save;
 using Sheets;
 using Sirenix.OdinInspector;
@@ -86,7 +86,7 @@ namespace Tool
             
             var damageInfo = new DamageInfo(999, new ActionSource(), fixDamage: true, canPierceArmor:true);
 
-            GameActionExecutor.AddAction(new DamageAction(damageInfo, targets));
+            EffectExecutor.AddAction(new DamageEffect(damageInfo, targets));
         }
 
         public void ClearSaveData()

@@ -1,6 +1,6 @@
 ﻿using System;
-using Action.Parameters;
 using Combat;
+using Effect.Parameters;
 
 namespace Characters.Ally
 {

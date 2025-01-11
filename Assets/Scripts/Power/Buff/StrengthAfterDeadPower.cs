@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Action;
-using Action.Parameters;
-using Action.Power;
 using Characters;
 using Combat;
+using Effect;
+using Effect.Parameters;
+using Effect.Power;
 
 namespace Power.Buff
 {
@@ -35,8 +35,8 @@ namespace Power.Buff
             targets.AddRange(allEnemy);
 
             // 對全體敵方單位施加強化
-            GameActionExecutor.AddAction(
-                new ApplyPowerAction(1, PowerName.Strength, 
+            EffectExecutor.AddAction(
+                new ApplyPowerEffect(1, PowerName.Strength, 
                     targets, GetActionSource()));
         }
     }

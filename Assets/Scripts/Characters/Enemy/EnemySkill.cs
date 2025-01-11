@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Action;
-using Action.Parameters;
 using Characters.Enemy.Data;
 using Combat;
+using Effect;
+using Effect.Parameters;
 using Sheets;
 using UnityEngine;
 
@@ -28,7 +28,7 @@ namespace Characters.Enemy
          
          // 内部系统用
          public bool useSheetInfos; // 是否使用表格信息
-         public List<GameActionBase> _gameActions; // 游戏动作列表
+         public List<EffectBase> _gameActions; // 游戏动作列表
          
          #endregion
 
@@ -50,7 +50,7 @@ namespace Characters.Enemy
          /// <summary>
          /// 设定在内部系统行动
          /// </summary>
-         public EnemySkill(List<GameActionBase> gameActions, Intention intention)
+         public EnemySkill(List<EffectBase> gameActions, Intention intention)
          {
              _gameActions = gameActions;
              _intention = intention;
@@ -70,11 +70,11 @@ namespace Characters.Enemy
 
             if (useSheetInfos)
             {
-                _gameActions = GameActionFactory.GetGameActions(skillInfos,
+                _gameActions = EffectFactory.GetEffects(skillInfos,
                     new List<CharacterBase>() { _enemy }, actionSource);
             }
             
-            GameActionExecutor.AddAction(_gameActions, 0.5f);
+            EffectExecutor.AddAction(_gameActions, 0.5f);
         }
 
         
@@ -100,7 +100,7 @@ namespace Characters.Enemy
         {
             if (_intention.ShowIntentionValue)
             {
-                _gameActions = GameActionFactory.GetGameActions(skillInfos,
+                _gameActions = EffectFactory.GetEffects(skillInfos,
                     new List<CharacterBase>() { _enemy }, GetActionScoure());
                 
                 var (damage, times) = _gameActions[0].GetDamageBasicInfo();

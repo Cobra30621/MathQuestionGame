@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Action;
-using Action.Power;
 using Characters;
 using Combat;
+using Effect;
+using Effect.Power;
 using Power;
 using Relic.Data;
 
@@ -26,7 +26,7 @@ namespace Relic.Knight
         {
             if (IsCharacterTurn(info))
             {
-                GameActionExecutor.AddAction(new ApplyPowerAction(
+                EffectExecutor.AddAction(new ApplyPowerEffect(
                     amount, PowerName.Block, new List<CharacterBase>() {MainAlly},
                     GetActionSource()));
             }

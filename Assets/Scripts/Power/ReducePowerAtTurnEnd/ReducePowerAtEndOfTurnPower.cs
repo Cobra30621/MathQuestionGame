@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Action;
-using Action.Power;
 using Characters;
 using Combat;
+using Effect;
+using Effect.Power;
 using UnityEngine.UI;
 
 namespace Power.ReducePowerAtTurnEnd
@@ -29,10 +29,10 @@ namespace Power.ReducePowerAtTurnEnd
         protected override void OnRoundEnd(RoundInfo info)
         {
             // 回合結束時，降低使用者的能力
-            GameActionExecutor.AddAction(new ApplyPowerAction(
+            EffectExecutor.AddAction(new ApplyPowerEffect(
                 -Amount, TargetPowerName, new List<CharacterBase>(){Owner}, GetActionSource()));
             
-            GameActionExecutor.AddAction(new ClearPowerAction(
+            EffectExecutor.AddAction(new ClearPowerAction(
                 PowerName, new List<CharacterBase>(){Owner}, GetActionSource()));
             
             base.OnRoundEnd(info);

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Action;
-using Action.Power;
 using Characters;
 using Combat;
+using Effect;
+using Effect.Power;
 using Power;
 using Relic.Data;
 
@@ -28,7 +28,7 @@ namespace Relic.Test
         protected override void OnAnswerCorrect()
         {
             CharacterBase ally = CombatManager.Instance.MainAlly;
-            GameActionExecutor.AddAction(new ApplyPowerAction(
+            EffectExecutor.AddAction(new ApplyPowerEffect(
                 1, PowerName.Strength, new List<CharacterBase>(){ally}, GetActionSource()));
         }
         

@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using Action;
-using Action.Parameters;
 using Card.Data;
 using Combat;
+using Effect.Parameters;
 using NueGames.Data.Containers;
 using NueGames.Enums;
 using NueTooltip.Core;
@@ -144,7 +143,7 @@ namespace Card.Display
             
             foreach (var effectInfo in CardLevelInfo.EffectInfos)
             {
-                if (effectInfo.EffectID == GameActionType.ApplyPower)
+                if (effectInfo.EffectID == EffectName.ApplyPower)
                 {
                     PowerName powerName = (PowerName)effectInfo.EffectParameterList[0];
                     powerTypes.Add(powerName);

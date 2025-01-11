@@ -1,6 +1,6 @@
-﻿using Action.Parameters;
-using Characters;
+﻿using Characters;
 using Combat;
+using Effect.Parameters;
 using GameListener;
 using Relic.Data;
 

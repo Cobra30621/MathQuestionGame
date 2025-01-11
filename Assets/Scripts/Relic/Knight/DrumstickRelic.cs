@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Action;
-using Action.Common;
 using Characters;
 using Combat;
+using Effect;
+using Effect.Common;
 using Relic.Data;
 
 namespace Relic.Knight
@@ -23,7 +23,7 @@ namespace Relic.Knight
 
         protected override void OnBattleWin(int roundNumber)
         {
-            GameActionExecutor.AddAction(new HealAction(
+            EffectExecutor.AddAction(new HealAction(
                 amount, new List<CharacterBase>() {MainAlly},
                 GetActionSource()));
         }

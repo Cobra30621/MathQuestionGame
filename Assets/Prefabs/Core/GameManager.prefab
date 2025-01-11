@@ -105,11 +105,11 @@ MonoBehaviour:
     SerializationNodes:
     - Name: FXSpawnPositionDictionary
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[NueGames.Enums.FxSpawnPosition,
+      Data: 0|System.Collections.Generic.Dictionary`2[[Feedback.FxSpawnPosition,
         Assembly-CSharp],[UnityEngine.Transform, UnityEngine.CoreModule]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[NueGames.Enums.FxSpawnPosition,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Feedback.FxSpawnPosition,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 8800983098585360645}
   - component: {fileID: 3118746694790410784}
   m_Layer: 0
-  m_Name: GameActionManager
+  m_Name: Effect Executor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
   eventList: {fileID: 11400000, guid: 6677ff95e4947463ca5ad5ef66a75b0c, type: 2}
   leaveOption:
     EffectData:
-      EffectType: 0
+      eventEffectType: 0
       RewardData: []
       QuestionMode: 0
       changeHealthValue: 0
@@ -587,11 +587,11 @@ MonoBehaviour:
     SerializationNodes:
     - Name: CurrentRelicDict
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[NueGames.Relic.RelicName,
-        Assembly-CSharp],[NueGames.Relic.RelicBase, Assembly-CSharp]], mscorlib
+      Data: 0|System.Collections.Generic.Dictionary`2[[Relic.Data.RelicName, Assembly-CSharp],[Relic.RelicBase,
+        Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[NueGames.Relic.RelicName,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Relic.Data.RelicName,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -962,7 +962,7 @@ MonoBehaviour:
   AudioManager: {fileID: 5840827451648210010}
   FxManager: {fileID: 6448810225252440185}
   TooltipManager: {fileID: 1540407946132286002}
-  GameActionManager: {fileID: 8800983098585360645}
+  effectManager: {fileID: 8800983098585360645}
   MapManager: {fileID: 8676715140715392712}
   EncounterManager: {fileID: 8803148245168965543}
   CoinManager: {fileID: 636065697006322446}
@@ -1024,56 +1024,6 @@ MonoBehaviour:
   commonCardDeck: {fileID: 11400000, guid: bf3dd57d5a17b4108a0b3e19c871bf43, type: 2}
   ItemDropData: {fileID: 11400000, guid: a69587f66b3f242c896a898a474da71e, type: 2}
   RewardContainerData: {fileID: 11400000, guid: 576255f7c5abd6d44800bc419cf6fbf8, type: 2}
---- !u!1 &5010503778707873509
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 990898077453772832}
-  - component: {fileID: 6595975688621824201}
-  m_Layer: 0
-  m_Name: CursorController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &990898077453772832
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5010503778707873509}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5717703240020148734}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6595975688621824201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5010503778707873509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9b2e2235b30316419aad9982e36083b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursorData: {fileID: 11400000, guid: 8a24fb298ba86dd42b297e2476d93bfb, type: 2}
 --- !u!1 &5452148620238755619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1156,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1915408184255403614}
-  - {fileID: 990898077453772832}
   m_Father: {fileID: 3747954644409722057}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1272,7 +1221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipController: {fileID: 7239893632500720177}
-  cursorController: {fileID: 6595975688621824201}
   tooltipTextPrefab: {fileID: -5953157669055007759, guid: 7ea7cc55df5c124459f2ce6cf540a43d, type: 3}
   canvasGroup: {fileID: 8055393249234875265}
   specialKeywordData: {fileID: 11400000, guid: a14ac672a5bb67c4eae4ca8a7758fe4a, type: 2}

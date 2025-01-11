@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Action;
-using Action.Enemy;
-using Action.Parameters;
 using Characters.Display;
 using Characters.Enemy.Data;
 using Combat;
+using Effect;
+using Effect.Enemy;
+using Effect.Parameters;
 using Sheets;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -89,11 +89,11 @@ namespace Characters.Enemy
         public void SetSplitEnemySkill(string enemyId)
         {
             
-            var spawnAction = new SplitEnemyAction(enemyId, this);
+            var spawnAction = new SplitEnemyEffect(enemyId, this);
             var intention = _sheetDataGetter.GetIntention("分裂");
             
             currentSkill = new EnemySkill(
-                new List<GameActionBase>(){spawnAction}, intention);
+                new List<EffectBase>(){spawnAction}, intention);
 
             UpdateIntentionDisplay();
         }

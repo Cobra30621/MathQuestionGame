@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Action;
-using Action.Parameters;
-using Action.Power;
 using Characters;
+using Effect;
+using Effect.Parameters;
+using Effect.Power;
 using UnityEngine;
 
 namespace Power.Buff
@@ -27,12 +27,12 @@ namespace Power.Buff
       
             if (source != null)
             {
-                GameActionExecutor.ExecuteImmediately(
-                    new ApplyPowerAction(stackAmount, PowerName.Strength, 
+                EffectExecutor.ExecuteImmediately(
+                    new ApplyPowerEffect(stackAmount, PowerName.Strength, 
                         new List<CharacterBase>(){Owner}, GetActionSource()));
                 // 觸發後減層數 1 
-                GameActionExecutor.ExecuteImmediately(
-                    new ApplyPowerAction(-1, PowerName, 
+                EffectExecutor.ExecuteImmediately(
+                    new ApplyPowerEffect(-1, PowerName, 
                         new List<CharacterBase>(){Owner}, GetActionSource()));
             }
         }

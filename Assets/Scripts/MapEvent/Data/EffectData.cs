@@ -6,14 +6,15 @@ using Question.Enum;
 using Reward;
 using Reward.Data;
 using Sirenix.OdinInspector;
+using UnityEngine.Serialization;
 
 namespace MapEvent.Data
 {
     [Serializable]
     public class EffectData
     {
-        [LabelText("效果類型")]
-        public EffectType EffectType;
+        [FormerlySerializedAs("EffectType")] [LabelText("效果類型")]
+        public EventEffectType eventEffectType;
 
         [LabelText("獎勵")]
         [ShowIf("IsShowRewardData")]
@@ -33,22 +34,22 @@ namespace MapEvent.Data
 
         private bool IsShowRewardData()
         {
-            return EffectType == EffectType.Reward || EffectType == EffectType.MathQuestion;
+            return eventEffectType == EventEffectType.Reward || eventEffectType == EventEffectType.MathQuestion;
         }
 
         private bool IsShowQuestionMode()
         {
-            return EffectType == EffectType.MathQuestion;
+            return eventEffectType == EventEffectType.MathQuestion;
         }
 
         private bool IsShowChangeHeartData()
         {
-            return EffectType == EffectType.ChangeHealth;
+            return eventEffectType == EventEffectType.ChangeHealth;
         }
         
         private bool IsShowPayAndGainData()
         {
-            return EffectType == EffectType.PayAndGain;
+            return eventEffectType == EventEffectType.PayAndGain;
         }
     }
 }

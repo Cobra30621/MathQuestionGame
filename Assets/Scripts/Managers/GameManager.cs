@@ -1,5 +1,4 @@
 using System;
-using Action;
 using Aduio;
 using CampFire;
 using Card;
@@ -8,6 +7,7 @@ using Characters;
 using Characters.Ally;
 using Combat.Card;
 using Economy;
+using Effect;
 using Encounter;
 using Encounter.Data;
 using Feedback;
@@ -26,6 +26,7 @@ using Sirenix.OdinInspector;
 using Stage;
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Managers
 {
@@ -63,8 +64,8 @@ namespace Managers
         [Required]
         public TooltipManager TooltipManager;
         
-        [Required]
-        public GameActionExecutor GameActionManager;
+        [FormerlySerializedAs("GameActionManager")] [Required]
+        public EffectExecutor effectManager;
 
         [Required]
         public MapManager MapManager;

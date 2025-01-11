@@ -44,7 +44,7 @@ namespace MapEvent
             currentOption = option;
             optionText.text = option.data.OptionText;
 
-            button.interactable = option.Effect.IsSelectable();
+            button.interactable = option.EventEffect.IsSelectable();
         }
 
         /// <summary>

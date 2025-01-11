@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Action;
-using Action.Power;
 using Characters;
 using Combat;
+using Effect;
+using Effect.Power;
 using Power;
 using Relic.Data;
 
@@ -27,7 +27,7 @@ namespace Relic.Knight
 
         protected override void OnBattleStart()
         {
-            GameActionExecutor.AddAction(new ApplyPowerAction(
+            EffectExecutor.AddAction(new ApplyPowerEffect(
                 3, PowerName.Strength, new List<CharacterBase>(){MainAlly}, GetActionSource()));
 
         }

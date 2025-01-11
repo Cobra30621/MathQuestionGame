@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Action;
-using Action.Parameters;
 using Combat;
+using Effect.Parameters;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -103,7 +102,7 @@ namespace Sheets
             // Validates effect IDs and targets for skills.
             foreach (var skillInfo in getter.skillData.GetAllSkillInfos())
             {
-                if (!Enum.IsDefined(typeof(GameActionType), skillInfo.EffectID))
+                if (!Enum.IsDefined(typeof(EffectName), skillInfo.EffectID))
                 {
                     Debug.LogError($"Invalid SkillEffectID '{skillInfo.EffectID}' in Skill '{skillInfo.SkillID}'");
                 }

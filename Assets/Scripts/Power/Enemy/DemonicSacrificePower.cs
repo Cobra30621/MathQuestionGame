@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using Action;
-using Action.Common;
-using Action.Enemy;
-using Action.Power;
 using Characters;
 using Combat;
+using Effect;
+using Effect.Common;
+using Effect.Enemy;
+using Effect.Power;
 
 namespace Power.Enemy
 {
@@ -65,10 +65,10 @@ namespace Power.Enemy
             CharacterBase enhanceEnemy = null;
             if (CombatManager.Instance.GetEnemyById(enhanceEnemyId, out enhanceEnemy))
             {
-                var actions = new List<GameActionBase>();
+                var actions = new List<EffectBase>();
 
                 // 提升力量
-                var strengthAction = new ApplyPowerAction(
+                var strengthAction = new ApplyPowerEffect(
                     AddStrengthAmount, PowerName.Strength,
                     new List<CharacterBase>() { enhanceEnemy }, GetActionSource());
                 actions.Add(strengthAction);
@@ -85,7 +85,7 @@ namespace Power.Enemy
                 actions.Add(deathAction);
                 
                 
-                GameActionExecutor.AddAction(actions, 2f);
+                EffectExecutor.AddAction(actions, 2f);
                 
             }
             else

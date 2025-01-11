@@ -1,5 +1,5 @@
-﻿using Action.Parameters;
-using Combat;
+﻿using Combat;
+using Effect.Parameters;
 using Question;
 
 namespace GameListener

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Action.Parameters;
 using Characters.Display;
 using Combat;
+using Effect.Parameters;
 using Feedback;
 using Managers;
 using Power;

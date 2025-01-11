@@ -37,20 +37,20 @@ namespace MapEvent
         }
 
 
-        private static IEffect GetEffect(EffectData optionData)
+        private static IEventEffect GetEffect(EffectData optionData)
         {
-            switch (optionData.EffectType)
+            switch (optionData.eventEffectType)
             {
-                case EffectType.Leave:
-                    return new LeaveEffect();
-                case EffectType.Reward:
-                    return new GetRewardEffect();
-                case EffectType.MathQuestion:
-                    return new QuestionEffect();
-                case EffectType.ChangeHealth:
-                    return new ChangeHealthEffect();
-                case EffectType.PayAndGain:
-                    return new PayAndGainEffect();
+                case EventEffectType.Leave:
+                    return new LeaveEventEffect();
+                case EventEffectType.Reward:
+                    return new GetRewardEventEffect();
+                case EventEffectType.MathQuestion:
+                    return new QuestionEventEffect();
+                case EventEffectType.ChangeHealth:
+                    return new ChangeHealthEventEffect();
+                case EventEffectType.PayAndGain:
+                    return new PayAndGainEventEffect();
                 default:
                     return null;
             }

@@ -12,15 +12,15 @@ namespace MapEvent
     public class Option
     {
         [LabelText("效果")]
-        public IEffect Effect;
+        public IEventEffect EventEffect;
 
         [LabelText("選項資料")]
         public OptionData data;
         
         
-        public Option(IEffect effect, OptionData optionData)
+        public Option(IEventEffect eventEffect, OptionData optionData)
         {
-            Effect = effect;
+            EventEffect = eventEffect;
             data = optionData;
         }
         
@@ -30,7 +30,7 @@ namespace MapEvent
         /// </summary>
         public void ExecuteEffect()
         {
-            Effect.Execute(() =>
+            EventEffect.Execute(() =>
             {
                 EventManager.OnOptionExecuteCompleted(this);
             });

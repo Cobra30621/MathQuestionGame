@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Action;
-using Action.Power;
 using Characters;
+using Effect;
+using Effect.Power;
 using GameListener;
 
 namespace Power.Buff
@@ -21,8 +21,8 @@ namespace Power.Buff
         
         public override float AtDamageGive(float damage)
         {
-            GameActionExecutor.AddAction(
-                new ApplyPowerAction(-1, PowerName, 
+            EffectExecutor.AddAction(
+                new ApplyPowerEffect(-1, PowerName, 
                     new List<CharacterBase>(){Owner}, GetActionSource()));
             return damage*2;
         }

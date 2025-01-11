@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Action;
-using Action.Parameters;
-using Action.Sequence;
 using Card;
 using Card.Data;
 using Card.Display;
 using Characters;
+using Effect;
+using Effect.Parameters;
+using Effect.Sequence;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -83,10 +83,10 @@ namespace Combat.Card
             var gameActions = GetGameActions(specifiedTargets);
 
             var targetList = gameActions.Count > 0 ? gameActions[0].TargetList : new List<CharacterBase>();
-            GameActionExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, targetList));
+            EffectExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, targetList));
         }
 
-        private List<GameActionBase> GetGameActions(List<CharacterBase> specifiedTargets)
+        private List<EffectBase> GetGameActions(List<CharacterBase> specifiedTargets)
         {
             ActionSource actionSource = new ActionSource()
             {
@@ -103,7 +103,7 @@ namespace Combat.Card
                 CardLevelInfo.EffectInfos = CardManager.Instance.GetSkillInfos(CardLevelInfo.skillIDs);
             }
 
-            var gameActions = GameActionFactory.GetGameActions(CardLevelInfo.EffectInfos,
+            var gameActions = EffectFactory.GetEffects(CardLevelInfo.EffectInfos,
                 specifiedTargets, actionSource);
 
             return gameActions;

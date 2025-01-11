@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using Action;
-using Action.Damage;
-using Action.Parameters;
-using Action.Power;
 using Characters;
 using Combat;
+using Effect;
+using Effect.Damage;
+using Effect.Parameters;
+using Effect.Power;
 using UnityEngine;
 
 namespace Power.Buff
@@ -42,11 +42,11 @@ namespace Power.Buff
             {
                 // 造成與層數相等的傷害
                 var damageInfo = new DamageInfo(Amount, GetActionSource(), fixDamage: true);
-                GameActionExecutor.ExecuteImmediately(new DamageAction(damageInfo, new List<CharacterBase>() {info.ActionSource.SourceCharacter}));
+                EffectExecutor.ExecuteImmediately(new DamageEffect(damageInfo, new List<CharacterBase>() {info.ActionSource.SourceCharacter}));
          
                 // 反彈後減層數 1 
-                GameActionExecutor.ExecuteImmediately(
-                    new ApplyPowerAction(-1, PowerName, 
+                EffectExecutor.ExecuteImmediately(
+                    new ApplyPowerEffect(-1, PowerName, 
                         new List<CharacterBase>(){Owner}, GetActionSource()));
       
             }

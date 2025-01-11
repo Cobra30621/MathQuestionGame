@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Action;
 using Characters;
 using Characters.Ally;
 using Characters.Enemy;
 using Combat.Card;
+using Effect;
 using Encounter.Data;
 using Feedback;
 using Managers;
@@ -311,7 +311,7 @@ namespace Combat
             // 玩家可以操作手牌
             CollectionManager.HandController.EnableDragging();
             // 等待遊戲行為序列完成
-            yield return new WaitUntil(() => !GameActionExecutor.Instance.IsExecuting);
+            yield return new WaitUntil(() => !EffectExecutor.Instance.IsExecuting);
             
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Ally));
 
@@ -343,7 +343,7 @@ namespace Combat
         private IEnumerator EnemyTurnRoutine()
         {
             // 等待遊戲行為序列完成
-            yield return new WaitUntil(() => !GameActionExecutor.Instance.IsExecuting);
+            yield return new WaitUntil(() => !EffectExecutor.Instance.IsExecuting);
             
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Enemy));
             CollectionManager.DiscardHand();

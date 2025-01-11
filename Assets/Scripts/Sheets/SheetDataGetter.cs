@@ -1,7 +1,7 @@
-﻿using Action;
-using Card;
+﻿using Card;
 using Card.Data;
 using Characters.Enemy.Data;
+using Effect;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;

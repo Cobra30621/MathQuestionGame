@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Action;
-using Action.Power;
 using Characters;
 using Combat;
+using Effect;
+using Effect.Power;
 
 namespace Power.Buff
 {
@@ -32,7 +32,7 @@ namespace Power.Buff
             if (IsCharacterTurn(info))
             {
                 
-                GameActionExecutor.AddAction(new ApplyPowerAction(
+                EffectExecutor.AddAction(new ApplyPowerEffect(
                     3 * Amount, PowerName.Block, new List<CharacterBase>() {Owner},
                     GetActionSource()));
             }

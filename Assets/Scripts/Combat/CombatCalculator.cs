@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Action.Parameters;
 using Characters;
+using Effect.Parameters;
 using GameListener;
 using Managers;
 using UnityEngine;
