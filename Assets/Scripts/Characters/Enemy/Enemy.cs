@@ -9,7 +9,6 @@ using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Combat;
 using NueGames.Parameters;
-using NueGames.Power;
 using Sheets;
 using Sirenix.OdinInspector;
 using Tool;

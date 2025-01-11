@@ -1,6 +1,4 @@
-﻿using NueGames.Enums;
-
-namespace NueGames.Power
+﻿namespace Power.ReducePowerAtTurnEnd
 {
     /// <summary>
     /// 回合結束時，降低力量

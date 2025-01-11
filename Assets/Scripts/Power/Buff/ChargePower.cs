@@ -1,17 +1,10 @@
-using GameListener;
 using System.Collections.Generic;
-using Action.Parameters;
-using Combat;
+using GameListener;
 using NueGames.Action;
 using NueGames.Characters;
-using NueGames.Combat;
-using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.Parameters;
-using NueGames.UI;
-using UnityEngine;
 
-namespace NueGames.Power
+namespace Power.Buff
 {
     /// <summary>
     /// 力量

@@ -3,8 +3,8 @@ using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Parameters;
-using NueGames.Power;
 using NueGames.Relic;
+using Power;
 
 namespace Action.Parameters
 {

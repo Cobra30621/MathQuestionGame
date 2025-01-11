@@ -11,7 +11,6 @@ using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
-using NueGames.Power;
 using UnityEngine;
 using UnityEngine.Rendering;
 

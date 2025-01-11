@@ -3,7 +3,7 @@ using Action.Parameters;
 using Card;
 using NueGames.Characters;
 using NueGames.Managers;
-using NueGames.Power;
+using Power;
 
 namespace NueGames.Action
 {

@@ -1,17 +1,11 @@
 using System.Collections.Generic;
 using Action.Parameters;
-using Combat;
-using Enemy;
 using NueGames.Action;
 using NueGames.Characters;
-using NueGames.Combat;
-using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.Parameters;
-using NueGames.UI;
 using UnityEngine;
 
-namespace NueGames.Power
+namespace Power.Buff
 {
     public class FrenzyPower : PowerBase
     {

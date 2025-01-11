@@ -1,10 +1,8 @@
 ﻿using Combat;
 using NueGames.Combat;
-using NueGames.Enums;
-using NueGames.Managers;
 using UnityEngine;
 
-namespace NueGames.Power
+namespace Power.Common
 {
     /// <summary>
     /// 格檔

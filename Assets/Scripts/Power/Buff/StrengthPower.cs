@@ -1,10 +1,7 @@
-﻿using Enemy;
-using GameListener;
-using NueGames.Combat;
+﻿using GameListener;
 using NueGames.Enums;
-using UnityEngine;
 
-namespace NueGames.Power
+namespace Power.Buff
 {
     /// <summary>
     /// 力量
@@ -25,7 +22,7 @@ namespace NueGames.Power
             // 如果是敵人，更新意圖
             if (Owner.IsCharacterType(CharacterType.Enemy))
             {
-                var enemy = (Enemy.Enemy) Owner;
+                var enemy = (global::Enemy.Enemy) Owner;
                 enemy.UpdateIntentionDisplay();
             }
         }

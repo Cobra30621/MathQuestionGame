@@ -5,7 +5,7 @@ using NueGames.Card;
 using NueGames.Characters;
 using NueGames.Data.Collection;
 using NueGames.Enums;
-using NueGames.Power;
+using Power;
 using UnityEngine;
 
 namespace NueGames.Action

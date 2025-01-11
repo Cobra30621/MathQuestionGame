@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Card.Data;
 using NueGames.Characters;
-using NueGames.Data.Collection.RewardData;
 using NueGames.Relic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -9,8 +8,18 @@ using UnityEngine;
 namespace NueGames.Data.Characters
 {
     [CreateAssetMenu(fileName = "Ally Character Data ",menuName = "Characters/Ally",order = 0)]
-    public class AllyData : CharacterDataBase, ISerializeReferenceByAssetGuid
+    public class AllyData : SerializedScriptableObject, ISerializeReferenceByAssetGuid
     {
+        [SerializeField] protected string characterName;
+        [SerializeField] [TextArea] protected string characterDescription;
+        [SerializeField] protected int maxHealth;
+
+        public string CharacterName => characterName;
+
+        public string CharacterDescription => characterDescription;
+
+        public int MaxHealth => maxHealth;
+        
         [LabelText("玩家 Prefab")]
         public Ally prefab;
       

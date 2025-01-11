@@ -8,7 +8,6 @@ using DG.Tweening;
 using Managers;
 using NueGames.Action;
 using NueGames.Parameters;
-using NueGames.Power;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;

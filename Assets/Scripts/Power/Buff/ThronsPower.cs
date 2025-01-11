@@ -3,14 +3,10 @@ using Action.Parameters;
 using Combat;
 using NueGames.Action;
 using NueGames.Characters;
-using NueGames.Combat;
-using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.Parameters;
-using NueGames.UI;
 using UnityEngine;
 
-namespace NueGames.Power
+namespace Power.Buff
 {
 
 

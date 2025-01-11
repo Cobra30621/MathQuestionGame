@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using NueGames.Enums;
-using NueGames.Power;
 using NueGames.UI;
+using Power;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;

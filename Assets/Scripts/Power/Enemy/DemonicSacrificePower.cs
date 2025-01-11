@@ -4,9 +4,8 @@ using Combat;
 using NueGames.Action;
 using NueGames.Characters;
 using NueGames.Managers;
-using UnityEngine;
 
-namespace NueGames.Power
+namespace Power.Enemy
 {
     /// <summary>
     /// 惡魔獻祭

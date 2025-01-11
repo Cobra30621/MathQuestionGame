@@ -4,7 +4,6 @@ using Feedback;
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.Power;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;

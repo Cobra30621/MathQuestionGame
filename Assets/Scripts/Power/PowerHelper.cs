@@ -1,6 +1,6 @@
 using System;
 
-namespace NueGames.Power
+namespace Power
 {
     public class PowerHelper
     {

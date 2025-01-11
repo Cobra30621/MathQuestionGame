@@ -1,16 +1,11 @@
 ﻿using Action.Parameters;
 using Combat;
 using GameListener;
-using NueGames.Action;
-using NueGames.Card;
 using NueGames.Characters;
-using NueGames.Combat;
-using NueGames.Enums;
-using NueGames.Managers;
 using NueGames.Parameters;
 using UnityEngine;
 
-namespace NueGames.Power
+namespace Power
 {
     /// <summary>
     /// 能力（ex: 力量、易傷、中毒）的基底 class

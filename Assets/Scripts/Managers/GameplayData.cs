@@ -1,13 +1,4 @@
-﻿using System.Collections.Generic;
-using Card.Data;
-using Map;
-using Map_System.Scripts.MapData;
-using NueGames.Card;
-using NueGames.Characters;
-using NueGames.Data.Characters;
-using NueGames.Data.Collection;
-using NueGames.Data.Collection.RewardData;
-using NueGames.Relic;
+﻿using NueGames.Card;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

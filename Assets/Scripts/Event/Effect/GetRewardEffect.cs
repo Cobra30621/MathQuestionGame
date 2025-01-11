@@ -1,11 +1,7 @@
 using System.Collections.Generic;
 using Managers;
 using Map;
-using NueGames.Data.Collection.RewardData;
-using NueGames.Enums;
-using NueGames.UI.Reward;
 using Reward;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace NueGames.Event.Effect

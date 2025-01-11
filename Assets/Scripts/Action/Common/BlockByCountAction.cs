@@ -4,7 +4,7 @@ using NueGames.Combat;
 using Action.Parameters;
 using NueGames.Characters;
 using NueGames.Managers;
-using NueGames.Power;
+using Power;
 using UnityEngine;
 
 namespace NueGames.Action

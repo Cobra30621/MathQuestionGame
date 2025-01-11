@@ -1,16 +1,11 @@
-using GameListener;
-using NueGames.Combat;
-using NueGames.Enums;
-using UnityEngine;
 using System.Collections.Generic;
 using Action.Parameters;
 using Combat;
 using NueGames.Action;
 using NueGames.Characters;
-using NueGames.Combat;
 using NueGames.Managers;
 
-namespace NueGames.Power
+namespace Power.Buff
 {
     /// <summary>
     /// 強化

@@ -8,7 +8,7 @@ using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
-using NueGames.Power;
+using Power;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

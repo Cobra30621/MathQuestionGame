@@ -4,8 +4,8 @@ using Action;
 using Card.Data;
 using NueGames.Data.Containers;
 using NueGames.Enums;
-using NueGames.Power;
 using NueTooltip.Core;
+using Power;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

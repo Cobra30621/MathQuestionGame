@@ -1,8 +1,6 @@
 using GameListener;
-using NueGames.Enums;
-using UnityEngine;
 
-namespace NueGames.Power
+namespace Power.Buff
 {
     /// <summary>
     /// 無敵，本回合不會受到傷害

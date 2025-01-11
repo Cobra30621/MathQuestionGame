@@ -1,7 +1,7 @@
 using Card;
 using Enemy;
 using NueGames.Action;
-using NueGames.Power;
+using Power;
 using UnityEngine;
 
 namespace Action.Enemy

@@ -1,9 +1,6 @@
-﻿
-using GameListener;
-using NueGames.Enums;
-using UnityEngine;
+﻿using GameListener;
 
-namespace NueGames.Power
+namespace Power.Buff
 {
     /// <summary>
     /// 虛弱，造成的傷害變 0.5 倍

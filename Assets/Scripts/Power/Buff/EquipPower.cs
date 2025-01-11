@@ -1,4 +1,4 @@
-namespace NueGames.Power
+namespace Power.Buff
 {
     public class EquipPower : PowerBase
     {

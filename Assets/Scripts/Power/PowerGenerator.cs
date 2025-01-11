@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using NueGames.Enums;
 using UnityEngine;
 
-namespace NueGames.Power {
+namespace Power {
     /// <summary>
     /// 產生能力(Power)物件
     /// </summary>

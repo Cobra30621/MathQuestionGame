@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Action.Parameters;
 using Card;
 using NueGames.Characters;
-using NueGames.Power;
+using Power;
 
 namespace NueGames.Action
 {

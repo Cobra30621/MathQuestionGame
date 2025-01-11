@@ -5,7 +5,6 @@ using NueGames.Card;
 using NueGames.Data.Collection;
 using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.Power;
 
 namespace NueGames.Combat
 {

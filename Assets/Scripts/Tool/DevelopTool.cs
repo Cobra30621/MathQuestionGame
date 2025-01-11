@@ -13,7 +13,7 @@ using NueGames.Combat;
 using NueGames.Data.Characters;
 using NueGames.Data.Encounter;
 using NueGames.Data.Settings;
-using NueGames.Power;
+using Power;
 using Question;
 using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;

@@ -1,6 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 
-namespace NueGames.Power
+namespace Power
 {
     /// <summary>
     /// 能力類型

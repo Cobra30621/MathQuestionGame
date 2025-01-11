@@ -5,7 +5,7 @@ using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Combat;
-using NueGames.Power;
+using Power;
 
 namespace NueGames.Relic.Common
 {

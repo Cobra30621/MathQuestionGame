@@ -2,13 +2,10 @@
 using Combat;
 using NueGames.Action;
 using NueGames.Characters;
-using NueGames.Enums;
 using NueGames.Managers;
-using NueGames.Combat;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-namespace NueGames.Power
+namespace Power.ReducePowerAtTurnEnd
 {
     /// <summary>
     /// 回合結束時，降低能力

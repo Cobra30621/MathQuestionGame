@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using MoreMountains.Feedbacks;
 using NueGames.Data.Containers;
-using NueGames.Power;
+using Power;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

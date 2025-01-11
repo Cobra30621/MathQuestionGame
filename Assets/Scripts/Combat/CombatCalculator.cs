@@ -9,7 +9,6 @@ using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Parameters;
-using NueGames.Power;
 using Sirenix.Utilities;
 using UnityEngine;
 using CombatManager = Combat.CombatManager;

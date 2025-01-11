@@ -2,8 +2,8 @@
 using NueGames.Combat;
 using NueGames.Enums;
 using NueGames.Parameters;
-using NueGames.Power;
 using NueGames.Relic;
+using Power;
 using UnityEngine;
 
 namespace Action.Parameters

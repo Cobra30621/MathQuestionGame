@@ -5,7 +5,6 @@ using NueGames.Managers;
 using NueGames.Combat;
 using NueGames.Parameters;
 using System.Collections.Generic;
-using NueGames.Power;
 
 namespace NueGames.Relic.Common
 {

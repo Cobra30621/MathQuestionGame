@@ -12,10 +12,9 @@ using NueGames.Characters;
 using NueGames.Enums;
 using NueGames.Managers;
 using NueGames.Combat;
-using NueGames.Power;
 using NueGames.Managers;
 using NueGames.Parameters;
-using NueGames.Power;
+using Power;
 using UnityEngine;
 namespace NueGames.Relic.Knight
 {
