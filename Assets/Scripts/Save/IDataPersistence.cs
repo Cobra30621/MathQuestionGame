@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using Data;
-using UnityEngine;
+using Save.Data;
 
-public interface IDataPersistence
+namespace Save
 {
-    void LoadData(GameData data);
+    public interface IDataPersistence
+    {
+        void LoadData(GameData data);
 
-    void SaveData(GameData data);
-}
+        void SaveData(GameData data);
+    }
 
 
-public interface IPermanentDataPersistence
-{
-    void LoadData(PermanentGameData data);
+    public interface IPermanentDataPersistence
+    {
+        void LoadData(PermanentGameData data);
 
-    void SaveData(PermanentGameData data);
+        void SaveData(PermanentGameData data);
+    }
 }

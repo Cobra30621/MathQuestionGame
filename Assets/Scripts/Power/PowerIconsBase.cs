@@ -1,9 +1,8 @@
-﻿using NueGames.Data.Containers;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NueGames.UI
+namespace Power
 {
     public class PowerIconsBase : MonoBehaviour
     {

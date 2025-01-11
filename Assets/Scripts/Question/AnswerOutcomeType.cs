@@ -1,4 +1,4 @@
-﻿namespace NueGames.Enums
+﻿namespace Question
 {
     /// <summary>
     /// 答題結果類型

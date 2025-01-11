@@ -4,6 +4,7 @@ using Card.Data;
 using Managers;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
 
 namespace Combat.Card

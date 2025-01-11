@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using MoreMountains.Feedbacks;
-using UnityEngine.UI;
+using UnityEngine;
 
-namespace Question
+namespace Question.Answer_Button
 {
     public class AnswerButtonUseMMFPlayer : AnswerButtonBase
     {

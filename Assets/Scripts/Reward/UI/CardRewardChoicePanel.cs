@@ -1,14 +1,14 @@
-using System;
 using System.Collections.Generic;
 using Card;
 using Card.Data;
 using Managers;
 using NueGames.Card;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NueGames.UI.Reward
+namespace Reward.UI
 {
     public class CardRewardChoicePanel : MonoBehaviour
     {

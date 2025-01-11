@@ -1,61 +1,59 @@
-using System.Collections;
-using System.Collections.Generic;
 using Combat.Card;
 using Managers;
-using Map;
 using Map_System.Scripts.MapData;
-using NueGames.Enums;
-using NueGames.Managers;
-using NueGames.Relic;
+using Relic.Data;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Tester : MonoBehaviour
+namespace Tool
 {
-    public bool playOnStart;
-    public UnityEvent testEvent;
-
-    public MapConfig MapConfig;
-
-    void Start()
+    public class Tester : MonoBehaviour
     {
-        if (playOnStart)
+        public bool playOnStart;
+        public UnityEvent testEvent;
+
+        public MapConfig MapConfig;
+
+        void Start()
         {
-            PlayTest();
+            if (playOnStart)
+            {
+                PlayTest();
+            }
         }
-    }
     
-    [ContextMenu("Play Test")]
-    public void PlayTest()
-    {
-        testEvent.Invoke();
+        [ContextMenu("Play Test")]
+        public void PlayTest()
+        {
+            testEvent.Invoke();
         
         
-        // CollectionManager.Instance.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, false);
-        // CardChoice();
-        // GainRelic();
-    }
+            // CollectionManager.Instance.ChangeHandCardManaCost(SpecialKeywords.MathMana, 0, false);
+            // CardChoice();
+            // GainRelic();
+        }
 
-    public ChoiceParameter ChoiceParameter;
+        public ChoiceParameter ChoiceParameter;
     
-    private void CardChoice()
-    {
-        CollectionManager.Instance.ShowChoiceCardPanel(ChoiceParameter);
-    }
+        private void CardChoice()
+        {
+            CollectionManager.Instance.ShowChoiceCardPanel(ChoiceParameter);
+        }
 
-    public RelicName relicName;
-    private void GainRelic()
-    {
-        GameManager.Instance.RelicManager.GainRelic(relicName);
-    }
+        public RelicName relicName;
+        private void GainRelic()
+        {
+            GameManager.Instance.RelicManager.GainRelic(relicName);
+        }
 
 
-    void CreateMathQuestioningAction()
-    {
-        // EnterMathQuestioningAction enterMathQuestioningAction = new EnterMathQuestioningAction();
-        // MathQuestioningActionParameters parameters = new MathQuestioningActionParameters();
-        // parameters.SetQuestionCountValue(true, 3);
-        // enterMathQuestioningAction.SetValue(parameters);
-        // enterMathQuestioningAction.AddAction();
+        void CreateMathQuestioningAction()
+        {
+            // EnterMathQuestioningAction enterMathQuestioningAction = new EnterMathQuestioningAction();
+            // MathQuestioningActionParameters parameters = new MathQuestioningActionParameters();
+            // parameters.SetQuestionCountValue(true, 3);
+            // enterMathQuestioningAction.SetValue(parameters);
+            // enterMathQuestioningAction.AddAction();
+        }
     }
 }

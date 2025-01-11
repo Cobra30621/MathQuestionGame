@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Economy.Shop.Data;
 using Managers;
 using Relic;
+using Relic.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

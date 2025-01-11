@@ -1,6 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 
-namespace Reward
+namespace Reward.Data
 {
     public enum RewardType
     {

@@ -3,7 +3,6 @@ using Action;
 using Action.Power;
 using Characters;
 using GameListener;
-using NueGames.Managers;
 
 namespace Power.Buff
 {

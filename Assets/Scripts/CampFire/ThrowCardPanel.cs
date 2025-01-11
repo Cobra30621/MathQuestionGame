@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Card;
 using Managers;
 using NueGames.Card;
+using UI;
 using UnityEngine;
 
 namespace CampFire

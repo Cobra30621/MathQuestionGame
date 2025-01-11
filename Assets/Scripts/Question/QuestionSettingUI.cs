@@ -1,5 +1,6 @@
 using System;
-using NueGames.Managers;
+using Question.Data;
+using Question.Enum;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;

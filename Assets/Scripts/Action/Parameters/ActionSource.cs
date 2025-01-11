@@ -3,8 +3,8 @@ using Combat.Card;
 using Newtonsoft.Json;
 using NueGames.Card;
 using NueGames.Enums;
-using NueGames.Relic;
 using Power;
+using Relic.Data;
 
 namespace Action.Parameters
 {

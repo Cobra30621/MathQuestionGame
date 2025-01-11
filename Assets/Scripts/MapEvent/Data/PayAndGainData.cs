@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Reward;
+using Reward.Data;
 using Sirenix.OdinInspector;
 
 namespace MapEvent.Data

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Question
+namespace Question.QuestionGenerator
 {
     public class CsvLoader
     {

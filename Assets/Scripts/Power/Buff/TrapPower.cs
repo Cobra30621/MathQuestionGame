@@ -3,7 +3,6 @@ using Action;
 using Action.Parameters;
 using Action.Power;
 using Characters;
-using NueGames.Managers;
 using UnityEngine;
 
 namespace Power.Buff

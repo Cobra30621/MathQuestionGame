@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using Card;
 using Card.Data;
 using Managers;
-using NueGames.Managers;
-using NueGames.Relic;
 using Relic;
+using Relic.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

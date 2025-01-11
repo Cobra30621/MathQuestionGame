@@ -3,9 +3,7 @@ using Card;
 using Card.Data;
 using Card.Display;
 using Managers;
-using NueGames.Data.Collection;
-using NueGames.Managers;
-using NueGames.UI.Reward;
+using Reward.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

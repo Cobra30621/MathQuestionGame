@@ -1,10 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using Question.Enum;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Question
+namespace Question.Data
 {
     /// <summary>
     /// 設置讀取圖片的參數

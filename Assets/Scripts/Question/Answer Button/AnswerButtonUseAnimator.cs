@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Question
+namespace Question.Answer_Button
 {
     public class AnswerButtonUseAnimator : AnswerButtonBase
     {

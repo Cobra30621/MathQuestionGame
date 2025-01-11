@@ -1,7 +1,8 @@
 using System;
+using Question.Enum;
 using UnityEngine;
 
-namespace Question
+namespace Question.Data
 {
     
     /// <summary>

@@ -5,7 +5,6 @@ using Action.Enemy;
 using Action.Power;
 using Characters;
 using Combat;
-using NueGames.Managers;
 
 namespace Power.Enemy
 {

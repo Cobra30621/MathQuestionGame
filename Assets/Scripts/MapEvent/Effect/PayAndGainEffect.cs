@@ -3,6 +3,7 @@ using Economy;
 using Managers;
 using Map;
 using MapEvent.Data;
+using UI;
 
 namespace MapEvent.Effect
 {

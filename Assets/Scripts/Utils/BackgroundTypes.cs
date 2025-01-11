@@ -1,4 +1,4 @@
-﻿namespace NueGames.Enums
+﻿namespace Utils
 {
     public enum BackgroundTypes
     {

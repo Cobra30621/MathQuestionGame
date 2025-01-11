@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using Data;
 using Encounter.Data;
 using Managers;
 using Map;
-using NueGames.Utils;
 using Reward;
+using Reward.Data;
 using Save;
+using Save.Data;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
+using Utils;
 
 namespace Encounter
 {

@@ -57,7 +57,7 @@ namespace Question
             animator.SetBool(InQuestioningMode, false);
         }
 
-        public void SetNextQuestion(Question question)
+        public void SetNextQuestion(Data.Question question)
         {
             qeustionImage.sprite = question.QuestionSprite;
             optionImage.sprite = question.OptionSprite;

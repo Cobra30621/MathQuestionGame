@@ -1,6 +1,7 @@
 using Managers;
 using Sirenix.OdinInspector;
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 

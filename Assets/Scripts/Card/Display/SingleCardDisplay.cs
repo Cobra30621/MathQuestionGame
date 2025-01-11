@@ -1,5 +1,4 @@
 using Card.Data;
-using NueGames.Data.Collection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

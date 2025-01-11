@@ -1,6 +1,7 @@
+using Question.Enum;
 using UnityEngine;
 
-namespace Question
+namespace Question.Data
 {
     /// <summary>
     /// 讀取圖片的參數設定

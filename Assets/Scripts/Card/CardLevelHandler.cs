@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Card.Data;
-using Data;
 using Save;
+using Save.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

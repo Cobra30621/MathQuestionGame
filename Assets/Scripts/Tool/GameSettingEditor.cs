@@ -1,9 +1,11 @@
 using Card.Data;
 using Characters.Enemy.Data;
-using Data.Settings;
 using Encounter.Data;
 using NueGames.Data.Containers;
 using NueGames.Data.Settings;
+using Power;
+using Relic.Data;
+using Reward.Data;
 using Sirenix.OdinInspector;
 using Stage;
 using UnityEngine;

@@ -3,6 +3,8 @@ using Managers;
 using Map;
 using MapEvent.Data;
 using Reward;
+using Reward.Data;
+using UI;
 using UnityEngine;
 
 namespace MapEvent.Effect

@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace NueGames.Utils
+namespace Utils
 {
     public class FloatingText : MonoBehaviour
     {

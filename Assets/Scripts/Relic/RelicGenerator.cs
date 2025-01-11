@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using NueGames.Enums;
+using Relic.Data;
 using UnityEngine;
 
-namespace NueGames.Relic
+namespace Relic
 {
     public class RelicGenerator
     {

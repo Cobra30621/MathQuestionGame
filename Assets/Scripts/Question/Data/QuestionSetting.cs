@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Question.Enum;
 
-namespace Question
+namespace Question.Data
 {
     /// <summary>
     /// 取的數學題目的參數

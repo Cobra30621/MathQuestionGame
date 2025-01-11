@@ -2,8 +2,6 @@ using System;
 using Card;
 using Card.Data;
 using Card.Display;
-using NueGames.Data.Collection;
-using NueGames.Managers;
 using UnityEngine;
 
 namespace NueGames.Card

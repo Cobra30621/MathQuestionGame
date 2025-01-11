@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using NueGames.Data.Collection;
 using Sirenix.OdinInspector;
+using Tool;
 using UnityEngine;
 
 namespace Characters.Display

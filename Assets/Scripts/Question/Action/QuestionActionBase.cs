@@ -1,6 +1,6 @@
-using Action.Parameters;
+using Question.Enum;
 
-namespace Question.QuestionAction
+namespace Question.Action
 {
     /// <summary>
     /// 數學答題相關的行動

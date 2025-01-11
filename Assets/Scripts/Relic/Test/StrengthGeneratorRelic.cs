@@ -3,11 +3,10 @@ using Action;
 using Action.Power;
 using Characters;
 using Combat;
-using NueGames.Enums;
-using NueGames.Managers;
 using Power;
+using Relic.Data;
 
-namespace NueGames.Relic.Common
+namespace Relic.Test
 {
     /// <summary>
     /// 答對一題，獲得力量

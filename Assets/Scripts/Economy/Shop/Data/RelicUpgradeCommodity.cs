@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Managers;
 using Relic;
+using Relic.Data;
 using UnityEngine;
 
 namespace Economy.Shop.Data

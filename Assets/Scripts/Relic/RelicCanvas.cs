@@ -1,45 +1,44 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Managers;
-using NueGames.Relic;
-using NueGames.UI;
+using Relic.Data;
+using UI;
 using UnityEngine;
-using NueGames.Managers;
-using Relic;
 
-public class RelicCanvas : CanvasBase
+namespace Relic
 {
-    [SerializeField] private Transform relicIconSpawnRoot;
-    private List<RelicIconsBase> _relicIconsBases;
-    private RelicIconsBase RelicBasePrefab => RelicManager.relicsData.RelicBasePrefab;
+    public class RelicCanvas : CanvasBase
+    {
+        [SerializeField] private Transform relicIconSpawnRoot;
+        private List<RelicIconsBase> _relicIconsBases;
+        private RelicIconsBase RelicBasePrefab => RelicManager.relicsData.RelicBasePrefab;
     
-    private RelicManager RelicManager => GameManager.Instance.RelicManager;
+        private RelicManager RelicManager => GameManager.Instance.RelicManager;
 
 
-    private void Awake()
-    {
-        RelicManager.OnRelicUpdated.AddListener(OnGainRelic);
-    }
-
-
-    /// <summary>
-    /// 取得 Relic 時
-    /// </summary>
-    /// <param name="relicClip"></param>
-    public void OnGainRelic(Dictionary<RelicName, RelicBase> relicDict)
-    {
-        foreach (Transform child in relicIconSpawnRoot)
+        private void Awake()
         {
-            Destroy(child.gameObject);
+            RelicManager.OnRelicUpdated.AddListener(OnGainRelic);
         }
-        
-        Debug.Log(relicDict.Keys);
-        
-        foreach (var pair in relicDict)
+
+
+        /// <summary>
+        /// 取得 Relic 時
+        /// </summary>
+        /// <param name="relicClip"></param>
+        public void OnGainRelic(Dictionary<RelicName, RelicBase> relicDict)
         {
-            var clone = Instantiate(RelicBasePrefab, relicIconSpawnRoot);
-            clone.SetRelicClip(pair.Value);
+            foreach (Transform child in relicIconSpawnRoot)
+            {
+                Destroy(child.gameObject);
+            }
+        
+            Debug.Log(relicDict.Keys);
+        
+            foreach (var pair in relicDict)
+            {
+                var clone = Instantiate(RelicBasePrefab, relicIconSpawnRoot);
+                clone.SetRelicClip(pair.Value);
+            }
         }
     }
 }

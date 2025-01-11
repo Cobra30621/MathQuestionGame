@@ -4,7 +4,7 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace NueGames.Data.Collection
+namespace Tool
 {
     /// <summary>
     /// A static class for retrieving assets from specified directories.

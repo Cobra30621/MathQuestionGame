@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Managers;
 using NueGames.Data.Containers;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
+using Power;
 using UnityEngine;
 
 namespace NueTooltip.Core

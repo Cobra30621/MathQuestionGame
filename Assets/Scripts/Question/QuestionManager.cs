@@ -4,12 +4,15 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Data;
 using Managers;
 using NueGames.Enums;
-using NueGames.Managers;
-using Question.QuestionAction;
+using Question.Action;
+using Question.Answer_Button;
+using Question.Data;
+using Question.QuestionGenerator;
 using Question.QuestionLoader;
+using Save;
+using Save.Data;
 using Sirenix.OdinInspector;
 using UnityEngine.Serialization;
 
@@ -76,11 +79,11 @@ namespace Question
         /// <summary>
         /// 題目清單
         /// </summary>
-        [SerializeField] private List<Question> questionList;
+        [SerializeField] private List<Data.Question> questionList;
         /// <summary>
         /// 正在回答的題目
         /// </summary>
-        private Question _currentQuestion;
+        private Data.Question _currentQuestion;
         
         
         /// <summary>

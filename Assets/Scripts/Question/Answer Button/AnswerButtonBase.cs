@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Question
+namespace Question.Answer_Button
 {
     public abstract  class AnswerButtonBase : MonoBehaviour
     {

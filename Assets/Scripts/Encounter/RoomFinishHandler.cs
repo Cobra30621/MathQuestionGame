@@ -1,6 +1,6 @@
 using Map;
-using NueGames.Utils;
 using UnityEngine;
+using Utils;
 
 namespace Encounter
 {

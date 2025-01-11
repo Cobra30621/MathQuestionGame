@@ -1,11 +1,10 @@
-using System;
 using Map;
-using NueGames.Utils;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using Utils;
 
-namespace CompleteAndWin
+namespace UI
 {
     [RequireComponent(typeof(SceneChanger))]
     public class CompleteMapUI : SerializedMonoBehaviour

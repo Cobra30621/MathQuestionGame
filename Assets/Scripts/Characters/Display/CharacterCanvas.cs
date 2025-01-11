@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using NueGames.Data.Containers;
-using NueGames.UI;
 using Power;
 using TMPro;
 using UnityEngine;

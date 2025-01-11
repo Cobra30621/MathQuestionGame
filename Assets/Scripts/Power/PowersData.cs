@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NueGames.Enums;
-using NueGames.UI;
-using Power;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace NueGames.Data.Containers
+namespace Power
 {
     /// <summary>
     /// 所有能力的資料

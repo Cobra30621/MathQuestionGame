@@ -1,56 +1,59 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StoryManager : MonoBehaviour
+namespace UI
 {
-    public GameObject storyPanel;
-    public Image storyImage;
-    public Button prevButton;
-    public Button nextButton;
-
-    public Sprite[] storyImages;
-    private int currentIndex = 0;
-
-    void Start()
+    public class StoryManager : MonoBehaviour
     {
-        // 設置按鈕點擊事件
-        prevButton.onClick.AddListener(ShowPrevImage);
-        nextButton.onClick.AddListener(ShowNextImage);
+        public GameObject storyPanel;
+        public Image storyImage;
+        public Button prevButton;
+        public Button nextButton;
 
-        // 初始化顯示第一張圖片
-        ShowImageAtIndex(currentIndex);
-    }
+        public Sprite[] storyImages;
+        private int currentIndex = 0;
 
-    void ShowImageAtIndex(int index)
-    {
-        if (index < storyImages.Length)
+        void Start()
         {
-            storyImage.sprite = storyImages[index];
-            nextButton.gameObject.SetActive(true);
-            prevButton.gameObject.SetActive(true);
-        }
-        else
-        {
-            storyPanel.SetActive(false);
-        }
-    }
+            // 設置按鈕點擊事件
+            prevButton.onClick.AddListener(ShowPrevImage);
+            nextButton.onClick.AddListener(ShowNextImage);
 
-    void ShowNextImage()
-    {
-        currentIndex++;
-        ShowImageAtIndex(currentIndex);
-    }
-
-    void ShowPrevImage()
-    {
-        currentIndex--;
-        if (currentIndex >= 0)
-        {
+            // 初始化顯示第一張圖片
             ShowImageAtIndex(currentIndex);
         }
-        else
+
+        void ShowImageAtIndex(int index)
         {
-            currentIndex = 0;
+            if (index < storyImages.Length)
+            {
+                storyImage.sprite = storyImages[index];
+                nextButton.gameObject.SetActive(true);
+                prevButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                storyPanel.SetActive(false);
+            }
+        }
+
+        void ShowNextImage()
+        {
+            currentIndex++;
+            ShowImageAtIndex(currentIndex);
+        }
+
+        void ShowPrevImage()
+        {
+            currentIndex--;
+            if (currentIndex >= 0)
+            {
+                ShowImageAtIndex(currentIndex);
+            }
+            else
+            {
+                currentIndex = 0;
+            }
         }
     }
 }

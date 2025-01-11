@@ -1,16 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Managers;
 using Map;
-using NueGames.Data.Containers;
-using NueGames.Managers;
-using NueGames.Relic;
-using Reward;
+using Relic.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using static UnityEngine.Random;
 
-namespace Data.Settings
+namespace Reward.Data
 {
     public class ItemDropData : ScriptableObject
     {

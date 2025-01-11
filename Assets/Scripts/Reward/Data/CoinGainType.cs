@@ -1,6 +1,6 @@
 using Sirenix.OdinInspector;
 
-namespace Reward
+namespace Reward.Data
 {
     /// <summary>
     /// 貨幣獲取方式

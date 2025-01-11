@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Card.Data;
-using Data.Settings;
 using Managers;
 using Map;
 using NueGames.Data.Containers;
-using NueGames.Relic;
+using Relic.Data;
+using Reward.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

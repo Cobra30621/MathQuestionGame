@@ -1,8 +1,8 @@
 ﻿using Action;
 using Action.Card;
-using NueGames.Managers;
+using Relic.Data;
 
-namespace NueGames.Relic.Common
+namespace Relic.Test
 {
     public class DrawCardOnAnswerCorrectRelic : RelicBase
     {

@@ -1,17 +1,12 @@
 using System.Collections.Generic;
-using Action.Parameters;
-using Card;
-using System.Collections.Generic;
 using Action;
 using Action.Power;
 using Characters;
 using Combat;
-using UnityEngine;
-using NueGames.Enums;
-using NueGames.Managers;
 using Power;
+using Relic.Data;
 
-namespace NueGames.Relic.Knight
+namespace Relic.Knight
 {
     public class ShieldRelic : RelicBase
     {

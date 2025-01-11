@@ -6,7 +6,6 @@ using Characters;
 using Combat;
 using Feedback;
 using NueGames.Enums;
-using NueGames.Managers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

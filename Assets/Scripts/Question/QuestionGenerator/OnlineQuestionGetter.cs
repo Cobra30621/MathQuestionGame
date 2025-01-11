@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Question.Data;
 using Question.QuestionLoader;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Question
+namespace Question.QuestionGenerator
 {
     public class OnlineQuestionGetter : IQuestionGetter
     {
@@ -14,7 +15,7 @@ namespace Question
         public int minNeedQuestionCount = 5;
         
         
-        public override List<Question> GetQuestions(QuestionSetting request)
+        public override List<Data.Question> GetQuestions(QuestionSetting request)
         {
             return onlineQuestionDownloader.questions;
         }

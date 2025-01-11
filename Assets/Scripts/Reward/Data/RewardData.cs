@@ -1,9 +1,9 @@
 using System;
 using Card.Data;
-using NueGames.Relic;
+using Relic.Data;
 using Sirenix.OdinInspector;
 
-namespace Reward
+namespace Reward.Data
 {
     [Serializable]
     public class RewardData

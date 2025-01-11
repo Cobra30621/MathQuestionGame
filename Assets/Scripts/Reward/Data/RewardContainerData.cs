@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Reward;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace NueGames.Data.Containers
+namespace Reward.Data
 {
     [CreateAssetMenu(fileName = "Reward Container", menuName = "NueDeck/Containers/Reward", order = 4)]
     public class RewardContainerData : SerializedScriptableObject

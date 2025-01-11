@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using MapEvent.Effect;
 using Question;
+using Question.Enum;
 using Reward;
+using Reward.Data;
 using Sirenix.OdinInspector;
 
 namespace MapEvent.Data

@@ -1,4 +1,4 @@
-namespace NueGames.Relic
+namespace Relic.Data
 {
     public enum RelicName
     {

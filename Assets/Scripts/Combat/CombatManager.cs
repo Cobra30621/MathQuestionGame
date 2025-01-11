@@ -13,12 +13,13 @@ using Managers;
 using Map;
 using NueGames.Data.Settings;
 using NueGames.Enums;
-using NueGames.Managers;
-using NueGames.Utils.Background;
 using Question;
 using Reward;
+using Reward.Data;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
+using Utils.Background;
 
 namespace Combat
 {

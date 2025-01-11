@@ -2,6 +2,7 @@ using System.Collections;
 using NueGames.Data.Containers;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
 using NueTooltip.Core;
+using Power;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;

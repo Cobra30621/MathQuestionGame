@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Combat;
-using NueGames.Managers;
 using UnityEngine;
 
-namespace NueGames.Utils.Background
+namespace Utils.Background
 {
     public class BackgroundContainer : MonoBehaviour
     {

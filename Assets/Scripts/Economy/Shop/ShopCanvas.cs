@@ -1,5 +1,5 @@
-using NueGames.UI;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
 
 namespace Economy.Shop

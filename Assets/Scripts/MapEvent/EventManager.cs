@@ -1,10 +1,10 @@
 using Encounter;
 using Managers;
 using MapEvent.Data;
-using NueGames.Utils;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+using Utils;
 
 namespace MapEvent
 {

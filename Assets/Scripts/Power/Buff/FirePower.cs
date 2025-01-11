@@ -5,7 +5,6 @@ using Action.Parameters;
 using Action.Power;
 using Characters;
 using Combat;
-using NueGames.Managers;
 
 namespace Power.Buff
 {

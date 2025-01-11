@@ -1,8 +1,6 @@
 using System;
-using NueGames.Data.Containers;
-using NueGames.Relic;
 
-namespace Relic
+namespace Relic.Data
 {
     [Serializable]
     public class RelicInfo

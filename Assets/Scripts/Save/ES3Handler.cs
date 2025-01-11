@@ -1,7 +1,7 @@
-using Data;
+using Save.Data;
 using UnityEngine;
 
-namespace DataPersistence
+namespace Save
 {
     public static class ES3Handler
     {

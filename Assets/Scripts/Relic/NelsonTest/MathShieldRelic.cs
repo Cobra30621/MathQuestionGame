@@ -1,8 +1,6 @@
-using NueGames.Enums;
-using NueGames.Managers;
-using System.Collections.Generic;
+using Relic.Data;
 
-namespace NueGames.Relic.Common
+namespace Relic.NelsonTest
 {
     /// <summary>
     /// 答對一題，獲得一層護盾

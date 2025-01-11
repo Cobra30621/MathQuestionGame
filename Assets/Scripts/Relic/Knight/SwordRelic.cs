@@ -1,20 +1,12 @@
-using System;
-using System.Collections.Generic;
-using Action.Parameters;
-using Card;
-using Combat;
-using NueGames.Card;
 using System.Collections.Generic;
 using Action;
 using Action.Power;
 using Characters;
 using Combat;
-using NueGames.Enums;
-using NueGames.Managers;
-using NueGames.Managers;
 using Power;
-using UnityEngine;
-namespace NueGames.Relic.Knight
+using Relic.Data;
+
+namespace Relic.Knight
 {
     public class SwordRelic : RelicBase
     {

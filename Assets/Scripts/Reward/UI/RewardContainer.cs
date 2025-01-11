@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NueGames.UI.Reward
+namespace Reward.UI
 {
     public class RewardContainer : MonoBehaviour
     {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace DataPersistence
+namespace Save.FileHandler
 {
     /// <summary>
     /// 目的：將 Scriptable Object 進行存檔

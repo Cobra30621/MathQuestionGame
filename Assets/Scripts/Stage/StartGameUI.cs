@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
-using NueGames.Managers;
-using NueGames.Utils;
 using Question;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 namespace Stage
 {

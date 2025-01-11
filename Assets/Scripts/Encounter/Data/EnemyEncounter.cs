@@ -4,6 +4,7 @@ using Characters.Enemy.Data;
 using NueGames.Enums;
 using rStarTools.Scripts.StringList;
 using UnityEngine;
+using Utils;
 
 namespace Encounter.Data
 {

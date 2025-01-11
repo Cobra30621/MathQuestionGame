@@ -5,14 +5,15 @@ using Card.Data;
 using Combat;
 using Combat.Card;
 using Economy.Shop;
+using Managers;
 using MapEvent;
-using NueGames.UI;
-using NueGames.UI.Reward;
-using NueGames.Utils;
+using Relic;
+using Reward.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utils;
 
-namespace Managers
+namespace UI
 {
     [DefaultExecutionOrder(-4)]
     public class UIManager : MonoBehaviour

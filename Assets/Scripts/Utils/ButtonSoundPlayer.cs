@@ -1,11 +1,9 @@
 using Aduio;
 using Managers;
-using NueGames.Data.Containers;
-using NueGames.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NueGames.Utils
+namespace Utils
 {
     [RequireComponent(typeof(Button))]
     public class ButtonSoundPlayer : MonoBehaviour

@@ -1,10 +1,8 @@
-﻿using System;
-using Economy;
-using NueGames.Managers;
+﻿using Economy;
 using TMPro;
 using UnityEngine;
 
-namespace NueGames.UI
+namespace UI
 {
     public class InformationCanvas : CanvasBase
     {

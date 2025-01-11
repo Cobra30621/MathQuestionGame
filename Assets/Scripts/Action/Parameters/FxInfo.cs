@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using Action.Sequence;
 using Feedback;
-using NueGames.Data.Collection;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
+using Tool;
 using UnityEngine;
 
 namespace Action.Parameters

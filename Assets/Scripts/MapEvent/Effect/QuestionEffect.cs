@@ -1,6 +1,6 @@
 using MapEvent.Data;
 using Question;
-using Question.QuestionAction;
+using Question.Action;
 
 namespace MapEvent.Effect
 {

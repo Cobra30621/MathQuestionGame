@@ -1,6 +1,6 @@
-using NueGames.UI;
 using Sirenix.OdinInspector;
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 

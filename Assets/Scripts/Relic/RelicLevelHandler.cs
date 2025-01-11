@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Data;
 using NueGames.Data.Containers;
-using NueGames.Relic;
+using Relic.Data;
 using Save;
+using Save.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

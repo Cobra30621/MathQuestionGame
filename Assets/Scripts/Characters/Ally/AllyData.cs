@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Card.Data;
-using NueGames.Relic;
+using Relic.Data;
+using Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

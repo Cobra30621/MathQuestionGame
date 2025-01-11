@@ -1,13 +1,10 @@
 ﻿using Action.Parameters;
 using Characters;
-using GameListener;
-using NueGames.Enums;
-using NueGames.Managers;
-using UnityEngine;
 using Combat;
-using Relic;
+using GameListener;
+using Relic.Data;
 
-namespace NueGames.Relic
+namespace Relic
 {
     /// <summary>
     /// 遺物的基底 class

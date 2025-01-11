@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace NueGames.Utils
+namespace Utils
 {
     public class TriggerOnSceneLoad : MonoBehaviour
     {

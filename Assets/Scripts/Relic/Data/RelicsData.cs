@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Economy;
-using NueGames.Relic;
-using NueGames.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace  NueGames.Data.Containers
+namespace  Relic.Data
 {
     /// <summary>
     /// 所有遺物的資料

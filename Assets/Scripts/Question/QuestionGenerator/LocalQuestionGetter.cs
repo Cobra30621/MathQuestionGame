@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using Map;
+using Question.Data;
 using UnityEngine;
-using Random = System.Random;
 
-namespace Question
+namespace Question.QuestionGenerator
 {
     /// <summary>
     /// 讀取本地端的數學題目(Demo 版用)
@@ -17,9 +16,9 @@ namespace Question
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public override List<Question> GetQuestions(QuestionSetting request)
+        public override List<Data.Question> GetQuestions(QuestionSetting request)
         {
-            var questions = new List<Question>();
+            var questions = new List<Data.Question>();
             foreach (var publisher in request.Publishers)
             {
                 foreach (var grade in request.Grades)

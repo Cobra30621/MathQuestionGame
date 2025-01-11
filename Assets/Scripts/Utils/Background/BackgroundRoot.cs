@@ -1,7 +1,6 @@
-﻿using NueGames.Enums;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace NueGames.Utils.Background
+namespace Utils.Background
 {
     public class BackgroundRoot : MonoBehaviour
     {

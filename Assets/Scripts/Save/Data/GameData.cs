@@ -1,14 +1,10 @@
 using System.Collections.Generic;
-using Card;
 using Characters.Ally;
-using Data;
 using Encounter;
-using NueGames.Data.Collection;
-using NueGames.Relic;
-using Question;
-using Stage;
+using Question.Data;
+using Relic.Data;
 
-namespace Data
+namespace Save.Data
 {
     public class GameData
     {

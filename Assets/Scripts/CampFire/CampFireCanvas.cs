@@ -1,9 +1,9 @@
 using System;
 using Encounter;
-using NueGames.UI;
-using NueGames.Utils;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 namespace CampFire
 {

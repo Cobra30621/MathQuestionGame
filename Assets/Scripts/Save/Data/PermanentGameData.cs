@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using Card;
 using Card.Data;
-using NueGames.Relic;
 using Relic;
+using Relic.Data;
 
-namespace Data
+namespace Save.Data
 {
     public class PermanentGameData
     {

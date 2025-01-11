@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using NSubstitute.Core;
-using NueGames.Data.Collection;
 using Sirenix.OdinInspector;
+using Tool;
 using UnityEngine;
 
 namespace Card.Data

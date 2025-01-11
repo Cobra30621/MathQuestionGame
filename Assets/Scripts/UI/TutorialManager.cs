@@ -1,67 +1,70 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TutorialManager : MonoBehaviour
+namespace UI
 {
-    public GameObject tutorialPanel;
-    public Image tutorialImage;
-    public Button nextButton;
-    public Button prevButton; // 新增的上一張按鈕
-    public Button closeButton;
-
-    public Sprite[] tutorialImages;
-    private int currentIndex = 0;
-
-    private void Start()
+    public class TutorialManager : MonoBehaviour
     {
-        nextButton.onClick.AddListener(ShowNextImage);
-        prevButton.onClick.AddListener(ShowPrevImage); // 新增的上一張按鈕的點擊事件
-        closeButton.onClick.AddListener(CloseTutorial);
-        tutorialPanel.SetActive(false);
-    }
+        public GameObject tutorialPanel;
+        public Image tutorialImage;
+        public Button nextButton;
+        public Button prevButton; // 新增的上一張按鈕
+        public Button closeButton;
 
-    public void ShowTutorial()
-    {
-        tutorialPanel.SetActive(true);
-        ShowImageAtIndex(currentIndex);
-    }
+        public Sprite[] tutorialImages;
+        private int currentIndex = 0;
 
-    private void ShowImageAtIndex(int index)
-    {
-        if (index >= 0 && index < tutorialImages.Length)
+        private void Start()
         {
-            tutorialImage.sprite = tutorialImages[index];
+            nextButton.onClick.AddListener(ShowNextImage);
+            prevButton.onClick.AddListener(ShowPrevImage); // 新增的上一張按鈕的點擊事件
+            closeButton.onClick.AddListener(CloseTutorial);
+            tutorialPanel.SetActive(false);
         }
-    }
 
-    private void ShowNextImage()
-    {
-        currentIndex++;
-        if (currentIndex < tutorialImages.Length)
+        public void ShowTutorial()
         {
+            tutorialPanel.SetActive(true);
             ShowImageAtIndex(currentIndex);
         }
-        else
-        {
-            CloseTutorial();
-        }
-    }
 
-    private void ShowPrevImage()
-    {
-        currentIndex--;
-        if (currentIndex >= 0)
+        private void ShowImageAtIndex(int index)
         {
-            ShowImageAtIndex(currentIndex);
+            if (index >= 0 && index < tutorialImages.Length)
+            {
+                tutorialImage.sprite = tutorialImages[index];
+            }
         }
-        else
-        {
-            currentIndex = 0;
-        }
-    }
 
-    private void CloseTutorial()
-    {
-        tutorialPanel.SetActive(false);
+        private void ShowNextImage()
+        {
+            currentIndex++;
+            if (currentIndex < tutorialImages.Length)
+            {
+                ShowImageAtIndex(currentIndex);
+            }
+            else
+            {
+                CloseTutorial();
+            }
+        }
+
+        private void ShowPrevImage()
+        {
+            currentIndex--;
+            if (currentIndex >= 0)
+            {
+                ShowImageAtIndex(currentIndex);
+            }
+            else
+            {
+                currentIndex = 0;
+            }
+        }
+
+        private void CloseTutorial()
+        {
+            tutorialPanel.SetActive(false);
+        }
     }
 }

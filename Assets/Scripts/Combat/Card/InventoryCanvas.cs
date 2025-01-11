@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Card;
 using Card.Data;
-using NueGames.UI;
 using Sirenix.OdinInspector;
 using TMPro;
+using UI;
 using UnityEngine;
 
 namespace Combat.Card

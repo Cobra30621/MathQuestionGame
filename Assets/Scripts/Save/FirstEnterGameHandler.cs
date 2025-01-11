@@ -1,14 +1,11 @@
-using System;
 using Card;
 using Economy;
 using Managers;
 using NueGames.Data.Settings;
-using Relic;
-using Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace NueGames.Managers
+namespace Save
 {
     public class FirstEnterGameHandler : MonoBehaviour
     {

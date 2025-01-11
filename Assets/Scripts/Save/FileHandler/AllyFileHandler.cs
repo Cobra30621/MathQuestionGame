@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using Card.Data;
-using NueGames.Data.Collection;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace DataPersistence
+namespace Save.FileHandler
 {
     // TODO 要改成 GameObject 形式
     public class AllyFileHandler : SerializedMonoBehaviour

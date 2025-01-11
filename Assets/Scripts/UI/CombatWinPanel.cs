@@ -1,8 +1,8 @@
-﻿using NueGames.Utils;
-using Save;
+﻿using Save;
 using UnityEngine;
+using Utils;
 
-namespace NueGames.UI
+namespace UI
 {
     public class CombatWinPanel : MonoBehaviour
     {

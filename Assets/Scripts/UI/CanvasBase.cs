@@ -1,11 +1,7 @@
-﻿using Combat;
-using Managers;
-using NueGames.Managers;
+﻿using Managers;
 using UnityEngine;
-using Sirenix.OdinInspector;
-using UnityEngine.SceneManagement;
 
-namespace NueGames.UI
+namespace UI
 {
     public class CanvasBase : MonoBehaviour
     {

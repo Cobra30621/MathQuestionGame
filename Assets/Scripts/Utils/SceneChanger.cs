@@ -1,12 +1,9 @@
-using System;
 using System.Collections;
 using Managers;
-using NueGames.Managers;
-using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
+using UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace NueGames.Utils
+namespace Utils
 {
     
     public class SceneChanger : MonoBehaviour

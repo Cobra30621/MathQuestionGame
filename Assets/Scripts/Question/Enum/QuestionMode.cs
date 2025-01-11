@@ -1,4 +1,4 @@
-namespace Question
+namespace Question.Enum
 {
     public enum QuestionMode
     {

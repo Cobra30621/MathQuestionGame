@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace NueGames.UI
+namespace UI
 {
     public class MainCameraSetter : MonoBehaviour
     {

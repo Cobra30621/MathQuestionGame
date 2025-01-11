@@ -1,13 +1,12 @@
 ﻿using Managers;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
-using NueGames.Relic;
 using NueTooltip.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace NueGames.UI
+namespace Relic
 {
     public class RelicIconsBase : MonoBehaviour,  ITooltipTargetBase, IPointerEnterHandler,IPointerExitHandler
     {

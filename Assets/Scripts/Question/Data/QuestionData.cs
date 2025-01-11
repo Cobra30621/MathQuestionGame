@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using Question.Enum;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Question
+namespace Question.Data
 {
     [CreateAssetMenu(fileName = "QuestionData",menuName = "Question/QuestionData")]
     public class QuestionData : SerializedScriptableObject

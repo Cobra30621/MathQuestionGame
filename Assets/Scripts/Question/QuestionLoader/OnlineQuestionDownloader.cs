@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Question.Enum;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -10,7 +11,7 @@ namespace Question.QuestionLoader
 {
     public class OnlineQuestionDownloader : MonoBehaviour
     {
-        public List<Question> questions;
+        public List<Data.Question> questions;
     
         public int generateCountForEachChapter;
         public int hard;
@@ -39,7 +40,7 @@ namespace Question.QuestionLoader
         /// <returns></returns>
         private IEnumerator GetQuestionCoroutine(Publisher publisher, Grade grade)
         {
-            var tempQuestions = new List<Question>();
+            var tempQuestions = new List<Data.Question>();
         
             for (int chapter = 1; chapter < maxChapter + 1; chapter++)
             {
@@ -57,7 +58,7 @@ namespace Question.QuestionLoader
                     for (int i = 0; i < generateCountForEachChapter; i++)
                     {
                         Problem problem = data.problem[i];
-                        var question = new global::Question.Question()
+                        var question = new global::Question.Data.Question()
                         {
                             Answer = int.Parse(problem.answer),
                             Publisher = publisher,
@@ -103,7 +104,7 @@ namespace Question.QuestionLoader
         /// </summary>
         /// <param name="problemLink"></param>
         /// <returns></returns>
-        private IEnumerator DownloadImage(Question question, string problemLink, bool isQuestionImage)
+        private IEnumerator DownloadImage(Data.Question question, string problemLink, bool isQuestionImage)
         {
             string imageUrl = $"{get_image_api_url}{problemLink}";
 

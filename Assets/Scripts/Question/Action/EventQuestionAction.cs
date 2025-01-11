@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using Managers;
 using Map;
 using Reward;
+using Reward.Data;
+using UI;
 
-namespace Question.QuestionAction
+namespace Question.Action
 {
     public class EventQuestionAction : QuestionActionBase
     {

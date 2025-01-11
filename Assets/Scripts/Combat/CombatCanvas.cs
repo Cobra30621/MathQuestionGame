@@ -1,7 +1,7 @@
 ﻿using Combat.Card;
 using Feedback;
-using NueGames.UI;
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 

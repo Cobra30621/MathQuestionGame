@@ -1,6 +1,6 @@
 using Sirenix.OdinInspector;
 
-namespace Reward
+namespace Reward.Data
 {
     /// <summary>
     /// 道具獲取方式

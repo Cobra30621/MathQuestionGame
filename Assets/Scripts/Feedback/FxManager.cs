@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Managers;
-using NueGames.Utils;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Utils;
 using Random = UnityEngine.Random;
 
 namespace Feedback

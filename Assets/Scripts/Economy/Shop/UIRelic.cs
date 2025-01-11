@@ -1,4 +1,5 @@
 using Relic;
+using Relic.Data;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;

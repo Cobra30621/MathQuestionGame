@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Managers;
-using NueGames.Managers;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;

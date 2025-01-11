@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-using Sirenix.OdinInspector;
-using UnityEngine;
-
-namespace NueGames.Utils
+namespace Utils
 {
     public enum SceneType
     {

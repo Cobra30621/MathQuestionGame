@@ -4,13 +4,13 @@ using Card.Data;
 using Economy;
 using Encounter;
 using Map;
-using NueGames.Relic;
-using Relic;
-using Reward;
+using Relic.Data;
+using Reward.Data;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
 
-namespace NueGames.UI.Reward
+namespace Reward.UI
 {
     public class RewardCanvas : CanvasBase
     {
