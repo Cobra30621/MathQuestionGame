@@ -1,4 +1,5 @@
-﻿using Save;
+﻿using Managers;
+using Save;
 using UnityEngine;
 using Utils;
 
@@ -10,7 +11,7 @@ namespace UI
         public void BackToMenu()
         {
             SaveManager.Instance.ClearSingleGameData();
-            sceneChanger.OpenMainMenuScene();
+            GameManager.Instance.ExitSingleGame();
         }
     }
 }

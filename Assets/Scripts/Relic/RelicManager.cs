@@ -62,6 +62,16 @@ namespace Relic
             OnRelicUpdated.Invoke(CurrentRelicDict);
         }
 
+        public void RemoveAllRelic()
+        {
+            foreach (var relic in CurrentRelicDict.Values)
+            {
+                relic.OnRelicRemove();
+            }
+        }
+        
+
+
         /// <summary>
         /// Retrieves a list of relics to display in the shop.
         /// </summary>

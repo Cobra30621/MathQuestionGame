@@ -27,6 +27,7 @@ using Stage;
 using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utils;
 
 namespace Managers
 {
@@ -49,6 +50,9 @@ namespace Managers
         [Required]
         [SerializeField] private StageSelectedHandler _stageSelectedHandler;
 
+        [Required]
+        [SerializeField] private SceneChanger _sceneChanger;
+        
         #region Manager
         
         [Title("管理器")] 
@@ -169,7 +173,15 @@ namespace Managers
         public void ContinueGame()
         {
             SaveManager.Instance.LoadSingleGame();
-            
+        }
+
+        /// <summary>
+        /// 離開單局遊戲
+        /// </summary>
+        public void ExitSingleGame()
+        {
+            RelicManager.RemoveAllRelic();
+            _sceneChanger.OpenMainMenuScene();
         }
 
         #endregion

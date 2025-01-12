@@ -929,6 +929,7 @@ Transform:
   - {fileID: 7881602840618744711}
   - {fileID: 4880969260309727988}
   - {fileID: 2604460834498817262}
+  - {fileID: 9088931352275684376}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -958,6 +959,7 @@ MonoBehaviour:
   allyDataFileHandler: {fileID: 5885686703067263783}
   gameplayDataFileHandler: {fileID: 1532746533581411832}
   _stageSelectedHandler: {fileID: 927399313501667963}
+  _sceneChanger: {fileID: 8930184571375004834}
   RelicManager: {fileID: 733801562864062279}
   AudioManager: {fileID: 5840827451648210010}
   FxManager: {fileID: 6448810225252440185}
@@ -1690,6 +1692,50 @@ Transform:
   m_Father: {fileID: 3747954644409722057}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8429475598645266892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9088931352275684376}
+  - component: {fileID: 8930184571375004834}
+  m_Layer: 0
+  m_Name: Scene Changer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9088931352275684376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8429475598645266892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3747954644409722057}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8930184571375004834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8429475598645266892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7e3f294a7c2c44eb6cffeb9f94b306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8676715140715392714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,7 +2274,7 @@ PrefabInstance:
       objectReference: {fileID: 4837968966122091227, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
     - target: {fileID: 5809459676723386309, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
       propertyPath: m_Size
-      value: 0.99999905
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5809459676723386309, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
       propertyPath: m_Value

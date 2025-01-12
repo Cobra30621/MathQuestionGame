@@ -228,7 +228,6 @@ MonoBehaviour:
   headerText: "\u91D1\u5E63"
   contentText: "\u9019\u662F\u4F60\u8EAB\u4E0A\u7684\u5BF6\u77F3\uFF0C\u53EF\u4EE5\u7528\u4F86\u5728\u6578\u5B78\u57CE\u4EA4\u6613"
   tooltipStaticTargetTransform: {fileID: 0}
-  cursorType: 0
   delayShowDuration: 0
 --- !u!1 &523339259687851527
 GameObject:
@@ -861,7 +860,6 @@ MonoBehaviour:
   headerText: "\u751F\u547D\u503C"
   contentText: "\u5982\u679C\u4F60\u7684\u751F\u547D\u8017\u76E1\u5C31\u6703\u6B7B\u4EA1"
   tooltipStaticTargetTransform: {fileID: 0}
-  cursorType: 0
   delayShowDuration: 0
 --- !u!1 &2401447454867246692
 GameObject:
@@ -1673,7 +1671,7 @@ GameObject:
   - component: {fileID: 2571379641450984021}
   - component: {fileID: 1166930396768132463}
   - component: {fileID: 420347503122436816}
-  - component: {fileID: 2340710150756601082}
+  - component: {fileID: 3369712553899208071}
   m_Layer: 0
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -1783,9 +1781,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2340710150756601082}
-        m_TargetAssemblyTypeName: NueDeck.Scripts.Utils.SceneChanger, Assembly-CSharp
-        m_MethodName: OpenMainMenuScene
+      - m_Target: {fileID: 3369712553899208071}
+        m_TargetAssemblyTypeName: Utils.ExitSingleGame, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1807,8 +1805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb50ee18843aca43923ca3c8ff18d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundProfileData: {fileID: 11400000, guid: 2d30565e54caf3e40a21dfdac091b79e, type: 2}
---- !u!114 &2340710150756601082
+--- !u!114 &3369712553899208071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1817,7 +1814,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7118759185883451988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a7e3f294a7c2c44eb6cffeb9f94b306, type: 3}
+  m_Script: {fileID: 11500000, guid: f32b127a306848c9b8093dc6aaabca78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7710481754293286358
@@ -2132,7 +2129,6 @@ MonoBehaviour:
   headerText: "\u91D1\u5E63"
   contentText: "\u9019\u662F\u4F60\u8EAB\u4E0A\u7684\u91D1\u5E63\uFF0C\u53EF\u4EE5\u7528\u4F86\u5728\u6578\u5B78\u57CE\u4EA4\u6613"
   tooltipStaticTargetTransform: {fileID: 0}
-  cursorType: 0
   delayShowDuration: 0
 --- !u!1001 &6613878458558616328
 PrefabInstance:
