@@ -86,7 +86,7 @@ namespace Relic
         }
 
 
-        private RelicInfo GetRelicInfo(RelicName targetRelic)
+        public RelicInfo GetRelicInfo(RelicName targetRelic)
         {
             RelicData data = relicsData.GetRelicData(targetRelic);
        
