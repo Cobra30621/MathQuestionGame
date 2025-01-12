@@ -451,7 +451,6 @@ GameObject:
   - component: {fileID: 2628513741561311577}
   - component: {fileID: 1511226089177350226}
   - component: {fileID: 6364697671324230979}
-  - component: {fileID: 8120075472979882322}
   - component: {fileID: 5592792689660208292}
   m_Layer: 5
   m_Name: Math Action Bar
@@ -520,20 +519,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8120075472979882322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2714524194091703255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8aa80276ae08f4a9cbac181d472701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  progressText: {fileID: 5102635259088161198}
-  progressBarForeground: {fileID: 938983814900287582}
 --- !u!114 &5592792689660208292
 MonoBehaviour:
   m_ObjectHideFlags: 0

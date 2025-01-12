@@ -13,7 +13,7 @@ namespace Economy.Shop
         void ShowUpgradeUI(RelicUpgradeCommodity commodity);
     }
 
-    public class RelicShopUI : SerializedMonoBehaviour, IRelicShopUI
+    public class RelicShopUI : MonoBehaviour, IRelicShopUI
     {
         [SerializeField] private ShopRelic prefab;
         

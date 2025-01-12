@@ -15,7 +15,7 @@ namespace Economy.Shop
         void ShowUpgradeUI(CardUpgradeCommodity commodity);
     }
 
-    public class CardShopUI : SerializedMonoBehaviour, ICardShopUI
+    public class CardShopUI : MonoBehaviour, ICardShopUI
     {
         [SerializeField] private ShopCard prefab;
         
