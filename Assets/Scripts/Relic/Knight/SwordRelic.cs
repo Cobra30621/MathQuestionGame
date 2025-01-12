@@ -27,7 +27,7 @@ namespace Relic.Knight
 
         protected override void OnBattleStart()
         {
-            EffectExecutor.AddAction(new ApplyPowerEffect(
+            EffectExecutor.AddEffect(new ApplyPowerEffect(
                 3, PowerName.Strength, new List<CharacterBase>(){MainAlly}, GetActionSource()));
 
         }

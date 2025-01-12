@@ -4,12 +4,15 @@ using Power;
 
 namespace Effect.Parameters
 {
+    /// <summary>
+    /// 傷害設定參數
+    /// </summary>
     public class DamageInfo
     {
         /// <summary>
         /// 傷害來源
         /// </summary>
-        public ActionSource ActionSource { get; private set; }
+        public EffectSource EffectSource { get; private set; }
         /// <summary>
         /// 傷害對象
         /// </summary>
@@ -28,9 +31,9 @@ namespace Effect.Parameters
         public bool CanPierceArmor { get; private set; }
 
         
-        public DamageInfo(float damageValue, ActionSource actionSource, bool fixDamage = false, bool canPierceArmor = false)
+        public DamageInfo(float damageValue, EffectSource effectSource, bool fixDamage = false, bool canPierceArmor = false)
         {
-            ActionSource = actionSource;
+            EffectSource = effectSource;
             DamageValue = damageValue;
             FixDamage = fixDamage;
             CanPierceArmor = canPierceArmor;

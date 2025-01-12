@@ -26,7 +26,7 @@ namespace Combat
                 return  Mathf.RoundToInt(info.DamageValue);
             }
             
-            return GetDamageValue(info.DamageValue, info.ActionSource.SourceCharacter, info.Target);
+            return GetDamageValue(info.DamageValue, info.EffectSource.SourceCharacter, info.Target);
         }
         
         

@@ -1,5 +1,10 @@
+using UnityEngine;
+
 namespace Effect.Common
 {
+    /// <summary>
+    /// 當找不到效果時，給予的空效果
+    /// </summary>
     public class NullEffect : EffectBase
     {
 
@@ -7,10 +12,9 @@ namespace Effect.Common
         {
             
         }
-        
-        protected override void DoMainAction()
+
+        public override void Play()
         {
-            
         }
     }
 }

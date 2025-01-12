@@ -28,7 +28,7 @@ namespace Relic.Test
         protected override void OnAnswerCorrect()
         {
             CharacterBase ally = CombatManager.Instance.MainAlly;
-            EffectExecutor.AddAction(new ApplyPowerEffect(
+            EffectExecutor.AddEffect(new ApplyPowerEffect(
                 1, PowerName.Strength, new List<CharacterBase>(){ally}, GetActionSource()));
         }
         

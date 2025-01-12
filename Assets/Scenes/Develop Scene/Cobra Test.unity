@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -943,14 +943,14 @@ PrefabInstance:
     - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: allyData
       value: 
-      objectReference: {fileID: 11400000, guid: 935d84b158bea480bbb879f9362ff4a4, type: 2}
+      objectReference: {fileID: 11400000, guid: daf496c4fedcc43c68844c97eecb36b6, type: 2}
     - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: EnemyEncounter
       value: 
       objectReference: {fileID: 11400000, guid: a98bdd8349c66492e84573047c60899a, type: 2}
     - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: enemyEncounter.id
-      value: 761e3d04-cd92-4c37-97c2-d04841d15f7b
+      value: c34194b5-6fcb-4685-a70c-6e6871393b39
       objectReference: {fileID: 0}
     - target: {fileID: 607283629099232315, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: allyPowerAtGameStart.Array.size

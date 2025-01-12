@@ -6,45 +6,37 @@ using Power;
 namespace Effect.Power
 {
     /// <summary>
-    /// 賦予能力
+    /// 清除能力
     /// </summary>
-    public class ApplyPowerEffect : EffectBase
+    public class ClearPowerEffect : EffectBase
     {
-        /// <summary>
-        /// 狀態層數
-        /// </summary>
-        private int _applyValue;
-        /// <summary>
-        /// 給予狀態
-        /// </summary>
-        private PowerName _targetPower;
+        private readonly PowerName _targetPower;
 
+        
         /// <summary>
-        /// 內部系統用
+        /// 內部系統使用
         /// </summary>
-        /// <param name="applyValue"></param>
         /// <param name="powerName"></param>
         /// <param name="targetList"></param>
         /// <param name="effectSource"></param>
-        public ApplyPowerEffect(int applyValue, PowerName powerName, 
+        public ClearPowerEffect(PowerName powerName, 
             List<CharacterBase> targetList, EffectSource effectSource)
         {
-            _applyValue = applyValue;
             _targetPower = powerName;
             TargetList = targetList;
             EffectSource = effectSource;
         }
-
+        
         /// <summary>
         /// 讀表用的建構值
         /// </summary>
         /// <param name="skillInfo"></param>
-        public ApplyPowerEffect(SkillInfo skillInfo)
+        public ClearPowerEffect(SkillInfo skillInfo)
         {
-            _applyValue = skillInfo.EffectParameterList[1];
             _targetPower =  PowerHelper.GetPowerName(skillInfo.EffectParameterList[0]);
         }
-
+        
+        
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
@@ -52,9 +44,8 @@ namespace Effect.Power
         {
             foreach (var target in TargetList)
             {
-                target.ApplyPower(_targetPower, _applyValue);
+                target.ClearPower(_targetPower);
             }
-            
         }
     }
 }

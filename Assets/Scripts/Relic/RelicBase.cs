@@ -69,9 +69,9 @@ namespace Relic
         {
             return info.CharacterType == CharacterType.Ally;
         }
-        protected ActionSource GetActionSource()
+        protected EffectSource GetActionSource()
         {
-            return new ActionSource()
+            return new EffectSource()
             {
                 SourceType = SourceType.Relic,
                 SourceRelic = RelicName

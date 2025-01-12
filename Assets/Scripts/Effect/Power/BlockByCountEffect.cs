@@ -3,7 +3,9 @@ using UnityEngine;
 
 namespace Effect.Power
 {
-    
+    /// <summary>
+    /// 根據[1]對目標造成[2]點護盾
+    /// </summary>
     public class BlockByCountEffect : EffectBase
     {
         private int count;
@@ -15,7 +17,8 @@ namespace Effect.Power
             type = skillInfo.EffectParameterList[0];
             baseBlock = skillInfo.EffectParameterList[1];
         }
-        protected override void DoMainAction()
+
+        public override void Play()
         {
             switch(type)
             {
@@ -29,7 +32,6 @@ namespace Effect.Power
                     Debug.LogError("Invalid type");
                     break;
             }
-            Debug.Log("count: " + count);
             block = count * baseBlock;
             foreach (var target in TargetList)
             {

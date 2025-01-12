@@ -88,7 +88,7 @@ namespace Combat.Card
 
         private List<EffectBase> GetGameActions(List<CharacterBase> specifiedTargets)
         {
-            ActionSource actionSource = new ActionSource()
+            EffectSource effectSource = new EffectSource()
             {
                 SourceType = SourceType.Card,
                 SourceBattleCard = this,
@@ -104,7 +104,7 @@ namespace Combat.Card
             }
 
             var gameActions = EffectFactory.GetEffects(CardLevelInfo.EffectInfos,
-                specifiedTargets, actionSource);
+                specifiedTargets, effectSource);
 
             return gameActions;
         }

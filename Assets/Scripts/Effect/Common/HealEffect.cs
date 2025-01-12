@@ -7,25 +7,25 @@ namespace Effect.Common
     /// <summary>
     /// 回血
     /// </summary>
-    public class HealAction : EffectBase
+    public class HealEffect : EffectBase
     {
         /// <summary>
         /// 回復血量
         /// </summary>
         private int _healValue;
         
-        public HealAction(int healValue, List<CharacterBase> targetList, ActionSource actionSource)
+        public HealEffect(int healValue, List<CharacterBase> targetList, EffectSource effectSource)
         {
             _healValue = healValue;
             TargetList = targetList;
-            ActionSource = actionSource;
+            EffectSource = effectSource;
         }
 
         /// <summary>
-        /// 讀表用
+        /// 讀表用的建構值
         /// </summary>
         /// <param name="skillInfo"></param>
-        public HealAction(SkillInfo skillInfo)
+        public HealEffect(SkillInfo skillInfo)
         {
             _healValue = skillInfo.EffectParameterList[0];
         }
@@ -33,7 +33,7 @@ namespace Effect.Common
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
-        protected override void DoMainAction()
+        public override void Play()
         {
             foreach (var target in TargetList)
             {

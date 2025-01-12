@@ -38,7 +38,7 @@ namespace Effect.Sequence
         {
             foreach (var action in _actions)
             {
-                action.DoAction();
+                action.Play();
             }
             
             playingFXs = new List<FXPlayer>();

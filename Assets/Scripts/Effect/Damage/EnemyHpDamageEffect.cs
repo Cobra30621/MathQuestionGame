@@ -1,6 +1,10 @@
+using Effect.Parameters;
+
 namespace Effect.Damage
 {
-    
+    /// <summary>
+    /// 造成怪物生命總合的傷害[1]次
+    /// </summary>
     public class EnemyHpDamageEffect: EffectBase
     {
         private int _times;
@@ -17,13 +21,14 @@ namespace Effect.Damage
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
-        protected override void DoMainAction()
+        public override void Play()
         {
             var totalHealth = CombatManager.GetEnemyTotalHealth();
-            
-            var damageAction = new MultiDamageEffect(
-                totalHealth, _times, TargetList, ActionSource);
-            damageAction.DoAction();
+
+            var damageInfo = new DamageInfo(totalHealth, EffectSource);
+            var damageEffect = new DamageEffect(
+                damageInfo,  TargetList, times:_times);
+            damageEffect.Play();
         }
 
         public override (int, int) GetDamageBasicInfo()

@@ -15,16 +15,60 @@ namespace Effect
     public abstract class EffectBase
     {
         #region Parameters
+
         /// <summary>
-        /// 行為目標對象
+        /// 效果的目標對象
         /// </summary>
         public List<CharacterBase> TargetList { get; protected set; }
-        
-        /// <summary>
-        /// 行為來源
-        /// </summary>
-        public ActionSource ActionSource  { get; protected set; }
 
+        /// <summary>
+        /// 效果的動作來源
+        /// </summary>
+        public EffectSource EffectSource { get; protected set; }
+
+
+        /// <summary>
+        /// 戰鬥管理器
+        /// </summary>
+        protected CombatManager CombatManager => CombatManager.Instance;
+
+        /// <summary>
+        /// 卡組管理器
+        /// </summary>
+        protected CollectionManager CollectionManager => CollectionManager.Instance;
+
+        #endregion
+
+        /// <summary>
+        /// 設定基礎數值
+        /// </summary>
+        /// <param name="targets"></param>
+        /// <param name="effectSource"></param>
+        public virtual void SetBasicValue(List<CharacterBase> targets, EffectSource effectSource)
+        {
+            TargetList = targets;
+            EffectSource = effectSource;
+        }
+
+
+        /// <summary>
+        /// 執行遊戲的效果
+        /// </summary>
+        public abstract void Play();
+
+
+        /// <summary>
+        /// 生成文字特效(如收到傷害顯示傷害數值)
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="spawmRoot"></param>
+        protected void PlaySpawnTextFx(string info, Transform spawmRoot)
+        {
+            if (spawmRoot == null)
+                return;
+
+            FxManager.Instance.SpawnFloatingText(spawmRoot, info);
+        }
 
         /// <summary>
         /// 取得傷害基礎值，針對傷害類型的效果。
@@ -37,63 +81,6 @@ namespace Effect
         public virtual (int, int) GetDamageBasicInfo()
         {
             return (-1, 1);
-        }
-        
-        /// <summary>
-        /// 戰鬥管理器
-        /// </summary>
-        protected CombatManager CombatManager => CombatManager.Instance;
-
-        /// <summary>
-        /// 卡組管理器
-        /// </summary>
-        protected CollectionManager CollectionManager => CollectionManager.Instance;
-        
-        #endregion
-        
-        
-        #region 設定基礎數值 (For 讀表)
-
-        public void SetBasicValue(List<CharacterBase> targets, ActionSource actionSource)
-        {
-            TargetList = targets;
-            ActionSource = actionSource;
-        }
-        
-        #endregion
-        
-        #region 執行遊戲行為
-
-        /// <summary>
-        /// 執行遊戲行為
-        /// </summary>
-        public void DoAction()
-        {
-            // 執行遊戲主要邏輯
-            DoMainAction(); 
-        }
-        
-        
-        /// <summary>
-        /// 執行遊戲的主要邏輯
-        /// </summary>
-        protected abstract void DoMainAction();
-        
-
-        #endregion
-        
-        
-        /// <summary>
-        /// 生成文字特效(如收到傷害顯示傷害數值)
-        /// </summary>
-        /// <param name="info"></param>
-        /// <param name="spawmRoot"></param>
-        protected void PlaySpawnTextFx(string info, Transform spawmRoot)
-        {
-            if (spawmRoot == null)
-                return;
-           
-            FxManager.Instance.SpawnFloatingText(spawmRoot,info);
         }
     }
 }

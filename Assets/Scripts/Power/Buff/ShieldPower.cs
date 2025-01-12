@@ -32,7 +32,7 @@ namespace Power.Buff
             if (IsCharacterTurn(info))
             {
                 
-                EffectExecutor.AddAction(new ApplyPowerEffect(
+                EffectExecutor.AddEffect(new ApplyPowerEffect(
                     3 * Amount, PowerName.Block, new List<CharacterBase>() {Owner},
                     GetActionSource()));
             }

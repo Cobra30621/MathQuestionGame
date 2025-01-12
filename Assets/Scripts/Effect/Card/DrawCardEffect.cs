@@ -6,24 +6,29 @@ namespace Effect.Card
     /// <summary>
     /// 抽卡
     /// </summary>
-    public class DrawCardAction : EffectBase
+    public class DrawCardEffect : EffectBase
     {
         /// <summary>
         /// 抽卡張數
         /// </summary>
         private int _drawCardCount;
 
-        public DrawCardAction(int drawCardCount, ActionSource source)
+        /// <summary>
+        /// 內部系統使用
+        /// </summary>
+        /// <param name="drawCardCount"></param>
+        /// <param name="source"></param>
+        public DrawCardEffect(int drawCardCount, EffectSource source)
         {
             _drawCardCount = drawCardCount;
-            ActionSource = source;
+            EffectSource = source;
         }
 
         /// <summary>
-        /// 讀表用
+        /// 讀表用的建構值
         /// </summary>
         /// <param name="skillInfo"></param>
-        public DrawCardAction(SkillInfo skillInfo)
+        public DrawCardEffect(SkillInfo skillInfo)
         {
             _drawCardCount = skillInfo.EffectParameterList[0];
         }
@@ -31,7 +36,7 @@ namespace Effect.Card
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
-        protected override void DoMainAction()
+        public override void Play()
         {
             if (CollectionManager != null)
                 CollectionManager.DrawCards(_drawCardCount);

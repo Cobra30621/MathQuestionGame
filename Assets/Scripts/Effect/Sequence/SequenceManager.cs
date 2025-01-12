@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Effect.Sequence
 {
+    /// <summary>
+    /// 遊戲效果的執行序
+    /// </summary>
     public class SequenceManager : SerializedMonoBehaviour
     {
         [ShowInInspector]

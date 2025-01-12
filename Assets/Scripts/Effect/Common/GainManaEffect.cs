@@ -17,10 +17,10 @@ namespace Effect.Common
         /// <param name="powerName"></param>
         /// <param name="targetList"></param>
         /// <param name="actionSource"></param>
-        public GainManaEffect(int manaCount, ActionSource source)
+        public GainManaEffect(int manaCount, EffectSource source)
         {
             _manaCount = manaCount;
-            ActionSource = source;
+            EffectSource = source;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Effect.Common
         /// <summary>
         /// 執行遊戲行為的功能
         /// </summary>
-        protected override void DoMainAction()
+        public override void Play()
         {
             if (CombatManager != null)
                 CombatManager.AddMana(_manaCount);

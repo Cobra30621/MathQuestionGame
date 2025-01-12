@@ -23,7 +23,7 @@ namespace Relic.Knight
 
         protected override void OnBattleWin(int roundNumber)
         {
-            EffectExecutor.AddAction(new HealAction(
+            EffectExecutor.AddEffect(new HealEffect(
                 amount, new List<CharacterBase>() {MainAlly},
                 GetActionSource()));
         }

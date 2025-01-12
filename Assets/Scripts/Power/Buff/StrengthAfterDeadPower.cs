@@ -35,7 +35,7 @@ namespace Power.Buff
             targets.AddRange(allEnemy);
 
             // 對全體敵方單位施加強化
-            EffectExecutor.AddAction(
+            EffectExecutor.AddEffect(
                 new ApplyPowerEffect(1, PowerName.Strength, 
                     targets, GetActionSource()));
         }

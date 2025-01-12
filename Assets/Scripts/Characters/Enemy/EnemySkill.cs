@@ -74,7 +74,7 @@ namespace Characters.Enemy
                     new List<CharacterBase>() { _enemy }, actionSource);
             }
             
-            EffectExecutor.AddAction(_gameActions, 0.5f);
+            EffectExecutor.AddEffect(_gameActions, 0.5f);
         }
 
         
@@ -111,7 +111,7 @@ namespace Characters.Enemy
                 }
                 
                 var damageInfo = new DamageInfo(damage,
-                    new ActionSource()
+                    new EffectSource()
                     {
                         SourceType = SourceType.Enemy,
                         SourceCharacter = _enemy
@@ -138,14 +138,14 @@ namespace Characters.Enemy
             return currentCd <= 0 ;
         }
         
-        private ActionSource GetActionScoure()
+        private EffectSource GetActionScoure()
         {
-            ActionSource actionSource = new ActionSource()
+            EffectSource effectSource = new EffectSource()
             {
                 SourceType = SourceType.Enemy,
                 SourceCharacter = _enemy
             };
-            return actionSource;
+            return effectSource;
         }
     }
 }

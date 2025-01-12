@@ -21,7 +21,7 @@ namespace Power.Buff
         }
         protected override void OnAttacked(DamageInfo info)
         {
-            var source = info.ActionSource.SourceCharacter;
+            var source = info.EffectSource.SourceCharacter;
             var originalDamage = info.DamageValue;
             int stackAmount = Mathf.CeilToInt(originalDamage * 0.5f);
       

@@ -21,7 +21,7 @@ namespace Power.Buff
         
         public override float AtDamageGive(float damage)
         {
-            EffectExecutor.AddAction(
+            EffectExecutor.AddEffect(
                 new ApplyPowerEffect(-1, PowerName, 
                     new List<CharacterBase>(){Owner}, GetActionSource()));
             return damage*2;

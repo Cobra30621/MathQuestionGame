@@ -8,7 +8,7 @@ namespace Effect.Parameters
     /// <summary>
     /// 行為來源參數
     /// </summary>
-    public class ActionSource
+    public class EffectSource
     {
         /// <summary>
         /// 行為來源

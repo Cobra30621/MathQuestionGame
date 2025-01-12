@@ -35,14 +35,14 @@ namespace Power.Buff
         // 怪物攻擊時，造成傷害後反彈傷害
         protected override void OnAttacked(DamageInfo info)
         {
-            var source = info.ActionSource.SourceCharacter;
+            var source = info.EffectSource.SourceCharacter;
             // 怪物攻擊時，造成傷害後反彈傷害
             Debug.Log(source);
             if (source != null)
             {
                 // 造成與層數相等的傷害
                 var damageInfo = new DamageInfo(Amount, GetActionSource(), fixDamage: true);
-                EffectExecutor.ExecuteImmediately(new DamageEffect(damageInfo, new List<CharacterBase>() {info.ActionSource.SourceCharacter}));
+                EffectExecutor.ExecuteImmediately(new DamageEffect(damageInfo, new List<CharacterBase>() {info.EffectSource.SourceCharacter}));
          
                 // 反彈後減層數 1 
                 EffectExecutor.ExecuteImmediately(

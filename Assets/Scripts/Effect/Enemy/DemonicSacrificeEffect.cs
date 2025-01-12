@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Effect.Enemy
 {
+    /// <summary>
+    /// 惡魔獻祭: 自殺後將血量給  [1] 怪物 id ，並給她[2]狀態[3]層
+    /// </summary>
     public class DemonicSacrificeEffect : EffectBase
     {
         private string targetEnemyId;
@@ -23,11 +26,11 @@ namespace Effect.Enemy
             _applyValue = skillInfo.EffectParameterList[2];
             _targetPower =  PowerHelper.GetPowerName(skillInfo.EffectParameterList[1]);
         }
-        
-        
-        protected override void DoMainAction()
+
+
+        public override void Play()
         {
-            global::Characters.Enemy.Enemy targetEnemy;
+            Characters.Enemy.Enemy targetEnemy;
             var find = CombatManager.characterHandler.GetEnemyWithId(targetEnemyId, out targetEnemy);
             Debug.Log($"Find {targetEnemy}");
             if (find)

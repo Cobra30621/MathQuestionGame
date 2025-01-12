@@ -7,16 +7,16 @@ namespace Effect.Enemy
     /// <summary>
     /// 直接設定敵人死亡
     /// </summary>
-    public class SetDeathAction : EffectBase
+    public class SetDeathEffect : EffectBase
     {
 
-        public SetDeathAction(List<CharacterBase> targets, ActionSource actionSource)
+        public SetDeathEffect(List<CharacterBase> targets, EffectSource effectSource)
         {
             TargetList = targets;
-            ActionSource = actionSource;
+            EffectSource = effectSource;
         }
-        
-        protected override void DoMainAction()
+
+        public override void Play()
         {
             foreach (var target in TargetList)
             {

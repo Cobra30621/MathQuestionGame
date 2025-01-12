@@ -2,7 +2,7 @@ using Power;
 
 namespace Effect.Power
 {
-    public class MultiBlockEffect : EffectBase
+    public class ApplyBlockEffect : EffectBase
     {
         /// <summary>
         /// 護盾值
@@ -14,7 +14,7 @@ namespace Effect.Power
         private int _times;
         
         
-        public MultiBlockEffect(int applyValue, int times)
+        public ApplyBlockEffect(int applyValue, int times)
         {
             _applyValue = applyValue;
             _times = times;
@@ -24,13 +24,13 @@ namespace Effect.Power
         /// 讀表用的建構值
         /// </summary>
         /// <param name="skillInfo"></param>
-        public MultiBlockEffect(SkillInfo skillInfo)
+        public ApplyBlockEffect(SkillInfo skillInfo)
         {
             _applyValue = skillInfo.EffectParameterList[0];
             _times = skillInfo.EffectParameterList[1];
         }
-        
-        protected override void DoMainAction()
+
+        public override void Play()
         {
             for(int i = 0; i < _times; i++)
             {

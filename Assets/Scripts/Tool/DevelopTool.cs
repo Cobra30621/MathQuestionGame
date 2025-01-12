@@ -100,7 +100,7 @@ namespace Tool
             {
                 var ally = CombatManager.Instance.MainAlly;
                 
-                EffectExecutor.AddAction(
+                EffectExecutor.AddEffect(
                     new ApplyPowerEffect(1, powerName, 
                     new List<CharacterBase>(){ally}, null));
             }

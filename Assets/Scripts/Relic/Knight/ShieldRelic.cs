@@ -26,7 +26,7 @@ namespace Relic.Knight
         {
             if (IsCharacterTurn(info))
             {
-                EffectExecutor.AddAction(new ApplyPowerEffect(
+                EffectExecutor.AddEffect(new ApplyPowerEffect(
                     amount, PowerName.Block, new List<CharacterBase>() {MainAlly},
                     GetActionSource()));
             }

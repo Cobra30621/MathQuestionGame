@@ -21,15 +21,15 @@ namespace Power.Buff
         }
         protected override void OnAttacked(DamageInfo info)
         {
-            var source = info.ActionSource.SourceCharacter;
+            var source = info.EffectSource.SourceCharacter;
             Debug.Log(source);
             if (source != null)
             {
-                EffectExecutor.AddAction(
+                EffectExecutor.AddEffect(
                     new ApplyPowerEffect(2, PowerName.Weak, 
-                        new List<CharacterBase>() {info.ActionSource.SourceCharacter}, GetActionSource()));
+                        new List<CharacterBase>() {info.EffectSource.SourceCharacter}, GetActionSource()));
                 // 觸發後減層數 1 
-                EffectExecutor.AddAction(
+                EffectExecutor.AddEffect(
                     new ApplyPowerEffect(-1, PowerName, 
                         new List<CharacterBase>(){Owner}, GetActionSource()));
             }

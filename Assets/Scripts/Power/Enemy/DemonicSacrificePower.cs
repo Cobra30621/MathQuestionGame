@@ -75,17 +75,17 @@ namespace Power.Enemy
                 
                 // 治癒
                 int health = Owner.GetHealth();
-                var healAction = new HealAction(health,
+                var healAction = new HealEffect(health,
                     new List<CharacterBase>() { enhanceEnemy }, GetActionSource());
                 actions.Add(healAction);
                 
                 // 自己死亡
-                var deathAction = new SetDeathAction(
+                var deathAction = new SetDeathEffect(
                     new List<CharacterBase>() { Owner }, GetActionSource());
                 actions.Add(deathAction);
                 
                 
-                EffectExecutor.AddAction(actions, 2f);
+                EffectExecutor.AddEffect(actions, 2f);
                 
             }
             else

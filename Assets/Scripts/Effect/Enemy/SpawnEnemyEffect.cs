@@ -1,7 +1,7 @@
 namespace Effect.Enemy
 {
     /// <summary>
-    /// 此类表示游戏中生成敌人的动作。
+    /// 此类表示游戏中生成敌人的效果
     /// </summary>
     public class SpawnEnemyEffect : EffectBase
     {
@@ -38,7 +38,7 @@ namespace Effect.Enemy
         /// 执行生成敌人的主要动作。
         /// 访问角色处理器以构建指定数量和ID的敌人。
         /// </summary>
-        protected override void DoMainAction()
+        public override void Play()
         {
             var characterHandler = CombatManager.characterHandler;
 

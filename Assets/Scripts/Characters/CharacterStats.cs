@@ -216,7 +216,7 @@ namespace Characters
         public void SetDeath()
         {
             CurrentHealth = 0;
-            CheckIsDeath(new DamageInfo(0, new ActionSource()));
+            CheckIsDeath(new DamageInfo(0, new EffectSource()));
         }
 
         /// <summary>

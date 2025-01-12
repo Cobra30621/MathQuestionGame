@@ -27,7 +27,7 @@ namespace Effect.Enemy
         {
             _spawnEnemyId = $"{skillInfo.EffectParameterList[0]}";
         }
-        
+
         /// <summary>
         /// 构造函数,直接指定敌人ID和生命值
         /// </summary>
@@ -38,11 +38,11 @@ namespace Effect.Enemy
             _spawnEnemyId = spawnEnemyId;
             _sourceEnemy = sourceEnemy;
         }
-        
+
         /// <summary>
         /// 执行主要动作,生成新的敌人并设置其生命值
         /// </summary>
-        protected override void DoMainAction()
+        public override void Play()
         {
             var characterHandler = CombatManager.characterHandler;
 
@@ -52,8 +52,6 @@ namespace Effect.Enemy
                 var health = _sourceEnemy.GetHealth();
                 characterHandler.BuildAndSetEnemyHealth(_spawnEnemyId, health);
             }
-            
-            
         }
     }
 }

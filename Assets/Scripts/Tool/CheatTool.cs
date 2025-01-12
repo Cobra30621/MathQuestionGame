@@ -84,9 +84,9 @@ namespace Tool
             var allEnemy = CombatManager.Instance.Enemies;
             targets.AddRange(allEnemy);
             
-            var damageInfo = new DamageInfo(999, new ActionSource(), fixDamage: true, canPierceArmor:true);
+            var damageInfo = new DamageInfo(999, new EffectSource(), fixDamage: true, canPierceArmor:true);
 
-            EffectExecutor.AddAction(new DamageEffect(damageInfo, targets));
+            EffectExecutor.AddEffect(new DamageEffect(damageInfo, targets));
         }
 
         public void ClearSaveData()

@@ -3,7 +3,9 @@ using UnityEngine;
 
 namespace Effect.Damage
 {
-    
+    /// <summary>
+    /// 根據某種類型的參數，給予傷害
+    /// </summary>
     public class DamageByCountEffect : EffectBase
     {
         private int count;
@@ -15,7 +17,8 @@ namespace Effect.Damage
             type = skillInfo.EffectParameterList[0];
             baseDamage = skillInfo.EffectParameterList[1];
         }
-        protected override void DoMainAction()
+
+        public override void Play()
         {
             switch(type)
             {
@@ -33,9 +36,9 @@ namespace Effect.Damage
             }
             Debug.Log("count: " + count);
             damage = count * baseDamage;
-            var damageInfo = new DamageInfo(damage, ActionSource);
-            var damageAction = new DamageEffect(damageInfo, TargetList);
-            damageAction.DoAction();
+            var damageInfo = new DamageInfo(damage, EffectSource);
+            var damageAction = new DamageEffect(damageInfo,  TargetList);
+            damageAction.Play();
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Relic.Test
             
             if (Counter >= NeedCounter)
             {
-                EffectExecutor.AddAction(new DrawCardAction(
+                EffectExecutor.AddEffect(new DrawCardEffect(
                     drawAmonut, GetActionSource()));
 
                 Counter = 0;

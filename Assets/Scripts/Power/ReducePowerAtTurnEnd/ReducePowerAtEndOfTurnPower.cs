@@ -29,10 +29,10 @@ namespace Power.ReducePowerAtTurnEnd
         protected override void OnRoundEnd(RoundInfo info)
         {
             // 回合結束時，降低使用者的能力
-            EffectExecutor.AddAction(new ApplyPowerEffect(
+            EffectExecutor.AddEffect(new ApplyPowerEffect(
                 -Amount, TargetPowerName, new List<CharacterBase>(){Owner}, GetActionSource()));
             
-            EffectExecutor.AddAction(new ClearPowerAction(
+            EffectExecutor.AddEffect(new ClearPowerEffect(
                 PowerName, new List<CharacterBase>(){Owner}, GetActionSource()));
             
             base.OnRoundEnd(info);
