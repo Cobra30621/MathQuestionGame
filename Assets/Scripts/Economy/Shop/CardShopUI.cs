@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Card;
 using Card.Data;
 using Card.Display;
@@ -102,6 +103,7 @@ namespace Economy.Shop
         public void ShowCardCommodities(AllyClassType classType)
         {
             var cardInfos = CardManager.Instance.GetCardInfos(classType);
+            
             ShowCommodities(cardInfos);
         }
         
@@ -112,9 +114,11 @@ namespace Economy.Shop
         private void ShowCommodities(List<CardInfo> cardInfos)
         {
             DestroyPreviousUI();
-
+            // 依據職業排序
+            var sortedCardInfos = cardInfos.OrderBy(x => x.CardData.AllyClassType).ToList();
+            
             Debug.Log($"prefab {prefab.name}");
-            foreach (var cardInfo in cardInfos)
+            foreach (var cardInfo in sortedCardInfos)
             {
                 var card = Instantiate(prefab, spawnPos);
                 spawnedCardList.Add(card);
