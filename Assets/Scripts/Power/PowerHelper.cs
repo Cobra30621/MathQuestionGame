@@ -1,4 +1,5 @@
 using System;
+using Effect.Parameters;
 
 namespace Power
 {
@@ -15,5 +16,23 @@ namespace Power
 
             return powerName;
         }
+        
+        /// <summary>
+        /// 效果跟能力有關
+        /// </summary>
+        /// <param name="effectName"></param>
+        /// <returns></returns>
+        public static bool IsPowerRelatedEffect(EffectName effectName)
+        {
+            return effectName == EffectName.ApplyPower;
+        }
+
+        public static bool IsBlockRelatedEffect(EffectName effectName)
+        {
+            return effectName == EffectName.ApplyBlock ||
+                effectName == EffectName.BlockByCount;
+        }
+
+        
     }
 }

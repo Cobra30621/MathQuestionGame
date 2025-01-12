@@ -103,7 +103,7 @@ namespace Card
         public bool ExhaustAfterPlay;
         public List<string> skillIDs;
         
-        public List<SkillInfo> EffectInfos;
+        public List<SkillInfo> SkillInfos;
     }
 
 }

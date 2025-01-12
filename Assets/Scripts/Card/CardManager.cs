@@ -93,7 +93,17 @@ namespace Card
 
         public List<SkillInfo> GetSkillInfos(List<string> skillIds)
         {
-            return skillIds.ConvertAll(id => skillData.GetSkillInfo(id));
+            var skillInfos = new List<SkillInfo>();
+            foreach (var skillId in skillIds)
+            {
+                var skillInfo = skillData.GetSkillInfo(skillId);
+                if (skillInfo!= null)
+                {
+                    skillInfos.Add(skillInfo);
+                }
+            }
+            
+            return skillInfos;
         }
         
         public List<CardInfo> GetCardInfos(AllyClassType classType)

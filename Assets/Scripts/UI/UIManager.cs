@@ -147,13 +147,13 @@ namespace UI
         
         private void LockUIControl()
         {
-            Debug.Log("lock");
+            Debug.Log("lock UI Control");
             lockControlMask.SetActive(true);
         }
         
         private void UnlockUIControl()
         {
-            Debug.Log("unlock");
+            Debug.Log("unlock UI Control");
             lockControlMask.SetActive(false);
         }   
         

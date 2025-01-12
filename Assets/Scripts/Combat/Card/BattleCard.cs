@@ -80,13 +80,13 @@ namespace Combat.Card
 
         public void DoAction(List<CharacterBase> specifiedTargets)
         {
-            var gameActions = GetGameActions(specifiedTargets);
+            var effects = GetEffects(specifiedTargets);
 
-            var targetList = gameActions.Count > 0 ? gameActions[0].TargetList : new List<CharacterBase>();
-            EffectExecutor.AddActionWithFX(new FXSequence(gameActions, CardData.FxInfo, targetList));
+            var targetList = effects.Count > 0 ? effects[0].TargetList : new List<CharacterBase>();
+            EffectExecutor.AddActionWithFX(new FXSequence(effects, CardData.FxInfo, targetList));
         }
 
-        private List<EffectBase> GetGameActions(List<CharacterBase> specifiedTargets)
+        private List<EffectBase> GetEffects(List<CharacterBase> specifiedTargets)
         {
             EffectSource effectSource = new EffectSource()
             {
@@ -94,16 +94,9 @@ namespace Combat.Card
                 SourceBattleCard = this,
                 SourceCharacter = CombatManager.MainAlly
             };
-
-            if (_cardInfo.CardData.IsDevelopCard)
-            {
-            }
-            else
-            {
-                CardLevelInfo.EffectInfos = CardManager.Instance.GetSkillInfos(CardLevelInfo.skillIDs);
-            }
-
-            var gameActions = EffectFactory.GetEffects(CardLevelInfo.EffectInfos,
+            
+            
+            var gameActions = EffectFactory.GetEffects(CardLevelInfo.SkillInfos,
                 specifiedTargets, effectSource);
 
             return gameActions;

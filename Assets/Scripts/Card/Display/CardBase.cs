@@ -47,6 +47,7 @@ namespace Card.Display
             
             _cardInfo = cardInfo;
             
+            UpdateCardLevelInfo();
             UpdateCardDisplay();
             
             CardManager.Instance.CardInfoUpdated.AddListener(OnCardInfoUpdated);
@@ -61,6 +62,7 @@ namespace Card.Display
             {
                 _cardInfo = cardInfo;
             
+                UpdateCardLevelInfo();
                 UpdateCardDisplay();
             }
         }
@@ -70,10 +72,19 @@ namespace Card.Display
             _cardDisplay.SetCard(_cardInfo);
         }
 
+        protected void UpdateCardLevelInfo()
+        {
+            if (!_cardInfo.CardData.IsDevelopCard)
+            {
+                CardLevelInfo.SkillInfos = CardManager.Instance.GetSkillInfos(CardLevelInfo.skillIDs);
+            }
+        }
+
         
         #region Pointer Events
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
+            Debug.Log("OnPointerEnter");
             ShowTooltipInfo();
         }
 
@@ -102,23 +113,23 @@ namespace Card.Display
         }
         
         
-        protected virtual void ShowTooltipInfo()
+        protected void ShowTooltipInfo()
         {
-            // if(!NeedShowTooltip()) return;
-            // if (!descriptionRoot) return;
-            // if (CardData.KeywordsList == null) return;
-           
+            Debug.Log("Show Tooltip");
             var tooltipManager = TooltipManager.Instance;
-            foreach (var cardDataSpecialKeyword in CardData.KeywordsList)
+            
+            // 增加消耗的提示
+            if (CardLevelInfo.ExhaustAfterPlay)
             {
-                var specialKeyword = tooltipManager.SpecialKeywordData.SpecialKeywordBaseList.Find(x=>x.SpecialKeyword == cardDataSpecialKeyword);
-                if (specialKeyword != null)
-                    ShowTooltipInfo(specialKeyword.GetContent(),specialKeyword.GetHeader(),descriptionRoot);
+                var specialKeyword = tooltipManager.SpecialKeywordData.SpecialKeywordBaseList.Find(
+                    x=>x.SpecialKeyword == SpecialKeywords.Exhaust);
+                ShowTooltipInfo(specialKeyword.GetContent(),specialKeyword.GetHeader(),descriptionRoot);
             }
             
             foreach (var powerType in GetActionsPowerTypes())
             {
                 PowerData powerData = tooltipManager.PowersData.GetPowerData(powerType);
+                Debug.Log($"powerData {powerData}");
                 if (powerData != null)
                 {
                     ShowTooltipInfo(powerData.GetContent(),powerData.GetHeader(),descriptionRoot);
@@ -141,11 +152,16 @@ namespace Card.Display
         {
             List<PowerName> powerTypes = new List<PowerName>();
             
-            foreach (var effectInfo in CardLevelInfo.EffectInfos)
+            foreach (var skillInfo in CardLevelInfo.SkillInfos)
             {
-                if (effectInfo.EffectID == EffectName.ApplyPower)
+                // 跟格擋相關效果
+                if (PowerHelper.IsBlockRelatedEffect(skillInfo.EffectID))
                 {
-                    PowerName powerName = (PowerName)effectInfo.EffectParameterList[0];
+                    powerTypes.Add(PowerName.Block);
+                } // 跟能力相關效果
+                else if (PowerHelper.IsPowerRelatedEffect(skillInfo.EffectID))
+                {
+                    PowerName powerName = (PowerName)skillInfo.EffectParameterList[0];
                     powerTypes.Add(powerName);
                 }
             }
