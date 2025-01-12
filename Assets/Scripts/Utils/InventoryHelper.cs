@@ -17,16 +17,16 @@ namespace Utils
             switch (inventoryType)
             {
                 case InventoryTypes.CurrentDeck:
-                    UIManager.OpenInventory(CardManager.Instance.CurrentCardsList,"Current Cards");
+                    UIManager.OpenInventory(CardManager.Instance.CurrentCardsList,"牌組");
                     break;
                 case InventoryTypes.DrawPile:
-                    UIManager.OpenInventory(CollectionManager.Instance.DrawPile,"Draw Pile");
+                    UIManager.OpenInventory(CollectionManager.Instance.DrawPile,"抽牌堆");
                     break;
                 case InventoryTypes.DiscardPile:
-                    UIManager.OpenInventory(CollectionManager.Instance.DiscardPile,"Discard Pile");
+                    UIManager.OpenInventory(CollectionManager.Instance.DiscardPile,"棄牌堆");
                     break;
                 case InventoryTypes.ExhaustPile:
-                    UIManager.OpenInventory(CollectionManager.Instance.ExhaustPile,"Exhaust Pile");
+                    UIManager.OpenInventory(CollectionManager.Instance.ExhaustPile,"被消耗的牌");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
