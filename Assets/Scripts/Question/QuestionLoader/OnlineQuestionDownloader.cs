@@ -84,6 +84,8 @@ namespace Question.QuestionLoader
             }
             
             questions = tempQuestions;
+            EventLogger.Instance.LogEvent(LogEventType.Question, $"下載完成 - 成功下載 {tempQuestions.Count} 題", 
+                $"出版社 {publisher}, 年級 {grade}");
         }
 
         /// <summary>

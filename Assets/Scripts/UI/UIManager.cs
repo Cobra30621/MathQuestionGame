@@ -148,13 +148,13 @@ namespace UI
         
         private void LockUIControl()
         {
-            EventLogger.Instance.LogEvent(LogEventType.Other, "鎖定 - UI 操作");
+            // EventLogger.Instance.LogEvent(LogEventType.Other, "鎖定 - UI 操作");
             lockControlMask.SetActive(true);
         }
         
         private void UnlockUIControl()
         {
-            EventLogger.Instance.LogEvent(LogEventType.Other, "解除鎖定 - UI 操作");
+            // EventLogger.Instance.LogEvent(LogEventType.Other, "解除鎖定 - UI 操作");
             lockControlMask.SetActive(false);
         }   
         

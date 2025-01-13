@@ -69,9 +69,6 @@ namespace Encounter
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            Debug.Log($"EnterNode {nodeType}");
-            
-            
         }
 
         [Button]

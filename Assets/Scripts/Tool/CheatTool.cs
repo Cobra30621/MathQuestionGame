@@ -5,6 +5,7 @@ using Economy;
 using Effect;
 using Effect.Damage;
 using Effect.Parameters;
+using Log;
 using Save;
 using Sheets;
 using Sirenix.OdinInspector;
@@ -27,6 +28,7 @@ namespace Tool
         [SerializeField] private Button killAllButton;
         [SerializeField] private Button clearSaveDataButton;
         [SerializeField] private Button loadSheetButton;
+        [SerializeField] private Button logToFileButton;
 
         [Required]
         [SerializeField] private SheetDataLoader _sheetDataLoader;
@@ -50,6 +52,7 @@ namespace Tool
             killAllButton.onClick.AddListener(KillAllEnemy);
             clearSaveDataButton.onClick.AddListener(ClearSaveData);
             loadSheetButton.onClick.AddListener(LoadSheet);
+            logToFileButton.onClick.AddListener(LogToFile.SaveLogToFile);
         }
 
         private void OnAddMoneyClick()

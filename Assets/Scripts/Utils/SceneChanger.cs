@@ -41,7 +41,7 @@ namespace Utils
         
         private IEnumerator DelaySceneChange(SceneType type)
         {
-            EventLogger.Instance.LogEvent(LogEventType.Scene, $"切換場警 - {type}");
+            EventLogger.Instance.LogEvent(LogEventType.Scene, $"切換場景 - {type}");
             yield return UIManager.ChangeScene(type);
         }
 

@@ -147,7 +147,6 @@ namespace Save
             if (IsInitialized) return;
         
             Initialize();
-            Debug.LogWarning($"Had to initialize {nameof(ScriptableObjectReferenceCache)} lazily because it wasn't initialized before use!");
         }
         #endregion
     }

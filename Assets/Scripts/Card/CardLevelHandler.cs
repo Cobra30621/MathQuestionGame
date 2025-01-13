@@ -62,7 +62,7 @@ namespace Card
             CheckHaveInitDict();
             cardSaveInfos.TryGetValue(id, out var cardSaveLevel);
 
-            if (cardSaveLevel != null && !cardSaveLevel.HasGained)
+            if (cardSaveLevel is { HasGained: false })
             {
                 cardSaveLevel.HasGained = true;
                 

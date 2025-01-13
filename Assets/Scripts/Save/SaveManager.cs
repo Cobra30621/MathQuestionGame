@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Log;
 using Managers;
+using Newtonsoft.Json;
 using Save.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Save
 {
@@ -81,7 +81,7 @@ namespace Save
             }
             
             EventLogger.Instance.LogEvent(LogEventType.Save, "讀取 - 單局遊戲資料", 
-                $"{JsonUtility.ToJson(_gameData)}");
+                $"{JsonConvert.SerializeObject(_gameData, Formatting.Indented)}");
         }
         [Button("存檔")]
         public void SaveSingleGame()
@@ -100,7 +100,7 @@ namespace Save
             ES3Handler.SaveSingleGame(_gameData);
             
             EventLogger.Instance.LogEvent(LogEventType.Save, "儲存 - 單局遊戲資料", 
-                $"{JsonUtility.ToJson(_gameData)}");
+                $"{JsonConvert.SerializeObject(_gameData, Formatting.Indented)}");
         }
 
   
@@ -147,7 +147,7 @@ namespace Save
             }
             
             EventLogger.Instance.LogEvent(LogEventType.Save, "讀取 - 永久存檔", 
-                $"{JsonUtility.ToJson(_permanentGameData)}");
+                $"{JsonConvert.SerializeObject(_permanentGameData, Formatting.Indented)}");
     
             // push the loaded PermanentGameData to all other scripts that need it
             foreach (IPermanentDataPersistence permanentObj in permanentObjects) 
@@ -167,7 +167,7 @@ namespace Save
             }
             
             EventLogger.Instance.LogEvent(LogEventType.Save, "儲存 - 永久存檔", 
-                $"{JsonUtility.ToJson(_permanentGameData)}");
+                $"{JsonConvert.SerializeObject(_permanentGameData, Formatting.Indented)}");
 
             // pass the PermanentGameData to other scripts so they can update it
             foreach (IPermanentDataPersistence permanentObj in permanentObjects) 

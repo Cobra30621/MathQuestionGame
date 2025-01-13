@@ -84,7 +84,6 @@ namespace Card.Display
         #region Pointer Events
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
-            Debug.Log("OnPointerEnter");
             ShowTooltipInfo();
         }
 

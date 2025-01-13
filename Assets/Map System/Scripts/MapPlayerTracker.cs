@@ -2,6 +2,7 @@
 using System.Linq;
 using DG.Tweening;
 using Encounter;
+using Log;
 using UnityEngine;
 
 namespace Map
@@ -63,12 +64,9 @@ namespace Map
 
         private void EnterNode(MapNode mapNode)
         {
-            // we have access to blueprint name here as well
-            Debug.Log("Entering node: "  + mapNode.Node.nodeType);
-            // load appropriate scene with context based on nodeType:
-            // or show appropriate GUI over the map: 
-            // if you choose to show GUI in some of these cases, do not forget to set "Locked" in MapPlayerTracker back to false
-            
+            EventLogger.Instance.LogEvent(LogEventType.MapEncounter, 
+                $"進入節點: {mapNode.Node.nodeType}");
+      
             EncounterManager.Instance.EnterNode(mapNode.Node.nodeType);
         }
 

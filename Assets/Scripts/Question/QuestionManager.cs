@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Log;
 using Managers;
 using NueGames.Enums;
 using Question.Action;
@@ -177,10 +178,14 @@ namespace Question
         {
             EnableAnswer(false);
             OnAnswerQuestion?.Invoke();
+
+            bool isCorrect = option == _currentQuestion.Answer;
+
+            var outcomeStr = isCorrect ? "正確" : "錯誤";
+            EventLogger.Instance.LogEvent(LogEventType.Question, $"答題 - {outcomeStr}", 
+                $"選擇: {option}, 正確: {_currentQuestion.Answer}");
             
-            Debug.Log($"option {option } correctAnswer {_currentQuestion.Answer}");
-            
-            if (option == _currentQuestion.Answer)
+            if (isCorrect)
             {
                 answerRecord.CorrectCount++;
                 combatAnswerRecord.CorrectCount++;
@@ -321,7 +326,6 @@ namespace Question
         
         void EnableAnswer(bool enable)
         {
-            Debug.Log($"EnableAnswer {enable}");
             foreach (var answerButton in answerButtons)
             {
                 answerButton.EnableAnswer(enable);
@@ -346,12 +350,12 @@ namespace Question
             if (onlineQuestionGetter.EnableGetQuestion())
             {
                 questionList = onlineQuestionGetter.GetQuestions(QuestionSetting);
-                Debug.Log($"Get online question count: {questionList.Count}");
+                EventLogger.Instance.LogEvent(LogEventType.Question, $"使用線上題目 - 數量 {questionList.Count}");
             }
             else
             {
                 questionList = localQuestionGetter.GetQuestions(QuestionSetting);
-                Debug.Log($"Get local question count: {questionList.Count}");
+                EventLogger.Instance.LogEvent(LogEventType.Question, $"使用本地題目 - 數量 {questionList.Count}");
             }
         }
         
@@ -359,7 +363,6 @@ namespace Question
         {
             if (answerRecord.CorrectCount >= QuestionAction.NeedCorrectCount)
             {
-                Debug.Log($"correct{answerRecord.CorrectCount}, need {QuestionAction.NeedCorrectCount}");
                 QuestionAction.DoCorrectAction();
             }
             else
@@ -393,13 +396,11 @@ namespace Question
 
         public void LoadData(GameData data)
         {
-            // Debug.Log($"Load Question {Skill.QuestionSetting}");
             QuestionSetting = data.QuestionSetting;
         }
 
         public void SaveData(GameData data)
         {
-            // Debug.Log($"Save Question {QuestionSetting}");
             data.QuestionSetting = QuestionSetting;
         }
     }

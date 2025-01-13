@@ -22,7 +22,7 @@ namespace Map
         
         public StageData stageData;
         
-        private int CurrentMapIndex;
+        private int _currentMapIndex;
 
         public Map CurrentMap;
 
@@ -94,7 +94,7 @@ namespace Map
         {
             this.stageName = stageName;
             stageData = stageDataOverview.FindUniqueId(this.stageName.Id);
-            CurrentMapIndex = 0;
+            _currentMapIndex = 0;
             needInitializedMap = true;
         }
 
@@ -110,17 +110,16 @@ namespace Map
         public void GenerateNewMap()
         {
             // 檢查當前地圖索引是否有效
-            if (CurrentMapIndex < 0 || CurrentMapIndex >= stageData.maps.Count)
+            if (_currentMapIndex < 0 || _currentMapIndex >= stageData.maps.Count)
             {
-                Debug.LogError($"Invalid CurrentMapIndex: {CurrentMapIndex}");
+                Debug.LogError($"Invalid CurrentMapIndex: {_currentMapIndex}");
                 return;
             }
 
             // 根據當前地圖配置生成新地圖
-            var mapConfig = stageData.maps[CurrentMapIndex];
+            var mapConfig = stageData.maps[_currentMapIndex];
             var map = MapGenerator.GetMap(mapConfig);
             CurrentMap = map;
-            Debug.Log(map.ToJson());
 
             // 生成新地圖遭遇
             EncounterManager.Instance.GenerateNewMapEncounter(mapConfig.encounterStage);
@@ -130,7 +129,7 @@ namespace Map
         // 生成下一張地圖
         public void GenerateNextMap()
         {
-            CurrentMapIndex++;
+            _currentMapIndex++;
             GenerateNewMap();
         }
 
@@ -146,7 +145,7 @@ namespace Map
         [Button]
         public bool IsLastMap()
         {
-            var isLastMap = CurrentMapIndex == stageData.maps.Count() - 1;
+            var isLastMap = _currentMapIndex == stageData.maps.Count() - 1;
             return isLastMap;
         }
         
@@ -154,7 +153,7 @@ namespace Map
         {
             CurrentMap = JsonConvert.DeserializeObject<Map>(data.MapJson, 
                 new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
-            CurrentMapIndex = data.CurrentMapIndex;
+            _currentMapIndex = data.CurrentMapIndex;
 
             stageName = new StageName();
             stageName.SetId(data.StageName);
@@ -168,7 +167,7 @@ namespace Map
                 new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
             
             data.MapJson = json;
-            data.CurrentMapIndex = CurrentMapIndex;
+            data.CurrentMapIndex = _currentMapIndex;
             data.StageName = stageName.Id;
         }
     }

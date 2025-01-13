@@ -1,4 +1,5 @@
 using Encounter;
+using Log;
 using Managers;
 using MapEvent.Data;
 using Sirenix.OdinInspector;
@@ -59,6 +60,8 @@ namespace MapEvent
             int randomIndex = Random.Range(0, eventList.Events.Count);
             var data = eventList.Events[randomIndex];
             
+            EventLogger.Instance.LogEvent(LogEventType.MapEvent, $"開啟事件: {data.Text}", 
+                $"{data.Description}");
             return EventFactory.GetEvent(data);
         }
 
@@ -67,7 +70,7 @@ namespace MapEvent
         /// </summary>
         public static void OnOptionExecuteCompleted(Option option)
         {
-            Debug.Log($"选项 '{option.data.OptionText}' 执行完成");
+            EventLogger.Instance.LogEvent(LogEventType.MapEvent, $"完成事件選項: {option.data.OptionText}");
             // 在这里添加选项执行完成后的逻辑
             OnExecuteCompleted.Invoke(option);
         }

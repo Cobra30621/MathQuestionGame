@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Log;
 using NueGames.Data.Containers;
 using Relic.Data;
 using Save;
@@ -67,6 +68,17 @@ namespace Relic
         {
             CheckHaveInitDict();
             relicSaveInfos[relicName].HasGained = true;
+            
+            relicSaveInfos.TryGetValue(relicName, out var relicSaveInfo);
+
+            if (relicSaveInfo is { HasGained: false })
+            {
+                relicSaveInfo.HasGained = true;
+                
+                EventLogger.Instance.LogEvent(LogEventType.Relic, 
+                    $"第一次獲得卡牌 - {relicName}");
+                SaveManager.Instance.SavePermanentGame();
+            }
         }
 
         /// <summary>

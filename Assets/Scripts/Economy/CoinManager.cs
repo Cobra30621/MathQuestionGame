@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Log;
 using Managers;
 using Save;
 using Save.Data;
@@ -39,15 +40,20 @@ namespace Economy
         /// </summary>
         public void AddCoin(int add, CoinType type)
         {
+            int afterAdd = -1;
             switch (type)
             {
                 case CoinType.Money:
-                    SetMoney(money + add);
+                    afterAdd = money + add;
+                    SetMoney(afterAdd);
                     break;
                 case CoinType.Stone:
-                    SetStone(stone + add);
+                    afterAdd = stone + add;
+                    SetStone(afterAdd);
                     break;
             }
+            
+            EventLogger.Instance.LogEvent(LogEventType.Economy, $"獲得 {type} - {add}", $"獲得後數量 {afterAdd}");
         }
 
         /// <summary>
@@ -55,18 +61,23 @@ namespace Economy
         /// </summary>
         public void Buy(Dictionary<CoinType, int> removeCoins)
         {
+            string message = "";
             foreach (var (type, remove) in removeCoins)
             {
                 switch (type)
                 {
                     case CoinType.Money:
+                        message += $"{type} 減少 {remove}, 剩下 {money - remove}\n";
                         SetMoney(money - remove);
                         break;
                     case CoinType.Stone:
+                        message += $"{type} 減少 {remove}, 剩下 {stone - remove}\n";
                         SetStone(stone - remove);
                         break;
                 }
             }
+            
+            EventLogger.Instance.LogEvent(LogEventType.Economy, $"購買", message);
         }
 
         /// <summary>
