@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Card.Data;
+using Log;
 using Save;
 using Save.Data;
 using Sirenix.OdinInspector;
@@ -64,6 +65,9 @@ namespace Card
             if (cardSaveLevel != null && !cardSaveLevel.HasGained)
             {
                 cardSaveLevel.HasGained = true;
+                
+                EventLogger.Instance.LogEvent(LogEventType.Card, 
+                    $"第一次獲得卡牌 - {id}");
                 SaveManager.Instance.SavePermanentGame();
             }
         }

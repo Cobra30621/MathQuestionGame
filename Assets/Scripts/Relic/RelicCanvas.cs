@@ -32,8 +32,6 @@ namespace Relic
                 Destroy(child.gameObject);
             }
         
-            Debug.Log(relicDict.Keys);
-        
             foreach (var pair in relicDict)
             {
                 var clone = Instantiate(RelicBasePrefab, relicIconSpawnRoot);

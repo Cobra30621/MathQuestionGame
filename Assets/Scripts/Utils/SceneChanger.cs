@@ -1,4 +1,5 @@
 using System.Collections;
+using Log;
 using Managers;
 using UI;
 using UnityEngine;
@@ -40,6 +41,7 @@ namespace Utils
         
         private IEnumerator DelaySceneChange(SceneType type)
         {
+            EventLogger.Instance.LogEvent(LogEventType.Scene, $"切換場警 - {type}");
             yield return UIManager.ChangeScene(type);
         }
 

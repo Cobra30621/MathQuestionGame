@@ -37,7 +37,6 @@ public abstract class Singleton<T> : SerializedMonoBehaviour where T : Serialize
                     if (EditorApplication.isPlaying)
                     {
                         DontDestroyOnLoad(instance);
-                        Debug.Log($"Singleton of type {typeof(T)} found in the scene.");
     
                     }
 #endif

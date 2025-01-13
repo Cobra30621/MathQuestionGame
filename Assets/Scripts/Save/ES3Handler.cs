@@ -23,21 +23,19 @@ namespace Save
             return firstEnterGame;
         }
         
-        public static void SetFirstEnterGame()
+        public static void SetHaveEnteredGame()
         {
             ES3.Save("firstEnterGame", false);
         }
 
         public static void SavePermanent(PermanentGameData permanentGameData)
         {
-            Debug.Log($"Save Permanent {JsonUtility.ToJson(permanentGameData)}");
             ES3.Save("permanentGameData", permanentGameData);
         }
 
         public static PermanentGameData LoadPermanent()
         {
             var permanentGameData = ES3.Load("permanentGameData", new PermanentGameData());
-            Debug.Log($"Load Permanent {JsonUtility.ToJson(permanentGameData)}");
             return permanentGameData;
         }
         
@@ -74,14 +72,12 @@ namespace Save
         
         public static void SaveSingleGame(GameData gameData)
         {
-            Debug.Log($"Save {JsonUtility.ToJson(gameData)}");
             ES3.Save("gameData", gameData);
         }
         
         public static GameData LoadSingleGame()
         {
             var gameData = ES3.Load("gameData", new GameData());
-            Debug.Log($"Load {JsonUtility.ToJson(gameData)}");
             return gameData;
         }
 

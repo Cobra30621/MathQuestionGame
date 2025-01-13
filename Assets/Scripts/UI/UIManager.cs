@@ -5,6 +5,7 @@ using Card.Data;
 using Combat;
 using Combat.Card;
 using Economy.Shop;
+using Log;
 using Managers;
 using MapEvent;
 using Relic;
@@ -147,13 +148,13 @@ namespace UI
         
         private void LockUIControl()
         {
-            Debug.Log("lock UI Control");
+            EventLogger.Instance.LogEvent(LogEventType.Other, "鎖定 - UI 操作");
             lockControlMask.SetActive(true);
         }
         
         private void UnlockUIControl()
         {
-            Debug.Log("unlock UI Control");
+            EventLogger.Instance.LogEvent(LogEventType.Other, "解除鎖定 - UI 操作");
             lockControlMask.SetActive(false);
         }   
         

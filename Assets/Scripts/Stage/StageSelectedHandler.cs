@@ -21,13 +21,11 @@ namespace Stage
         
         public void SetStageData(StageName stageData)
         {
-            Debug.Log($"Set {stageData.Id}");
             _currentStageData = stageData;
         }
 
         public void SetAllyData(AllyData allyData)
         {
-            Debug.Log($"Set {allyData.CharacterName}");
             _currentAllyData = allyData;
             OnAllyDataChanged.Invoke(_currentAllyData);
         }

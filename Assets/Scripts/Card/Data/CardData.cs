@@ -51,8 +51,6 @@ namespace Card.Data
         
         
         [FoldoutGroup("卡牌顯示")]
-        [SerializeField] private string cardName;
-        [FoldoutGroup("卡牌顯示")]
         [SerializeField] private Sprite cardSprite;
         [FoldoutGroup("卡牌顯示")]
         [SerializeField] private RarityType rarity;
@@ -69,7 +67,6 @@ namespace Card.Data
 
         public bool IsDevelopCard => isDevelopCard;
         public string CardId => cardId;
-        public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
         public RarityType Rarity => rarity;
         
@@ -97,7 +94,6 @@ namespace Card.Data
             }
         }
 
-        public string Description => description;
         public List<SpecialKeywords> KeywordsList => specialKeywordsList;
         public string MyDescription { get; set; }
         
@@ -145,7 +141,6 @@ namespace Card.Data
 #endif
 
         #endregion
-        
     }
 
 }

@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Economy;
+using Log;
 using Managers;
 using NueGames.Data.Containers;
 using Relic.Data;
@@ -60,6 +61,8 @@ namespace Relic
             relicLevelHandler.OnGainRelic(relicName);
             
             OnRelicUpdated.Invoke(CurrentRelicDict);
+            
+            EventLogger.Instance.LogEvent(LogEventType.Relic, $"獲得遺物 - {info.data.Title}");
         }
 
         public void RemoveAllRelic()
@@ -68,6 +71,9 @@ namespace Relic
             {
                 relic.OnRelicRemove();
             }
+            
+            CurrentRelicDict.Clear();
+            OnRelicUpdated.Invoke(CurrentRelicDict);
         }
         
 

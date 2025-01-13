@@ -93,7 +93,6 @@ namespace Stage
 
         private IEnumerator StartGameCoroutine()
         {
-            Debug.Log("Starting the game...");
             GameManager.Instance.NewGame();
             QuestionManager.Instance.StartDownloadOnlineQuestions();
             yield return sceneChanger.OpenMapScene();

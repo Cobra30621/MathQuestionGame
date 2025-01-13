@@ -115,7 +115,6 @@ namespace Card.Display
         
         protected void ShowTooltipInfo()
         {
-            Debug.Log("Show Tooltip");
             var tooltipManager = TooltipManager.Instance;
             
             // 增加消耗的提示
@@ -129,7 +128,6 @@ namespace Card.Display
             foreach (var powerType in GetActionsPowerTypes())
             {
                 PowerData powerData = tooltipManager.PowersData.GetPowerData(powerType);
-                Debug.Log($"powerData {powerData}");
                 if (powerData != null)
                 {
                     ShowTooltipInfo(powerData.GetContent(),powerData.GetHeader(),descriptionRoot);

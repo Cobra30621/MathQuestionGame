@@ -3,8 +3,17 @@ using Effect.Parameters;
 
 namespace Power
 {
-    public class PowerHelper
+    /// <summary>
+    /// 提供一些能力常見的工具
+    /// </summary>
+    public static class PowerHelper
     {
+        /// <summary>
+        /// 取得 PowerName
+        /// </summary>
+        /// <param name="powerIndex"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static PowerName GetPowerName(int powerIndex)
         {
             var powerName = (PowerName)powerIndex;
@@ -18,7 +27,7 @@ namespace Power
         }
         
         /// <summary>
-        /// 效果跟能力有關
+        /// 效果是否跟能力有關
         /// </summary>
         /// <param name="effectName"></param>
         /// <returns></returns>
@@ -27,6 +36,11 @@ namespace Power
             return effectName == EffectName.ApplyPower;
         }
 
+        /// <summary>
+        /// 效果是否跟格擋有關
+        /// </summary>
+        /// <param name="effectName"></param>
+        /// <returns></returns>
         public static bool IsBlockRelatedEffect(EffectName effectName)
         {
             return effectName == EffectName.ApplyBlock ||

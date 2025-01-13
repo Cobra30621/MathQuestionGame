@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Log;
 using Managers;
 using Save.Data;
 using Sirenix.OdinInspector;
@@ -35,6 +36,8 @@ namespace Save
             _gameData = new GameData();
             _permanentGameData = new PermanentGameData();
             ES3Handler.ClearAllData();
+            
+            EventLogger.Instance.LogEvent(LogEventType.Save, "清除 - 所有資料");
         }
     
 
@@ -49,6 +52,11 @@ namespace Save
             var hasOngoingGame = ES3Handler.LoadHasOngoingGame();
             
             return hasOngoingGame;
+        }
+
+        public void SetOngoingGame()
+        {
+            ES3Handler.SetHasOngoingGame();
         }
         
         
@@ -71,27 +79,28 @@ namespace Save
             {
                 dataPersistenceObj.LoadData(_gameData);
             }
+            
+            EventLogger.Instance.LogEvent(LogEventType.Save, "讀取 - 單局遊戲資料", 
+                $"{JsonUtility.ToJson(_gameData)}");
         }
         [Button("存檔")]
         public void SaveSingleGame()
         {
             dataPersistenceObjects = FindAllDataPersistenceObjects();
-            // if we don't have any gameData to save, log a warning here
             if (this._gameData == null)
             {
                 _gameData = new GameData();
             }
 
-            // pass the Skill to other scripts so they can update it
             foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) 
             { 
-                // Debug.Log($"dataPersistenceObj {dataPersistenceObj}");
                 dataPersistenceObj.SaveData(_gameData);
             }
 
-            // save that Skill to a file using the Skill handler
-            ES3Handler.SetHasOngoingGame();
             ES3Handler.SaveSingleGame(_gameData);
+            
+            EventLogger.Instance.LogEvent(LogEventType.Save, "儲存 - 單局遊戲資料", 
+                $"{JsonUtility.ToJson(_gameData)}");
         }
 
   
@@ -108,6 +117,7 @@ namespace Save
         {
             _gameData = new GameData();
             ES3Handler.ClearSingleGameData();
+            EventLogger.Instance.LogEvent(LogEventType.Save, "清除 - 單局遊戲資料");
         }
 
         #endregion
@@ -118,25 +128,26 @@ namespace Save
             return ES3Handler.IsFirstEnterGame();
         }
 
-        public void SetHaveEnterGame()
+        public void SetHaveEnteredGame()
         {
-            ES3Handler.SetFirstEnterGame();
+            EventLogger.Instance.LogEvent(LogEventType.Main, "紀錄 - 已經進入過遊戲");
+            ES3Handler.SetHaveEnteredGame();
         }
     
     
         [Button("讀取永久存檔")]
         public void LoadPermanentGame()
         {
-            Debug.Log("讀取永久存檔");
             permanentObjects = FindAllPermanentDataPersistenceObjects();
-            // load any saved PermanentGameData from a file using the PermanentGameData handler
-            this._permanentGameData = ES3Handler.LoadPermanent();
-
-            // start a new game if the PermanentGameData is null and we're configured to initialize it for debugging purposes
-            if (this._permanentGameData == null) 
+            _permanentGameData = ES3Handler.LoadPermanent();
+            
+            if (_permanentGameData == null) 
             {
-                this._permanentGameData = new PermanentGameData();
+                _permanentGameData = new PermanentGameData();
             }
+            
+            EventLogger.Instance.LogEvent(LogEventType.Save, "讀取 - 永久存檔", 
+                $"{JsonUtility.ToJson(_permanentGameData)}");
     
             // push the loaded PermanentGameData to all other scripts that need it
             foreach (IPermanentDataPersistence permanentObj in permanentObjects) 
@@ -148,13 +159,15 @@ namespace Save
         [Button("儲存永久存檔")]
         public void SavePermanentGame()
         {
-            Debug.Log("儲存永久存檔");
             permanentObjects = FindAllPermanentDataPersistenceObjects();
             // if we don't have any PermanentGameData to save, log a warning here
             if (this._permanentGameData == null)
             {
                 _permanentGameData = new PermanentGameData();
             }
+            
+            EventLogger.Instance.LogEvent(LogEventType.Save, "儲存 - 永久存檔", 
+                $"{JsonUtility.ToJson(_permanentGameData)}");
 
             // pass the PermanentGameData to other scripts so they can update it
             foreach (IPermanentDataPersistence permanentObj in permanentObjects) 

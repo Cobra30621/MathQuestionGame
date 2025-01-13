@@ -32,7 +32,6 @@ namespace Stage
 
         private void SelectCharacter()
         {
-            Debug.Log("Selected character: " + _allyData.CharacterName);
             GameManager.Instance.StageSelectedHandler.SetAllyData(_allyData);
         }
     }

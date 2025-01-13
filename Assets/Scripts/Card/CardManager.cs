@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Card.Data;
 using Effect;
+using Log;
 using Managers;
 using NueGames.Enums;
 using Save;
@@ -69,12 +70,15 @@ namespace Card
         {
             CurrentCardsList.Add(cardData);
             
+            EventLogger.Instance.LogEvent(LogEventType.Card, $"獲得卡牌 - {cardData.name}, id:{cardData.CardId}");
             _cardLevelHandler.OnGainCard(cardData.CardId);
         }
 
         public void ThrowCard(CardData cardData)
         {
             CurrentCardsList.Remove(cardData);
+            
+            EventLogger.Instance.LogEvent(LogEventType.Card, $"移除卡牌 - {cardData.name}, id:{cardData.CardId}");
         }
         
         

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Log;
 using Question.Enum;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -28,6 +29,8 @@ namespace Question.QuestionLoader
         [Button("取得題目")]
         public void DownloadQuestion(Publisher publisher, Grade grade)
         {
+            EventLogger.Instance.LogEvent(LogEventType.Question, "下載 - 線上題目", 
+                $"出版社 {publisher}, 年級 {grade}");
             StartCoroutine(GetQuestionCoroutine(Publisher.Ziyou, grade));
         }
     
@@ -72,11 +75,11 @@ namespace Question.QuestionLoader
                         tempQuestions.Add(question);
                     }
                 
-                    Debug.Log($"<color=green>API request success {url}</color>");
+                    // Debug.Log($"<color=green>API request success {url}</color>");
                 }
                 else
                 {
-                    Debug.LogWarning($"API request failed. {url}\nError: {www.error}");
+                    // Debug.LogWarning($"API request failed. {url}\nError: {www.error}");
                 }
             }
             

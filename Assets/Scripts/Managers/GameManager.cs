@@ -11,6 +11,7 @@ using Effect;
 using Encounter;
 using Encounter.Data;
 using Feedback;
+using Log;
 using Map;
 using MapEvent;
 using NueGames.Card;
@@ -98,6 +99,8 @@ namespace Managers
 
         [Required]
         public RewardManager RewardManager;
+
+        [Required] public EventLogger EventLogger;
         
         #endregion
         
@@ -150,9 +153,10 @@ namespace Managers
         public void NewGame()
         {
             SaveManager.Instance.ClearSingleGameData();
-            Debug.Log("New Game");
-
+            
             CreateSingleGameData();
+            
+            SaveManager.Instance.SetOngoingGame();
             SaveManager.Instance.SaveSingleGame();
         }
 
@@ -163,15 +167,20 @@ namespace Managers
 
         private void CreateSingleGameData()
         {
+            EventLogger.Instance.LogEvent(LogEventType.Main, "創建 - 新的單局遊戲",
+                $"角色 : {allyData.CharacterName}\n" +
+                $"關卡 : {_stageSelectedHandler.GetStageData().Id}");
+            
             RelicManager.GainRelic(allyData.initialRelic);
             CardManager.Instance.SetInitCard(allyData.InitialDeck.CardList);
             MapManager.Instance.Initialized(_stageSelectedHandler.GetStageData());
             AllyHealthHandler.Init(allyData.MaxHealth);
-            
         }
 
         public void ContinueGame()
         {
+            EventLogger.Instance.LogEvent(LogEventType.Main, "繼續 - 單局遊戲");
+            
             SaveManager.Instance.LoadSingleGame();
         }
 
@@ -180,6 +189,8 @@ namespace Managers
         /// </summary>
         public void ExitSingleGame()
         {
+            EventLogger.Instance.LogEvent(LogEventType.Main, "離開 - 單局遊戲");
+            
             RelicManager.RemoveAllRelic();
             _sceneChanger.OpenMainMenuScene();
         }
