@@ -16,7 +16,8 @@ namespace Log
         
         public void LogEvent(LogEventType logEventType, string eventName, string details = "")
         {
-            var logMessage = new LogEvent(logEventType, eventName, details);
+            int id = _logMessages.Count;
+            var logMessage = new LogEvent(id, logEventType, eventName, details);
             _logMessages.Add(logMessage);
             Debug.Log(logMessage.GetDetailMessage()); // 在 Console 顯示
         }
@@ -37,6 +38,7 @@ namespace Log
     [Serializable]
     public class LogEvent
     {
+        private int Id;
         private LogEventType LogEventType;
         public string Title;
         public string Detail;
@@ -44,8 +46,9 @@ namespace Log
         private DateTime time;
 
         
-        public LogEvent(LogEventType logEventType, string title, string detail)
+        public LogEvent(int id, LogEventType logEventType, string title, string detail)
         {
+            Id = id;
             LogEventType = logEventType;
             Title = title;
             Detail = detail;
@@ -56,7 +59,7 @@ namespace Log
 
         public string GetMessage()
         {
-            return $"【{LogEventType}】{Title}  - {time:HH:mm:ss}";
+            return $"{Id}-【{LogEventType}】{Title}  - {time:HH:mm:ss}";
         }
         
         public string GetDetailMessage()

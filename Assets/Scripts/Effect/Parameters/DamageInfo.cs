@@ -118,7 +118,14 @@ namespace Effect.Parameters
 
             return remainingDamage;
         }
-        
-        
+
+        public override string ToString()
+        {
+            return
+                $"來源: {EffectSource}\n" +
+                $"目標: {Target}\n" +
+                $"傷害: {GetDamageValue()}" +
+                $"格檔後傷害: {GetAfterBlockDamage()}";
+        }
     }
 }

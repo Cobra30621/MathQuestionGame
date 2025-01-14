@@ -16,7 +16,7 @@ namespace Effect.Sequence
         [ShowInInspector]
         private FxInfo _fxInfo;
         [ShowInInspector]
-        private List<EffectBase> _actions;
+        private List<EffectBase> _effects;
         [ShowInInspector]
         protected List<CharacterBase> TargetList;
         
@@ -26,19 +26,19 @@ namespace Effect.Sequence
         private List<FXPlayer> playingFXs;
 
 
-        public FXSequence( List<EffectBase> gameAction, FxInfo fxInfo, List<CharacterBase> targetList)
+        public FXSequence( List<EffectBase> effects, FxInfo fxInfo, List<CharacterBase> targetList)
         {
             _fxInfo = fxInfo;
-            _actions = gameAction;
+            _effects = effects;
             TargetList = targetList;
         }
 
 
-        public override IEnumerator Execute(System.Action onComplete)
+        public override IEnumerator Execute(Action onComplete)
         {
-            foreach (var action in _actions)
+            foreach (var effect in _effects)
             {
-                action.Play();
+                effect.Play();
             }
             
             playingFXs = new List<FXPlayer>();
@@ -118,7 +118,7 @@ namespace Effect.Sequence
 
         public override string ToString()
         {
-            return $"{nameof(_fxInfo)}: {_fxInfo}, {nameof(_actions)}: {_actions}, {nameof(TargetList)}: {TargetList}, {nameof(playingFXs)}: {playingFXs}";
+            return $"{nameof(_fxInfo)}: {_fxInfo}, {nameof(_effects)}: {_effects}, {nameof(TargetList)}: {TargetList}, {nameof(playingFXs)}: {playingFXs}";
         }
     }
 }

@@ -9,30 +9,30 @@ namespace Effect.Sequence
     public class DelaySequence : ISequence
     {
         [ShowInInspector]
-        private List<EffectBase> _actions;
+        private List<EffectBase> _effects;
         
         [ShowInInspector]
         private float _delay = 0;
 
 
-        public DelaySequence(List<EffectBase> actions,  float delay)
+        public DelaySequence(List<EffectBase> effects,  float delay)
         {
-            _actions = actions;
+            _effects = effects;
             _delay = delay;
         }
 
-        public override IEnumerator Execute(System.Action onComplete)
+        public override IEnumerator Execute(Action onComplete)
         {
             try
             {
-                foreach (var action in _actions)
+                foreach (var effect in _effects)
                 {
-                    action.Play();
+                    effect.Play();
                 }
             }
             catch (Exception e)
             {
-                Debug.LogError("Action Execution Failed:\n" +  e);
+                Debug.LogError("Effect Execution Failed:\n" +  e);
             }
             
 

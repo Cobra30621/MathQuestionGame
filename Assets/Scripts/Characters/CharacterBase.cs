@@ -4,6 +4,7 @@ using Characters.Display;
 using Combat;
 using Effect.Parameters;
 using Feedback;
+using Log;
 using Managers;
 using Power;
 using Sirenix.OdinInspector;
@@ -183,11 +184,18 @@ namespace Characters
         {
             CharacterStats.BeAttacked(damageInfo);
             beAttackFeedback?.Play();
+            
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"受傷 - {name}", 
+                $"傷害資訊: {damageInfo}\n" +
+                $"剩餘血量: {CharacterStats.CurrentHealth}");
         }
 
         public void Heal(int value)
         {
             CharacterStats.Heal(value);
+            
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"回血 - {name}", 
+                $"剩餘血量: {CharacterStats.CurrentHealth}");
         }
 
         /// <summary>
@@ -200,6 +208,8 @@ namespace Characters
         
         protected virtual void OnDeathAction(DamageInfo damageInfo)
         {
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"死亡 {name}", 
+                $"傷害資訊: {damageInfo}");
             onDeadFeedback?.Play();
             UnsubscribeEvent();
         }

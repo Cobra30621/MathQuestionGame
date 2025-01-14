@@ -5,6 +5,7 @@
     /// </summary>
     public enum SourceType
     {
+        None = 0,
         Card, // 卡片 （玩家）
         Enemy, // 敵人
         Power, // 能力

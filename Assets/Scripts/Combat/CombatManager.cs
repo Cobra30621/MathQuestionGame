@@ -9,6 +9,7 @@ using Combat.Card;
 using Effect;
 using Encounter.Data;
 using Feedback;
+using Log;
 using Managers;
 using Map;
 using NueGames.Data.Settings;
@@ -268,6 +269,7 @@ namespace Combat
 
         private IEnumerator StartCombatRoutine()
         {
+            EventLogger.Instance.LogEvent(LogEventType.Combat, "---------- 戰鬥開始 ----------");
             
             var encounterName = GameManager.CurrentEnemyEncounter;
             currentEncounter = enemyEncounterOverview.FindUniqueId(encounterName.Id);

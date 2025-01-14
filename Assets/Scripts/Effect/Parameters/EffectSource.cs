@@ -39,7 +39,19 @@ namespace Effect.Parameters
 
         public override string ToString()
         {
-            return $"{nameof(SourceType)}: {SourceType}, {nameof(SourcePower)}: {SourcePower}, {nameof(SourceRelic)}: {SourceRelic}, {nameof(SourceCharacter)}: {SourceCharacter?.name}, {nameof(SourceBattleCard)}: {SourceBattleCard?.name}";
+            switch (SourceType)
+            {
+                case SourceType.Power:
+                    return $"來自能力 {SourcePower}";
+                case SourceType.Relic:
+                    return $"來自遺物 {SourceRelic}";
+                case SourceType.Enemy:
+                    return $"來自敵人 {SourceCharacter.name}";
+                case SourceType.Card:
+                    return $"來自卡片 {SourceBattleCard.name}";
+                default:
+                    return "未指定來源";
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using Characters.Ally;
 using Characters.Enemy;
 using Characters.Enemy.Data;
+using Log;
 using Map;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -58,6 +59,7 @@ namespace Combat
             Enemies.Add(enemy);
 
             Instantiate(spawnEnemyFXPrefab, spawnPos);
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"創建敵人 - {enemy.GetId()}");
 
             // 執行開始的行動
             StartCoroutine(enemy.BattleStartActionRoutine());
@@ -70,6 +72,8 @@ namespace Combat
             var enemy = _enemyBuilder.Build(id, GetEnemyPos());
             Enemies.Add(enemy);
             enemy.SetMaxHealth(health);
+            
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"創建敵人 - {enemy.GetId()}");
 
             // 執行開始的行動
             StartCoroutine(enemy.BattleStartActionRoutine());
@@ -80,6 +84,8 @@ namespace Combat
             var clone = Instantiate(allyData.prefab, allyPos);
             clone.BuildCharacter(allyData, this);
             MainAlly = clone;
+            
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"創建玩家 - {allyData.CharacterName}");
         }
 
 
@@ -101,7 +107,7 @@ namespace Combat
             bool isReachMax = Enemies.Count >= MAX_ENEMY_COUNT;
             if (isReachMax)
             {
-                Debug.LogError($"敵人數量超過限制 {Enemies.Count + 1}");
+                EventLogger.Instance.LogEvent(LogEventType.Combat, $"錯誤 - 敵人數量超過限制 {Enemies.Count + 1}");
             }
 
             return isReachMax;

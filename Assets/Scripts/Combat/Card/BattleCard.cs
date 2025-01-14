@@ -7,6 +7,7 @@ using Characters;
 using Effect;
 using Effect.Parameters;
 using Effect.Sequence;
+using Log;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -75,6 +76,8 @@ namespace Combat.Card
             DoCharacterFeedback(_cardInfo.CardData);
             DoAction(targetList);
 
+            
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"使用卡牌 - {_cardInfo.CardLevelInfo.TitleLang}");
             CollectionManager.OnCardPlayed(this);
         }
 

@@ -13,7 +13,6 @@ namespace Power.Common
 
         public override void SubscribeAllEvent()
         {
-            Debug.Log($"Subscirbe Block {Owner.name}");
             CombatManager.OnTurnStart += OnTurnStart;
         }
 
