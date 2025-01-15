@@ -15,6 +15,12 @@ namespace Question
         {
             publishDropdown.onValueChanged.AddListener((e)=>SetQuestionSetting());
             gradeDropdown.onValueChanged.AddListener((e)=>SetQuestionSetting());
+
+            var publish = (int)QuestionManager.Instance.QuestionSetting.Publishers[0];
+            publishDropdown?.SetValueWithoutNotify(publish);
+            
+            var grade = (int)QuestionManager.Instance.QuestionSetting.Grades[0];
+            gradeDropdown?.SetValueWithoutNotify(grade);
         }
 
 

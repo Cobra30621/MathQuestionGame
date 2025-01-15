@@ -146,14 +146,14 @@ namespace Save
                 _permanentGameData = new PermanentGameData();
             }
             
-            EventLogger.Instance.LogEvent(LogEventType.Save, "讀取 - 永久存檔", 
-                $"{JsonConvert.SerializeObject(_permanentGameData, Formatting.Indented)}");
-    
             // push the loaded PermanentGameData to all other scripts that need it
             foreach (IPermanentDataPersistence permanentObj in permanentObjects) 
             {
                 permanentObj.LoadData(_permanentGameData);
             }
+            
+             EventLogger.Instance.LogEvent(LogEventType.Save, "讀取 - 永久存檔", 
+                            $"{JsonConvert.SerializeObject(_permanentGameData, Formatting.Indented)}");
         }
 
         [Button("儲存永久存檔")]
@@ -166,14 +166,14 @@ namespace Save
                 _permanentGameData = new PermanentGameData();
             }
             
-            EventLogger.Instance.LogEvent(LogEventType.Save, "儲存 - 永久存檔", 
-                $"{JsonConvert.SerializeObject(_permanentGameData, Formatting.Indented)}");
-
             // pass the PermanentGameData to other scripts so they can update it
             foreach (IPermanentDataPersistence permanentObj in permanentObjects) 
             { 
                 permanentObj.SaveData(_permanentGameData);
             }
+            
+            EventLogger.Instance.LogEvent(LogEventType.Save, "儲存 - 永久存檔", 
+                            $"{JsonConvert.SerializeObject(_permanentGameData, Formatting.Indented)}");
 
             // save that PermanentGameData to a file using the PermanentGameData handler
             ES3Handler.SavePermanent(_permanentGameData);

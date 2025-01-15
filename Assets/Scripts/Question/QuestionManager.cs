@@ -22,7 +22,7 @@ namespace Question
     /// <summary>
     /// 答題模式管理器
     /// </summary>
-    public class QuestionManager : MonoBehaviour, IDataPersistence
+    public class QuestionManager : MonoBehaviour, IPermanentDataPersistence
     {
         public static QuestionManager Instance => GameManager.Instance.QuestionManager;
         
@@ -262,7 +262,7 @@ namespace Question
         public void SetQuestionSetting(QuestionSetting setting)
         {
             QuestionSetting = setting;
-            
+            SaveManager.Instance.SavePermanentGame();
         }
 
         #endregion
@@ -394,12 +394,13 @@ namespace Question
         
         #endregion
 
-        public void LoadData(GameData data)
+        
+        public void LoadData(PermanentGameData data)
         {
             QuestionSetting = data.QuestionSetting;
         }
 
-        public void SaveData(GameData data)
+        public void SaveData(PermanentGameData data)
         {
             data.QuestionSetting = QuestionSetting;
         }

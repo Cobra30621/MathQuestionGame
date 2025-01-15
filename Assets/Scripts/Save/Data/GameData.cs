@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Characters.Ally;
 using Encounter;
-using Question.Data;
 using Relic.Data;
 
 namespace Save.Data
@@ -43,10 +42,7 @@ namespace Save.Data
         /// 現在在第幾個地圖
         /// </summary>
         public int CurrentMapIndex;
-        /// <summary>
-        /// 問題設定
-        /// </summary>
-        public QuestionSetting QuestionSetting;
+        
         
     }
 }
