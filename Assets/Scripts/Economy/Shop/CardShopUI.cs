@@ -117,7 +117,6 @@ namespace Economy.Shop
             // 依據職業排序
             var sortedCardInfos = cardInfos.OrderBy(x => x.CardData.AllyClassType).ToList();
             
-            Debug.Log($"prefab {prefab.name}");
             foreach (var cardInfo in sortedCardInfos)
             {
                 var card = Instantiate(prefab, spawnPos);

@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Card.Data
 {
@@ -57,7 +55,14 @@ namespace Card.Data
             
             ManaCost = cardLevelInfo.ManaCost;
         }
-        
+
+
+        public override string ToString()
+        {
+            return
+                $"{cardLevelInfo.TitleLang} : {Description}" +
+                $"等級 : {Level}, ID: {CardData.CardId}";
+        }
     }
     
     [Serializable]

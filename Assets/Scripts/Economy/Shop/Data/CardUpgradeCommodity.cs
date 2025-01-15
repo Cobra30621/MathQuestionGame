@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Card;
 using Card.Data;
+using Log;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -46,6 +47,8 @@ namespace Economy.Shop.Data
             CardManager.Instance.UpgradeCard(cardId);
 
             _cardInfo = CardManager.Instance.CreateCardInfo(_cardInfo.CardData);
+            EventLogger.Instance.LogEvent(LogEventType.Economy, $"升級卡牌: {_cardInfo}");
+            
             ShopHandler.OnBuyCardUpgradeCommodity.Invoke(this);
         }
     }

@@ -30,7 +30,6 @@ namespace Economy.Shop
 
         public void ShowPanel(CardUpgradeCommodity commodity)
         {
-            Debug.Log("Show Upgrade Panel");
             mainPanel.SetActive(true);
             
             _commodity = commodity;

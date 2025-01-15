@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Log;
 using Managers;
 using Relic;
 using Relic.Data;
@@ -39,6 +40,7 @@ namespace Economy.Shop.Data
             
             GameManager.Instance.RelicManager.UpgradeRelic(_relicInfo.relicName);
 
+            EventLogger.Instance.LogEvent(LogEventType.Economy, $"升級遺物: {_relicInfo}");
             ShopHandler.OnBuyRelicUpgradeCommodity.Invoke(this);
         }
     }

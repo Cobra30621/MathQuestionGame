@@ -34,7 +34,6 @@ namespace Economy.Shop
             
             DestroyPreviousUI();
 
-            Debug.Log($"prefab {prefab.name}");
             foreach (var relicInfo in relicInfos)
             {
                 var relic = Instantiate(prefab, spawnPos);

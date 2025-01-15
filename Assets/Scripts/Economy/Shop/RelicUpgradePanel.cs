@@ -1,5 +1,3 @@
-// File: /Users/cobra/Desktop/Unity/Develop/MathQuestionGame/Assets/Scripts/Relic/Coin/RelicUpgradePanel.cs
-
 using Economy.Shop.Data;
 using Relic;
 using Relic.Data;
@@ -37,7 +35,6 @@ namespace Economy.Shop
         /// <param name="commodity">The relic upgrade commodity to display information for.</param>
         public void ShowPanel(RelicUpgradeCommodity commodity)
         {
-            Debug.Log("Show Upgrade Panel");
             mainPanel.SetActive(true);
             
             _commodity = commodity;

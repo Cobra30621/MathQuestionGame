@@ -1,7 +1,4 @@
-// File: /Users/cobra/Desktop/Unity/Develop/MathQuestionGame/Assets/Scripts/Relic/Display/ShopRelic.cs
-
 using Economy.Shop.Data;
-using Relic;
 using Relic.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -29,7 +26,6 @@ namespace Economy.Shop
 
             if (relicInfo.relicSaveInfo.HasGained)
             {
-                Debug.Log("Subscribe OnRelicChose");
                 UIRelic.OnRelicChose += OpenUpgradePanel;
             }
             
@@ -40,7 +36,6 @@ namespace Economy.Shop
 
         public void OpenUpgradePanel()
         {
-            Debug.Log(" OpenUpgradePanel");
             _relicShopUI.ShowUpgradeUI(_commodity);
         }
     }

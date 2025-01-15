@@ -185,7 +185,7 @@ namespace Characters
             CharacterStats.BeAttacked(damageInfo);
             beAttackFeedback?.Play();
             
-            EventLogger.Instance.LogEvent(LogEventType.Combat, $"受傷: {name}", 
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"收到攻擊: {name}", 
                 $"傷害資訊: {damageInfo}\n" +
                 $"剩餘血量: {CharacterStats.CurrentHealth}");
         }

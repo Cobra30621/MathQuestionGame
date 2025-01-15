@@ -28,5 +28,12 @@ namespace Relic.Data
         {
             return data.GetDescription(relicSaveInfo.Level);
         }
+
+        public override string ToString()
+        {
+            int level = relicSaveInfo.Level;
+            return $"{relicName}, 等級: {level}\n" +
+                $"{data.Title}: {data.GetDescription(level)}";
+        }
     }
 }
