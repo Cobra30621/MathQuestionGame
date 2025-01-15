@@ -24,8 +24,6 @@ namespace Power.Common
 
         protected override void OnTurnStart(TurnInfo info)
         {
-            
-            Debug.Log($"Character Turn:  {Owner.name} {info}" + IsCharacterTurn(info));
             if (IsCharacterTurn(info))
             {
                 if (CombatManager.Instance.MainAlly.HasPower(PowerName.Equip))
@@ -34,7 +32,7 @@ namespace Power.Common
                 }
                 else
                 {
-                    Owner.ClearPower(PowerName);
+                    Owner.ClearPower(PowerName, GetEffectSource());
                 }
             }
         }

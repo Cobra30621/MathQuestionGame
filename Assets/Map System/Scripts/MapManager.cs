@@ -162,7 +162,6 @@ namespace Map
         
         public void SaveData(GameData data)
         {
-            Debug.Log($"CurrentMap {CurrentMap.path.Count}");
             var json = JsonConvert.SerializeObject(CurrentMap, Formatting.Indented,
                 new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
             

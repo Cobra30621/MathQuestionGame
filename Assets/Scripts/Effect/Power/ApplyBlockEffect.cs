@@ -36,7 +36,7 @@ namespace Effect.Power
             {
                 foreach (var target in TargetList)
                 {
-                    target.ApplyPower(PowerName.Block, _applyValue);
+                    target.ApplyPower(PowerName.Block, _applyValue, EffectSource);
                 }
             }
             

@@ -68,6 +68,8 @@ namespace Combat.Card
         public virtual void Use(List<CharacterBase> targetList)
         {
             if (!IsPlayable) return;
+            
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"使用卡牌: {_cardInfo.CardLevelInfo.TitleLang}");
 
             HideTooltipInfo();
 
@@ -75,9 +77,7 @@ namespace Combat.Card
 
             DoCharacterFeedback(_cardInfo.CardData);
             DoAction(targetList);
-
             
-            EventLogger.Instance.LogEvent(LogEventType.Combat, $"使用卡牌 - {_cardInfo.CardLevelInfo.TitleLang}");
             CollectionManager.OnCardPlayed(this);
         }
 

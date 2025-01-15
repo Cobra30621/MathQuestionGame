@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810663025895178329}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.087, y: -0.134, z: 0}
+  m_LocalPosition: {x: -0.26, y: -0.134, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -914,7 +914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3873674488778675475}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.979, y: -0.13, z: 0}
+  m_LocalPosition: {x: 2.076, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -945,7 +945,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4305065158385358272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.379, y: -0.13, z: 0}
+  m_LocalPosition: {x: 1.3, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1925,7 +1925,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8142573475331178482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.779, y: -0.13, z: 0}
+  m_LocalPosition: {x: 0.51, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2052,12 +2052,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e647a62e3ba942b2b78ac6838d808e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_ENEMY_COUNT: 4
-  enemyPosList:
-  - {fileID: 4305065158385358273}
-  - {fileID: 2452178601341196022}
-  - {fileID: 4975396874289159475}
-  - {fileID: 5186193697303132503}
   allyPos: {fileID: 719666315382614374}
   _enemyBuilder: {fileID: 6907522448744634378}
   MainAlly: {fileID: 0}
@@ -2077,6 +2071,12 @@ MonoBehaviour:
   sheetDataGetter: {fileID: 11400000, guid: c5faecb921b28874c9d697614b4562ab, type: 2}
   enemyPrefabData: {fileID: 11400000, guid: 89f6bf46d877c2443ad8322052e244e8, type: 2}
   characterHandler: {fileID: 7323676038586818325}
+  MAX_ENEMY_COUNT: 4
+  enemyPosList:
+  - {fileID: 4305065158385358273}
+  - {fileID: 2452178601341196022}
+  - {fileID: 4975396874289159475}
+  - {fileID: 5186193697303132503}
 --- !u!1001 &215259642284000854
 PrefabInstance:
   m_ObjectHideFlags: 0

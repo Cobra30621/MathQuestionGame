@@ -41,13 +41,13 @@ namespace Power.Buff
             if (source != null)
             {
                 // 造成與層數相等的傷害
-                var damageInfo = new DamageInfo(Amount, GetActionSource(), fixDamage: true);
+                var damageInfo = new DamageInfo(Amount, GetEffectSource(), fixDamage: true);
                 EffectExecutor.ExecuteImmediately(new DamageEffect(damageInfo, new List<CharacterBase>() {info.EffectSource.SourceCharacter}));
          
                 // 反彈後減層數 1 
                 EffectExecutor.ExecuteImmediately(
                     new ApplyPowerEffect(-1, PowerName, 
-                        new List<CharacterBase>(){Owner}, GetActionSource()));
+                        new List<CharacterBase>(){Owner}, GetEffectSource()));
       
             }
         }

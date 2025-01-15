@@ -41,7 +41,7 @@ namespace Power.Enemy
                 enemy.SetSplitEnemySkill($"{Amount}");
                 
                 // 清除当前能力
-                Owner.ClearPower(PowerName);
+                Owner.ClearPower(PowerName, GetEffectSource());
             }
         }
     }

@@ -52,7 +52,7 @@ namespace Effect.Power
         {
             foreach (var target in TargetList)
             {
-                target.ApplyPower(_targetPower, _applyValue);
+                target.ApplyPower(_targetPower, _applyValue, EffectSource);
             }
             
         }

@@ -138,7 +138,6 @@ namespace Reward.UI
             
             var nodeType = MapManager.Instance.GetCurrentNodeType();
             
-            Debug.Log($"_rewardDatas: {_rewardDatas.Count}");
             foreach (var rewardData in _rewardDatas)
             {
                 switch (rewardData.RewardType)

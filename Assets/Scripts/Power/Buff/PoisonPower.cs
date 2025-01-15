@@ -38,14 +38,14 @@ namespace Power.Buff
                 int poisonAmount = Amount;
 
                 // 造成傷害
-                var damageInfo = new DamageInfo(poisonAmount, GetActionSource(), fixDamage: true);
+                var damageInfo = new DamageInfo(poisonAmount, GetEffectSource(), fixDamage: true);
                 EffectExecutor.AddEffect(new DamageEffect(damageInfo, 
                     new List<CharacterBase>() {Owner}));
                 
                 // 扣血後減層數 1 
                 EffectExecutor.AddEffect(
                     new ApplyPowerEffect(-1, PowerName, 
-                        new List<CharacterBase>(){Owner}, GetActionSource()));
+                        new List<CharacterBase>(){Owner}, GetEffectSource()));
                 
                 
             }

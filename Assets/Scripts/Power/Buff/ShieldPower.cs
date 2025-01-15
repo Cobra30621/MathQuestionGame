@@ -34,7 +34,7 @@ namespace Power.Buff
                 
                 EffectExecutor.AddEffect(new ApplyPowerEffect(
                     3 * Amount, PowerName.Block, new List<CharacterBase>() {Owner},
-                    GetActionSource()));
+                    GetEffectSource()));
             }
         }
     }

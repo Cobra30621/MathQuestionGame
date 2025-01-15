@@ -30,10 +30,10 @@ namespace Power.ReducePowerAtTurnEnd
         {
             // 回合結束時，降低使用者的能力
             EffectExecutor.AddEffect(new ApplyPowerEffect(
-                -Amount, TargetPowerName, new List<CharacterBase>(){Owner}, GetActionSource()));
+                -Amount, TargetPowerName, new List<CharacterBase>(){Owner}, GetEffectSource()));
             
             EffectExecutor.AddEffect(new ClearPowerEffect(
-                PowerName, new List<CharacterBase>(){Owner}, GetActionSource()));
+                PowerName, new List<CharacterBase>(){Owner}, GetEffectSource()));
             
             base.OnRoundEnd(info);
         }

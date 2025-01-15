@@ -42,14 +42,14 @@ namespace Power.Buff
                 // }
 
                 // 造成傷害
-                var damageInfo = new DamageInfo(fireAmount, GetActionSource(), fixDamage: true);
+                var damageInfo = new DamageInfo(fireAmount, GetEffectSource(), fixDamage: true);
                 EffectExecutor.AddEffect(new DamageEffect(damageInfo, 
                     new List<CharacterBase>() {Owner}));
                 
                 // 燒血後減層數 1 
                 EffectExecutor.AddEffect(
                     new ApplyPowerEffect(-1, PowerName, 
-                        new List<CharacterBase>(){Owner}, GetActionSource()));
+                        new List<CharacterBase>(){Owner}, GetEffectSource()));
                 
                 
             }

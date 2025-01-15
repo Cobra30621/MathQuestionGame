@@ -185,7 +185,7 @@ namespace Characters
             CharacterStats.BeAttacked(damageInfo);
             beAttackFeedback?.Play();
             
-            EventLogger.Instance.LogEvent(LogEventType.Combat, $"受傷 - {name}", 
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"受傷: {name}", 
                 $"傷害資訊: {damageInfo}\n" +
                 $"剩餘血量: {CharacterStats.CurrentHealth}");
         }
@@ -194,7 +194,7 @@ namespace Characters
         {
             CharacterStats.Heal(value);
             
-            EventLogger.Instance.LogEvent(LogEventType.Combat, $"回血 - {name}", 
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"回血: {name}", 
                 $"剩餘血量: {CharacterStats.CurrentHealth}");
         }
 
@@ -235,10 +235,14 @@ namespace Characters
         /// </summary>
         /// <param name="targetPower"></param>
         /// <param name="value"></param>
-        public void ApplyPower(PowerName targetPower,int value)
+        public void ApplyPower(PowerName targetPower,int value, EffectSource effectSource)
         {
             var (haveFindPower, isNewPower) = CharacterStats.ApplyPower(targetPower, value);
 
+            EventLogger.Instance.LogEvent(LogEventType.Combat, 
+                $"賦予能力: {targetPower} + {value} 給 {name}",
+                $"{effectSource}");
+            
             // 沒找到能力，不播特效
             if (!haveFindPower)
             {
@@ -296,9 +300,13 @@ namespace Characters
         /// 清除能力
         /// </summary>
         /// <param name="targetPower"></param>
-        public void ClearPower(PowerName targetPower)
+        public void ClearPower(PowerName targetPower, EffectSource effectSource)
         {
             CharacterStats.ClearPower(targetPower);
+            
+            EventLogger.Instance.LogEvent(LogEventType.Combat, 
+                $"清除能力: {targetPower} 在 {name}",
+                $"{effectSource}");
 
             if (targetPower == PowerName.Block)
             {

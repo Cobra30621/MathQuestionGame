@@ -23,7 +23,7 @@ namespace Power.Buff
         {
             EffectExecutor.AddEffect(
                 new ApplyPowerEffect(-1, PowerName, 
-                    new List<CharacterBase>(){Owner}, GetActionSource()));
+                    new List<CharacterBase>(){Owner}, GetEffectSource()));
             return damage*2;
         }
     }

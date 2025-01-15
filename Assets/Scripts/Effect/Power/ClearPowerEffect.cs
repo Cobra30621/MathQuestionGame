@@ -44,7 +44,7 @@ namespace Effect.Power
         {
             foreach (var target in TargetList)
             {
-                target.ClearPower(_targetPower);
+                target.ClearPower(_targetPower, EffectSource);
             }
         }
     }

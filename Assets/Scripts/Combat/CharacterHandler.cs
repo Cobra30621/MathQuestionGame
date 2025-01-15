@@ -11,9 +11,6 @@ namespace Combat
 {
     public class CharacterHandler : MonoBehaviour
     {
-        public int MAX_ENEMY_COUNT = 4;
-
-        [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private Transform allyPos;
 
         [SerializeField] private EnemyBuilder _enemyBuilder;
@@ -40,7 +37,8 @@ namespace Combat
             Enemies = new List<Enemy>();
             foreach (var enemyData in enemyNames)
             {
-                var enemy = _enemyBuilder.Build(enemyData, GetEnemyPos());
+                var enemy = _enemyBuilder.Build(enemyData);
+                
 
                 Enemies.Add(enemy);
             }
@@ -52,14 +50,12 @@ namespace Combat
         /// <param name="ids"></param>
         public void BuildEnemy(string id)
         {
-            if (ReachMaxEnemyCount()) return;
+            if (_enemyBuilder.ReachMaxEnemyCount()) return;
 
-            var spawnPos = GetEnemyPos();
-            var enemy = _enemyBuilder.Build(id, spawnPos);
+            var enemy = _enemyBuilder.Build(id);
             Enemies.Add(enemy);
 
-            Instantiate(spawnEnemyFXPrefab, spawnPos);
-            EventLogger.Instance.LogEvent(LogEventType.Combat, $"創建敵人 - {enemy.GetId()}");
+            Instantiate(spawnEnemyFXPrefab, enemy.gameObject.transform);
 
             // 執行開始的行動
             StartCoroutine(enemy.BattleStartActionRoutine());
@@ -67,13 +63,12 @@ namespace Combat
 
         public void BuildAndSetEnemyHealth(string id, int health)
         {
-            if (ReachMaxEnemyCount()) return;
+            if (_enemyBuilder.ReachMaxEnemyCount()) return;
 
-            var enemy = _enemyBuilder.Build(id, GetEnemyPos());
+            var enemy = _enemyBuilder.Build(id);
             Enemies.Add(enemy);
             enemy.SetMaxHealth(health);
             
-            EventLogger.Instance.LogEvent(LogEventType.Combat, $"創建敵人 - {enemy.GetId()}");
 
             // 執行開始的行動
             StartCoroutine(enemy.BattleStartActionRoutine());
@@ -85,34 +80,9 @@ namespace Combat
             clone.BuildCharacter(allyData, this);
             MainAlly = clone;
             
-            EventLogger.Instance.LogEvent(LogEventType.Combat, $"創建玩家 - {allyData.CharacterName}");
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"創建玩家: {allyData.CharacterName}");
         }
-
-
-        private Transform GetEnemyPos()
-        {
-            if (!ReachMaxEnemyCount())
-            {
-                foreach (var enemyPos in enemyPosList)
-                {
-                    if (enemyPos.childCount == 0) return enemyPos;
-                }
-            }
-
-            return enemyPosList[0];
-        }
-
-        private bool ReachMaxEnemyCount()
-        {
-            bool isReachMax = Enemies.Count >= MAX_ENEMY_COUNT;
-            if (isReachMax)
-            {
-                EventLogger.Instance.LogEvent(LogEventType.Combat, $"錯誤 - 敵人數量超過限制 {Enemies.Count + 1}");
-            }
-
-            return isReachMax;
-        }
-
+        
         #endregion
 
         /// <summary>

@@ -124,12 +124,12 @@ namespace Power
                 if (CanNegativeStack)
                 {
                     if (Amount == 0 && !IsPermanent)
-                        Owner.ClearPower(PowerName);
+                        Owner.ClearPower(PowerName, GetEffectSource());
                 }
                 else
                 {
                     if (!IsPermanent)
-                        Owner.ClearPower(PowerName);
+                        Owner.ClearPower(PowerName, GetEffectSource());
                 }
             }
         }
@@ -161,7 +161,7 @@ namespace Power
             //One turn only statuses
             if (ClearAtNextTurn)
             {
-                Owner.ClearPower(PowerName);
+                Owner.ClearPower(PowerName, GetEffectSource());
                 return;
             }
             
@@ -174,12 +174,12 @@ namespace Power
                 if (CanNegativeStack)
                 {
                     if (Amount == 0 && !IsPermanent)
-                        Owner.ClearPower(PowerName);
+                        Owner.ClearPower(PowerName, GetEffectSource());
                 }
                 else
                 {
                     if (!IsPermanent)
-                        Owner.ClearPower(PowerName);
+                        Owner.ClearPower(PowerName, GetEffectSource());
                 }
             }
         }
@@ -206,7 +206,7 @@ namespace Power
             return Owner.IsCharacterType(info.CharacterType);
         }
         
-        protected EffectSource GetActionSource()
+        protected EffectSource GetEffectSource()
         {
             return new EffectSource()
             {

@@ -29,11 +29,11 @@ namespace Power.Buff
             {
                 EffectExecutor.ExecuteImmediately(
                     new ApplyPowerEffect(stackAmount, PowerName.Strength, 
-                        new List<CharacterBase>(){Owner}, GetActionSource()));
+                        new List<CharacterBase>(){Owner}, GetEffectSource()));
                 // 觸發後減層數 1 
                 EffectExecutor.ExecuteImmediately(
                     new ApplyPowerEffect(-1, PowerName, 
-                        new List<CharacterBase>(){Owner}, GetActionSource()));
+                        new List<CharacterBase>(){Owner}, GetEffectSource()));
             }
         }
     }

@@ -297,11 +297,11 @@ namespace Combat
         private IEnumerator RoundStartRoutine()
         {
             RoundNumber++;
-
             _manaManager.HandleAtTurnStartMana();
             CollectionManager.DrawCards(DrawCount());
             GameManager.CanSelectCards = false;
 
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"回合 {RoundNumber} 開始");
             OnRoundStart?.Invoke(GetRoundInfo());
             yield return new WaitForSeconds(0.1f);
 
@@ -310,13 +310,14 @@ namespace Combat
 
         private IEnumerator AllyTurnRoutine()
         {
-            // 玩家可以操作手牌
-            CollectionManager.HandController.EnableDragging();
             // 等待遊戲行為序列完成
             yield return new WaitUntil(() => !EffectExecutor.Instance.IsExecuting);
             
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"玩家階段開始");
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Ally));
-
+            
+            // 玩家可以操作手牌
+            CollectionManager.HandController.EnableDragging();
             allyTurnStartFeedback.Play();
             yield return new WaitForSeconds(allyTurnStartFeedback.FeedbackDuration());
             GameManager.CanSelectCards = true;
@@ -347,6 +348,7 @@ namespace Combat
             // 等待遊戲行為序列完成
             yield return new WaitUntil(() => !EffectExecutor.Instance.IsExecuting);
             
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"敵人階段開始");
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Enemy));
             CollectionManager.DiscardHand();
 
@@ -387,6 +389,8 @@ namespace Combat
 
         private IEnumerator LoseCombatRoutine()
         {
+            EventLogger.Instance.LogEvent(LogEventType.Combat, "---------- 戰鬥失敗 ----------");
+            
             CollectionManager.DiscardHand();
             CollectionManager.DiscardPile.Clear();
             CollectionManager.DrawPile.Clear();
@@ -401,6 +405,7 @@ namespace Combat
 
         private IEnumerator WinCombatRoutine()
         {
+            EventLogger.Instance.LogEvent(LogEventType.Combat, "---------- 戰鬥勝利 ----------");
             OnBattleWin?.Invoke(RoundNumber);
             GameManager.AllyHealthHandler.SetHealth(
                 MainAlly.GetCharacterStats().CurrentHealth);

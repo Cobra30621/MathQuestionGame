@@ -32,10 +32,9 @@ namespace Effect.Enemy
         {
             Characters.Enemy.Enemy targetEnemy;
             var find = CombatManager.characterHandler.GetEnemyWithId(targetEnemyId, out targetEnemy);
-            Debug.Log($"Find {targetEnemy}");
             if (find)
             {
-                targetEnemy.ApplyPower(_targetPower, _applyValue);
+                targetEnemy.ApplyPower(_targetPower, _applyValue, EffectSource);
                 
                 // 自己自殺
                 Debug.Log($"自殺 {TargetList[0]}");

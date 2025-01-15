@@ -70,18 +70,18 @@ namespace Power.Enemy
                 // 提升力量
                 var strengthAction = new ApplyPowerEffect(
                     AddStrengthAmount, PowerName.Strength,
-                    new List<CharacterBase>() { enhanceEnemy }, GetActionSource());
+                    new List<CharacterBase>() { enhanceEnemy }, GetEffectSource());
                 actions.Add(strengthAction);
                 
                 // 治癒
                 int health = Owner.GetHealth();
                 var healAction = new HealEffect(health,
-                    new List<CharacterBase>() { enhanceEnemy }, GetActionSource());
+                    new List<CharacterBase>() { enhanceEnemy }, GetEffectSource());
                 actions.Add(healAction);
                 
                 // 自己死亡
                 var deathAction = new SetDeathEffect(
-                    new List<CharacterBase>() { Owner }, GetActionSource());
+                    new List<CharacterBase>() { Owner }, GetEffectSource());
                 actions.Add(deathAction);
                 
                 

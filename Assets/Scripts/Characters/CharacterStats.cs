@@ -202,7 +202,7 @@ namespace Characters
             int reduceBlockValue =  damageValue - afterBlockDamage;
             if (reduceBlockValue > 0)
             {
-                owner.ApplyPower(PowerName.Block, -reduceBlockValue);
+                owner.ApplyPower(PowerName.Block, -reduceBlockValue, damageInfo.EffectSource);
             }
             owner.OnAttacked?.Invoke(damageInfo);
             
