@@ -5,6 +5,7 @@ namespace Relic.Data
         Shield = 10001,
         Drumstick = 10002,
         Sword = 10003,
+        Orb = 40001,
         // Test 101 ~
         DrawCardOnAnswerCorrect = 102,
         StrengthGenerator = 103,
