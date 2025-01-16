@@ -56,8 +56,7 @@ namespace Card.Display
         private void OnCardInfoUpdated(List<CardInfo> cardInfos)
         {
             var cardInfo = cardInfos.FirstOrDefault(c => c.CardData.CardId ==  _cardInfo.CardData.CardId);
-            Debug.Log(cardInfo);
-            
+
             if (cardInfo!= null)
             {
                 _cardInfo = cardInfo;
