@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Characters.Enemy.Data;
 using Combat;
 using Effect;
 using Effect.Parameters;
+using Log;
 using Sheets;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace Characters.Enemy
@@ -29,6 +32,8 @@ namespace Characters.Enemy
          // 内部系统用
          public bool useSheetInfos; // 是否使用表格信息
          public List<EffectBase> _gameActions; // 游戏动作列表
+
+         private string _skillName;
          
          #endregion
 
@@ -43,6 +48,7 @@ namespace Characters.Enemy
              currentCd = 0;
              skillInfos = _skillData.skillIDs.ConvertAll(getter.GetSkillInfo);
              _intention = getter.GetIntention(skillData.Intention);
+             _skillName = skillData.ps;
 
              useSheetInfos = true;
          }
@@ -50,10 +56,13 @@ namespace Characters.Enemy
          /// <summary>
          /// 设定在内部系统行动
          /// </summary>
-         public EnemySkill(List<EffectBase> gameActions, Intention intention)
+         public EnemySkill(List<EffectBase> gameActions, Intention intention, 
+             Enemy enemy, string skillName)
          {
              _gameActions = gameActions;
              _intention = intention;
+             _enemy = enemy;
+             _skillName = skillName;
              useSheetInfos = false;
          }
 
@@ -66,7 +75,7 @@ namespace Characters.Enemy
             if(useSheetInfos)
                 currentCd = _skillData.CD;
             
-            var actionSource = GetActionScoure();
+            var actionSource = GetEffectSource();
 
             if (useSheetInfos)
             {
@@ -101,7 +110,7 @@ namespace Characters.Enemy
             if (_intention.ShowIntentionValue)
             {
                 _gameActions = EffectFactory.GetEffects(skillInfos,
-                    new List<CharacterBase>() { _enemy }, GetActionScoure());
+                    new List<CharacterBase>() { _enemy }, GetEffectSource());
                 
                 var (damage, times) = _gameActions[0].GetDamageBasicInfo();
 
@@ -137,8 +146,13 @@ namespace Characters.Enemy
         {
             return currentCd <= 0 ;
         }
+
+        public string SkillName()
+        {
+            return _skillName;
+        }
         
-        private EffectSource GetActionScoure()
+        private EffectSource GetEffectSource()
         {
             EffectSource effectSource = new EffectSource()
             {
@@ -146,6 +160,16 @@ namespace Characters.Enemy
                 SourceCharacter = _enemy
             };
             return effectSource;
+        }
+
+        public override string ToString()
+        {
+            string skillInfoString = "";
+            if(skillInfos != null)
+                skillInfoString = string.Join(", ", skillInfos.Select(s => s.ToString()));
+            return
+                $"技能: {skillInfoString}\n" +
+                $"currentCD: {currentCd}, {GetEffectSource()}";
         }
     }
 }

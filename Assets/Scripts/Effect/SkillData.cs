@@ -102,5 +102,11 @@ namespace Effect
         public List <int> EffectParameterList; 
         public ActionTargetType Target;
         public string ps;
+
+        public override string ToString()
+        {
+            return
+                $"{ps} | {EffectID} : {EffectParameter}, Target:{Target} SkillId : {SkillID}";
+        }
     }
 }

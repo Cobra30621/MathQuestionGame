@@ -361,7 +361,7 @@ namespace Combat
 
             foreach (var currentEnemy in CoroutineEnemies)
             {
-                yield return currentEnemy.ActionRoutine();
+                yield return currentEnemy.SkillRoutine();
                 yield return waitDelay;
             }
 
