@@ -9,6 +9,7 @@ using Combat.Card;
 using Effect;
 using Encounter.Data;
 using Feedback;
+using GameListener;
 using Log;
 using Managers;
 using Map;
@@ -146,7 +147,7 @@ namespace Combat
 
         public static Action<int> OnBattleWin;
 
-        public static System.Action OnBattleStart;
+        public static Action OnBattleStart;
         
 
 
@@ -208,6 +209,7 @@ namespace Combat
             // 玩家無法操作手牌
             CollectionManager.HandController.DisableDragging();
             
+            CombatEventTrigger.InvokeOnTurnEnd(GetTurnInfo(CharacterType.Ally));
             OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Ally)); // 玩家回合結束
 
             CurrentCombatStateType = CombatStateType.EnemyTurn;
@@ -288,6 +290,7 @@ namespace Combat
 
             yield return new WaitForSeconds(0.1f);
             OnBattleStart?.Invoke();
+            CombatEventTrigger.InvokeOnBattleStart();
             yield return BattleStartEnemyRoutine();
 
             CurrentCombatStateType = CombatStateType.RoundStart;
@@ -303,6 +306,7 @@ namespace Combat
 
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"回合 {RoundNumber} 開始");
             OnRoundStart?.Invoke(GetRoundInfo());
+            CombatEventTrigger.InvokeOnRoundStart(GetRoundInfo());
             yield return new WaitForSeconds(0.1f);
 
             CurrentCombatStateType = CombatStateType.AllyTurn;
@@ -315,6 +319,7 @@ namespace Combat
             
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"玩家階段開始");
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Ally));
+            CombatEventTrigger.InvokeOnTurnStart(GetTurnInfo(CharacterType.Ally));
             
             // 玩家可以操作手牌
             CollectionManager.HandController.EnableDragging();
@@ -350,6 +355,7 @@ namespace Combat
             
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"敵人階段開始");
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Enemy));
+            CombatEventTrigger.InvokeOnTurnStart(GetTurnInfo(CharacterType.Enemy));
             CollectionManager.DiscardHand();
 
             enemyTurnStartFeedback.Play();
@@ -376,12 +382,14 @@ namespace Combat
             else
             {
                 OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Enemy)); // 敵人回合結束
+                CombatEventTrigger.InvokeOnTurnEnd(GetTurnInfo(CharacterType.Enemy));
             }
         }
 
         private IEnumerator RoundEndRoutine()
         {
             OnRoundEnd?.Invoke(GetRoundInfo());
+            CombatEventTrigger.InvokeOnRoundEnd(GetRoundInfo());
             yield return new WaitForSeconds(0.1f);
 
             CurrentCombatStateType = CombatStateType.RoundStart;
@@ -390,6 +398,7 @@ namespace Combat
         private IEnumerator LoseCombatRoutine()
         {
             EventLogger.Instance.LogEvent(LogEventType.Combat, "---------- 戰鬥失敗 ----------");
+            CombatEventTrigger.InvokeOnBattleLose(RoundNumber);
             
             CollectionManager.DiscardHand();
             CollectionManager.DiscardPile.Clear();
@@ -407,6 +416,8 @@ namespace Combat
         {
             EventLogger.Instance.LogEvent(LogEventType.Combat, "---------- 戰鬥勝利 ----------");
             OnBattleWin?.Invoke(RoundNumber);
+            CombatEventTrigger.InvokeOnBattleWin(RoundNumber);
+            
             GameManager.AllyHealthHandler.SetHealth(
                 MainAlly.GetCharacterStats().CurrentHealth);
 

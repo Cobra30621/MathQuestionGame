@@ -19,21 +19,9 @@ namespace Power.Buff
         public override PowerName PowerName => PowerName.Thorns;
 
 
-        public override void SubscribeAllEvent()
-        {
-            Owner.OnAttacked += OnAttacked;
-            CombatManager.OnTurnStart += OnTurnStart;
-        }
-
-        public override void UnSubscribeAllEvent()
-        {
-            Owner.OnAttacked -= OnAttacked;
-            CombatManager.OnTurnStart -= OnTurnStart;
-        }
-
 
         // 怪物攻擊時，造成傷害後反彈傷害
-        protected override void OnAttacked(DamageInfo info)
+        public override void OnAttacked(DamageInfo info)
         {
             var source = info.EffectSource.SourceCharacter;
             // 怪物攻擊時，造成傷害後反彈傷害

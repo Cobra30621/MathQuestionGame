@@ -11,17 +11,8 @@ namespace Relic.Knight
     {
         public override RelicName RelicName => RelicName.Drumstick;
         private int amount = 3;
-        public override void SubscribeAllEvent()
-        {
-            CombatManager.OnBattleWin += OnBattleWin;
-        }
 
-        public override void UnSubscribeAllEvent()
-        {
-            CombatManager.OnBattleWin -= OnBattleWin;
-        }
-
-        protected override void OnBattleWin(int roundNumber)
+        public override void OnBattleWin(int roundNumber)
         {
             EffectExecutor.AddEffect(new HealEffect(
                 amount, new List<CharacterBase>() {MainAlly},

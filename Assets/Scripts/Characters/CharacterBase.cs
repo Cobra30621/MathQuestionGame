@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Characters.Display;
 using Combat;
 using Effect.Parameters;
 using Feedback;
+using GameListener;
 using Log;
 using Managers;
 using Power;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UI;
 using UnityEngine;
 
@@ -59,14 +62,9 @@ namespace Characters
         public Action<int, int> OnHealthChanged;
         
         /// <summary>
-        /// 被攻擊時。妳剛剛攻擊我的村莊 ? 我的 Coin Master 村莊 ?
+        /// 被攻擊時。
         /// </summary>
         public Action<DamageInfo> OnAttacked;
-        
-        /// <summary>
-        /// 攻擊時。應該是。妳大老遠跑來，就只因為我攻擊了妳的村莊?
-        /// </summary>
-        public Action<DamageInfo> OnAttack;
         
         /// <summary>
         ///  事件: 當獲得能力時觸發
@@ -177,7 +175,7 @@ namespace Characters
         
         #region Damage
         /// <summary>
-        /// 被攻擊
+        /// 角色被攻擊時
         /// </summary>
         /// <param name="damageInfo"></param>
         public virtual void BeAttacked(DamageInfo damageInfo)
@@ -188,6 +186,13 @@ namespace Characters
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"收到攻擊: {name}", 
                 $"傷害資訊: {damageInfo}\n" +
                 $"剩餘血量: {CharacterStats.CurrentHealth}");
+            
+            // 執行 GameEventListener(遊戲事件監聽器)，包含角色持有的能力、遺物
+            var listeners = GetEventListeners();
+            foreach (var listener in listeners)
+            {
+                listener.OnAttacked(damageInfo);
+            }
         }
 
         public void Heal(int value)
@@ -206,10 +211,22 @@ namespace Characters
             CharacterStats.SetDeath();
         }
         
+        /// <summary>
+        /// 角色死亡時執行
+        /// </summary>
+        /// <param name="damageInfo"></param>
         protected virtual void OnDeathAction(DamageInfo damageInfo)
         {
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"死亡 {name}", 
                 $"傷害資訊: {damageInfo}");
+
+            // 執行 GameEventListener(遊戲事件監聽器)，包含角色持有的能力、遺物
+            var listeners = GetEventListeners();
+            foreach (var listener in listeners)
+            {
+                listener.OnDead(damageInfo);
+            }
+            
             onDeadFeedback?.Play();
             UnsubscribeEvent();
         }
@@ -223,6 +240,20 @@ namespace Characters
         public int GetHealth()
         {
             return CharacterStats.CurrentHealth;
+        }
+
+        /// <summary>
+        /// 取得 GameEventListener(遊戲事件監聽器)
+        /// 包含角色持有的能力、遺物
+        /// </summary>
+        /// <returns></returns>
+        public List<GameEventListener> GetEventListeners()
+        {
+            var listener = new List<GameEventListener>();
+            listener.AddRange(GetPowerDict().Values);
+            listener.AddRange(ListenerGetter.GetRelicEventsListeners());
+            
+            return listener;
         }
 
         #endregion
@@ -354,7 +385,15 @@ namespace Characters
         
         public Dictionary<PowerName, PowerBase> GetPowerDict()
         {
+            if (CharacterStats == null) return new Dictionary<PowerName, PowerBase>();
+            
             return CharacterStats.PowerDict;
+        }
+
+        public List<GameEventListener> GetPowerListeners()
+        {
+            return CharacterStats.PowerDict.Values
+                .Select(power => power as GameEventListener).ToList();
         }
         
         #endregion

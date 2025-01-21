@@ -90,7 +90,6 @@ namespace Characters
                 {
                     PowerDict.Add(targetPower, powerBase);
                     powerBase.SetOwner(owner);
-                    powerBase.SubscribeAllEvent();
                     powerBase.StackPower(value);
                     powerBase.Init();
                 
@@ -166,8 +165,19 @@ namespace Characters
         /// <param name="targetCurrentHealth"></param>
         public void SetCurrentHealth(int targetCurrentHealth)
         {
-            CurrentHealth = targetCurrentHealth <=0 ? 1 : targetCurrentHealth;
+            CurrentHealth = targetCurrentHealth;
+            
+            if (CurrentHealth < 0) CurrentHealth = 0;
+            if (CurrentHealth>MaxHealth)  CurrentHealth = MaxHealth;
+            
             owner.OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
+
+            // 執行 GameEventListener(遊戲事件監聽器)，包含角色持有的能力、遺物
+            var gameEventListeners = owner.GetEventListeners();
+            foreach (var eventListener in gameEventListeners)
+            {
+                eventListener.OnHealthChanged(CurrentHealth, MaxHealth);
+            }
         } 
         
         /// <summary>
@@ -176,9 +186,7 @@ namespace Characters
         /// <param name="value"></param>
         public void Heal(int value)
         {
-            CurrentHealth += value;
-            if (CurrentHealth>MaxHealth)  CurrentHealth = MaxHealth;
-            owner.OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
+            SetCurrentHealth(CurrentHealth + value);
         }
 
         /// <summary>
@@ -193,10 +201,9 @@ namespace Characters
             var damageValue = damageInfo.GetDamageValue();
             var afterBlockDamage = damageInfo.GetAfterBlockDamage();
             
-            CurrentHealth -= afterBlockDamage;
             if (afterBlockDamage > 0)
             {
-                owner.OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
+                SetCurrentHealth(CurrentHealth - afterBlockDamage);
             }
 
             int reduceBlockValue =  damageValue - afterBlockDamage;

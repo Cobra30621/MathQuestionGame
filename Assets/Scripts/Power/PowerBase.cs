@@ -143,7 +143,7 @@ namespace Power
             Amount = 0;
             Owner.GetPowerDict().Remove(PowerName);
             Owner.OnPowerCleared.Invoke(PowerName);
-            UnSubscribeAllEvent();
+            
         }
 
         #endregion

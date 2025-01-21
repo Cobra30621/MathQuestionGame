@@ -18,17 +18,9 @@ namespace Power.Buff
         {
             
         }
-        public override void SubscribeAllEvent()
-        {
-            Owner.OnDeath += OnDead;
-        }
 
-        public override void UnSubscribeAllEvent()
-        {
-            Owner.OnDeath -= OnDead;
-        }
-        
-        protected override void OnDead(DamageInfo damageInfo)
+
+        public override void OnDead(DamageInfo damageInfo)
         {
             List<CharacterBase> targets = new List<CharacterBase>();
             var allEnemy = CombatManager.Instance.Enemies;

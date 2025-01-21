@@ -67,11 +67,6 @@ namespace Relic
 
         public void RemoveAllRelic()
         {
-            foreach (var relic in CurrentRelicDict.Values)
-            {
-                relic.OnRelicRemove();
-            }
-            
             CurrentRelicDict.Clear();
             OnRelicUpdated.Invoke(CurrentRelicDict);
         }

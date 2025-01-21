@@ -12,8 +12,6 @@ namespace Combat
     /// </summary>
     public static class CombatCalculator
     {
-        private static CombatManager CombatManager => CombatManager.Instance;
-        private static GameManager GameManager => GameManager.Instance;
         private static CharacterBase _targetEnemy;
    
         /// <summary>
@@ -115,7 +113,31 @@ namespace Combat
             return Mathf.RoundToInt(value);
         }
 
-        
+        /// <summary>
+        /// 獲得加成後的瑪娜
+        /// </summary>
+        /// <param name="rawValue"></param>
+        /// <returns></returns>
+        public static int GetManaValue(int rawValue)
+        {
+            int gainValue = rawValue;
+            var allyPowers = CombatManager.Instance.MainAlly.GetPowerDict();
+            
+            // 能力系統瑪娜加成
+            foreach (var (key, value) in allyPowers)
+            {
+                gainValue = value.AtGainTurnStartMana(gainValue);
+            }
+
+            // 遺物系統瑪娜加成
+            var relics = GameManager.Instance.RelicManager.CurrentRelicDict.Values;
+            foreach (var relicBase in relics)
+            {
+                gainValue = relicBase.AtGainTurnStartMana(gainValue);
+            }
+
+            return gainValue;
+        }
     }
 
 }

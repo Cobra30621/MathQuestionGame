@@ -41,29 +41,6 @@ namespace Relic
         protected CombatManager CombatManager => CombatManager.Instance;
 
         
-        #region SetUp
-
-        protected RelicBase()
-        {
-            SubscribeAllEvent();
-        }
-
-
-        #endregion
-
-        #region 事件
-
-        /// <summary>
-        /// 當刪除遺物
-        /// </summary>
-        public virtual void OnRelicRemove()
-        {
-            UnSubscribeAllEvent();
-        }
-        
-
-        #endregion
-        
         #region 工具
         public bool IsCharacterTurn(TurnInfo info)
         {
