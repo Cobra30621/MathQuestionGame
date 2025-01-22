@@ -138,6 +138,34 @@ namespace Combat
 
             return gainValue;
         }
+        
+        /// <summary>
+        /// 取得回合開始時，抽卡數量的加成
+        /// </summary>
+        /// <param name="rawValue"></param>
+        /// <returns></returns>
+        public static int GetDrawCountValue(int rawValue)
+        {
+            int gainValue = rawValue;
+            var allyPowers = CombatManager.Instance.MainAlly.GetPowerDict();
+            
+            // 能力系統瑪娜加成
+            foreach (var (key, value) in allyPowers)
+            {
+                gainValue = value.AtGainTurnStartDraw(gainValue);
+            }
+
+            // 遺物系統瑪娜加成
+            var relics = GameManager.Instance.RelicManager.CurrentRelicDict.Values;
+            foreach (var relicBase in relics)
+            {
+                gainValue = relicBase.AtGainTurnStartDraw(gainValue);
+            }
+
+            return gainValue;
+        }
+
+        
     }
 
 }

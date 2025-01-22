@@ -85,10 +85,17 @@ namespace Effect.Damage
         {
             foreach (var target in targets)
             {
+                // 如果目標為空 (可能已死亡，使物件為空)，跳過
+                if (target == null) continue;
+                
                 _damageInfo.SetTarget(target);
-            
                 PlaySpawnTextFx($"{_damageInfo.GetAfterBlockDamage()}", target.TextSpawnRoot);
                 target.BeAttacked(_damageInfo);
+                
+                // 提示角色有攻擊對方
+                var sourceCharacter = _damageInfo.EffectSource.SourceCharacter;
+                if(sourceCharacter != null)
+                    sourceCharacter.InvokeOnAttack(_damageInfo);
             }
         }
 

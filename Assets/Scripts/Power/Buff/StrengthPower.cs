@@ -17,15 +17,15 @@ namespace Power.Buff
             DamageCalculateOrder = CalculateOrder.AdditionAndSubtraction;
         }
 
-        public override void Init()
+
+        public override void OnPowerClear()
         {
-            base.Init();
-            // 如果是敵人，更新意圖
-            if (Owner.IsCharacterType(CharacterType.Enemy))
-            {
-                var enemy = (global::Characters.Enemy.Enemy) Owner;
-                enemy.UpdateIntentionDisplay();
-            }
+            UpdateEnemyIntentionDisplay();
+        }
+        
+        public override void OnPowerChanged(int amount)
+        {
+            UpdateEnemyIntentionDisplay();
         }
 
 

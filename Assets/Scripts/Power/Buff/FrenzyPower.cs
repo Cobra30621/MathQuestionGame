@@ -11,7 +11,7 @@ namespace Power.Buff
     {
         public override PowerName PowerName => PowerName.Frenzy;
 
-        public override void OnAttacked(DamageInfo info)
+        public override void OnBeAttacked(DamageInfo info)
         {
             var source = info.EffectSource.SourceCharacter;
             var originalDamage = info.DamageValue;

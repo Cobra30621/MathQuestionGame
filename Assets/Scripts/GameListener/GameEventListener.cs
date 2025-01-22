@@ -57,6 +57,16 @@ namespace GameListener
             return rawValue;
         }
 
+        /// <summary>
+        /// 回合開始抽卡數量加成
+        /// </summary>
+        /// <param name="rawValue"></param>
+        /// <returns></returns>
+        public virtual int AtGainTurnStartDraw(int rawValue)
+        {
+            return rawValue;
+        }
+
         #endregion
 
         #region 戰鬥流程
@@ -119,8 +129,17 @@ namespace GameListener
         /// 受到攻擊時，觸發的方法
         /// </summary>
         /// <param name="info"></param>
-        public virtual void OnAttacked(DamageInfo info)
+        public virtual void OnBeAttacked(DamageInfo info)
         {
+        }
+
+        /// <summary>
+        /// 攻擊人時，觸發的方法
+        /// </summary>
+        /// <param name="info"></param>
+        public virtual void OnAttack(DamageInfo info)
+        {
+            
         }
 
         /// <summary>

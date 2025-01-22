@@ -98,8 +98,7 @@ namespace Characters
         protected virtual void UnsubscribeEvent()
         {
             CombatManager.OnTurnStart -= CharacterStats.HandleAllPowerOnTurnStart;
-            ClearAllPower();
-
+ 
             OnDeath -= OnDeathAction;
         }
         
@@ -180,10 +179,13 @@ namespace Characters
         /// <param name="damageInfo"></param>
         public virtual void BeAttacked(DamageInfo damageInfo)
         {
+            // 目標已死亡，停止攻擊
+            if(CharacterStats.IsDeath) {return;}
+            
             CharacterStats.BeAttacked(damageInfo);
             beAttackFeedback?.Play();
             
-            EventLogger.Instance.LogEvent(LogEventType.Combat, $"收到攻擊: {name}", 
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"受到攻擊: {name}", 
                 $"傷害資訊: {damageInfo}\n" +
                 $"剩餘血量: {CharacterStats.CurrentHealth}");
             
@@ -191,12 +193,29 @@ namespace Characters
             var listeners = GetEventListeners();
             foreach (var listener in listeners)
             {
-                listener.OnAttacked(damageInfo);
+                listener.OnBeAttacked(damageInfo);
+            }
+        }
+
+        /// <summary>
+        /// 角色攻擊時
+        /// </summary>
+        /// <param name="damageInfo"></param>
+        public void InvokeOnAttack(DamageInfo damageInfo)
+        {
+            // 執行 GameEventListener(遊戲事件監聽器)，包含角色持有的能力、遺物
+            var listeners = GetEventListeners();
+            foreach (var listener in listeners)
+            {
+                listener.OnAttack(damageInfo);
             }
         }
 
         public void Heal(int value)
         {
+            // 如果目標已死亡，停止行動
+            if(CharacterStats.IsDeath) {return;}
+            
             CharacterStats.Heal(value);
             
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"回血: {name}", 
@@ -268,6 +287,9 @@ namespace Characters
         /// <param name="value"></param>
         public void ApplyPower(PowerName targetPower,int value, EffectSource effectSource)
         {
+            // 如果目標已死亡，停止行動
+            if(CharacterStats.IsDeath) {return;}
+            
             var (haveFindPower, isNewPower) = CharacterStats.ApplyPower(targetPower, value);
 
             EventLogger.Instance.LogEvent(LogEventType.Combat, 
@@ -323,6 +345,9 @@ namespace Characters
         /// </summary>
         public void MultiplyPower(PowerName targetPower,int value)
         {
+            // 如果目標已死亡，停止行動
+            if(CharacterStats.IsDeath) {return;}
+            
             CharacterStats.MultiplyPower(targetPower, value);
             gainPowerFeedbackPrefab.Play(targetPower, true);
         }
@@ -333,6 +358,9 @@ namespace Characters
         /// <param name="targetPower"></param>
         public void ClearPower(PowerName targetPower, EffectSource effectSource)
         {
+            // 如果目標已死亡，停止行動
+            if(CharacterStats.IsDeath) {return;}
+            
             CharacterStats.ClearPower(targetPower);
             
             EventLogger.Instance.LogEvent(LogEventType.Combat, 

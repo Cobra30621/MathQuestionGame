@@ -21,7 +21,7 @@ namespace Power.Buff
 
 
         // 怪物攻擊時，造成傷害後反彈傷害
-        public override void OnAttacked(DamageInfo info)
+        public override void OnBeAttacked(DamageInfo info)
         {
             var source = info.EffectSource.SourceCharacter;
             // 怪物攻擊時，造成傷害後反彈傷害

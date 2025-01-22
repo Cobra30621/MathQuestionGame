@@ -11,7 +11,7 @@ namespace Power.Buff
     {
         public override PowerName PowerName => PowerName.Trap;
 
-        public override void OnAttacked(DamageInfo info)
+        public override void OnBeAttacked(DamageInfo info)
         {
             var source = info.EffectSource.SourceCharacter;
             Debug.Log(source);

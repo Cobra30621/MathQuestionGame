@@ -21,23 +21,37 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: cardAction
-      Entry: 7
-      Data: 0|CardAction.CobraTestCard, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: customerFeedback
       Entry: 6
       Data: 
-  actionTargetType: 4
-  manaCost: 0
-  exhaustAfterPlay: 0
-  fxGo: {fileID: 1114202905565415935, guid: 9f79e0d3ebf9844dbbdcc2d3ef2731a9, type: 3}
-  fxSpawnPosition: 3
+  isDevelopCard: 1
+  developLevelInfo:
+    ID: 
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6E2C\u8A66-\u7121\u76EE\u6A19"
+    DesLang: "\u6E2C\u8A66-\u7121\u76EE\u6A19"
+    TargetChoose: 4
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  cardId: 
+  _levelInfos: []
+  _allyClassType: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardName: "\u6E2C\u8A66-\u7121\u76EE\u6A19"
   cardSprite: {fileID: 2108480542600776156, guid: 1fb0c0cb02c616d49815abb7a9a0fc0f, type: 3}
   rarity: 0
   description: "\u6E2C\u8A66-\u7121\u76EE\u6A19"

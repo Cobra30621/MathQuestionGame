@@ -70,7 +70,9 @@ namespace Combat
 
         public int DrawCount()
         {
-            return _gameplayData.DrawCount;
+            int rawDrawCount = _gameplayData.DrawCount;
+            
+            return CombatCalculator.GetDrawCountValue(rawDrawCount);
         }
 
         #endregion
