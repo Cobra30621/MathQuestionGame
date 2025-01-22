@@ -18,12 +18,12 @@ namespace Power.Buff
         }
 
 
-        public override void OnPowerClear()
+        public override void DoOnPowerClear()
         {
             UpdateEnemyIntentionDisplay();
         }
         
-        public override void OnPowerChanged(int amount)
+        public override void DoOnPowerChanged(int amount)
         {
             UpdateEnemyIntentionDisplay();
         }

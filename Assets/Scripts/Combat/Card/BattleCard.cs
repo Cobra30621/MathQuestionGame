@@ -131,7 +131,9 @@ namespace Combat.Card
             if (IsExhausted) return;
             if (!IsPlayable) return;
             CollectionManager.OnCardDiscarded(this);
-            StartCoroutine(DiscardRoutine());
+            
+            if(gameObject != null)
+                StartCoroutine(DiscardRoutine());
         }
 
         public virtual void Exhaust()

@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Characters.Display;
 using Combat;
 using Effect.Parameters;
+using Managers;
 using Power;
+using UnityEngine;
 
 namespace Characters
 {
@@ -138,6 +141,7 @@ namespace Characters
             }
         }
         
+
         /// <summary>
         /// 角色回合開始時，通知持有的能力更新狀態
         /// </summary>
@@ -147,13 +151,24 @@ namespace Characters
             {
                 return;
             }
-            
+
+            GameManager.Instance.StartCoroutine(UpdatePowerStatusCoroutine());
+        }
+
+        /// <summary>
+        /// 更新能力的流程
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator UpdatePowerStatusCoroutine()
+        {
             var copyPowerDict = new Dictionary<PowerName, PowerBase> (PowerDict);
             foreach (PowerBase power in copyPowerDict.Values)
             {
-                power.UpdatePowerStatus();
+                power.UpdateStatusOnTurnStart();
+                yield return new WaitForSeconds(0.1f);
             }
         }
+        
         
         #endregion
 
