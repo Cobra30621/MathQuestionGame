@@ -16,7 +16,7 @@ namespace Relic.Knight
         {
             EffectExecutor.AddEffect(new HealEffect(
                 amount, new List<CharacterBase>() {MainAlly},
-                GetActionSource()));
+                GetEffectSource()));
         }
        
     }

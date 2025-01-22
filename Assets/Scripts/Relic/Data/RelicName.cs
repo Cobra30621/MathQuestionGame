@@ -9,6 +9,8 @@ namespace Relic.Data
         // Test 101 ~
         DrawCardOnAnswerCorrect = 102,
         StrengthGenerator = 103,
-        MathShield = 105
+        MathShield = 105,
+        
+        Test = 9999,
     }
 }

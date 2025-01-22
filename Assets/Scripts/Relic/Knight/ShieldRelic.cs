@@ -19,7 +19,7 @@ namespace Relic.Knight
             {
                 EffectExecutor.AddEffect(new ApplyPowerEffect(
                     amount, PowerName.Block, new List<CharacterBase>() {MainAlly},
-                    GetActionSource()));
+                    GetEffectSource()));
             }
         }
        

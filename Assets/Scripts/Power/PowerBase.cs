@@ -186,7 +186,8 @@ namespace Power
             return new EffectSource()
             {
                 SourceType = SourceType.Power,
-                SourcePower = PowerName
+                SourcePower = PowerName,
+                SourceCharacter = Owner
             };
         }
         

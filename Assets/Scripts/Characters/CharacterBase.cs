@@ -198,16 +198,16 @@ namespace Characters
         }
 
         /// <summary>
-        /// 角色攻擊時
+        /// 角色攻擊執行行為時
         /// </summary>
         /// <param name="damageInfo"></param>
-        public void InvokeOnAttack(DamageInfo damageInfo)
+        public void InvokeOnAttack(DamageInfo damageInfo, List<CharacterBase> targets)
         {
             // 執行 GameEventListener(遊戲事件監聽器)，包含角色持有的能力、遺物
             var listeners = GetEventListeners();
             foreach (var listener in listeners)
             {
-                listener.OnAttack(damageInfo);
+                listener.OnAttack(damageInfo, targets);
             }
         }
 
@@ -420,8 +420,10 @@ namespace Characters
 
         public List<GameEventListener> GetPowerListeners()
         {
-            return CharacterStats.PowerDict.Values
-                .Select(power => power as GameEventListener).ToList();
+            var listeners = new List<GameEventListener>();
+            listeners.AddRange(CharacterStats.PowerDict.Values);
+
+            return listeners;
         }
         
         #endregion

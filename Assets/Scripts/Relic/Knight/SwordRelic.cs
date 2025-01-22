@@ -20,7 +20,7 @@ namespace Relic.Knight
         public override void OnBattleStart()
         {
             EffectExecutor.AddEffect(new ApplyPowerEffect(
-                3, PowerName.Strength, new List<CharacterBase>(){MainAlly}, GetActionSource()));
+                3, PowerName.Strength, new List<CharacterBase>(){MainAlly}, GetEffectSource()));
 
         }
     }

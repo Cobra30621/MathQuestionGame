@@ -1,4 +1,6 @@
-﻿using Combat;
+﻿using System.Collections.Generic;
+using Characters;
+using Combat;
 using Effect.Parameters;
 using Question;
 
@@ -134,10 +136,11 @@ namespace GameListener
         }
 
         /// <summary>
-        /// 攻擊人時，觸發的方法
+        /// 執行攻擊行為時，觸發的方法
+        /// 如果是多段傷害，只會執行一次
         /// </summary>
         /// <param name="info"></param>
-        public virtual void OnAttack(DamageInfo info)
+        public virtual void OnAttack(DamageInfo info, List<CharacterBase> targets)
         {
             
         }
@@ -155,8 +158,8 @@ namespace GameListener
         /// <summary>
         /// 死亡時觸發
         /// </summary>
-        /// <param name="damageInfo"></param>
-        public virtual void OnDead(DamageInfo damageInfo)
+        /// <param name="info"></param>
+        public virtual void OnDead(DamageInfo info)
         {
         }
 

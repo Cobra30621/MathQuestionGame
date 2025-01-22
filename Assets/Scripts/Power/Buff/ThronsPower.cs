@@ -25,7 +25,6 @@ namespace Power.Buff
         {
             var source = info.EffectSource.SourceCharacter;
             // 怪物攻擊時，造成傷害後反彈傷害
-            Debug.Log(source);
             if (source != null)
             {
                 // 造成與層數相等的傷害

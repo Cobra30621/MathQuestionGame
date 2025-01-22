@@ -46,12 +46,13 @@ namespace Relic
         {
             return info.CharacterType == CharacterType.Ally;
         }
-        protected EffectSource GetActionSource()
+        protected EffectSource GetEffectSource()
         {
             return new EffectSource()
             {
                 SourceType = SourceType.Relic,
-                SourceRelic = RelicName
+                SourceRelic = RelicName,
+                SourceCharacter = MainAlly
             };
         }
 

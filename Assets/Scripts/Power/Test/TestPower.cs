@@ -20,9 +20,7 @@ namespace Power.Test
             // 敵人觸法
             if (Owner.IsCharacterType(CharacterType.Enemy))
             {
-                List<CharacterBase> targets = new List<CharacterBase>();
-                var allEnemy = CombatManager.Instance.Enemies;
-                targets.AddRange(allEnemy);
+                List<CharacterBase> targets = CombatManager.Instance.EnemiesForTarget();
                 
                 var effect = new ApplyPowerEffect(2, 
                     PowerName.Strength, targets, GetEffectSource());
@@ -38,9 +36,7 @@ namespace Power.Test
             // 敵人觸法
             if (Owner.IsCharacterType(CharacterType.Enemy))
             {
-                List<CharacterBase> targets = new List<CharacterBase>();
-                var allEnemy = CombatManager.Instance.Enemies;
-                targets.AddRange(allEnemy);
+                List<CharacterBase> targets = CombatManager.Instance.EnemiesForTarget();
                 
                 var effect = new ApplyPowerEffect(2, 
                     PowerName.Block, targets, GetEffectSource());
@@ -48,7 +44,7 @@ namespace Power.Test
             }
         }
 
-        public override void OnAttack(DamageInfo info)
+        public override void OnAttack(DamageInfo info, List<CharacterBase> targets)
         {
             Debug.Log("OnAttack");
             

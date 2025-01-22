@@ -20,11 +20,9 @@ namespace Power.Buff
         }
 
 
-        public override void OnDead(DamageInfo damageInfo)
+        public override void OnDead(DamageInfo info)
         {
-            List<CharacterBase> targets = new List<CharacterBase>();
-            var allEnemy = CombatManager.Instance.Enemies;
-            targets.AddRange(allEnemy);
+            List<CharacterBase> targets = CombatManager.Instance.EnemiesForTarget();
 
             // 對全體敵方單位施加強化
             EffectExecutor.AddEffect(

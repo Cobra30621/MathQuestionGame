@@ -37,9 +37,12 @@ namespace Combat
         {
             List<CalculateOrderClip> orderClips = new List<CalculateOrderClip>();
             // 使用者能力加成
-            foreach (var powerBase in selfCharacter.GetPowerDict().Values)
+            if (selfCharacter != null)
             {
-                orderClips.Add(new CalculateOrderClip(powerBase.DamageCalculateOrder, powerBase.AtDamageGive));
+                foreach (var powerBase in selfCharacter.GetPowerDict().Values)
+                {
+                    orderClips.Add(new CalculateOrderClip(powerBase.DamageCalculateOrder, powerBase.AtDamageGive));
+                }
             }
             
             // 目標能力加成

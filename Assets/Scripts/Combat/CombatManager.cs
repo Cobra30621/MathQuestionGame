@@ -89,6 +89,17 @@ namespace Combat
 
         public List<Enemy> Enemies => characterHandler.Enemies;
         
+        /// <summary>
+        /// 取得用於 Effect 的所有敵人
+        /// </summary>
+        /// <returns></returns>
+        public List<CharacterBase> EnemiesForTarget (){
+            List<CharacterBase> targets = new List<CharacterBase>();
+            var allEnemy = CombatManager.Instance.Enemies;
+            targets.AddRange(allEnemy);
+            return targets;
+        }
+        
         public int EnemyCount => Enemies.Count;
 
         
