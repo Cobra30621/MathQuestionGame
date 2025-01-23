@@ -3,7 +3,7 @@ using Combat;
 using Effect.Parameters;
 using GameListener;
 using Relic.Data;
-
+using Combat.Card;
 namespace Relic
 {
     /// <summary>
@@ -39,7 +39,7 @@ namespace Relic
         public CharacterBase MainAlly => CombatManager.Instance.MainAlly;
         
         protected CombatManager CombatManager => CombatManager.Instance;
-
+        protected CollectionManager CollectionManager => CollectionManager.Instance;
         
         #region 工具
         public bool IsCharacterTurn(TurnInfo info)

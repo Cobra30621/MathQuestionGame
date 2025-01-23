@@ -37,7 +37,11 @@ namespace NueGames.Data.Settings
         #region Encapsulation
         public int DrawCount => drawCount;
         public int MaxMana => maxMana;
-        public int MaxCardOnHand => maxCardOnHand;
+        public int MaxCardOnHand
+        {
+            get => maxCardOnHand;
+            set => maxCardOnHand = value;
+        }
         public BattleCard BattleCardPrefab => battleCardPrefab;
         public int InitMoney => initMoney;
         public int InitStone => initStone;

@@ -266,6 +266,12 @@ namespace Combat.Card
         {
             HandController.RemoveCardFromHand(index);
         }
+        
+        /// 增加手牌上限
+        public void AddMaxHandCard(int amount)
+        {
+            GameManager.GameplayData.MaxCardOnHand += amount;
+        }
 
 
         #endregion
