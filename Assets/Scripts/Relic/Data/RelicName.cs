@@ -7,6 +7,7 @@ namespace Relic.Data
         Sword = 10003,
         Bag = 30001,
         Orb = 40001,
+        Mantle = 40003,
         // Test 101 ~
         DrawCardOnAnswerCorrect = 102,
         StrengthGenerator = 103,
