@@ -18,14 +18,13 @@ namespace Characters.Ally
             
             SetUpFeedbackDict();
             _characterCanvas.InitCanvas();
-            CharacterStats = new CharacterStats(_allyData.MaxHealth, this, _characterCanvas);
+            
             
             var data = GameManager.AllyHealthHandler.GetAllyHealthData();
-            CharacterStats.CurrentHealth = data.CurrentHealth;
-            CharacterStats.MaxHealth = data.MaxHealth;
             
+            CharacterStats = new CharacterStats(data.CurrentHealth, 
+                data.MaxHealth, this, _characterCanvas);
             
-            CharacterStats.SetCurrentHealth(CharacterStats.CurrentHealth);
             SubscribeEvent();
         }
         

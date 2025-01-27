@@ -48,6 +48,7 @@ namespace Characters
 
         
         #region Setup 初始設定
+        
         public CharacterStats(int maxHealth, CharacterBase characterBase, CharacterCanvas characterCanvas)
         {
             owner = characterBase;
@@ -55,6 +56,16 @@ namespace Characters
             
             SetCharacterCanvasEvent(characterCanvas);
             SetCurrentHealth(maxHealth);
+        }
+        
+        public CharacterStats(int currentHealth, int maxHealth, CharacterBase characterBase,
+            CharacterCanvas characterCanvas)
+        {
+            owner = characterBase;
+            MaxHealth = maxHealth;
+            
+            SetCharacterCanvasEvent(characterCanvas);
+            SetCurrentHealth(currentHealth);
         }
 
         public void SetCharacterCanvasEvent(CharacterCanvas characterCanvas)
@@ -68,47 +79,41 @@ namespace Characters
         
         #endregion
         
-        #region Power 能力
+        #region Power Management
         /// <summary>
         /// 賦予角色能力或疊加現有能力
         /// </summary>
         /// <param name="targetPower">目標能力名稱</param>
         /// <param name="value">能力值或疊加值</param>
         /// <returns>
-        /// Item1 (haveFindPower): 是否成功找到對應能力
-        /// Item2 (isNewPower): 是否為新增的能力
+        /// Item1 (success): 是否成功
+        /// Item2 (isNew): 是否為新增的能力
         /// </returns>
-        public (bool, bool) ApplyPower(PowerName targetPower,int value)
+        public (bool success, bool isNew) ApplyPower(PowerName targetPower, int value)
         {
-            bool isNewPower = false;
-            bool haveFindPower = true;
-            if (PowerDict.TryGetValue(targetPower, out var power))
-            {
-                power.StackPower(value);
-            }
-            else
-            {
-                PowerBase powerBase = PowerGenerator.GetPower(targetPower);
-                if (powerBase != null)
-                {
-                    PowerDict.Add(targetPower, powerBase);
-                    powerBase.SetOwner(owner);
-                    powerBase.StackPower(value);
-                    powerBase.Init();
-                
-                    isNewPower = true;
-                }
-                else
-                {
-                    haveFindPower = false;
-                }
-                
-            }
+            if (value == 0) return (true, false);
             
-            return (haveFindPower, isNewPower);
+            if (PowerDict.TryGetValue(targetPower, out var existingPower))
+            {
+                existingPower.StackPower(value);
+                return (true, false);
+            }
+
+            var newPower = PowerGenerator.GetPower(targetPower);
+            if (newPower == null) return (false, false);
+
+            InitializeNewPower(newPower, value);
+            return (true, true);
         }
 
-        
+        private void InitializeNewPower(PowerBase power, int value)
+        {
+            PowerDict.Add(power.PowerName, power);
+            power.SetOwner(owner);
+            power.StackPower(value);
+            power.Init();
+        }
+
         /// <summary>
         /// 將能力 x 倍數
         /// </summary>
@@ -178,23 +183,27 @@ namespace Characters
         /// 設置生命值
         /// </summary>
         /// <param name="targetCurrentHealth"></param>
-        public void SetCurrentHealth(int targetCurrentHealth)
+        private void SetCurrentHealth(int targetCurrentHealth)
         {
-            CurrentHealth = targetCurrentHealth;
+            int oldHealth = CurrentHealth;
+            CurrentHealth = Mathf.Clamp(targetCurrentHealth, 0, MaxHealth);
             
-            if (CurrentHealth < 0) CurrentHealth = 0;
-            if (CurrentHealth>MaxHealth)  CurrentHealth = MaxHealth;
-            
-            owner.OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
+            if (oldHealth != CurrentHealth)
+            {
+                owner.OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+                NotifyHealthChangeToListeners();
+            }
+        }
 
-            // 執行 GameEventListener(遊戲事件監聽器)，包含角色持有的能力、遺物
+        private void NotifyHealthChangeToListeners()
+        {
             var gameEventListeners = owner.GetEventListeners();
             foreach (var eventListener in gameEventListeners)
             {
                 eventListener.OnHealthChanged(CurrentHealth, MaxHealth);
             }
-        } 
-        
+        }
+
         /// <summary>
         /// 治療
         /// </summary>
@@ -211,25 +220,32 @@ namespace Characters
         public void BeAttacked(DamageInfo damageInfo)
         {
             if (IsDeath) return;
-           
 
-            var damageValue = damageInfo.GetDamageValue();
-            var afterBlockDamage = damageInfo.GetAfterBlockDamage();
+            int damageValue = damageInfo.GetDamageValue();
+            int afterBlockDamage = damageInfo.GetAfterBlockDamage();
             
-            if (afterBlockDamage > 0)
-            {
-                SetCurrentHealth(CurrentHealth - afterBlockDamage);
-            }
-
-            int reduceBlockValue =  damageValue - afterBlockDamage;
-            if (reduceBlockValue > 0)
-            {
-                owner.ApplyPower(PowerName.Block, -reduceBlockValue, damageInfo.EffectSource);
-            }
+            HandleBlockDamage(damageValue, afterBlockDamage, damageInfo.EffectSource);
+            HandleHealthDamage(afterBlockDamage);
+            
             owner.OnAttacked?.Invoke(damageInfo);
-            
             CheckIsDeath(damageInfo);
-            
+        }
+        
+        private void HandleBlockDamage(int totalDamage, int afterBlockDamage, EffectSource source)
+        {
+            int blockDamage = totalDamage - afterBlockDamage;
+            if (blockDamage > 0)
+            {
+                owner.ApplyPower(PowerName.Block, -blockDamage, source);
+            }
+        }
+
+        private void HandleHealthDamage(int damage)
+        {
+            if (damage > 0)
+            {
+                SetCurrentHealth(CurrentHealth - damage);
+            }
         }
         
         /// <summary>

@@ -22,7 +22,9 @@ namespace Characters
     /// </summary>
     public abstract class CharacterBase : SerializedMonoBehaviour
     {
-        [Header("Base settings")]
+        /// <summary>
+        /// 角色類型
+        /// </summary>
         [SerializeField] private CharacterType characterType;
         [Required]
         [SerializeField] private Transform textSpawnRoot;
@@ -43,7 +45,6 @@ namespace Characters
         /// </summary>
         public Transform TextSpawnRoot => textSpawnRoot;
         protected GameManager GameManager => GameManager.Instance;
-        protected CombatManager CombatManager => CombatManager.Instance;
         protected UIManager UIManager => UIManager.Instance;
 
         #endregion
@@ -169,10 +170,7 @@ namespace Characters
         #endregion
         
         
-        
-        
-        
-        #region Damage
+        #region 傷害與血量
         /// <summary>
         /// 角色被攻擊時
         /// </summary>
@@ -278,65 +276,49 @@ namespace Characters
         #endregion
         
         
-        #region Power
+        #region 能力 Power
 
         /// <summary>
         /// 賦予能力
         /// </summary>
         /// <param name="targetPower"></param>
         /// <param name="value"></param>
-        public void ApplyPower(PowerName targetPower,int value, EffectSource effectSource)
+        public void ApplyPower(PowerName targetPower, int value, EffectSource effectSource)
         {
-            // 如果目標已死亡，停止行動
-            if(CharacterStats.IsDeath) {return;}
+            if (CharacterStats.IsDeath) return;
             
-            var (haveFindPower, isNewPower) = CharacterStats.ApplyPower(targetPower, value);
+            var (success, isNew) = CharacterStats.ApplyPower(targetPower, value);
+            if (!success) return;
 
-            EventLogger.Instance.LogEvent(LogEventType.Combat, 
-                $"賦予能力: {targetPower} + {value} 給 {name}",
-                $"{effectSource}");
+            // 記錄日誌
+            EventLogger.Instance.LogEvent(
+                LogEventType.Combat,
+                $"赋予能力: {targetPower} + {value} 给 {name}",
+                $"{effectSource}"
+            );
             
-            // 沒找到能力，不播特效
-            if (!haveFindPower)
-            {
-                return;
-            }
-            
-            if (targetPower == PowerName.Block)
-            {
-                bool havePower = CharacterStats.PowerDict.TryGetValue(PowerName.Block, out PowerBase power);
-                bool clearPower = !havePower;
-                int blockValue =  clearPower ? 0 : power.Amount;                
-                
-                PlayBlockFeedback(isNewPower, clearPower, value < 0, blockValue);
-            }
-            else
-            {
-                var powerFeedback = Instantiate(gainPowerFeedbackPrefab, powerFeedbackSpawn);
-                powerFeedback.Play(targetPower, value > 0);
-            }
+            PlayPowerFeedback(targetPower, value, isNew);
         }
 
-        private void PlayBlockFeedback(bool isNewPower, bool isClearPower, bool isNegative, int amount)
+        /// <summary>
+        /// 播放特效的反饋動畫
+        /// </summary>
+        /// <param name="power"></param>
+        /// <param name="value"></param>
+        /// <param name="isNew"></param>
+        private void PlayPowerFeedback(PowerName power, int value, bool isNew)
         {
-            if (isNewPower)
+            if (power == PowerName.Block)
             {
-                blockFeedback.PlayGainBlock(amount);
+                // 播放格檔的動畫
+                int currentBlockValue = GetPowerValue(PowerName.Block);
+                blockFeedback.PlayBlockEffect(currentBlockValue, isNew, value < 0);
             }
             else
             {
-                if (isClearPower)
-                {
-                    blockFeedback.PlayRemoveBlock();
-                }
-                else if (isNegative)
-                {
-                    blockFeedback.PlayReduceBlock(amount);
-                }
-                else
-                {
-                    blockFeedback.PlayBlockChange(amount);
-                }
+                // 播放一般能力的動畫
+                var powerFeedback = Instantiate(gainPowerFeedbackPrefab, powerFeedbackSpawn);
+                powerFeedback.Play(power, value > 0);
             }
         }
         
@@ -363,10 +345,12 @@ namespace Characters
             
             CharacterStats.ClearPower(targetPower);
             
+            // 记录日志
             EventLogger.Instance.LogEvent(LogEventType.Combat, 
                 $"清除能力: {targetPower} 在 {name}",
                 $"{effectSource}");
 
+            // 播放反馈效果
             if (targetPower == PowerName.Block)
             {
                 blockFeedback.PlayRemoveBlock();
@@ -428,7 +412,8 @@ namespace Characters
         
         #endregion
 
-        
+        #region 工具
+
         public CharacterStats GetCharacterStats()
         {
             return CharacterStats;
@@ -444,6 +429,8 @@ namespace Characters
         {
             return characterType == checkType;
         }
+
+        #endregion
 
         public override string ToString()
         {
