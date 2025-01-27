@@ -64,37 +64,36 @@ namespace Power
         /// <summary>
         /// 增加能力數值
         /// </summary>
-        /// <param name="stackAmount"></param>
+        /// <param name="stackAmount">要增加的數值</param>
         public virtual void StackPower(int stackAmount)
         {
-            // 已經有的能力
-            if (Amount != 0)
-            {
-                SetPowerAmount(Amount + stackAmount);
-            }
-            // 新增的能力
-            else
-            { 
-                
-                Owner.OnPowerApplied?.Invoke(PowerName, Amount);
-                SetPowerAmount(stackAmount);
-            }
+            if (stackAmount == 0) return;
 
-            // 能力數值提升
+            var newAmount = Amount + stackAmount;
+            
+            // 首次獲得能力
+            if (Amount == 0)
+            {
+                Owner.OnPowerApplied?.Invoke(PowerName, newAmount);
+            }
+            
+            // 能力數值提升時觸發事件
             if (stackAmount > 0)
             {
                 Owner.OnPowerIncreased?.Invoke(PowerName, stackAmount);
             }
 
+            SetPowerAmount(newAmount);
             CheckClearPower();
         }
 
         /// <summary>
         /// 設定能力數值
         /// </summary>
-        /// <param name="amount"></param>
-        public virtual void SetPowerAmount(int amount)
+        protected virtual void SetPowerAmount(int amount)
         {
+            if (Amount == amount) return;
+            
             Amount = amount;
             DoOnPowerChanged(amount);
             Owner.OnPowerChanged?.Invoke(PowerName, Amount);
@@ -113,20 +112,13 @@ namespace Power
         /// <summary>
         /// 檢查要不要清除能力
         /// </summary>
-        private void CheckClearPower()
+        protected virtual void CheckClearPower()
         {
-            //Check status
-            if (Amount <= 0)
+            if (Amount > 0) return;
+            
+            if (!CanNegativeStack || Amount == 0)
             {
-                if (CanNegativeStack)
-                {
-                    if (Amount == 0)
-                        Owner.ClearPower(PowerName, GetEffectSource());
-                }
-                else
-                {
-                    Owner.ClearPower(PowerName, GetEffectSource());
-                }
+                Owner.ClearPower(PowerName, GetEffectSource());
             }
         }
 
