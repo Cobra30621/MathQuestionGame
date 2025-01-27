@@ -19,6 +19,7 @@ namespace Relic.Test
 
         public override void OnAttack(DamageInfo info, List<CharacterBase> targets)
         {
+            
             // 玩家連續攻擊同一個敵人，給予易傷
             var sourceCharacter = info.EffectSource.SourceCharacter;
             if (sourceCharacter != null && sourceCharacter.IsCharacterType(CharacterType.Ally))
