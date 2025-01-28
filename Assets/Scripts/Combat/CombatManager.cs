@@ -296,7 +296,6 @@ namespace Combat
             RoundNumber = 0;
 
             CollectionManager.SetGameDeck();
-            QuestionManager.Instance.OnCombatStart();
 
             UIManager.CombatCanvas.gameObject.SetActive(true);
             UIManager.InformationCanvas.gameObject.SetActive(true);

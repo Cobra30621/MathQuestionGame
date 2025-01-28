@@ -4,6 +4,7 @@ using Card.Data;
 using Managers;
 using Map;
 using NueGames.Data.Containers;
+using Question;
 using Relic.Data;
 using Reward.Data;
 using Sirenix.OdinInspector;
@@ -95,6 +96,15 @@ namespace Reward
             }
 
             return (int) Math.Floor(basicStone * stoneDropRate);
+        }
+
+        public int GetQuestionReward(AnswerRecord record)
+        {
+            var questionDropStone = ItemDropData.questionDropStone;
+
+            var stone = record.CorrectCount * questionDropStone;
+
+            return stone;
         }
 
         public (RelicName, RelicData) GetRelic(NodeType nodeType)
