@@ -2288,6 +2288,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2184331714337559695}
+    - target: {fileID: 3034478084001317818, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3047054461245588028, guid: e75f7099a69ce3b469d565d045c707d2, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -2381,10 +2385,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3747954644409722057}
     m_Modifications:
+    - target: {fileID: 576649427321476197, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 31.174011
+      objectReference: {fileID: 0}
     - target: {fileID: 631274316755946036, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 631274316755946036, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
+    - target: {fileID: 781564008243281697, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.576897
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241201500048694248, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -413.35522
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241201500048694248, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 102.54999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3528570657128799700, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2184331714337559695}
+    - target: {fileID: 3528570657128799700, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3528570657471176878, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
       propertyPath: m_Name
       value: QuestionManager 1
@@ -2448,6 +2476,14 @@ PrefabInstance:
     - target: {fileID: 5174966149863393639, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6872979776128763048, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60.281204
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728727253652647587, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.576897
       objectReference: {fileID: 0}
     - target: {fileID: 7866926539439168329, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
       propertyPath: serializationData.Prefab

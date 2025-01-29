@@ -1,4 +1,5 @@
 using Managers;
+using Question;
 using Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -38,6 +39,11 @@ namespace UI
         public void OpenShop()
         {
             UIManager.Instance.ShopCanvas.OpenCanvas();
+        }
+
+        public void EnterSelectedQuestionPanel()
+        {
+            QuestionManager.Instance.EnterSelectedQuestionUI();
         }
     
     }

@@ -26,15 +26,41 @@ namespace Question
     {
         public static QuestionManager Instance => GameManager.Instance.QuestionManager;
 
+        /// <summary>
+        /// 題目取得器
+        /// </summary>
         [Required] [SerializeField] private QuestionGenerator _generator;
+
+        /// <summary>
+        /// 流程控制器
+        /// </summary>
+        [ShowInInspector]
+        private QuestionFlowController _flowController;
         
+        #region UI
+        /// <summary>
+        /// 選擇答題數據介面
+        /// </summary>
+        [Required] [SerializeField] private SelectedQuestionUI selectedQuestionUI;
+        
+        /// <summary>
+        /// 主要答題介面的 UI 控制
+        /// </summary>
         [Required] [SerializeField] private QuestionUIController uiController;
         
+        /// <summary>
+        /// 主要答題介面的 UI 顯示
+        /// </summary>
         [Required] [SerializeField] private QuestionDisplay questionDisplay;
 
+        /// <summary>
+        /// 答題結果介面
+        /// </summary>
         [Required] [SerializeField] private QuestionOutcomeUI outcomeUI;
         
-        private QuestionFlowController _flowController;
+        #endregion
+        
+        
 
 
         private QuestionSession _session;
@@ -64,6 +90,14 @@ namespace Question
 
         #region Public Method
 
+        /// <summary>
+        /// 進入選擇題目介面
+        /// </summary>
+        public void EnterSelectedQuestionUI()
+        {
+            selectedQuestionUI.OpenPanel();
+        }
+        
         /// <summary>
         /// 開始下載線上題目
         /// </summary>
