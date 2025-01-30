@@ -11,6 +11,9 @@ using UnityEngine.UI;
 
 namespace Question.UI
 {
+    /// <summary>
+    /// 選擇答題數據介面
+    /// </summary>
     public class SelectedQuestionUI : MonoBehaviour
     {
         /// <summary>
@@ -18,7 +21,7 @@ namespace Question.UI
         /// </summary>
         [Required] [SerializeField] private GameObject mainPanel;
         
-
+        
         [Required] [SerializeField] private TextMeshProUGUI currentStone;
         
         [Required] [SerializeField] private TextMeshProUGUI unitDropStone;
@@ -53,7 +56,6 @@ namespace Question.UI
         [Button]
         public void OpenPanel()
         {
-            Debug.Log("開啟選擇答題介面");
             mainPanel.SetActive(true);
             UpdateUI();
         }
@@ -74,7 +76,7 @@ namespace Question.UI
             int stone = CoinManager.Instance.Stone;
             currentStone.text = $"現在寶石: {stone}";
             int dropStone = ItemDropData.questionDropStone;
-            unitDropStone.text = $"每題獲得寶石: {dropStone}";
+            unitDropStone.text = $"答對一題獲得的寶石: {dropStone}";
             int totalDropStone = questionCount * dropStone;
             maxGainStone.text = $"最多獲得寶石: {totalDropStone}";
             

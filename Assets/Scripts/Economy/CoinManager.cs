@@ -54,6 +54,7 @@ namespace Economy
             }
             
             EventLogger.Instance.LogEvent(LogEventType.Economy, $"獲得 {type} - {add}", $"獲得後數量 {afterAdd}");
+            SaveManager.Instance.SavePermanentGame(); 
         }
 
         /// <summary>
