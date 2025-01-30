@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 5268883746468903904}
   - component: {fileID: 5268883746468903905}
   - component: {fileID: 5567730175346784044}
-  - component: {fileID: 8662774846217508515}
-  - component: {fileID: 5074295915502593754}
   m_Layer: 5
   m_Name: Answer Button
   m_TagString: Untagged
@@ -152,39 +150,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &8662774846217508515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5268883746468903907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4822d645ce4cdaae1fb4aa3f0f483c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!95 &5074295915502593754
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5268883746468903907}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 67c06c50d94e35f4aab224a638e7570b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5268883748085095139
 GameObject:
   m_ObjectHideFlags: 0

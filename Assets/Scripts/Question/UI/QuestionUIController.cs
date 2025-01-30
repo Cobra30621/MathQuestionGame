@@ -1,9 +1,9 @@
 using System.Collections;
 using Feedback;
-using Question.Answer_Button;
 using Question.Core;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Question.UI
 {
@@ -16,7 +16,7 @@ namespace Question.UI
         /// 答題按鈕
         /// </summary>
         [Required]
-        [SerializeField] private AnswerButtonBase[] answerButtons;
+        [SerializeField] private Button[] answerButtons;
 
         /// <summary>
         /// 題目資訊顯示
@@ -116,7 +116,7 @@ namespace Question.UI
         {
             foreach (var answerButton in answerButtons)
             {
-                answerButton.EnableAnswer(enable);
+                answerButton.enabled = enable;
             }
         }
     }
