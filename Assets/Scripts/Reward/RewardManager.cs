@@ -107,8 +107,14 @@ namespace Reward
             return stone;
         }
 
-        public (RelicName, RelicData) GetRelic(NodeType nodeType)
+        public (RelicName, RelicData) GetRelic(NodeType nodeType, RewardData rewardData)
         {
+            bool isSpecified = rewardData.ItemGainType == ItemGainType.Specify;
+            if (isSpecified)
+            {
+                return ItemDropData.GetRelicData(rewardData.specifyRelic);
+            }
+            
             return ItemDropData.GetRelicData(nodeType);
         }
     }

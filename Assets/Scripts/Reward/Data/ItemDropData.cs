@@ -61,6 +61,12 @@ namespace Reward.Data
             return (relicName, data);
         }
 
+        public (RelicName, RelicData) GetRelicData(RelicName relicName)
+        {
+            var data = relicsData.GetRelicData(relicName);
+            return (relicName, data);
+        }
+
         public int GetNodeDropStone(NodeType nodeType)
         {
             return questionDropStone;

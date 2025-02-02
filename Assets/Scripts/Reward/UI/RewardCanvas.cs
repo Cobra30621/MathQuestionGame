@@ -115,9 +115,15 @@ namespace Reward.UI
                     rewardText = $"+ {stone} ";
                     break;
                 case RewardType.Relic:
-                    var (relicName, relicData) = RewardManager.Instance.GetRelic(nodeType);
+                    var (relicName, relicData) = RewardManager.Instance.GetRelic(nodeType, rewardData);
                     rewardText = $"{relicData.Title}";
                     sprite = relicData.IconSprite;
+                    // 將產生的遺物，暫存在 rewardData 中
+                    rewardData.randomNameCache = relicName;
+                    break;
+                case RewardType.Heal:
+                    var healthAmount = rewardData.healthAmount;
+                    rewardText = $"+{healthAmount}";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(RewardType), rewardData.RewardType, null);
@@ -154,9 +160,13 @@ namespace Reward.UI
                         haveChoiceReward = true;
                         break;
                     case RewardType.Relic:
-                        var (relicName, relicData) = RewardManager.Instance.GetRelic(nodeType);
+                        // 使用前面產生的暫存遺物
+                        var relicName = rewardData.randomNameCache;
                         GetRelicReward(relicName);
-                        haveChoiceReward = true;
+                        break;
+                    case RewardType.Heal:
+                        var healthAmount = rewardData.healthAmount;
+                        GameManager.HealAlly(healthAmount);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(RewardType), rewardData.RewardType, null);
