@@ -440,7 +440,13 @@ namespace Combat
             MainAlly.ClearAllPower();
             UIManager.CombatCanvas.gameObject.SetActive(false);
             var currentNodeType = MapManager.Instance.GetCurrentNodeType();
-            UIManager.RewardCanvas.ShowReward(new List<RewardData>()
+            var rewards = GetReward(currentNodeType);
+            UIManager.RewardCanvas.ShowReward(rewards, currentNodeType);
+        }
+
+        private List<RewardData> GetReward(NodeType nodeType)
+        {
+            var rewardList = new List<RewardData>()
             {
                 new()
                 {
@@ -452,7 +458,21 @@ namespace Combat
                     RewardType =  RewardType.Money,
                     CoinGainType =  CoinGainType.NodeType
                 }
-            }, currentNodeType);
+            };
+
+            switch (nodeType)
+            {
+                // 菁英敵人多一個遺物
+                case NodeType.EliteEnemy:
+                    rewardList.Add(new RewardData()
+                    {
+                        RewardType = RewardType.Relic,
+                        ItemGainType = ItemGainType.Common
+                    });
+                    break;
+            }
+
+            return rewardList;
         }
 
         #endregion
