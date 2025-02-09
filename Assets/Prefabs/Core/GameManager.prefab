@@ -1038,9 +1038,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   SaveManager: {fileID: 1734194195781810477}
-  SystemGameVersion: {fileID: 8399253788235884914}
+  systemGameVersion: {fileID: 8399253788235884914}
   allyDataFileHandler: {fileID: 5885686703067263783}
-  _stageSelectedHandler: {fileID: 927399313501667963}
+  stageSelectedHandler: {fileID: 927399313501667963}
   RelicManager: {fileID: 733801562864062279}
   CoinManager: {fileID: 636065697006322446}
   CardManager: {fileID: 1133116464533797559}
@@ -1062,7 +1062,6 @@ MonoBehaviour:
   gameplayData: {fileID: 11400000, guid: dd29da37b58a7496a90ee015e332876f, type: 2}
   CurrentEnemyEncounter:
     id: e7d7b04c-c225-4c68-820f-0040e0a89d33
-  CanSelectCards: 0
 --- !u!1 &3837500694087193500
 GameObject:
   m_ObjectHideFlags: 0

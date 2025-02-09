@@ -41,9 +41,9 @@ namespace Managers
         #region 子系統
         [Title("存檔相關")] 
         [Required] public SaveManager SaveManager;
-        [Required] public SystemGameVersion SystemGameVersion;
+        [Required] [SerializeField] private SystemGameVersion systemGameVersion;
         [Required] [SerializeField] private ScriptableObjectFileHandler allyDataFileHandler;
-        [Required] [SerializeField] private StageSelectedHandler _stageSelectedHandler;
+        [Required] [SerializeField] private StageSelectedHandler stageSelectedHandler;
         
         [Title("物品相關")] 
         [Required] public RelicManager RelicManager;
@@ -95,11 +95,10 @@ namespace Managers
         
         public EncounterName CurrentEnemyEncounter;
 
-        public bool CanSelectCards;
+        
+        public StageSelectedHandler StageSelectedHandler => stageSelectedHandler;
 
-        public StageSelectedHandler StageSelectedHandler => _stageSelectedHandler;
-
-        public AllyData allyData => _stageSelectedHandler.GetAllyData();
+        public AllyData allyData => stageSelectedHandler.GetAllyData();
 
         
         public bool IsDeveloperMode => isDevelopMode;
@@ -118,14 +117,14 @@ namespace Managers
         /// <returns></returns>
         public GameVersion SystemVersion()
         {
-            return SystemGameVersion.systemVersion;
+            return systemGameVersion.systemVersion;
         }
         
         public void LoadData(GameData data)
         {
             AllyHealthHandler.SetAllyHealthData(data.AllyHealthData);
             
-            _stageSelectedHandler.SetAllyData(
+            stageSelectedHandler.SetAllyData(
                 allyDataFileHandler.GuidToData<AllyData>(data.AllyDataGuid));
 
         }
@@ -135,7 +134,7 @@ namespace Managers
             data.AllyHealthData = AllyHealthHandler.GetAllyHealthData();
             
             data.AllyDataGuid = allyDataFileHandler.DataToGuid(
-                _stageSelectedHandler.GetAllyData());
+                stageSelectedHandler.GetAllyData());
         }
         
         #endregion
@@ -161,11 +160,11 @@ namespace Managers
         {
             EventLogger.Instance.LogEvent(LogEventType.Main, "創建 - 新的單局遊戲",
                 $"角色 : {allyData.CharacterName}\n" +
-                $"關卡 : {_stageSelectedHandler.GetStageData().Id}");
+                $"關卡 : {stageSelectedHandler.GetStageData().Id}");
             
             RelicManager.GainRelic(allyData.initialRelic);
             CardManager.Instance.SetInitCard(allyData.InitialDeck.CardList);
-            MapManager.Instance.Initialized(_stageSelectedHandler.GetStageData());
+            MapManager.Instance.Initialized(stageSelectedHandler.GetStageData());
             AllyHealthHandler.Init(allyData.MaxHealth);
         }
 
@@ -202,7 +201,7 @@ namespace Managers
         
         public void SetAllyData(AllyData allyData)
         {
-            _stageSelectedHandler.SetAllyData(allyData);
+            stageSelectedHandler.SetAllyData(allyData);
         }
 
         
@@ -223,7 +222,7 @@ namespace Managers
 
         public float GetMoneyDropRate()
         {
-            return _stageSelectedHandler.GetMoneyDropRate();
+            return stageSelectedHandler.GetMoneyDropRate();
         }
 
         

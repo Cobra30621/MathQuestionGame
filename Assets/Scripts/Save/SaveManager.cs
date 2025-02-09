@@ -156,6 +156,10 @@ namespace Save
                 // 如果存檔資料版本不相容，轉換
                 _permanentGameData = SaveVersionHandler.ConvertPermanentDataIfNeeded(
                     _permanentGameData.saveVersion, _permanentGameData);
+                
+                EventLogger.Instance.LogEvent(LogEventType.Save, 
+                    $"系統版本: {GameManager.Instance.SystemVersion().GetVersionNum()}, " +
+                    $"存檔版本: {_permanentGameData.saveVersion.GetVersionNum()}");
             }
             
             // push the loaded PermanentGameData to all other scripts that need it

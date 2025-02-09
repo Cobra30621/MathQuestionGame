@@ -128,6 +128,12 @@ namespace Combat
 
         protected CollectionManager CollectionManager => CollectionManager.Instance;
 
+        /// <summary>
+        /// 玩家可以選擇卡片
+        /// </summary>
+        public bool CanSelectCards;
+
+        
         #endregion
 
 
@@ -274,7 +280,7 @@ namespace Combat
 
                     break;
                 case CombatStateType.EndCombat:
-                    GameManager.CanSelectCards = false;
+                    CanSelectCards = false;
 
                     break;
                 default:
@@ -314,7 +320,7 @@ namespace Combat
             RoundNumber++;
             _manaManager.HandleAtTurnStartMana();
             CollectionManager.DrawCards(DrawCount());
-            GameManager.CanSelectCards = false;
+            CanSelectCards = false;
 
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"回合 {RoundNumber} 開始");
             OnRoundStart?.Invoke(GetRoundInfo());
@@ -337,7 +343,7 @@ namespace Combat
             CollectionManager.HandController.EnableDragging();
             allyTurnStartFeedback.Play();
             yield return new WaitForSeconds(allyTurnStartFeedback.FeedbackDuration());
-            GameManager.CanSelectCards = true;
+            CanSelectCards = true;
 
             if (MainAlly.GetCharacterStats().IsStunned)
             {
@@ -384,9 +390,8 @@ namespace Combat
             }
 
             yield return new WaitForSeconds(0.5f);
-            GameManager.CanSelectCards = false;
-
-
+            CanSelectCards = false;
+            
             if (CurrentCombatStateType != CombatStateType.EndCombat)
             {
                 CurrentCombatStateType = CombatStateType.EndRound;

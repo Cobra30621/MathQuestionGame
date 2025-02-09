@@ -79,9 +79,6 @@ namespace VersionControl
         /// </summary>
         public static SaveCompatibilityStatus CheckSaveCompatibility(GameVersion saveGameVersion, GameVersion systemGameVersion)
         {
-            Debug.Log($"系統版本：{systemGameVersion.GetVersionNum()}");
-            Debug.Log($"存檔版本：{saveGameVersion.GetVersionNum()}");
-
             if (saveGameVersion.MainVersionNum != systemGameVersion.MainVersionNum)
             {
                 return SaveCompatibilityStatus.Incompatible; // 主要版本不同，可能不相容

@@ -132,7 +132,8 @@ namespace Combat.Card
             if (!IsPlayable) return;
             CollectionManager.OnCardDiscarded(this);
             
-            if(gameObject != null)
+            // 只有物件沒有刪除、隱藏時，才執行丟棄效果
+            if(gameObject != null && gameObject.activeInHierarchy)
                 StartCoroutine(DiscardRoutine());
         }
 
