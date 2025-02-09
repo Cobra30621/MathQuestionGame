@@ -33,8 +33,53 @@ using VersionControl;
 
 namespace Managers
 {
+    /// <summary>
+    /// 主要的遊戲管理器，負責提供各個子系統的服務
+    /// </summary>
     public class GameManager : Singleton<GameManager>, IDataPersistence
     {
+        #region 子系統
+        [Title("存檔相關")] 
+        [Required] public SaveManager SaveManager;
+        [Required] public SystemGameVersion SystemGameVersion;
+        [Required] [SerializeField] private ScriptableObjectFileHandler allyDataFileHandler;
+        [Required] [SerializeField] private StageSelectedHandler _stageSelectedHandler;
+        
+        [Title("物品相關")] 
+        [Required] public RelicManager RelicManager;
+        [Required] public CoinManager CoinManager;
+        [Required] public CardManager CardManager;
+        [Required] public RewardManager RewardManager;
+        
+        [Title("地圖相關")] 
+        [Required] public MapManager MapManager;
+        [Required] public EncounterManager EncounterManager;
+        [Required] public CampFireManager CampFireManager;
+        [Required] public EventManager EventManager;
+        
+        [Title("特效與反饋相關")] 
+        [Required] public AudioManager AudioManager;
+        [Required] public FxManager FxManager;
+        [Required] public TooltipManager TooltipManager;
+        
+        
+        [Title("戰鬥相關")] 
+        [Required] public EffectExecutor effectManager;
+        [Required] public AllyHealthHandler AllyHealthHandler;
+
+        
+        [Title("其他相關")] 
+        [Required] [SerializeField] private SceneChanger _sceneChanger;
+        [Required] public EventLogger EventLogger;
+        
+        [Required] public UIManager UIManager;
+        [Required] public QuestionManager QuestionManager;
+        
+       
+        
+
+        #endregion
+        #region Cache
         [Title("設定")] 
         
         [LabelText("開發者模式")]
@@ -45,70 +90,6 @@ namespace Managers
         [Required]
         [SerializeField] private GameplayData gameplayData;
         
-        
-        [Title("工具")] 
-        [SerializeField] private ScriptableObjectFileHandler allyDataFileHandler, gameplayDataFileHandler;
-        
-        [Required]
-        [SerializeField] private StageSelectedHandler _stageSelectedHandler;
-
-        [Required]
-        [SerializeField] private SceneChanger _sceneChanger;
-        
-        #region Manager
-        
-        [Title("管理器")] 
-        [Required]
-        public RelicManager RelicManager;
-
-        [Required]
-        public AudioManager AudioManager;
-
-        [Required]
-        public FxManager FxManager;
-
-        [Required]
-        public TooltipManager TooltipManager;
-        
-        [FormerlySerializedAs("GameActionManager")] [Required]
-        public EffectExecutor effectManager;
-
-        [Required]
-        public MapManager MapManager;
-
-        [Required]
-        public EncounterManager EncounterManager;
-
-        [Required]
-        public CoinManager CoinManager;
-
-        [Required]
-        public CardManager CardManager;
-
-        [Required]
-        public SaveManager SaveManager;
-
-        [Required]
-        public UIManager UIManager;
-        
-        [Required]
-        public QuestionManager QuestionManager;
-
-        [Required] public CampFireManager CampFireManager;
-
-        [Required] public EventManager EventManager;
-
-        [Required]
-        public RewardManager RewardManager;
-
-        [Required] public EventLogger EventLogger;
-
-        [Required] public SystemGameVersion SystemGameVersion;
-        
-        #endregion
-        
-        
-        #region Cache
         public GameplayData GameplayData => gameplayData;
   
         
@@ -120,8 +101,7 @@ namespace Managers
 
         public AllyData allyData => _stageSelectedHandler.GetAllyData();
 
-        public AllyHealthHandler AllyHealthHandler;
-
+        
         public bool IsDeveloperMode => isDevelopMode;
         
 
