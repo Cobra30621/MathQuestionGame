@@ -19,6 +19,8 @@ namespace Combat.Card
 
         [SerializeField] private CardChoicer cardChoicer;
 
+        
+        
         #region Cache
 
         public Dictionary<PileType, List<CardData>> PileDict;
@@ -142,7 +144,7 @@ namespace Combat.Card
         }
         public void SetGameDeck()
         {
-            foreach (var i in CardManager.Instance.CurrentCardsList) 
+            foreach (var i in CardManager.Instance.CurrentDeck) 
                 DrawPile.Add(i);
         }
 
@@ -208,7 +210,7 @@ namespace Combat.Card
         public void AddCardToPile(PileType targetPile, string cardId)
         {
             CardData cardData;
-            var find = CardManager.Instance.GetCardDataWithId(cardId, out cardData);
+            var find = CardManager.Instance.cardInfoGetter.GetCardDataWithId(cardId, out cardData);
 
             if (find)
             {

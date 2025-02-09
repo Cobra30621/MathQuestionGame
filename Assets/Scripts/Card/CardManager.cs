@@ -11,187 +11,88 @@ using Save.FileHandler;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
+
 
 namespace Card
 {
-    public class CardManager : SerializedMonoBehaviour, IDataPersistence
+    /// <summary>
+    /// 卡片管理器
+    /// </summary>
+    public class CardManager : SerializedMonoBehaviour
     {
         public static CardManager Instance => GameManager.Instance.CardManager;
-        
+
+        #region 資料
         [Required]
         [LabelText("會放入存檔的卡片")]
-        [SerializeField] private DeckData saveDeck;
+        public DeckData saveDeck;
 
         [Required]
         [LabelText("其他卡片")]
-        [SerializeField] private DeckData otherCardDeck;
+        public  DeckData otherCardDeck;
 
-        [Required] [LabelText("角色卡片圖片")] [SerializeField]
-        private CharacterCardSprites characterCardSprites;
+        [Required] [LabelText("角色卡片圖片")] 
+        public CharacterCardSprites characterCardSprites;
+
         
+        #endregion
+
+        #region 處理器
         
-        [Required] [SerializeField] private ScriptableObjectFileHandler cardDataFileHandler;
-        
+        /// <summary>
+        /// 卡片等級管理
+        /// </summary>
         [Required]
-        [SerializeField] private readonly CardLevelHandler _cardLevelHandler;
+        public CardLevelHandler cardLevelHandler;
 
-        [Required] [SerializeField] private SkillData skillData;
+        /// <summary>
+        /// 玩家本局遊戲的卡組
+        /// </summary>
+        [Required] public PlayerDeckHandler playerDeckHandler;
+
+
+        /// <summary>
+        /// 提供卡牌資訊
+        /// </summary>
+        [Required] public CardInfoGetter cardInfoGetter;
+
+        #endregion
         
-        public CardLevelHandler CardLevelHandler => _cardLevelHandler;
-
+        /// <summary>
+        /// 事件:當卡片資訊更新
+        /// </summary>
         public UnityEvent<List<CardInfo>> CardInfoUpdated;
-
-        public List<CardData> CurrentCardsList;
-
-
         
+        /// <summary>
+        /// 玩家本局卡組
+        /// </summary>
+        public List<CardData> CurrentDeck => playerDeckHandler.CurrentDeck;
 
-        public void SetCurrenCardsList(List<CardData> cardData)
-        {
-            CurrentCardsList = cardData;
-        }
 
-        public void SetInitCard(List<CardData> cardDatas)
-        {
-            CurrentCardsList = new List<CardData>();
-            foreach (var cardData in cardDatas)
-            {
-                GainCard(cardData);
-            }
-        }
+        #region 升級卡牌
 
-        public List<string> GetCardGuid()
-        {
-            return cardDataFileHandler.DataToGuid(CurrentCardsList);
-        }
-        
-        public void GainCard(CardData cardData)
-        {
-            CurrentCardsList.Add(cardData);
-            
-            EventLogger.Instance.LogEvent(LogEventType.Card, $"獲得卡牌 - {cardData.name}, id:{cardData.CardId}");
-            _cardLevelHandler.OnGainCard(cardData.CardId);
-        }
-
-        public void ThrowCard(CardData cardData)
-        {
-            CurrentCardsList.Remove(cardData);
-            
-            EventLogger.Instance.LogEvent(LogEventType.Card, $"移除卡牌 - {cardData.name}, id:{cardData.CardId}");
-        }
-        
-        
+        /// <summary>
+        /// 升級卡牌
+        /// </summary>
+        /// <param name="cardId"></param>
         public void UpgradeCard(string cardId)
         {
-            _cardLevelHandler.UpgradeCard(cardId);
+            cardLevelHandler.UpgradeCard(cardId);
             UpdateCardInfos();
         }
 
+        /// <summary>
+        /// 更新卡牌資訊
+        /// </summary>
         public void UpdateCardInfos()
         {
-            var cardInfos = GetAllCardInfos();
+            var cardInfos =  cardInfoGetter.GetAllCardInfos();
             
             CardInfoUpdated.Invoke(cardInfos);
         }
-
-        public List<SkillInfo> GetSkillInfos(List<string> skillIds)
-        {
-            var skillInfos = new List<SkillInfo>();
-            foreach (var skillId in skillIds)
-            {
-                var skillInfo = skillData.GetSkillInfo(skillId);
-                if (skillInfo!= null)
-                {
-                    skillInfos.Add(skillInfo);
-                }
-            }
-            
-            return skillInfos;
-        }
-        
-        public List<CardInfo> GetCardInfos(AllyClassType classType)
-        {
-            return GetAllCardInfos().Where(info => info.CardData.AllyClassType == classType).ToList();
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <returns></returns>
-        public List<CardInfo> GetAllAllyClassCardInfos()
-        {
-            return GetAllCardInfos().Where(info => info.CardData.AllyClassType != AllyClassType.General).ToList();
-        }
         
 
-        public List<CardInfo> GetAllCardInfos()
-        {
-            var cardInfos = saveDeck.CardList.Select(CreateCardInfo).ToList();
-
-            return cardInfos;
-        }
-
+        #endregion
         
-
-        public List<CardInfo> CreateCardInfos(List<CardData> cardData)
-        {
-            var cardInfos = cardData.Select(CreateCardInfo).ToList();
-
-            return cardInfos;
-        }
-        
-
-        public CardInfo CreateCardInfo(CardData cardData)
-        {
-            var saveInfo = _cardLevelHandler.GetSaveInfo(cardData.CardId);
-            var cardSprite = characterCardSprites.GetSprite(cardData.AllyClassType);
-
-            var cardInfo = new CardInfo(cardData, saveInfo, cardSprite);
-
-            return cardInfo;
-        }
-
-        public bool GetCardDataWithId(string id, out CardData cardData)
-        {
-            // 尋找儲存的卡片
-            foreach (var data in saveDeck.CardList)
-            {
-                if (id == data.CardId)
-                {
-                    cardData = data;
-                    return true;
-                }
-            }
-            
-            // 尋找其他的卡片
-            foreach (var data in otherCardDeck.CardList)
-            {
-                if (id == data.CardId)
-                {
-                    cardData = data;
-                    return true;
-                }
-            }
-
-            Debug.LogError("找不到卡片 " + id);
-            cardData = null;
-            return false;
-
-        }
-        
-        
-        
-        public void LoadData(GameData data)
-        {
-            SetCurrenCardsList(
-                cardDataFileHandler.GuidToData<CardData>(data.CardDataGuids));
-        }
-
-        public void SaveData(GameData data)
-        {
-            data.CardDataGuids =  cardDataFileHandler.DataToGuid(
-                CurrentCardsList);
-        }
     }
 }

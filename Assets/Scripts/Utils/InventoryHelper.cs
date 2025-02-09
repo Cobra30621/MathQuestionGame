@@ -17,7 +17,7 @@ namespace Utils
             switch (inventoryType)
             {
                 case InventoryTypes.CurrentDeck:
-                    UIManager.OpenInventory(CardManager.Instance.CurrentCardsList,"牌組");
+                    UIManager.OpenInventory(CardManager.Instance.CurrentDeck,"牌組");
                     break;
                 case InventoryTypes.DrawPile:
                     UIManager.OpenInventory(CollectionManager.Instance.DrawPile,"抽牌堆");

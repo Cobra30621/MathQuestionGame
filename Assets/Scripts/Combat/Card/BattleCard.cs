@@ -48,7 +48,7 @@ namespace Combat.Card
 
         public override void Init(CardData cardData)
         {
-            var cardInfo = CardManager.Instance.CreateCardInfo(cardData);
+            var cardInfo = CardManager.Instance.cardInfoGetter.CreateCardInfo(cardData);
 
             IsPlayable = true;
             Init(cardInfo);

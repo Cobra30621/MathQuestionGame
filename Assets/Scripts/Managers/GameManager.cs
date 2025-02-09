@@ -134,12 +134,12 @@ namespace Managers
         #region Start Single Game
         public void NewGame()
         {
-            SaveManager.Instance.ClearSingleGameData();
+            SaveManager.ClearSingleGameData();
             
             CreateSingleGameData();
             
-            SaveManager.Instance.SetOngoingGame();
-            SaveManager.Instance.SaveSingleGame();
+            SaveManager.SetOngoingGame();
+            SaveManager.SaveSingleGame();
         }
 
         public void StartDevelopMode()
@@ -149,22 +149,22 @@ namespace Managers
 
         private void CreateSingleGameData()
         {
-            var allyData = StageSelectedManager.Instance.GetAllyData();
-            EventLogger.Instance.LogEvent(LogEventType.Main, "創建 - 新的單局遊戲",
+            var allyData = stageSelectedManager.GetAllyData();
+            EventLogger.LogEvent(LogEventType.Main, "創建 - 新的單局遊戲",
                 $"角色 : {allyData.CharacterName}\n" +
                 $"關卡 : {stageSelectedManager.GetStageData().Id}");
             
             RelicManager.GainRelic(allyData.initialRelic);
-            CardManager.Instance.SetInitCard(allyData.InitialDeck.CardList);
-            MapManager.Instance.Initialized(stageSelectedManager.GetStageData());
+            CardManager.playerDeckHandler.SetInitCard(allyData.InitialDeck.CardList);
+            MapManager.Initialized(stageSelectedManager.GetStageData());
             AllyHealthHandler.Init(allyData.MaxHealth);
         }
 
         public void ContinueGame()
         {
-            EventLogger.Instance.LogEvent(LogEventType.Main, "繼續 - 單局遊戲");
+            EventLogger.LogEvent(LogEventType.Main, "繼續 - 單局遊戲");
             
-            SaveManager.Instance.LoadSingleGame();
+            SaveManager.LoadSingleGame();
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Managers
         /// </summary>
         public void ExitSingleGame()
         {
-            EventLogger.Instance.LogEvent(LogEventType.Main, "離開 - 單局遊戲");
+            EventLogger.LogEvent(LogEventType.Main, "離開 - 單局遊戲");
             
             RelicManager.RemoveAllRelic();
             _sceneChanger.OpenMainMenuScene();
@@ -201,7 +201,7 @@ namespace Managers
         public void HealAlly(float percent)
         {
             AllyHealthHandler.HealByPercent(percent);
-            UIManager.Instance.InformationCanvas.ResetCanvas();
+            UIManager.InformationCanvas.ResetCanvas();
         }
         
         
