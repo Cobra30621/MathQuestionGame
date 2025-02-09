@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Card.Data;
+using Feedback;
 using Log;
 using Save;
 using Save.Data;
@@ -21,7 +22,16 @@ namespace Card
         /// 獲得 CardData ScriptableObject 的處理器
         /// </summary>
         [Required] public ScriptableObjectFileHandler cardDataFileHandler;
+
+        /// <summary>
+        /// 獲得卡片的反饋
+        /// </summary>
+        [Required] [SerializeField] private IFeedback gainCardFeedback;
         
+        /// <summary>
+        /// 丟棄卡片的反饋
+        /// </summary>
+        [Required] [SerializeField] private IFeedback throwCardFeedback;
         
         
         /// <summary>
@@ -33,7 +43,7 @@ namespace Card
             CurrentDeck = new List<CardData>();
             foreach (var cardData in cardDatas)
             {
-                GainCard(cardData);
+                GainCardWithoutFeedback(cardData);
             }
         }
         
@@ -42,6 +52,17 @@ namespace Card
         /// </summary>
         /// <param name="cardData"></param>
         public void GainCard(CardData cardData)
+        {
+            GainCardWithoutFeedback(cardData);
+            
+            gainCardFeedback.Play();
+        }
+
+        /// <summary>
+        /// 獲得卡牌
+        /// </summary>
+        /// <param name="cardData"></param>
+        private void GainCardWithoutFeedback(CardData cardData)
         {
             CurrentDeck.Add(cardData);
             
@@ -58,6 +79,8 @@ namespace Card
             CurrentDeck.Remove(cardData);
             
             EventLogger.Instance.LogEvent(LogEventType.Card, $"移除卡牌 - {cardData.name}, id:{cardData.CardId}");
+            throwCardFeedback.Play();
+            
         }
 
         #region 存檔、讀檔
