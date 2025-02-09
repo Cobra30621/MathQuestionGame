@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 3943215656414572241}
   - component: {fileID: 927399313501667963}
   m_Layer: 0
-  m_Name: "StageSelectedHandler (\u95DC\u5361\u9078\u64C7\u5668)"
+  m_Name: "StageSelectedManager(\u95DC\u5361\u9078\u64C7\u5668)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   SaveManager: {fileID: 1734194195781810477}
   systemGameVersion: {fileID: 8399253788235884914}
   allyDataFileHandler: {fileID: 5885686703067263783}
-  stageSelectedHandler: {fileID: 927399313501667963}
+  stageSelectedManager: {fileID: 927399313501667963}
   RelicManager: {fileID: 733801562864062279}
   CoinManager: {fileID: 636065697006322446}
   CardManager: {fileID: 1133116464533797559}
@@ -1059,9 +1059,7 @@ MonoBehaviour:
   UIManager: {fileID: 2604460834498817261}
   QuestionManager: {fileID: 2604196069550661496}
   isDevelopMode: 1
-  gameplayData: {fileID: 11400000, guid: dd29da37b58a7496a90ee015e332876f, type: 2}
-  CurrentEnemyEncounter:
-    id: e7d7b04c-c225-4c68-820f-0040e0a89d33
+  GameplayData: {fileID: 11400000, guid: dd29da37b58a7496a90ee015e332876f, type: 2}
 --- !u!1 &3837500694087193500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2443,6 +2441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff216734f3104a65988f9140bb704274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentEnemyEncounter:
+    id: 
   mapEncounter:
     enemyList: []
     eliteEnemyList: []

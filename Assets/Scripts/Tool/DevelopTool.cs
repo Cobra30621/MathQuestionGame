@@ -5,6 +5,7 @@ using Characters.Ally;
 using Combat;
 using Effect;
 using Effect.Power;
+using Encounter;
 using Encounter.Data;
 using Managers;
 using NueGames.Enums;
@@ -88,7 +89,7 @@ namespace Tool
         private void SetDevelopModeData()
         {
             GameManager.Instance.SetAllyData(allyData);
-            GameManager.Instance.SetEnemyEncounter(enemyEncounter);
+            EncounterManager.Instance.SetEnemyEncounter(enemyEncounter);
             QuestionManager.Instance.SetQuestionSetting(QuestionSetting); 
             
             GameManager.Instance.StartDevelopMode();

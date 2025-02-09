@@ -7,6 +7,7 @@ using Characters.Ally;
 using Characters.Enemy;
 using Combat.Card;
 using Effect;
+using Encounter;
 using Encounter.Data;
 using Feedback;
 using GameListener;
@@ -19,6 +20,7 @@ using Question;
 using Reward;
 using Reward.Data;
 using Sirenix.OdinInspector;
+using Stage;
 using UI;
 using UnityEngine;
 using Utils.Background;
@@ -291,11 +293,11 @@ namespace Combat
         private IEnumerator StartCombatRoutine()
         {
             EventLogger.Instance.LogEvent(LogEventType.Combat, "---------- 戰鬥開始 ----------");
-            
-            var encounterName = GameManager.CurrentEnemyEncounter;
+
+            var encounterName = EncounterManager.Instance.currentEnemyEncounter;
             currentEncounter = enemyEncounterOverview.FindUniqueId(encounterName.Id);
             characterHandler.BuildEnemies(currentEncounter.enemyList);
-            characterHandler.BuildAllies(GameManager.allyData);
+            characterHandler.BuildAllies(StageSelectedManager.Instance.GetAllyData());
 
             backgroundContainer.OpenSelectedBackground();
 

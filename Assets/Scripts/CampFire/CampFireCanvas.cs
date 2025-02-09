@@ -1,5 +1,6 @@
 using System;
 using Encounter;
+using Stage;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,8 +29,9 @@ namespace CampFire
         {
             base.OpenCanvas();
             optionPanel.SetActive(true);
-            
-            int healAmount = (int) Math.Ceiling(GameManager.allyData.MaxHealth * CampFireManager.Instance.healPercent);
+
+            var maxHealth = StageSelectedManager.Instance.GetAllyData().MaxHealth;
+            int healAmount = (int) Math.Ceiling(maxHealth * CampFireManager.Instance.healPercent);
             healText.text = $"回血 ({healAmount}";
         }
 

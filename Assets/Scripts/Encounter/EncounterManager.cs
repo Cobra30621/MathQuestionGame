@@ -14,8 +14,16 @@ using Utils;
 
 namespace Encounter
 {
+    /// <summary>
+    /// 管理地圖遭遇
+    /// </summary>
     public class EncounterManager : MonoBehaviour,IDataPersistence
     {
+        /// <summary>
+        /// 目前的敵人遭遇名稱
+        /// </summary>
+        public EncounterName currentEnemyEncounter;
+        
         public MapEncounter mapEncounter;
 
         public SceneChanger sceneChanger;
@@ -86,7 +94,7 @@ namespace Encounter
         [Button]
         private void EnterCombatRoom(EncounterName encounter)
         {
-            GameManager.Instance.SetEnemyEncounter(encounter);
+            SetEnemyEncounter(encounter);
             
             // 進入戰鬥場景
             StartCoroutine(sceneChanger.OpenCombatScene());
@@ -105,6 +113,16 @@ namespace Encounter
             MapManager.Instance.OnRoomCompleted();
             SaveManager.Instance.SaveSingleGame();
         }
+        
+        /// <summary>
+        /// 設定敵人遭遇
+        /// </summary>
+        /// <param name="encounter"></param>
+        public void SetEnemyEncounter(EncounterName encounter)
+        {
+            currentEnemyEncounter  = encounter;
+        }
+
         
 
         #region Save and Load

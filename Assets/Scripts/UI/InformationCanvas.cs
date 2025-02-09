@@ -1,4 +1,5 @@
 ﻿using Economy;
+using Stage;
 using TMPro;
 using UnityEngine;
 
@@ -55,9 +56,9 @@ namespace UI
             SetGoldText(CoinManager.Instance.Money);
             SetStoneText(CoinManager.Instance.Stone);
             
-            if(GameManager.allyData == null) return;
+            if(StageSelectedManager.Instance.GetAllyData() == null) return;
             
-            SetNameText(GameManager.allyData.CharacterName);
+            SetNameText(StageSelectedManager.Instance.GetAllyData().CharacterName);
         }
         #endregion
         

@@ -8,6 +8,7 @@ using Question;
 using Relic.Data;
 using Reward.Data;
 using Sirenix.OdinInspector;
+using Stage;
 using UnityEngine;
 
 namespace Reward
@@ -52,7 +53,7 @@ namespace Reward
             switch (rewardData.ItemGainType)
             {
                 case ItemGainType.Character:
-                    var characterDeck = GameManager.Instance.allyData.CardRewardData;
+                    var characterDeck = StageSelectedManager.Instance.GetAllyData().CardRewardData;
                     return characterDeck.GetRandomCard();
                 case ItemGainType.Common:
                     return commonCardDeck.GetRandomCard();

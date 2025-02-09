@@ -3,18 +3,15 @@ using Aduio;
 using CampFire;
 using Card;
 using Card.Data;
-using Characters;
 using Characters.Ally;
 using Combat.Card;
 using Economy;
 using Effect;
 using Encounter;
-using Encounter.Data;
 using Feedback;
 using Log;
 using Map;
 using MapEvent;
-using NueGames.Card;
 using NueGames.Data.Settings;
 using NueTooltip.Core;
 using Question;
@@ -27,7 +24,6 @@ using Sirenix.OdinInspector;
 using Stage;
 using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utils;
 using VersionControl;
 
@@ -43,7 +39,7 @@ namespace Managers
         [Required] public SaveManager SaveManager;
         [Required] [SerializeField] private SystemGameVersion systemGameVersion;
         [Required] [SerializeField] private ScriptableObjectFileHandler allyDataFileHandler;
-        [Required] [SerializeField] private StageSelectedHandler stageSelectedHandler;
+        [Required] public StageSelectedManager stageSelectedManager;
         
         [Title("物品相關")] 
         [Required] public RelicManager RelicManager;
@@ -85,23 +81,18 @@ namespace Managers
         [LabelText("開發者模式")]
         [SerializeField] private bool isDevelopMode;
         
-        
-        [InlineEditor()]
-        [Required]
-        [SerializeField] private GameplayData gameplayData;
-        
-        public GameplayData GameplayData => gameplayData;
-  
-        
-        public EncounterName CurrentEnemyEncounter;
-
-        
-        public StageSelectedHandler StageSelectedHandler => stageSelectedHandler;
-
-        public AllyData allyData => stageSelectedHandler.GetAllyData();
-
-        
+        /// <summary>
+        /// 開發者模式
+        /// </summary>
         public bool IsDeveloperMode => isDevelopMode;
+
+        
+        /// <summary>
+        /// 遊戲基礎設定
+        /// </summary>
+        [InlineEditor()] [Required]
+        [LabelText("遊戲基礎設定")]
+        public GameplayData GameplayData;
         
 
         #endregion
@@ -124,7 +115,7 @@ namespace Managers
         {
             AllyHealthHandler.SetAllyHealthData(data.AllyHealthData);
             
-            stageSelectedHandler.SetAllyData(
+            stageSelectedManager.SetAllyData(
                 allyDataFileHandler.GuidToData<AllyData>(data.AllyDataGuid));
 
         }
@@ -134,7 +125,7 @@ namespace Managers
             data.AllyHealthData = AllyHealthHandler.GetAllyHealthData();
             
             data.AllyDataGuid = allyDataFileHandler.DataToGuid(
-                stageSelectedHandler.GetAllyData());
+                stageSelectedManager.GetAllyData());
         }
         
         #endregion
@@ -158,13 +149,14 @@ namespace Managers
 
         private void CreateSingleGameData()
         {
+            var allyData = StageSelectedManager.Instance.GetAllyData();
             EventLogger.Instance.LogEvent(LogEventType.Main, "創建 - 新的單局遊戲",
                 $"角色 : {allyData.CharacterName}\n" +
-                $"關卡 : {stageSelectedHandler.GetStageData().Id}");
+                $"關卡 : {stageSelectedManager.GetStageData().Id}");
             
             RelicManager.GainRelic(allyData.initialRelic);
             CardManager.Instance.SetInitCard(allyData.InitialDeck.CardList);
-            MapManager.Instance.Initialized(stageSelectedHandler.GetStageData());
+            MapManager.Instance.Initialized(stageSelectedManager.GetStageData());
             AllyHealthHandler.Init(allyData.MaxHealth);
         }
 
@@ -201,28 +193,21 @@ namespace Managers
         
         public void SetAllyData(AllyData allyData)
         {
-            stageSelectedHandler.SetAllyData(allyData);
+            stageSelectedManager.SetAllyData(allyData);
         }
 
         
-        public void SetEnemyEncounter(EncounterName encounter)
-        {
-            CurrentEnemyEncounter  = encounter;
-            // Debug.Log($"CurrentEnemyEncounter {CurrentEnemyEncounter.name}");
-        }
-
+        
         public void HealAlly(float percent)
         {
             AllyHealthHandler.HealByPercent(percent);
             UIManager.Instance.InformationCanvas.ResetCanvas();
         }
         
-      
         
-
         public float GetMoneyDropRate()
         {
-            return stageSelectedHandler.GetMoneyDropRate();
+            return stageSelectedManager.GetMoneyDropRate();
         }
 
         

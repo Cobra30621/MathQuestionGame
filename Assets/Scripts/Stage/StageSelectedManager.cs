@@ -1,18 +1,27 @@
 using System.Collections.Generic;
 using Characters.Ally;
+using Managers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Stage
 {
-    public class StageSelectedHandler : SerializedMonoBehaviour
+    /// <summary>
+    /// 關卡選擇器
+    /// </summary>
+    public class StageSelectedManager : SerializedMonoBehaviour
     {
+        public static StageSelectedManager Instance => GameManager.Instance.stageSelectedManager;
+        
         [Required]
         [SerializeField] private StageDataOverview _stageDataOverview;
         
+        [LabelText("目前選擇的關卡")]
         [SerializeField]
         private StageName _currentStageData;
+        
+        [LabelText("目前選擇的玩家")]
         [SerializeField]
         private AllyData _currentAllyData;
         
