@@ -170,28 +170,3 @@ MonoBehaviour:
           RewardData: []
       OptionText: "\u56DE\u5FA9\uFF11\uFF10\u9EDE\u8840"
       AfterSelectionText: "\u9806\u5229\u96E2\u958B\uFF0C\u633A\u4E0D\u932F\u7684\u8868\u6F14"
-  - Text: 
-    nameText: 
-    Description: "\u6E2C\u8A66\u7372\u5F97\u907A\u7269"
-    eventSprite: {fileID: 0}
-    OptionData:
-    - EffectData:
-        eventEffectType: 1
-        RewardData:
-        - RewardType: 3
-          ItemGainType: 0
-          CoinGainType: 0
-          specifyCard: {fileID: 0}
-          specifyCoin: 0
-          specifyRelic: 0
-          healthAmount: 0
-          randomNameCache: 10002
-        QuestionMode: 0
-        changeHealthValue: 0
-        PayAndGainData:
-          PaymentType: 0
-          needHealth: 0
-          needMoney: 0
-          RewardData: []
-      OptionText: 
-      AfterSelectionText: 

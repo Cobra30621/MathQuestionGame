@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Save.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using VersionControl;
 
 namespace Save
 {
@@ -64,14 +65,18 @@ namespace Save
         public void LoadSingleGame()
         {
             dataPersistenceObjects = FindAllDataPersistenceObjects();
-            // load any saved Skill from a file using the Skill handler
-            this._gameData = ES3Handler.LoadSingleGame();
+            _gameData = ES3Handler.LoadSingleGame();
 
-            // start a new game if the Skill is null and we're configured to initialize Skill for debugging purposes
+            // 檢查是否有存檔資料
             if (this._gameData == null ) 
             {
                 this._gameData = new GameData();
-                Debug.LogError("single game data is null in SaveManager");
+            }
+            else
+            {
+                // 如果存檔資料版本不相容，轉換
+                _gameData = SaveVersionHandler.ConvertGameDataIfNeeded(
+                    _permanentGameData.saveVersion, _gameData);
             }
         
             // push the loaded Skill to all other scripts that need it
@@ -141,9 +146,16 @@ namespace Save
             permanentObjects = FindAllPermanentDataPersistenceObjects();
             _permanentGameData = ES3Handler.LoadPermanent();
             
+            // 檢查是否有存檔資料
             if (_permanentGameData == null) 
             {
                 _permanentGameData = new PermanentGameData();
+            }
+            else
+            {
+                // 如果存檔資料版本不相容，轉換
+                _permanentGameData = SaveVersionHandler.ConvertPermanentDataIfNeeded(
+                    _permanentGameData.saveVersion, _permanentGameData);
             }
             
             // push the loaded PermanentGameData to all other scripts that need it
@@ -155,6 +167,9 @@ namespace Save
              EventLogger.Instance.LogEvent(LogEventType.Save, "讀取 - 永久存檔", 
                             $"{JsonConvert.SerializeObject(_permanentGameData, Formatting.Indented)}");
         }
+        
+        
+        
 
         [Button("儲存永久存檔")]
         public void SavePermanentGame()

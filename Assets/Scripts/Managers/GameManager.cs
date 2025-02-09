@@ -29,6 +29,7 @@ using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Utils;
+using VersionControl;
 
 namespace Managers
 {
@@ -101,6 +102,8 @@ namespace Managers
         public RewardManager RewardManager;
 
         [Required] public EventLogger EventLogger;
+
+        [Required] public SystemGameVersion SystemGameVersion;
         
         #endregion
         
@@ -129,6 +132,15 @@ namespace Managers
         
         #region Save, Load Data
 
+        /// <summary>
+        /// 目前的遊戲版本
+        /// </summary>
+        /// <returns></returns>
+        public GameVersion SystemVersion()
+        {
+            return SystemGameVersion.systemVersion;
+        }
+        
         public void LoadData(GameData data)
         {
             AllyHealthHandler.SetAllyHealthData(data.AllyHealthData);
