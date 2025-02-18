@@ -2,13 +2,15 @@ using System;
 using Card.Data;
 using Relic.Data;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Reward.Data
 {
     [Serializable]
     public class RewardData
     {
-        [LabelText("獎勵類型")] public RewardType RewardType;
+        [LabelText("獎勵類型")] 
+        public RewardType RewardType;
 
         [LabelText("獲取方式")] 
         [ShowIf("IsShowItemGainType")]
@@ -30,6 +32,18 @@ namespace Reward.Data
         [LabelText("指定的遺物")] 
         [ShowIf("IsShowSpecifyRelic")]
         public RelicName specifyRelic;
+
+        [LabelText("回覆的血量")] 
+        [ShowIf("IsShowHeal")]
+        public int healthAmount;
+
+
+        /// <summary>
+        /// 暫存產生出的獎勵(隨機遺物產生後，放入這邊)
+        /// </summary>
+        [HideInInspector]
+        public RelicName randomNameCache;
+        
 
         private bool IsShowItemGainType()
         {
@@ -56,6 +70,11 @@ namespace Reward.Data
         private bool IsShowSpecifyRelic()
         {
             return RewardType == RewardType.Relic && ItemGainType == ItemGainType.Specify;
+        }
+
+        private bool IsShowHeal()
+        {
+            return RewardType == RewardType.Heal;
         }
     }
 }

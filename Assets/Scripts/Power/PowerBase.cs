@@ -11,48 +11,38 @@ namespace Power
     /// </summary>
     public abstract class PowerBase : GameEventListener
     {
+        #region 能力可設定參數
+
         /// <summary>
         /// 能力類型
         /// </summary>
-        // TODO 改名成 PowerName
-        // PowerType 應該是 Buff, DeBuff
-        public abstract PowerName PowerName  { get;}
-        /// <summary>
-        /// 能力數值
-        /// </summary>
-        public int Amount;
-        /// <summary>
-        /// 能力是否被觸發
-        /// </summary>
-        public bool IsActive;
+        public abstract PowerName PowerName { get; }
+        
         /// <summary>
         /// 回合結束時數值 - 1
         /// </summary>
         public bool DecreaseOverTurn;
-        /// <summary>
-        /// 永久能力(本場戰鬥)
-        /// </summary>
-        public bool IsPermanent; 
+        
         /// <summary>
         /// 數值可以是負數
         /// </summary>
         public bool CanNegativeStack;
+
+        
+        #endregion
+
+        #region 暫存參數
         /// <summary>
-        /// 回合結束時清除能力
+        /// 能力數值
         /// </summary>
-        public bool ClearAtNextTurn;
+        public int Amount;
+        
         /// <summary>
         /// 能力持有者
         /// </summary>
         public CharacterBase Owner;
-        /// <summary>
-        /// 計數器，用來計算如回合數、答對題數、使用卡片張數等等
-        /// </summary>
-        public int Counter;
-        /// <summary>
-        /// 發動事件，所需的計數
-        /// </summary>
-        public int NeedCounter;
+        
+        #endregion
         
         
         #region SetUp
@@ -61,15 +51,54 @@ namespace Power
         {
             Owner = owner;
         }
-        
-        public virtual void Init(){}
-        
-        #endregion
-        
-        
 
-        #region 能力控制
+        public virtual void Init()
+        {
+        }
+
+        #endregion
+
+
+        #region 能力數值控制
         
+        /// <summary>
+        /// 增加能力數值
+        /// </summary>
+        /// <param name="stackAmount">要增加的數值</param>
+        public virtual void StackPower(int stackAmount)
+        {
+            if (stackAmount == 0) return;
+
+            var newAmount = Amount + stackAmount;
+            
+            // 首次獲得能力
+            if (Amount == 0)
+            {
+                Owner.OnPowerApplied?.Invoke(PowerName, newAmount);
+            }
+            
+            // 能力數值提升時觸發事件
+            if (stackAmount > 0)
+            {
+                Owner.OnPowerIncreased?.Invoke(PowerName, stackAmount);
+            }
+
+            SetPowerAmount(newAmount);
+            CheckClearPower();
+        }
+
+        /// <summary>
+        /// 設定能力數值
+        /// </summary>
+        protected virtual void SetPowerAmount(int amount)
+        {
+            if (Amount == amount) return;
+            
+            Amount = amount;
+            DoOnPowerChanged(amount);
+            Owner.OnPowerChanged?.Invoke(PowerName, Amount);
+        }
+
         /// <summary>
         /// 將能力 x 倍數
         /// </summary>
@@ -79,122 +108,60 @@ namespace Power
             StackPower(addAmount);
         }
         
-        /// <summary>
-        /// 增加能力數值
-        /// </summary>
-        /// <param name="stackAmount"></param>
-        public virtual void StackPower(int stackAmount)
-        {
-            if (IsActive)
-            {
-                SetPowerAmount(Amount + stackAmount);
-            }
-            else
-            {
-                Amount = stackAmount;
-                IsActive = true;
-                Owner.OnPowerApplied?.Invoke(PowerName, Amount);
-            }
-
-            if (stackAmount > 0)
-            {
-                Owner.OnPowerIncreased?.Invoke(PowerName, stackAmount);
-            }
-
-            CheckClearPower();
-        }
-
-        public virtual void SetPowerAmount(int amount)
-        {
-            Amount = amount;
-            Owner.OnPowerChanged?.Invoke(PowerName, Amount);
-        }
-        
-
-        
 
         /// <summary>
         /// 檢查要不要清除能力
         /// </summary>
-        private void CheckClearPower()
+        protected virtual void CheckClearPower()
         {
-            //Check status
-            if (Amount <= 0)
+            if (Amount > 0) return;
+            
+            if (!CanNegativeStack || Amount == 0)
             {
-                if (CanNegativeStack)
-                {
-                    if (Amount == 0 && !IsPermanent)
-                        Owner.ClearPower(PowerName, GetEffectSource());
-                }
-                else
-                {
-                    if (!IsPermanent)
-                        Owner.ClearPower(PowerName, GetEffectSource());
-                }
+                Owner.ClearPower(PowerName, GetEffectSource());
             }
         }
-        
+
         /// <summary>
         /// 清除能力
         /// </summary>
         public void ClearPower()
         {
-            IsActive = false;
             Amount = 0;
             Owner.GetPowerDict().Remove(PowerName);
             Owner.OnPowerCleared.Invoke(PowerName);
-            UnSubscribeAllEvent();
+            DoOnPowerClear();
         }
 
         #endregion
 
 
-        
         #region 事件觸發
         
-
         /// <summary>
-        /// 回合結束時，更新能力
+        /// 角色回合開始時，更新能力
         /// </summary>
-        public void UpdatePowerStatus()
+        public virtual void UpdateStatusOnTurnStart()
         {
-            //One turn only statuses
-            if (ClearAtNextTurn)
-            {
-                Owner.ClearPower(PowerName, GetEffectSource());
-                return;
-            }
-            
-            if (DecreaseOverTurn) 
+            if (DecreaseOverTurn)
                 StackPower(-1);
-            
-            //Check status
-            if (Amount <= 0)
-            {
-                if (CanNegativeStack)
-                {
-                    if (Amount == 0 && !IsPermanent)
-                        Owner.ClearPower(PowerName, GetEffectSource());
-                }
-                else
-                {
-                    if (!IsPermanent)
-                        Owner.ClearPower(PowerName, GetEffectSource());
-                }
-            }
+        }
+        
+        /// <summary>
+        /// 能力層數改變時，要執行的方法
+        /// </summary>
+        /// <param name="amount"></param>
+        public virtual void DoOnPowerChanged(int amount)
+        {
         }
 
-        
         /// <summary>
-        /// 當能力改變時
+        /// 能力清除時，要執行的方法
         /// </summary>
-        protected virtual void OnPowerChange(){}
-        
-        /// <summary>
-        /// 事件: 當能力數值增加時觸發
-        /// </summary>
-        protected virtual void OnPowerIncrease(PowerName powerName, int value){}
-        
+        public virtual void DoOnPowerClear()
+        {
+        }
+
         
         #endregion
 
@@ -205,15 +172,30 @@ namespace Power
         {
             return Owner.IsCharacterType(info.CharacterType);
         }
-        
+
         protected EffectSource GetEffectSource()
         {
             return new EffectSource()
             {
                 SourceType = SourceType.Power,
-                SourcePower = PowerName
+                SourcePower = PowerName,
+                SourceCharacter = Owner
             };
         }
+        
+        /// <summary>
+        /// 更新敵人的意圖數值，主要用於會改變攻擊力的能力
+        /// </summary>
+        protected void UpdateEnemyIntentionDisplay()
+        {
+            // 如果是敵人獲得力量，更新意圖顯示
+            if (Owner.IsCharacterType(CharacterType.Enemy))
+            {
+                var enemy = (Characters.Enemy.Enemy) Owner;
+                enemy.UpdateIntentionDisplay();
+            }
+        }
+
 
         #endregion
 

@@ -24,21 +24,7 @@ namespace Combat
         /// </summary>
         public void HandleAtTurnStartMana()
         {
-            int gainValue = CombatManager.MaxMana();
-            var allyPowers = CombatManager.MainAlly.GetPowerDict();
-            
-            // 能力系統瑪娜加成
-            foreach (var (key, value) in allyPowers)
-            {
-                gainValue = value.AtGainTurnStartMana(gainValue);
-            }
-
-            // 遺物系統瑪娜加成
-            var relics = GameManager.Instance.RelicManager.CurrentRelicDict.Values;
-            foreach (var relicBase in relics)
-            {
-                gainValue = relicBase.AtGainTurnStartMana(gainValue);
-            }
+            int gainValue = CombatCalculator.GetManaValue(CombatManager.MaxMana());
             
             // 每回合開始，將瑪娜歸零
             ReSetMana(); 

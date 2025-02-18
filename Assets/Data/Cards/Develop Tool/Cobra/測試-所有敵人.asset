@@ -21,29 +21,43 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: cardAction
-      Entry: 7
-      Data: 0|CardAction.DevelopingCard.StraightSlash, Assembly-CSharp
-    - Name: baseDamage
-      Entry: 3
-      Data: 100
-    - Name: extraDamage
-      Entry: 3
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: customerFeedback
       Entry: 6
       Data: 
-  actionTargetType: 2
-  manaCost: 0
-  exhaustAfterPlay: 0
-  fxGo: {fileID: 7010805399001825214, guid: 4b2a490122c284130bac51fa97189c8c, type: 3}
-  fxSpawnPosition: 0
+  isDevelopCard: 1
+  developLevelInfo:
+    ID: 
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6E2C\u8A66-\u6240\u6709\u6575\u4EBA"
+    DesLang: "\u6E2C\u8A66-\u6240\u6709\u6575\u4EBA"
+    TargetChoose: 2
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos:
+    - SkillID: 
+      EffectID: 20001
+      EffectParameter: 
+      EffectParameterList: 0a00000002000000
+      Target: 2
+      ps: 
+  cardId: 
+  _levelInfos: []
+  _allyClassType: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardName: "\u6E2C\u8A66-\u6240\u6709\u6575\u4EBA"
   cardSprite: {fileID: 21300000, guid: 42a9d99a05c894875b345211a9d1f648, type: 3}
   rarity: 1
   description: "\u6E2C\u8A66-\u6240\u6709\u6575\u4EBA"

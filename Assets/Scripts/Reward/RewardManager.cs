@@ -4,9 +4,11 @@ using Card.Data;
 using Managers;
 using Map;
 using NueGames.Data.Containers;
+using Question;
 using Relic.Data;
 using Reward.Data;
 using Sirenix.OdinInspector;
+using Stage;
 using UnityEngine;
 
 namespace Reward
@@ -51,7 +53,7 @@ namespace Reward
             switch (rewardData.ItemGainType)
             {
                 case ItemGainType.Character:
-                    var characterDeck = GameManager.Instance.allyData.CardRewardData;
+                    var characterDeck = StageSelectedManager.Instance.GetAllyData().CardRewardData;
                     return characterDeck.GetRandomCard();
                 case ItemGainType.Common:
                     return commonCardDeck.GetRandomCard();
@@ -97,8 +99,23 @@ namespace Reward
             return (int) Math.Floor(basicStone * stoneDropRate);
         }
 
-        public (RelicName, RelicData) GetRelic(NodeType nodeType)
+        public int GetQuestionReward(AnswerRecord record)
         {
+            var questionDropStone = ItemDropData.questionDropStone;
+
+            var stone = record.CorrectCount * questionDropStone;
+
+            return stone;
+        }
+
+        public (RelicName, RelicData) GetRelic(NodeType nodeType, RewardData rewardData)
+        {
+            bool isSpecified = rewardData.ItemGainType == ItemGainType.Specify;
+            if (isSpecified)
+            {
+                return ItemDropData.GetRelicData(rewardData.specifyRelic);
+            }
+            
             return ItemDropData.GetRelicData(nodeType);
         }
     }

@@ -76,7 +76,7 @@ namespace Reward.UI
         /// </summary>
         public void GetReward()
         {
-            CardManager.Instance.GainCard(selectedChoice.uiCard.CardData);
+            CardManager.Instance.playerDeckHandler.GainCard(selectedChoice.uiCard.CardData);
             
             UIManager.Instance.RewardCanvas.LeaveRewardCanvas();
         }

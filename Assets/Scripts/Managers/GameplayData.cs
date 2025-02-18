@@ -11,7 +11,7 @@ namespace NueGames.Data.Settings
     {
         [FoldoutGroup("基礎設定")]
         [LabelText("初始抽牌數量")]
-        [SerializeField] private int drawCount = 4;
+        [SerializeField] private int drawCount = 6;
         
         [FoldoutGroup("基礎設定")]
         [LabelText("最大魔力")]
@@ -37,7 +37,11 @@ namespace NueGames.Data.Settings
         #region Encapsulation
         public int DrawCount => drawCount;
         public int MaxMana => maxMana;
-        public int MaxCardOnHand => maxCardOnHand;
+        public int MaxCardOnHand
+        {
+            get => maxCardOnHand;
+            set => maxCardOnHand = value;
+        }
         public BattleCard BattleCardPrefab => battleCardPrefab;
         public int InitMoney => initMoney;
         public int InitStone => initStone;

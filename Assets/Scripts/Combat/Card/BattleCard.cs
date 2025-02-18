@@ -48,7 +48,7 @@ namespace Combat.Card
 
         public override void Init(CardData cardData)
         {
-            var cardInfo = CardManager.Instance.CreateCardInfo(cardData);
+            var cardInfo = CardManager.Instance.cardInfoGetter.CreateCardInfo(cardData);
 
             IsPlayable = true;
             Init(cardInfo);
@@ -131,7 +131,10 @@ namespace Combat.Card
             if (IsExhausted) return;
             if (!IsPlayable) return;
             CollectionManager.OnCardDiscarded(this);
-            StartCoroutine(DiscardRoutine());
+            
+            // 只有物件沒有刪除、隱藏時，才執行丟棄效果
+            if(gameObject != null && gameObject.activeInHierarchy)
+                StartCoroutine(DiscardRoutine());
         }
 
         public virtual void Exhaust()

@@ -32,7 +32,8 @@ namespace Combat.Card
         
         public void SetCards(List<CardData> cardDataList)
         {
-            var cardInfos = CardManager.Instance.CreateCardInfos(cardDataList);
+            var cardInfos = 
+                CardManager.Instance.cardInfoGetter.CreateCardInfos(cardDataList);
             CardListDisplay.Open(cardInfos);
         }
 

@@ -3,18 +3,15 @@ using Aduio;
 using CampFire;
 using Card;
 using Card.Data;
-using Characters;
 using Characters.Ally;
 using Combat.Card;
 using Economy;
 using Effect;
 using Encounter;
-using Encounter.Data;
 using Feedback;
 using Log;
 using Map;
 using MapEvent;
-using NueGames.Card;
 using NueGames.Data.Settings;
 using NueTooltip.Core;
 using Question;
@@ -27,99 +24,75 @@ using Sirenix.OdinInspector;
 using Stage;
 using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utils;
+using VersionControl;
 
 namespace Managers
 {
+    /// <summary>
+    /// 主要的遊戲管理器，負責提供各個子系統的服務
+    /// </summary>
     public class GameManager : Singleton<GameManager>, IDataPersistence
     {
+        #region 子系統
+        [Title("存檔相關")] 
+        [Required] public SaveManager SaveManager;
+        [Required] [SerializeField] private SystemGameVersion systemGameVersion;
+        [Required] [SerializeField] private ScriptableObjectFileHandler allyDataFileHandler;
+        [Required] public StageSelectedManager stageSelectedManager;
+        
+        [Title("物品相關")] 
+        [Required] public RelicManager RelicManager;
+        [Required] public CoinManager CoinManager;
+        [Required] public CardManager CardManager;
+        [Required] public RewardManager RewardManager;
+        
+        [Title("地圖相關")] 
+        [Required] public MapManager MapManager;
+        [Required] public EncounterManager EncounterManager;
+        [Required] public CampFireManager CampFireManager;
+        [Required] public EventManager EventManager;
+        
+        [Title("特效與反饋相關")] 
+        [Required] public AudioManager AudioManager;
+        [Required] public FxManager FxManager;
+        [Required] public TooltipManager TooltipManager;
+        
+        
+        [Title("戰鬥相關")] 
+        [Required] public EffectExecutor effectManager;
+        [Required] public AllyHealthHandler AllyHealthHandler;
+
+        
+        [Title("其他相關")] 
+        [Required] [SerializeField] private SceneChanger _sceneChanger;
+        [Required] public EventLogger EventLogger;
+        
+        [Required] public UIManager UIManager;
+        [Required] public QuestionManager QuestionManager;
+        
+       
+        
+
+        #endregion
+        #region Cache
         [Title("設定")] 
         
         [LabelText("開發者模式")]
         [SerializeField] private bool isDevelopMode;
         
-        
-        [InlineEditor()]
-        [Required]
-        [SerializeField] private GameplayData gameplayData;
-        
-        
-        [Title("工具")] 
-        [SerializeField] private ScriptableObjectFileHandler allyDataFileHandler, gameplayDataFileHandler;
-        
-        [Required]
-        [SerializeField] private StageSelectedHandler _stageSelectedHandler;
-
-        [Required]
-        [SerializeField] private SceneChanger _sceneChanger;
-        
-        #region Manager
-        
-        [Title("管理器")] 
-        [Required]
-        public RelicManager RelicManager;
-
-        [Required]
-        public AudioManager AudioManager;
-
-        [Required]
-        public FxManager FxManager;
-
-        [Required]
-        public TooltipManager TooltipManager;
-        
-        [FormerlySerializedAs("GameActionManager")] [Required]
-        public EffectExecutor effectManager;
-
-        [Required]
-        public MapManager MapManager;
-
-        [Required]
-        public EncounterManager EncounterManager;
-
-        [Required]
-        public CoinManager CoinManager;
-
-        [Required]
-        public CardManager CardManager;
-
-        [Required]
-        public SaveManager SaveManager;
-
-        [Required]
-        public UIManager UIManager;
-        
-        [Required]
-        public QuestionManager QuestionManager;
-
-        [Required] public CampFireManager CampFireManager;
-
-        [Required] public EventManager EventManager;
-
-        [Required]
-        public RewardManager RewardManager;
-
-        [Required] public EventLogger EventLogger;
-        
-        #endregion
-        
-        
-        #region Cache
-        public GameplayData GameplayData => gameplayData;
-  
-        
-        public EncounterName CurrentEnemyEncounter;
-
-        public bool CanSelectCards;
-
-        public StageSelectedHandler StageSelectedHandler => _stageSelectedHandler;
-
-        public AllyData allyData => _stageSelectedHandler.GetAllyData();
-
-        public AllyHealthHandler AllyHealthHandler;
-
+        /// <summary>
+        /// 開發者模式
+        /// </summary>
         public bool IsDeveloperMode => isDevelopMode;
+
+        
+        /// <summary>
+        /// 遊戲基礎設定
+        /// </summary>
+        [InlineEditor()] [Required]
+        [LabelText("遊戲基礎設定")]
+        public GameplayData GameplayData;
         
 
         #endregion
@@ -129,11 +102,20 @@ namespace Managers
         
         #region Save, Load Data
 
+        /// <summary>
+        /// 目前的遊戲版本
+        /// </summary>
+        /// <returns></returns>
+        public GameVersion SystemVersion()
+        {
+            return systemGameVersion.systemVersion;
+        }
+        
         public void LoadData(GameData data)
         {
             AllyHealthHandler.SetAllyHealthData(data.AllyHealthData);
             
-            _stageSelectedHandler.SetAllyData(
+            stageSelectedManager.SetAllyData(
                 allyDataFileHandler.GuidToData<AllyData>(data.AllyDataGuid));
 
         }
@@ -143,7 +125,7 @@ namespace Managers
             data.AllyHealthData = AllyHealthHandler.GetAllyHealthData();
             
             data.AllyDataGuid = allyDataFileHandler.DataToGuid(
-                _stageSelectedHandler.GetAllyData());
+                stageSelectedManager.GetAllyData());
         }
         
         #endregion
@@ -152,12 +134,12 @@ namespace Managers
         #region Start Single Game
         public void NewGame()
         {
-            SaveManager.Instance.ClearSingleGameData();
+            SaveManager.ClearSingleGameData();
             
             CreateSingleGameData();
             
-            SaveManager.Instance.SetOngoingGame();
-            SaveManager.Instance.SaveSingleGame();
+            SaveManager.SetOngoingGame();
+            SaveManager.SaveSingleGame();
         }
 
         public void StartDevelopMode()
@@ -167,21 +149,22 @@ namespace Managers
 
         private void CreateSingleGameData()
         {
-            EventLogger.Instance.LogEvent(LogEventType.Main, "創建 - 新的單局遊戲",
+            var allyData = stageSelectedManager.GetAllyData();
+            EventLogger.LogEvent(LogEventType.Main, "創建 - 新的單局遊戲",
                 $"角色 : {allyData.CharacterName}\n" +
-                $"關卡 : {_stageSelectedHandler.GetStageData().Id}");
+                $"關卡 : {stageSelectedManager.GetStageData().Id}");
             
             RelicManager.GainRelic(allyData.initialRelic);
-            CardManager.Instance.SetInitCard(allyData.InitialDeck.CardList);
-            MapManager.Instance.Initialized(_stageSelectedHandler.GetStageData());
+            CardManager.playerDeckHandler.SetInitCard(allyData.InitialDeck.CardList);
+            MapManager.Initialized(stageSelectedManager.GetStageData());
             AllyHealthHandler.Init(allyData.MaxHealth);
         }
 
         public void ContinueGame()
         {
-            EventLogger.Instance.LogEvent(LogEventType.Main, "繼續 - 單局遊戲");
+            EventLogger.LogEvent(LogEventType.Main, "繼續 - 單局遊戲");
             
-            SaveManager.Instance.LoadSingleGame();
+            SaveManager.LoadSingleGame();
         }
 
         /// <summary>
@@ -189,7 +172,7 @@ namespace Managers
         /// </summary>
         public void ExitSingleGame()
         {
-            EventLogger.Instance.LogEvent(LogEventType.Main, "離開 - 單局遊戲");
+            EventLogger.LogEvent(LogEventType.Main, "離開 - 單局遊戲");
             
             RelicManager.RemoveAllRelic();
             _sceneChanger.OpenMainMenuScene();
@@ -210,28 +193,21 @@ namespace Managers
         
         public void SetAllyData(AllyData allyData)
         {
-            _stageSelectedHandler.SetAllyData(allyData);
+            stageSelectedManager.SetAllyData(allyData);
         }
 
         
-        public void SetEnemyEncounter(EncounterName encounter)
-        {
-            CurrentEnemyEncounter  = encounter;
-            // Debug.Log($"CurrentEnemyEncounter {CurrentEnemyEncounter.name}");
-        }
-
+        
         public void HealAlly(float percent)
         {
             AllyHealthHandler.HealByPercent(percent);
-            UIManager.Instance.InformationCanvas.ResetCanvas();
+            UIManager.InformationCanvas.ResetCanvas();
         }
         
-      
         
-
         public float GetMoneyDropRate()
         {
-            return _stageSelectedHandler.GetMoneyDropRate();
+            return stageSelectedManager.GetMoneyDropRate();
         }
 
         

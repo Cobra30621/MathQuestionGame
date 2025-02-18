@@ -10,16 +10,8 @@ namespace Power.Buff
     public class TrapPower : PowerBase
     {
         public override PowerName PowerName => PowerName.Trap;
-        public override void SubscribeAllEvent()
-        {
-            Owner.OnAttacked += OnAttacked;
-        }
 
-        public override void UnSubscribeAllEvent()
-        {
-            Owner.OnAttacked -= OnAttacked;
-        }
-        protected override void OnAttacked(DamageInfo info)
+        public override void OnBeAttacked(DamageInfo info)
         {
             var source = info.EffectSource.SourceCharacter;
             Debug.Log(source);

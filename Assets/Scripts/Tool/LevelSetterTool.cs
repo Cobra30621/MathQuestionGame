@@ -21,7 +21,7 @@ namespace Tool
         [LabelText("遺物清單")]
         public Dictionary<RelicName, RelicSaveInfo> relicInfos;
         
-        private CardLevelHandler cardLevelHandler => CardManager.Instance.CardLevelHandler;
+        private CardLevelHandler cardLevelHandler => CardManager.Instance.cardLevelHandler;
 
         private RelicLevelHandler relicLevelHandler => GameManager.Instance.RelicManager.relicLevelHandler;
        

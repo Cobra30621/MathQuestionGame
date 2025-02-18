@@ -73,8 +73,7 @@ namespace Stage
         {
             StageName currentStageName = _stageNameList[_currentStageIndex];
             
-            var selectedHandler = GameManager.Instance.StageSelectedHandler;
-            selectedHandler.SetStageData(currentStageName);
+            StageSelectedManager.Instance.SetStageData(currentStageName);
         }
     }
 }

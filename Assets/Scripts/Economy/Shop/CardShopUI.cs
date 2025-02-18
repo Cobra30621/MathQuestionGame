@@ -32,6 +32,13 @@ namespace Economy.Shop
 
         [Required] [SerializeField] private ToggleGroup _toggleGroup;
 
+        
+        /// <summary>
+        /// 提供卡牌資訊
+        /// </summary>
+        private CardInfoGetter cardInfoGetter => CardManager.Instance.cardInfoGetter;
+
+        
         private void Awake()
         {
             BuildToggleList();
@@ -90,7 +97,7 @@ namespace Economy.Shop
         {
             toogleSpawnPos.gameObject.SetActive(true);
             
-            var cardInfos = CardManager.Instance.GetAllAllyClassCardInfos();
+            var cardInfos = cardInfoGetter.GetAllAllyClassCardInfos();
             ShowCommodities(cardInfos);
         }
         
@@ -102,7 +109,7 @@ namespace Economy.Shop
         [Button]
         public void ShowCardCommodities(AllyClassType classType)
         {
-            var cardInfos = CardManager.Instance.GetCardInfos(classType);
+            var cardInfos = cardInfoGetter.GetCardInfos(classType);
             
             ShowCommodities(cardInfos);
         }

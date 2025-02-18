@@ -3,7 +3,7 @@ using Combat;
 using Effect.Parameters;
 using GameListener;
 using Relic.Data;
-
+using Combat.Card;
 namespace Relic
 {
     /// <summary>
@@ -39,42 +39,20 @@ namespace Relic
         public CharacterBase MainAlly => CombatManager.Instance.MainAlly;
         
         protected CombatManager CombatManager => CombatManager.Instance;
-
-        
-        #region SetUp
-
-        protected RelicBase()
-        {
-            SubscribeAllEvent();
-        }
-
-
-        #endregion
-
-        #region 事件
-
-        /// <summary>
-        /// 當刪除遺物
-        /// </summary>
-        public virtual void OnRelicRemove()
-        {
-            UnSubscribeAllEvent();
-        }
-        
-
-        #endregion
+        protected CollectionManager CollectionManager => CollectionManager.Instance;
         
         #region 工具
         public bool IsCharacterTurn(TurnInfo info)
         {
             return info.CharacterType == CharacterType.Ally;
         }
-        protected EffectSource GetActionSource()
+        protected EffectSource GetEffectSource()
         {
             return new EffectSource()
             {
                 SourceType = SourceType.Relic,
-                SourceRelic = RelicName
+                SourceRelic = RelicName,
+                SourceCharacter = MainAlly
             };
         }
 

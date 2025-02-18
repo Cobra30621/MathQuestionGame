@@ -34,18 +34,9 @@ namespace Power.Enemy
             SetPowerAmount(Turn);
         }
 
-        public override void SubscribeAllEvent()
-        {
-            CombatManager.OnTurnStart += OnTurnStart;
-        }
-        
-        public override void UnSubscribeAllEvent()
-        {
-            CombatManager.OnTurnStart -= OnTurnStart;
-        }
 
 
-        protected override void OnTurnStart(TurnInfo info)
+        public override void OnTurnStart(TurnInfo info)
         {
             if (IsCharacterTurn(info))
             {
