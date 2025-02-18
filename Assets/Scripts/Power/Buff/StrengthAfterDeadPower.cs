@@ -18,21 +18,11 @@ namespace Power.Buff
         {
             
         }
-        public override void SubscribeAllEvent()
-        {
-            Owner.OnDeath += OnDead;
-        }
 
-        public override void UnSubscribeAllEvent()
+
+        public override void OnDead(DamageInfo info)
         {
-            Owner.OnDeath -= OnDead;
-        }
-        
-        protected override void OnDead(DamageInfo damageInfo)
-        {
-            List<CharacterBase> targets = new List<CharacterBase>();
-            var allEnemy = CombatManager.Instance.Enemies;
-            targets.AddRange(allEnemy);
+            List<CharacterBase> targets = CombatManager.Instance.EnemiesForTarget();
 
             // 對全體敵方單位施加強化
             EffectExecutor.AddEffect(

@@ -239,7 +239,7 @@ namespace Combat.Card
                 }
 
                 // Get Selected Card
-                if (GameManager.CanSelectCards)
+                if (CombatManager.Instance.CanSelectCards)
                 {
                     //float d = (p - mouseWorldPos).sqrMagnitude;
                     if (d < sqrDistance)
@@ -298,7 +298,7 @@ namespace Combat.Card
                 ActionTargetType actionTargetType = _heldBattleCard.TargetChoose;
                 characterHighlightController.OnDraggedCardOutsideHand(actionTargetType);
 
-                if (!GameManager.CanSelectCards || _mouseInsideHand)
+                if (!CombatManager.Instance.CanSelectCards || _mouseInsideHand)
                 {
                     OnCardDragedInsideHand();
                     return;

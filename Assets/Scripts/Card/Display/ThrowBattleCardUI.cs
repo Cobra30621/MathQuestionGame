@@ -20,7 +20,7 @@ namespace NueGames.Card
         
         public void ThrowCard()
         {
-            CardManager.Instance.ThrowCard( uiCard.CardData);
+            CardManager.Instance.playerDeckHandler.ThrowCard( uiCard.CardData);
         }
 
     }

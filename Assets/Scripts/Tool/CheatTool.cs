@@ -83,9 +83,7 @@ namespace Tool
 
         public void KillAllEnemy()
         {
-            List<CharacterBase> targets = new List<CharacterBase>();
-            var allEnemy = CombatManager.Instance.Enemies;
-            targets.AddRange(allEnemy);
+            List<CharacterBase> targets = CombatManager.Instance.EnemiesForTarget();
             
             var damageInfo = new DamageInfo(999, new EffectSource(), fixDamage: true, canPierceArmor:true);
 

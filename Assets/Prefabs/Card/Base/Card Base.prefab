@@ -135,13 +135,18 @@ MonoBehaviour:
       SkillID: 
       ManaCost: 0
       UpgradeCost: 0
+      UpgradeCostStone: 0
       Class: 0
       MaxLevel: 0
       TitleLang: 
       DesLang: 
       TargetChoose: 0
+      ExhaustAfterPlay: 0
       skillIDs: []
-      EffectInfos: []
+      SkillInfos: []
+    _cardSprite:
+      backgroundSprite: {fileID: 0}
+      ungainCardSprite: {fileID: 0}
 --- !u!1 &8989979691076520953
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,12 +191,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 6189203452410003451}
     m_Modifications:
     - target: {fileID: 77775262378190809, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -23.6877
+      objectReference: {fileID: 0}
+    - target: {fileID: 77775262378190809, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -109.453
+      value: -119.5215
+      objectReference: {fileID: 0}
+    - target: {fileID: 77775262378190809, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.18870163
       objectReference: {fileID: 0}
     - target: {fileID: 77775262378190809, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -47.0215
+      value: -48.140305
       objectReference: {fileID: 0}
     - target: {fileID: 432532860701711248, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_Color.b
@@ -204,6 +217,18 @@ PrefabInstance:
     - target: {fileID: 432532860701711248, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_Color.r
       value: 0.20000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 432532860701711248, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144152206579475056, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -41.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144152206579475056, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 62.915
       objectReference: {fileID: 0}
     - target: {fileID: 2358127231938869010, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_Pivot.x
@@ -301,21 +326,25 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.5293537
       objectReference: {fileID: 0}
+    - target: {fileID: 2862901435537616884, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4085584821908869709, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8b5f5b950aaef4056bf169f099fca10c, type: 3}
+      objectReference: {fileID: 21300000, guid: 83d55567871fd41a3b7256154f9c9956, type: 3}
     - target: {fileID: 4085584821908869709, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4085584821908869709, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_Color.b
-      value: 0.9976413
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4085584821908869709, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_Color.g
-      value: 0.4481132
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4085584821908869709, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_Color.r
@@ -340,6 +369,10 @@ PrefabInstance:
     - target: {fileID: 5613200131262892597, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 62.915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113047792949297688, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7132563151136762337, guid: 5b8a53e256ef642c3828e58d58ee5e3d, type: 3}
       propertyPath: m_Name

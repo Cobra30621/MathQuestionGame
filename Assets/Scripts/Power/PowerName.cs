@@ -36,6 +36,9 @@ namespace Power
         Block = 1001,
 
         // 能力相關
-        ReduceStrengthPowerAtEndOfTurn = 61
+        ReduceStrengthPowerAtEndOfTurn = 61,
+        
+        // Test
+        Test = 9999999
     }
 }

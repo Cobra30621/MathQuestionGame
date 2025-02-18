@@ -21,7 +21,7 @@ namespace Stage
 
         [SerializeField] private StageDataOverview _stageDataOverview;
 
-        private StageSelectedHandler stageSelectedHandler;
+        private StageSelectedManager _stageSelectedManager;
         [Required] public StageSelectedUI stageSelectedUI;
         [Required] public AllySelectedUI allySelectedUI;
 
@@ -38,20 +38,12 @@ namespace Stage
 
         private void Start()
         {
-            stageSelectedHandler = GameManager.Instance.StageSelectedHandler;
-            // Check if null
-            if (stageSelectedHandler == null)
-            {
-                Debug.LogError("StageSelectedHandler is null");
-                return;
-            }
-
             // Set up listeners for stage and ally data changed events
-            stageSelectedHandler.OnAllyDataChanged.AddListener(
+            StageSelectedManager.Instance.OnAllyDataChanged.AddListener(
                 allySelectedUI.OnAllySelected);
 
             // Can Click Start Button when allyData Have Selected
-            stageSelectedHandler.OnAllyDataChanged.AddListener(
+            StageSelectedManager.Instance.OnAllyDataChanged.AddListener(
                 (a) => startButton.interactable = true
             );
         }

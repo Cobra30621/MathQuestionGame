@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Characters.Display;
 using Combat;
 using Effect.Parameters;
 using Feedback;
+using GameListener;
 using Log;
 using Managers;
 using Power;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UI;
 using UnityEngine;
 
@@ -19,7 +22,9 @@ namespace Characters
     /// </summary>
     public abstract class CharacterBase : SerializedMonoBehaviour
     {
-        [Header("Base settings")]
+        /// <summary>
+        /// 角色類型
+        /// </summary>
         [SerializeField] private CharacterType characterType;
         [Required]
         [SerializeField] private Transform textSpawnRoot;
@@ -40,7 +45,6 @@ namespace Characters
         /// </summary>
         public Transform TextSpawnRoot => textSpawnRoot;
         protected GameManager GameManager => GameManager.Instance;
-        protected CombatManager CombatManager => CombatManager.Instance;
         protected UIManager UIManager => UIManager.Instance;
 
         #endregion
@@ -59,14 +63,9 @@ namespace Characters
         public Action<int, int> OnHealthChanged;
         
         /// <summary>
-        /// 被攻擊時。妳剛剛攻擊我的村莊 ? 我的 Coin Master 村莊 ?
+        /// 被攻擊時。
         /// </summary>
         public Action<DamageInfo> OnAttacked;
-        
-        /// <summary>
-        /// 攻擊時。應該是。妳大老遠跑來，就只因為我攻擊了妳的村莊?
-        /// </summary>
-        public Action<DamageInfo> OnAttack;
         
         /// <summary>
         ///  事件: 當獲得能力時觸發
@@ -100,8 +99,7 @@ namespace Characters
         protected virtual void UnsubscribeEvent()
         {
             CombatManager.OnTurnStart -= CharacterStats.HandleAllPowerOnTurnStart;
-            ClearAllPower();
-
+ 
             OnDeath -= OnDeathAction;
         }
         
@@ -172,26 +170,50 @@ namespace Characters
         #endregion
         
         
-        
-        
-        
-        #region Damage
+        #region 傷害與血量
         /// <summary>
-        /// 被攻擊
+        /// 角色被攻擊時
         /// </summary>
         /// <param name="damageInfo"></param>
         public virtual void BeAttacked(DamageInfo damageInfo)
         {
+            // 目標已死亡，停止攻擊
+            if(CharacterStats.IsDeath) {return;}
+            
             CharacterStats.BeAttacked(damageInfo);
             beAttackFeedback?.Play();
             
-            EventLogger.Instance.LogEvent(LogEventType.Combat, $"收到攻擊: {name}", 
+            EventLogger.Instance.LogEvent(LogEventType.Combat, $"受到攻擊: {name}", 
                 $"傷害資訊: {damageInfo}\n" +
                 $"剩餘血量: {CharacterStats.CurrentHealth}");
+            
+            // 執行 GameEventListener(遊戲事件監聽器)，包含角色持有的能力、遺物
+            var listeners = GetEventListeners();
+            foreach (var listener in listeners)
+            {
+                listener.OnBeAttacked(damageInfo);
+            }
+        }
+
+        /// <summary>
+        /// 角色攻擊執行行為時
+        /// </summary>
+        /// <param name="damageInfo"></param>
+        public void InvokeOnAttack(DamageInfo damageInfo, List<CharacterBase> targets)
+        {
+            // 執行 GameEventListener(遊戲事件監聽器)，包含角色持有的能力、遺物
+            var listeners = GetEventListeners();
+            foreach (var listener in listeners)
+            {
+                listener.OnAttack(damageInfo, targets);
+            }
         }
 
         public void Heal(int value)
         {
+            // 如果目標已死亡，停止行動
+            if(CharacterStats.IsDeath) {return;}
+            
             CharacterStats.Heal(value);
             
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"回血: {name}", 
@@ -206,10 +228,22 @@ namespace Characters
             CharacterStats.SetDeath();
         }
         
+        /// <summary>
+        /// 角色死亡時執行
+        /// </summary>
+        /// <param name="damageInfo"></param>
         protected virtual void OnDeathAction(DamageInfo damageInfo)
         {
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"死亡 {name}", 
                 $"傷害資訊: {damageInfo}");
+
+            // 執行 GameEventListener(遊戲事件監聽器)，包含角色持有的能力、遺物
+            var listeners = GetEventListeners();
+            foreach (var listener in listeners)
+            {
+                listener.OnDead(damageInfo);
+            }
+            
             onDeadFeedback?.Play();
             UnsubscribeEvent();
         }
@@ -225,65 +259,66 @@ namespace Characters
             return CharacterStats.CurrentHealth;
         }
 
+        /// <summary>
+        /// 取得 GameEventListener(遊戲事件監聽器)
+        /// 包含角色持有的能力、遺物
+        /// </summary>
+        /// <returns></returns>
+        public List<GameEventListener> GetEventListeners()
+        {
+            var listener = new List<GameEventListener>();
+            listener.AddRange(GetPowerDict().Values);
+            listener.AddRange(ListenerGetter.GetRelicEventsListeners());
+            
+            return listener;
+        }
+
         #endregion
         
         
-        #region Power
+        #region 能力 Power
 
         /// <summary>
         /// 賦予能力
         /// </summary>
         /// <param name="targetPower"></param>
         /// <param name="value"></param>
-        public void ApplyPower(PowerName targetPower,int value, EffectSource effectSource)
+        public void ApplyPower(PowerName targetPower, int value, EffectSource effectSource)
         {
-            var (haveFindPower, isNewPower) = CharacterStats.ApplyPower(targetPower, value);
+            if (CharacterStats.IsDeath) return;
+            
+            var (success, isNew) = CharacterStats.ApplyPower(targetPower, value);
+            if (!success) return;
 
-            EventLogger.Instance.LogEvent(LogEventType.Combat, 
-                $"賦予能力: {targetPower} + {value} 給 {name}",
-                $"{effectSource}");
+            // 記錄日誌
+            EventLogger.Instance.LogEvent(
+                LogEventType.Combat,
+                $"赋予能力: {targetPower} + {value} 给 {name}",
+                $"{effectSource}"
+            );
             
-            // 沒找到能力，不播特效
-            if (!haveFindPower)
-            {
-                return;
-            }
-            
-            if (targetPower == PowerName.Block)
-            {
-                bool havePower = CharacterStats.PowerDict.TryGetValue(PowerName.Block, out PowerBase power);
-                bool clearPower = !havePower;
-                int blockValue =  clearPower ? 0 : power.Amount;                
-                
-                PlayBlockFeedback(isNewPower, clearPower, value < 0, blockValue);
-            }
-            else
-            {
-                var powerFeedback = Instantiate(gainPowerFeedbackPrefab, powerFeedbackSpawn);
-                powerFeedback.Play(targetPower, value > 0);
-            }
+            PlayPowerFeedback(targetPower, value, isNew);
         }
 
-        private void PlayBlockFeedback(bool isNewPower, bool isClearPower, bool isNegative, int amount)
+        /// <summary>
+        /// 播放特效的反饋動畫
+        /// </summary>
+        /// <param name="power"></param>
+        /// <param name="value"></param>
+        /// <param name="isNew"></param>
+        private void PlayPowerFeedback(PowerName power, int value, bool isNew)
         {
-            if (isNewPower)
+            if (power == PowerName.Block)
             {
-                blockFeedback.PlayGainBlock(amount);
+                // 播放格檔的動畫
+                int currentBlockValue = GetPowerValue(PowerName.Block);
+                blockFeedback.PlayBlockEffect(currentBlockValue, isNew, value < 0);
             }
             else
             {
-                if (isClearPower)
-                {
-                    blockFeedback.PlayRemoveBlock();
-                }
-                else if (isNegative)
-                {
-                    blockFeedback.PlayReduceBlock(amount);
-                }
-                else
-                {
-                    blockFeedback.PlayBlockChange(amount);
-                }
+                // 播放一般能力的動畫
+                var powerFeedback = Instantiate(gainPowerFeedbackPrefab, powerFeedbackSpawn);
+                powerFeedback.Play(power, value > 0);
             }
         }
         
@@ -292,6 +327,9 @@ namespace Characters
         /// </summary>
         public void MultiplyPower(PowerName targetPower,int value)
         {
+            // 如果目標已死亡，停止行動
+            if(CharacterStats.IsDeath) {return;}
+            
             CharacterStats.MultiplyPower(targetPower, value);
             gainPowerFeedbackPrefab.Play(targetPower, true);
         }
@@ -302,12 +340,17 @@ namespace Characters
         /// <param name="targetPower"></param>
         public void ClearPower(PowerName targetPower, EffectSource effectSource)
         {
+            // 如果目標已死亡，停止行動
+            if(CharacterStats.IsDeath) {return;}
+            
             CharacterStats.ClearPower(targetPower);
             
+            // 记录日志
             EventLogger.Instance.LogEvent(LogEventType.Combat, 
                 $"清除能力: {targetPower} 在 {name}",
                 $"{effectSource}");
 
+            // 播放反馈效果
             if (targetPower == PowerName.Block)
             {
                 blockFeedback.PlayRemoveBlock();
@@ -354,12 +397,23 @@ namespace Characters
         
         public Dictionary<PowerName, PowerBase> GetPowerDict()
         {
+            if (CharacterStats == null) return new Dictionary<PowerName, PowerBase>();
+            
             return CharacterStats.PowerDict;
+        }
+
+        public List<GameEventListener> GetPowerListeners()
+        {
+            var listeners = new List<GameEventListener>();
+            listeners.AddRange(CharacterStats.PowerDict.Values);
+
+            return listeners;
         }
         
         #endregion
 
-        
+        #region 工具
+
         public CharacterStats GetCharacterStats()
         {
             return CharacterStats;
@@ -375,6 +429,8 @@ namespace Characters
         {
             return characterType == checkType;
         }
+
+        #endregion
 
         public override string ToString()
         {

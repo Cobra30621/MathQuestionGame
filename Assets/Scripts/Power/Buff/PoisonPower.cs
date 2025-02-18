@@ -17,21 +17,8 @@ namespace Power.Buff
     {
         public override PowerName PowerName => PowerName.Poison;
         
-        
-        public override void SubscribeAllEvent()
-        {
-            CombatManager.OnTurnStart += OnTurnStart;
-        }
 
-        public override void UnSubscribeAllEvent()
-        {
-            CombatManager.OnTurnStart -= OnTurnStart;
-        }
-        
-        
-
-
-        protected override void OnTurnStart(TurnInfo info)
+        public override void OnTurnStart(TurnInfo info)
         {
             if (IsCharacterTurn(info))
             {

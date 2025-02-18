@@ -15,47 +15,54 @@ namespace Feedback
         private static readonly int GainNewBlock = Animator.StringToHash("GainNewBlock");
         private static readonly int RemoveBlock = Animator.StringToHash("RemoveBlock");
         
-        [SerializeField] protected GameObject gainBlockFeedbackPrefab;
-        [SerializeField] protected Transform powerFeedbackSpawn;
+        [SerializeField] private GameObject gainBlockFeedbackPrefab;
+        [SerializeField] private Transform powerFeedbackSpawn;
         
         /// <summary>
         /// 當格擋值發生變化時播放動畫和音效
         /// </summary>
         /// <param name="amount">新的格擋值</param>
         [Button]
-        public void PlayBlockChange(int amount)
+        public void PlayBlockEffect(int amount, bool isNew, bool isNegative)
         {
-            animator.SetTrigger(BlockChange);
-            blockText.text = amount.ToString();
-            AudioManager.Instance.PlaySound("GainBlock");
-
-            ShowBlockIcon();
+            // 格檔值為 0，清除格檔
+            if (amount <= 0)
+            {
+                PlayRemoveBlock();
+            }
+            // 從 0 獲得格檔
+            else if (isNew)
+            {
+                PlayGainNewBlock(amount);
+            }
+            // 格檔值變更
+            else
+            {
+                PlayBlockUpdate(amount, isNegative);
+            }
         }
         
         /// <summary>
         /// 當獲得新的格擋值時播放動畫和音效
         /// </summary>
         /// <param name="amount">獲得的格擋值</param>
-        [Button]
-        public void PlayGainBlock(int amount)
+        private void PlayGainNewBlock(int amount)
         {
             ShowBlockIcon();
-            
             animator.SetTrigger(GainNewBlock);
-            blockText.text = amount.ToString();
+            UpdateBlockText(amount);
             AudioManager.Instance.PlaySound("GainBlock");
         }
 
         /// <summary>
-        /// 當格擋值減少時播放動畫和音效
+        /// 當格擋值更新時播放動畫和音效
         /// </summary>
         /// <param name="amount">減少後的格擋值</param>
-        [Button]
-        public void PlayReduceBlock(int amount)
+        private void PlayBlockUpdate(int amount, bool isNegative)
         {
             animator.SetTrigger(BlockChange);
-            blockText.text = amount.ToString();
-            AudioManager.Instance.PlaySound("RemoveBlock");
+            UpdateBlockText(amount);
+            AudioManager.Instance.PlaySound(isNegative ? "RemoveBlock" : "GainBlock");
         }
 
         /// <summary>
@@ -74,7 +81,12 @@ namespace Feedback
         [Button]
         private void ShowBlockIcon()
         {
-            var feelFeedback = Instantiate(gainBlockFeedbackPrefab, powerFeedbackSpawn);
+            Instantiate(gainBlockFeedbackPrefab, powerFeedbackSpawn);
+        }
+
+        private void UpdateBlockText(int amount)
+        {
+            blockText.text = amount.ToString();
         }
     }
 }

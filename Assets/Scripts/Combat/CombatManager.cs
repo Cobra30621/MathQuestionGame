@@ -7,8 +7,10 @@ using Characters.Ally;
 using Characters.Enemy;
 using Combat.Card;
 using Effect;
+using Encounter;
 using Encounter.Data;
 using Feedback;
+using GameListener;
 using Log;
 using Managers;
 using Map;
@@ -18,6 +20,7 @@ using Question;
 using Reward;
 using Reward.Data;
 using Sirenix.OdinInspector;
+using Stage;
 using UI;
 using UnityEngine;
 using Utils.Background;
@@ -69,7 +72,9 @@ namespace Combat
 
         public int DrawCount()
         {
-            return _gameplayData.DrawCount;
+            int rawDrawCount = _gameplayData.DrawCount;
+            
+            return CombatCalculator.GetDrawCountValue(rawDrawCount);
         }
 
         #endregion
@@ -85,6 +90,17 @@ namespace Combat
         public Ally MainAlly => characterHandler.MainAlly;
 
         public List<Enemy> Enemies => characterHandler.Enemies;
+        
+        /// <summary>
+        /// 取得用於 Effect 的所有敵人
+        /// </summary>
+        /// <returns></returns>
+        public List<CharacterBase> EnemiesForTarget (){
+            List<CharacterBase> targets = new List<CharacterBase>();
+            var allEnemy = CombatManager.Instance.Enemies;
+            targets.AddRange(allEnemy);
+            return targets;
+        }
         
         public int EnemyCount => Enemies.Count;
 
@@ -114,6 +130,12 @@ namespace Combat
 
         protected CollectionManager CollectionManager => CollectionManager.Instance;
 
+        /// <summary>
+        /// 玩家可以選擇卡片
+        /// </summary>
+        public bool CanSelectCards;
+
+        
         #endregion
 
 
@@ -146,7 +168,7 @@ namespace Combat
 
         public static Action<int> OnBattleWin;
 
-        public static System.Action OnBattleStart;
+        public static Action OnBattleStart;
         
 
 
@@ -208,6 +230,7 @@ namespace Combat
             // 玩家無法操作手牌
             CollectionManager.HandController.DisableDragging();
             
+            CombatEventTrigger.InvokeOnTurnEnd(GetTurnInfo(CharacterType.Ally));
             OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Ally)); // 玩家回合結束
 
             CurrentCombatStateType = CombatStateType.EnemyTurn;
@@ -259,7 +282,7 @@ namespace Combat
 
                     break;
                 case CombatStateType.EndCombat:
-                    GameManager.CanSelectCards = false;
+                    CanSelectCards = false;
 
                     break;
                 default:
@@ -270,24 +293,24 @@ namespace Combat
         private IEnumerator StartCombatRoutine()
         {
             EventLogger.Instance.LogEvent(LogEventType.Combat, "---------- 戰鬥開始 ----------");
-            
-            var encounterName = GameManager.CurrentEnemyEncounter;
+
+            var encounterName = EncounterManager.Instance.currentEnemyEncounter;
             currentEncounter = enemyEncounterOverview.FindUniqueId(encounterName.Id);
             characterHandler.BuildEnemies(currentEncounter.enemyList);
-            characterHandler.BuildAllies(GameManager.allyData);
+            characterHandler.BuildAllies(StageSelectedManager.Instance.GetAllyData());
 
             backgroundContainer.OpenSelectedBackground();
 
             RoundNumber = 0;
 
             CollectionManager.SetGameDeck();
-            QuestionManager.Instance.OnCombatStart();
 
             UIManager.CombatCanvas.gameObject.SetActive(true);
             UIManager.InformationCanvas.gameObject.SetActive(true);
 
             yield return new WaitForSeconds(0.1f);
             OnBattleStart?.Invoke();
+            CombatEventTrigger.InvokeOnBattleStart();
             yield return BattleStartEnemyRoutine();
 
             CurrentCombatStateType = CombatStateType.RoundStart;
@@ -299,10 +322,11 @@ namespace Combat
             RoundNumber++;
             _manaManager.HandleAtTurnStartMana();
             CollectionManager.DrawCards(DrawCount());
-            GameManager.CanSelectCards = false;
+            CanSelectCards = false;
 
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"回合 {RoundNumber} 開始");
             OnRoundStart?.Invoke(GetRoundInfo());
+            CombatEventTrigger.InvokeOnRoundStart(GetRoundInfo());
             yield return new WaitForSeconds(0.1f);
 
             CurrentCombatStateType = CombatStateType.AllyTurn;
@@ -315,12 +339,13 @@ namespace Combat
             
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"玩家階段開始");
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Ally));
+            CombatEventTrigger.InvokeOnTurnStart(GetTurnInfo(CharacterType.Ally));
             
             // 玩家可以操作手牌
             CollectionManager.HandController.EnableDragging();
             allyTurnStartFeedback.Play();
             yield return new WaitForSeconds(allyTurnStartFeedback.FeedbackDuration());
-            GameManager.CanSelectCards = true;
+            CanSelectCards = true;
 
             if (MainAlly.GetCharacterStats().IsStunned)
             {
@@ -350,6 +375,7 @@ namespace Combat
             
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"敵人階段開始");
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Enemy));
+            CombatEventTrigger.InvokeOnTurnStart(GetTurnInfo(CharacterType.Enemy));
             CollectionManager.DiscardHand();
 
             enemyTurnStartFeedback.Play();
@@ -366,9 +392,8 @@ namespace Combat
             }
 
             yield return new WaitForSeconds(0.5f);
-            GameManager.CanSelectCards = false;
-
-
+            CanSelectCards = false;
+            
             if (CurrentCombatStateType != CombatStateType.EndCombat)
             {
                 CurrentCombatStateType = CombatStateType.EndRound;
@@ -376,12 +401,14 @@ namespace Combat
             else
             {
                 OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Enemy)); // 敵人回合結束
+                CombatEventTrigger.InvokeOnTurnEnd(GetTurnInfo(CharacterType.Enemy));
             }
         }
 
         private IEnumerator RoundEndRoutine()
         {
             OnRoundEnd?.Invoke(GetRoundInfo());
+            CombatEventTrigger.InvokeOnRoundEnd(GetRoundInfo());
             yield return new WaitForSeconds(0.1f);
 
             CurrentCombatStateType = CombatStateType.RoundStart;
@@ -390,6 +417,7 @@ namespace Combat
         private IEnumerator LoseCombatRoutine()
         {
             EventLogger.Instance.LogEvent(LogEventType.Combat, "---------- 戰鬥失敗 ----------");
+            CombatEventTrigger.InvokeOnBattleLose(RoundNumber);
             
             CollectionManager.DiscardHand();
             CollectionManager.DiscardPile.Clear();
@@ -407,6 +435,8 @@ namespace Combat
         {
             EventLogger.Instance.LogEvent(LogEventType.Combat, "---------- 戰鬥勝利 ----------");
             OnBattleWin?.Invoke(RoundNumber);
+            CombatEventTrigger.InvokeOnBattleWin(RoundNumber);
+            
             GameManager.AllyHealthHandler.SetHealth(
                 MainAlly.GetCharacterStats().CurrentHealth);
 
@@ -417,7 +447,13 @@ namespace Combat
             MainAlly.ClearAllPower();
             UIManager.CombatCanvas.gameObject.SetActive(false);
             var currentNodeType = MapManager.Instance.GetCurrentNodeType();
-            UIManager.RewardCanvas.ShowReward(new List<RewardData>()
+            var rewards = GetReward(currentNodeType);
+            UIManager.RewardCanvas.ShowReward(rewards, currentNodeType);
+        }
+
+        private List<RewardData> GetReward(NodeType nodeType)
+        {
+            var rewardList = new List<RewardData>()
             {
                 new()
                 {
@@ -429,7 +465,21 @@ namespace Combat
                     RewardType =  RewardType.Money,
                     CoinGainType =  CoinGainType.NodeType
                 }
-            }, currentNodeType);
+            };
+
+            switch (nodeType)
+            {
+                // 菁英敵人多一個遺物
+                case NodeType.EliteEnemy:
+                    rewardList.Add(new RewardData()
+                    {
+                        RewardType = RewardType.Relic,
+                        ItemGainType = ItemGainType.Common
+                    });
+                    break;
+            }
+
+            return rewardList;
         }
 
         #endregion

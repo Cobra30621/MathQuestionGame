@@ -38,7 +38,7 @@ namespace Save
             EventLogger.Instance.LogEvent(LogEventType.Main, "創建初次進遊戲的資料","");
             CoinManager.Instance.SetMoney(gameplayData.InitMoney);
             CoinManager.Instance.SetStone(gameplayData.InitStone);
-            CardManager.Instance.CardLevelHandler.InitDictionary();
+            CardManager.Instance.cardLevelHandler.InitDictionary();
             GameManager.Instance.RelicManager.relicLevelHandler.InitDictionary();
 
             SaveManager.Instance.SavePermanentGame();

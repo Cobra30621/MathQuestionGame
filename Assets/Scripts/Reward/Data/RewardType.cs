@@ -12,6 +12,8 @@ namespace Reward.Data
         Card = 2,
         [LabelText("遺物")]
         Relic = 3,
+        [LabelText("回血")]
+        Heal = 4,
 
     }
 }

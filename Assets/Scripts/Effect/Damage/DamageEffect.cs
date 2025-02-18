@@ -73,8 +73,12 @@ namespace Effect.Damage
             for (int i = 0; i < _times; i++)
             {
                 DamageOneTime(TargetList);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.2f);
             }
+            // 提示角色執行攻擊行為時
+            var sourceCharacter = _damageInfo.EffectSource.SourceCharacter;
+            if(sourceCharacter != null)
+                sourceCharacter.InvokeOnAttack(_damageInfo, TargetList);
         }
 
         /// <summary>
@@ -85,8 +89,10 @@ namespace Effect.Damage
         {
             foreach (var target in targets)
             {
+                // 如果目標為空 (可能已死亡，使物件為空)，跳過
+                if (target == null) continue;
+                
                 _damageInfo.SetTarget(target);
-            
                 PlaySpawnTextFx($"{_damageInfo.GetAfterBlockDamage()}", target.TextSpawnRoot);
                 target.BeAttacked(_damageInfo);
             }

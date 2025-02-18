@@ -1,4 +1,6 @@
-﻿using Combat;
+﻿using System.Collections.Generic;
+using Characters;
+using Combat;
 using Effect.Parameters;
 using Question;
 
@@ -6,41 +8,17 @@ namespace GameListener
 {
     /// <summary>
     /// 各種遊戲事件的監聽者
-    /// 給能力(Power)、遺物(Relic)、藥水等功能使用
+    /// 給能力(Power)、遺物(Relic)等功能使用
     /// </summary>
     public class GameEventListener
     {
-        /// <summary>
-        /// 答題管理器
-        /// </summary>
-        protected QuestionManager QuestionManager => QuestionManager.Instance;
-
-
-        #region 戰鬥計算順序 (傷害、格擋)
-
+        #region 戰鬥加成計算
+        
         public CalculateOrder DamageCalculateOrder = CalculateOrder.None;
 
         public CalculateOrder BlockCalculateOrder = CalculateOrder.None;
-        
 
-        #endregion
 
-        #region 訂閱事件
-
-        /// <summary>
-        /// 訂閱所有事件
-        /// </summary>
-        public virtual void SubscribeAllEvent() { }
-
-        /// <summary>
-        /// 取消訂閱所以事件
-        /// </summary>
-        public virtual void UnSubscribeAllEvent(){ }
-        
-
-        #endregion
-        
-        #region 戰鬥計算
         /// <summary>
         /// 受到傷害時，對傷害的加成
         /// </summary>
@@ -60,61 +38,17 @@ namespace GameListener
         {
             return damage;
         }
-        
+
         /// <summary>
         /// 賦予格檔時，對格檔的加乘
         /// </summary>
         /// <param name="blockAmount"></param>
         /// <returns></returns>
-        public virtual float ModifyBlock(float blockAmount) {
+        public virtual float ModifyBlock(float blockAmount)
+        {
             return blockAmount;
         }
 
-        #endregion
-        
-        #region 戰鬥流程觸發
-        /// <summary>
-        /// 遊戲回合開始時，觸發的方法
-        /// </summary>
-        protected virtual void OnRoundStart(RoundInfo info)
-        {
-            
-        }
-        
-        /// <summary>
-        /// 遊戲回合結束時，觸發的方法
-        /// </summary>
-        protected virtual void OnRoundEnd(RoundInfo info)
-        {
-            
-        }
-        
-        /// <summary>
-        /// 玩家/敵人 回合開始時觸發
-        /// </summary>
-        /// <param name="isAlly"></param>
-        protected virtual void OnTurnStart(TurnInfo info) 
-        {
-            
-        }
-        
-        /// <summary>
-        /// 玩家/敵人 回合結束時觸發
-        /// </summary>
-        protected virtual void OnTurnEnd(TurnInfo info)
-        {
-            
-        }
-
-        protected virtual void OnBattleStart()
-        {
-            
-        }
-        protected virtual void OnBattleWin(int roundNumber)
-        {
-            
-        }
-        
         /// <summary>
         /// 回合開始獲得瑪娜加成
         /// </summary>
@@ -125,44 +59,110 @@ namespace GameListener
             return rawValue;
         }
 
+        /// <summary>
+        /// 回合開始抽卡數量加成
+        /// </summary>
+        /// <param name="rawValue"></param>
+        /// <returns></returns>
+        public virtual int AtGainTurnStartDraw(int rawValue)
+        {
+            return rawValue;
+        }
+
         #endregion
-        
-        #region 戰鬥事件觸發
-        
+
+        #region 戰鬥流程
+
+        /// <summary>
+        /// 遊戲回合開始時，觸發的方法
+        /// </summary>
+        public virtual void OnRoundStart(RoundInfo info)
+        {
+        }
+
+        /// <summary>
+        /// 遊戲回合結束時，觸發的方法
+        /// </summary>
+        public virtual void OnRoundEnd(RoundInfo info)
+        {
+        }
+
+        /// <summary>
+        /// 玩家/敵人 階段開始時觸發
+        /// </summary>
+        /// <param name="isAlly"></param>
+        public virtual void OnTurnStart(TurnInfo info)
+        {
+        }
+
+        /// <summary>
+        /// 玩家/敵人 階段結束時觸發
+        /// </summary>
+        public virtual void OnTurnEnd(TurnInfo info)
+        {
+        }
+
+        /// <summary>
+        /// 戰鬥開始時觸發
+        /// </summary>
+        public virtual void OnBattleStart()
+        {
+        }
+
+        /// <summary>
+        /// 戰鬥勝利時觸發
+        /// </summary>
+        public virtual void OnBattleWin(int roundNumber)
+        {
+        }
+
+        /// <summary>
+        /// 戰鬥失敗時觸發
+        /// </summary>
+        public virtual void OnBattleLose(int roundNumber)
+        {
+        }
+
+        #endregion
+
+        #region 戰鬥中角色事件觸發
+
         /// <summary>
         /// 受到攻擊時，觸發的方法
         /// </summary>
         /// <param name="info"></param>
-        protected virtual void OnAttacked(DamageInfo info){}
+        public virtual void OnBeAttacked(DamageInfo info)
+        {
+        }
 
-        protected virtual void OnDead(DamageInfo damageInfo){}
-        #endregion
-        
-        #region 答題流程
         /// <summary>
-        /// 開始問答模式時，觸發的方法
+        /// 執行攻擊行為時，觸發的方法
+        /// 如果是多段傷害，只會執行一次
         /// </summary>
-        protected virtual void OnQuestioningModeStart(){}
-        /// <summary>
-        /// 回答問題時，觸發的方法
-        /// </summary>
-        protected virtual void OnAnswer(){}
-        /// <summary>
-        /// 答對問題時，觸發的方法
-        /// </summary>
-        protected virtual void OnAnswerCorrect(){}
-        /// <summary>
-        /// 答錯問題時，觸發的方法
-        /// </summary>
-        protected virtual void OnAnswerWrong(){}
-        /// <summary>
-        /// 結束問答模式時，觸發的方法
-        /// </summary>
-        /// <param name="correctCount"></param>
-        protected virtual void OnQuestioningModeEnd(int correctCount){}
-        
-        #endregion
+        /// <param name="info"></param>
+        public virtual void OnAttack(DamageInfo info, List<CharacterBase> targets)
+        {
+            
+        }
 
-        
+        /// <summary>
+        /// 血量發生變化時，觸發的方法
+        /// </summary>
+        /// <param name="health"></param>
+        /// <param name="maxHealth"></param>
+        public virtual void OnHealthChanged(int health, int maxHealth)
+        {
+        }
+
+
+        /// <summary>
+        /// 死亡時觸發
+        /// </summary>
+        /// <param name="info"></param>
+        public virtual void OnDead(DamageInfo info)
+        {
+        }
+
+        #endregion
     }
 }

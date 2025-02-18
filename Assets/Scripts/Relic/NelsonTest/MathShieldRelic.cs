@@ -10,15 +10,6 @@ namespace Relic.NelsonTest
         public override RelicName RelicName => RelicName.MathShield;
 
 
-        public override void SubscribeAllEvent()
-        {
-            QuestionManager.OnAnswerCorrect += OnAnswerCorrect;
-        }
-
-        public override void UnSubscribeAllEvent()
-        {
-            QuestionManager.OnAnswerCorrect -= OnAnswerCorrect;
-        }
         
         // protected override void OnAnswerCorrect(TurnInfo info)
         // {

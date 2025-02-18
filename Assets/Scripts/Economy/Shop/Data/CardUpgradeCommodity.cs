@@ -46,7 +46,8 @@ namespace Economy.Shop.Data
             string cardId = _cardInfo.CardData.CardId;
             CardManager.Instance.UpgradeCard(cardId);
 
-            _cardInfo = CardManager.Instance.CreateCardInfo(_cardInfo.CardData);
+            _cardInfo = CardManager.Instance.
+                cardInfoGetter.CreateCardInfo(_cardInfo.CardData);
             EventLogger.Instance.LogEvent(LogEventType.Economy, $"升級卡牌: {_cardInfo}");
             
             ShopHandler.OnBuyCardUpgradeCommodity.Invoke(this);

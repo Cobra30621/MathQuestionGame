@@ -20,8 +20,8 @@ namespace Economy
     public class CoinManager : MonoBehaviour, IPermanentDataPersistence
     {
         public static CoinManager Instance => GameManager.Instance.CoinManager;
-        
-        
+
+        [SerializeField] private CoinFeedback feedback;
         [SerializeField] private int money;
         [SerializeField] private int stone;
 
@@ -52,8 +52,13 @@ namespace Economy
                     SetStone(afterAdd);
                     break;
             }
-            
+
+            if (add > 0)
+            {
+                feedback.PlayGainCoin();
+            }
             EventLogger.Instance.LogEvent(LogEventType.Economy, $"獲得 {type} - {add}", $"獲得後數量 {afterAdd}");
+            SaveManager.Instance.SavePermanentGame(); 
         }
 
         /// <summary>

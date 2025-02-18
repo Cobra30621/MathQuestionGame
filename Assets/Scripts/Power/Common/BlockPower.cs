@@ -10,32 +10,17 @@ namespace Power.Common
     {
         public override PowerName PowerName => PowerName.Block;
 
-
-        public override void SubscribeAllEvent()
+        
+        
+        public override void UpdateStatusOnTurnStart()
         {
-            CombatManager.OnTurnStart += OnTurnStart;
-        }
-
-        public override void UnSubscribeAllEvent()
-        {
-            CombatManager.OnTurnStart -= OnTurnStart;
-        }
-
-
-        protected override void OnTurnStart(TurnInfo info)
-        {
-            if (IsCharacterTurn(info))
+            // 如果沒有裝甲，回合結束清除格檔
+            if (!Owner.HasPower(PowerName.Equip))
             {
-                if (CombatManager.Instance.MainAlly.HasPower(PowerName.Equip))
-                {
-                    
-                }
-                else
-                {
-                    Owner.ClearPower(PowerName, GetEffectSource());
-                }
+                Owner.ClearPower(PowerName, GetEffectSource());
             }
         }
+        
 
         public override void StackPower(int rawAmount)
         {

@@ -32,7 +32,7 @@ namespace CampFire
         {
             DestroyPreviousUI();
             
-            foreach (var cardData in CardManager.Instance.CurrentCardsList)
+            foreach (var cardData in CardManager.Instance.CurrentDeck)
             {
                 var cardBase = Instantiate(throwBattleCardUI, spawnPos);
                 _spawnedCardList.Add(cardBase);

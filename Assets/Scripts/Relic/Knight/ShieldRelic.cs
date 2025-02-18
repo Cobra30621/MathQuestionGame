@@ -12,23 +12,14 @@ namespace Relic.Knight
     {
         public override RelicName RelicName => RelicName.Shield;
         private int amount = 3;
-        public override void SubscribeAllEvent()
-        {
-            CombatManager.OnTurnEnd += OnTurnEnd;
-        }
 
-        public override void UnSubscribeAllEvent()
-        {
-            CombatManager.OnTurnEnd -= OnTurnEnd;
-        }
-
-        protected override void OnTurnEnd(TurnInfo info)
+        public override void OnTurnEnd(TurnInfo info)
         {
             if (IsCharacterTurn(info))
             {
                 EffectExecutor.AddEffect(new ApplyPowerEffect(
                     amount, PowerName.Block, new List<CharacterBase>() {MainAlly},
-                    GetActionSource()));
+                    GetEffectSource()));
             }
         }
        

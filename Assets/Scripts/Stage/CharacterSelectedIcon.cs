@@ -32,7 +32,7 @@ namespace Stage
 
         private void SelectCharacter()
         {
-            GameManager.Instance.StageSelectedHandler.SetAllyData(_allyData);
+            StageSelectedManager.Instance.SetAllyData(_allyData);
         }
     }
 }

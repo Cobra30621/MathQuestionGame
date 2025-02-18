@@ -38,7 +38,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Canvas/mainPanel/QuestioningPanel
+    path: Canvas/Question UI Control/main Panel/QuestioningPanel
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves:
@@ -67,27 +67,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Alpha
-    path: Canvas/mainPanel
+    path: Canvas/Question UI Control/main Panel
     classID: 225
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Canvas/mainPanel/QuestioningPanel/Question Panel/Panel
-    classID: 1
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -132,7 +113,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: Canvas/mainPanel/QuestioningPanel
+    path: Canvas/Question UI Control/main Panel/QuestioningPanel
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -178,7 +159,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Canvas/mainPanel/QuestioningPanel
+    path: Canvas/Question UI Control/main Panel/QuestioningPanel
     classID: 224
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -190,35 +171,28 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2299987486
+      path: 3938594005
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 520947890
+      path: 332501195
       attribute: 1574349066
       script: {fileID: 0}
       typeID: 225
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 388154716
-      attribute: 2086281974
-      script: {fileID: 0}
-      typeID: 1
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 2299987486
+      path: 3938594005
       attribute: 1460864421
       script: {fileID: 0}
       typeID: 224
       customType: 28
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2299987486
+      path: 3938594005
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -271,27 +245,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Alpha
-    path: Canvas/mainPanel
+    path: Canvas/Question UI Control/main Panel
     classID: 225
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Canvas/mainPanel/QuestioningPanel/Question Panel/Panel
-    classID: 1
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -318,7 +273,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Canvas/mainPanel/QuestioningPanel
+    path: Canvas/Question UI Control/main Panel/QuestioningPanel
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -346,7 +301,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Canvas/mainPanel/QuestioningPanel
+    path: Canvas/Question UI Control/main Panel/QuestioningPanel
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -374,7 +329,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Canvas/mainPanel/QuestioningPanel
+    path: Canvas/Question UI Control/main Panel/QuestioningPanel
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -420,7 +375,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: Canvas/mainPanel/QuestioningPanel
+    path: Canvas/Question UI Control/main Panel/QuestioningPanel
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -466,7 +421,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Canvas/mainPanel/QuestioningPanel
+    path: Canvas/Question UI Control/main Panel/QuestioningPanel
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -477,7 +432,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Canvas/mainPanel/QuestioningPanel
+    path: Canvas/Question UI Control/main Panel/QuestioningPanel
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -487,7 +442,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Canvas/mainPanel/QuestioningPanel
+    path: Canvas/Question UI Control/main Panel/QuestioningPanel
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -497,7 +452,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Canvas/mainPanel/QuestioningPanel
+    path: Canvas/Question UI Control/main Panel/QuestioningPanel
     classID: 224
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

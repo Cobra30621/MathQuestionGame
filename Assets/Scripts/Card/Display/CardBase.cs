@@ -34,7 +34,7 @@ namespace Card.Display
 
         public virtual void Init(CardData cardData)
         {
-            var cardInfo = CardManager.Instance.CreateCardInfo(cardData);
+            var cardInfo = CardManager.Instance.cardInfoGetter.CreateCardInfo(cardData);
             
             Init(cardInfo);
         }
@@ -75,7 +75,8 @@ namespace Card.Display
         {
             if (!_cardInfo.CardData.IsDevelopCard)
             {
-                CardLevelInfo.SkillInfos = CardManager.Instance.GetSkillInfos(CardLevelInfo.skillIDs);
+                CardLevelInfo.SkillInfos = CardManager.Instance.
+                    cardInfoGetter.GetSkillInfos(CardLevelInfo.skillIDs);
             }
         }
 
