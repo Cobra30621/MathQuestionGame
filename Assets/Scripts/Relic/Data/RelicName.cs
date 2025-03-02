@@ -5,6 +5,7 @@ namespace Relic.Data
         Shield = 10001,
         Drumstick = 10002,
         Sword = 10003,
+        Bow = 20002,
         Armguard = 20003,
         Bag = 30001,
         Orb = 40001,
