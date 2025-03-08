@@ -14,11 +14,22 @@ namespace GameListener
     {
         #region 戰鬥加成計算
         
+        /// <summary>
+        /// 傷害加成的計算順序
+        /// </summary>
         public CalculateOrder DamageCalculateOrder = CalculateOrder.None;
 
+        /// <summary>
+        /// 獲得格黨加成的計算順序
+        /// </summary>
         public CalculateOrder BlockCalculateOrder = CalculateOrder.None;
 
-
+        /// <summary>
+        /// 卡片初始魔力加成的計算順序
+        /// </summary>
+        public CalculateOrder CardManaCalculateOrder = CalculateOrder.None;
+        
+        
         /// <summary>
         /// 受到傷害時，對傷害的加成
         /// </summary>
@@ -65,6 +76,16 @@ namespace GameListener
         /// <param name="rawValue"></param>
         /// <returns></returns>
         public virtual int AtGainTurnStartDraw(int rawValue)
+        {
+            return rawValue;
+        }
+        
+        /// <summary>
+        /// 卡片初始魔力加成的計算
+        /// </summary>
+        /// <param name="rawValue"></param>
+        /// <returns></returns>
+        public virtual float GetCardRawMana(float rawValue)
         {
             return rawValue;
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Card;
 using Card.Data;
@@ -6,6 +7,7 @@ using NueGames.Enums;
 using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Combat.Card
 {
@@ -35,20 +37,16 @@ namespace Combat.Card
         protected CombatManager CombatManager => CombatManager.Instance;
 
         protected UIManager UIManager => UIManager.Instance;
-        [ShowInInspector]
-        [LabelText("已使用卡牌數量")]
-        public int UsedCardCount { get; private set; }
+
         #endregion
+
+
+        public static Action<BattleCard> OnUseCard;
+        
        
         #region Setup
         protected override void DoAtAwake()
         {
-            CombatManager.OnRoundStart += (roundInfo)=>
-            {
-                ResetUsedCardCount();
-            };
-            
-            UsedCardCount = 0;
             SetupPileDict();
         }
 
@@ -133,7 +131,8 @@ namespace Combat.Card
         }
         public void OnCardPlayed(BattleCard targetBattleCard)
         {
-            UsedCardCount++;
+            OnUseCard.Invoke(targetBattleCard);
+            
             if (targetBattleCard.CardInfo.ExhaustAfterPlay)
                 targetBattleCard.Exhaust();
             else
@@ -157,6 +156,17 @@ namespace Combat.Card
             HandController.hand.Clear();
         }
 
+        /// <summary>
+        /// 更新所有卡牌的花費，使其再次取得
+        /// </summary>
+        public void UpdateAllCardsManaCost()
+        {
+            foreach (var card in HandController.hand)
+            {
+                card.SetInitCardManaCost();
+            }
+        }
+        
         #region 卡牌在卡組間移動
 
         /// <summary>
@@ -277,36 +287,12 @@ namespace Combat.Card
 
 
         #endregion
-        
-        #region Card Cost(卡牌花費改變)
 
-        /// <summary>
-        /// 根據卡牌的關鍵字，改變卡牌花費
-        /// </summary>
-        public void ChangeHandCardManaCost(SpecialKeywords targetKeyword, int cost)
-        {
-            foreach (var card in HandController.hand)
-            {
-                List<SpecialKeywords> keywordsList = card.CardData.KeywordsList;
-                if (keywordsList.Contains(targetKeyword))
-                {
-                    card.SetManaCost(cost);
-           
-                }
-            }
-        }
-        
-        #endregion
-        
         
         #endregion
 
         #region Private Methods
-        private void ResetUsedCardCount()
-        {
-            
-            UsedCardCount = 0;
-        }
+
         private void ReshuffleDiscardPile()
         {
             foreach (var i in DiscardPile) 

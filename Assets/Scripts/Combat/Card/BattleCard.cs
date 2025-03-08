@@ -52,13 +52,26 @@ namespace Combat.Card
 
             IsPlayable = true;
             Init(cardInfo);
-
-            ManaCost = CardLevelInfo.ManaCost;
-
+            
+            SetInitCardManaCost();
+            
             _camera = CollectionManager.HandController.cam;
             if (canvas)
                 canvas.worldCamera = _camera;
         }
+
+        /// <summary>
+        /// 設定卡片的初始魔力消耗
+        /// </summary>
+        public void SetInitCardManaCost()
+        {
+            // 計算能力、遺物加成
+            ManaCost =  CardManaCalculator.GetCardManaCost(CardLevelInfo.ManaCost);
+            
+            _cardInfo.ManaCost = ManaCost;
+            UpdateCardDisplay();
+        }
+        
 
         #endregion
 
@@ -163,35 +176,6 @@ namespace Combat.Card
 
         #endregion
 
-
-        #region Card Cost(卡牌花費改變)
-
-        /// <summary>
-        /// 降低魔力花費
-        /// </summary>
-        /// <param name="reduceAmount"></param>
-        public void ReduceManaCost(int reduceAmount)
-        {
-            ManaCost -= reduceAmount;
-            if (ManaCost < 0)
-                ManaCost = 0;
-
-            _cardInfo.ManaCost = ManaCost;
-            UpdateCardDisplay();
-        }
-
-        /// <summary>
-        /// 設置魔力花費
-        /// </summary>
-        /// <param name="cost"></param>
-        public void SetManaCost(int cost)
-        {
-            ManaCost = cost;
-            _cardInfo.ManaCost = ManaCost;
-            UpdateCardDisplay();
-        }
-
-        #endregion
 
 
         #region Routines

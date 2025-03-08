@@ -42,6 +42,13 @@ namespace Combat
         [Required]
         [SerializeField] private GameplayData _gameplayData;
 
+
+        /// <summary>
+        /// 負責記錄一些戰鬥中的資訊
+        /// </summary>
+        public CombatCounter CombatCounter;
+        
+        
         #region Mana
 
         public int MaxMana()
@@ -206,6 +213,8 @@ namespace Combat
         protected override void DoAtAwake()
         {
             _manaManager = new ManaManager();
+            CombatCounter = new CombatCounter();
+            CombatCounter.Init();
             CurrentCombatStateType = CombatStateType.PrepareCombat;
         }
 
@@ -418,12 +427,8 @@ namespace Combat
         {
             EventLogger.Instance.LogEvent(LogEventType.Combat, "---------- 戰鬥失敗 ----------");
             CombatEventTrigger.InvokeOnBattleLose(RoundNumber);
-            
-            CollectionManager.DiscardHand();
-            CollectionManager.DiscardPile.Clear();
-            CollectionManager.DrawPile.Clear();
-            CollectionManager.HandPile.Clear();
-            CollectionManager.HandController.hand.Clear();
+
+            HandleEndBattle();
 
             yield return new WaitForSeconds(1.5f);
 
@@ -440,7 +445,7 @@ namespace Combat
             GameManager.AllyHealthHandler.SetHealth(
                 MainAlly.GetCharacterStats().CurrentHealth);
 
-            CollectionManager.ClearPiles();
+            HandleEndBattle();
 
             yield return new WaitForSeconds(1.5f);
 
@@ -449,6 +454,14 @@ namespace Combat
             var currentNodeType = MapManager.Instance.GetCurrentNodeType();
             var rewards = GetReward(currentNodeType);
             UIManager.RewardCanvas.ShowReward(rewards, currentNodeType);
+        }
+
+        private void HandleEndBattle()
+        {
+            CollectionManager.DiscardHand();
+            CollectionManager.ClearPiles();
+            
+            CombatCounter.OnBattleEnd();
         }
 
         private List<RewardData> GetReward(NodeType nodeType)

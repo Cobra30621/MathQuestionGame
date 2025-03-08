@@ -28,6 +28,9 @@ namespace Effect.Parameters
         [LabelText("清除 [1] 的狀態")]
         ClearPower = 20031,
         
+        [LabelText("當符合 [1] 條件時，增加 [2] 點魔力")]
+        AddManaWhenPassCondition,
+        
         // Enemy
         [LabelText("生成敵人")]
         SpawnEnemy = 30001,

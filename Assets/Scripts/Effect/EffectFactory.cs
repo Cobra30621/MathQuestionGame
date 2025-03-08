@@ -115,7 +115,8 @@ namespace Effect
                     return new DrawCardEffect(skillInfo);
                 case EffectName.ClearPower:
                     return new ClearPowerEffect(skillInfo);
-                
+                case EffectName.AddManaWhenPassCondition:
+                    return new AddManaWhenPassConditionEffect(skillInfo);
                 case EffectName.SpawnEnemy:
                     return new SpawnEnemyEffect(skillInfo);
                 case EffectName.SplitEnemy:

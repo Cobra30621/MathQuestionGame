@@ -26,6 +26,9 @@ namespace Power
         Equip = 13,
         Charge = 14,
         Weak = 15,
+        
+        [LabelText("本局對戰中，所有的卡牌消耗變為1")]
+        ManaCostTo1 = 31,
        
         
         // not official coded

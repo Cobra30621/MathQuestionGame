@@ -8,8 +8,6 @@ namespace Combat
     /// </summary>
     public class ManaManager
     {
-        protected GameManager GameManager => GameManager.Instance;
-        protected CombatManager CombatManager => CombatManager.Instance;
         
         /// <summary>
         /// 當獲得瑪娜時
@@ -24,7 +22,7 @@ namespace Combat
         /// </summary>
         public void HandleAtTurnStartMana()
         {
-            int gainValue = CombatCalculator.GetManaValue(CombatManager.MaxMana());
+            int gainValue = CombatCalculator.GetManaValue(CombatManager.Instance.MaxMana());
             
             // 每回合開始，將瑪娜歸零
             ReSetMana(); 
@@ -62,12 +60,6 @@ namespace Combat
             CurrentMana = mana;
             OnGainMana?.Invoke(mana);
         }
-        /// <summary>
-        /// 取得瑪娜值
-        /// <summary>
-        public int GetMana()
-        {
-            return CurrentMana;
-        }
+        
     }
 }

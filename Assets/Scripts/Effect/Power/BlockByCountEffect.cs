@@ -26,7 +26,7 @@ namespace Effect.Power
                     count = CombatManager.EnemyCount;
                     break;
                 case 2:
-                    count = CollectionManager.UsedCardCount;
+                    count = CombatManager.CombatCounter.UseCardCountInCurrentTurn;
                     break;
                 default:
                     Debug.LogError("Invalid type");
