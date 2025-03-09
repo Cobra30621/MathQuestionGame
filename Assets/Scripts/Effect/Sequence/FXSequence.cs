@@ -25,16 +25,19 @@ namespace Effect.Sequence
         [ShowInInspector]
         private List<FXPlayer> playingFXs;
 
+        private Action _onCompleted;
 
-        public FXSequence( List<EffectBase> effects, FxInfo fxInfo, List<CharacterBase> targetList)
+
+        public FXSequence( List<EffectBase> effects, FxInfo fxInfo, List<CharacterBase> targetList, Action onComplete)
         {
             _fxInfo = fxInfo;
             _effects = effects;
             TargetList = targetList;
+            _onCompleted = onComplete;
         }
 
 
-        public override IEnumerator Execute(Action onComplete)
+        public override IEnumerator Execute(Action setActionCompleted)
         {
             foreach (var effect in _effects)
             {
@@ -75,7 +78,8 @@ namespace Effect.Sequence
 
             yield return WaitComplete();
             
-            onComplete.Invoke();
+            setActionCompleted.Invoke();
+            _onCompleted?.Invoke();
             
             // 播放特效完畢後，刪除所有特效
             yield return new WaitUntil(()=> !HaveFXPlaying());

@@ -40,9 +40,6 @@ namespace Combat.Card
 
         #endregion
 
-
-        public static Action<BattleCard> OnUseCard;
-        
        
         #region Setup
         protected override void DoAtAwake()
@@ -131,8 +128,6 @@ namespace Combat.Card
         }
         public void OnCardPlayed(BattleCard targetBattleCard)
         {
-            OnUseCard.Invoke(targetBattleCard);
-            
             if (targetBattleCard.CardInfo.ExhaustAfterPlay)
                 targetBattleCard.Exhaust();
             else

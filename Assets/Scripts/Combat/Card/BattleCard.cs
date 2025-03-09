@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Card;
 using Card.Data;
@@ -35,6 +36,12 @@ namespace Combat.Card
 
         [Header("3D Settings")] [SerializeField]
         private Canvas canvas;
+        
+        
+        /// <summary>
+        /// 卡片效果執行完畢
+        /// </summary>
+        public static Action<BattleCard> OnCardExecuteCompleted;
 
         #endregion
 
@@ -99,7 +106,11 @@ namespace Combat.Card
             var effects = GetEffects(specifiedTargets);
 
             var targetList = effects.Count > 0 ? effects[0].TargetList : new List<CharacterBase>();
-            EffectExecutor.AddActionWithFX(new FXSequence(effects, CardData.FxInfo, targetList));
+            EffectExecutor.AddActionWithFX(new FXSequence(
+                effects, CardData.FxInfo, targetList, () =>
+                {
+                    OnCardExecuteCompleted.Invoke(this);
+                }));
         }
 
         private List<EffectBase> GetEffects(List<CharacterBase> specifiedTargets)

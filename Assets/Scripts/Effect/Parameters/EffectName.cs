@@ -25,11 +25,25 @@ namespace Effect.Parameters
         
         [LabelText("從牌組抽 [1]張卡片")]
         DrawCard = 20021,
+        
+        
         [LabelText("清除 [1] 的狀態")]
         ClearPower = 20031,
         
+        
+        [LabelText("從牌組抽 [1] 張卡，符合條件 [2] 時 ，多抽[3]張卡")]
+        DrawMoreCardWhenCondition = 20041,
+        [LabelText("獲得 [1] 點格檔，符合條件 [2] 時 ，多獲得 [2] 點格檔")]
+        AddMoreBlockWhenCondition = 20042,
         [LabelText("當符合 [1] 條件時，增加 [2] 點魔力")]
-        AddManaWhenPassCondition,
+        AddManaWhenCondition = 20043,
+        
+        [LabelText("造成 [1] 點傷害，如果本回合使用過 [2] 張以上的卡片，多造成 [3] 點傷害")]
+        DamageMoreWhenUseEnoughCard = 20051,
+        
+        [LabelText("結束玩家的回合")]
+        EndPlayerTurn = 20100,
+        
         
         // Enemy
         [LabelText("生成敵人")]

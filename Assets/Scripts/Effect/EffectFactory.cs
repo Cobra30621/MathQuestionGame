@@ -3,8 +3,10 @@ using Characters;
 using Combat;
 using Effect.Card;
 using Effect.Common;
+using Effect.Condition;
 using Effect.Damage;
 using Effect.Enemy;
+using Effect.Other;
 using Effect.Parameters;
 using Effect.Power;
 using UnityEngine;
@@ -115,8 +117,16 @@ namespace Effect
                     return new DrawCardEffect(skillInfo);
                 case EffectName.ClearPower:
                     return new ClearPowerEffect(skillInfo);
-                case EffectName.AddManaWhenPassCondition:
-                    return new AddManaWhenPassConditionEffect(skillInfo);
+                case EffectName.DrawMoreCardWhenCondition:
+                    return new DrawMoreCardWhenConditionEffect(skillInfo);
+                case EffectName.AddMoreBlockWhenCondition:
+                    return new AddMoreBlockWhenConditionEffect(skillInfo);
+                case EffectName.AddManaWhenCondition:
+                    return new AddManaWhenConditionEffect(skillInfo);
+                case EffectName.DamageMoreWhenUseEnoughCard:
+                    return new DamageMoreWhenUseEnoughCardEffect(skillInfo);
+                case EffectName.EndPlayerTurn:
+                    return new EndPlayerTurnEffect(skillInfo);
                 case EffectName.SpawnEnemy:
                     return new SpawnEnemyEffect(skillInfo);
                 case EffectName.SplitEnemy:

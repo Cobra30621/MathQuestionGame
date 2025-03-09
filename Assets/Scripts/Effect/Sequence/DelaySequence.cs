@@ -21,7 +21,7 @@ namespace Effect.Sequence
             _delay = delay;
         }
 
-        public override IEnumerator Execute(Action onComplete)
+        public override IEnumerator Execute(Action setActionCompleted)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace Effect.Sequence
 
             yield return new WaitForSeconds(_delay);
             
-            onComplete.Invoke();
+            setActionCompleted.Invoke();
         }
     }
 }

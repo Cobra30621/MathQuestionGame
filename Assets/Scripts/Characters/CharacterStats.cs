@@ -228,6 +228,8 @@ namespace Characters
             HandleHealthDamage(afterBlockDamage);
             
             owner.OnAttacked?.Invoke(damageInfo);
+            // 戰鬥紀錄
+            CombatManager.Instance.CombatCounter.CharacterTakeDamage(owner, damageInfo);
             CheckIsDeath(damageInfo);
         }
         

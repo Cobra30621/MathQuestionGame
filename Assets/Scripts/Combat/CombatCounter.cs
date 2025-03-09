@@ -1,4 +1,6 @@
-﻿using Combat.Card;
+﻿using Characters;
+using Combat.Card;
+using Effect.Parameters;
 
 namespace Combat
 {
@@ -20,6 +22,20 @@ namespace Combat
         {
             return UseCardCountInCurrentTurn == 0;
         }
+
+        /// <summary>
+        /// 敵人收到攻擊
+        /// </summary>
+        /// <param name="damage"></param>
+        public void CharacterTakeDamage(CharacterBase character, DamageInfo damageInfo)
+        {
+            if (character.IsCharacterType(CharacterType.Enemy))
+            {
+                HurtEnemyHealthInCurrentTurn += damageInfo.GetAfterBlockDamage();
+            }
+            
+            
+        }
         
         
         #region Event
@@ -27,13 +43,13 @@ namespace Combat
         public void Init()
         {
             CombatManager.OnTurnStart += OnTurnStart;
-            CollectionManager.OnUseCard += OnUseCard;
+            BattleCard.OnCardExecuteCompleted += OnUseCard;
         }
 
         public void OnBattleEnd()
         {
             CombatManager.OnTurnStart -= OnTurnStart;
-            CollectionManager.OnUseCard -= OnUseCard;
+            BattleCard.OnCardExecuteCompleted -= OnUseCard;
         }
 
 
@@ -50,5 +66,10 @@ namespace Combat
         
 
         #endregion
+
+        public bool IsNoEnemyHurtInCurrentTurn()
+        {
+            return HurtEnemyHealthInCurrentTurn == 0;
+        }
     }
 }
