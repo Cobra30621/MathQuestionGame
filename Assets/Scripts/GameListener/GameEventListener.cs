@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Characters;
 using Combat;
+using Combat.Card;
 using Effect.Parameters;
 using Question;
 
@@ -185,5 +186,18 @@ namespace GameListener
         }
 
         #endregion
+
+
+        #region 其他
+
+
+        public virtual void OnUseCard(BattleCard card)
+        {
+            
+        }
+        
+
+        #endregion
+        
     }
 }

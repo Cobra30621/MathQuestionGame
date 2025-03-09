@@ -44,12 +44,13 @@ namespace Power
     [Serializable]
     public class PowerData
     {
+        [SerializeField] private PowerName powerName;
         
         [SerializeField] private string titleText;
         
         [SerializeField][TextArea] private string contentText;
         
-        [SerializeField] private PowerName powerName;
+        
         
         [SerializeField] private Sprite iconSprite;
 

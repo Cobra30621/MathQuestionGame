@@ -27,8 +27,16 @@ namespace Power
         Charge = 14,
         Weak = 15,
         
-        [LabelText("本局對戰中，所有的卡牌消耗變為1")]
-        ManaCostTo1 = 31,
+        
+        
+        
+        [LabelText("投資")]
+        Investing = 20,
+        [LabelText("循環")]
+        Cycle = 21,
+        
+        [LabelText("全能")]
+        ManaCostTo1 = 22,
        
         
         // not official coded

@@ -14,96 +14,106 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerBasePrefab: {fileID: 4542446919841294135, guid: 7b4e5ef0a88696e428ab1eeb184a3a6f, type: 3}
   powerList:
-  - titleText: "\u683C\u6A94"
+  - powerName: 1001
+    titleText: "\u683C\u6A94"
     contentText: "\u53EF\u4EE5\u9632\u79A6\u50B7\u5BB3"
-    powerName: 1001
     iconSprite: {fileID: 21300000, guid: 856c13d6063c44f2f8321166b3ff7641, type: 3}
     hideAmount: 0
-  - titleText: "\u529B\u91CF"
+  - powerName: 2
+    titleText: "\u529B\u91CF"
     contentText: "\u653B\u64CA\u529B\u63D0\u5347\u529B\u91CF\u5C64\u6578 x 1"
-    powerName: 2
     iconSprite: {fileID: 21300000, guid: 99b5556196e4045649687063220fa439, type: 3}
     hideAmount: 0
-  - titleText: "\u6613\u50B7"
+  - powerName: 1
+    titleText: "\u6613\u50B7"
     contentText: "\u4F7F\u5C0D\u65B9\u53D7\u5230\u50B7\u5BB3\u589E\u52A050%"
-    powerName: 1
     iconSprite: {fileID: 21300000, guid: 3511da13dec24487faa0eb1c66af7503, type: 3}
     hideAmount: 0
-  - titleText: "\u865B\u5F31"
+  - powerName: 15
+    titleText: "\u865B\u5F31"
     contentText: "\u9020\u6210\u50B7\u5BB3\u6E1B\u5C11 25 %"
-    powerName: 15
     iconSprite: {fileID: 21300000, guid: f881ad3a93d604a6bb6d2a2fca8230cc, type: 3}
     hideAmount: 0
-  - titleText: "\u4E0D\u7A69\u5B9A"
+  - powerName: 16
+    titleText: "\u4E0D\u7A69\u5B9A"
     contentText: "\u7576\u8840\u91CF\u4F4E\u65BC 50 % \u6642\uFF0C\u5728\u6575\u4EBA\u7684\u56DE\u5408\u9032\u884C\u5206\u88C2"
-    powerName: 16
     iconSprite: {fileID: 21300000, guid: cfa4a810efb27468da90494f5095613d, type: 3}
     hideAmount: 1
-  - titleText: "\u76D4\u7532"
+  - powerName: 12
+    titleText: "\u76D4\u7532"
     contentText: "\u6BCF\u56DE\u5408(round)\u958B\u59CB\u6642\uFF0C\u8B77\u7532\uFF08BlockPower\uFF09\u589E
       3 \u9EDE"
-    powerName: 12
     iconSprite: {fileID: 21300000, guid: 4eaf4bb6b6f694a30bb0a655e1f38f57, type: 3}
     hideAmount: 0
-  - titleText: "\u71C3\u71D2"
+  - powerName: 7
+    titleText: "\u71C3\u71D2"
     contentText: "\u6BCF\u56DE\u5408\u6263\u5C64\u6578\u7684\u8840\u91CF"
-    powerName: 7
     iconSprite: {fileID: 21300000, guid: 6c370224fbe9e486c86dd3f71d7a1e72, type: 3}
     hideAmount: 0
-  - titleText: "\u60E1\u9B54\u737B\u796D"
+  - powerName: 8
+    titleText: "\u60E1\u9B54\u737B\u796D"
     contentText: "5 \u56DE\u5408\u5F8C\uFF0C\u81EA\u6BBA\u4E26\u5C07\u8840\u91CF\u7D66\u4E88\u60E1\u9B54\u738B\uFF0C\u4E26\u7D66\u4ED6
       5 \u9EDE\u529B\u91CF"
-    powerName: 8
     iconSprite: {fileID: 21300000, guid: 36866233c98c947b0a3e42a1864eab63, type: 3}
     hideAmount: 0
-  - titleText: "\u88DD\u5099"
+  - powerName: 13
+    titleText: "\u88DD\u5099"
     contentText: "\u8B77\u7532\u4E0D\u6703\u6D88\u5931"
-    powerName: 13
     iconSprite: {fileID: 21300000, guid: 2192264a5d2b844a6bd4cda1b5fcd24d, type: 3}
     hideAmount: 0
-  - titleText: "\u53CD\u5F48"
+  - powerName: 0
+    titleText: "\u53CD\u5F48"
     contentText: "\u53CD\u5F48\u7576\u524D\u5C64\u6578\u7684\u50B7\u5BB3\uFF0C\u53D7\u5230\u50B7\u5BB3\u5F8C-1\u5C64"
-    powerName: 0
     iconSprite: {fileID: 21300000, guid: 95251fa92d886464bbaefad8b2e7e556, type: 3}
     hideAmount: 0
-  - titleText: "\u9677\u9631"
+  - powerName: 1112
+    titleText: "\u9677\u9631"
     contentText: 
-    powerName: 1112
     iconSprite: {fileID: 0}
     hideAmount: 0
-  - titleText: "\u7121\u6575"
+  - powerName: 3
+    titleText: "\u7121\u6575"
     contentText: "\u672C\u56DE\u5408\u4E0D\u6703\u53D7\u5230\u50B7\u5BB3"
-    powerName: 3
     iconSprite: {fileID: 21300000, guid: 5bedfde90a5f24e088b22a7ad1ab36ce, type: 3}
     hideAmount: 0
-  - titleText: "\u72C2\u6012"
+  - powerName: 4
+    titleText: "\u72C2\u6012"
     contentText: "\u53D7\u5230\u50B7\u5BB3\u5F8C\uFF0C\u63D0\u5347\u53D7\u5230\u50B7\u5BB3
       50% \u7684\u529B\u91CF"
-    powerName: 4
     iconSprite: {fileID: 21300000, guid: bd5992201d55a43caaf67fc85524d922, type: 3}
     hideAmount: 0
-  - titleText: "\u6B7B\u5F8C\u5F37\u5316"
+  - powerName: 11
+    titleText: "\u6B7B\u5F8C\u5F37\u5316"
     contentText: 
-    powerName: 11
     iconSprite: {fileID: 21300000, guid: cfdc66244b78c489e84b4ba1476f5975, type: 3}
     hideAmount: 0
-  - titleText: "\u84C4\u529B"
+  - powerName: 14
+    titleText: "\u84C4\u529B"
     contentText: 
-    powerName: 14
     iconSprite: {fileID: 21300000, guid: 8c3541b8b690b46fea31416bfa6f5c2e, type: 3}
     hideAmount: 0
-  - titleText: "\u4E2D\u6BD2"
+  - powerName: 6
+    titleText: "\u4E2D\u6BD2"
     contentText: "\u4F7F\u5C0D\u8C61\u6BCF\u56DE\u5408\u7D50\u675F\u6263\u7576\u524D\u5C64\u6578\u7684\u8840\u91CF\uFF0C\u56DE\u5408\u7D50\u675F\u5F8C-1\u5C64"
-    powerName: 6
     iconSprite: {fileID: 21300000, guid: 606d97694cf83469a9fb784f0bab5ea7, type: 3}
     hideAmount: 0
-  - titleText: "\u6E2C\u8A66"
+  - powerName: 9999999
+    titleText: "\u6E2C\u8A66"
     contentText: "\u958B\u767C\u8005\u6E2C\u8A66\u7528\u7684\u80FD\u529B"
-    powerName: 9999999
     iconSprite: {fileID: 0}
     hideAmount: 0
-  - titleText: "\u5168\u80FD"
+  - powerName: 20
+    titleText: "\u6295\u8CC7"
+    contentText: "\u4E0B\u4E00\u56DE\u5408\uFF0C\u984D\u5916\u7372\u5F97\u5C64\u6578\u9EDE\u9B54\u529B"
+    iconSprite: {fileID: 0}
+    hideAmount: 0
+  - powerName: 21
+    titleText: "\u5FAA\u74B0"
+    contentText: "\u672C\u56DE\u5408\uFF0C\u6BCF\u4F7F\u7528\u4E00\u5F35\u724C\u5247\u62BD\u4E00\u5F35\u724C"
+    iconSprite: {fileID: 0}
+    hideAmount: 0
+  - powerName: 22
+    titleText: "\u5168\u80FD"
     contentText: "\u672C\u5C40\u5C0D\u6230\u4E2D\uFF0C\u6240\u6709\u7684\u5361\u724C\u6D88\u8017\u8B8A\u70BA1"
-    powerName: 31
     iconSprite: {fileID: 21300000, guid: 876d8229236ac4eafb00f3d1ed2b93b3, type: 3}
     hideAmount: 0

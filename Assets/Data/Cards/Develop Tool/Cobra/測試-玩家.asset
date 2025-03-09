@@ -44,7 +44,7 @@ MonoBehaviour:
     Class: 0
     MaxLevel: 0
     TitleLang: "\u6E2C\u8A66-\u73A9\u5BB6"
-    DesLang: "\u6E2C\u8A66-\u73A9\u5BB6"
+    DesLang: "\u4E0A\u72C0\u614B"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs: []
@@ -52,7 +52,19 @@ MonoBehaviour:
     - SkillID: 
       EffectID: 20003
       EffectParameter: 
-      EffectParameterList: 7f96980002000000
+      EffectParameterList: 1400000002000000
+      Target: 0
+      ps: 
+    - SkillID: 
+      EffectID: 20003
+      EffectParameter: 
+      EffectParameterList: 1500000001000000
+      Target: 0
+      ps: 
+    - SkillID: 
+      EffectID: 20003
+      EffectParameter: 
+      EffectParameterList: 1600000001000000
       Target: 0
       ps: 
   cardId: 

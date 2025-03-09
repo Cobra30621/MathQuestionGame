@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Card;
 using Card.Data;
+using GameListener;
 using Managers;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
@@ -135,6 +136,13 @@ namespace Combat.Card
           
             foreach (var cardObject in HandController.hand)
                 cardObject.UpdateCardDisplay();
+            
+            // 執行 GameEventListener(遊戲事件監聽器)，包含角色持有的能力、遺物
+            var listeners = ListenerGetter.GetAllEventsListeners();
+            foreach (var listener in listeners)
+            {
+                listener.OnUseCard(targetBattleCard);
+            }
         }
         public void SetGameDeck()
         {

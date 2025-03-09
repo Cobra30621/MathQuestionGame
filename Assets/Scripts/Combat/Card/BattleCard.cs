@@ -8,6 +8,7 @@ using Characters;
 using Effect;
 using Effect.Parameters;
 using Effect.Sequence;
+using GameListener;
 using Log;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
 using UnityEngine;
@@ -96,9 +97,10 @@ namespace Combat.Card
             SpendMana(ManaCost);
 
             DoCharacterFeedback(_cardInfo.CardData);
-            DoAction(targetList);
             
             CollectionManager.OnCardPlayed(this);
+            
+            DoAction(targetList);
         }
 
         public void DoAction(List<CharacterBase> specifiedTargets)
@@ -109,7 +111,9 @@ namespace Combat.Card
             EffectExecutor.AddActionWithFX(new FXSequence(
                 effects, CardData.FxInfo, targetList, () =>
                 {
+                    // 觸發事件
                     OnCardExecuteCompleted.Invoke(this);
+                    
                 }));
         }
 
