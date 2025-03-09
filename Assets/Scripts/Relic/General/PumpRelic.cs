@@ -2,7 +2,7 @@ using Combat.Card;
 using Effect.Card;
 using Relic.Data;
 
-namespace Relic.Hunter
+namespace Relic.General
 {
     public class PumpRelic : RelicBase
     {

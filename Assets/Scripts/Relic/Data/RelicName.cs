@@ -16,6 +16,7 @@ namespace Relic.Data
         
         // 通用遺物（待定）
         Pump = 1,
+        Clock = 2,
         
         // Test 101 ~
         DrawCardOnAnswerCorrect = 102,
