@@ -16,7 +16,7 @@ namespace Relic.General
                 passed_turn++;
             }
 
-            if (passed_turn == 4)
+            if (passed_turn == 3)
             {
                 CombatManager.AddMana(1);
                 passed_turn = 0;

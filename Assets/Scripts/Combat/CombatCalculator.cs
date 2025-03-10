@@ -101,7 +101,7 @@ namespace Combat
                 if (selfIsAlly) // 格檔發起者是玩家，遺物給予加成
                 {
                     orderClips.Add(new CalculateOrderClip(relicBase.BlockCalculateOrder, relicBase.ModifyBlock));
-                }
+                }        
             }
             
             // 依據計算順序，進行排序
