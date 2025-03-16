@@ -73,7 +73,7 @@ namespace Effect.Damage
             for (int i = 0; i < _times; i++)
             {
                 DamageOneTime(TargetList);
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.4f);
             }
             // 提示角色執行攻擊行為時
             var sourceCharacter = _damageInfo.EffectSource.SourceCharacter;
