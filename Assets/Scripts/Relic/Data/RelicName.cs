@@ -18,6 +18,7 @@ namespace Relic.Data
         Pump = 1,
         Clock = 2,
         Bottle = 3,
+        OldWarriorsBracer = 4,
         
         // Test 101 ~
         DrawCardOnAnswerCorrect = 102,

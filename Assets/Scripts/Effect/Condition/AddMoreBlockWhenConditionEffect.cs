@@ -11,6 +11,13 @@ namespace Effect.Condition
         private JudgeCondition _condition;
         private int defalutAmount;
         private int addition;
+        
+        public AddMoreBlockWhenConditionEffect(int defalutAmount, JudgeCondition condition, int addition)
+        {
+            this.defalutAmount = defalutAmount;
+            _condition = condition;
+            this.addition = addition;
+        }
 
         public AddMoreBlockWhenConditionEffect(SkillInfo skillInfo)
         {
