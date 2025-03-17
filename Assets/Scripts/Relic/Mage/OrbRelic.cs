@@ -13,7 +13,15 @@ namespace Relic.Mage
         public override RelicName RelicName => RelicName.Orb;
         public override int AtGainTurnStartMana(int rawValue)
         {
-            return rawValue + 1;
+            // 是否有升級過
+            if (IsMaxLevel())
+            {
+                return rawValue + 2; 
+            }
+            else
+            {
+                return rawValue + 1;
+            }
         }
     }
 }

@@ -56,6 +56,11 @@ namespace Relic
             };
         }
 
+        public bool IsMaxLevel()
+        {
+            return RelicInfo.relicSaveInfo.IsMaxLevel();
+        }
+
 
         #endregion
         
