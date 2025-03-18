@@ -15,6 +15,7 @@ namespace Power
         [SerializeField] private PowerIconsBase powerBasePrefab;
         [SerializeField] private List<PowerData> powerList;
 
+        
         /// <summary>
         /// 能力 Icon 的遊戲物件(Prefab)
         /// </summary>
@@ -36,6 +37,18 @@ namespace Power
             
             return targetData;
         }
+
+        
+        
+        /// <summary>
+        /// 將 powerList 依照 PowerName 進行排序
+        /// </summary>
+        [Button]
+        public void SortPowerList()
+        {
+            powerList = powerList.OrderBy(x => x.PowerName).ToList();
+        }
+
     }
 
     /// <summary>

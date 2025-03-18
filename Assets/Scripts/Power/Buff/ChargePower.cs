@@ -7,7 +7,7 @@ using GameListener;
 namespace Power.Buff
 {
     /// <summary>
-    /// 力量
+    /// 續力
     /// </summary>
     public class ChargePower : PowerBase
     {
