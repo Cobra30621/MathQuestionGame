@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1100942018359861297, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
+      propertyPath: managedReferences[1516083179272273936].RemapCurveOne
+      value: -0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5173116704687048309, guid: 99f2047defb3e40aaac24d3fa26add09, type: 3}
       propertyPath: managedReferences[7392774806525444098].Active
       value: 0
@@ -205,9 +209,6 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: OnAttacked
-      Entry: 6
-      Data: 
-    - Name: OnAttack
       Entry: 6
       Data: 
     - Name: OnPowerApplied
