@@ -382,14 +382,17 @@ namespace Combat
             // 等待遊戲行為序列完成
             yield return new WaitUntil(() => !EffectExecutor.Instance.IsExecuting);
             
+            CollectionManager.DiscardHand();
+            enemyTurnStartFeedback.Play();
+            yield return new WaitForSeconds(enemyTurnStartFeedback.FeedbackDuration());
+            
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"敵人階段開始");
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Enemy));
             CombatEventTrigger.InvokeOnTurnStart(GetTurnInfo(CharacterType.Enemy));
-            CollectionManager.DiscardHand();
-
-            enemyTurnStartFeedback.Play();
-            yield return new WaitForSeconds(enemyTurnStartFeedback.FeedbackDuration());
-
+            
+            // 等 On Turn Start 的行動都撥放完畢
+            yield return new WaitUntil(() => !EffectExecutor.Instance.IsExecuting);
+            
             var waitDelay = new WaitForSeconds(0.5f);
 
             var CoroutineEnemies = new List<Enemy>(Enemies) { };

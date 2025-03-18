@@ -54,19 +54,23 @@ namespace Combat
                 }
             }
 
-            bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
-            // 計算遺物能力加成
-            foreach (var relicBase in GameManager.Instance.RelicManager.CurrentRelicDict.Values)
+            if (selfCharacter != null)
             {
-                if (selfIsAlly)
+                bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
+                // 計算遺物能力加成
+                foreach (var relicBase in GameManager.Instance.RelicManager.CurrentRelicDict.Values)
                 {
-                    orderClips.Add(new CalculateOrderClip(relicBase.DamageCalculateOrder, relicBase.AtDamageGive));
-                }
-                else
-                {
-                    orderClips.Add(new CalculateOrderClip(relicBase.DamageCalculateOrder, relicBase.AtDamageReceive));
+                    if (selfIsAlly)
+                    {
+                        orderClips.Add(new CalculateOrderClip(relicBase.DamageCalculateOrder, relicBase.AtDamageGive));
+                    }
+                    else
+                    {
+                        orderClips.Add(new CalculateOrderClip(relicBase.DamageCalculateOrder, relicBase.AtDamageReceive));
+                    }
                 }
             }
+            
             
             // 依據傷害計算順序，進行排序
             orderClips.Sort(new CalculateOrderComparer());
@@ -92,17 +96,22 @@ namespace Combat
             {
                 orderClips.Add(new CalculateOrderClip(powerBase.BlockCalculateOrder, powerBase.ModifyBlock));
             }
-            
 
-            bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
-            // 計算遺物能力加成
-            foreach (var relicBase in GameManager.Instance.RelicManager.CurrentRelicDict.Values)
+
+            if (selfCharacter != null)
             {
-                if (selfIsAlly) // 格檔發起者是玩家，遺物給予加成
+                bool selfIsAlly = selfCharacter.IsCharacterType(CharacterType.Ally);
+                // 計算遺物能力加成
+                foreach (var relicBase in GameManager.Instance.RelicManager.CurrentRelicDict.Values)
                 {
-                    orderClips.Add(new CalculateOrderClip(relicBase.BlockCalculateOrder, relicBase.ModifyBlock));
-                }        
+                    if (selfIsAlly) // 格檔發起者是玩家，遺物給予加成
+                    {
+                        orderClips.Add(new CalculateOrderClip(relicBase.BlockCalculateOrder, relicBase.ModifyBlock));
+                    }        
+                }
             }
+            
+            
             
             // 依據計算順序，進行排序
             orderClips.Sort(new CalculateOrderComparer());

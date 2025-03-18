@@ -15,7 +15,6 @@ namespace Power.Buff
 
         public override void OnUseCard(BattleCard card)
         {
-            Debug.Log("Use Card");
             CollectionManager.Instance.DrawCards(1);
         }
 

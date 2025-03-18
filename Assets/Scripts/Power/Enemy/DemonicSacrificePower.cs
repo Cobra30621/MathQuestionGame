@@ -20,7 +20,7 @@ namespace Power.Enemy
         /// <summary>
         /// 幾回合後獻祭
         /// </summary>
-        public int Turn = 2;
+        public int Turn = 5;
         
         /// <summary>
         /// 獻祭增加的力量

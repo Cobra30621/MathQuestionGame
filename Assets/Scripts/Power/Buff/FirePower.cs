@@ -18,27 +18,21 @@ namespace Power.Buff
         public override PowerName PowerName => PowerName.Fire;
    
 
-        public override void OnTurnEnd(TurnInfo info)
+        public override void OnTurnStart(TurnInfo info)
         {
             if (IsCharacterTurn(info))
             {
-                int fireAmount = Amount;
-                // if (CombatManager.Instance.MainAlly.HasPower(PowerName.Kindle))
-                // {
-                //    fireAmount = Amount * 2;
-                // }
+                int poisonAmount = Amount;
 
                 // 造成傷害
-                var damageInfo = new DamageInfo(fireAmount, GetEffectSource(), fixDamage: true);
-                EffectExecutor.AddEffect(new DamageEffect(damageInfo, 
+                var damageInfo = new DamageInfo(poisonAmount, GetEffectSource(), fixDamage: true);
+                EffectExecutor.ExecuteImmediately(new DamageEffect(damageInfo, 
                     new List<CharacterBase>() {Owner}));
                 
-                // 燒血後減層數 1 
-                EffectExecutor.AddEffect(
+                // 扣血後減層數 1 
+                EffectExecutor.ExecuteImmediately(
                     new ApplyPowerEffect(-1, PowerName, 
                         new List<CharacterBase>(){Owner}, GetEffectSource()));
-                
-                
             }
         }
     }
