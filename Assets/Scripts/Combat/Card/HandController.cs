@@ -4,6 +4,7 @@ using Characters;
 using Characters.Enemy;
 using Kalkatos.DottedArrow;
 using Managers;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Combat.Card
@@ -82,6 +83,7 @@ namespace Combat.Card
             arrowController.SetCamera(cam);
         }
 
+        [Button]
         private void InitHand()
         {
             _a = transform.TransformPoint(curveStart);
@@ -182,9 +184,8 @@ namespace Combat.Card
                 var p = GetCurvePoint(_a, _b, _c, t);
 
                 var d = (p - _mouseWorldPos).sqrMagnitude;
-                var mouseCloseToCard = d < 0.5f;
                 var mouseHoveringOnSelected =
-                    onSelectedCard && mouseCloseToCard && _mouseInsideHand; //  && mouseInsideHand
+                    onSelectedCard && _mouseInsideHand; //  && mouseInsideHand
 
                 // Handle Card Position & Rotation
                 //Vector3 cardUp = p - (transform.position + Vector3.down * 7);
