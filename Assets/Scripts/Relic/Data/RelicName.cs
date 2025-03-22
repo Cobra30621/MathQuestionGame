@@ -12,17 +12,17 @@ namespace Relic.Data
         
         
         Bag = 30001,
-        
+        Dagger = 30002,
         Boots = 30003,
         
         Orb = 40001,
         Mantle = 40003,
         
         // 通用遺物（待定）
-        Pump = 1,
-        Clock = 2,
-        Bottle = 3,
-        OldWarriorsBracer = 4,
+        Pump = 50004,
+        Clock = 50002,
+        Bottle = 50003,
+        OldWarriorsBracer = 50001,
         
         // Test 101 ~
         DrawCardOnAnswerCorrect = 102,
