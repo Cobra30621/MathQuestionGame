@@ -6,6 +6,7 @@ using Effect.Damage;
 using Effect.Parameters;
 using Effect.Power;
 using UnityEngine;
+using static Effect.Parameters.SourceType;
 
 namespace Power.Buff
 {
@@ -24,19 +25,26 @@ namespace Power.Buff
         public override void OnBeAttacked(DamageInfo info)
         {
             var source = info.EffectSource.SourceCharacter;
-            // 怪物攻擊時，造成傷害後反彈傷害
-            if (source != null)
+            var sourceType = info.EffectSource.SourceType;
+            // 只有傷害來源是來自敵人攻擊、卡牌攻擊，才會觸發
+            if (sourceType == SourceType.Enemy || sourceType == SourceType.Card)
             {
-                // 造成與層數相等的傷害
-                var damageInfo = new DamageInfo(Amount, GetEffectSource(), fixDamage: true);
-                EffectExecutor.ExecuteImmediately(new DamageEffect(damageInfo, new List<CharacterBase>() {info.EffectSource.SourceCharacter}));
+                // 怪物攻擊時，造成傷害後反彈傷害
+                if (source != null)
+                {
+                    // 造成與層數相等的傷害
+                    var damageInfo = new DamageInfo(Amount, GetEffectSource(), fixDamage: true);
+                    EffectExecutor.ExecuteImmediately(new DamageEffect(damageInfo, new List<CharacterBase>() {info.EffectSource.SourceCharacter}));
          
-                // 反彈後減層數 1 
-                EffectExecutor.ExecuteImmediately(
-                    new ApplyPowerEffect(-1, PowerName, 
-                        new List<CharacterBase>(){Owner}, GetEffectSource()));
+                    // 反彈後減層數 1 
+                    EffectExecutor.ExecuteImmediately(
+                        new ApplyPowerEffect(-1, PowerName, 
+                            new List<CharacterBase>(){Owner}, GetEffectSource()));
       
+                }
             }
+
+            
         }
 
     }
