@@ -118,5 +118,13 @@ namespace Combat
             if (Enemies.Count <= 0)
                 CombatManager.Instance.WinCombat();
         }
+
+        public void UpdateAllEnemyIntentionDisplay()
+        {
+            foreach (var enemy in Enemies)
+            {
+                enemy.UpdateIntentionDisplay();
+            }
+        }
     }
 }

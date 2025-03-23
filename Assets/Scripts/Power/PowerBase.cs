@@ -188,12 +188,7 @@ namespace Power
         /// </summary>
         protected void UpdateEnemyIntentionDisplay()
         {
-            // 如果是敵人獲得力量，更新意圖顯示
-            if (Owner.IsCharacterType(CharacterType.Enemy))
-            {
-                var enemy = (Characters.Enemy.Enemy) Owner;
-                enemy.UpdateIntentionDisplay();
-            }
+            CombatManager.Instance.characterHandler.UpdateAllEnemyIntentionDisplay();
         }
 
 
