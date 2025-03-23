@@ -18,7 +18,7 @@ MonoBehaviour:
     GroupID: 1
     SkillID: 1000007
     ManaCost: 1
-    UpgradeCost: 10
+    UpgradeCost: 50
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -28,12 +28,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000007
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110002
     GroupID: 1
     SkillID: 1000007, 2000001
     ManaCost: 1
-    UpgradeCost: 20
+    UpgradeCost: 300
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -44,12 +44,12 @@ MonoBehaviour:
     skillIDs:
     - 1000007
     - 2000001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110003
     GroupID: 1
     SkillID: 1000007, 2000002
     ManaCost: 1
-    UpgradeCost: 50
+    UpgradeCost: 1200
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -60,12 +60,12 @@ MonoBehaviour:
     skillIDs:
     - 1000007
     - 2000002
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110004
     GroupID: 1
     SkillID: 1000007, 2000003
     ManaCost: 1
-    UpgradeCost: 100
+    UpgradeCost: 2800
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -76,12 +76,12 @@ MonoBehaviour:
     skillIDs:
     - 1000007
     - 2000003
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110005
     GroupID: 1
     SkillID: 1000007, 2000004
     ManaCost: 1
-    UpgradeCost: 300
+    UpgradeCost: 5200
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -92,12 +92,12 @@ MonoBehaviour:
     skillIDs:
     - 1000007
     - 2000004
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110006
     GroupID: 1
     SkillID: 1000007, 2000006
     ManaCost: 1
-    UpgradeCost: 500
+    UpgradeCost: 10000
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -108,12 +108,12 @@ MonoBehaviour:
     skillIDs:
     - 1000007
     - 2000006
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110007
     GroupID: 1
     SkillID: 1000007, 2000009
     ManaCost: 1
-    UpgradeCost: 1000
+    UpgradeCost: 18000
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -124,12 +124,12 @@ MonoBehaviour:
     skillIDs:
     - 1000007
     - 2000009
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110008
     GroupID: 1
     SkillID: 1000007, 2000012
     ManaCost: 1
-    UpgradeCost: 1500
+    UpgradeCost: 32000
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -140,12 +140,12 @@ MonoBehaviour:
     skillIDs:
     - 1000007
     - 2000012
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110009
     GroupID: 1
     SkillID: 1000007, 2000015
     ManaCost: 1
-    UpgradeCost: 3000
+    UpgradeCost: 50000
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
     skillIDs:
     - 1000007
     - 2000015
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110010
     GroupID: 1
     SkillID: 1000007, 2000020
@@ -172,12 +172,12 @@ MonoBehaviour:
     skillIDs:
     - 1000007
     - 2000020
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110101
     GroupID: 2
     SkillID: 2000006
     ManaCost: 1
-    UpgradeCost: 10
+    UpgradeCost: 50
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -187,12 +187,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000006
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110102
     GroupID: 2
     SkillID: 2000007
     ManaCost: 1
-    UpgradeCost: 20
+    UpgradeCost: 300
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -202,12 +202,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000007
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110103
     GroupID: 2
     SkillID: 2000008
     ManaCost: 1
-    UpgradeCost: 50
+    UpgradeCost: 1200
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -217,12 +217,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000008
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110104
     GroupID: 2
     SkillID: 2000009
     ManaCost: 1
-    UpgradeCost: 100
+    UpgradeCost: 2800
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -232,12 +232,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000009
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110105
     GroupID: 2
     SkillID: 2000010
     ManaCost: 1
-    UpgradeCost: 300
+    UpgradeCost: 5200
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -247,12 +247,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000010
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110106
     GroupID: 2
     SkillID: 2000012
     ManaCost: 1
-    UpgradeCost: 500
+    UpgradeCost: 10000
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -262,12 +262,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000012
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110107
     GroupID: 2
     SkillID: 2000015
     ManaCost: 1
-    UpgradeCost: 1000
+    UpgradeCost: 18000
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -277,12 +277,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000015
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110108
     GroupID: 2
     SkillID: 2000018
     ManaCost: 1
-    UpgradeCost: 1500
+    UpgradeCost: 32000
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -292,12 +292,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000018
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110109
     GroupID: 2
     SkillID: 2000021
     ManaCost: 1
-    UpgradeCost: 3000
+    UpgradeCost: 50000
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000021
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110110
     GroupID: 2
     SkillID: 2000026
@@ -322,12 +322,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000026
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120001
     GroupID: 3
     SkillID: 1000007
     ManaCost: 1
-    UpgradeCost: 10
+    UpgradeCost: 50
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -337,12 +337,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000007
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120002
     GroupID: 3
     SkillID: 1000008
     ManaCost: 1
-    UpgradeCost: 20
+    UpgradeCost: 300
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -352,12 +352,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000008
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120003
     GroupID: 3
     SkillID: 1000009
     ManaCost: 1
-    UpgradeCost: 50
+    UpgradeCost: 1200
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -367,12 +367,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000009
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120004
     GroupID: 3
     SkillID: 1000010
     ManaCost: 1
-    UpgradeCost: 100
+    UpgradeCost: 2800
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -382,12 +382,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000010
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120005
     GroupID: 3
     SkillID: 1000012
     ManaCost: 1
-    UpgradeCost: 300
+    UpgradeCost: 5200
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -397,12 +397,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000012
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120006
     GroupID: 3
     SkillID: 1000014
     ManaCost: 1
-    UpgradeCost: 500
+    UpgradeCost: 10000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -412,12 +412,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000014
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120007
     GroupID: 3
     SkillID: 1000017
     ManaCost: 1
-    UpgradeCost: 1000
+    UpgradeCost: 18000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -427,12 +427,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000017
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120008
     GroupID: 3
     SkillID: 1000021
     ManaCost: 1
-    UpgradeCost: 1500
+    UpgradeCost: 32000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -442,12 +442,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000021
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120009
     GroupID: 3
     SkillID: 1000013, 3010011
     ManaCost: 1
-    UpgradeCost: 3000
+    UpgradeCost: 50000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -458,7 +458,7 @@ MonoBehaviour:
     skillIDs:
     - 1000013
     - 3010011
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120010
     GroupID: 3
     SkillID: 1000015, 3010012
@@ -474,12 +474,12 @@ MonoBehaviour:
     skillIDs:
     - 1000015
     - 3010012
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120101
     GroupID: 4
     SkillID: 2000006
     ManaCost: 1
-    UpgradeCost: 10
+    UpgradeCost: 50
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -489,12 +489,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000006
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120102
     GroupID: 4
     SkillID: 2000007
     ManaCost: 1
-    UpgradeCost: 20
+    UpgradeCost: 300
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -504,12 +504,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000007
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120103
     GroupID: 4
     SkillID: 2000008
     ManaCost: 1
-    UpgradeCost: 50
+    UpgradeCost: 1200
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -519,12 +519,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000008
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120104
     GroupID: 4
     SkillID: 2000009
     ManaCost: 1
-    UpgradeCost: 100
+    UpgradeCost: 2800
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -534,12 +534,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000009
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120105
     GroupID: 4
     SkillID: 2000010
     ManaCost: 1
-    UpgradeCost: 300
+    UpgradeCost: 5200
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -549,12 +549,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000010
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120106
     GroupID: 4
     SkillID: 2000012
     ManaCost: 1
-    UpgradeCost: 500
+    UpgradeCost: 10000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -564,12 +564,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000012
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120107
     GroupID: 4
     SkillID: 2000015
     ManaCost: 1
-    UpgradeCost: 1000
+    UpgradeCost: 18000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -579,12 +579,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000015
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120108
     GroupID: 4
     SkillID: 2000018
     ManaCost: 1
-    UpgradeCost: 1500
+    UpgradeCost: 32000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -594,12 +594,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000018
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120109
     GroupID: 4
     SkillID: 2000021
     ManaCost: 1
-    UpgradeCost: 3000
+    UpgradeCost: 50000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -609,7 +609,7 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000021
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120110
     GroupID: 4
     SkillID: 2000026
@@ -624,12 +624,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000026
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130001
     GroupID: 5
     SkillID: 1000007
     ManaCost: 1
-    UpgradeCost: 10
+    UpgradeCost: 50
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -639,12 +639,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000007
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130002
     GroupID: 5
     SkillID: 1000008
     ManaCost: 1
-    UpgradeCost: 20
+    UpgradeCost: 300
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -654,12 +654,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000008
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130003
     GroupID: 5
     SkillID: 1000009
     ManaCost: 1
-    UpgradeCost: 50
+    UpgradeCost: 1200
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -669,12 +669,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000009
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130004
     GroupID: 5
     SkillID: 1000010
     ManaCost: 1
-    UpgradeCost: 100
+    UpgradeCost: 2800
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -684,12 +684,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000010
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130005
     GroupID: 5
     SkillID: 1100004
     ManaCost: 1
-    UpgradeCost: 300
+    UpgradeCost: 5200
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -699,12 +699,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1100004
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130006
     GroupID: 5
     SkillID: 1100005
     ManaCost: 1
-    UpgradeCost: 500
+    UpgradeCost: 10000
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -714,12 +714,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1100005
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130007
     GroupID: 5
     SkillID: 1100006
     ManaCost: 1
-    UpgradeCost: 1000
+    UpgradeCost: 18000
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -729,12 +729,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1100006
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130008
     GroupID: 5
     SkillID: 1100007
     ManaCost: 1
-    UpgradeCost: 1500
+    UpgradeCost: 32000
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -744,12 +744,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1100007
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130009
     GroupID: 5
     SkillID: 1100009
     ManaCost: 1
-    UpgradeCost: 3000
+    UpgradeCost: 50000
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1100009
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130010
     GroupID: 5
     SkillID: 1100010
@@ -774,12 +774,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1100010
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130101
     GroupID: 6
     SkillID: 2000006
     ManaCost: 1
-    UpgradeCost: 10
+    UpgradeCost: 50
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -789,12 +789,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000006
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130102
     GroupID: 6
     SkillID: 2000007
     ManaCost: 1
-    UpgradeCost: 20
+    UpgradeCost: 300
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -804,12 +804,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000007
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130103
     GroupID: 6
     SkillID: 2000008
     ManaCost: 1
-    UpgradeCost: 50
+    UpgradeCost: 1200
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -819,12 +819,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000008
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130104
     GroupID: 6
     SkillID: 2000009
     ManaCost: 1
-    UpgradeCost: 100
+    UpgradeCost: 2800
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -834,12 +834,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000009
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130105
     GroupID: 6
     SkillID: 2000010
     ManaCost: 1
-    UpgradeCost: 300
+    UpgradeCost: 5200
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -849,12 +849,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000010
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130106
     GroupID: 6
     SkillID: 2000012
     ManaCost: 1
-    UpgradeCost: 500
+    UpgradeCost: 10000
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -864,12 +864,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000012
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130107
     GroupID: 6
     SkillID: 2000015
     ManaCost: 1
-    UpgradeCost: 1000
+    UpgradeCost: 18000
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -879,12 +879,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000015
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130108
     GroupID: 6
     SkillID: 2000018
     ManaCost: 1
-    UpgradeCost: 1500
+    UpgradeCost: 32000
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -894,12 +894,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000018
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130109
     GroupID: 6
     SkillID: 2000021
     ManaCost: 1
-    UpgradeCost: 3000
+    UpgradeCost: 50000
     UpgradeCostStone: 0
     Class: 3
     MaxLevel: 0
@@ -909,7 +909,7 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000021
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130110
     GroupID: 6
     SkillID: 2000026
@@ -924,12 +924,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000026
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140001
     GroupID: 7
     SkillID: 1000001
     ManaCost: 1
-    UpgradeCost: 10
+    UpgradeCost: 50
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -939,12 +939,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140002
     GroupID: 7
     SkillID: 1000051
     ManaCost: 1
-    UpgradeCost: 20
+    UpgradeCost: 300
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -954,12 +954,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000051
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140003
     GroupID: 7
     SkillID: 1000052
     ManaCost: 1
-    UpgradeCost: 50
+    UpgradeCost: 1200
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -969,12 +969,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000052
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140004
     GroupID: 7
     SkillID: 1000053
     ManaCost: 1
-    UpgradeCost: 100
+    UpgradeCost: 2800
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -984,12 +984,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000053
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140005
     GroupID: 7
     SkillID: 1000054
     ManaCost: 1
-    UpgradeCost: 300
+    UpgradeCost: 5200
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -999,12 +999,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000054
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140006
     GroupID: 7
     SkillID: 1000055
     ManaCost: 1
-    UpgradeCost: 500
+    UpgradeCost: 10000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1014,12 +1014,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000055
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140007
     GroupID: 7
     SkillID: 1000056
     ManaCost: 1
-    UpgradeCost: 1000
+    UpgradeCost: 18000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1029,12 +1029,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000056
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140008
     GroupID: 7
     SkillID: 1000057
     ManaCost: 1
-    UpgradeCost: 1500
+    UpgradeCost: 32000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1044,12 +1044,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000057
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140009
     GroupID: 7
     SkillID: 1000067
     ManaCost: 2
-    UpgradeCost: 3000
+    UpgradeCost: 50000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1059,7 +1059,7 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000067
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140010
     GroupID: 7
     SkillID: 1000068
@@ -1074,12 +1074,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000068
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140101
     GroupID: 8
     SkillID: 2000006
     ManaCost: 1
-    UpgradeCost: 10
+    UpgradeCost: 50
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1089,12 +1089,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000006
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140102
     GroupID: 8
     SkillID: 2000007
     ManaCost: 1
-    UpgradeCost: 20
+    UpgradeCost: 300
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1104,12 +1104,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000007
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140103
     GroupID: 8
     SkillID: 2000008
     ManaCost: 1
-    UpgradeCost: 50
+    UpgradeCost: 1200
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1119,12 +1119,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000008
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140104
     GroupID: 8
     SkillID: 2000009
     ManaCost: 1
-    UpgradeCost: 100
+    UpgradeCost: 2800
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1134,12 +1134,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000009
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140105
     GroupID: 8
     SkillID: 2000010
     ManaCost: 1
-    UpgradeCost: 300
+    UpgradeCost: 5200
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1149,12 +1149,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000010
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140106
     GroupID: 8
     SkillID: 2000012
     ManaCost: 1
-    UpgradeCost: 500
+    UpgradeCost: 10000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1164,12 +1164,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000012
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140107
     GroupID: 8
     SkillID: 2000015
     ManaCost: 1
-    UpgradeCost: 1000
+    UpgradeCost: 18000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1179,12 +1179,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000015
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140108
     GroupID: 8
     SkillID: 2000018
     ManaCost: 1
-    UpgradeCost: 1500
+    UpgradeCost: 32000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1194,12 +1194,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000018
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140109
     GroupID: 8
     SkillID: 2000021
     ManaCost: 1
-    UpgradeCost: 3000
+    UpgradeCost: 50000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
@@ -1209,7 +1209,7 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000021
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140110
     GroupID: 8
     SkillID: 2000026
@@ -1224,13 +1224,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 2000026
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110201
     GroupID: 9
     SkillID: 3120001
     ManaCost: 2
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 1
     MaxLevel: 0
     TitleLang: "\u5805\u786C"
@@ -1239,13 +1239,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3120001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110202
     GroupID: 9
     SkillID: 3120002
     ManaCost: 2
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 1
     MaxLevel: 0
     TitleLang: "\u5805\u786C"
@@ -1254,13 +1254,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3120002
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110203
     GroupID: 9
     SkillID: 3120003
     ManaCost: 2
-    UpgradeCost: 5000
-    UpgradeCostStone: 100
+    UpgradeCost: 0
+    UpgradeCostStone: 0
     Class: 1
     MaxLevel: 1
     TitleLang: "\u5805\u786C"
@@ -1269,13 +1269,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3120003
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110301
     GroupID: 10
     SkillID: 3130001
     ManaCost: 2
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 1
     MaxLevel: 0
     TitleLang: "\u88DD\u5099"
@@ -1284,13 +1284,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 1
     skillIDs:
     - 3130001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110302
     GroupID: 10
     SkillID: 3130002
     ManaCost: 2
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 1
     MaxLevel: 0
     TitleLang: "\u88DD\u5099"
@@ -1299,13 +1299,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 1
     skillIDs:
     - 3130002
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110303
     GroupID: 10
     SkillID: 3130002
     ManaCost: 2
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 1
     MaxLevel: 1
     TitleLang: "\u88DD\u5099"
@@ -1314,13 +1314,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 1
     skillIDs:
     - 3130002
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110401
     GroupID: 11
     SkillID: 3000001
     ManaCost: 3
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 1
     MaxLevel: 0
     TitleLang: "\u5C16\u523A"
@@ -1329,13 +1329,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3000001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110402
     GroupID: 11
     SkillID: 3000001
     ManaCost: 2
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 1
     MaxLevel: 0
     TitleLang: "\u5C16\u523A"
@@ -1344,13 +1344,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3000001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110403
     GroupID: 11
     SkillID: 3000001
     ManaCost: 1
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 1
     MaxLevel: 1
     TitleLang: "\u5C16\u523A"
@@ -1359,13 +1359,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3000001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120201
     GroupID: 12
     SkillID: 3010011, 3150011
     ManaCost: 2
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 2
     MaxLevel: 0
     TitleLang: "\u5F31\u9EDE"
@@ -1375,13 +1375,13 @@ MonoBehaviour:
     skillIDs:
     - 3010011
     - 3150011
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120202
     GroupID: 12
     SkillID: 3010012, 3150012
     ManaCost: 2
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 2
     MaxLevel: 0
     TitleLang: "\u5F31\u9EDE"
@@ -1391,13 +1391,13 @@ MonoBehaviour:
     skillIDs:
     - 3010012
     - 3150012
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120203
     GroupID: 12
     SkillID: 3010013, 3150013
     ManaCost: 2
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 2
     MaxLevel: 1
     TitleLang: "\u5F31\u9EDE"
@@ -1407,13 +1407,13 @@ MonoBehaviour:
     skillIDs:
     - 3010013
     - 3150013
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120301
     GroupID: 13
     SkillID: 3140001
     ManaCost: 2
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 2
     MaxLevel: 0
     TitleLang: "\u84C4\u529B"
@@ -1422,13 +1422,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3140001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120302
     GroupID: 13
     SkillID: 3140001
     ManaCost: 1
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 2
     MaxLevel: 0
     TitleLang: "\u84C4\u529B"
@@ -1437,13 +1437,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3140001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120303
     GroupID: 13
     SkillID: 3140001
     ManaCost: 0
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 2
     MaxLevel: 1
     TitleLang: "\u84C4\u529B"
@@ -1452,13 +1452,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3140001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120401
     GroupID: 14
     SkillID: 3000001
     ManaCost: 2
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 2
     MaxLevel: 0
     TitleLang: "\u9677\u9631"
@@ -1467,13 +1467,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3000001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120402
     GroupID: 14
     SkillID: 3000001
     ManaCost: 2
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 2
     MaxLevel: 0
     TitleLang: "\u9677\u9631"
@@ -1482,13 +1482,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3000001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120403
     GroupID: 14
     SkillID: 3000001
     ManaCost: 2
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 2
     MaxLevel: 1
     TitleLang: "\u9677\u9631"
@@ -1497,13 +1497,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3000001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130201
     GroupID: 15
     SkillID: 4010003
     ManaCost: 1
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 3
     MaxLevel: 0
     TitleLang: "\u8679\u5438"
@@ -1512,13 +1512,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4010003
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130202
     GroupID: 15
     SkillID: 4010004
     ManaCost: 1
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 3
     MaxLevel: 0
     TitleLang: "\u8679\u5438"
@@ -1527,13 +1527,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4010004
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130203
     GroupID: 15
     SkillID: 4010005
     ManaCost: 1
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 3
     MaxLevel: 1
     TitleLang: "\u8679\u5438"
@@ -1542,13 +1542,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4010005
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130301
     GroupID: 16
     SkillID: 4000001
     ManaCost: 0
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 3
     MaxLevel: 0
     TitleLang: "\u80FD\u91CF"
@@ -1557,13 +1557,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4000001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130302
     GroupID: 16
     SkillID: 4000002
     ManaCost: 0
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 3
     MaxLevel: 0
     TitleLang: "\u80FD\u91CF"
@@ -1572,13 +1572,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4000002
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130303
     GroupID: 16
     SkillID: 4000003
     ManaCost: 0
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 3
     MaxLevel: 1
     TitleLang: "\u80FD\u91CF"
@@ -1587,13 +1587,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4000003
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130401
     GroupID: 17
     SkillID: 4020003
     ManaCost: 1
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9695\u77F3"
@@ -1602,13 +1602,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4020003
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130402
     GroupID: 17
     SkillID: 4020004
     ManaCost: 1
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 3
     MaxLevel: 0
     TitleLang: "\u9695\u77F3"
@@ -1617,13 +1617,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4020004
-    EffectInfos: []
+    SkillInfos: []
   - ID: 130403
     GroupID: 17
     SkillID: 4020005
     ManaCost: 1
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 3
     MaxLevel: 1
     TitleLang: "\u9695\u77F3"
@@ -1632,13 +1632,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4020005
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140201
     GroupID: 18
     SkillID: 3060001
     ManaCost: 1
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 4
     MaxLevel: 0
     TitleLang: "\u5857\u6BD2"
@@ -1647,13 +1647,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3060001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140202
     GroupID: 18
     SkillID: 3060003
     ManaCost: 1
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 4
     MaxLevel: 0
     TitleLang: "\u5857\u6BD2"
@@ -1662,13 +1662,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3060003
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140203
     GroupID: 18
     SkillID: 3060005
     ManaCost: 1
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 4
     MaxLevel: 1
     TitleLang: "\u5857\u6BD2"
@@ -1677,13 +1677,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3060005
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140301
     GroupID: 19
     SkillID: 4030003
     ManaCost: 1
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 4
     MaxLevel: 0
     TitleLang: "\u6495\u88C2"
@@ -1692,13 +1692,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4030003
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140302
     GroupID: 19
     SkillID: 4030004
     ManaCost: 1
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 4
     MaxLevel: 0
     TitleLang: "\u6495\u88C2"
@@ -1707,13 +1707,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4030004
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140303
     GroupID: 19
     SkillID: 4030005
     ManaCost: 1
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 4
     MaxLevel: 1
     TitleLang: "\u6495\u88C2"
@@ -1722,13 +1722,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 4030005
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140401
     GroupID: 20
     SkillID: 3030001
     ManaCost: 3
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 4
     MaxLevel: 0
     TitleLang: "\u9041\u9003"
@@ -1737,13 +1737,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 3030001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140402
     GroupID: 20
     SkillID: 3030001, 3020001
     ManaCost: 3
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 4
     MaxLevel: 0
     TitleLang: "\u9041\u9003"
@@ -1753,13 +1753,13 @@ MonoBehaviour:
     skillIDs:
     - 3030001
     - 3020001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 140403
     GroupID: 20
     SkillID: 3030001, 3020002
     ManaCost: 3
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 4
     MaxLevel: 1
     TitleLang: "\u9041\u9003"
@@ -1769,74 +1769,439 @@ MonoBehaviour:
     skillIDs:
     - 3030001
     - 3020002
-    EffectInfos: []
-  - ID: 100001
+    SkillInfos: []
+  - ID: 100010
     GroupID: 21
     SkillID: 
     ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6A5F\u6703"
+    DesLang: "\u62BD2\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C1\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD1\u5F35"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100011
+    GroupID: 21
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6A5F\u6703"
+    DesLang: "\u62BD2\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C1\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD1\u5F35\u3001\u7372\u5F975\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100012
+    GroupID: 21
+    SkillID: 
+    ManaCost: 0
     UpgradeCost: 0
     UpgradeCostStone: 0
     Class: 0
     MaxLevel: 1
     TitleLang: "\u6A5F\u6703"
-    DesLang: "\u62BD\u5169\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD\u4E00\u5F35"
+    DesLang: "\u62BD2\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C1\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD1\u5F35\u3001\u7372\u5F9712\u9EDE\u8B77\u76FE"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs: []
-    EffectInfos: []
-  - ID: 100002
+    SkillInfos: []
+  - ID: 100020
     GroupID: 22
     SkillID: 
     ManaCost: 3
     UpgradeCost: 0
-    UpgradeCostStone: 0
+    UpgradeCostStone: 35
     Class: 0
-    MaxLevel: 1
+    MaxLevel: 0
     TitleLang: "\u5168\u80FD"
     DesLang: "\u672C\u5C40\u5C0D\u6230\u4E2D\uFF0C\u6240\u6709\u7684\u5361\u724C\u6D88\u8017\u8B8A\u70BA1"
     TargetChoose: 0
     ExhaustAfterPlay: 1
     skillIDs: []
-    EffectInfos: []
-  - ID: 100003
+    SkillInfos: []
+  - ID: 100021
+    GroupID: 22
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5168\u80FD"
+    DesLang: "\u672C\u5C40\u5C0D\u6230\u4E2D\uFF0C\u6240\u6709\u7684\u5361\u724C\u6D88\u8017\u8B8A\u70BA1\u3001\u7372\u5F97\u529B\u91CF2"
+    TargetChoose: 0
+    ExhaustAfterPlay: 1
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100022
+    GroupID: 22
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u5168\u80FD"
+    DesLang: "\u672C\u5C40\u5C0D\u6230\u4E2D\uFF0C\u6240\u6709\u7684\u5361\u724C\u6D88\u8017\u8B8A\u70BA1\u3001\u7372\u5F97\u529B\u91CF5"
+    TargetChoose: 0
+    ExhaustAfterPlay: 1
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100030
     GroupID: 23
     SkillID: 
     ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5077\u8972"
+    DesLang: "\u9020\u621010\u9EDE\u50B7\u5BB3\uFF0C\u5982\u679C\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u9B54\u529B\u6D88\u8017\u70BA0"
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100031
+    GroupID: 23
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5077\u8972"
+    DesLang: "\u9020\u621017\u9EDE\u50B7\u5BB3\uFF0C\u5982\u679C\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u9B54\u529B\u6D88\u8017\u70BA0"
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100032
+    GroupID: 23
+    SkillID: 
+    ManaCost: 0
     UpgradeCost: 0
     UpgradeCostStone: 0
     Class: 0
     MaxLevel: 1
     TitleLang: "\u5077\u8972"
-    DesLang: "\u9020\u621010\u9EDE\u50B7\u5BB3\uFF0C\u5982\u679C\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u9B54\u529B\u6D88\u8017\u70BA0"
-    TargetChoose: 0
+    DesLang: "\u9020\u621025\u9EDE\u50B7\u5BB3\uFF0C\u5982\u679C\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u9B54\u529B\u6D88\u8017\u70BA0"
+    TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs: []
-    EffectInfos: []
-  - ID: 100004
+    SkillInfos: []
+  - ID: 100040
     GroupID: 24
     SkillID: 
     ManaCost: 1
     UpgradeCost: 0
-    UpgradeCostStone: 0
+    UpgradeCostStone: 35
     Class: 0
-    MaxLevel: 1
+    MaxLevel: 0
     TitleLang: "\u4F11\u7720"
     DesLang: "\u56DE\u5408\u7D50\u675F\uFF0C\u7D66\u81EA\u8EAB20\u9EDE\u8B77\u76FE"
     TargetChoose: 0
     ExhaustAfterPlay: 1
     skillIDs: []
-    EffectInfos: []
-  - ID: 100005
-    GroupID: 25
+    SkillInfos: []
+  - ID: 100041
+    GroupID: 24
     SkillID: 
-    ManaCost: 1
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u4F11\u7720"
+    DesLang: "\u56DE\u5408\u7D50\u675F\uFF0C\u7D66\u81EA\u8EAB42\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    ExhaustAfterPlay: 1
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100042
+    GroupID: 24
+    SkillID: 
+    ManaCost: 0
     UpgradeCost: 0
     UpgradeCostStone: 0
     Class: 0
     MaxLevel: 1
+    TitleLang: "\u4F11\u7720"
+    DesLang: "\u56DE\u5408\u7D50\u675F\uFF0C\u7D66\u81EA\u8EAB63\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    ExhaustAfterPlay: 1
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100050
+    GroupID: 25
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
     TitleLang: "\u6295\u8CC7"
     DesLang: "\u4E0B\u4E00\u56DE\u5408\uFF0C\u7372\u5F97\u984D\u5916\u76841\u9EDE\u9B54\u529B"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs: []
-    EffectInfos: []
+    SkillInfos: []
+  - ID: 100051
+    GroupID: 25
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6295\u8CC7"
+    DesLang: "\u4E0B\u4E00\u56DE\u5408\uFF0C\u7372\u5F97\u984D\u5916\u76841\u9EDE\u9B54\u529B\u300112\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100052
+    GroupID: 25
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u6295\u8CC7"
+    DesLang: "\u4E0B\u4E00\u56DE\u5408\uFF0C\u7372\u5F97\u984D\u5916\u76841\u9EDE\u9B54\u529B\u300112\u9EDE\u8B77\u76FE\u30013\u9EDE\u529B\u91CF"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100060
+    GroupID: 26
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6253\u64CA"
+    DesLang: "\u5C0D\u6575\u4EBA\u9020\u62108\u9EDE\u50B7\u5BB3\uFF0C\u82E5\u672C\u56DE\u5408\u81F3\u5C11\u4F7F\u7528\u904E\u5169\u5F35\u5361\uFF0C\u5247\u6539\u6210\u9020\u621012\u9EDE\u50B7\u5BB3"
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100061
+    GroupID: 26
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6253\u64CA"
+    DesLang: "\u5C0D\u6575\u4EBA\u9020\u621011\u9EDE\u50B7\u5BB3\uFF0C\u82E5\u672C\u56DE\u5408\u81F3\u5C11\u4F7F\u7528\u904E\u5169\u5F35\u5361\uFF0C\u5247\u6539\u6210\u9020\u621021\u9EDE\u50B7\u5BB3"
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100062
+    GroupID: 26
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u6253\u64CA"
+    DesLang: "\u5C0D\u6575\u4EBA\u9020\u621018\u9EDE\u50B7\u5BB3\uFF0C\u82E5\u672C\u56DE\u5408\u81F3\u5C11\u4F7F\u7528\u904E\u5169\u5F35\u5361\uFF0C\u5247\u6539\u6210\u9020\u621031\u9EDE\u50B7\u5BB3"
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100070
+    GroupID: 27
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u9810\u5224"
+    DesLang: 
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100071
+    GroupID: 27
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u9810\u5224"
+    DesLang: 
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100072
+    GroupID: 27
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u9810\u5224"
+    DesLang: 
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100080
+    GroupID: 28
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u88DC\u7D66"
+    DesLang: "\u7372\u5F975\u9EDE\u683C\u6A94\uFF0C\u62BD1\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100081
+    GroupID: 28
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u88DC\u7D66"
+    DesLang: "\u7372\u5F9712\u9EDE\u683C\u6A94\uFF0C\u62BD1\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100082
+    GroupID: 28
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u88DC\u7D66"
+    DesLang: "\u7372\u5F9721\u9EDE\u683C\u6A94\uFF0C\u62BD1\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100090
+    GroupID: 29
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5FAA\u74B0"
+    DesLang: "\u6BCF\u4F7F\u75281\u5F35\u724C\u5247\u62BD1\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100091
+    GroupID: 29
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5FAA\u74B0"
+    DesLang: "\u6BCF\u4F7F\u75281\u5F35\u724C\u5247\u62BD2\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100092
+    GroupID: 29
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u5FAA\u74B0"
+    DesLang: "\u6BCF\u4F7F\u75281\u5F35\u724C\u5247\u62BD3\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100100
+    GroupID: 30
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5805\u5B9A"
+    DesLang: "\u7372\u5F979\u9EDE\u683C\u6A94\uFF0C\u82E5\u672C\u56DE\u5408\u6C92\u6709\u9020\u6210\u904E\u50B7\u5BB3\uFF0C\u5247\u7372\u5F9717\u9EDE\u683C\u6A94"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100101
+    GroupID: 30
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5805\u5B9A"
+    DesLang: "\u7372\u5F9715\u9EDE\u683C\u6A94\uFF0C\u82E5\u672C\u56DE\u5408\u6C92\u6709\u9020\u6210\u904E\u50B7\u5BB3\uFF0C\u5247\u7372\u5F9726\u9EDE\u683C\u6A94"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100102
+    GroupID: 30
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u5805\u5B9A"
+    DesLang: "\u7372\u5F9720\u9EDE\u683C\u6A94\uFF0C\u82E5\u672C\u56DE\u5408\u6C92\u6709\u9020\u6210\u904E\u50B7\u5BB3\uFF0C\u5247\u7372\u5F9733\u9EDE\u683C\u6A94"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 200001
+    GroupID: 31
+    SkillID: 1100010
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 3
+    MaxLevel: 1
+    TitleLang: "\u706B\u708E"
+    DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62108\u9EDE\u50B7\u5BB3"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs:
+    - 1100010
+    SkillInfos: []

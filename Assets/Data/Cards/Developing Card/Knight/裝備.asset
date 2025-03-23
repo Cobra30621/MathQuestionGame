@@ -39,15 +39,15 @@ MonoBehaviour:
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs: []
-    EffectInfos: []
+    SkillInfos: []
   cardId: 10
   _levelInfos:
   - ID: 110301
     GroupID: 10
     SkillID: 3130001
     ManaCost: 2
-    UpgradeCost: 1000
-    UpgradeCostStone: 10
+    UpgradeCost: 0
+    UpgradeCostStone: 35
     Class: 1
     MaxLevel: 0
     TitleLang: "\u88DD\u5099"
@@ -56,13 +56,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 1
     skillIDs:
     - 3130001
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110302
     GroupID: 10
     SkillID: 3130002
     ManaCost: 2
-    UpgradeCost: 3000
-    UpgradeCostStone: 50
+    UpgradeCost: 0
+    UpgradeCostStone: 60
     Class: 1
     MaxLevel: 0
     TitleLang: "\u88DD\u5099"
@@ -71,13 +71,13 @@ MonoBehaviour:
     ExhaustAfterPlay: 1
     skillIDs:
     - 3130002
-    EffectInfos: []
+    SkillInfos: []
   - ID: 110303
     GroupID: 10
     SkillID: 3130002
     ManaCost: 2
     UpgradeCost: 0
-    UpgradeCostStone: 100
+    UpgradeCostStone: 0
     Class: 1
     MaxLevel: 1
     TitleLang: "\u88DD\u5099"
@@ -86,7 +86,7 @@ MonoBehaviour:
     ExhaustAfterPlay: 1
     skillIDs:
     - 3130002
-    EffectInfos: []
+    SkillInfos: []
   _allyClassType: 1
   canNotPlay: 0
   exhaustIfNotPlay: 0
@@ -97,7 +97,6 @@ MonoBehaviour:
     Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardName: 
   cardSprite: {fileID: 21300000, guid: 53cf7231f48944c54a5b527ef5d3bed8, type: 3}
   rarity: 0
   description: 

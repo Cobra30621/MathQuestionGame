@@ -16,6 +16,7 @@ namespace Relic.Data
         Boots = 30003,
         
         Orb = 40001,
+        Wand = 40002,
         Mantle = 40003,
         
         // 通用遺物（待定）

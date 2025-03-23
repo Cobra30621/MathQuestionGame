@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: "\u9041\u9003"
+  m_Name: "\u706B\u708E"
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -40,56 +40,24 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs: []
     SkillInfos: []
-  cardId: 20
+  cardId: 31
   _levelInfos:
-  - ID: 140401
-    GroupID: 20
-    SkillID: 3030001
-    ManaCost: 3
-    UpgradeCost: 0
-    UpgradeCostStone: 35
-    Class: 4
-    MaxLevel: 0
-    TitleLang: "\u9041\u9003"
-    DesLang: "\u7372\u5F97\u7121\u6575\u6548\u679C"
-    TargetChoose: 0
-    ExhaustAfterPlay: 0
-    skillIDs:
-    - 3030001
-    SkillInfos: []
-  - ID: 140402
-    GroupID: 20
-    SkillID: 3030001, 3020001
-    ManaCost: 3
-    UpgradeCost: 0
-    UpgradeCostStone: 60
-    Class: 4
-    MaxLevel: 0
-    TitleLang: "\u9041\u9003"
-    DesLang: "\u7372\u5F97\u7121\u6575\u6548\u679C\u30011\u5C64\u529B\u91CF"
-    TargetChoose: 0
-    ExhaustAfterPlay: 0
-    skillIDs:
-    - 3030001
-    - 3020001
-    SkillInfos: []
-  - ID: 140403
-    GroupID: 20
-    SkillID: 3030001, 3020002
-    ManaCost: 3
+  - ID: 200001
+    GroupID: 31
+    SkillID: 1100010
+    ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 0
-    Class: 4
+    Class: 3
     MaxLevel: 1
-    TitleLang: "\u9041\u9003"
-    DesLang: "\u7372\u5F97\u7121\u6575\u6548\u679C\u30012\u5C64\u529B\u91CF"
+    TitleLang: "\u706B\u708E"
+    DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62108\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs:
-    - 3030001
-    - 3020002
+    - 1100010
     SkillInfos: []
-  _allyClassType: 4
+  _allyClassType: 3
   canNotPlay: 0
   exhaustIfNotPlay: 0
   fxInfo:
@@ -99,6 +67,6 @@ MonoBehaviour:
     Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardSprite: {fileID: 21300000, guid: d2586aac91c364c588e3165b00e9f2fc, type: 3}
+  cardSprite: {fileID: 0}
   rarity: 0
   description: 
