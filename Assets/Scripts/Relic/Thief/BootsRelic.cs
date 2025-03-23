@@ -14,13 +14,20 @@ namespace Relic.Thief
     public class BootsRelic : RelicBase
     {
         public override RelicName RelicName => RelicName.Boots;
-        public override float GetCardRawMana(float rawValue)
+        public override int AtGainTurnStartMana(int rawValue)
         {
-            if (rawValue > 1)
+            return rawValue + 1;
+        }
+        public override int AtGainTurnStartDraw(int value)
+        {
+            if (IsMaxLevel())
             {
-                return rawValue - 1;
+                return value + 1;
             }
-            return rawValue;
+            else
+            {
+                return value;
+            }
         }
     }
 }

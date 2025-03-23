@@ -13,14 +13,18 @@ namespace Relic.Mage
         public override RelicName RelicName => RelicName.Orb;
         public override int AtGainTurnStartMana(int rawValue)
         {
-            // 是否有升級過
-            if (IsMaxLevel())
+            return rawValue + 1;
+        }
+        public override void OnTurnStart(TurnInfo info)
+        {
+            if (IsCharacterTurn(info))
             {
-                return rawValue + 2; 
-            }
-            else
-            {
-                return rawValue + 1;
+                if(IsMaxLevel())
+                { 
+                    EffectExecutor.AddEffect(new ApplyPowerEffect(
+                        1, PowerName.Shield, new List<CharacterBase>() {MainAlly},
+                        GetEffectSource()));
+                }
             }
         }
     }
