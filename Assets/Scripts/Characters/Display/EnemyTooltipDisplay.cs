@@ -8,10 +8,10 @@ namespace Characters.Display
         
         public override void ShowTooltipInfo()
         {
-            ShowPowerTooltipInfo();
-            
             var intention = _enemy.currentSkill._intention;
             ShowTooltipInfo(intention.Content, intention.Header);
+            
+            ShowPowerTooltipInfo();
         }
     }
 }
