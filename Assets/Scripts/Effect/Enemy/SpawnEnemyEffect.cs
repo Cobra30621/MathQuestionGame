@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Map;
+
 namespace Effect.Enemy
 {
     /// <summary>
@@ -8,7 +11,7 @@ namespace Effect.Enemy
         // 要生成的敌人数量
         private readonly int _spawnCount;
         // 要生成的敌人ID
-        private readonly string _spawnEnemyId;
+        private List<string> _spawnEnemyIds;
 
 
         /// <summary>
@@ -18,21 +21,17 @@ namespace Effect.Enemy
         /// <param name="skillInfo">包含生成敌人所需参数的技能信息。</param>
         public SpawnEnemyEffect(SkillInfo skillInfo)
         {
-            _spawnCount = skillInfo.EffectParameterList[1];
-            _spawnEnemyId = $"{skillInfo.EffectParameterList[0]}";
+            _spawnCount = skillInfo.EffectParameterList[0];
+
+
+            _spawnEnemyIds = new List<string>();
+            for (int i = 1; i < skillInfo.EffectParameterList.Count; i++)
+            {
+                _spawnEnemyIds.Add($"{skillInfo.EffectParameterList[i]}");
+            }
         }
 
-        /// <summary>
-        /// SpawnEnemyAction类的另一个构造函数。
-        /// 直接使用提供的敌人ID和生成数量进行初始化。
-        /// </summary>
-        /// <param name="spawnEnemyId">要生成的敌人ID。</param>
-        /// <param name="spawnCount">要生成的敌人数量。</param>
-        public SpawnEnemyEffect(string spawnEnemyId, int spawnCount)
-        {
-            _spawnEnemyId = spawnEnemyId;
-            _spawnCount = spawnCount;
-        }
+
         
         /// <summary>
         /// 执行生成敌人的主要动作。
@@ -44,8 +43,13 @@ namespace Effect.Enemy
 
             for (int i = 0; i < _spawnCount; i++)
             {
-                characterHandler.BuildEnemy(_spawnEnemyId);
+                characterHandler.BuildEnemy(GetRandomId());
             }
+        }
+
+        private string GetRandomId()
+        {
+            return _spawnEnemyIds.Random();
         }
     }
 }
