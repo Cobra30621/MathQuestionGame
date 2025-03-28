@@ -39,14 +39,14 @@ MonoBehaviour:
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs: []
-    EffectInfos: []
+    SkillInfos: []
   cardId: 3
   _levelInfos:
   - ID: 120001
     GroupID: 3
     SkillID: 1000007
     ManaCost: 1
-    UpgradeCost: 10
+    UpgradeCost: 50
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -56,12 +56,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000007
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120002
     GroupID: 3
     SkillID: 1000008
     ManaCost: 1
-    UpgradeCost: 20
+    UpgradeCost: 300
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -71,12 +71,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000008
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120003
     GroupID: 3
     SkillID: 1000009
     ManaCost: 1
-    UpgradeCost: 50
+    UpgradeCost: 1200
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -86,12 +86,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000009
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120004
     GroupID: 3
     SkillID: 1000010
     ManaCost: 1
-    UpgradeCost: 100
+    UpgradeCost: 2800
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -101,12 +101,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000010
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120005
     GroupID: 3
     SkillID: 1000012
     ManaCost: 1
-    UpgradeCost: 300
+    UpgradeCost: 5200
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -116,12 +116,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000012
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120006
     GroupID: 3
     SkillID: 1000014
     ManaCost: 1
-    UpgradeCost: 500
+    UpgradeCost: 10000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -131,12 +131,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000014
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120007
     GroupID: 3
     SkillID: 1000017
     ManaCost: 1
-    UpgradeCost: 1000
+    UpgradeCost: 18000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -146,12 +146,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000017
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120008
     GroupID: 3
     SkillID: 1000021
     ManaCost: 1
-    UpgradeCost: 1500
+    UpgradeCost: 32000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -161,12 +161,12 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000021
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120009
     GroupID: 3
     SkillID: 1000013, 3010011
     ManaCost: 1
-    UpgradeCost: 3000
+    UpgradeCost: 50000
     UpgradeCostStone: 0
     Class: 2
     MaxLevel: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
     skillIDs:
     - 1000013
     - 3010011
-    EffectInfos: []
+    SkillInfos: []
   - ID: 120010
     GroupID: 3
     SkillID: 1000015, 3010012
@@ -193,7 +193,7 @@ MonoBehaviour:
     skillIDs:
     - 1000015
     - 3010012
-    EffectInfos: []
+    SkillInfos: []
   _allyClassType: 2
   canNotPlay: 0
   exhaustIfNotPlay: 0
@@ -204,7 +204,6 @@ MonoBehaviour:
     Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardName: "\u5C04\u64CA"
   cardSprite: {fileID: 21300000, guid: cec2f687a20ec430999909adfb055603, type: 3}
   rarity: 0
   description: 
