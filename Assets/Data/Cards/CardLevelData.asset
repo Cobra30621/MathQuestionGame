@@ -1770,78 +1770,428 @@ MonoBehaviour:
     - 3030001
     - 3020002
     SkillInfos: []
-  - ID: 100001
+  - ID: 100010
     GroupID: 21
     SkillID: 
     ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6A5F\u6703"
+    DesLang: "\u62BD2\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C1\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD1\u5F35"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100011
+    GroupID: 21
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6A5F\u6703"
+    DesLang: "\u62BD2\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C1\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD1\u5F35\u3001\u7372\u5F975\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100012
+    GroupID: 21
+    SkillID: 
+    ManaCost: 0
     UpgradeCost: 0
     UpgradeCostStone: 0
     Class: 0
     MaxLevel: 1
     TitleLang: "\u6A5F\u6703"
-    DesLang: "\u62BD\u5169\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD\u4E00\u5F35"
+    DesLang: "\u62BD2\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C1\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD1\u5F35\u3001\u7372\u5F9712\u9EDE\u8B77\u76FE"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs: []
     SkillInfos: []
-  - ID: 100002
+  - ID: 100020
     GroupID: 22
     SkillID: 
     ManaCost: 3
     UpgradeCost: 0
-    UpgradeCostStone: 0
+    UpgradeCostStone: 35
     Class: 0
-    MaxLevel: 1
+    MaxLevel: 0
     TitleLang: "\u5168\u80FD"
     DesLang: "\u672C\u5C40\u5C0D\u6230\u4E2D\uFF0C\u6240\u6709\u7684\u5361\u724C\u6D88\u8017\u8B8A\u70BA1"
     TargetChoose: 0
     ExhaustAfterPlay: 1
     skillIDs: []
     SkillInfos: []
-  - ID: 100003
+  - ID: 100021
+    GroupID: 22
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5168\u80FD"
+    DesLang: "\u672C\u5C40\u5C0D\u6230\u4E2D\uFF0C\u6240\u6709\u7684\u5361\u724C\u6D88\u8017\u8B8A\u70BA1\u3001\u7372\u5F97\u529B\u91CF2"
+    TargetChoose: 0
+    ExhaustAfterPlay: 1
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100022
+    GroupID: 22
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u5168\u80FD"
+    DesLang: "\u672C\u5C40\u5C0D\u6230\u4E2D\uFF0C\u6240\u6709\u7684\u5361\u724C\u6D88\u8017\u8B8A\u70BA1\u3001\u7372\u5F97\u529B\u91CF5"
+    TargetChoose: 0
+    ExhaustAfterPlay: 1
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100030
     GroupID: 23
     SkillID: 
     ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5077\u8972"
+    DesLang: "\u9020\u621010\u9EDE\u50B7\u5BB3\uFF0C\u5982\u679C\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u9B54\u529B\u6D88\u8017\u70BA0"
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100031
+    GroupID: 23
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5077\u8972"
+    DesLang: "\u9020\u621017\u9EDE\u50B7\u5BB3\uFF0C\u5982\u679C\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u9B54\u529B\u6D88\u8017\u70BA0"
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100032
+    GroupID: 23
+    SkillID: 
+    ManaCost: 0
     UpgradeCost: 0
     UpgradeCostStone: 0
     Class: 0
     MaxLevel: 1
     TitleLang: "\u5077\u8972"
-    DesLang: "\u9020\u621010\u9EDE\u50B7\u5BB3\uFF0C\u5982\u679C\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u9B54\u529B\u6D88\u8017\u70BA0"
-    TargetChoose: 0
+    DesLang: "\u9020\u621025\u9EDE\u50B7\u5BB3\uFF0C\u5982\u679C\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u724C\uFF0C\u5247\u9B54\u529B\u6D88\u8017\u70BA0"
+    TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs: []
     SkillInfos: []
-  - ID: 100004
+  - ID: 100040
     GroupID: 24
     SkillID: 
     ManaCost: 1
     UpgradeCost: 0
-    UpgradeCostStone: 0
+    UpgradeCostStone: 35
     Class: 0
-    MaxLevel: 1
+    MaxLevel: 0
     TitleLang: "\u4F11\u7720"
     DesLang: "\u56DE\u5408\u7D50\u675F\uFF0C\u7D66\u81EA\u8EAB20\u9EDE\u8B77\u76FE"
     TargetChoose: 0
     ExhaustAfterPlay: 1
     skillIDs: []
     SkillInfos: []
-  - ID: 100005
-    GroupID: 25
+  - ID: 100041
+    GroupID: 24
     SkillID: 
-    ManaCost: 1
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u4F11\u7720"
+    DesLang: "\u56DE\u5408\u7D50\u675F\uFF0C\u7D66\u81EA\u8EAB42\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    ExhaustAfterPlay: 1
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100042
+    GroupID: 24
+    SkillID: 
+    ManaCost: 0
     UpgradeCost: 0
     UpgradeCostStone: 0
     Class: 0
     MaxLevel: 1
+    TitleLang: "\u4F11\u7720"
+    DesLang: "\u56DE\u5408\u7D50\u675F\uFF0C\u7D66\u81EA\u8EAB63\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    ExhaustAfterPlay: 1
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100050
+    GroupID: 25
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
     TitleLang: "\u6295\u8CC7"
     DesLang: "\u4E0B\u4E00\u56DE\u5408\uFF0C\u7372\u5F97\u984D\u5916\u76841\u9EDE\u9B54\u529B"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs: []
     SkillInfos: []
-  - ID: 200001
+  - ID: 100051
+    GroupID: 25
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6295\u8CC7"
+    DesLang: "\u4E0B\u4E00\u56DE\u5408\uFF0C\u7372\u5F97\u984D\u5916\u76841\u9EDE\u9B54\u529B\u300112\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100052
+    GroupID: 25
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u6295\u8CC7"
+    DesLang: "\u4E0B\u4E00\u56DE\u5408\uFF0C\u7372\u5F97\u984D\u5916\u76841\u9EDE\u9B54\u529B\u300112\u9EDE\u8B77\u76FE\u30013\u9EDE\u529B\u91CF"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100060
     GroupID: 26
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6253\u64CA"
+    DesLang: "\u5C0D\u6575\u4EBA\u9020\u62108\u9EDE\u50B7\u5BB3\uFF0C\u82E5\u672C\u56DE\u5408\u81F3\u5C11\u4F7F\u7528\u904E\u5169\u5F35\u5361\uFF0C\u5247\u6539\u6210\u9020\u621012\u9EDE\u50B7\u5BB3"
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100061
+    GroupID: 26
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u6253\u64CA"
+    DesLang: "\u5C0D\u6575\u4EBA\u9020\u621011\u9EDE\u50B7\u5BB3\uFF0C\u82E5\u672C\u56DE\u5408\u81F3\u5C11\u4F7F\u7528\u904E\u5169\u5F35\u5361\uFF0C\u5247\u6539\u6210\u9020\u621021\u9EDE\u50B7\u5BB3"
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100062
+    GroupID: 26
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u6253\u64CA"
+    DesLang: "\u5C0D\u6575\u4EBA\u9020\u621018\u9EDE\u50B7\u5BB3\uFF0C\u82E5\u672C\u56DE\u5408\u81F3\u5C11\u4F7F\u7528\u904E\u5169\u5F35\u5361\uFF0C\u5247\u6539\u6210\u9020\u621031\u9EDE\u50B7\u5BB3"
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100070
+    GroupID: 27
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u9810\u5224"
+    DesLang: 
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100071
+    GroupID: 27
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u9810\u5224"
+    DesLang: 
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100072
+    GroupID: 27
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u9810\u5224"
+    DesLang: 
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100080
+    GroupID: 28
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u88DC\u7D66"
+    DesLang: "\u7372\u5F975\u9EDE\u683C\u6A94\uFF0C\u62BD1\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100081
+    GroupID: 28
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u88DC\u7D66"
+    DesLang: "\u7372\u5F9712\u9EDE\u683C\u6A94\uFF0C\u62BD1\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100082
+    GroupID: 28
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u88DC\u7D66"
+    DesLang: "\u7372\u5F9721\u9EDE\u683C\u6A94\uFF0C\u62BD1\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100090
+    GroupID: 29
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5FAA\u74B0"
+    DesLang: "\u6BCF\u4F7F\u75281\u5F35\u724C\u5247\u62BD1\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100091
+    GroupID: 29
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5FAA\u74B0"
+    DesLang: "\u6BCF\u4F7F\u75281\u5F35\u724C\u5247\u62BD2\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100092
+    GroupID: 29
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u5FAA\u74B0"
+    DesLang: "\u6BCF\u4F7F\u75281\u5F35\u724C\u5247\u62BD3\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100100
+    GroupID: 30
+    SkillID: 
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5805\u5B9A"
+    DesLang: "\u7372\u5F979\u9EDE\u683C\u6A94\uFF0C\u82E5\u672C\u56DE\u5408\u6C92\u6709\u9020\u6210\u904E\u50B7\u5BB3\uFF0C\u5247\u7372\u5F9717\u9EDE\u683C\u6A94"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100101
+    GroupID: 30
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5805\u5B9A"
+    DesLang: "\u7372\u5F9715\u9EDE\u683C\u6A94\uFF0C\u82E5\u672C\u56DE\u5408\u6C92\u6709\u9020\u6210\u904E\u50B7\u5BB3\uFF0C\u5247\u7372\u5F9726\u9EDE\u683C\u6A94"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 100102
+    GroupID: 30
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u5805\u5B9A"
+    DesLang: "\u7372\u5F9720\u9EDE\u683C\u6A94\uFF0C\u82E5\u672C\u56DE\u5408\u6C92\u6709\u9020\u6210\u904E\u50B7\u5BB3\uFF0C\u5247\u7372\u5F9733\u9EDE\u683C\u6A94"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  - ID: 200001
+    GroupID: 31
     SkillID: 1100010
     ManaCost: 1
     UpgradeCost: 0
