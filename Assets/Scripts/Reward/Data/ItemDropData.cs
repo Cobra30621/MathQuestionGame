@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Managers;
 using Map;
+using NueGames.Enums;
 using Relic.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -26,7 +28,11 @@ namespace Reward.Data
         [LabelText("答題寶石")]
         public int questionDropStone;
 
-        [LabelText("遺物獎勵清單")] public List<RelicName> RewardRelics;
+        [LabelText("通用遺物獎勵清單")] 
+        public List<RelicName> commonRelics;
+
+        public float commonRelicDropRate;
+        
         [Required]
         [LabelText("遺物資料")] public RelicsData relicsData;
 
@@ -52,12 +58,36 @@ namespace Reward.Data
             }
         }
 
+        [Button]
         public (RelicName, RelicData) GetRelicData(NodeType nodeType)
         {
-            var relicName = RewardRelics.Random();
+            var currentAllyClassType = GameManager.Instance.stageSelectedManager.CurrentAllyClassType();
+            
+            RelicName relicName;
+            // 根據機率決定使用通用遺物還是職業特定遺物
+            if (Range(0f, 1f) < commonRelicDropRate)
+            {
+                if (commonRelics == null || commonRelics.Count == 0)
+                {
+                    Debug.LogError("通用遺物清單為空");
+                    return default;
+                }
+                relicName = commonRelics[Range(0, commonRelics.Count)];
+            }
+            else
+            {
+                var classRelics = GameManager.Instance.stageSelectedManager.RewardDropRelic();
+                
+                if (classRelics == null || classRelics.Count == 0)
+                {
+                    Debug.LogError($"職業 {currentAllyClassType} 的遺物清單為空");
+                    return default;
+                }
+                
+                relicName = classRelics[Range(0, classRelics.Count)];
+            }
 
             var data = relicsData.GetRelicData(relicName);
-
             return (relicName, data);
         }
 
