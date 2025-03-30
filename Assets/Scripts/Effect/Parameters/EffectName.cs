@@ -44,6 +44,9 @@ namespace Effect.Parameters
         [LabelText("結束玩家的回合")]
         EndPlayerTurn = 20100,
         
+        [LabelText("當符合 [1] 條件時，執行EffectId [2]的效果，該效果的參數 [3 ~ n] ")]
+        DoEffectWhenCondition = 90001,
+        
         
         // Enemy
         [LabelText("生成敵人")]
