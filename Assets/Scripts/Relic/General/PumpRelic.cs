@@ -7,9 +7,11 @@ namespace Relic.General
     public class PumpRelic : RelicBase
     {
         public override RelicName RelicName => RelicName.Pump;
+        private int drawCount = 1;
         public override void OnUseCard(BattleCard card)
         {
-            var drawCardEffect = new DrawCardEffect(1, GetEffectSource());
+            drawCount = IsMaxLevel() ? 2 : 1;
+            var drawCardEffect = new DrawCardEffect(drawCount, GetEffectSource());
             drawCardEffect.Play();
         }
        
