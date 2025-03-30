@@ -945,7 +945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1747866289795668346, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000056743622
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 1747866289795668346, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1051,10 +1051,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4055379696199297735, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.0053710938
-      objectReference: {fileID: 0}
     - target: {fileID: 4721209197919907438, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 477.89255
@@ -1091,10 +1087,6 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 5885686703067263783, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
-    - target: {fileID: 6090485939244739958, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -115.60004
-      objectReference: {fileID: 0}
     - target: {fileID: 6448810225252440185, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -1353,6 +1345,10 @@ PrefabInstance:
     - target: {fileID: 4079471535938771057, guid: 0f20f68f48abf2844b9f1fb520647c03, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079471535938771060, guid: 0f20f68f48abf2844b9f1fb520647c03, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4079471535938771061, guid: 0f20f68f48abf2844b9f1fb520647c03, type: 3}
       propertyPath: m_Pivot.x
