@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!20 &2529227 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2184331714337559695, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
-  m_PrefabInstance: {fileID: 1268168930}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &77783749
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,7 +945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1747866289795668346, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000061035156
+      value: 0.000056743622
       objectReference: {fileID: 0}
     - target: {fileID: 1747866289795668346, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1060,10 +1055,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.0053710938
       objectReference: {fileID: 0}
-    - target: {fileID: 4407945579061699589, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -80.82715
-      objectReference: {fileID: 0}
     - target: {fileID: 4721209197919907438, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 477.89255
@@ -1120,18 +1111,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -106.04999
       objectReference: {fileID: 0}
-    - target: {fileID: 8612064528480833937, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 2529227}
-    - target: {fileID: 8612064528480833937, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8612064528480833937, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8676715140715392712, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -1155,6 +1134,10 @@ PrefabInstance:
     - target: {fileID: 9034905249564577250, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 445.89264
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200569162134041219, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1826.9001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
