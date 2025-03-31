@@ -19,9 +19,16 @@ namespace Relic.Knight
 
         public override void OnBattleStart()
         {
-            EffectExecutor.AddEffect(new ApplyPowerEffect(
-                3, PowerName.Strength, new List<CharacterBase>(){MainAlly}, GetEffectSource()));
-
+            if (IsMaxLevel())
+            {
+                EffectExecutor.AddEffect(new ApplyPowerEffect(
+                    5, PowerName.Strength, new List<CharacterBase>(){MainAlly}, GetEffectSource()));
+            }
+            else
+            {
+                EffectExecutor.AddEffect(new ApplyPowerEffect(
+                    3, PowerName.Strength, new List<CharacterBase>(){MainAlly}, GetEffectSource()));
+            }
         }
     }
 }

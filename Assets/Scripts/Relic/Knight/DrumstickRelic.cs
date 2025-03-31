@@ -10,13 +10,22 @@ namespace Relic.Knight
     public class DrumstickRelic : RelicBase
     {
         public override RelicName RelicName => RelicName.Drumstick;
-        private int amount = 3;
 
         public override void OnBattleWin(int roundNumber)
         {
-            EffectExecutor.AddEffect(new HealEffect(
-                amount, new List<CharacterBase>() {MainAlly},
-                GetEffectSource()));
+            if (IsMaxLevel())
+            {
+                EffectExecutor.AddEffect(new HealEffect(
+                    14, new List<CharacterBase>() {MainAlly},
+                    GetEffectSource()));
+            }
+            else
+            {
+                EffectExecutor.AddEffect(new HealEffect(
+                    7, new List<CharacterBase>() {MainAlly},
+                    GetEffectSource()));
+            }
+            
         }
        
     }

@@ -39,6 +39,20 @@ namespace Relic.Mage
                     }
                     
                     UIManager.Instance.CombatCanvas.SetPileTexts();
+                    if (IsMaxLevel())
+                    {
+                        // Add the card to hand
+                        handController.AddCardToHand(clone);
+                        CollectionManager.Instance.HandPile.Add(cardData);
+                    
+                        // Update UI
+                        foreach (var cardObject in handController.hand)
+                        {
+                            cardObject.UpdateCardDisplay();
+                        }
+                    
+                        UIManager.Instance.CombatCanvas.SetPileTexts();
+                    }
                 }
                 else
                 {
