@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: "\u5857\u6BD2"
+  m_Name: "\u6253\u64CA"
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -40,54 +40,54 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs: []
     SkillInfos: []
-  cardId: 18
+  cardId: 26
   _levelInfos:
-  - ID: 140201
-    GroupID: 18
-    SkillID: 3060011
+  - ID: 100060
+    GroupID: 26
+    SkillID: 5050001
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 35
-    Class: 4
+    Class: 0
     MaxLevel: 0
-    TitleLang: "\u5857\u6BD2"
-    DesLang: "\u7D66\u4E88\u5C0D\u624B1\u5C64\u4E2D\u6BD2"
+    TitleLang: "\u6253\u64CA"
+    DesLang: "\u5C0D\u6575\u4EBA\u9020\u62108\u9EDE\u50B7\u5BB3\uFF0C\u82E5\u672C\u56DE\u5408\u81F3\u5C11\u4F7F\u7528\u904E\u5169\u5F35\u5361\uFF0C\u5247\u6539\u6210\u9020\u621012\u9EDE\u50B7\u5BB3"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
-    - 3060011
+    - 5050001
     SkillInfos: []
-  - ID: 140202
-    GroupID: 18
-    SkillID: 3060013
+  - ID: 100061
+    GroupID: 26
+    SkillID: 5050002
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 60
-    Class: 4
+    Class: 0
     MaxLevel: 0
-    TitleLang: "\u5857\u6BD2"
-    DesLang: "\u7D66\u4E88\u5C0D\u624B3\u5C64\u4E2D\u6BD2"
+    TitleLang: "\u6253\u64CA"
+    DesLang: "\u5C0D\u6575\u4EBA\u9020\u621011\u9EDE\u50B7\u5BB3\uFF0C\u82E5\u672C\u56DE\u5408\u81F3\u5C11\u4F7F\u7528\u904E\u5169\u5F35\u5361\uFF0C\u5247\u6539\u6210\u9020\u621021\u9EDE\u50B7\u5BB3"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
-    - 3060013
+    - 5050002
     SkillInfos: []
-  - ID: 140203
-    GroupID: 18
-    SkillID: 3060015
+  - ID: 100062
+    GroupID: 26
+    SkillID: 5050003
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 0
-    Class: 4
+    Class: 0
     MaxLevel: 1
-    TitleLang: "\u5857\u6BD2"
-    DesLang: "\u7D66\u4E88\u5C0D\u624B5\u5C64\u4E2D\u6BD2"
+    TitleLang: "\u6253\u64CA"
+    DesLang: "\u5C0D\u6575\u4EBA\u9020\u621018\u9EDE\u50B7\u5BB3\uFF0C\u82E5\u672C\u56DE\u5408\u81F3\u5C11\u4F7F\u7528\u904E\u5169\u5F35\u5361\uFF0C\u5247\u6539\u6210\u9020\u621031\u9EDE\u50B7\u5BB3"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
-    - 3060015
+    - 5050003
     SkillInfos: []
-  _allyClassType: 4
+  _allyClassType: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
   fxInfo:
@@ -97,6 +97,6 @@ MonoBehaviour:
     Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardSprite: {fileID: 21300000, guid: 22394472808f2471fbac3512cdc81d5c, type: 3}
+  cardSprite: {fileID: 21300000, guid: 62adb1e1de7694ce3a56e2bbd7bd619f, type: 3}
   rarity: 0
   description: 

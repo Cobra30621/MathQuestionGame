@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: "\u5857\u6BD2"
+  m_Name: "\u4F11\u7720"
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -40,54 +40,57 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs: []
     SkillInfos: []
-  cardId: 18
+  cardId: 24
   _levelInfos:
-  - ID: 140201
-    GroupID: 18
-    SkillID: 3060011
+  - ID: 100040
+    GroupID: 24
+    SkillID: 5030001, 2000020
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 35
-    Class: 4
+    Class: 0
     MaxLevel: 0
-    TitleLang: "\u5857\u6BD2"
-    DesLang: "\u7D66\u4E88\u5C0D\u624B1\u5C64\u4E2D\u6BD2"
-    TargetChoose: 1
-    ExhaustAfterPlay: 0
+    TitleLang: "\u4F11\u7720"
+    DesLang: "\u56DE\u5408\u7D50\u675F\uFF0C\u7D66\u81EA\u8EAB20\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    ExhaustAfterPlay: 1
     skillIDs:
-    - 3060011
+    - 5030001
+    - 2000020
     SkillInfos: []
-  - ID: 140202
-    GroupID: 18
-    SkillID: 3060013
+  - ID: 100041
+    GroupID: 24
+    SkillID: 5030002, 2000032
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 60
-    Class: 4
+    Class: 0
     MaxLevel: 0
-    TitleLang: "\u5857\u6BD2"
-    DesLang: "\u7D66\u4E88\u5C0D\u624B3\u5C64\u4E2D\u6BD2"
-    TargetChoose: 1
-    ExhaustAfterPlay: 0
+    TitleLang: "\u4F11\u7720"
+    DesLang: "\u56DE\u5408\u7D50\u675F\uFF0C\u7D66\u81EA\u8EAB32\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    ExhaustAfterPlay: 1
     skillIDs:
-    - 3060013
+    - 5030002
+    - 2000032
     SkillInfos: []
-  - ID: 140203
-    GroupID: 18
-    SkillID: 3060015
+  - ID: 100042
+    GroupID: 24
+    SkillID: 5030003, 2000050
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 0
-    Class: 4
+    Class: 0
     MaxLevel: 1
-    TitleLang: "\u5857\u6BD2"
-    DesLang: "\u7D66\u4E88\u5C0D\u624B5\u5C64\u4E2D\u6BD2"
-    TargetChoose: 1
-    ExhaustAfterPlay: 0
+    TitleLang: "\u4F11\u7720"
+    DesLang: "\u56DE\u5408\u7D50\u675F\uFF0C\u7D66\u81EA\u8EAB50\u9EDE\u8B77\u76FE"
+    TargetChoose: 0
+    ExhaustAfterPlay: 1
     skillIDs:
-    - 3060015
+    - 5030003
+    - 2000050
     SkillInfos: []
-  _allyClassType: 4
+  _allyClassType: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
   fxInfo:
@@ -97,6 +100,6 @@ MonoBehaviour:
     Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardSprite: {fileID: 21300000, guid: 22394472808f2471fbac3512cdc81d5c, type: 3}
+  cardSprite: {fileID: 21300000, guid: 62adb1e1de7694ce3a56e2bbd7bd619f, type: 3}
   rarity: 0
   description: 

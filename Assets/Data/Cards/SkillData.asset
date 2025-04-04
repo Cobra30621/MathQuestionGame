@@ -34,7 +34,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 352
+      Data: 383
     - Name: 
       Entry: 7
       Data: 
@@ -3748,7 +3748,7 @@ MonoBehaviour:
       Data: 20001
     - Name: EffectParameter
       Entry: 1
-      Data: 10 ,1
+      Data: 8 ,1
     - Name: EffectParameterList
       Entry: 7
       Data: 157|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -3757,7 +3757,7 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 3
-      Data: 10
+      Data: 8
     - Name: 
       Entry: 3
       Data: 1
@@ -12169,10 +12169,1504 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9101001
+      Data: 5000001
     - Name: $v
       Entry: 7
       Data: 508|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5000001
+    - Name: EffectID
+      Entry: 3
+      Data: 90001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 1, 20021, 1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 509|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 20021
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u6A5F\u6703"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5000002
+    - Name: $v
+      Entry: 7
+      Data: 510|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5000002
+    - Name: EffectID
+      Entry: 3
+      Data: 90001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 20002, 5 ,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 511|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 20002
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u6A5F\u6703"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5000003
+    - Name: $v
+      Entry: 7
+      Data: 512|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5000003
+    - Name: EffectID
+      Entry: 3
+      Data: 90001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 20002, 12 ,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 513|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 20002
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u6A5F\u6703"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5010001
+    - Name: $v
+      Entry: 7
+      Data: 514|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5010001
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 26,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 515|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 26
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5168\u80FD"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5010002
+    - Name: $v
+      Entry: 7
+      Data: 516|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5010002
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 26,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 517|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 26
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5168\u80FD"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5010003
+    - Name: $v
+      Entry: 7
+      Data: 518|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5010003
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 26,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 519|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 26
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5168\u80FD"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5020001
+    - Name: $v
+      Entry: 7
+      Data: 520|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5020001
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 27,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 521|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 27
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 1
+    - Name: ps
+      Entry: 1
+      Data: "\u5077\u8972"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5020002
+    - Name: $v
+      Entry: 7
+      Data: 522|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5020002
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 27,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 523|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 27
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 1
+    - Name: ps
+      Entry: 1
+      Data: "\u5077\u8972"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5020003
+    - Name: $v
+      Entry: 7
+      Data: 524|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5020003
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 27,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 525|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 27
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 1
+    - Name: ps
+      Entry: 1
+      Data: "\u5077\u8972"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5030001
+    - Name: $v
+      Entry: 7
+      Data: 526|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5030001
+    - Name: EffectID
+      Entry: 3
+      Data: 20100
+    - Name: EffectParameter
+      Entry: 1
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 527|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u4F11\u7720"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5030002
+    - Name: $v
+      Entry: 7
+      Data: 528|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5030002
+    - Name: EffectID
+      Entry: 3
+      Data: 20100
+    - Name: EffectParameter
+      Entry: 1
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 529|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u4F11\u7720"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5030003
+    - Name: $v
+      Entry: 7
+      Data: 530|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5030003
+    - Name: EffectID
+      Entry: 3
+      Data: 20100
+    - Name: EffectParameter
+      Entry: 1
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 531|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u4F11\u7720"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5040001
+    - Name: $v
+      Entry: 7
+      Data: 532|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5040001
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 23,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 533|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 23
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u6295\u8CC7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5040002
+    - Name: $v
+      Entry: 7
+      Data: 534|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5040002
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 24,12
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 535|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u6295\u8CC7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5040003
+    - Name: $v
+      Entry: 7
+      Data: 536|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5040003
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 25,3
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 537|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 25
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u6295\u8CC7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5050001
+    - Name: $v
+      Entry: 7
+      Data: 538|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5050001
+    - Name: EffectID
+      Entry: 3
+      Data: 20051
+    - Name: EffectParameter
+      Entry: 1
+      Data: 8,2,12
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 539|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 1
+    - Name: ps
+      Entry: 1
+      Data: "\u6253\u64CA"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5050002
+    - Name: $v
+      Entry: 7
+      Data: 540|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5050002
+    - Name: EffectID
+      Entry: 3
+      Data: 20051
+    - Name: EffectParameter
+      Entry: 1
+      Data: 11,2,21
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 541|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 21
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 1
+    - Name: ps
+      Entry: 1
+      Data: "\u6253\u64CA"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5050003
+    - Name: $v
+      Entry: 7
+      Data: 542|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5050003
+    - Name: EffectID
+      Entry: 3
+      Data: 20051
+    - Name: EffectParameter
+      Entry: 1
+      Data: 18,2,31
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 543|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 18
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 31
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 1
+    - Name: ps
+      Entry: 1
+      Data: "\u6253\u64CA"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5060001
+    - Name: $v
+      Entry: 7
+      Data: 544|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5060001
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 24,12
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 545|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u9810\u5224"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5060002
+    - Name: $v
+      Entry: 7
+      Data: 546|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5060002
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 24,23
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 547|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 3
+      Data: 23
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u9810\u5224"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5060003
+    - Name: $v
+      Entry: 7
+      Data: 548|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5060003
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 24,34
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 549|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 3
+      Data: 34
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u9810\u5224"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5070001
+    - Name: $v
+      Entry: 7
+      Data: 550|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5070001
+    - Name: EffectID
+      Entry: 3
+      Data: 20021
+    - Name: EffectParameter
+      Entry: 1
+      Data: 1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 551|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u88DC\u7D66"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5070002
+    - Name: $v
+      Entry: 7
+      Data: 552|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5070002
+    - Name: EffectID
+      Entry: 3
+      Data: 20021
+    - Name: EffectParameter
+      Entry: 1
+      Data: 1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 553|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u88DC\u7D66"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5070003
+    - Name: $v
+      Entry: 7
+      Data: 554|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5070003
+    - Name: EffectID
+      Entry: 3
+      Data: 20021
+    - Name: EffectParameter
+      Entry: 1
+      Data: 1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 555|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u88DC\u7D66"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5080001
+    - Name: $v
+      Entry: 7
+      Data: 556|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5080001
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 21,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 557|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 21
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5FAA\u74B0"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5080002
+    - Name: $v
+      Entry: 7
+      Data: 558|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5080002
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 21,2
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 559|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 21
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5FAA\u74B0"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5080003
+    - Name: $v
+      Entry: 7
+      Data: 560|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5080003
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 21,3
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 561|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 21
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5FAA\u74B0"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5090001
+    - Name: $v
+      Entry: 7
+      Data: 562|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5090001
+    - Name: EffectID
+      Entry: 3
+      Data: 90001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 2, 20002, 8, 1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 563|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 20002
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5805\u5B9A"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5090002
+    - Name: $v
+      Entry: 7
+      Data: 564|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5090002
+    - Name: EffectID
+      Entry: 3
+      Data: 90001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 2, 20002, 11, 1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 565|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 20002
+    - Name: 
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5805\u5B9A"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 5090003
+    - Name: $v
+      Entry: 7
+      Data: 566|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 5090003
+    - Name: EffectID
+      Entry: 3
+      Data: 90001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 2, 20002, 13, 1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 567|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 20002
+    - Name: 
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u5805\u5B9A"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 8000002
+    - Name: $v
+      Entry: 7
+      Data: 568|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 8000002
+    - Name: EffectID
+      Entry: 3
+      Data: 20021
+    - Name: EffectParameter
+      Entry: 1
+      Data: 2
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 569|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u7D14\u62BD\u724C\u529F\u80FD"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9101001
+    - Name: $v
+      Entry: 7
+      Data: 570|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9101001
@@ -12184,7 +13678,7 @@ MonoBehaviour:
       Data: 7, 1
     - Name: EffectParameterList
       Entry: 7
-      Data: 509|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 571|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12220,7 +13714,7 @@ MonoBehaviour:
       Data: 9101002
     - Name: $v
       Entry: 7
-      Data: 510|Effect.SkillInfo, Assembly-CSharp
+      Data: 572|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9101002
@@ -12232,7 +13726,7 @@ MonoBehaviour:
       Data: 5 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 511|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 573|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12268,7 +13762,7 @@ MonoBehaviour:
       Data: 9101003
     - Name: $v
       Entry: 7
-      Data: 512|Effect.SkillInfo, Assembly-CSharp
+      Data: 574|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9101003
@@ -12280,7 +13774,7 @@ MonoBehaviour:
       Data: 8, 111
     - Name: EffectParameterList
       Entry: 7
-      Data: 513|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 575|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12316,7 +13810,7 @@ MonoBehaviour:
       Data: 9102001
     - Name: $v
       Entry: 7
-      Data: 514|Effect.SkillInfo, Assembly-CSharp
+      Data: 576|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9102001
@@ -12328,7 +13822,7 @@ MonoBehaviour:
       Data: 7, 2
     - Name: EffectParameterList
       Entry: 7
-      Data: 515|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 577|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12364,7 +13858,7 @@ MonoBehaviour:
       Data: 9102002
     - Name: $v
       Entry: 7
-      Data: 516|Effect.SkillInfo, Assembly-CSharp
+      Data: 578|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9102002
@@ -12376,7 +13870,7 @@ MonoBehaviour:
       Data: 10 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 517|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 579|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12412,7 +13906,7 @@ MonoBehaviour:
       Data: 9102003
     - Name: $v
       Entry: 7
-      Data: 518|Effect.SkillInfo, Assembly-CSharp
+      Data: 580|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9102003
@@ -12424,7 +13918,7 @@ MonoBehaviour:
       Data: 8, 112
     - Name: EffectParameterList
       Entry: 7
-      Data: 519|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 581|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12460,7 +13954,7 @@ MonoBehaviour:
       Data: 9103001
     - Name: $v
       Entry: 7
-      Data: 520|Effect.SkillInfo, Assembly-CSharp
+      Data: 582|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9103001
@@ -12472,7 +13966,7 @@ MonoBehaviour:
       Data: 7, 3
     - Name: EffectParameterList
       Entry: 7
-      Data: 521|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 583|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12508,7 +14002,7 @@ MonoBehaviour:
       Data: 9103002
     - Name: $v
       Entry: 7
-      Data: 522|Effect.SkillInfo, Assembly-CSharp
+      Data: 584|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9103002
@@ -12520,7 +14014,7 @@ MonoBehaviour:
       Data: 15 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 523|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 585|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12556,7 +14050,7 @@ MonoBehaviour:
       Data: 9103003
     - Name: $v
       Entry: 7
-      Data: 524|Effect.SkillInfo, Assembly-CSharp
+      Data: 586|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9103003
@@ -12568,7 +14062,7 @@ MonoBehaviour:
       Data: 8, 301
     - Name: EffectParameterList
       Entry: 7
-      Data: 525|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 587|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12604,7 +14098,7 @@ MonoBehaviour:
       Data: 9111001
     - Name: $v
       Entry: 7
-      Data: 526|Effect.SkillInfo, Assembly-CSharp
+      Data: 588|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9111001
@@ -12616,7 +14110,7 @@ MonoBehaviour:
       Data: 10 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 527|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 589|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12652,7 +14146,7 @@ MonoBehaviour:
       Data: 9112001
     - Name: $v
       Entry: 7
-      Data: 528|Effect.SkillInfo, Assembly-CSharp
+      Data: 590|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9112001
@@ -12664,7 +14158,7 @@ MonoBehaviour:
       Data: 20 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 529|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 591|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12700,7 +14194,7 @@ MonoBehaviour:
       Data: 9113001
     - Name: $v
       Entry: 7
-      Data: 530|Effect.SkillInfo, Assembly-CSharp
+      Data: 592|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9113001
@@ -12712,7 +14206,7 @@ MonoBehaviour:
       Data: 30 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 531|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 593|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12748,7 +14242,7 @@ MonoBehaviour:
       Data: 9201001
     - Name: $v
       Entry: 7
-      Data: 532|Effect.SkillInfo, Assembly-CSharp
+      Data: 594|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9201001
@@ -12760,7 +14254,7 @@ MonoBehaviour:
       Data: 16, 201
     - Name: EffectParameterList
       Entry: 7
-      Data: 533|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 595|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12796,7 +14290,7 @@ MonoBehaviour:
       Data: 9201002
     - Name: $v
       Entry: 7
-      Data: 534|Effect.SkillInfo, Assembly-CSharp
+      Data: 596|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9201002
@@ -12808,7 +14302,7 @@ MonoBehaviour:
       Data: 
     - Name: EffectParameterList
       Entry: 7
-      Data: 535|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 597|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -12838,7 +14332,7 @@ MonoBehaviour:
       Data: 9201003
     - Name: $v
       Entry: 7
-      Data: 536|Effect.SkillInfo, Assembly-CSharp
+      Data: 598|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9201003
@@ -12850,7 +14344,7 @@ MonoBehaviour:
       Data: 10 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 537|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 599|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12886,7 +14380,7 @@ MonoBehaviour:
       Data: 9202001
     - Name: $v
       Entry: 7
-      Data: 538|Effect.SkillInfo, Assembly-CSharp
+      Data: 600|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9202001
@@ -12898,7 +14392,7 @@ MonoBehaviour:
       Data: 16, 202
     - Name: EffectParameterList
       Entry: 7
-      Data: 539|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 601|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -12934,7 +14428,7 @@ MonoBehaviour:
       Data: 9202002
     - Name: $v
       Entry: 7
-      Data: 540|Effect.SkillInfo, Assembly-CSharp
+      Data: 602|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9202002
@@ -12946,7 +14440,7 @@ MonoBehaviour:
       Data: 
     - Name: EffectParameterList
       Entry: 7
-      Data: 541|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 603|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -12976,7 +14470,7 @@ MonoBehaviour:
       Data: 9202003
     - Name: $v
       Entry: 7
-      Data: 542|Effect.SkillInfo, Assembly-CSharp
+      Data: 604|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9202003
@@ -12988,7 +14482,7 @@ MonoBehaviour:
       Data: 20 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 543|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 605|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -13024,7 +14518,7 @@ MonoBehaviour:
       Data: 9203001
     - Name: $v
       Entry: 7
-      Data: 544|Effect.SkillInfo, Assembly-CSharp
+      Data: 606|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9203001
@@ -13036,7 +14530,7 @@ MonoBehaviour:
       Data: 16, 203
     - Name: EffectParameterList
       Entry: 7
-      Data: 545|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 607|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -13072,7 +14566,7 @@ MonoBehaviour:
       Data: 9203002
     - Name: $v
       Entry: 7
-      Data: 546|Effect.SkillInfo, Assembly-CSharp
+      Data: 608|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9203002
@@ -13084,1447 +14578,10 @@ MonoBehaviour:
       Data: 
     - Name: EffectParameterList
       Entry: 7
-      Data: 547|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9203003
-    - Name: $v
-      Entry: 7
-      Data: 548|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9203003
-    - Name: EffectID
-      Entry: 3
-      Data: 20001
-    - Name: EffectParameter
-      Entry: 1
-      Data: 30 ,1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 549|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 30
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u653B\u64CA-3"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9211001
-    - Name: $v
-      Entry: 7
-      Data: 550|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9211001
-    - Name: EffectID
-      Entry: 3
-      Data: 20003
-    - Name: EffectParameter
-      Entry: 1
-      Data: 16, 221
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 551|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 16
-    - Name: 
-      Entry: 3
-      Data: 221
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 1
-    - Name: ps
-      Entry: 1
-      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9211002
-    - Name: $v
-      Entry: 7
-      Data: 552|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9211002
-    - Name: EffectID
-      Entry: 3
-      Data: 0
-    - Name: EffectParameter
-      Entry: 6
-      Data: 
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 553|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9211003
-    - Name: $v
-      Entry: 7
-      Data: 554|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9211003
-    - Name: EffectID
-      Entry: 3
-      Data: 20006
-    - Name: EffectParameter
-      Entry: 1
-      Data: 1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 555|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u9ECF\u6DB2-1"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9211004
-    - Name: $v
-      Entry: 7
-      Data: 556|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9211004
-    - Name: EffectID
-      Entry: 3
-      Data: 20001
-    - Name: EffectParameter
-      Entry: 1
-      Data: 10 ,1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 557|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u653B\u64CA-1"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9221001
-    - Name: $v
-      Entry: 7
-      Data: 558|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9221001
-    - Name: EffectID
-      Entry: 3
-      Data: 20003
-    - Name: EffectParameter
-      Entry: 1
-      Data: 16, 221
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 559|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 16
-    - Name: 
-      Entry: 3
-      Data: 221
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 1
-    - Name: ps
-      Entry: 1
-      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9221002
-    - Name: $v
-      Entry: 7
-      Data: 560|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9221002
-    - Name: EffectID
-      Entry: 3
-      Data: 0
-    - Name: EffectParameter
-      Entry: 6
-      Data: 
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 561|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9221003
-    - Name: $v
-      Entry: 7
-      Data: 562|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9221003
-    - Name: EffectID
-      Entry: 3
-      Data: 20006
-    - Name: EffectParameter
-      Entry: 1
-      Data: 1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 563|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u9ECF\u6DB2-1"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9221004
-    - Name: $v
-      Entry: 7
-      Data: 564|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9221004
-    - Name: EffectID
-      Entry: 3
-      Data: 20001
-    - Name: EffectParameter
-      Entry: 1
-      Data: 10 ,1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 565|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u653B\u64CA-1"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9212001
-    - Name: $v
-      Entry: 7
-      Data: 566|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9212001
-    - Name: EffectID
-      Entry: 3
-      Data: 20003
-    - Name: EffectParameter
-      Entry: 1
-      Data: 16, 222
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 567|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 16
-    - Name: 
-      Entry: 3
-      Data: 222
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 1
-    - Name: ps
-      Entry: 1
-      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9212002
-    - Name: $v
-      Entry: 7
-      Data: 568|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9212002
-    - Name: EffectID
-      Entry: 3
-      Data: 0
-    - Name: EffectParameter
-      Entry: 6
-      Data: 
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 569|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9212003
-    - Name: $v
-      Entry: 7
-      Data: 570|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9212003
-    - Name: EffectID
-      Entry: 3
-      Data: 20006
-    - Name: EffectParameter
-      Entry: 1
-      Data: 1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 571|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u9ECF\u6DB2-2"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9212004
-    - Name: $v
-      Entry: 7
-      Data: 572|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9212004
-    - Name: EffectID
-      Entry: 3
-      Data: 20001
-    - Name: EffectParameter
-      Entry: 1
-      Data: 20 ,1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 573|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 20
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u653B\u64CA-2"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9222001
-    - Name: $v
-      Entry: 7
-      Data: 574|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9222001
-    - Name: EffectID
-      Entry: 3
-      Data: 20003
-    - Name: EffectParameter
-      Entry: 1
-      Data: 16, 222
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 575|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 16
-    - Name: 
-      Entry: 3
-      Data: 222
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 1
-    - Name: ps
-      Entry: 1
-      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9222002
-    - Name: $v
-      Entry: 7
-      Data: 576|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9222002
-    - Name: EffectID
-      Entry: 3
-      Data: 0
-    - Name: EffectParameter
-      Entry: 6
-      Data: 
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 577|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9222003
-    - Name: $v
-      Entry: 7
-      Data: 578|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9222003
-    - Name: EffectID
-      Entry: 3
-      Data: 20006
-    - Name: EffectParameter
-      Entry: 1
-      Data: 1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 579|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u9ECF\u6DB2-2"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9222004
-    - Name: $v
-      Entry: 7
-      Data: 580|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9222004
-    - Name: EffectID
-      Entry: 3
-      Data: 20001
-    - Name: EffectParameter
-      Entry: 1
-      Data: 20 ,1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 581|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 20
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u653B\u64CA-2"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9213001
-    - Name: $v
-      Entry: 7
-      Data: 582|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9213001
-    - Name: EffectID
-      Entry: 3
-      Data: 20003
-    - Name: EffectParameter
-      Entry: 1
-      Data: 16, 223
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 583|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 16
-    - Name: 
-      Entry: 3
-      Data: 223
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 1
-    - Name: ps
-      Entry: 1
-      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9213002
-    - Name: $v
-      Entry: 7
-      Data: 584|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9213002
-    - Name: EffectID
-      Entry: 3
-      Data: 0
-    - Name: EffectParameter
-      Entry: 6
-      Data: 
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 585|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9213003
-    - Name: $v
-      Entry: 7
-      Data: 586|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9213003
-    - Name: EffectID
-      Entry: 3
-      Data: 20006
-    - Name: EffectParameter
-      Entry: 1
-      Data: 1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 587|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u9ECF\u6DB2-3"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9213004
-    - Name: $v
-      Entry: 7
-      Data: 588|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9213004
-    - Name: EffectID
-      Entry: 3
-      Data: 20001
-    - Name: EffectParameter
-      Entry: 1
-      Data: 30 ,1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 589|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 30
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u653B\u64CA-3"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9223001
-    - Name: $v
-      Entry: 7
-      Data: 590|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9223001
-    - Name: EffectID
-      Entry: 3
-      Data: 20003
-    - Name: EffectParameter
-      Entry: 1
-      Data: 16, 223
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 591|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 16
-    - Name: 
-      Entry: 3
-      Data: 223
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 1
-    - Name: ps
-      Entry: 1
-      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9223002
-    - Name: $v
-      Entry: 7
-      Data: 592|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9223002
-    - Name: EffectID
-      Entry: 3
-      Data: 0
-    - Name: EffectParameter
-      Entry: 6
-      Data: 
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 593|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9223003
-    - Name: $v
-      Entry: 7
-      Data: 594|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9223003
-    - Name: EffectID
-      Entry: 3
-      Data: 20003
-    - Name: EffectParameter
-      Entry: 1
-      Data: 21, 1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 595|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 21
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u9ECF\u6DB2-3"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9223004
-    - Name: $v
-      Entry: 7
-      Data: 596|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9223004
-    - Name: EffectID
-      Entry: 3
-      Data: 20001
-    - Name: EffectParameter
-      Entry: 1
-      Data: 30 ,1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 597|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 30
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u653B\u64CA-3"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9301001
-    - Name: $v
-      Entry: 7
-      Data: 598|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9301001
-    - Name: EffectID
-      Entry: 3
-      Data: 20003
-    - Name: EffectParameter
-      Entry: 1
-      Data: 11, 1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 599|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 11
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 1
-    - Name: ps
-      Entry: 1
-      Data: "\u5F37\u5316-1"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9301002
-    - Name: $v
-      Entry: 7
-      Data: 600|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9301002
-    - Name: EffectID
-      Entry: 3
-      Data: 20001
-    - Name: EffectParameter
-      Entry: 1
-      Data: 10 ,1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 601|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u653B\u64CA-1"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9302001
-    - Name: $v
-      Entry: 7
-      Data: 602|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9302001
-    - Name: EffectID
-      Entry: 3
-      Data: 20003
-    - Name: EffectParameter
-      Entry: 1
-      Data: 11, 2
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 603|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 11
-    - Name: 
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 1
-    - Name: ps
-      Entry: 1
-      Data: "\u5F37\u5316-2"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9302002
-    - Name: $v
-      Entry: 7
-      Data: 604|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9302002
-    - Name: EffectID
-      Entry: 3
-      Data: 20001
-    - Name: EffectParameter
-      Entry: 1
-      Data: 10 ,1
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 605|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 1
-      Data: "\u653B\u64CA-2"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9303001
-    - Name: $v
-      Entry: 7
-      Data: 606|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9303001
-    - Name: EffectID
-      Entry: 3
-      Data: 20003
-    - Name: EffectParameter
-      Entry: 1
-      Data: 11, 3
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 607|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 11
-    - Name: 
-      Entry: 3
-      Data: 3
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 1
-    - Name: ps
-      Entry: 1
-      Data: "\u5F37\u5316-3"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9303002
-    - Name: $v
-      Entry: 7
-      Data: 608|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9303002
-    - Name: EffectID
-      Entry: 3
-      Data: 20001
-    - Name: EffectParameter
-      Entry: 1
-      Data: 10 ,1
-    - Name: EffectParameterList
-      Entry: 7
       Data: 609|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 3
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 13
       Data: 
@@ -14535,8 +14592,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: ps
-      Entry: 1
-      Data: "\u653B\u64CA-3"
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -14548,25 +14605,31 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9311001
+      Data: 9203003
     - Name: $v
       Entry: 7
       Data: 610|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9311001
+      Data: 9203003
     - Name: EffectID
       Entry: 3
-      Data: 0
+      Data: 20001
     - Name: EffectParameter
       Entry: 1
-      Data: 
+      Data: 30 ,1
     - Name: EffectParameterList
       Entry: 7
       Data: 611|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
@@ -14578,7 +14641,7 @@ MonoBehaviour:
       Data: 0
     - Name: ps
       Entry: 1
-      Data: 
+      Data: "\u653B\u64CA-3"
     - Name: 
       Entry: 8
       Data: 
@@ -14590,19 +14653,19 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9311002
+      Data: 9211001
     - Name: $v
       Entry: 7
       Data: 612|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9311002
+      Data: 9211001
     - Name: EffectID
       Entry: 3
       Data: 20003
     - Name: EffectParameter
       Entry: 1
-      Data: 2,2
+      Data: 16, 221
     - Name: EffectParameterList
       Entry: 7
       Data: 613|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -14611,10 +14674,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 3
-      Data: 2
+      Data: 16
     - Name: 
       Entry: 3
-      Data: 2
+      Data: 221
     - Name: 
       Entry: 13
       Data: 
@@ -14623,10 +14686,10 @@ MonoBehaviour:
       Data: 
     - Name: Target
       Entry: 3
-      Data: 2
+      Data: 1
     - Name: ps
       Entry: 1
-      Data: "\u5168\u9AD4\u5F37\u5316-1"
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
     - Name: 
       Entry: 8
       Data: 
@@ -14638,13 +14701,100 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9311003
+      Data: 9211002
     - Name: $v
       Entry: 7
       Data: 614|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9311003
+      Data: 9211002
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 615|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9211003
+    - Name: $v
+      Entry: 7
+      Data: 616|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9211003
+    - Name: EffectID
+      Entry: 3
+      Data: 20006
+    - Name: EffectParameter
+      Entry: 1
+      Data: 1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 617|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u9ECF\u6DB2-1"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9211004
+    - Name: $v
+      Entry: 7
+      Data: 618|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9211004
     - Name: EffectID
       Entry: 3
       Data: 20001
@@ -14653,7 +14803,7 @@ MonoBehaviour:
       Data: 10 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 615|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 619|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -14686,109 +14836,19 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9312001
-    - Name: $v
-      Entry: 7
-      Data: 616|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9312001
-    - Name: EffectID
-      Entry: 3
-      Data: 0
-    - Name: EffectParameter
-      Entry: 6
-      Data: 
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 617|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 0
-    - Name: ps
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9312002
-    - Name: $v
-      Entry: 7
-      Data: 618|Effect.SkillInfo, Assembly-CSharp
-    - Name: SkillID
-      Entry: 1
-      Data: 9312002
-    - Name: EffectID
-      Entry: 3
-      Data: 20003
-    - Name: EffectParameter
-      Entry: 1
-      Data: 2,3
-    - Name: EffectParameterList
-      Entry: 7
-      Data: 619|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 3
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Target
-      Entry: 3
-      Data: 2
-    - Name: ps
-      Entry: 1
-      Data: "\u5168\u9AD4\u5F37\u5316-2"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 9312003
+      Data: 9221001
     - Name: $v
       Entry: 7
       Data: 620|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9312003
+      Data: 9221001
     - Name: EffectID
       Entry: 3
-      Data: 20001
+      Data: 20003
     - Name: EffectParameter
       Entry: 1
-      Data: 10 ,1
+      Data: 16, 221
     - Name: EffectParameterList
       Entry: 7
       Data: 621|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -14797,10 +14857,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 3
-      Data: 10
+      Data: 16
     - Name: 
       Entry: 3
-      Data: 1
+      Data: 221
     - Name: 
       Entry: 13
       Data: 
@@ -14809,10 +14869,10 @@ MonoBehaviour:
       Data: 
     - Name: Target
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: ps
       Entry: 1
-      Data: "\u653B\u64CA-2"
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
     - Name: 
       Entry: 8
       Data: 
@@ -14824,13 +14884,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9313001
+      Data: 9221002
     - Name: $v
       Entry: 7
       Data: 622|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9313001
+      Data: 9221002
     - Name: EffectID
       Entry: 3
       Data: 0
@@ -14866,31 +14926,28 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9313002
+      Data: 9221003
     - Name: $v
       Entry: 7
       Data: 624|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9313002
+      Data: 9221003
     - Name: EffectID
       Entry: 3
-      Data: 20003
+      Data: 20006
     - Name: EffectParameter
       Entry: 1
-      Data: 2,5
+      Data: 1
     - Name: EffectParameterList
       Entry: 7
       Data: 625|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 5
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
@@ -14899,10 +14956,10 @@ MonoBehaviour:
       Data: 
     - Name: Target
       Entry: 3
-      Data: 2
+      Data: 0
     - Name: ps
       Entry: 1
-      Data: "\u5168\u9AD4\u5F37\u5316-3"
+      Data: "\u9ECF\u6DB2-1"
     - Name: 
       Entry: 8
       Data: 
@@ -14914,13 +14971,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9313003
+      Data: 9221004
     - Name: $v
       Entry: 7
       Data: 626|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9313003
+      Data: 9221004
     - Name: EffectID
       Entry: 3
       Data: 20001
@@ -14950,7 +15007,7 @@ MonoBehaviour:
       Data: 0
     - Name: ps
       Entry: 1
-      Data: "\u653B\u64CA-3"
+      Data: "\u653B\u64CA-1"
     - Name: 
       Entry: 8
       Data: 
@@ -14962,25 +15019,31 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9401001
+      Data: 9212001
     - Name: $v
       Entry: 7
       Data: 628|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9401001
+      Data: 9212001
     - Name: EffectID
       Entry: 3
-      Data: 0
+      Data: 20003
     - Name: EffectParameter
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: 16, 222
     - Name: EffectParameterList
       Entry: 7
       Data: 629|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 3
+      Data: 222
     - Name: 
       Entry: 13
       Data: 
@@ -14989,10 +15052,10 @@ MonoBehaviour:
       Data: 
     - Name: Target
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: ps
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
     - Name: 
       Entry: 8
       Data: 
@@ -15004,13 +15067,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9401002
+      Data: 9212002
     - Name: $v
       Entry: 7
       Data: 630|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9401002
+      Data: 9212002
     - Name: EffectID
       Entry: 3
       Data: 0
@@ -15046,25 +15109,28 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9402001
+      Data: 9212003
     - Name: $v
       Entry: 7
       Data: 632|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9402001
+      Data: 9212003
     - Name: EffectID
       Entry: 3
-      Data: 0
+      Data: 20006
     - Name: EffectParameter
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: 1
     - Name: EffectParameterList
       Entry: 7
       Data: 633|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
@@ -15075,8 +15141,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: ps
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u9ECF\u6DB2-2"
     - Name: 
       Entry: 8
       Data: 
@@ -15088,25 +15154,31 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9402002
+      Data: 9212004
     - Name: $v
       Entry: 7
       Data: 634|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9402002
+      Data: 9212004
     - Name: EffectID
       Entry: 3
-      Data: 0
+      Data: 20001
     - Name: EffectParameter
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: 20 ,1
     - Name: EffectParameterList
       Entry: 7
       Data: 635|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
@@ -15117,8 +15189,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: ps
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u653B\u64CA-2"
     - Name: 
       Entry: 8
       Data: 
@@ -15130,25 +15202,31 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9403001
+      Data: 9222001
     - Name: $v
       Entry: 7
       Data: 636|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9403001
+      Data: 9222001
     - Name: EffectID
       Entry: 3
-      Data: 0
+      Data: 20003
     - Name: EffectParameter
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: 16, 222
     - Name: EffectParameterList
       Entry: 7
       Data: 637|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 3
+      Data: 222
     - Name: 
       Entry: 13
       Data: 
@@ -15157,10 +15235,10 @@ MonoBehaviour:
       Data: 
     - Name: Target
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: ps
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
     - Name: 
       Entry: 8
       Data: 
@@ -15172,13 +15250,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9403002
+      Data: 9222002
     - Name: $v
       Entry: 7
       Data: 638|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9403002
+      Data: 9222002
     - Name: EffectID
       Entry: 3
       Data: 0
@@ -15214,25 +15292,28 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9411001
+      Data: 9222003
     - Name: $v
       Entry: 7
       Data: 640|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9411001
+      Data: 9222003
     - Name: EffectID
       Entry: 3
-      Data: 0
+      Data: 20006
     - Name: EffectParameter
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: 1
     - Name: EffectParameterList
       Entry: 7
       Data: 641|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
@@ -15243,8 +15324,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: ps
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u9ECF\u6DB2-2"
     - Name: 
       Entry: 8
       Data: 
@@ -15256,25 +15337,31 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9411002
+      Data: 9222004
     - Name: $v
       Entry: 7
       Data: 642|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9411002
+      Data: 9222004
     - Name: EffectID
       Entry: 3
-      Data: 0
+      Data: 20001
     - Name: EffectParameter
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: 20 ,1
     - Name: EffectParameterList
       Entry: 7
       Data: 643|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
@@ -15285,8 +15372,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: ps
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u653B\u64CA-2"
     - Name: 
       Entry: 8
       Data: 
@@ -15298,25 +15385,31 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9411003
+      Data: 9213001
     - Name: $v
       Entry: 7
       Data: 644|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9411003
+      Data: 9213001
     - Name: EffectID
       Entry: 3
-      Data: 0
+      Data: 20003
     - Name: EffectParameter
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: 16, 223
     - Name: EffectParameterList
       Entry: 7
       Data: 645|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 3
+      Data: 223
     - Name: 
       Entry: 13
       Data: 
@@ -15325,10 +15418,10 @@ MonoBehaviour:
       Data: 
     - Name: Target
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: ps
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
     - Name: 
       Entry: 8
       Data: 
@@ -15340,13 +15433,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9411004
+      Data: 9213002
     - Name: $v
       Entry: 7
       Data: 646|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9411004
+      Data: 9213002
     - Name: EffectID
       Entry: 3
       Data: 0
@@ -15382,25 +15475,28 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9412001
+      Data: 9213003
     - Name: $v
       Entry: 7
       Data: 648|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9412001
+      Data: 9213003
     - Name: EffectID
       Entry: 3
-      Data: 0
+      Data: 20006
     - Name: EffectParameter
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: 1
     - Name: EffectParameterList
       Entry: 7
       Data: 649|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
@@ -15411,8 +15507,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: ps
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u9ECF\u6DB2-3"
     - Name: 
       Entry: 8
       Data: 
@@ -15424,25 +15520,31 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9412002
+      Data: 9213004
     - Name: $v
       Entry: 7
       Data: 650|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9412002
+      Data: 9213004
     - Name: EffectID
       Entry: 3
-      Data: 0
+      Data: 20001
     - Name: EffectParameter
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: 30 ,1
     - Name: EffectParameterList
       Entry: 7
       Data: 651|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
@@ -15453,8 +15555,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: ps
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u653B\u64CA-3"
     - Name: 
       Entry: 8
       Data: 
@@ -15466,25 +15568,31 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9412003
+      Data: 9223001
     - Name: $v
       Entry: 7
       Data: 652|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9412003
+      Data: 9223001
     - Name: EffectID
       Entry: 3
-      Data: 0
+      Data: 20003
     - Name: EffectParameter
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: 16, 223
     - Name: EffectParameterList
       Entry: 7
       Data: 653|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 3
+      Data: 223
     - Name: 
       Entry: 13
       Data: 
@@ -15493,10 +15601,10 @@ MonoBehaviour:
       Data: 
     - Name: Target
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: ps
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u958B\u5834\u5206\u88C2\u7279\u6027"
     - Name: 
       Entry: 8
       Data: 
@@ -15508,13 +15616,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9412004
+      Data: 9223002
     - Name: $v
       Entry: 7
       Data: 654|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
-      Data: 9412004
+      Data: 9223002
     - Name: EffectID
       Entry: 3
       Data: 0
@@ -15550,12 +15658,1398 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9413001
+      Data: 9223003
     - Name: $v
       Entry: 7
       Data: 656|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
+      Data: 9223003
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 21, 1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 657|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 21
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u9ECF\u6DB2-3"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9223004
+    - Name: $v
+      Entry: 7
+      Data: 658|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9223004
+    - Name: EffectID
+      Entry: 3
+      Data: 20001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 30 ,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 659|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA-3"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9301001
+    - Name: $v
+      Entry: 7
+      Data: 660|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9301001
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 11, 1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 661|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 1
+    - Name: ps
+      Entry: 1
+      Data: "\u5F37\u5316-1"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9301002
+    - Name: $v
+      Entry: 7
+      Data: 662|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9301002
+    - Name: EffectID
+      Entry: 3
+      Data: 20001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 10 ,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 663|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA-1"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9302001
+    - Name: $v
+      Entry: 7
+      Data: 664|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9302001
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 11, 2
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 665|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 1
+    - Name: ps
+      Entry: 1
+      Data: "\u5F37\u5316-2"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9302002
+    - Name: $v
+      Entry: 7
+      Data: 666|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9302002
+    - Name: EffectID
+      Entry: 3
+      Data: 20001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 10 ,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 667|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA-2"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9303001
+    - Name: $v
+      Entry: 7
+      Data: 668|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9303001
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 11, 3
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 669|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 1
+    - Name: ps
+      Entry: 1
+      Data: "\u5F37\u5316-3"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9303002
+    - Name: $v
+      Entry: 7
+      Data: 670|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9303002
+    - Name: EffectID
+      Entry: 3
+      Data: 20001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 10 ,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 671|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA-3"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9311001
+    - Name: $v
+      Entry: 7
+      Data: 672|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9311001
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 1
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 673|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9311002
+    - Name: $v
+      Entry: 7
+      Data: 674|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9311002
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 2,2
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 675|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 2
+    - Name: ps
+      Entry: 1
+      Data: "\u5168\u9AD4\u5F37\u5316-1"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9311003
+    - Name: $v
+      Entry: 7
+      Data: 676|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9311003
+    - Name: EffectID
+      Entry: 3
+      Data: 20001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 10 ,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 677|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA-1"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9312001
+    - Name: $v
+      Entry: 7
+      Data: 678|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9312001
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 679|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9312002
+    - Name: $v
+      Entry: 7
+      Data: 680|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9312002
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 2,3
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 681|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 2
+    - Name: ps
+      Entry: 1
+      Data: "\u5168\u9AD4\u5F37\u5316-2"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9312003
+    - Name: $v
+      Entry: 7
+      Data: 682|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9312003
+    - Name: EffectID
+      Entry: 3
+      Data: 20001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 10 ,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 683|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA-2"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9313001
+    - Name: $v
+      Entry: 7
+      Data: 684|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9313001
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 685|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9313002
+    - Name: $v
+      Entry: 7
+      Data: 686|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9313002
+    - Name: EffectID
+      Entry: 3
+      Data: 20003
+    - Name: EffectParameter
+      Entry: 1
+      Data: 2,5
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 687|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 2
+    - Name: ps
+      Entry: 1
+      Data: "\u5168\u9AD4\u5F37\u5316-3"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9313003
+    - Name: $v
+      Entry: 7
+      Data: 688|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9313003
+    - Name: EffectID
+      Entry: 3
+      Data: 20001
+    - Name: EffectParameter
+      Entry: 1
+      Data: 10 ,1
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 689|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 1
+      Data: "\u653B\u64CA-3"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9401001
+    - Name: $v
+      Entry: 7
+      Data: 690|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9401001
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 691|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9401002
+    - Name: $v
+      Entry: 7
+      Data: 692|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9401002
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 693|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9402001
+    - Name: $v
+      Entry: 7
+      Data: 694|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9402001
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 695|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9402002
+    - Name: $v
+      Entry: 7
+      Data: 696|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9402002
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 697|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9403001
+    - Name: $v
+      Entry: 7
+      Data: 698|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9403001
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 699|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9403002
+    - Name: $v
+      Entry: 7
+      Data: 700|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9403002
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 701|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9411001
+    - Name: $v
+      Entry: 7
+      Data: 702|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9411001
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 703|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9411002
+    - Name: $v
+      Entry: 7
+      Data: 704|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9411002
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 705|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9411003
+    - Name: $v
+      Entry: 7
+      Data: 706|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9411003
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 707|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9411004
+    - Name: $v
+      Entry: 7
+      Data: 708|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9411004
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 709|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9412001
+    - Name: $v
+      Entry: 7
+      Data: 710|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9412001
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 711|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9412002
+    - Name: $v
+      Entry: 7
+      Data: 712|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9412002
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 713|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9412003
+    - Name: $v
+      Entry: 7
+      Data: 714|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9412003
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 715|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9412004
+    - Name: $v
+      Entry: 7
+      Data: 716|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
+      Data: 9412004
+    - Name: EffectID
+      Entry: 3
+      Data: 0
+    - Name: EffectParameter
+      Entry: 6
+      Data: 
+    - Name: EffectParameterList
+      Entry: 7
+      Data: 717|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Target
+      Entry: 3
+      Data: 0
+    - Name: ps
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9413001
+    - Name: $v
+      Entry: 7
+      Data: 718|Effect.SkillInfo, Assembly-CSharp
+    - Name: SkillID
+      Entry: 1
       Data: 9413001
     - Name: EffectID
       Entry: 3
@@ -15565,7 +17059,7 @@ MonoBehaviour:
       Data: 
     - Name: EffectParameterList
       Entry: 7
-      Data: 657|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 719|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -15595,7 +17089,7 @@ MonoBehaviour:
       Data: 9413002
     - Name: $v
       Entry: 7
-      Data: 658|Effect.SkillInfo, Assembly-CSharp
+      Data: 720|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9413002
@@ -15607,7 +17101,7 @@ MonoBehaviour:
       Data: 
     - Name: EffectParameterList
       Entry: 7
-      Data: 659|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 721|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -15637,7 +17131,7 @@ MonoBehaviour:
       Data: 9413003
     - Name: $v
       Entry: 7
-      Data: 660|Effect.SkillInfo, Assembly-CSharp
+      Data: 722|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9413003
@@ -15649,7 +17143,7 @@ MonoBehaviour:
       Data: 
     - Name: EffectParameterList
       Entry: 7
-      Data: 661|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 723|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -15679,7 +17173,7 @@ MonoBehaviour:
       Data: 9413004
     - Name: $v
       Entry: 7
-      Data: 662|Effect.SkillInfo, Assembly-CSharp
+      Data: 724|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9413004
@@ -15691,7 +17185,7 @@ MonoBehaviour:
       Data: 
     - Name: EffectParameterList
       Entry: 7
-      Data: 663|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 725|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -15721,7 +17215,7 @@ MonoBehaviour:
       Data: 9501001
     - Name: $v
       Entry: 7
-      Data: 664|Effect.SkillInfo, Assembly-CSharp
+      Data: 726|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9501001
@@ -15733,7 +17227,7 @@ MonoBehaviour:
       Data: 4, 1
     - Name: EffectParameterList
       Entry: 7
-      Data: 665|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 727|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -15769,7 +17263,7 @@ MonoBehaviour:
       Data: 9501002
     - Name: $v
       Entry: 7
-      Data: 666|Effect.SkillInfo, Assembly-CSharp
+      Data: 728|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9501002
@@ -15781,7 +17275,7 @@ MonoBehaviour:
       Data: 10 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 667|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 729|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -15817,7 +17311,7 @@ MonoBehaviour:
       Data: 9502001
     - Name: $v
       Entry: 7
-      Data: 668|Effect.SkillInfo, Assembly-CSharp
+      Data: 730|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9502001
@@ -15829,7 +17323,7 @@ MonoBehaviour:
       Data: 4, 1
     - Name: EffectParameterList
       Entry: 7
-      Data: 669|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 731|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -15865,7 +17359,7 @@ MonoBehaviour:
       Data: 9502002
     - Name: $v
       Entry: 7
-      Data: 670|Effect.SkillInfo, Assembly-CSharp
+      Data: 732|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9502002
@@ -15877,7 +17371,7 @@ MonoBehaviour:
       Data: 20 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 671|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 733|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -15913,7 +17407,7 @@ MonoBehaviour:
       Data: 9503001
     - Name: $v
       Entry: 7
-      Data: 672|Effect.SkillInfo, Assembly-CSharp
+      Data: 734|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9503001
@@ -15925,7 +17419,7 @@ MonoBehaviour:
       Data: 4, 1
     - Name: EffectParameterList
       Entry: 7
-      Data: 673|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 735|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -15961,7 +17455,7 @@ MonoBehaviour:
       Data: 9503002
     - Name: $v
       Entry: 7
-      Data: 674|Effect.SkillInfo, Assembly-CSharp
+      Data: 736|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9503002
@@ -15973,7 +17467,7 @@ MonoBehaviour:
       Data: 30 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 675|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 737|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16009,7 +17503,7 @@ MonoBehaviour:
       Data: 9511001
     - Name: $v
       Entry: 7
-      Data: 676|Effect.SkillInfo, Assembly-CSharp
+      Data: 738|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9511001
@@ -16021,7 +17515,7 @@ MonoBehaviour:
       Data: 4, 1
     - Name: EffectParameterList
       Entry: 7
-      Data: 677|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 739|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16057,7 +17551,7 @@ MonoBehaviour:
       Data: 9511002
     - Name: $v
       Entry: 7
-      Data: 678|Effect.SkillInfo, Assembly-CSharp
+      Data: 740|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9511002
@@ -16069,7 +17563,7 @@ MonoBehaviour:
       Data: 0, 20
     - Name: EffectParameterList
       Entry: 7
-      Data: 679|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 741|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16105,7 +17599,7 @@ MonoBehaviour:
       Data: 9511003
     - Name: $v
       Entry: 7
-      Data: 680|Effect.SkillInfo, Assembly-CSharp
+      Data: 742|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9511003
@@ -16117,7 +17611,7 @@ MonoBehaviour:
       Data: 10 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 681|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 743|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16153,7 +17647,7 @@ MonoBehaviour:
       Data: 9512001
     - Name: $v
       Entry: 7
-      Data: 682|Effect.SkillInfo, Assembly-CSharp
+      Data: 744|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9512001
@@ -16165,7 +17659,7 @@ MonoBehaviour:
       Data: 4, 1
     - Name: EffectParameterList
       Entry: 7
-      Data: 683|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 745|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16201,7 +17695,7 @@ MonoBehaviour:
       Data: 9512002
     - Name: $v
       Entry: 7
-      Data: 684|Effect.SkillInfo, Assembly-CSharp
+      Data: 746|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9512002
@@ -16213,7 +17707,7 @@ MonoBehaviour:
       Data: 0, 40
     - Name: EffectParameterList
       Entry: 7
-      Data: 685|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 747|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16249,7 +17743,7 @@ MonoBehaviour:
       Data: 9512003
     - Name: $v
       Entry: 7
-      Data: 686|Effect.SkillInfo, Assembly-CSharp
+      Data: 748|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9512003
@@ -16261,7 +17755,7 @@ MonoBehaviour:
       Data: 20 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 687|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 749|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16297,7 +17791,7 @@ MonoBehaviour:
       Data: 9513001
     - Name: $v
       Entry: 7
-      Data: 688|Effect.SkillInfo, Assembly-CSharp
+      Data: 750|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9513001
@@ -16309,7 +17803,7 @@ MonoBehaviour:
       Data: 4, 1
     - Name: EffectParameterList
       Entry: 7
-      Data: 689|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 751|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16345,7 +17839,7 @@ MonoBehaviour:
       Data: 9513002
     - Name: $v
       Entry: 7
-      Data: 690|Effect.SkillInfo, Assembly-CSharp
+      Data: 752|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9513002
@@ -16357,7 +17851,7 @@ MonoBehaviour:
       Data: 0, 60
     - Name: EffectParameterList
       Entry: 7
-      Data: 691|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 753|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16393,7 +17887,7 @@ MonoBehaviour:
       Data: 9513003
     - Name: $v
       Entry: 7
-      Data: 692|Effect.SkillInfo, Assembly-CSharp
+      Data: 754|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 9513003
@@ -16405,7 +17899,7 @@ MonoBehaviour:
       Data: 30 ,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 693|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 755|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16441,7 +17935,7 @@ MonoBehaviour:
       Data: 19000001
     - Name: $v
       Entry: 7
-      Data: 694|Effect.SkillInfo, Assembly-CSharp
+      Data: 756|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 19000001
@@ -16453,7 +17947,7 @@ MonoBehaviour:
       Data: 
     - Name: EffectParameterList
       Entry: 7
-      Data: 695|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 757|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -16483,7 +17977,7 @@ MonoBehaviour:
       Data: 19001001
     - Name: $v
       Entry: 7
-      Data: 696|Effect.SkillInfo, Assembly-CSharp
+      Data: 758|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 19001001
@@ -16495,7 +17989,7 @@ MonoBehaviour:
       Data: 902,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 697|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 759|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16531,7 +18025,7 @@ MonoBehaviour:
       Data: 19002001
     - Name: $v
       Entry: 7
-      Data: 698|Effect.SkillInfo, Assembly-CSharp
+      Data: 760|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 19002001
@@ -16543,7 +18037,7 @@ MonoBehaviour:
       Data: 1,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 699|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 761|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16579,7 +18073,7 @@ MonoBehaviour:
       Data: 19100001
     - Name: $v
       Entry: 7
-      Data: 700|Effect.SkillInfo, Assembly-CSharp
+      Data: 762|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 19100001
@@ -16591,7 +18085,7 @@ MonoBehaviour:
       Data: 1,1
     - Name: EffectParameterList
       Entry: 7
-      Data: 701|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 763|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16627,7 +18121,7 @@ MonoBehaviour:
       Data: 19101001
     - Name: $v
       Entry: 7
-      Data: 702|Effect.SkillInfo, Assembly-CSharp
+      Data: 764|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 19101001
@@ -16639,7 +18133,7 @@ MonoBehaviour:
       Data: 11,2
     - Name: EffectParameterList
       Entry: 7
-      Data: 703|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 765|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -16675,7 +18169,7 @@ MonoBehaviour:
       Data: 19102001
     - Name: $v
       Entry: 7
-      Data: 704|Effect.SkillInfo, Assembly-CSharp
+      Data: 766|Effect.SkillInfo, Assembly-CSharp
     - Name: SkillID
       Entry: 1
       Data: 19102001
@@ -16687,7 +18181,7 @@ MonoBehaviour:
       Data: 4,2
     - Name: EffectParameterList
       Entry: 7
-      Data: 705|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+      Data: 767|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -17187,8 +18681,8 @@ MonoBehaviour:
     ps: "\u50B7\u5BB3"
   - SkillID: 1100010
     EffectID: 20001
-    EffectParameter: 10 ,1
-    EffectParameterList: 0a00000001000000
+    EffectParameter: 8 ,1
+    EffectParameterList: 0800000001000000
     Target: 2
     ps: "\u50B7\u5BB3"
   - SkillID: 1100011
@@ -18241,6 +19735,192 @@ MonoBehaviour:
     EffectParameterList: 0200000019000000
     Target: 1
     ps: "\u6495\u88C2"
+  - SkillID: 5000001
+    EffectID: 90001
+    EffectParameter: 1, 20021, 1
+    EffectParameterList: 01000000354e000001000000
+    Target: 0
+    ps: "\u6A5F\u6703"
+  - SkillID: 5000002
+    EffectID: 90001
+    EffectParameter: 20002, 5 ,1
+    EffectParameterList: 224e00000500000001000000
+    Target: 0
+    ps: "\u6A5F\u6703"
+  - SkillID: 5000003
+    EffectID: 90001
+    EffectParameter: 20002, 12 ,1
+    EffectParameterList: 224e00000c00000001000000
+    Target: 0
+    ps: "\u6A5F\u6703"
+  - SkillID: 5010001
+    EffectID: 20003
+    EffectParameter: 26,1
+    EffectParameterList: 1a00000001000000
+    Target: 0
+    ps: "\u5168\u80FD"
+  - SkillID: 5010002
+    EffectID: 20003
+    EffectParameter: 26,1
+    EffectParameterList: 1a00000001000000
+    Target: 0
+    ps: "\u5168\u80FD"
+  - SkillID: 5010003
+    EffectID: 20003
+    EffectParameter: 26,1
+    EffectParameterList: 1a00000001000000
+    Target: 0
+    ps: "\u5168\u80FD"
+  - SkillID: 5020001
+    EffectID: 20003
+    EffectParameter: 27,1
+    EffectParameterList: 1b00000001000000
+    Target: 1
+    ps: "\u5077\u8972"
+  - SkillID: 5020002
+    EffectID: 20003
+    EffectParameter: 27,1
+    EffectParameterList: 1b00000001000000
+    Target: 1
+    ps: "\u5077\u8972"
+  - SkillID: 5020003
+    EffectID: 20003
+    EffectParameter: 27,1
+    EffectParameterList: 1b00000001000000
+    Target: 1
+    ps: "\u5077\u8972"
+  - SkillID: 5030001
+    EffectID: 20100
+    EffectParameter: 
+    EffectParameterList: 
+    Target: 0
+    ps: "\u4F11\u7720"
+  - SkillID: 5030002
+    EffectID: 20100
+    EffectParameter: 
+    EffectParameterList: 
+    Target: 0
+    ps: "\u4F11\u7720"
+  - SkillID: 5030003
+    EffectID: 20100
+    EffectParameter: 
+    EffectParameterList: 
+    Target: 0
+    ps: "\u4F11\u7720"
+  - SkillID: 5040001
+    EffectID: 20003
+    EffectParameter: 23,1
+    EffectParameterList: 1700000001000000
+    Target: 0
+    ps: "\u6295\u8CC7"
+  - SkillID: 5040002
+    EffectID: 20003
+    EffectParameter: 24,12
+    EffectParameterList: 180000000c000000
+    Target: 0
+    ps: "\u6295\u8CC7"
+  - SkillID: 5040003
+    EffectID: 20003
+    EffectParameter: 25,3
+    EffectParameterList: 1900000003000000
+    Target: 0
+    ps: "\u6295\u8CC7"
+  - SkillID: 5050001
+    EffectID: 20051
+    EffectParameter: 8,2,12
+    EffectParameterList: 08000000020000000c000000
+    Target: 1
+    ps: "\u6253\u64CA"
+  - SkillID: 5050002
+    EffectID: 20051
+    EffectParameter: 11,2,21
+    EffectParameterList: 0b0000000200000015000000
+    Target: 1
+    ps: "\u6253\u64CA"
+  - SkillID: 5050003
+    EffectID: 20051
+    EffectParameter: 18,2,31
+    EffectParameterList: 12000000020000001f000000
+    Target: 1
+    ps: "\u6253\u64CA"
+  - SkillID: 5060001
+    EffectID: 20003
+    EffectParameter: 24,12
+    EffectParameterList: 180000000c000000
+    Target: 0
+    ps: "\u9810\u5224"
+  - SkillID: 5060002
+    EffectID: 20003
+    EffectParameter: 24,23
+    EffectParameterList: 1800000017000000
+    Target: 0
+    ps: "\u9810\u5224"
+  - SkillID: 5060003
+    EffectID: 20003
+    EffectParameter: 24,34
+    EffectParameterList: 1800000022000000
+    Target: 0
+    ps: "\u9810\u5224"
+  - SkillID: 5070001
+    EffectID: 20021
+    EffectParameter: 1
+    EffectParameterList: 01000000
+    Target: 0
+    ps: "\u88DC\u7D66"
+  - SkillID: 5070002
+    EffectID: 20021
+    EffectParameter: 1
+    EffectParameterList: 01000000
+    Target: 0
+    ps: "\u88DC\u7D66"
+  - SkillID: 5070003
+    EffectID: 20021
+    EffectParameter: 1
+    EffectParameterList: 01000000
+    Target: 0
+    ps: "\u88DC\u7D66"
+  - SkillID: 5080001
+    EffectID: 20003
+    EffectParameter: 21,1
+    EffectParameterList: 1500000001000000
+    Target: 0
+    ps: "\u5FAA\u74B0"
+  - SkillID: 5080002
+    EffectID: 20003
+    EffectParameter: 21,2
+    EffectParameterList: 1500000002000000
+    Target: 0
+    ps: "\u5FAA\u74B0"
+  - SkillID: 5080003
+    EffectID: 20003
+    EffectParameter: 21,3
+    EffectParameterList: 1500000003000000
+    Target: 0
+    ps: "\u5FAA\u74B0"
+  - SkillID: 5090001
+    EffectID: 90001
+    EffectParameter: 2, 20002, 8, 1
+    EffectParameterList: 02000000224e00000800000001000000
+    Target: 0
+    ps: "\u5805\u5B9A"
+  - SkillID: 5090002
+    EffectID: 90001
+    EffectParameter: 2, 20002, 11, 1
+    EffectParameterList: 02000000224e00000b00000001000000
+    Target: 0
+    ps: "\u5805\u5B9A"
+  - SkillID: 5090003
+    EffectID: 90001
+    EffectParameter: 2, 20002, 13, 1
+    EffectParameterList: 02000000224e00000d00000001000000
+    Target: 0
+    ps: "\u5805\u5B9A"
+  - SkillID: 8000002
+    EffectID: 20021
+    EffectParameter: 2
+    EffectParameterList: 02000000
+    Target: 0
+    ps: "\u7D14\u62BD\u724C\u529F\u80FD"
   - SkillID: 9101001
     EffectID: 20003
     EffectParameter: 7, 1
