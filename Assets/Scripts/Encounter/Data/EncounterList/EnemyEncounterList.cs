@@ -40,7 +40,7 @@ namespace Encounter.Data.EncounterList
         [LabelText("敵人")]
         [SerializeField] private EncounterName encounter;
         [LabelText("出現權重")]
-        [SerializeField] private int weight;
+        [SerializeField] private int weight = 1;
         /// <summary>
         /// 一場戰鬥的敵人清單
         /// </summary>
