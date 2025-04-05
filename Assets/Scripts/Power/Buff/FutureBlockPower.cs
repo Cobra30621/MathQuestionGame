@@ -16,16 +16,10 @@ namespace Power.Buff
         {
             if (info.CharacterType == CharacterType.Ally)
             {
-                ClearPower();
-            }
-        }
-        public override void OnTurnEnd(TurnInfo info)
-        {
-            if (IsCharacterTurn(info))
-            {
                 EffectExecutor.AddEffect(new ApplyPowerEffect(
                     Amount, PowerName.Block, new List<CharacterBase>() {Owner},
                     GetEffectSource()));
+                ClearPower();
             }
         }
     }

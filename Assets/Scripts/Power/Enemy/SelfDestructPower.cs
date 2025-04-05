@@ -1,6 +1,9 @@
 
+using System.Collections;
 using Combat;
+using Effect;
 using Effect.Parameters;
+using UnityEngine;
 
 namespace Power.Enemy
 {
@@ -29,8 +32,14 @@ namespace Power.Enemy
         {
             if (enemy.IsBoss)
             {
-                Owner.SetDeath();
+                EffectExecutor.DoCoroutine(DestructCoroutine());
             }
+        }
+
+        private IEnumerator DestructCoroutine()
+        {
+            yield return new WaitForSeconds(0.5f);
+            Owner.SetDeath();
         }
     }
 }

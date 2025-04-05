@@ -348,7 +348,10 @@ namespace Combat
             
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"玩家階段開始");
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Ally));
+
+            yield return new WaitForSeconds(0.1f);
             CombatEventTrigger.InvokeOnTurnStart(GetTurnInfo(CharacterType.Ally));
+            
             
             // 玩家可以操作手牌
             CollectionManager.HandController.EnableDragging();

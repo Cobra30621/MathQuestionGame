@@ -4,7 +4,7 @@ using Effect.Parameters;
 namespace Effect.Condition
 {
     /// <summary>
-    /// 造成 [1] 點傷害，如果本回合使用過 [2] 張以上的卡片，多造成 [3] 點傷害
+    /// 造成 [1] 點傷害，如果本回合使用過 [2] 張以上的卡片，改造成 [3] 點傷害
     /// </summary>
     public class DamageMoreWhenUseEnoughCardEffect : EffectBase
     {
@@ -25,7 +25,7 @@ namespace Effect.Condition
             var addAmount = defalutAmount;
             if (ConditionChecker.UseEnoughCard(needUseCard))
             {
-                addAmount += addition;
+                addAmount = addition;
             }
             
             var damageInfo = new DamageInfo(addAmount, EffectSource);
