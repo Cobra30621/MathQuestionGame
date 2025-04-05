@@ -92,6 +92,7 @@ namespace Characters
         {
             
             CombatManager.OnTurnStart += CharacterStats.HandleAllPowerOnTurnStart;
+            CombatManager.OnTurnEnd += CharacterStats.HandleAllPowerOnTurnEnd;
             
             OnDeath += OnDeathAction;
         }
@@ -99,6 +100,7 @@ namespace Characters
         protected virtual void UnsubscribeEvent()
         {
             CombatManager.OnTurnStart -= CharacterStats.HandleAllPowerOnTurnStart;
+            CombatManager.OnTurnEnd -= CharacterStats.HandleAllPowerOnTurnEnd;
  
             OnDeath -= OnDeathAction;
         }

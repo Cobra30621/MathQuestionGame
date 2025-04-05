@@ -157,19 +157,46 @@ namespace Characters
                 return;
             }
 
-            GameManager.Instance.StartCoroutine(UpdatePowerStatusCoroutine());
+            GameManager.Instance.StartCoroutine(UpdatePowerOnTurnStart());
+        }
+        
+        /// <summary>
+        /// 角色回合結束時，通知持有的能力更新狀態
+        /// </summary>
+        public void HandleAllPowerOnTurnEnd(TurnInfo info)
+        {
+            if (!owner.IsCharacterType(info.CharacterType))
+            {
+                return;
+            }
+
+            GameManager.Instance.StartCoroutine(UpdatePowerOnTurnEnd());
         }
 
         /// <summary>
         /// 更新能力的流程
         /// </summary>
         /// <returns></returns>
-        private IEnumerator UpdatePowerStatusCoroutine()
+        private IEnumerator UpdatePowerOnTurnStart()
         {
             var copyPowerDict = new Dictionary<PowerName, PowerBase> (PowerDict);
             foreach (PowerBase power in copyPowerDict.Values)
             {
                 power.UpdateStatusOnTurnStart();
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        
+        /// <summary>
+        /// 更新能力的流程
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator UpdatePowerOnTurnEnd()
+        {
+            var copyPowerDict = new Dictionary<PowerName, PowerBase> (PowerDict);
+            foreach (PowerBase power in copyPowerDict.Values)
+            {
+                power.UpdateStatusOnTurnEnd();
                 yield return new WaitForSeconds(0.1f);
             }
         }

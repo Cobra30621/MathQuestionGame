@@ -11,7 +11,7 @@ namespace Power.Buff
 
         public VulnerablePower()
         {
-            DecreaseOverTurn = true;
+            DecreaseOnTurnEnd = true;
             DamageCalculateOrder = CalculateOrder.MultiplyAndDivide;
         }
         

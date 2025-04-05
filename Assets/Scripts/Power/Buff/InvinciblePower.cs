@@ -11,7 +11,7 @@ namespace Power.Buff
 
         public InvinciblePower()
         {
-            DecreaseOverTurn = true;
+            DecreaseOnTurnStart = true;
             DamageCalculateOrder = CalculateOrder.FinalChange;
         }
         
