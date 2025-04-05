@@ -14,6 +14,8 @@ namespace NueGames.Card
         public UICard uiCard;
         private CardRewardChoicePanel _choicePanel;
 
+        [SerializeField] private GameObject choiceBackground;
+
 
         public void BuildReward(CardData cardData, CardRewardChoicePanel choicePanel)
         {
@@ -25,6 +27,11 @@ namespace NueGames.Card
         private void OnChoice()
         {
             _choicePanel.ChoiceCard(this);
+        }
+
+        public void SetChoiceBackground(bool value)
+        {
+            choiceBackground.SetActive(value);
         }
     }
 }

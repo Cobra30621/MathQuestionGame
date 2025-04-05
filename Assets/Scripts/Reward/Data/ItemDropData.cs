@@ -31,7 +31,11 @@ namespace Reward.Data
         [LabelText("通用遺物獎勵清單")] 
         public List<RelicName> commonRelics;
 
+        [LabelText("通用遺物掉落機率")] 
         public float commonRelicDropRate;
+        
+        [LabelText("通用卡片掉落機率")] 
+        public float commonCardDropRate;
         
         [Required]
         [LabelText("遺物資料")] public RelicsData relicsData;

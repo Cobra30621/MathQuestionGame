@@ -1,3 +1,4 @@
+using System;
 using Map;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -16,12 +17,18 @@ namespace UI
         {
             _sceneChanger = GetComponent<SceneChanger>();
             
+            
+        }
+
+        private void Start()
+        {
             UpdateUI();
         }
 
         public void UpdateUI()
         {
-            mapName.text = "突破地圖:" + MapManager.Instance.CurrentMap.mapName;
+            var info =  "突破地圖:" + MapManager.Instance.CurrentMap.mapName;
+            mapName.text = info;
         }
 
         public void EnterNextMap()

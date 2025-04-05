@@ -10,6 +10,7 @@ using Reward.Data;
 using Sirenix.OdinInspector;
 using Stage;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Reward
 {
@@ -34,7 +35,35 @@ namespace Reward
         {
             return RewardContainerData.RewardsSprites[rewardType];
         }
-        
+
+
+        public List<CardData> GetCombatWinCardList(int amount)
+        {
+            var cards = new List<CardData>();
+            for (int i = 0; i < amount; i++)
+            {
+                CardData card;
+                // 一定機率獲得通用卡牌
+                if (Random.Range(0f, 1f) < ItemDropData.commonCardDropRate)
+                {
+                    card = GetCard(new RewardData()
+                    {
+                        ItemGainType = ItemGainType.Common
+                    });
+                }
+                else
+                {
+                    card = GetCard(new RewardData()
+                    {
+                        ItemGainType = ItemGainType.Character
+                    });
+                }
+                
+                cards.Add(card);
+            }
+            
+            return cards;
+        }
         
         public List<CardData> GetCardList(RewardData rewardData, int amount)
         {

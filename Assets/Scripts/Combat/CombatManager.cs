@@ -119,6 +119,7 @@ namespace Combat
 
         public EnemyEncounter currentEncounter;
 
+        [ShowInInspector]
         public CombatStateType CurrentCombatStateType
         {
             get => _currentCombatStateType;

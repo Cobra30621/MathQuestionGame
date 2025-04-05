@@ -58,6 +58,7 @@ namespace Reward.UI
 
                 var reward = cardData[i];
                 choice.BuildReward(reward, this);
+                _rewardChoiceCards.Add(choice);
             }
         }
 
@@ -69,6 +70,12 @@ namespace Reward.UI
         {
             selectedChoice = rewardChoiceCard;
             getRewardButton.interactable = true;
+            
+            foreach (var choiceCard in _rewardChoiceCards)
+            {
+                choiceCard.SetChoiceBackground(false);
+            }
+            selectedChoice.SetChoiceBackground(true);
         }
 
         /// <summary>

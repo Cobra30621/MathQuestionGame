@@ -165,7 +165,7 @@ namespace Reward.UI
                         GetStoneReward(RewardManager.Instance.GetStone(rewardData, nodeType));
                         break;
                     case RewardType.Card:
-                        var cardRewardList = RewardManager.Instance.GetCardList(rewardData, 3);
+                        var cardRewardList = RewardManager.Instance.GetCombatWinCardList(3);
                         GetCardReward(cardRewardList);
                         haveChoiceReward = true;
                         break;

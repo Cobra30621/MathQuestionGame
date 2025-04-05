@@ -17,7 +17,7 @@ namespace Encounter
     /// <summary>
     /// 管理地圖遭遇
     /// </summary>
-    public class EncounterManager : MonoBehaviour,IDataPersistence
+    public class EncounterManager : MonoBehaviour, IDataPersistence
     {
         /// <summary>
         /// 目前的敵人遭遇名稱
@@ -130,6 +130,7 @@ namespace Encounter
         public void LoadData(GameData data)
         {
             mapEncounter = data.MapEncounter;
+            // currentEnemyEncounter = data.en
         }
 
         public void SaveData(GameData data)
