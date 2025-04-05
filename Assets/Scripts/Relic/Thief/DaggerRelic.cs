@@ -13,18 +13,28 @@ namespace Relic.Thief
         public override RelicName RelicName => RelicName.Dagger;
         public override void OnAttack(DamageInfo info, List<CharacterBase> targets)
         {
-            if (IsMaxLevel())
+            if (info.EffectSource.SourceCharacter == null)
             {
-                EffectExecutor.AddEffect(new ApplyPowerEffect(
-                    3, PowerName.Poison, targets,
-                    GetEffectSource()));
+                return;
             }
-            else
+            
+            // 攻擊者為玩家
+            if (info.EffectSource.SourceCharacter.IsCharacterType(CharacterType.Ally))
             {
-                EffectExecutor.AddEffect(new ApplyPowerEffect(
-                    1, PowerName.Poison, targets,
-                    GetEffectSource()));
+                if (IsMaxLevel())
+                {
+                    EffectExecutor.AddEffect(new ApplyPowerEffect(
+                        3, PowerName.Poison, targets,
+                        GetEffectSource()));
+                }
+                else
+                {
+                    EffectExecutor.AddEffect(new ApplyPowerEffect(
+                        1, PowerName.Poison, targets,
+                        GetEffectSource()));
+                }
             }
+            
         }
     }
 }
