@@ -1,0 +1,32 @@
+using Characters;
+using Combat;
+using System.Collections.Generic;
+using Effect;
+using Effect.Power;
+namespace Power.Buff
+{
+    /// <summary>
+    /// 下一回合，額外獲得層數點力量
+    /// </summary>
+    public class FutureStrengthPower : PowerBase
+    {
+        public override PowerName PowerName => PowerName.FutureStrength;
+
+        public override void OnTurnStart(TurnInfo info)
+        {
+            if (info.CharacterType == CharacterType.Ally)
+            {
+                ClearPower();
+            }
+        }
+        public override void OnTurnEnd(TurnInfo info)
+        {
+            if (IsCharacterTurn(info))
+            {
+                EffectExecutor.AddEffect(new ApplyPowerEffect(
+                    Amount, PowerName.Strength, new List<CharacterBase>() {Owner},
+                    GetEffectSource()));
+            }
+        }
+    }
+}
