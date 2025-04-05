@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Characters.Ally;
 using Characters.Enemy;
 using Characters.Enemy.Data;
@@ -6,6 +7,7 @@ using Log;
 using Map;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Combat
 {
@@ -24,6 +26,8 @@ namespace Combat
 
         [LabelText("效果生成敵人的特效")] [Required] public GameObject spawnEnemyFXPrefab;
 
+        public static UnityEvent<Enemy> OnAnyEnemyDead = new UnityEvent<Enemy>();
+        
 
         public Enemy RandomEnemy()
         {
@@ -114,6 +118,7 @@ namespace Combat
 
         public void OnEnemyDeath(Enemy targetEnemy)
         {
+            OnAnyEnemyDead.Invoke(targetEnemy);
             Enemies.Remove(targetEnemy);
             if (Enemies.Count <= 0)
                 CombatManager.Instance.WinCombat();

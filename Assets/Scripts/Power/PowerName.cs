@@ -48,6 +48,9 @@ namespace Power
         Cycle = 21,
         [LabelText("全能")]
         ManaCostTo1 = 22,
+        
+        [LabelText("自毀")]
+        SelfDestruct = 28,
        
         
         [LabelText("護盾")]

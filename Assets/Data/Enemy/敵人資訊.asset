@@ -23,6 +23,7 @@ MonoBehaviour:
     Prefab: Demon
     StartBattleSkillID: 9101003
     MaxHp: 21
+    IsBoss: 0
     startBattleSkillIDs:
     - 9101003
     enemySkillIDs:
@@ -38,6 +39,7 @@ MonoBehaviour:
     Prefab: Demon
     StartBattleSkillID: 9102003
     MaxHp: 29
+    IsBoss: 0
     startBattleSkillIDs:
     - 9102003
     enemySkillIDs:
@@ -53,6 +55,7 @@ MonoBehaviour:
     Prefab: Demon
     StartBattleSkillID: 9103003
     MaxHp: 50
+    IsBoss: 0
     startBattleSkillIDs:
     - 9103003
     enemySkillIDs:
@@ -68,6 +71,7 @@ MonoBehaviour:
     Prefab: DemonKing
     StartBattleSkillID: 
     MaxHp: 202
+    IsBoss: 1
     startBattleSkillIDs: []
     enemySkillIDs:
     - 9111001
@@ -81,6 +85,7 @@ MonoBehaviour:
     Prefab: DemonKing
     StartBattleSkillID: 
     MaxHp: 222
+    IsBoss: 1
     startBattleSkillIDs: []
     enemySkillIDs:
     - 9112001
@@ -94,6 +99,7 @@ MonoBehaviour:
     Prefab: DemonKing
     StartBattleSkillID: 
     MaxHp: 242
+    IsBoss: 1
     startBattleSkillIDs: []
     enemySkillIDs:
     - 9113001
@@ -107,6 +113,7 @@ MonoBehaviour:
     Prefab: Slime
     StartBattleSkillID: 9201001
     MaxHp: 21
+    IsBoss: 0
     startBattleSkillIDs:
     - 9201001
     enemySkillIDs:
@@ -121,6 +128,7 @@ MonoBehaviour:
     Prefab: Slime
     StartBattleSkillID: 9202001
     MaxHp: 29
+    IsBoss: 0
     startBattleSkillIDs:
     - 9202001
     enemySkillIDs:
@@ -135,6 +143,7 @@ MonoBehaviour:
     Prefab: Slime
     StartBattleSkillID: 9203001
     MaxHp: 50
+    IsBoss: 0
     startBattleSkillIDs:
     - 9203001
     enemySkillIDs:
@@ -149,6 +158,7 @@ MonoBehaviour:
     Prefab: SlimeKing
     StartBattleSkillID: 9211001
     MaxHp: 100
+    IsBoss: 1
     startBattleSkillIDs:
     - 9211001
     enemySkillIDs:
@@ -163,6 +173,7 @@ MonoBehaviour:
     Prefab: SlimeKing
     StartBattleSkillID: 9212001
     MaxHp: 200
+    IsBoss: 1
     startBattleSkillIDs:
     - 9212001
     enemySkillIDs:
@@ -178,6 +189,7 @@ MonoBehaviour:
     Prefab: SlimeKing
     StartBattleSkillID: 9213001
     MaxHp: 300
+    IsBoss: 1
     startBattleSkillIDs:
     - 9213001
     enemySkillIDs:
@@ -193,6 +205,7 @@ MonoBehaviour:
     Prefab: SlimeKing
     StartBattleSkillID: 9211001
     MaxHp: 100
+    IsBoss: 1
     startBattleSkillIDs:
     - 9211001
     enemySkillIDs:
@@ -208,6 +221,7 @@ MonoBehaviour:
     Prefab: SlimeKing
     StartBattleSkillID: 9212001
     MaxHp: 200
+    IsBoss: 1
     startBattleSkillIDs:
     - 9212001
     enemySkillIDs:
@@ -223,6 +237,7 @@ MonoBehaviour:
     Prefab: SlimeKing
     StartBattleSkillID: 9213001
     MaxHp: 300
+    IsBoss: 1
     startBattleSkillIDs:
     - 9213001
     enemySkillIDs:
@@ -238,6 +253,7 @@ MonoBehaviour:
     Prefab: Tree
     StartBattleSkillID: 9301001
     MaxHp: 21
+    IsBoss: 0
     startBattleSkillIDs:
     - 9301001
     enemySkillIDs:
@@ -252,6 +268,7 @@ MonoBehaviour:
     Prefab: Tree
     StartBattleSkillID: 9302001
     MaxHp: 29
+    IsBoss: 0
     startBattleSkillIDs:
     - 9302001
     enemySkillIDs:
@@ -266,6 +283,7 @@ MonoBehaviour:
     Prefab: Tree
     StartBattleSkillID: 9303001
     MaxHp: 50
+    IsBoss: 0
     startBattleSkillIDs:
     - 9303001
     enemySkillIDs:
@@ -280,6 +298,7 @@ MonoBehaviour:
     Prefab: OldTree
     StartBattleSkillID: 
     MaxHp: 100
+    IsBoss: 1
     startBattleSkillIDs: []
     enemySkillIDs:
     - 9311002
@@ -294,6 +313,7 @@ MonoBehaviour:
     Prefab: OldTree
     StartBattleSkillID: 
     MaxHp: 200
+    IsBoss: 1
     startBattleSkillIDs: []
     enemySkillIDs:
     - 9312002
@@ -308,6 +328,7 @@ MonoBehaviour:
     Prefab: OldTree
     StartBattleSkillID: 
     MaxHp: 300
+    IsBoss: 1
     startBattleSkillIDs: []
     enemySkillIDs:
     - 9313002
@@ -322,6 +343,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
@@ -334,6 +356,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
@@ -346,6 +369,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
@@ -358,6 +382,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
@@ -370,6 +395,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
@@ -382,6 +408,7 @@ MonoBehaviour:
     Prefab: 
     StartBattleSkillID: 
     MaxHp: 0
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs: []
   - uniqueId:
@@ -394,6 +421,7 @@ MonoBehaviour:
     Prefab: Soldier
     StartBattleSkillID: 9501001
     MaxHp: 58
+    IsBoss: 0
     startBattleSkillIDs:
     - 9501001
     enemySkillIDs:
@@ -408,6 +436,7 @@ MonoBehaviour:
     Prefab: Soldier
     StartBattleSkillID: 9502001
     MaxHp: 81
+    IsBoss: 0
     startBattleSkillIDs:
     - 9502001
     enemySkillIDs:
@@ -422,6 +451,7 @@ MonoBehaviour:
     Prefab: Soldier
     StartBattleSkillID: 9503001
     MaxHp: 139
+    IsBoss: 0
     startBattleSkillIDs:
     - 9503001
     enemySkillIDs:
@@ -436,6 +466,7 @@ MonoBehaviour:
     Prefab: SoldierUnit
     StartBattleSkillID: 9511001, 9511002
     MaxHp: 100
+    IsBoss: 1
     startBattleSkillIDs:
     - 9511001
     - 9511002
@@ -451,6 +482,7 @@ MonoBehaviour:
     Prefab: SoldierUnit
     StartBattleSkillID: 9512001, 9512002
     MaxHp: 200
+    IsBoss: 1
     startBattleSkillIDs:
     - 9512001
     - 9512002
@@ -466,6 +498,7 @@ MonoBehaviour:
     Prefab: SoldierUnit
     StartBattleSkillID: 9513001, 9513002
     MaxHp: 300
+    IsBoss: 1
     startBattleSkillIDs:
     - 9513001
     - 9513002
@@ -481,6 +514,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 100
+    IsBoss: 1
     startBattleSkillIDs: []
     enemySkillIDs:
     - 9601001
@@ -495,6 +529,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 200
+    IsBoss: 1
     startBattleSkillIDs: []
     enemySkillIDs:
     - 9602001
@@ -509,6 +544,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 300
+    IsBoss: 1
     startBattleSkillIDs: []
     enemySkillIDs:
     - 9603001
@@ -518,136 +554,145 @@ MonoBehaviour:
       displayName: "\u7D05\u871C\u8702/\u96E3\u5EA6\u4E00"
     ID: 611
     Lang: "\u7D05\u871C\u8702"
-    EnemySkillID: 9611001, 9611002, 9611003
+    EnemySkillID: 9611001, 9611002
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: RedBee
-    StartBattleSkillID: 
+    StartBattleSkillID: 9611003
     MaxHp: 58
-    startBattleSkillIDs: []
+    IsBoss: 0
+    startBattleSkillIDs:
+    - 9611003
     enemySkillIDs:
     - 9611001
     - 9611002
-    - 9611003
   - uniqueId:
       dataId: 612
       displayName: "\u7D05\u871C\u8702/\u96E3\u5EA6\u4E8C"
     ID: 612
     Lang: "\u7D05\u871C\u8702"
-    EnemySkillID: 9612001, 9612002, 9612003
+    EnemySkillID: 9612001, 9612002
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: RedBee
-    StartBattleSkillID: 
+    StartBattleSkillID: 9612003
     MaxHp: 81
-    startBattleSkillIDs: []
+    IsBoss: 0
+    startBattleSkillIDs:
+    - 9612003
     enemySkillIDs:
     - 9612001
     - 9612002
-    - 9612003
   - uniqueId:
       dataId: 613
       displayName: "\u7D05\u871C\u8702/\u96E3\u5EA6\u4E09"
     ID: 613
     Lang: "\u7D05\u871C\u8702"
-    EnemySkillID: 9613001, 9613002, 9613003
+    EnemySkillID: 9613001, 9613002
     Level: "\u96E3\u5EA6\u4E09"
     Prefab: RedBee
-    StartBattleSkillID: 
+    StartBattleSkillID: 9613003
     MaxHp: 139
-    startBattleSkillIDs: []
+    IsBoss: 0
+    startBattleSkillIDs:
+    - 9613003
     enemySkillIDs:
     - 9613001
     - 9613002
-    - 9613003
   - uniqueId:
       dataId: 621
       displayName: "\u9EC3\u871C\u8702/\u96E3\u5EA6\u4E00"
     ID: 621
     Lang: "\u9EC3\u871C\u8702"
-    EnemySkillID: 9621001, 9621002, 9621003
+    EnemySkillID: 9621001, 9621002
     Level: "\u96E3\u5EA6\u4E00"
-    Prefab: YelloBee
-    StartBattleSkillID: 
+    Prefab: YellowBee
+    StartBattleSkillID: 9621003
     MaxHp: 58
-    startBattleSkillIDs: []
+    IsBoss: 0
+    startBattleSkillIDs:
+    - 9621003
     enemySkillIDs:
     - 9621001
     - 9621002
-    - 9621003
   - uniqueId:
       dataId: 622
       displayName: "\u9EC3\u871C\u8702/\u96E3\u5EA6\u4E8C"
     ID: 622
     Lang: "\u9EC3\u871C\u8702"
-    EnemySkillID: 9622001, 9622002, 9622003
+    EnemySkillID: 9622001, 9622002
     Level: "\u96E3\u5EA6\u4E8C"
-    Prefab: YelloBee
-    StartBattleSkillID: 
+    Prefab: YellowBee
+    StartBattleSkillID: 9622003
     MaxHp: 81
-    startBattleSkillIDs: []
+    IsBoss: 0
+    startBattleSkillIDs:
+    - 9622003
     enemySkillIDs:
     - 9622001
     - 9622002
-    - 9622003
   - uniqueId:
       dataId: 623
       displayName: "\u9EC3\u871C\u8702/\u96E3\u5EA6\u4E09"
     ID: 623
     Lang: "\u9EC3\u871C\u8702"
-    EnemySkillID: 9623001, 9623002, 9623003
+    EnemySkillID: 9623001, 9623002
     Level: "\u96E3\u5EA6\u4E09"
-    Prefab: YelloBee
-    StartBattleSkillID: 
+    Prefab: YellowBee
+    StartBattleSkillID: 9623003
     MaxHp: 139
-    startBattleSkillIDs: []
+    IsBoss: 0
+    startBattleSkillIDs:
+    - 9623003
     enemySkillIDs:
     - 9623001
     - 9623002
-    - 9623003
   - uniqueId:
       dataId: 631
       displayName: "\u85CD\u871C\u8702/\u96E3\u5EA6\u4E00"
     ID: 631
     Lang: "\u85CD\u871C\u8702"
-    EnemySkillID: 9631001, 9631002, 9631003
+    EnemySkillID: 9631001, 9631002
     Level: "\u96E3\u5EA6\u4E00"
     Prefab: BlueBee
-    StartBattleSkillID: 
+    StartBattleSkillID: 9631003
     MaxHp: 58
-    startBattleSkillIDs: []
+    IsBoss: 0
+    startBattleSkillIDs:
+    - 9631003
     enemySkillIDs:
     - 9631001
     - 9631002
-    - 9631003
   - uniqueId:
       dataId: 632
       displayName: "\u85CD\u871C\u8702/\u96E3\u5EA6\u4E8C"
     ID: 632
     Lang: "\u85CD\u871C\u8702"
-    EnemySkillID: 9632001, 9632002, 9632003
+    EnemySkillID: 9632001, 9632002
     Level: "\u96E3\u5EA6\u4E8C"
     Prefab: BlueBee
-    StartBattleSkillID: 
+    StartBattleSkillID: 9632003
     MaxHp: 81
-    startBattleSkillIDs: []
+    IsBoss: 0
+    startBattleSkillIDs:
+    - 9632003
     enemySkillIDs:
     - 9632001
     - 9632002
-    - 9632003
   - uniqueId:
       dataId: 633
       displayName: "\u85CD\u871C\u8702/\u96E3\u5EA6\u4E09"
     ID: 633
     Lang: "\u85CD\u871C\u8702"
-    EnemySkillID: 9633001, 9633002, 9633003
+    EnemySkillID: 9633001, 9633002
     Level: "\u96E3\u5EA6\u4E09"
     Prefab: BlueBee
-    StartBattleSkillID: 
+    StartBattleSkillID: 9633003
     MaxHp: 139
-    startBattleSkillIDs: []
+    IsBoss: 0
+    startBattleSkillIDs:
+    - 9633003
     enemySkillIDs:
     - 9633001
     - 9633002
-    - 9633003
   - uniqueId:
       dataId: 901
       displayName: "Cobra/\u6E2C\u8A66 1"
@@ -658,6 +703,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 999
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs:
     - 900101
@@ -671,6 +717,7 @@ MonoBehaviour:
     Prefab: Soldier
     StartBattleSkillID: 
     MaxHp: 999
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs:
     - 900102
@@ -684,6 +731,7 @@ MonoBehaviour:
     Prefab: Bird
     StartBattleSkillID: 
     MaxHp: 999
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs:
     - 900001
@@ -697,6 +745,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 200
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs:
     - 910001
@@ -710,6 +759,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 999
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs:
     - 910001
@@ -723,6 +773,7 @@ MonoBehaviour:
     Prefab: Hive
     StartBattleSkillID: 
     MaxHp: 999
+    IsBoss: 0
     startBattleSkillIDs: []
     enemySkillIDs: []
   useDataPath: 0

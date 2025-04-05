@@ -14,6 +14,7 @@ namespace Characters.Enemy.Data
         public string Prefab;
         public string StartBattleSkillID;
         public int MaxHp;
+        public bool IsBoss;
         
         public List<string> startBattleSkillIDs = new List<string>();
         public List<string> enemySkillIDs;
