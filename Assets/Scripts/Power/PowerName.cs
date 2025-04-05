@@ -52,6 +52,7 @@ namespace Power
         FutureMana = 23,
         [LabelText("未來護盾")]
         FutureBlock = 24,
+        [LabelText("未來力量")]
         FutureStrength = 25,
         [LabelText("自毀")]
         SelfDestruct = 28,
