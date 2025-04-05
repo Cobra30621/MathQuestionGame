@@ -50,7 +50,8 @@ namespace Power
         ManaCostTo1 = 22,
         [LabelText("未來魔力")]
         FutureMana = 23,
-        
+        [LabelText("未來護盾")]
+        FutureBlock = 24,
         [LabelText("自毀")]
         SelfDestruct = 28,
        
