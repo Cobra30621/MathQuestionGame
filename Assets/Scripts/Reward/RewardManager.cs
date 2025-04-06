@@ -5,6 +5,7 @@ using Managers;
 using Map;
 using NueGames.Data.Containers;
 using Question;
+using Relic;
 using Relic.Data;
 using Reward.Data;
 using Sirenix.OdinInspector;
@@ -137,15 +138,18 @@ namespace Reward
             return stone;
         }
 
-        public (RelicName, RelicData) GetRelic(NodeType nodeType, RewardData rewardData)
+        public RelicInfo GetRelic(NodeType nodeType, RewardData rewardData)
         {
             bool isSpecified = rewardData.ItemGainType == ItemGainType.Specify;
-            if (isSpecified)
+            RelicName relicName = rewardData.specifyRelic;
+            if (!isSpecified)
             {
-                return ItemDropData.GetRelicData(rewardData.specifyRelic);
+                relicName = ItemDropData.GetRelicData(nodeType);
             }
             
-            return ItemDropData.GetRelicData(nodeType);
+            var relicInfo = GameManager.Instance.RelicManager.GetRelicInfo(relicName);
+
+            return relicInfo;
         }
     }
 }

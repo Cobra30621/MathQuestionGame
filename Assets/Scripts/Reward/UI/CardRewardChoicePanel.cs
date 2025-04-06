@@ -48,6 +48,7 @@ namespace Reward.UI
         public void Show(List<CardData> cardData)
         {
             gameObject.SetActive(true);
+            getRewardButton.interactable = false;
             
             _rewardChoiceCards = new List<RewardChoiceCard>();
             for (int i = 0; i < cardData.Count; i++)

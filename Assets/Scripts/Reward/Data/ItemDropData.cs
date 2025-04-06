@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Managers;
 using Map;
 using NueGames.Enums;
@@ -63,43 +64,58 @@ namespace Reward.Data
         }
 
         [Button]
-        public (RelicName, RelicData) GetRelicData(NodeType nodeType)
+        public RelicName GetRelicData(NodeType nodeType)
         {
-            var currentAllyClassType = GameManager.Instance.stageSelectedManager.CurrentAllyClassType();
-            
+            var currentRelics = GameManager.Instance.RelicManager.CurrentRelicDict.Keys.ToList();
+
+            List<RelicName> availableCommonRelics = commonRelics?
+                .Where(r => !currentRelics.Contains(r)).ToList();
+            var classRelics = GameManager.Instance.stageSelectedManager.RewardDropRelic();
+            List<RelicName> availableClassRelics = classRelics?
+                .Where(r => !currentRelics.Contains(r)).ToList();
+
+            bool useCommonFirst = Range(0f, 1f) < commonRelicDropRate;
             RelicName relicName;
-            // 根據機率決定使用通用遺物還是職業特定遺物
-            if (Range(0f, 1f) < commonRelicDropRate)
+
+            if (useCommonFirst)
             {
-                if (commonRelics == null || commonRelics.Count == 0)
+                if (availableCommonRelics != null && availableCommonRelics.Count > 0)
                 {
-                    Debug.LogError("通用遺物清單為空");
+                    relicName = availableCommonRelics[Range(0, availableCommonRelics.Count)];
+                }
+                else if (availableClassRelics != null && availableClassRelics.Count > 0)
+                {
+                    relicName = availableClassRelics[Range(0, availableClassRelics.Count)];
+                }
+                else
+                {
+                    Debug.LogWarning("沒有可用的遺物（通用與職業都已擁有）");
                     return default;
                 }
-                relicName = commonRelics[Range(0, commonRelics.Count)];
             }
             else
             {
-                var classRelics = GameManager.Instance.stageSelectedManager.RewardDropRelic();
-                
-                if (classRelics == null || classRelics.Count == 0)
+                if (availableClassRelics != null && availableClassRelics.Count > 0)
                 {
-                    Debug.LogError($"職業 {currentAllyClassType} 的遺物清單為空");
+                    relicName = availableClassRelics[Range(0, availableClassRelics.Count)];
+                }
+                else if (availableCommonRelics != null && availableCommonRelics.Count > 0)
+                {
+                    relicName = availableCommonRelics[Range(0, availableCommonRelics.Count)];
+                }
+                else
+                {
+                    Debug.LogWarning("沒有可用的遺物（職業與通用都已擁有）");
                     return default;
                 }
-                
-                relicName = classRelics[Range(0, classRelics.Count)];
             }
 
-            var data = relicsData.GetRelicData(relicName);
-            return (relicName, data);
+            return relicName;
         }
 
-        public (RelicName, RelicData) GetRelicData(RelicName relicName)
-        {
-            var data = relicsData.GetRelicData(relicName);
-            return (relicName, data);
-        }
+
+
+
 
         public int GetNodeDropStone(NodeType nodeType)
         {

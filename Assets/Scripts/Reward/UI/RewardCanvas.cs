@@ -109,6 +109,9 @@ namespace Reward.UI
             var rewardClone = Instantiate(rewardContainerPrefab, rewardRoot);
             string rewardText = "";
             var sprite = RewardManager.Instance.GetRewardSprite(rewardData.RewardType);
+
+            string tooltipTitle = "";
+            string tooltipDescription = "";
             
             switch (rewardData.RewardType)
             {
@@ -125,11 +128,12 @@ namespace Reward.UI
                     rewardText = $"+ {stone} ";
                     break;
                 case RewardType.Relic:
-                    var (relicName, relicData) = RewardManager.Instance.GetRelic(nodeType, rewardData);
-                    rewardText = $"{relicData.Title}";
-                    sprite = relicData.IconSprite;
+                    var relicInfo = RewardManager.Instance.GetRelic(nodeType, rewardData);
+                    rewardText = $"{relicInfo.data.Title}";
+                    sprite = relicInfo.data.IconSprite;
                     // 將產生的遺物，暫存在 rewardData 中
-                    rewardData.randomNameCache = relicName;
+                    rewardData.randomNameCache = relicInfo.relicName;
+                    rewardClone.NeedShowToolTip($"{relicInfo.data.Title}", relicInfo.GetDescription());
                     break;
                 case RewardType.Heal:
                     var healthAmount = rewardData.healthAmount;
