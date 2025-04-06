@@ -21,12 +21,12 @@ namespace Power
         /// <summary>
         /// 回合結束時數值 - 1
         /// </summary>
-        public bool DecreaseOnTurnEnd;
+        public bool DecreaseOnTurnEnd = false;
         
         /// <summary>
         /// 回合開始時數值 - 1
         /// </summary>
-        public bool DecreaseOnTurnStart;
+        public bool DecreaseOnTurnStart = false;
         
         /// <summary>
         /// 數值可以是負數

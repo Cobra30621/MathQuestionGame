@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using Map;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -36,7 +37,8 @@ namespace UI
         [Button]
         public void EnterNextMap()
         {
-            Debug.Log("EnterNextMap");
+            GameManager.Instance.HealAlly(1f);
+            
             StartCoroutine(_sceneChanger.OpenMapScene());
         }
     }

@@ -409,15 +409,12 @@ namespace Combat
             yield return new WaitForSeconds(0.5f);
             CanSelectCards = false;
             
-            if (CurrentCombatStateType != CombatStateType.EndCombat)
-            {
-                CurrentCombatStateType = CombatStateType.EndRound;
-            }
-            else
-            {
-                OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Enemy)); // 敵人回合結束
+            OnTurnEnd?.Invoke(GetTurnInfo(CharacterType.Enemy)); // 敵人回合結束
                 CombatEventTrigger.InvokeOnTurnEnd(GetTurnInfo(CharacterType.Enemy));
-            }
+            
+            yield return new WaitForSeconds(0.5f);
+                
+            CurrentCombatStateType = CombatStateType.EndRound;
         }
 
         private IEnumerator RoundEndRoutine()
