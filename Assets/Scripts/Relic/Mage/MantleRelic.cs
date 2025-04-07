@@ -10,18 +10,21 @@ namespace Relic.Mage
         public override RelicName RelicName => RelicName.Mantle;
         public override void OnTurnStart(TurnInfo info)
         {
-            var targets = CombatManager.EnemiesForTarget();
-            if (IsMaxLevel())
+            if (IsCharacterTurn(info))
             {
-                EffectExecutor.AddEffect(new ApplyPowerEffect(
-                    3, PowerName.Weak, targets,
-                    GetEffectSource()));
-            }
-            else
-            {
-                EffectExecutor.AddEffect(new ApplyPowerEffect(
-                    1, PowerName.Weak, targets,
-                    GetEffectSource()));
+                var targets = CombatManager.EnemiesForTarget();
+                if (IsMaxLevel())
+                {
+                    EffectExecutor.AddEffect(new ApplyPowerEffect(
+                        3, PowerName.Weak, targets,
+                        GetEffectSource()));
+                }
+                else
+                {
+                    EffectExecutor.AddEffect(new ApplyPowerEffect(
+                        1, PowerName.Weak, targets,
+                        GetEffectSource()));
+                }
             }
         }
     }

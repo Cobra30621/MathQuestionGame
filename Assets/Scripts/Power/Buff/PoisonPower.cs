@@ -5,6 +5,7 @@ using Effect;
 using Effect.Damage;
 using Effect.Parameters;
 using Effect.Power;
+using UnityEngine;
 
 namespace Power.Buff
 {

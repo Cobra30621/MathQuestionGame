@@ -4,7 +4,6 @@ using Combat;
 using Effect.Common;
 using Effect.Parameters;
 using Effect.Power;
-using Sirenix.OdinInspector.Editor.Drawers;
 using UnityEngine;
 
 namespace Power.Test

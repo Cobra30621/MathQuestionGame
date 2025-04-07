@@ -14,6 +14,9 @@ namespace Economy.Shop
 
         [Required]
         public GameObject unGainRelic;
+        
+        [Required]
+        public GameObject mainUI;
 
         public RelicInfo RelicInfo;
         
@@ -31,6 +34,7 @@ namespace Economy.Shop
             
             UIRelic.Init(relicInfo);
             unGainRelic.SetActive(!relicInfo.relicSaveInfo.HasGained);
+            mainUI.SetActive(relicInfo.relicSaveInfo.HasGained);
             
         }
 

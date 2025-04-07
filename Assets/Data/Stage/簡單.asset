@@ -20,14 +20,16 @@ MonoBehaviour:
   - mapName: "\u7B2C\u4E00\u5C64"
     layers:
     - nodeTypeClips:
-      - nodeType: 14
+      - nodeType: 0
         weight: 1
       nodeCount: 2
       distanceFromPreviousLayer: 0
       nodesApartDistance: 2
       randomizePosition: 0.295
     - nodeTypeClips:
-      - nodeType: 0
+      - nodeType: 14
+        weight: 1
+      - nodeType: 12
         weight: 1
       nodeCount: 2
       distanceFromPreviousLayer: 3
@@ -117,14 +119,16 @@ MonoBehaviour:
   - mapName: "\u7B2C\u4E8C\u5C64"
     layers:
     - nodeTypeClips:
-      - nodeType: 14
+      - nodeType: 0
         weight: 1
       nodeCount: 2
       distanceFromPreviousLayer: 0
       nodesApartDistance: 2
       randomizePosition: 0.295
     - nodeTypeClips:
-      - nodeType: 0
+      - nodeType: 14
+        weight: 1
+      - nodeType: 12
         weight: 1
       nodeCount: 2
       distanceFromPreviousLayer: 3
@@ -211,14 +215,16 @@ MonoBehaviour:
   - mapName: "\u7B2C\u4E09\u5C64"
     layers:
     - nodeTypeClips:
-      - nodeType: 14
+      - nodeType: 0
         weight: 1
       nodeCount: 2
       distanceFromPreviousLayer: 0
       nodesApartDistance: 2
       randomizePosition: 0.295
     - nodeTypeClips:
-      - nodeType: 0
+      - nodeType: 14
+        weight: 1
+      - nodeType: 12
         weight: 1
       nodeCount: 2
       distanceFromPreviousLayer: 3
