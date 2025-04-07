@@ -12,25 +12,22 @@ namespace Relic.Knight
     {
         public override RelicName RelicName => RelicName.Shield;
 
-        public override void OnTurnStart(TurnInfo info)
+
+        public override void OnBattleStart()
         {
-            if (IsCharacterTurn(info))
+            if(IsMaxLevel())
+            { 
+                EffectExecutor.AddEffect(new ApplyPowerEffect(
+                    2, PowerName.Shield, new List<CharacterBase>() {MainAlly},
+                    GetEffectSource()));
+            }
+            else
             {
-                if(IsMaxLevel())
-                { 
-                    EffectExecutor.AddEffect(new ApplyPowerEffect(
-                        2, PowerName.Shield, new List<CharacterBase>() {MainAlly},
-                        GetEffectSource()));
-                }
-                else
-                {
-                    EffectExecutor.AddEffect(new ApplyPowerEffect(
-                        1, PowerName.Shield, new List<CharacterBase>() {MainAlly},
-                        GetEffectSource()));
-                }
-                
+                EffectExecutor.AddEffect(new ApplyPowerEffect(
+                    1, PowerName.Shield, new List<CharacterBase>() {MainAlly},
+                    GetEffectSource()));
             }
         }
-       
+        
     }
 }

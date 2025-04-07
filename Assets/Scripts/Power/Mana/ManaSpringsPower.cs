@@ -7,15 +7,15 @@ namespace Power.Mana
     /// <summary>
     /// 本局對戰中，所有的卡牌消耗變為1
     /// </summary>
-    public class ManaCostTo1Power : PowerBase
+    public class ManaSpringsPower : PowerBase
     {
-        public override PowerName PowerName => PowerName.ManaCostTo1;
+        public override PowerName PowerName => PowerName.ManaSprings;
 
-        public ManaCostTo1Power()
+        public ManaSpringsPower()
         {
-            CardManaCalculateOrder = CalculateOrder.FinalChange;
-            
-            
+            CardManaCalculateOrder = CalculateOrder.DirectChange;
+
+
         }
 
         public override void Init()

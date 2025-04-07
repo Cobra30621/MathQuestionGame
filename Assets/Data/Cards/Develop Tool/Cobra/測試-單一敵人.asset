@@ -44,16 +44,22 @@ MonoBehaviour:
     Class: 0
     MaxLevel: 0
     TitleLang: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA"
-    DesLang: "\u5C0D\u6575\u4EBA\u9020\u62108\u9EDE\u50B7\u5BB3\uFF0C\u82E5\u672C\u56DE\u5408\u81F3\u5C11\u4F7F\u7528\u904E\u5169\u5F35\u5361\uFF0C\u5247\u6539\u6210\u9020\u621012\u9EDE\u50B7\u5BB3"
+    DesLang: "\u5C0D\u6575\u4EBA\u9020\u62108\u9EDE\u50B7\u5BB3\uFF0C\u82E5\u672C\u56DE\u5408\u6C92\u4F7F\u7528\u904E\u724C\uFF0C\u5247\u6539\u6210\u9020\u621012\u9EDE\u50B7\u5BB3"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs: []
     SkillInfos:
     - SkillID: 
-      EffectID: 20051
+      EffectID: 20001
       EffectParameter: 
-      EffectParameterList: 04000000010000000a000000
+      EffectParameterList: 0800000001000000
       Target: 1
+      ps: 
+    - SkillID: 
+      EffectID: 90001
+      EffectParameter: 
+      EffectParameterList: 01000000214e00000400000001000000
+      Target: 0
       ps: 
   cardId: 
   _levelInfos: []

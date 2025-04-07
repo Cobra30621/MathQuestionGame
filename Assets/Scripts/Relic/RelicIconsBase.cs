@@ -26,7 +26,6 @@ namespace Relic
         public void SetRelicClip( RelicBase relicBase)
         {
             Relic = relicBase;
-            
             StatusImage.sprite = Relic.RelicInfo.data.IconSprite;
             // 當 counter 發生變化時，改變 UI 顯示
             if (Relic.UseCounter)

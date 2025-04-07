@@ -127,6 +127,8 @@ namespace Effect
                     return new DamageMoreWhenUseEnoughCardEffect(skillInfo);
                 case EffectName.EndPlayerTurn:
                     return new EndPlayerTurnEffect(skillInfo);
+                case EffectName.DoEffectWhenCondition:
+                    return new DoEffectWhenCondition(skillInfo);
                 case EffectName.SpawnEnemy:
                     return new SpawnEnemyEffect(skillInfo);
                 case EffectName.SplitEnemy:

@@ -38,11 +38,14 @@ namespace Effect.Parameters
         [LabelText("當符合 [1] 條件時，增加 [2] 點魔力")]
         AddManaWhenCondition = 20043,
         
-        [LabelText("造成 [1] 點傷害，如果本回合使用過 [2] 張以上的卡片，多造成 [3] 點傷害")]
+        [LabelText("造成 [1] 點傷害，如果本回合使用過 [2] 張以上的卡片，改造成 [3] 點傷害")]
         DamageMoreWhenUseEnoughCard = 20051,
         
         [LabelText("結束玩家的回合")]
         EndPlayerTurn = 20100,
+        
+        [LabelText("當符合 [1] 條件時，執行EffectId [2]的效果，該效果的參數 [3 ~ n] ")]
+        DoEffectWhenCondition = 90001,
         
         
         // Enemy

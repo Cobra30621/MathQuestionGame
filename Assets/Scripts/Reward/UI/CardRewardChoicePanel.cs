@@ -48,6 +48,7 @@ namespace Reward.UI
         public void Show(List<CardData> cardData)
         {
             gameObject.SetActive(true);
+            getRewardButton.interactable = false;
             
             _rewardChoiceCards = new List<RewardChoiceCard>();
             for (int i = 0; i < cardData.Count; i++)
@@ -58,6 +59,7 @@ namespace Reward.UI
 
                 var reward = cardData[i];
                 choice.BuildReward(reward, this);
+                _rewardChoiceCards.Add(choice);
             }
         }
 
@@ -69,6 +71,12 @@ namespace Reward.UI
         {
             selectedChoice = rewardChoiceCard;
             getRewardButton.interactable = true;
+            
+            foreach (var choiceCard in _rewardChoiceCards)
+            {
+                choiceCard.SetChoiceBackground(false);
+            }
+            selectedChoice.SetChoiceBackground(true);
         }
 
         /// <summary>

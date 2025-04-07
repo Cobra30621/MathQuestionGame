@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Managers;
 using Map;
+using NueGames.Enums;
 using Relic.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -26,7 +29,15 @@ namespace Reward.Data
         [LabelText("答題寶石")]
         public int questionDropStone;
 
-        [LabelText("遺物獎勵清單")] public List<RelicName> RewardRelics;
+        [LabelText("通用遺物獎勵清單")] 
+        public List<RelicName> commonRelics;
+
+        [LabelText("通用遺物掉落機率")] 
+        public float commonRelicDropRate;
+        
+        [LabelText("通用卡片掉落機率")] 
+        public float commonCardDropRate;
+        
         [Required]
         [LabelText("遺物資料")] public RelicsData relicsData;
 
@@ -52,20 +63,59 @@ namespace Reward.Data
             }
         }
 
-        public (RelicName, RelicData) GetRelicData(NodeType nodeType)
+        [Button]
+        public RelicName GetRelicData(NodeType nodeType)
         {
-            var relicName = RewardRelics.Random();
+            var currentRelics = GameManager.Instance.RelicManager.CurrentRelicDict.Keys.ToList();
 
-            var data = relicsData.GetRelicData(relicName);
+            List<RelicName> availableCommonRelics = commonRelics?
+                .Where(r => !currentRelics.Contains(r)).ToList();
+            var classRelics = GameManager.Instance.stageSelectedManager.RewardDropRelic();
+            List<RelicName> availableClassRelics = classRelics?
+                .Where(r => !currentRelics.Contains(r)).ToList();
 
-            return (relicName, data);
+            bool useCommonFirst = Range(0f, 1f) < commonRelicDropRate;
+            RelicName relicName;
+
+            if (useCommonFirst)
+            {
+                if (availableCommonRelics != null && availableCommonRelics.Count > 0)
+                {
+                    relicName = availableCommonRelics[Range(0, availableCommonRelics.Count)];
+                }
+                else if (availableClassRelics != null && availableClassRelics.Count > 0)
+                {
+                    relicName = availableClassRelics[Range(0, availableClassRelics.Count)];
+                }
+                else
+                {
+                    Debug.LogWarning("沒有可用的遺物（通用與職業都已擁有）");
+                    return default;
+                }
+            }
+            else
+            {
+                if (availableClassRelics != null && availableClassRelics.Count > 0)
+                {
+                    relicName = availableClassRelics[Range(0, availableClassRelics.Count)];
+                }
+                else if (availableCommonRelics != null && availableCommonRelics.Count > 0)
+                {
+                    relicName = availableCommonRelics[Range(0, availableCommonRelics.Count)];
+                }
+                else
+                {
+                    Debug.LogWarning("沒有可用的遺物（職業與通用都已擁有）");
+                    return default;
+                }
+            }
+
+            return relicName;
         }
 
-        public (RelicName, RelicData) GetRelicData(RelicName relicName)
-        {
-            var data = relicsData.GetRelicData(relicName);
-            return (relicName, data);
-        }
+
+
+
 
         public int GetNodeDropStone(NodeType nodeType)
         {

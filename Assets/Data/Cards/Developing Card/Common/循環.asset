@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: "\u5FAA\u74B0"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: customerFeedback
+      Entry: 6
+      Data: 
+  isDevelopCard: 0
+  developLevelInfo:
+    ID: 
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: 
+    DesLang: 
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  cardId: 29
+  _levelInfos:
+  - ID: 100090
+    GroupID: 29
+    SkillID: 5080001
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 35
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5FAA\u74B0"
+    DesLang: "\u6BCF\u4F7F\u75281\u5F35\u724C\u5247\u62BD1\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs:
+    - 5080001
+    SkillInfos: []
+  - ID: 100091
+    GroupID: 29
+    SkillID: 5080002
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 60
+    Class: 0
+    MaxLevel: 0
+    TitleLang: "\u5FAA\u74B0"
+    DesLang: "\u6BCF\u4F7F\u75281\u5F35\u724C\u5247\u62BD2\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs:
+    - 5080002
+    SkillInfos: []
+  - ID: 100092
+    GroupID: 29
+    SkillID: 5080003
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u5FAA\u74B0"
+    DesLang: "\u6BCF\u4F7F\u75281\u5F35\u724C\u5247\u62BD3\u5F35\u724C"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs:
+    - 5080003
+    SkillInfos: []
+  _allyClassType: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
+  useDefaultAttackFeedback: 0
+  useCustomFeedback: 0
+  cardSprite: {fileID: 21300000, guid: b91851aac4d134274b35e93bbef74962, type: 3}
+  rarity: 0
+  description: 

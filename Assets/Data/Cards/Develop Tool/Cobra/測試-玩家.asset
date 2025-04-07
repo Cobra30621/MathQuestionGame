@@ -43,28 +43,22 @@ MonoBehaviour:
     UpgradeCostStone: 0
     Class: 0
     MaxLevel: 0
-    TitleLang: "\u6E2C\u8A66-\u73A9\u5BB6"
-    DesLang: "\u4E0A\u72C0\u614B"
+    TitleLang: "\u62BD1\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C1\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD1\u5F35"
+    DesLang: "\u62BD1\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C1\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD1\u5F35"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs: []
     SkillInfos:
     - SkillID: 
-      EffectID: 20003
+      EffectID: 20021
       EffectParameter: 
-      EffectParameterList: 1400000002000000
+      EffectParameterList: 01000000
       Target: 0
       ps: 
     - SkillID: 
-      EffectID: 20003
+      EffectID: 90001
       EffectParameter: 
-      EffectParameterList: 1500000001000000
-      Target: 0
-      ps: 
-    - SkillID: 
-      EffectID: 20003
-      EffectParameter: 
-      EffectParameterList: 1600000001000000
+      EffectParameterList: 01000000354e000001000000
       Target: 0
       ps: 
   cardId: 

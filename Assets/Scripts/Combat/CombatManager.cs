@@ -15,15 +15,14 @@ using Log;
 using Managers;
 using Map;
 using NueGames.Data.Settings;
-using NueGames.Enums;
-using Question;
-using Reward;
 using Reward.Data;
 using Sirenix.OdinInspector;
 using Stage;
 using UI;
 using UnityEngine;
 using Utils.Background;
+
+
 
 namespace Combat
 {
@@ -120,6 +119,7 @@ namespace Combat
 
         public EnemyEncounter currentEncounter;
 
+        [ShowInInspector]
         public CombatStateType CurrentCombatStateType
         {
             get => _currentCombatStateType;
@@ -348,7 +348,10 @@ namespace Combat
             
             EventLogger.Instance.LogEvent(LogEventType.Combat, $"玩家階段開始");
             OnTurnStart?.Invoke(GetTurnInfo(CharacterType.Ally));
+
+            yield return new WaitForSeconds(0.1f);
             CombatEventTrigger.InvokeOnTurnStart(GetTurnInfo(CharacterType.Ally));
+            
             
             // 玩家可以操作手牌
             CollectionManager.HandController.EnableDragging();
@@ -455,8 +458,8 @@ namespace Combat
             MainAlly.ClearAllPower();
             UIManager.CombatCanvas.gameObject.SetActive(false);
             var currentNodeType = MapManager.Instance.GetCurrentNodeType();
-            var rewards = GetReward(currentNodeType);
-            UIManager.RewardCanvas.ShowReward(rewards, currentNodeType);
+            // 產生戰後獲勝後的獎勵
+            UIManager.RewardCanvas.ShowCombatWinReward( currentNodeType);
         }
 
         private void HandleEndBattle()
@@ -467,36 +470,7 @@ namespace Combat
             CombatCounter.OnBattleEnd();
         }
 
-        private List<RewardData> GetReward(NodeType nodeType)
-        {
-            var rewardList = new List<RewardData>()
-            {
-                new()
-                {
-                    RewardType = RewardType.Card,
-                    ItemGainType =  ItemGainType.Character
-                },
-                new ()
-                {
-                    RewardType =  RewardType.Money,
-                    CoinGainType =  CoinGainType.NodeType
-                }
-            };
-
-            switch (nodeType)
-            {
-                // 菁英敵人多一個遺物
-                case NodeType.EliteEnemy:
-                    rewardList.Add(new RewardData()
-                    {
-                        RewardType = RewardType.Relic,
-                        ItemGainType = ItemGainType.Common
-                    });
-                    break;
-            }
-
-            return rewardList;
-        }
+        
 
         #endregion
 

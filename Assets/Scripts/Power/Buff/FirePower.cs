@@ -18,7 +18,7 @@ namespace Power.Buff
         public override PowerName PowerName => PowerName.Fire;
    
 
-        public override void OnTurnStart(TurnInfo info)
+        public override void OnTurnEnd(TurnInfo info)
         {
             if (IsCharacterTurn(info))
             {

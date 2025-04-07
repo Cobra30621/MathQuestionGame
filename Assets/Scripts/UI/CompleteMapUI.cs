@@ -1,3 +1,4 @@
+using System;
 using Map;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -7,26 +8,36 @@ using Utils;
 namespace UI
 {
     [RequireComponent(typeof(SceneChanger))]
-    public class CompleteMapUI : SerializedMonoBehaviour
+    public class CompleteMapUI : MonoBehaviour
     {
         private SceneChanger _sceneChanger;
 
-        [SerializeField] private TextMeshProUGUI mapName;
+        public TextMeshProUGUI mapName;
         private void Awake()
         {
             _sceneChanger = GetComponent<SceneChanger>();
             
+            
+        }
+
+        private void Start()
+        {
             UpdateUI();
         }
 
+        [Button]
         public void UpdateUI()
         {
-            mapName.text = "突破地圖:" + MapManager.Instance.CurrentMap.mapName;
+            var info =  "突破地圖:" + MapManager.Instance.CurrentMap.mapName;
+            Debug.Log(info);
+            mapName.text = info;
         }
 
+        [Button]
         public void EnterNextMap()
         {
-            _sceneChanger.OpenMapScene();
+            Debug.Log("EnterNextMap");
+            StartCoroutine(_sceneChanger.OpenMapScene());
         }
     }
 }

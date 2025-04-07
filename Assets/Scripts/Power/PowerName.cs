@@ -46,8 +46,20 @@ namespace Power
         Investing = 20,
         [LabelText("循環")]
         Cycle = 21,
-        [LabelText("全能")]
-        ManaCostTo1 = 22,
+        
+        [LabelText("未來魔力")]
+        FutureMana = 23,
+        [LabelText("未來護盾")]
+        FutureBlock = 24,
+        [LabelText("未來力量")]
+        FutureStrength = 25,
+        
+        [LabelText("魔力泉湧")]
+        ManaSprings = 26,
+        [LabelText("魔力節省")]
+        ManaSaving = 27,
+        [LabelText("自毀")]
+        SelfDestruct = 28,
        
         
         [LabelText("護盾")]

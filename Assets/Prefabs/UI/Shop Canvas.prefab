@@ -21629,23 +21629,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3873641271257275907, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3873641271257275907, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3873641271257275907, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3873641271257275907, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3873641271257275907, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 3873641271257275907, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
       propertyPath: m_SizeDelta.y
@@ -21685,7 +21685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3873641271257275907, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -37.5
+      value: 502.5
       objectReference: {fileID: 0}
     - target: {fileID: 3873641271257275907, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22017,6 +22017,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6847296479689219401}
     m_Modifications:
+    - target: {fileID: 1413780730272593288, guid: cda0e042831324adbbcd50ce8a216a74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 20ae3251a1b3546bbb1060ad8da75ebb, type: 3}
     - target: {fileID: 5454227848950578148, guid: cda0e042831324adbbcd50ce8a216a74, type: 3}
       propertyPath: m_Name
       value: UI Card
@@ -22142,6 +22146,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6847296479689219401}
     m_Modifications:
+    - target: {fileID: 1413780730272593288, guid: cda0e042831324adbbcd50ce8a216a74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 20ae3251a1b3546bbb1060ad8da75ebb, type: 3}
     - target: {fileID: 5454227848950578148, guid: cda0e042831324adbbcd50ce8a216a74, type: 3}
       propertyPath: m_Name
       value: UI Card (1)

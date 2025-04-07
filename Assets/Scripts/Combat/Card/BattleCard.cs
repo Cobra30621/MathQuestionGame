@@ -112,7 +112,8 @@ namespace Combat.Card
                 effects, CardData.FxInfo, targetList, () =>
                 {
                     // 觸發事件
-                    OnCardExecuteCompleted.Invoke(this);
+                    if(OnCardExecuteCompleted != null)
+                        OnCardExecuteCompleted.Invoke(this);
                     
                 }));
         }

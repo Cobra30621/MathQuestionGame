@@ -29,7 +29,8 @@ namespace Characters.Enemy
         private CharacterHandler _characterHandler;
 
         private SheetDataGetter _sheetDataGetter;
-
+        
+        public bool IsBoss => data.IsBoss;
 
         #region SetUp
 

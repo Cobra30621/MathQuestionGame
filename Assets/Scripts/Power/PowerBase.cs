@@ -21,7 +21,12 @@ namespace Power
         /// <summary>
         /// 回合結束時數值 - 1
         /// </summary>
-        public bool DecreaseOverTurn;
+        public bool DecreaseOnTurnEnd;
+        
+        /// <summary>
+        /// 回合開始時數值 - 1
+        /// </summary>
+        public bool DecreaseOnTurnStart;
         
         /// <summary>
         /// 數值可以是負數
@@ -143,7 +148,13 @@ namespace Power
         /// </summary>
         public virtual void UpdateStatusOnTurnStart()
         {
-            if (DecreaseOverTurn)
+            if (DecreaseOnTurnStart)
+                StackPower(-1);
+        }
+
+        public virtual void UpdateStatusOnTurnEnd()
+        {
+            if (DecreaseOnTurnEnd)
                 StackPower(-1);
         }
         

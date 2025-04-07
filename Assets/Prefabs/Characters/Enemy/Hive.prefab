@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2692271512851264595, guid: 1e501ee2288ff4a83bcebf3047857556, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2692271512851264595, guid: 1e501ee2288ff4a83bcebf3047857556, type: 3}
     - target: {fileID: 4844755487933274221, guid: 1e501ee2288ff4a83bcebf3047857556, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1718,6 +1722,22 @@ PrefabInstance:
     - target: {fileID: 6998382408650455714, guid: 1e501ee2288ff4a83bcebf3047857556, type: 3}
       propertyPath: m_Name
       value: Hive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721369262478085290, guid: 1e501ee2288ff4a83bcebf3047857556, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721369262478085290, guid: 1e501ee2288ff4a83bcebf3047857556, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 66.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890419137779271714, guid: 1e501ee2288ff4a83bcebf3047857556, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.7000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890419137779271714, guid: 1e501ee2288ff4a83bcebf3047857556, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e501ee2288ff4a83bcebf3047857556, type: 3}

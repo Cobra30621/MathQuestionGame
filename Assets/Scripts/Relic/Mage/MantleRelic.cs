@@ -1,33 +1,28 @@
-using System.Collections.Generic;
-using Characters;
-using Combat;
 using Effect;
+using Relic.Data;
 using Effect.Power;
 using Power;
-using Relic.Data;
-
+using Combat;
 namespace Relic.Mage
 {
     public class MantleRelic : RelicBase
     {
         public override RelicName RelicName => RelicName.Mantle;
-        private bool isFirstAttacked = true;
         public override void OnTurnStart(TurnInfo info)
         {
-            if (IsCharacterTurn(info))
+            var targets = CombatManager.EnemiesForTarget();
+            if (IsMaxLevel())
             {
-                isFirstAttacked = true;
+                EffectExecutor.AddEffect(new ApplyPowerEffect(
+                    3, PowerName.Weak, targets,
+                    GetEffectSource()));
             }
-        }
-        
-        public override float AtDamageReceive(float damage)
-        {
-            if (isFirstAttacked)
+            else
             {
-                isFirstAttacked = false;
-                return damage * 0.5f;
+                EffectExecutor.AddEffect(new ApplyPowerEffect(
+                    1, PowerName.Weak, targets,
+                    GetEffectSource()));
             }
-            return damage;
         }
     }
 }

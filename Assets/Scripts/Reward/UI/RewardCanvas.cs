@@ -9,7 +9,7 @@ using Reward.Data;
 using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
-
+using static UnityEngine.Random;
 namespace Reward.UI
 {
     public class RewardCanvas : CanvasBase
@@ -50,7 +50,17 @@ namespace Reward.UI
         private List<RewardData> _rewardDatas;
         
         #region Public Methods
-        
+
+        /// <summary>
+        /// 產生戰鬥勝利後的獎勵
+        /// </summary>
+        /// <param name="nodeType"></param>
+        [Button]
+        public void ShowCombatWinReward(NodeType nodeType)
+        {
+            var winRewards = GenerateCombatWinRewards(nodeType);
+            ShowReward(winRewards, nodeType);
+        }
 
         /// <summary>
         /// 顯示獎勵介面
@@ -99,6 +109,9 @@ namespace Reward.UI
             var rewardClone = Instantiate(rewardContainerPrefab, rewardRoot);
             string rewardText = "";
             var sprite = RewardManager.Instance.GetRewardSprite(rewardData.RewardType);
+
+            string tooltipTitle = "";
+            string tooltipDescription = "";
             
             switch (rewardData.RewardType)
             {
@@ -115,11 +128,12 @@ namespace Reward.UI
                     rewardText = $"+ {stone} ";
                     break;
                 case RewardType.Relic:
-                    var (relicName, relicData) = RewardManager.Instance.GetRelic(nodeType, rewardData);
-                    rewardText = $"{relicData.Title}";
-                    sprite = relicData.IconSprite;
+                    var relicInfo = RewardManager.Instance.GetRelic(nodeType, rewardData);
+                    rewardText = $"{relicInfo.data.Title}";
+                    sprite = relicInfo.data.IconSprite;
                     // 將產生的遺物，暫存在 rewardData 中
-                    rewardData.randomNameCache = relicName;
+                    rewardData.randomNameCache = relicInfo.relicName;
+                    rewardClone.NeedShowToolTip($"{relicInfo.data.Title}", relicInfo.GetDescription());
                     break;
                 case RewardType.Heal:
                     var healthAmount = rewardData.healthAmount;
@@ -155,7 +169,7 @@ namespace Reward.UI
                         GetStoneReward(RewardManager.Instance.GetStone(rewardData, nodeType));
                         break;
                     case RewardType.Card:
-                        var cardRewardList = RewardManager.Instance.GetCardList(rewardData, 3);
+                        var cardRewardList = RewardManager.Instance.GetCombatWinCardList(3);
                         GetCardReward(cardRewardList);
                         haveChoiceReward = true;
                         break;
@@ -240,6 +254,54 @@ namespace Reward.UI
         private void GetRelicReward(RelicName relicName)
         {
             GameManager.RelicManager.GainRelic(relicName);
+        }
+        
+        
+        /// <summary>
+        /// 產生戰鬥獲勝的獎勵
+        /// </summary>
+        /// <param name="nodeType"></param>
+        /// <returns></returns>
+        private List<RewardData> GenerateCombatWinRewards(NodeType nodeType)
+        {
+            var rewardList = new List<RewardData>()
+            {
+                new()
+                {
+                    RewardType = RewardType.Card,
+                    ItemGainType =  ItemGainType.Character
+                },
+                new ()
+                {
+                    RewardType =  RewardType.Money,
+                    CoinGainType =  CoinGainType.NodeType
+                }
+            };
+
+            switch (nodeType)
+            {
+                // 精英怪有一定機率掉落遺物
+                case NodeType.EliteEnemy:
+                    var eliteDropRelicRate = 0.33f;
+                    if (Range(0f, 1f) < eliteDropRelicRate)
+                    {
+                        rewardList.Add(new RewardData()
+                        {
+                            RewardType = RewardType.Relic,
+                        });
+                    }
+                    
+                    break;
+                // Boss敵人多一個遺物
+                case NodeType.Boss:
+                    rewardList.Add(new RewardData()
+                    {
+                        RewardType = RewardType.Relic,
+                    });
+                    break;
+            }
+
+            return rewardList;
         }
         
         

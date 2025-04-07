@@ -5,7 +5,8 @@ using Effect.Parameters;
 using Effect;
 using Combat;
 using Relic.Data;
-using UnityEngine;
+using Effect.Power;
+using Power;
 
 namespace Relic.Hunter
 {
@@ -47,9 +48,18 @@ namespace Relic.Hunter
             
             if (isTargetSame)
             {
-                // 造成傷害
-                var damageInfo = new DamageInfo(5, GetEffectSource(), fixDamage: true);
-                EffectExecutor.AddEffect(new DamageEffect(damageInfo, targets));
+                if (IsMaxLevel())
+                {
+                    EffectExecutor.AddEffect(new ApplyPowerEffect(
+                        3, PowerName.Vulnerable, targets,
+                        GetEffectSource()));
+                }
+                else
+                {
+                    EffectExecutor.AddEffect(new ApplyPowerEffect(
+                        1, PowerName.Vulnerable, targets,
+                        GetEffectSource()));
+                }
             }
         }
        

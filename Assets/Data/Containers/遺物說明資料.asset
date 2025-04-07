@@ -24,6 +24,12 @@ MonoBehaviour:
     - {fileID: 21300000, guid: c9bf505b3e2ba48788dea3580f1e3305, type: 3}
     - {fileID: 21300000, guid: 169d213802dc448719043e9e837b329a, type: 3}
     - {fileID: 4153240674832713612, guid: 8a1f96c93a153e34a98b5f6dd6bbfebd, type: 3}
+    - {fileID: 21300000, guid: 451f2477005d9b645a07c01e00e25ba1, type: 3}
+    - {fileID: 21300000, guid: c29b67b0b3a3343938722fe604baaba9, type: 3}
+    - {fileID: 21300000, guid: 92428e5be47d741b288aea2da3c31266, type: 3}
+    - {fileID: 21300000, guid: 69fac42434ac749ecae2e3cdd5a37c6c, type: 3}
+    - {fileID: 21300000, guid: 39de5ca93c5984c23bdbec2fe4629b05, type: 3}
+    - {fileID: 21300000, guid: fd3e6fc9fe8f43442a106a77d3e08d33, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -48,7 +54,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 19
+      Data: 20
     - Name: 
       Entry: 7
       Data: 
@@ -195,10 +201,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: "\u6BCF\u56DE\u5408\u7D50\u675F\u5F8C\u7372\u5F97 3 \u9EDE\u8B77\u76FE"
+      Data: "\u6230\u9B25\u958B\u59CB\u6642\u7D66\u4E88\u76D4\u7532buff"
     - Name: 
       Entry: 1
-      Data: "\u6BCF\u56DE\u5408\u7D50\u675F\u5F8C\u7372\u5F97 5 \u9EDE\u8B77\u76FE"
+      Data: "\u6230\u9B25\u958B\u59CB\u6642\u7D66\u4E882\u5C64\u76D4\u7532buff"
     - Name: 
       Entry: 13
       Data: 
@@ -237,10 +243,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: test1
+      Data: "\u6230\u9B25\u7D50\u675F\u56DE7\u9EDE\u751F\u547D"
     - Name: 
       Entry: 1
-      Data: test2
+      Data: "\u6230\u9B25\u7D50\u675F\u56DE14\u9EDE\u751F\u547D"
     - Name: 
       Entry: 13
       Data: 
@@ -279,12 +285,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: "\u6BCF\u56DE\u5408\u7372\u5F97\u7684\u9B54\u529B - 1\uFF0C\u6230\u9B25\u958B\u59CB\u6642\u529B\u91CF
-        +3"
+      Data: "\u6230\u9B25\u958B\u59CB\u6642mana\u4E0A\u9650-1 \u63D0\u5347\u529B\u91CF3"
     - Name: 
       Entry: 1
-      Data: "\u6BCF\u56DE\u5408\u7372\u5F97\u7684\u9B54\u529B - 1\uFF0C\u6230\u9B25\u958B\u59CB\u6642\u529B\u91CF
-        +3"
+      Data: "\u6230\u9B25\u958B\u59CB\u6642mana\u4E0A\u9650-1 \u63D0\u5347\u529B\u91CF5"
     - Name: 
       Entry: 13
       Data: 
@@ -323,10 +327,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u6230\u9B25\u958B\u59CB\u6642mana\u4E0A\u9650+1"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u6230\u9B25\u958B\u59CB\u6642mana\u4E0A\u9650+1 \u7372\u5F971\u5C64\u76D4\u7532buff"
     - Name: 
       Entry: 13
       Data: 
@@ -407,10 +411,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u6BCF\u56DE\u5408\u958B\u59CB\u6642\uFF0C\u591A\u62BD1\u5F35\u724C"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u6BCF\u56DE\u5408\u958B\u59CB\u6642\uFF0C\u591A\u62BD3\u5F35\u724C"
     - Name: 
       Entry: 13
       Data: 
@@ -419,7 +423,7 @@ MonoBehaviour:
       Data: 
     - Name: iconSprite
       Entry: 10
-      Data: 6
+      Data: 8
     - Name: isDeveloping
       Entry: 5
       Data: false
@@ -449,10 +453,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u6BCF\u56DE\u5408\u958B\u59CB\u6642\uFF0C\u7D66\u4E88\u5C0D\u65B91\u5C64\u865B\u5F31"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u6BCF\u56DE\u5408\u958B\u59CB\u6642\uFF0C\u7D66\u4E88\u5C0D\u65B93\u5C64\u865B\u5F31"
     - Name: 
       Entry: 13
       Data: 
@@ -491,10 +495,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u82E5\u9023\u7E8C\u653B\u64CA\u540C\u4E00\u500B\u6575\u4EBA\u5169\u6B21\uFF0C\u5C0D\u65B9\u7372\u5F971\u5C64\u6613\u50B7"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u82E5\u9023\u7E8C\u653B\u64CA\u540C\u4E00\u500B\u6575\u4EBA\u5169\u6B21\uFF0C\u5C0D\u65B9\u7372\u5F973\u5C64\u6613\u50B7"
     - Name: 
       Entry: 13
       Data: 
@@ -534,10 +538,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u82E5\u6BBA\u6B7B\u6575\u4EBA\uFF0C\u5247\u5C0D\u5168\u9AD4\u6575\u4EBA\u9020\u621010\u9EDE\u50B7\u5BB3"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u82E5\u6BBA\u6B7B\u6575\u4EBA\uFF0C\u5247\u5C0D\u5168\u9AD4\u6575\u4EBA\u9020\u621035\u9EDE\u50B7\u5BB3"
     - Name: 
       Entry: 13
       Data: 
@@ -561,7 +565,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 50004
     - Name: $v
       Entry: 7
       Data: 26|Relic.Data.RelicData, Assembly-CSharp
@@ -576,10 +580,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u6BCF\u4F7F\u75281\u5F35\u724C\u5247\u62BD1\u5F35\u724C"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u6BCF\u4F7F\u75281\u5F35\u724C\u5247\u62BD2\u5F35\u724C"
     - Name: 
       Entry: 13
       Data: 
@@ -588,7 +592,7 @@ MonoBehaviour:
       Data: 
     - Name: iconSprite
       Entry: 10
-      Data: 6
+      Data: 9
     - Name: isDeveloping
       Entry: 5
       Data: false
@@ -603,7 +607,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 2
+      Data: 50002
     - Name: $v
       Entry: 7
       Data: 28|Relic.Data.RelicData, Assembly-CSharp
@@ -618,10 +622,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u6BCF 3 \u56DE\u5408\uFF0C\u7372\u5F97 1 \u9EDE\u80FD\u91CF"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u6BCF 3 \u56DE\u5408\uFF0C\u7372\u5F97 2\u9EDE\u80FD\u91CF"
     - Name: 
       Entry: 13
       Data: 
@@ -630,7 +634,7 @@ MonoBehaviour:
       Data: 
     - Name: iconSprite
       Entry: 10
-      Data: 6
+      Data: 10
     - Name: isDeveloping
       Entry: 5
       Data: false
@@ -645,7 +649,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 3
+      Data: 50003
     - Name: $v
       Entry: 7
       Data: 30|Relic.Data.RelicData, Assembly-CSharp
@@ -660,10 +664,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u6BCF\u56DE\u5408\u958B\u59CB\u7372\u5F975\u9EDE\u683C\u6A94\uFF0C\u62BD1\u5F35\u724C"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u6BCF\u56DE\u5408\u958B\u59CB\u7372\u5F9712\u9EDE\u683C\u6A94\uFF0C\u62BD2\u5F35\u724C"
     - Name: 
       Entry: 13
       Data: 
@@ -672,7 +676,7 @@ MonoBehaviour:
       Data: 
     - Name: iconSprite
       Entry: 10
-      Data: 6
+      Data: 11
     - Name: isDeveloping
       Entry: 5
       Data: false
@@ -687,7 +691,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 4
+      Data: 50001
     - Name: $v
       Entry: 7
       Data: 32|Relic.Data.RelicData, Assembly-CSharp
@@ -702,10 +706,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u6BCF\u6253\u51FA1\u5F35\u724C\uFF0C\u7372\u5F971\u9EDE\u8B77\u7532"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u6BCF\u6253\u51FA1\u5F35\u724C\uFF0C\u7372\u5F973\u9EDE\u8B77\u7532"
     - Name: 
       Entry: 13
       Data: 
@@ -713,8 +717,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: iconSprite
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 12
     - Name: isDeveloping
       Entry: 5
       Data: false
@@ -744,10 +748,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u6230\u9B25\u958B\u59CB\u6642mana\u4E0A\u9650+1"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u6230\u9B25\u958B\u59CB\u6642mana\u4E0A\u9650+1 \u63D0\u5347\u529B\u91CF+3"
     - Name: 
       Entry: 13
       Data: 
@@ -786,10 +790,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u6230\u9B25\u958B\u59CB\u6642mana\u4E0A\u9650+1"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u6230\u9B25\u958B\u59CB\u6642mana\u4E0A\u9650+1  \u6BCF\u56DE\u5408\u591A\u62BD1\u5F35\u624B\u724C"
     - Name: 
       Entry: 13
       Data: 
@@ -798,7 +802,7 @@ MonoBehaviour:
       Data: 
     - Name: iconSprite
       Entry: 10
-      Data: 6
+      Data: 13
     - Name: isDeveloping
       Entry: 5
       Data: false
@@ -828,10 +832,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 1
-      Data: 1
+      Data: "\u6BCF\u56DE\u5408\u7D66\u4E881\u5F35\u7BC4\u570D\u653B\u64CA\u5361"
     - Name: 
       Entry: 1
-      Data: 2
+      Data: "\u6BCF\u56DE\u5408\u7D66\u4E882\u5F35\u7BC4\u570D\u653B\u64CA\u5361"
     - Name: 
       Entry: 13
       Data: 
@@ -851,6 +855,48 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 30002
+    - Name: $v
+      Entry: 7
+      Data: 40|Relic.Data.RelicData, Assembly-CSharp
+    - Name: Title
+      Entry: 1
+      Data: "\u5315\u9996"
+    - Name: descriptions
+      Entry: 7
+      Data: 41|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 1
+      Data: "\u653B\u64CA\u6575\u4EBA\u6642\uFF0C\u7D66\u4E88\u6575\u4EBA1\u5C64\u4E2D\u6BD2"
+    - Name: 
+      Entry: 1
+      Data: "\u653B\u64CA\u6575\u4EBA\u6642\uFF0C\u7D66\u4E88\u6575\u4EBA3\u5C64\u4E2D\u6BD2"
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: iconSprite
+      Entry: 6
+      Data: 
+    - Name: isDeveloping
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -858,11 +904,11 @@ MonoBehaviour:
       Data: 
     - Name: upgradeCost
       Entry: 7
-      Data: 40|System.Collections.Generic.Dictionary`2[[Economy.CoinType, Assembly-CSharp],[System.Int32,
+      Data: 42|System.Collections.Generic.Dictionary`2[[Economy.CoinType, Assembly-CSharp],[System.Int32,
         mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 41|System.Collections.Generic.EnumEqualityComparer`1[[Economy.CoinType,
+      Data: 43|System.Collections.Generic.EnumEqualityComparer`1[[Economy.CoinType,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12

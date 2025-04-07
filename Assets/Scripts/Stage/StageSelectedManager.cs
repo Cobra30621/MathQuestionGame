@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Characters.Ally;
 using Managers;
+using NueGames.Enums;
+using Relic.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
@@ -52,6 +54,16 @@ namespace Stage
         public float GetMoneyDropRate()
         {
             return _stageDataOverview.FindUniqueId(_currentStageData.Id).moneyDropRate;
+        }
+
+        public AllyClassType CurrentAllyClassType()
+        {
+            return _currentAllyData.AllyClassType;
+        }
+
+        public List<RelicName> RewardDropRelic()
+        {
+            return _currentAllyData.rewardDropRelic;
         }
     }
 }
