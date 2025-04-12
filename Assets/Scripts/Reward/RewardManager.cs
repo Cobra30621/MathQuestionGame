@@ -34,35 +34,41 @@ namespace Reward
 
         /// <summary>
         /// 根據機率決定獲得角色卡或通用卡（戰鬥勝利後）
+        /// 並確保抽到的卡牌不重複
         /// </summary>
         public List<CardData> GetCombatWinCardList(int amount)
         {
             var cards = new List<CardData>();
+            var drawnCardSet = new HashSet<CardData>(); // 用於檢查是否已抽過
 
-            for (int i = 0; i < amount; i++)
+            int attempts = 0;
+            int maxAttempts = amount * 10; // 避免死循環
+
+            while (cards.Count < amount && attempts < maxAttempts)
             {
+                attempts++;
+
                 var gainType = Random.Range(0f, 1f) < itemDropData.commonCardDropRate
                     ? ItemGainType.Common
                     : ItemGainType.Character;
 
                 var rewardData = new RewardData { ItemGainType = gainType };
-                cards.Add(GetCard(rewardData));
+                var card = GetCard(rewardData);
+
+                if (card != null && !drawnCardSet.Contains(card))
+                {
+                    drawnCardSet.Add(card);
+                    cards.Add(card);
+                }
+            }
+
+            if (cards.Count < amount)
+            {
+                Debug.LogWarning($"[RewardManager] 僅抽出 {cards.Count}/{amount} 張不重複卡牌，可能卡池不足。");
             }
 
             return cards;
         }
-
-        /// <summary>
-        /// 取得指定數量的卡牌
-        /// </summary>
-        public List<CardData> GetCardList(RewardData rewardData, int amount)
-        {
-            var cards = new List<CardData>();
-            for (int i = 0; i < amount; i++)
-                cards.Add(GetCard(rewardData));
-            return cards;
-        }
-
         /// <summary>
         /// 根據獎勵資料取得一張卡牌
         /// </summary>

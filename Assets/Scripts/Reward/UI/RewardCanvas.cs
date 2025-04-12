@@ -120,7 +120,6 @@ namespace Reward.UI
                     rewardText = $"+ {money}";
                     break;
                 case RewardType.Card:
-                    var cardRewardList = RewardManager.Instance.GetCardList(rewardData, 3);
                     rewardText = "卡片獎勵";
                     break;
                 case RewardType.Stone:
