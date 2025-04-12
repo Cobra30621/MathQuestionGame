@@ -22,15 +22,20 @@ namespace Economy.Shop
         {
             base.OpenCanvas();
             
-            OpenAllyClassCardPanel();
+            OpenAllyClassCardPanel(true);
         }
 
         /// <summary>
         /// Closes all panels and shows the general card commodities panel in the CardShopUI.
         /// </summary>
         [Button]
-        public void OpenGeneralCardPanel()
+        public void OpenGeneralCardPanel(bool isOn)
         {
+            if (!isOn)
+            {
+                return;
+            }
+            
             CloseAllPanel();
             
             _cardShopUI.gameObject.SetActive(true);
@@ -41,8 +46,13 @@ namespace Economy.Shop
         /// Closes all panels and shows the ally class card commodities panel in the CardShopUI.
         /// </summary>
         [Button]
-        public void OpenAllyClassCardPanel()
+        public void OpenAllyClassCardPanel(bool isOn)
         {
+            if (!isOn)
+            {
+                return;
+            }
+            
             CloseAllPanel();
             
             _cardShopUI.gameObject.SetActive(true);
@@ -54,8 +64,13 @@ namespace Economy.Shop
         /// Note: This method is currently not implemented.
         /// </summary>
         [Button]
-        public void OpenRelicPanel()
+        public void OpenRelicPanel(bool isOn)
         {
+            if (!isOn)
+            {
+                return;
+            }
+            
             CloseAllPanel();
             
             _relicShopUI.gameObject.SetActive(true);

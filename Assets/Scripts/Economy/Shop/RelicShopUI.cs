@@ -1,9 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using Economy.Shop.Data;
 using Managers;
 using Relic;
 using Relic.Data;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +25,6 @@ namespace Economy.Shop
         
         [SerializeField] private RelicUpgradePanel _relicUpgradeCommodityUI;
 
-        [Required] [SerializeField] private ScrollRect scrollRect;
         
         /// <summary>
         /// 開啟指定寶物清單的商店
@@ -41,9 +42,8 @@ namespace Economy.Shop
                 spawnedRelicList.Add(relic);
                 relic.SetData(new RelicUpgradeCommodity(relicInfo), this, relicInfo);
             }
-            
-            scrollRect.verticalNormalizedPosition = 1f;
         }
+        
         
         
         

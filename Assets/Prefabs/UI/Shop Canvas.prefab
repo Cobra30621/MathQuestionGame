@@ -1103,7 +1103,7 @@ MonoBehaviour:
   spawnedRelicList: []
   spawnPos: {fileID: 3893363706713521647}
   _relicUpgradeCommodityUI: {fileID: 5804961005192272064}
-  scrollRect: {fileID: 2223808579063937662}
+  scrollHelper: {fileID: 4055326075191791416}
 --- !u!1 &5136313510208414201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1319,7 @@ GameObject:
   - component: {fileID: 4928753566386035807}
   - component: {fileID: 8676477750998402078}
   - component: {fileID: 2223808579063937662}
+  - component: {fileID: 4055326075191791416}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -1416,6 +1417,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4055326075191791416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465623926556682723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753e8efb8cf448008e61203bb81b8d06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRect: {fileID: 2223808579063937662}
 --- !u!1 &5959225291503539792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,7 +2835,7 @@ MonoBehaviour:
   togglePrefab: {fileID: 2998579462713185918, guid: 180901d5eeef340fca3b0f3388c7bb25, type: 3}
   toogleSpawnPos: {fileID: 6847296479996707184}
   _toggleGroup: {fileID: 6847296479996707190}
-  scrollRect: {fileID: 6847296480478054485}
+  scrollHelper: {fileID: 8750484433340082717}
 --- !u!1 &6847296479996707187
 GameObject:
   m_ObjectHideFlags: 0
@@ -3500,6 +3514,7 @@ GameObject:
   - component: {fileID: 6847296480478054491}
   - component: {fileID: 6847296480478054490}
   - component: {fileID: 6847296480478054485}
+  - component: {fileID: 8750484433340082717}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -3597,6 +3612,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8750484433340082717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6847296480478054487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753e8efb8cf448008e61203bb81b8d06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRect: {fileID: 6847296480478054485}
 --- !u!1 &6847296480554283794
 GameObject:
   m_ObjectHideFlags: 0
@@ -5554,7 +5582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5570,7 +5598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Money.ShopCanvas, Assembly-CSharp
+      value: Economy.Shop.ShopCanvas, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5806,7 +5834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5822,7 +5850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Money.ShopCanvas, Assembly-CSharp
+      value: Economy.Shop.ShopCanvas, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5956,7 +5984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5972,7 +6000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Money.ShopCanvas, Assembly-CSharp
+      value: Economy.Shop.ShopCanvas, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1330538002950128684, guid: b78920dd69fb14fbabefd3a7fc6d7667, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

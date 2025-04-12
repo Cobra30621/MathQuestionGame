@@ -6,6 +6,7 @@ using Card.Display;
 using Economy.Shop.Data;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,9 +32,6 @@ namespace Economy.Shop
         [SerializeField] private Transform toogleSpawnPos;
 
         [Required] [SerializeField] private ToggleGroup _toggleGroup;
-
-
-        [Required] [SerializeField] private ScrollRect scrollRect;
         
         /// <summary>
         /// 提供卡牌資訊
@@ -132,8 +130,6 @@ namespace Economy.Shop
                 spawnedCardList.Add(card);
                 card.SetData(new CardUpgradeCommodity(cardInfo), this, cardInfo);
             }
-
-            scrollRect.verticalNormalizedPosition = 1f;
         }
         
         
