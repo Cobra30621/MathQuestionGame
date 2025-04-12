@@ -32,6 +32,8 @@ namespace Economy.Shop
 
         [Required] [SerializeField] private ToggleGroup _toggleGroup;
 
+
+        [Required] [SerializeField] private ScrollRect scrollRect;
         
         /// <summary>
         /// 提供卡牌資訊
@@ -130,6 +132,8 @@ namespace Economy.Shop
                 spawnedCardList.Add(card);
                 card.SetData(new CardUpgradeCommodity(cardInfo), this, cardInfo);
             }
+
+            scrollRect.verticalNormalizedPosition = 1f;
         }
         
         
