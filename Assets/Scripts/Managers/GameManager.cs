@@ -204,7 +204,7 @@ namespace Managers
         }
         
         
-        public float GetMoneyDropRate()
+        public float GetDifficultyMoneyDropRate()
         {
             return stageSelectedManager.GetMoneyDropRate();
         }
