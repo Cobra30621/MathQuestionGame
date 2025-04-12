@@ -50,7 +50,6 @@ namespace Managers
         [Title("地圖相關")] 
         [Required] public MapManager MapManager;
         [Required] public EncounterManager EncounterManager;
-        [Required] public CampFireManager CampFireManager;
         [Required] public EventManager EventManager;
         
         [Title("特效與反饋相關")] 

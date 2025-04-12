@@ -287,7 +287,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4876909885354910359}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7001388557004299777
 MonoBehaviour:
@@ -1312,7 +1312,6 @@ MonoBehaviour:
   RewardManager: {fileID: 7452432360151209579}
   MapManager: {fileID: 8676715140715392712}
   EncounterManager: {fileID: 8803148245168965543}
-  CampFireManager: {fileID: 5452148620238755621}
   EventManager: {fileID: 7001388557004299777}
   AudioManager: {fileID: 5840827451648210010}
   FxManager: {fileID: 6448810225252440185}
@@ -1355,7 +1354,6 @@ Transform:
   m_Children:
   - {fileID: 8676715140715392713}
   - {fileID: 8803148245168965540}
-  - {fileID: 5452148620238755620}
   - {fileID: 7881602840618744711}
   m_Father: {fileID: 3747954644409722057}
   m_RootOrder: 2
@@ -1492,51 +1490,6 @@ MonoBehaviour:
     SubVersionNum: 5
     FixVersionNum: 0
     UpdateMemo: "\u65B0\u589E\u7248\u672C\u63A7\u5236\u7CFB\u7D71"
---- !u!1 &5452148620238755619
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5452148620238755620}
-  - component: {fileID: 5452148620238755621}
-  m_Layer: 0
-  m_Name: "CampFireManager (\u71DF\u706B\u4E8B\u4EF6)"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5452148620238755620
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5452148620238755619}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1140.8513, y: 494.9847, z: 3.5625124}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4876909885354910359}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5452148620238755621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5452148620238755619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cf653d91b0243849d2fd9a17dbcda55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healPercent: 0.3
 --- !u!1 &5713422999673018184
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,7 +3477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4297840658276300982, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -477.38312
+      value: -477.38306
       objectReference: {fileID: 0}
     - target: {fileID: 4297840658276300982, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3621,6 +3574,10 @@ PrefabInstance:
     - target: {fileID: 6973905434857097024, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164235454745128560, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 12.099998
       objectReference: {fileID: 0}
     - target: {fileID: 7728727253652647587, guid: 3664ab68eb936400288cce7ea7ddf0dc, type: 3}
       propertyPath: m_AnchoredPosition.x
