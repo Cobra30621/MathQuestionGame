@@ -44,9 +44,15 @@ namespace Effect.Other
             if (ConditionChecker.PassCondition(_condition))
             {
                 Debug.Log($"Pass Condition {_condition}");
-                _skillInfo.EffectParameterList = doEffectParameters;
-                _skillInfo.EffectID = doEffectName;
-                var doEffect = EffectFactory.GetEffect(_skillInfo, TargetList, EffectSource);
+                
+                var newSkillInfo = new SkillInfo()
+                {
+                    EffectID = doEffectName,
+                    EffectParameterList = doEffectParameters,
+                    Target = _skillInfo.Target
+                };
+                
+                var doEffect = EffectFactory.GetEffect(newSkillInfo, TargetList, EffectSource);
                 EffectExecutor.ExecuteImmediately(doEffect);
             }
         }
