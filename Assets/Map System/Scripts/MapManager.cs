@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Encounter;
+using Encounter.Data;
 using Managers;
 using Map_System.Scripts.MapData;
 using Newtonsoft.Json;
@@ -123,8 +124,14 @@ namespace Map
             CurrentMap = map;
 
             // 生成新地圖遭遇
-            EncounterManager.Instance.GenerateNewMapEncounter(mapConfig.encounterStage);
+            var encounterStage = GetEncounterStage();
+            EncounterManager.Instance.GenerateNewMapEncounter(encounterStage);
             showMapEvent.Invoke(map);
+        }
+
+        private EncounterStage GetEncounterStage()
+        {
+            return stageData.maps[currentMapIndex].encounterStage;
         }
 
         // 生成下一張地圖
@@ -159,6 +166,9 @@ namespace Map
             stageName = new StageName();
             stageName.SetId(data.StageName);
             stageData = stageDataOverview.FindUniqueId(stageName.Id);
+            
+            var encounterStage = GetEncounterStage();
+            EncounterManager.Instance.SetEncounterStage(encounterStage);
         }
         
         public void SaveData(GameData data)

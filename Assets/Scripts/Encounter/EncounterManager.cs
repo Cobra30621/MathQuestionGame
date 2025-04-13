@@ -10,6 +10,7 @@ using Save.Data;
 using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utils;
 
 namespace Encounter
@@ -27,19 +28,20 @@ namespace Encounter
         public MapEncounter mapEncounter;
 
         public SceneChanger sceneChanger;
-
-        private EncounterStage _encounterStage;
+        
+        public EncounterStage EncounterStage;
 
         public static EncounterManager Instance => GameManager.Instance.EncounterManager;
 
         
         public void GenerateNewMapEncounter(EncounterStage stage)
         {
-            _encounterStage = stage;
+            SetEncounterStage(stage);
             
             mapEncounter = new MapEncounter();
-            mapEncounter.GeneratorStageData(_encounterStage);
+            mapEncounter.GeneratorStageData(EncounterStage);
         }
+
 
         #region Enter Room
         [Button]
@@ -108,6 +110,15 @@ namespace Encounter
         
         #endregion
 
+        public void OnCompletedCombatRoom()
+        {
+            var currentNodeType = MapManager.Instance.GetCurrentNodeType();
+            
+            mapEncounter.CompleteRoom(currentNodeType, currentEnemyEncounter);
+            
+            OnRoomCompleted();
+        }
+        
         public void OnRoomCompleted()
         {      
             MapManager.Instance.OnRoomCompleted();
@@ -123,6 +134,16 @@ namespace Encounter
             currentEnemyEncounter  = encounter;
         }
 
+        /// <summary>
+        /// 設定本層地圖的敵人遭遇可能清單
+        /// </summary>
+        /// <param name="stage"></param>
+        public void SetEncounterStage(EncounterStage stage)
+        {
+            Debug.Log(stage);
+            EncounterStage = stage;
+        }
+
         
 
         #region Save and Load
@@ -130,7 +151,6 @@ namespace Encounter
         public void LoadData(GameData data)
         {
             mapEncounter = data.MapEncounter;
-            // currentEnemyEncounter = data.en
         }
 
         public void SaveData(GameData data)

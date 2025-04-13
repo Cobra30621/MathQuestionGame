@@ -5,7 +5,7 @@ using Utils;
 namespace Encounter
 {
     [RequireComponent(typeof(SceneChanger))]
-    public class RoomFinishHandler : MonoBehaviour
+    public class CombatRoomFinishHandler : MonoBehaviour
     {
         private SceneChanger _sceneChanger;
         private void Awake()
@@ -15,7 +15,7 @@ namespace Encounter
 
         public void BackToMap()
         {
-            EncounterManager.Instance.OnRoomCompleted();
+            EncounterManager.Instance.OnCompletedCombatRoom();
             if (MapManager.Instance.IsLastRoom())
             {
                 if (MapManager.Instance.IsLastMap())
