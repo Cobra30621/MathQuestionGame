@@ -50,10 +50,10 @@ namespace Encounter
             switch (nodeType)
             {
                 case NodeType.MinorEnemy:
-                    EnterCombatRoom(mapEncounter.GetEnemyEncounter());
+                    EnterCombatRoom(mapEncounter.GetEnemyEncounter(EncounterStage));
                     break;
                 case NodeType.EliteEnemy:
-                    EnterCombatRoom(mapEncounter.GetEliteEncounter());
+                    EnterCombatRoom(mapEncounter.GetEliteEncounter(EncounterStage));
                     break;
                 case NodeType.CampFire:
                     EnterCampFire();
@@ -71,7 +71,7 @@ namespace Encounter
                 case NodeType.Store:
                     break;
                 case NodeType.Boss:
-                    EnterCombatRoom(mapEncounter.GetBossEncounter());
+                    EnterCombatRoom(mapEncounter.GetBossEncounter(EncounterStage));
                     break;
                 case NodeType.Event:
                     EnterEventRoom();

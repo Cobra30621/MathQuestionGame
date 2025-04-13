@@ -34,12 +34,11 @@ namespace Encounter
         /// <summary>
         /// 取得一般敵人遭遇
         /// </summary>
-        public EncounterName GetEnemyEncounter()
+        public EncounterName GetEnemyEncounter(EncounterStage stage)
         {
             if (enemyList == null || enemyList.Count == 0)
             {
                 enemyList = new List<EncounterName>();
-                var stage = EncounterManager.Instance.EncounterStage;
                 enemyList.AddRange(stage.strongEnemies.GetEncounterListByWeight(addCount));
             }
 
@@ -48,11 +47,10 @@ namespace Encounter
             return encounterName;
         }
 
-        public EncounterName GetEliteEncounter()
+        public EncounterName GetEliteEncounter(EncounterStage stage)
         {
             if (eliteEnemyList == null || eliteEnemyList.Count == 0)
             {
-                var stage = EncounterManager.Instance.EncounterStage;
                 eliteEnemyList = stage.eliteEnemies.GetEncounterListByWeight(addCount);
             }
 
@@ -60,11 +58,10 @@ namespace Encounter
             return encounterName;
         }
 
-        public EncounterName GetBossEncounter()
+        public EncounterName GetBossEncounter(EncounterStage stage)
         {
             if (bossList == null || bossList.Count == 0)
             {
-                var stage = EncounterManager.Instance.EncounterStage;
                 bossList = stage.bossEnemies.GetEncounterListByWeight(1);
             }
 
