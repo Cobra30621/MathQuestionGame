@@ -92,6 +92,9 @@ namespace Managers
         [InlineEditor()] [Required]
         [LabelText("遊戲基礎設定")]
         public GameplayData GameplayData;
+
+        [Required]
+        public AllyDataOverview allyDataOverview;
         
 
         #endregion
@@ -114,17 +117,15 @@ namespace Managers
         {
             AllyHealthHandler.SetAllyHealthData(data.AllyHealthData);
             
-            stageSelectedManager.SetAllyData(
-                allyDataFileHandler.GuidToData<AllyData>(data.AllyDataGuid));
+            stageSelectedManager.SetAllyData(data.AllyName);
 
         }
 
         public void SaveData(GameData data)
         {
             data.AllyHealthData = AllyHealthHandler.GetAllyHealthData();
-            
-            data.AllyDataGuid = allyDataFileHandler.DataToGuid(
-                stageSelectedManager.GetAllyData());
+
+            data.AllyName = stageSelectedManager.GetCurrentAllyName();
         }
         
         #endregion
@@ -173,6 +174,7 @@ namespace Managers
         {
             EventLogger.LogEvent(LogEventType.Main, "離開 - 單局遊戲");
             
+            SaveManager.SaveSingleGame();
             RelicManager.RemoveAllRelic();
             _sceneChanger.OpenMainMenuScene();
         }
@@ -190,9 +192,9 @@ namespace Managers
         }
         
         
-        public void SetAllyData(AllyData allyData)
+        public void SetAllyData(AllyName allyName)
         {
-            stageSelectedManager.SetAllyData(allyData);
+            stageSelectedManager.SetAllyData(allyName);
         }
 
         

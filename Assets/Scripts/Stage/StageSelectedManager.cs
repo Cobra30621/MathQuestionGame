@@ -25,20 +25,24 @@ namespace Stage
         
         [LabelText("目前選擇的玩家")]
         [SerializeField]
-        private AllyData _currentAllyData;
+        private AllyName currentAllyName;
         
         
         public UnityEvent<AllyData> OnAllyDataChanged;
+        
+        [Required]
+        public AllyDataOverview allyDataOverview;
         
         public void SetStageData(StageName stageData)
         {
             _currentStageData = stageData;
         }
 
-        public void SetAllyData(AllyData allyData)
+        public void SetAllyData(AllyName allyName)
         {
-            _currentAllyData = allyData;
-            OnAllyDataChanged.Invoke(_currentAllyData);
+            currentAllyName = allyName;
+            var allyData = GetAllyData();
+            OnAllyDataChanged.Invoke(allyData);
         }
 
         public StageName GetStageData()
@@ -46,24 +50,26 @@ namespace Stage
             return _currentStageData;
         }
 
+        public AllyName GetCurrentAllyName()
+        {
+            return currentAllyName;
+        }
+        
         public AllyData GetAllyData()
         {
-            return _currentAllyData;
+            var allyData = allyDataOverview.FindUniqueId(currentAllyName.Id);
+            return allyData;
         }
 
         public float GetMoneyDropRate()
         {
             return _stageDataOverview.FindUniqueId(_currentStageData.Id).moneyDropRate;
         }
-
-        public AllyClassType CurrentAllyClassType()
-        {
-            return _currentAllyData.AllyClassType;
-        }
+        
 
         public List<RelicName> RewardDropRelic()
         {
-            return _currentAllyData.rewardDropRelic;
+            return GetAllyData().rewardDropRelic;
         }
     }
 }

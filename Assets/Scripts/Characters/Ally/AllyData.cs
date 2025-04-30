@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using Card.Data;
+using Encounter.Data;
 using NueGames.Enums;
 using Relic.Data;
+using rStarTools.Scripts.StringList;
 using Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -9,7 +11,7 @@ using UnityEngine;
 namespace Characters.Ally
 {
     [CreateAssetMenu(fileName = "Ally Character Data ",menuName = "Characters/Ally",order = 0)]
-    public class AllyData : SerializedScriptableObject, ISerializeReferenceByAssetGuid
+    public class AllyData : SODataBase<EnemyEncounterOverview>
     {
         [SerializeField] protected string characterName;
         [SerializeField] [TextArea] protected string characterDescription;

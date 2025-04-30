@@ -10,12 +10,11 @@ namespace Stage
         [LabelText("可選擇個關卡清單")]
         [SerializeField] private List<StageName> _stageDataList;
         
-        [InlineEditor]
         [LabelText("可選擇的玩家清單")]
-        [SerializeField] private List<AllyData> _allyDataList;
+        [SerializeField] private List<AllyName> _allyNameList;
 
         public List<StageName> StageNameList => _stageDataList;
         
-        public List<AllyData> AllyDataList => _allyDataList;
+        public List<AllyName> AllyNameList => _allyNameList;
     }
 }

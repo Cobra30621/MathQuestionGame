@@ -11,6 +11,7 @@ namespace Stage
         [Required]
         public Image selectedIcon;
         private AllyData _allyData;
+        private AllyName _allyName;
         [Required]
         public Button SelectedButton;
 
@@ -23,16 +24,17 @@ namespace Stage
         /// Sets the data of the selected Ally character and updates the UI elements accordingly.
         /// </summary>
         /// <param name="allyData">The AllyData object containing the character's data.</param>
-        public void SetAllyData(AllyData allyData)
+        public void SetAllyData(AllyName allyName, AllyData allyData)
         {
             // Update UI elements with the selected AllyData
             selectedIcon.sprite = allyData.Icon;
+            _allyName = allyName;
             _allyData = allyData;
         }
 
         private void SelectCharacter()
         {
-            StageSelectedManager.Instance.SetAllyData(_allyData);
+            StageSelectedManager.Instance.SetAllyData(_allyName);
         }
     }
 }

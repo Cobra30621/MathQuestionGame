@@ -1046,60 +1046,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &2308058709268137224
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4426554491014107267}
-  - component: {fileID: 5885686703067263783}
-  m_Layer: 0
-  m_Name: "Ally Data File Handler (\u73A9\u5BB6\u8CC7\u6599\u9078\u64C7)"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4426554491014107267
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2308058709268137224}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5696539794047121282}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5885686703067263783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2308058709268137224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 912f235a7ee44a5bbea93b23cbf2a6c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  dataReference: {fileID: 11400000, guid: bbb31b7f76af544a9b8fa1b56b6ad682, type: 2}
 --- !u!1 &2542101955334227050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,7 +1110,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5696539794047121282}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &927399313501667963
 MonoBehaviour:
@@ -1186,14 +1132,23 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: currentAllyName
+      Entry: 7
+      Data: 0|Characters.Ally.AllyName, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 56f43209-0451-424d-9096-43fa9871de82
+    - Name: 
+      Entry: 8
+      Data: 
   _stageDataOverview: {fileID: 11400000, guid: 2fd9e1c80388240ff9f730425d21de3b, type: 2}
   _currentStageData:
     id: 722421e1-f637-4ca9-8ef0-799ac5d80321
-  _currentAllyData: {fileID: 0}
   OnAllyDataChanged:
     m_PersistentCalls:
       m_Calls: []
+  allyDataOverview: {fileID: 11400000, guid: 39532d0ab1aee42f5bf835b05474b248, type: 2}
 --- !u!1 &3716331387072817112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1259,7 @@ MonoBehaviour:
     SerializationNodes: []
   SaveManager: {fileID: 1734194195781810477}
   systemGameVersion: {fileID: 8399253788235884914}
-  allyDataFileHandler: {fileID: 5885686703067263783}
+  allyDataFileHandler: {fileID: 0}
   stageSelectedManager: {fileID: 927399313501667963}
   RelicManager: {fileID: 733801562864062279}
   CoinManager: {fileID: 636065697006322446}
@@ -1324,6 +1279,7 @@ MonoBehaviour:
   QuestionManager: {fileID: 2604196069550661496}
   isDevelopMode: 1
   GameplayData: {fileID: 11400000, guid: dd29da37b58a7496a90ee015e332876f, type: 2}
+  allyDataOverview: {fileID: 11400000, guid: 39532d0ab1aee42f5bf835b05474b248, type: 2}
 --- !u!1 &3837500694087193500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1874,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5696539794047121282}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4696957168806796471
 MonoBehaviour:
@@ -2929,6 +2885,16 @@ MonoBehaviour:
     bossList: []
     addCount: 10
   sceneChanger: {fileID: 8803148246522245110}
+  EncounterStage:
+    weakEnemyCount: 0
+    weakEnemies:
+      weightClip: []
+    strongEnemies:
+      weightClip: []
+    eliteEnemies:
+      weightClip: []
+    bossEnemies:
+      weightClip: []
 --- !u!1 &8803148246522245105
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,7 +2969,6 @@ Transform:
   m_Children:
   - {fileID: 1734194195781810476}
   - {fileID: 2302828962371419024}
-  - {fileID: 4426554491014107267}
   - {fileID: 3141516959272838343}
   - {fileID: 3943215656414572241}
   m_Father: {fileID: 3747954644409722057}

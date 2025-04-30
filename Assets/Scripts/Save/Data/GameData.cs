@@ -8,9 +8,9 @@ namespace Save.Data
     public class GameData
     {
         /// <summary>
-        /// 玩家選擇的角色 ID
+        /// 玩家選擇的角色
         /// </summary>
-        public string AllyDataGuid;
+        public AllyName AllyName;
         
         
         public AllyHealthData AllyHealthData;
