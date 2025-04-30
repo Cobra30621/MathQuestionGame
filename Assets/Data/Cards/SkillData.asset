@@ -8116,7 +8116,7 @@ MonoBehaviour:
       Data: 20003
     - Name: EffectParameter
       Entry: 1
-      Data: 0,1
+      Data: 0,10
     - Name: EffectParameterList
       Entry: 7
       Data: 339|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -8128,7 +8128,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 1
+      Data: 10
     - Name: 
       Entry: 13
       Data: 
@@ -8164,7 +8164,7 @@ MonoBehaviour:
       Data: 20003
     - Name: EffectParameter
       Entry: 1
-      Data: 0,2
+      Data: 0,20
     - Name: EffectParameterList
       Entry: 7
       Data: 341|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -8176,7 +8176,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 2
+      Data: 20
     - Name: 
       Entry: 13
       Data: 
@@ -8212,7 +8212,7 @@ MonoBehaviour:
       Data: 20003
     - Name: EffectParameter
       Entry: 1
-      Data: 0,3
+      Data: 0,30
     - Name: EffectParameterList
       Entry: 7
       Data: 343|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -8224,7 +8224,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 3
+      Data: 30
     - Name: 
       Entry: 13
       Data: 
@@ -8260,7 +8260,7 @@ MonoBehaviour:
       Data: 20003
     - Name: EffectParameter
       Entry: 1
-      Data: 0,4
+      Data: 0,40
     - Name: EffectParameterList
       Entry: 7
       Data: 345|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -8272,7 +8272,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 4
+      Data: 40
     - Name: 
       Entry: 13
       Data: 
@@ -8308,7 +8308,7 @@ MonoBehaviour:
       Data: 20003
     - Name: EffectParameter
       Entry: 1
-      Data: 0,5
+      Data: 0,50
     - Name: EffectParameterList
       Entry: 7
       Data: 347|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -8320,7 +8320,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 3
-      Data: 5
+      Data: 50
     - Name: 
       Entry: 13
       Data: 
@@ -11845,7 +11845,7 @@ MonoBehaviour:
       Data: 20010
     - Name: EffectParameter
       Entry: 1
-      Data: 1,15
+      Data: 1,10
     - Name: EffectParameterList
       Entry: 7
       Data: 495|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -11857,7 +11857,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 3
-      Data: 15
+      Data: 10
     - Name: 
       Entry: 13
       Data: 
@@ -11893,7 +11893,7 @@ MonoBehaviour:
       Data: 20010
     - Name: EffectParameter
       Entry: 1
-      Data: 1,25
+      Data: 1,20
     - Name: EffectParameterList
       Entry: 7
       Data: 497|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
@@ -11905,7 +11905,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 3
-      Data: 25
+      Data: 20
     - Name: 
       Entry: 13
       Data: 
@@ -20847,32 +20847,32 @@ MonoBehaviour:
     ps: "\u8B77\u76FE"
   - SkillID: 3000001
     EffectID: 20003
-    EffectParameter: 0,1
-    EffectParameterList: 0000000001000000
+    EffectParameter: 0,10
+    EffectParameterList: 000000000a000000
     Target: 0
     ps: "\u53CD\u5F48"
   - SkillID: 3000002
     EffectID: 20003
-    EffectParameter: 0,2
-    EffectParameterList: 0000000002000000
+    EffectParameter: 0,20
+    EffectParameterList: 0000000014000000
     Target: 0
     ps: "\u53CD\u5F48"
   - SkillID: 3000003
     EffectID: 20003
-    EffectParameter: 0,3
-    EffectParameterList: 0000000003000000
+    EffectParameter: 0,30
+    EffectParameterList: 000000001e000000
     Target: 0
     ps: "\u53CD\u5F48"
   - SkillID: 3000004
     EffectID: 20003
-    EffectParameter: 0,4
-    EffectParameterList: 0000000004000000
+    EffectParameter: 0,40
+    EffectParameterList: 0000000028000000
     Target: 0
     ps: "\u53CD\u5F48"
   - SkillID: 3000005
     EffectID: 20003
-    EffectParameter: 0,5
-    EffectParameterList: 0000000005000000
+    EffectParameter: 0,50
+    EffectParameterList: 0000000032000000
     Target: 0
     ps: "\u53CD\u5F48"
   - SkillID: 3000011
@@ -21315,14 +21315,14 @@ MonoBehaviour:
     ps: "\u9695\u77F3"
   - SkillID: 4020004
     EffectID: 20010
-    EffectParameter: 1,15
-    EffectParameterList: 010000000f000000
+    EffectParameter: 1,10
+    EffectParameterList: 010000000a000000
     Target: 2
     ps: "\u9695\u77F3"
   - SkillID: 4020005
     EffectID: 20010
-    EffectParameter: 1,25
-    EffectParameterList: 0100000019000000
+    EffectParameter: 1,20
+    EffectParameterList: 0100000014000000
     Target: 2
     ps: "\u9695\u77F3"
   - SkillID: 4030001
