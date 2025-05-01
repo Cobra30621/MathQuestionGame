@@ -1,15 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Card.Data;
-using Effect;
-using Log;
 using Managers;
-using NueGames.Enums;
-using Save;
-using Save.Data;
-using Save.FileHandler;
 using Sirenix.OdinInspector;
-using UnityEngine;
 using UnityEngine.Events;
 
 

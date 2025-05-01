@@ -7,7 +7,7 @@ using UnityEngine;
 namespace NueGames.Data.Settings
 {
     [CreateAssetMenu(fileName = "Gameplay Data", menuName = "NueDeck/Settings/GameplayData", order = 0)]
-    public class GameplayData : ScriptableObject, ISerializeReferenceByAssetGuid
+    public class GameplayData : ScriptableObject
     {
         [FoldoutGroup("基礎設定")]
         [LabelText("初始抽牌數量")]
