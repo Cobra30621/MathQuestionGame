@@ -12,40 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: cardAction
-      Entry: 7
-      Data: 0|CardAction.ApplyPower, Assembly-CSharp
-    - Name: value
-      Entry: 3
-      Data: 1
-    - Name: powerName
-      Entry: 3
-      Data: 22
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: customerFeedback
-      Entry: 6
-      Data: 
-  actionTargetType: 0
-  manaCost: 1
-  exhaustAfterPlay: 0
+  uniqueId:
+    dataId: b63a5193-1c84-4fdd-9d08-ecfe8d635752
+    displayName: "Reno-\u6E2C\u8A661"
+  isDevelopCard: 0
+  developLevelInfo:
+    ID: 
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: 
+    DesLang: 
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  cardId: 
+  _levelInfos: []
+  _allyClassType: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
-  fxGo: {fileID: 5403046535671323747, guid: 58987db4057af416da36d5e3e8f7683d, type: 3}
-  fxSpawnPosition: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardName: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
   cardSprite: {fileID: 21300000, guid: b5f5839c0c638184d90210de34685b87, type: 3}
   rarity: 0
   description: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"

@@ -12,48 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u6E2C\u8A66-\u73A9\u5BB6"
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 4481275099794884273, guid: 54f755eb3b85d4532b7cfe2db4176b6a, type: 3}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: cardAction
-      Entry: 7
-      Data: 0|CardAction.ApplyPower, Assembly-CSharp
-    - Name: value
-      Entry: 3
-      Data: 3
-    - Name: powerName
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: customerFeedback
-      Entry: 7
-      Data: 1|NueGames.Characters.CustomerFeedbackSetting, Assembly-CSharp
-    - Name: targetCharacter
-      Entry: 10
-      Data: 0
-    - Name: customFeedbackKey
-      Entry: 1
-      Data: SpecialBuff
-    - Name: 
-      Entry: 8
-      Data: 
-  actionTargetType: 1
-  manaCost: 0
-  exhaustAfterPlay: 0
-  fxGo: {fileID: 8726335890349686034, guid: d62838506ae6e4216a6cd4ed3756e6ec, type: 3}
-  fxSpawnPosition: 2
+  uniqueId:
+    dataId: f5f1f62b-453d-44e7-99fb-46204f1853f9
+    displayName: "Reno-\u6E2C\u8A665"
+  isDevelopCard: 0
+  developLevelInfo:
+    ID: 
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: 
+    DesLang: 
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  cardId: 
+  _levelInfos: []
+  _allyClassType: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 1
-  cardName: "\u6E2C\u8A66-\u73A9\u5BB6"
   cardSprite: {fileID: 21300000, guid: deb20f18003224931880f65cab644b4c, type: 3}
   rarity: 0
   description: "\u6E2C\u8A66-\u73A9\u5BB6"

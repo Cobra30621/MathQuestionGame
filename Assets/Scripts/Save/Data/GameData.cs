@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Card.Data;
 using Characters.Ally;
 using Encounter;
 using Relic.Data;
@@ -18,7 +19,7 @@ namespace Save.Data
         /// <summary>
         /// 卡牌資料
         /// </summary>
-        public List<string> CardDataGuids;
+        public List<CardName> CardNames;
         
         /// <summary>
         /// 遺物資料

@@ -12,59 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
   m_EditorClassIdentifier: 
-  id: 
-  cardName: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
-  manaCost: 0
+  uniqueId:
+    dataId: 5231b9d9-6cfe-41a4-871f-6fc1f7222536
+    displayName: "Nelson-\u6E2C\u8A661"
+  isDevelopCard: 0
+  developLevelInfo:
+    ID: 
+    GroupID: 
+    SkillID: 
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 0
+    TitleLang: 
+    DesLang: 
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+    skillIDs: []
+    SkillInfos: []
+  cardId: 
+  _levelInfos: []
+  _allyClassType: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
+  useDefaultAttackFeedback: 0
+  useCustomFeedback: 0
   cardSprite: {fileID: 21300000, guid: b5f5839c0c638184d90210de34685b87, type: 3}
   rarity: 0
-  needPowerToPlay: 0
-  needPowerName: 0
-  powerCost: 0
-  actionTargetType: 0
-  usableWithoutTarget: 0
-  exhaustAfterPlay: 0
-  cardActionDataList:
-  - actionName: 111
-    BaseValue: 10
-    MultiplierValue: 0
-    Delay: 0
-    FxName: 55
-    FxSpawnPosition: 0
-    FixDamage: 0
-    CanPierceArmor: 0
-    powerName: 201
-    SourcePile: 0
-    TargetPile: 0
-    TargetCardData: {fileID: 0}
-    TriggerActionList: []
-  cardDescriptionDataList:
-  - descriptionText: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    cardActionDataListType: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  specialKeywordsList: 
-  audioType: 0
-  correctCardActionDataList: []
-  wrongCardActionDataList: []
-  limitedQuestionCardActionDataList: []
-  mathQuestioningActionParameters:
-    UseMathAction: 0
-    QuestioningEndJudgeType: 0
-    QuestionCount: -1
-    UseCorrectAction: 0
-    CorrectActionNeedAnswerCount: -1
-    UseWrongAction: 0
-    WrongActionNeedAnswerCount: -1
-    UseTimeCountDown: 0
-    Time: -1
-    SelfCharacter: {fileID: 0}
-    TargetCharacter: []
-  useRandomAction: 0
-  randomActionData:
-    randomActionList: []
+  description: 

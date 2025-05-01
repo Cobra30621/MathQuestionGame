@@ -38,7 +38,6 @@ namespace Managers
         [Title("存檔相關")] 
         [Required] public SaveManager SaveManager;
         [Required] [SerializeField] private SystemGameVersion systemGameVersion;
-        [Required] [SerializeField] private ScriptableObjectFileHandler allyDataFileHandler;
         [Required] public StageSelectedManager stageSelectedManager;
         
         [Title("物品相關")] 

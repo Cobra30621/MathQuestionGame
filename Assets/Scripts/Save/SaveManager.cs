@@ -66,6 +66,9 @@ namespace Save
         {
             dataPersistenceObjects = FindAllDataPersistenceObjects();
             _gameData = ES3Handler.LoadSingleGame();
+            
+            EventLogger.Instance.LogEvent(LogEventType.Save, "讀取 - 單局遊戲資料", 
+                $"{JsonConvert.SerializeObject(_gameData, Formatting.Indented)}");
 
             // 檢查是否有存檔資料
             if (this._gameData == null ) 
@@ -85,8 +88,7 @@ namespace Save
                 dataPersistenceObj.LoadData(_gameData);
             }
             
-            EventLogger.Instance.LogEvent(LogEventType.Save, "讀取 - 單局遊戲資料", 
-                $"{JsonConvert.SerializeObject(_gameData, Formatting.Indented)}");
+            
         }
         [Button("存檔")]
         public void SaveSingleGame()

@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u7279\u6548\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA"
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: customerFeedback
-      Entry: 6
-      Data: 
+  uniqueId:
+    dataId: 97da1e2e-e8d8-40f9-83a9-79ccb6bb5e9d
+    displayName: "\u7279\u6548-\u6E2C\u8A662"
   isDevelopCard: 1
   developLevelInfo:
     ID: 0
@@ -31,6 +22,7 @@ MonoBehaviour:
     SkillID: 
     ManaCost: 0
     UpgradeCost: 0
+    UpgradeCostStone: 0
     Class: 1
     MaxLevel: 0
     TitleLang: "\u7279\u6548\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA"
@@ -38,13 +30,7 @@ MonoBehaviour:
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs: []
-    EffectInfos:
-    - SkillID: 0
-      EffectID: 1
-      EffectParameter: 
-      EffectParameterList: 1a00000001000000
-      Target: 1
-      ps: 
+    SkillInfos: []
   cardId: 
   _levelInfos: []
   _allyClassType: 0
@@ -57,7 +43,6 @@ MonoBehaviour:
     Delay: 0.5
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardName: "\u7279\u6548\u6E2C\u8A66-\u653B\u64CA\u6575\u4EBA"
   cardSprite: {fileID: 21300000, guid: db77a9106cafc094dac07202e305b5ca, type: 3}
   rarity: 0
   description: "\u7279\u6548\u6E2C\u8A66-\u653B\u64CA\u6575\u4EBA"

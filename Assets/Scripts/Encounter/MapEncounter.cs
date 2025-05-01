@@ -86,6 +86,8 @@ namespace Encounter
                 case NodeType.Boss:
                     bossList.RemoveAt(0);
                     break;
+                case NodeType.Treasure:
+                    break;
                 default:
                     Debug.LogError($"Wrong Node Type {nodeType} for EnemyEncounter");
                     break;

@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u6E2C\u8A66-\u73A9\u5BB6"
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: customerFeedback
-      Entry: 6
-      Data: 
+  uniqueId:
+    dataId: c1f14f2d-f2fa-4310-bb2e-cd6d237c2c10
+    displayName: "Nelson-\u6E2C\u8A665"
   isDevelopCard: 1
   developLevelInfo:
     ID: 
@@ -31,6 +22,7 @@ MonoBehaviour:
     SkillID: 20003
     ManaCost: 0
     UpgradeCost: 0
+    UpgradeCostStone: 0
     Class: 0
     MaxLevel: 0
     TitleLang: Test_Buff_4_stacks
@@ -39,17 +31,10 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
     skillIDs:
     - 20003
-    EffectInfos:
-    - SkillID: 20003
-      EffectID: 20003
-      EffectParameter: 
-      EffectParameterList: 5904000001000000
-      Target: 0
-      ps: 
+    SkillInfos: []
   cardId: 
   _levelInfos: []
   _allyClassType: 0
-  exhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
   fxInfo:
@@ -59,7 +44,6 @@ MonoBehaviour:
     Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardName: "\u6E2C\u8A66-\u73A9\u5BB6"
   cardSprite: {fileID: 21300000, guid: deb20f18003224931880f65cab644b4c, type: 3}
   rarity: 0
   description: 

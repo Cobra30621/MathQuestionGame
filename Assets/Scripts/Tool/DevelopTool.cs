@@ -32,7 +32,6 @@ namespace Tool
         [LabelText("遊戲開始時，執行事件")]
         public UnityEvent TestEvent;
         
-        [InlineEditor()]
         [LabelText("玩家資料")]
         public AllyName allyName;
         
