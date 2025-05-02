@@ -45,7 +45,7 @@ namespace UI
             }
             else
             {
-                CloseTutorial();
+                currentIndex = 0;
             }
         }
 
