@@ -86,7 +86,6 @@ namespace Stage
         private IEnumerator StartGameCoroutine()
         {
             GameManager.Instance.NewGame();
-            QuestionManager.Instance.StartDownloadOnlineQuestions();
             yield return sceneChanger.OpenMapScene();
         }
     }

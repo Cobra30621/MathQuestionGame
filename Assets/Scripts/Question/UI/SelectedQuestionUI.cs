@@ -99,7 +99,7 @@ namespace Question.UI
                 QuestionMode = QuestionMode.Easy
             };
             
-            QuestionManager.Instance.EnterQuestionMode(normalQuestionAction);
+            QuestionManager.Instance.EnterQuestionMode(normalQuestionAction, questionCount);
         }
 
         private void ClosePanel()

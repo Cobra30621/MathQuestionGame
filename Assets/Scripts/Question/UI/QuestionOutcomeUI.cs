@@ -49,7 +49,8 @@ namespace Question.UI
         {
             ClosePanel();
             var action = QuestionManager.Instance.QuestionAction;
-            QuestionManager.Instance.EnterQuestionMode(action);
+            var needAnswerCount = QuestionManager.Instance.QuestionSetting.needAnswerCount;
+            QuestionManager.Instance.EnterQuestionMode(action, needAnswerCount);
         }
         
         

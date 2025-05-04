@@ -26,14 +26,10 @@ namespace Question
         public static QuestionManager Instance => GameManager.Instance.QuestionManager;
 
         /// <summary>
-        /// 題目取得器
-        /// </summary>
-        [Required] [SerializeField] private QuestionGenerator _generator;
-
-        /// <summary>
         /// 流程控制器
         /// </summary>
-        [ShowInInspector]
+        [SerializeField]
+        [Required]
         private QuestionFlowController _flowController;
         
         #region UI
@@ -59,12 +55,6 @@ namespace Question
         
         #endregion
         
-        
-
-
-        private QuestionSession _session;
-
-
         public QuestionActionBase QuestionAction;
 
         /// <summary>
@@ -72,20 +62,6 @@ namespace Question
         /// </summary>
         public QuestionSetting QuestionSetting;
 
-        #region 初始化
-
-        private void Awake()
-        {
-            InitializeComponents();
-        }
-
-        private void InitializeComponents()
-        {
-            _session = new QuestionSession(_generator);
-            _flowController = new QuestionFlowController(_session, uiController);
-        }
-
-        #endregion
 
         #region Public Method
 
@@ -97,22 +73,18 @@ namespace Question
             selectedQuestionUI.OpenPanel();
         }
         
-        /// <summary>
-        /// 開始下載線上題目
-        /// </summary>
-        public void StartDownloadOnlineQuestions()
-        {
-            _generator.StartDownloadOnlineQuestions(QuestionSetting);
-        }
-
+        
         /// <summary>
         /// 進入答題模式
         /// </summary>
-        public void EnterQuestionMode(QuestionActionBase action)
+        public void EnterQuestionMode(QuestionActionBase action, int needAnswerCount)
         {
             QuestionAction = action;
+            QuestionSetting.needAnswerCount = needAnswerCount;
             StartCoroutine(_flowController.StartQuestionFlow(action));
         }
+        
+
 
         /// <summary>
         /// 答題
@@ -136,7 +108,7 @@ namespace Question
         /// </summary>
         public void ShowOutcome()
         {
-            outcomeUI.ShowOutcome(_session.AnswerRecord);
+            outcomeUI.ShowOutcome(_flowController.Session.AnswerRecord);
         }
 
         #endregion
@@ -149,6 +121,8 @@ namespace Question
             QuestionSetting = setting;
             SaveManager.Instance.SavePermanentGame();
         }
+
+        
 
         public void LoadData(PermanentGameData data)
         {

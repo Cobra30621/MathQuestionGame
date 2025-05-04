@@ -1,9 +1,13 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Log;
+using Newtonsoft.Json;
 using Question.Action;
+using Question.QuestionGenerate;
 using Question.UI;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
 namespace Question.Core
@@ -12,16 +16,31 @@ namespace Question.Core
     /// 控制答題流程
     /// </summary>
     [Serializable]
-    public class QuestionFlowController
+    public class QuestionFlowController : MonoBehaviour
     {
         /// <summary>
         /// 管理單次答題階段的狀態和記錄
         /// </summary>
-        private readonly QuestionSession _session;
+        public QuestionSession Session { private set; get; }
+        
+        
         /// <summary>
         /// 負責控制答題相關的 UI 
         /// </summary>
-        private readonly QuestionUIController _uiController;
+        [Required]
+        [SerializeField] 
+        private QuestionUIController _uiController;
+
+        [Required]
+        [SerializeField] private WaitDownloadUI _waitDownloadUI;
+        
+        /// <summary>
+        /// 問題產生器
+        /// </summary>
+        [Required]
+        [SerializeField]  private QuestionGenerator _generator;
+
+        [Required] [SerializeField] private TextMeshProUGUI isOnlineText;
         
         /// <summary>
         /// 正在答題中
@@ -35,11 +54,7 @@ namespace Question.Core
         [ShowInInspector]
         private bool _waitingForAnswer;
         
-        public QuestionFlowController(QuestionSession session, QuestionUIController uiController)
-        {
-            _session = session;
-            _uiController = uiController;
-        }
+ 
         
         /// <summary>
         /// 開始答題的流程
@@ -48,8 +63,13 @@ namespace Question.Core
         /// <returns></returns>
         public IEnumerator StartQuestionFlow(QuestionActionBase action)
         {
+            Session = new QuestionSession();
+            // 下載題目
+            yield return DownloadOnlineQuestions();
+            
             InitializeSession(action);
             
+            // 答題迴圈
             yield return RunQuestioningLoop(action);
             
             FinishSession(action);
@@ -62,10 +82,27 @@ namespace Question.Core
         /// <param name="action"></param>
         private void InitializeSession(QuestionActionBase action)
         {
-            _session.StartNewSession(action);
+            Session.StartNewSession(action);
             _isQuestioning = true;
-            _uiController.UpdateAnswerRecord(_session);
+            _uiController.UpdateAnswerRecord(Session);
         }
+
+
+        private IEnumerator DownloadOnlineQuestions()
+        {
+            _waitDownloadUI.Show();
+
+            int needQuestionCount = QuestionManager.Instance.QuestionSetting.needAnswerCount;
+            // 下載題目
+            yield return _generator.GenerateQuestion((bool isOnline, List<Data.Question> questions) =>
+            {
+                Session.SetQuestions(questions);
+                isOnlineText.text = isOnline ? "使用線上題目" : "使用本地端題庫";
+            }, needQuestionCount);
+            
+            _waitDownloadUI.Close();
+        }
+        
         
         private IEnumerator RunQuestioningLoop(QuestionActionBase action)
         {
@@ -95,7 +132,7 @@ namespace Question.Core
         private IEnumerator ShowNextQuestion()
         {
             // 取得題目
-            var nextQuestion = _session.GetNextQuestion();
+            var nextQuestion = Session.GetNextQuestion();
             // 等待 UI 動畫包放完畢
             yield return _uiController.ShowNextQuestion(nextQuestion);
             // 等待玩家答題
@@ -120,7 +157,7 @@ namespace Question.Core
         /// </summary>
         private void CheckEndCondition()
         {
-            if (_session.IsFinishAllQuestion())
+            if (Session.IsFinishAllQuestion())
             {
                 _isQuestioning = false;
             }
@@ -133,16 +170,16 @@ namespace Question.Core
         /// <param name="option"></param>
         public void HandleAnswer(int option)
         {
-            bool isCorrect = option == _session.CurrentQuestion.Answer;
-            _session.RecordAnswer(isCorrect);
+            bool isCorrect = option == Session.CurrentQuestion.Answer;
+            Session.RecordAnswer(isCorrect);
             
             var outcomeStr = isCorrect ? "正確" : "錯誤";
             EventLogger.Instance.LogEvent(LogEventType.Question, $"答題 - {outcomeStr}", 
-                $"選擇: {option}, 正確: { _session.CurrentQuestion.Answer}");
+                $"選擇: {option}, 正確: { Session.CurrentQuestion.Answer}");
             
             _uiController.SetEnableAnswer(false);
             _uiController.HandleAnswerFeedback(isCorrect, option);
-            _uiController.UpdateAnswerRecord(_session);
+            _uiController.UpdateAnswerRecord(Session);
             _waitingForAnswer = false;
         }
         
@@ -155,7 +192,7 @@ namespace Question.Core
         private void FinishSession(QuestionActionBase action)
         {
             // 執行是答題數量達到條件
-            if (_session.ReachSuccessCondition())
+            if (Session.ReachSuccessCondition())
             {
                 action.DoCorrectAction();
             }

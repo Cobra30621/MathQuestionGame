@@ -12,6 +12,9 @@ namespace Question.Core
     {
         private AnswerRecord _answerRecord = new();
         private Data.Question _currentQuestion;
+        
+        private List<Data.Question> rawQuestionList = new();
+        
         private List<Data.Question> _questionList = new();
 
         public AnswerRecord AnswerRecord => _answerRecord;
@@ -29,20 +32,15 @@ namespace Question.Core
         
         public Data.Question CurrentQuestion => _currentQuestion;
 
-        private QuestionGenerator _generator;
-        
-        public QuestionSession(QuestionGenerator generator)
-        {
-            _generator = generator;
-            
-        }
-        
         public void StartNewSession(QuestionActionBase questionAction)
         {
             this.questionAction = questionAction;
             _answerRecord.Clear();
+        }
 
-            GenerateQuestions();
+        public void SetQuestions(List<Data.Question> questions)
+        {
+            rawQuestionList = questions;
         }
         
         
@@ -64,7 +62,7 @@ namespace Question.Core
             Debug.Log($"Get Question {_questionList.Count}");
             if (_questionList.Count == 0)
             {
-                GenerateQuestions();
+                _questionList.AddRange(rawQuestionList);
             }
             
             int index = new System.Random().Next(_questionList.Count);
@@ -72,12 +70,7 @@ namespace Question.Core
             _questionList.RemoveAt(index);
             return _currentQuestion;
         }
-
-        private void GenerateQuestions()
-        {
-            _questionList = _generator.GenerateQuestions();
-        }
-
+        
         public bool IsFinishAllQuestion()
         {
             return _answerRecord.AnswerCount >= questionAction.QuestionCount;

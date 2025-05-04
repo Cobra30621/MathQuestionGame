@@ -1,141 +1,158 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using Log;
-using Question.Enum;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.Serialization;
+using Question.Enum;
+using Sirenix.OdinInspector;
+using Log;
+using System.IO;
 
 namespace Question.QuestionLoader
 {
     public class OnlineQuestionDownloader : MonoBehaviour
     {
         public List<Data.Question> questions;
-    
-        public int generateCountForEachChapter;
-        public int hard;
-        public int maxChapter;
-    
-        // API 相關的 URL 和授權令牌
+
         private const string get_question_api_url = "https://api.emath.math.ncu.edu.tw/problem/serial/";
         private const string get_image_api_url = "https://api.emath.math.ncu.edu.tw/problem/";
         private const string auth_token = "sRu564CCjtoGGIkd050b2YZulLGqjdrTT7mzGWJcJPM5rvE7RKr7Wpmff/Ah";
-    
 
         public ProblemData data;
 
-        [Button("取得題目")]
-        public void DownloadQuestion(Publisher publisher, Grade grade)
+        public int maxChapter = 1;
+
+
+        public IEnumerator DownloadQuestionCoroutine(Publisher publisher, Grade grade, int totalQuestionCount, int hard)
         {
-            EventLogger.Instance.LogEvent(LogEventType.Question, "下載 - 線上題目", 
+            EventLogger.Instance.LogEvent(LogEventType.Question, "下載 - 線上題目",
                 $"出版社 {publisher}, 年級 {grade}");
-            StartCoroutine(GetQuestionCoroutine(Publisher.Ziyou, grade));
-        }
-    
-    
-        /// <summary>
-        /// 協程，用於下載指定出版商和年級的問題
-        /// </summary>
-        /// <param name="publisher"></param>
-        /// <param name="grade"></param>
-        /// <returns></returns>
-        private IEnumerator GetQuestionCoroutine(Publisher publisher, Grade grade)
-        {
+
             var tempQuestions = new List<Data.Question>();
-        
-            for (int chapter = 1; chapter < maxChapter + 1; chapter++)
+            int downloadedCount = 0;
+
+            int chapterCount = maxChapter;
+            int baseCountPerChapter = totalQuestionCount / chapterCount;
+            int extra = totalQuestionCount % chapterCount;
+
+            for (int chapter = 1; chapter <= chapterCount; chapter++)
             {
-                string url = GetURL(publisher, grade, chapter, generateCountForEachChapter);
-        
-                using UnityWebRequest www = UnityWebRequest.Get(url);
-                www.SetRequestHeader("Authorization", $"{auth_token}");
+                if (downloadedCount >= totalQuestionCount)
+                    break;
+
+                int questionCountThisChapter = baseCountPerChapter + (chapter <= extra ? 1 : 0);
+
+                string url = GetURL(publisher, grade, chapter, questionCountThisChapter, hard);
+
+                UnityWebRequest www = null;
+                bool success = false;
+                int retryCount = 0;
+
+                while (!success && retryCount < 3)
+                {
+                    www = UnityWebRequest.Get(url);
+                    www.SetRequestHeader("Authorization", auth_token);
+                    yield return www.SendWebRequest();
+
+                    if (www.result == UnityWebRequest.Result.Success)
+                    {
+                        success = true;
+                    }
+                    else
+                    {
+                        retryCount++;
+                        Debug.LogWarning($"[重試第 {retryCount} 次] 題目 API 下載失敗: {url}\n錯誤: {www.error}");
+                        yield return new WaitForSeconds(1f);
+                    }
+                }
+
+                if (!success)
+                {
+                    Debug.LogError($"[失敗] 題目 API 連線失敗（Chapter: {chapter}）: {url}");
+                    continue;
+                }
+
+                string json = www.downloadHandler.text;
+                data = JsonUtility.FromJson<ProblemData>(json);
+
+                int availableCount = Mathf.Min(questionCountThisChapter, data.problem.Length);
+
+                for (int i = 0; i < availableCount && downloadedCount < totalQuestionCount; i++)
+                {
+                    Problem problem = data.problem[i];
+                    var question = new global::Question.Data.Question()
+                    {
+                        Answer = int.Parse(problem.answer),
+                        Publisher = publisher,
+                        Grade = grade,
+                        questionName = problem.problemLink,
+                        optionsName = problem.ansLink
+                    };
+
+                    yield return DownloadImageWithRetry(question, problem.problemLink, true);
+                    yield return DownloadImageWithRetry(question, problem.ansLink, false);
+
+                    tempQuestions.Add(question);
+                    downloadedCount++;
+                }
+
+                www.Dispose();
+            }
+
+            questions = tempQuestions;
+            EventLogger.Instance.LogEvent(LogEventType.Question, $"下載完成 - 成功下載 {tempQuestions.Count} 題",
+                $"出版社 {publisher}, 年級 {grade}");
+        }
+
+        private string GetURL(Publisher publisher, Grade grade, int chapter, int count, int hard)
+        {
+            int justGrade = ((int)grade + 2) / 2;
+            int semester = ((int)grade) % 2 + 1;
+
+            return get_question_api_url + $"{(int)publisher + 1}{justGrade}{semester}{chapter:D2}{hard}001/{count}";
+        }
+
+        private IEnumerator DownloadImageWithRetry(Data.Question question, string problemLink, bool isQuestionImage)
+        {
+            string imageUrl = $"{get_image_api_url}{problemLink}";
+
+            int retryCount = 0;
+            bool success = false;
+            UnityWebRequest www = null;
+
+            while (!success && retryCount < 3)
+            {
+                www = UnityWebRequestTexture.GetTexture(imageUrl);
+                www.SetRequestHeader("Authorization", auth_token);
                 yield return www.SendWebRequest();
 
                 if (www.result == UnityWebRequest.Result.Success)
                 {
-                    string json = www.downloadHandler.text;
-                    data = JsonUtility.FromJson<ProblemData>(json);
-                
-                    for (int i = 0; i < generateCountForEachChapter; i++)
-                    {
-                        Problem problem = data.problem[i];
-                        var question = new global::Question.Data.Question()
-                        {
-                            Answer = int.Parse(problem.answer),
-                            Publisher = publisher,
-                            Grade = grade,
-                            questionName = problem.problemLink,
-                            optionsName =  problem.ansLink
-                        };
-                        yield return DownloadImage(question, problem.problemLink, true);
-                        yield return DownloadImage(question, problem.ansLink, false);
-                
-                        tempQuestions.Add(question);
-                    }
-                
-                    // Debug.Log($"<color=green>API request success {url}</color>");
+                    success = true;
                 }
                 else
                 {
-                    // Debug.LogWarning($"API request failed. {url}\nError: {www.error}");
+                    retryCount++;
+                    Debug.LogWarning($"[重試第 {retryCount} 次] 圖片下載失敗: {imageUrl}\n錯誤: {www.error}");
+                    yield return new WaitForSeconds(1f);
                 }
             }
-            
-            questions = tempQuestions;
-            EventLogger.Instance.LogEvent(LogEventType.Question, $"下載完成 - 成功下載 {tempQuestions.Count} 題", 
-                $"出版社 {publisher}, 年級 {grade}");
-        }
 
-        /// <summary>
-        /// 組合 API 請求的 URL
-        /// </summary>
-        /// <param name="publisher"></param>
-        /// <param name="grade"></param>
-        /// <param name="chapter"></param>
-        /// <param name="count"></param>
-        /// <returns></returns>
-        private string GetURL(Publisher publisher, Grade grade, int chapter, int count)
-        {
-            int justGrade = ((int)grade+2) / 2;
-            int semester = ((int)grade) % 2 + 1;
-        
-            return get_question_api_url + $"{(int)publisher + 1}{justGrade}{semester}{chapter:D2}{hard}001/{count}";
-        }
-    
-        /// <summary>
-        ///  協程，用於下載圖片
-        /// </summary>
-        /// <param name="problemLink"></param>
-        /// <returns></returns>
-        private IEnumerator DownloadImage(Data.Question question, string problemLink, bool isQuestionImage)
-        {
-            string imageUrl = $"{get_image_api_url}{problemLink}";
-
-            UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageUrl);
-            www.SetRequestHeader("Authorization", $"{auth_token}");
-            yield return www.SendWebRequest();
-
-            if (www.result == UnityWebRequest.Result.Success)
+            if (success)
             {
                 Texture2D texture = DownloadHandlerTexture.GetContent(www);
                 Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-        
+
                 if (isQuestionImage)
-                {
                     question.QuestionSprite = sprite;
-                }
                 else
-                {
                     question.OptionSprite = sprite;
-                }
             }
             else
             {
-                Debug.LogError($"Image download failed. Error: {www.error}");
+                Debug.LogError($"[失敗] 圖片下載失敗: {imageUrl}");
             }
-            www.Dispose();
+
+            www?.Dispose();
         }
 
         [System.Serializable]
