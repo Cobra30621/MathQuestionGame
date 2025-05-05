@@ -133,6 +133,8 @@ namespace Relic
         
         public void LoadData(GameData data)
         {
+            RemoveAllRelic();
+            
             GainRelic(data.Relics);
         }
 
