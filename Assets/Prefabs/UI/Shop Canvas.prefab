@@ -1103,7 +1103,6 @@ MonoBehaviour:
   spawnedRelicList: []
   spawnPos: {fileID: 3893363706713521647}
   _relicUpgradeCommodityUI: {fileID: 5804961005192272064}
-  scrollHelper: {fileID: 4055326075191791416}
 --- !u!1 &5136313510208414201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2835,7 +2834,6 @@ MonoBehaviour:
   togglePrefab: {fileID: 2998579462713185918, guid: 180901d5eeef340fca3b0f3388c7bb25, type: 3}
   toogleSpawnPos: {fileID: 6847296479996707184}
   _toggleGroup: {fileID: 6847296479996707190}
-  scrollHelper: {fileID: 8750484433340082717}
 --- !u!1 &6847296479996707187
 GameObject:
   m_ObjectHideFlags: 0
@@ -5714,6 +5712,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6847296479639637024}
     m_Modifications:
+    - target: {fileID: 1667381720627821840, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
+      propertyPath: contentText
+      value: "\u53EF\u7528\u65BC\u57FA\u790E\u5361\u724C\u5347\u7D1A"
+      objectReference: {fileID: 0}
     - target: {fileID: 3873641271257275907, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5797,6 +5799,14 @@ PrefabInstance:
     - target: {fileID: 3873641271257275907, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668231056910283793, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
+      propertyPath: headerText
+      value: "\u5BF6\u77F3"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668231056910283793, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
+      propertyPath: contentText
+      value: "\u53EF\u7528\u65BC\u9032\u968E\u5361\u724C\u5347\u7D1A"
       objectReference: {fileID: 0}
     - target: {fileID: 6042691144628651905, guid: 790cf41a7afa340fdafa951be2f677e8, type: 3}
       propertyPath: m_Name
