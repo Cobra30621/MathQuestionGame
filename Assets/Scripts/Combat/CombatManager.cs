@@ -248,9 +248,8 @@ namespace Combat
 
         public void LoseCombat()
         {
+            if (IsEndCombat()) return;
             UIManager.InformationCanvas.ResetCanvas();
-
-            if (CurrentCombatStateType == CombatStateType.EndCombat) return;
 
             CurrentCombatStateType = CombatStateType.EndCombat;
 
@@ -259,11 +258,16 @@ namespace Combat
 
         public void WinCombat()
         {
-            if (CurrentCombatStateType == CombatStateType.EndCombat) return;
+            if (IsEndCombat()) return;
 
             CurrentCombatStateType = CombatStateType.EndCombat;
 
             StartCoroutine(WinCombatRoutine());
+        }
+
+        public bool IsEndCombat()
+        {
+            return CurrentCombatStateType == CombatStateType.EndCombat;
         }
 
         #endregion
@@ -413,8 +417,9 @@ namespace Combat
                 CombatEventTrigger.InvokeOnTurnEnd(GetTurnInfo(CharacterType.Enemy));
             
             yield return new WaitForSeconds(0.5f);
-                
-            CurrentCombatStateType = CombatStateType.EndRound;
+            
+            if(!IsEndCombat())
+                CurrentCombatStateType = CombatStateType.EndRound;
         }
 
         private IEnumerator RoundEndRoutine()
@@ -423,7 +428,8 @@ namespace Combat
             CombatEventTrigger.InvokeOnRoundEnd(GetRoundInfo());
             yield return new WaitForSeconds(0.1f);
 
-            CurrentCombatStateType = CombatStateType.RoundStart;
+            if(!IsEndCombat())
+                CurrentCombatStateType = CombatStateType.RoundStart;
         }
 
         private IEnumerator LoseCombatRoutine()
