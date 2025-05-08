@@ -43,8 +43,7 @@ namespace Question.QuestionGenerate
                 yield return _onlineDownloader.DownloadQuestionsCoroutine(
                     setting.Publishers[0],
                     setting.Grades[0],
-                    needQuestionCount,
-                    1
+                    needQuestionCount
                 );
 
                 onlineQuestions = _onlineDownloader.questions;

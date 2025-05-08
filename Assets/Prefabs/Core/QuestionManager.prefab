@@ -3617,6 +3617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5617697884724034349}
   - component: {fileID: 7154230856530658928}
+  - component: {fileID: 3975069049965041858}
   m_Layer: 0
   m_Name: "\u7DDA\u4E0A\u984C\u76EE\u53D6\u5F97\u5668"
   m_TagString: Untagged
@@ -3652,15 +3653,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questions: []
-  data:
-    problem:
-    - problemLink: ea5cf927a7d3e6a6fa83ddd6d4044bfb
-      ansLink: 8496cc4870220470bb2cd53af3cc0588
-      answer: 4
-    - problemLink: c9c8e3d739b7fe60a6b9274ed07f5b9d
-      ansLink: 05b5aa2317dcb18a4b543f693db090c1
-      answer: 4
-  maxChapter: 12
+  downloader: {fileID: 3975069049965041858}
+--- !u!114 &3975069049965041858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773255775328795428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab739eed4ccf46ac81bf74262df7b241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2815669365376287384
 GameObject:
   m_ObjectHideFlags: 0

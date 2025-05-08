@@ -117,6 +117,7 @@ MonoBehaviour:
   QuestionSetting:
     Grades: 
     Publishers: 
+    needAnswerCount: 0
   allyPowerAtGameStart: 
 --- !u!114 &2466699180288306852
 MonoBehaviour:
@@ -229,6 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7554945041793251367}
   - component: {fileID: 5310653157622860156}
+  - component: {fileID: 2596572833028835998}
   m_Layer: 0
   m_Name: "\u554F\u984C\u4E0B\u8F09\u5668"
   m_TagString: Untagged
@@ -264,8 +266,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestionData: {fileID: 11400000, guid: e3611fad9cf8f4f4a88eafafbf5bbc73, type: 2}
-  generateCountForEachChapter: 0
-  hard: 0
-  maxChapter: 0
+  generateCountForEachChapter: 1
+  downloader: {fileID: 2596572833028835998}
   data:
     problem: []
+--- !u!114 &2596572833028835998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4460161426109008673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab739eed4ccf46ac81bf74262df7b241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -575,9 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questions: []
-  data:
-    problem: []
-  maxChapter: 12
+  downloader: {fileID: 0}
 --- !u!4 &976072473
 Transform:
   m_ObjectHideFlags: 0
@@ -1079,7 +1077,7 @@ PrefabInstance:
       objectReference: {fileID: 3118746694790410784, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
     - target: {fileID: 3272651585043994133, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3473407725515279545, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: serializationData.Prefab
@@ -1267,7 +1265,7 @@ PrefabInstance:
       objectReference: {fileID: 6448810225252440185, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
     - target: {fileID: 6467626709272723504, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6596468521151200242, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: serializationData.Prefab
@@ -1287,7 +1285,7 @@ PrefabInstance:
       objectReference: {fileID: 7333669944957696998, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
     - target: {fileID: 8024898491811188482, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8379414206368492403, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: serializationData.Prefab
@@ -1319,7 +1317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8710353670877163351, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8776892583119115937, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: headerText
