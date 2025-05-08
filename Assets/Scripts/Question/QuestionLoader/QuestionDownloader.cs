@@ -7,31 +7,35 @@ using UnityEngine.Networking;
 
 namespace Question.QuestionLoader
 {
+    /// <summary>
+    /// 負責從 API 下載題目與對應圖片，並處理圖片下載失敗的重試與本地儲存。
+    /// </summary>
     public class QuestionDownloader : MonoBehaviour
     {
-        private const string get_question_api_url = "https://api.emath.math.ncu.edu.tw/problem/serial/";
-        private const string get_image_api_url = "https://api.emath.math.ncu.edu.tw/problem/";
-        private const string auth_token = "sRu564CCjtoGGIkd050b2YZulLGqjdrTT7mzGWJcJPM5rvE7RKr7Wpmff/Ah";
-        
-        private bool imageDownloadSuccess;
-        private List<Data.Question> tempQuestions;
+        private const string GetQuestionApiUrl = "https://api.emath.math.ncu.edu.tw/problem/serial/";
+        private const string GetImageApiUrl = "https://api.emath.math.ncu.edu.tw/problem/";
+        private const string AuthToken = "sRu564CCjtoGGIkd050b2YZulLGqjdrTT7mzGWJcJPM5rvE7RKr7Wpmff/Ah";
 
-        public IEnumerator DownloadQuestion(Publisher publisher, Grade grade, int chapter, 
-            int hard, bool saveLocal, List<Data.Question> questions)
+        private bool _imageDownloadSuccess;
+
+        /// <summary>
+        /// 從 API 下載一題題目並附帶圖片，成功後加入指定的問題集合。
+        /// </summary>
+        public IEnumerator DownloadQuestion(Publisher publisher, Grade grade, int chapter, int difficulty, bool saveLocal, List<Data.Question> questions)
         {
-            string url = GetURL(publisher, grade, chapter, hard);
+            string url = ComposeQuestionUrl(publisher, grade, chapter, difficulty);
 
-            var www = UnityWebRequest.Get(url);
-            www.SetRequestHeader("Authorization", auth_token);
-            yield return www.SendWebRequest();
+            UnityWebRequest request = UnityWebRequest.Get(url);
+            request.SetRequestHeader("Authorization", AuthToken);
+            yield return request.SendWebRequest();
 
-            if (www.result == UnityWebRequest.Result.Success)
+            if (request.result == UnityWebRequest.Result.Success)
             {
-                string json = www.downloadHandler.text;
-                var data = JsonUtility.FromJson<ProblemData>(json);
+                string json = request.downloadHandler.text;
+                ProblemData data = JsonUtility.FromJson<ProblemData>(json);
 
                 Problem problem = data.problem[0];
-                var question = new global::Question.Data.Question()
+                var question = new global::Question.Data.Question
                 {
                     Answer = int.Parse(problem.answer),
                     Publisher = publisher,
@@ -40,76 +44,81 @@ namespace Question.QuestionLoader
                     optionsName = problem.ansLink
                 };
 
-                imageDownloadSuccess = true;
-                yield return DownloadImageWithRetry(problem.problemLink, saveLocal, question, true );
-                yield return DownloadImageWithRetry(problem.ansLink, saveLocal, question, false );
+                _imageDownloadSuccess = true;
+                // 下載問題圖片
+                yield return DownloadImageWithRetry(problem.problemLink, saveLocal, question, true);
+                // 下載選項圖片
+                yield return DownloadImageWithRetry(problem.ansLink, saveLocal, question, false);
 
-
-                // 圖片下載成功，才能放入問題集
-                if (imageDownloadSuccess)
+                // 只有問題與選項都下載成功，才會存入清單中
+                if (_imageDownloadSuccess)
                 {
                     questions.Add(question);
+                    Debug.Log($"[下載成功]（{publisher}, {grade}, Chapter: {chapter}, Hard: {difficulty}\n{url}");
+                }else
+                {
+                    Debug.LogError($"[下載失敗] 圖片下載失敗（{publisher}, {grade}, Chapter: {chapter}, Hard: {difficulty}\n{url}");
                 }
-                
-                www.Dispose();
-                Debug.Log($"[下載成功]（{publisher}, {grade}, Chapter: {chapter}, Hard: {hard}\n{url}");
             }
             else
             {
-                Debug.LogError($"[下載失敗] 題目 API 連線失敗（{publisher}, {grade}, Chapter: {chapter}, " +
-                               $"Hard: {hard}\n{url}");
+                Debug.LogError($"[下載失敗] 題目 API 連線失敗（{publisher}, {grade}, Chapter: {chapter}, Hard: {difficulty}\n{url}");
             }
+
+            request.Dispose();
         }
-        
-        
-        private string GetURL(Publisher publisher, Grade grade, int chapter,  int hard)
+
+        /// <summary>
+        /// 根據出版社、年級、章節與難度組成 API 所需的題目查詢 URL。
+        /// </summary>
+        private string ComposeQuestionUrl(Publisher publisher, Grade grade, int chapter, int difficulty)
         {
             int justGrade = ((int)grade + 2) / 2;
             int semester = ((int)grade) % 2 + 1;
             int count = 1;
 
-            return get_question_api_url + $"{(int)publisher + 1}{justGrade}{semester}{chapter:D2}{hard}001/{count}";
+            return GetQuestionApiUrl + $"{(int)publisher + 1}{justGrade}{semester}{chapter:D2}{difficulty}001/{count}";
         }
-        
-        private IEnumerator DownloadImageWithRetry(string problemLink,  bool saveLocal, Data.Question question, bool isQuestionImage)
-        {
-            string imageUrl = $"{get_image_api_url}{problemLink}";
 
+        /// <summary>
+        /// 嘗試下載指定圖片（題目或選項圖片），最多重試三次，並可選擇是否儲存到本地。
+        /// </summary>
+        private IEnumerator DownloadImageWithRetry(string imageLink, bool saveLocal, Data.Question question, bool isQuestionImage)
+        {
+            string imageUrl = GetImageApiUrl + imageLink;
             int retryCount = 0;
             bool success = false;
-            UnityWebRequest www = null;
+            UnityWebRequest imageRequest = null;
 
             while (!success && retryCount < 3)
             {
-                www = UnityWebRequestTexture.GetTexture(imageUrl);
-                www.SetRequestHeader("Authorization", auth_token);
-                yield return www.SendWebRequest();
+                imageRequest = UnityWebRequestTexture.GetTexture(imageUrl);
+                imageRequest.SetRequestHeader("Authorization", AuthToken);
+                yield return imageRequest.SendWebRequest();
 
-                if (www.result == UnityWebRequest.Result.Success)
+                if (imageRequest.result == UnityWebRequest.Result.Success)
                 {
                     success = true;
                 }
                 else
                 {
                     retryCount++;
-                    Debug.LogWarning($"[重試第 {retryCount} 次] 圖片下載失敗: {imageUrl}\n錯誤: {www.error}");
+                    Debug.LogWarning($"[重試第 {retryCount} 次] 圖片下載失敗: {imageUrl}\n錯誤: {imageRequest.error}");
                     yield return new WaitForSeconds(0.5f);
                 }
             }
 
             if (success)
             {
-                Texture2D texture = DownloadHandlerTexture.GetContent(www);
-                // 存到本地端
+                Texture2D texture = DownloadHandlerTexture.GetContent(imageRequest);
                 if (saveLocal)
                 {
                     byte[] imageBytes = texture.EncodeToPNG();
-                    string savePath = Path.Combine("Assets/Resources/Question", $"{problemLink}.png");
+                    string savePath = Path.Combine("Assets/Resources/Question", imageLink + ".png");
                     File.WriteAllBytes(savePath, imageBytes);
                 }
-                
+
                 Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-                
                 if (isQuestionImage)
                     question.QuestionSprite = sprite;
                 else
@@ -118,10 +127,10 @@ namespace Question.QuestionLoader
             else
             {
                 Debug.LogError($"[失敗] 圖片下載失敗: {imageUrl}");
-                imageDownloadSuccess = false;
+                _imageDownloadSuccess = false;
             }
 
-            www?.Dispose();
+            imageRequest?.Dispose();
         }
     }
 }
