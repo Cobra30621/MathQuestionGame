@@ -18,89 +18,70 @@ namespace Question.QuestionLoader
         private const string auth_token = "sRu564CCjtoGGIkd050b2YZulLGqjdrTT7mzGWJcJPM5rvE7RKr7Wpmff/Ah";
 
         public ProblemData data;
+        
+        private List<Data.Question> tempQuestions;
+        private bool imageDownloadSueecss;
 
-        public int maxChapter = 1;
-
-
-        public IEnumerator DownloadQuestionCoroutine(Publisher publisher, Grade grade, int totalQuestionCount, int hard)
+        public IEnumerator DownloadQuestionsCoroutine(Publisher publisher, Grade grade, int totalQuestionCount, int hard)
         {
             EventLogger.Instance.LogEvent(LogEventType.Question, "下載 - 線上題目",
                 $"出版社 {publisher}, 年級 {grade}");
 
-            var tempQuestions = new List<Data.Question>();
-            int downloadedCount = 0;
+            tempQuestions = new List<Data.Question>();
 
-            int chapterCount = maxChapter;
-            int baseCountPerChapter = totalQuestionCount / chapterCount;
-            int extra = totalQuestionCount % chapterCount;
-
-            for (int chapter = 1; chapter <= chapterCount; chapter++)
+            while (tempQuestions.Count < totalQuestionCount)
             {
-                if (downloadedCount >= totalQuestionCount)
-                    break;
-
-                int questionCountThisChapter = baseCountPerChapter + (chapter <= extra ? 1 : 0);
-
-                string url = GetURL(publisher, grade, chapter, questionCountThisChapter, hard);
-
-                UnityWebRequest www = null;
-                bool success = false;
-                int retryCount = 0;
-
-                while (!success && retryCount < 3)
-                {
-                    www = UnityWebRequest.Get(url);
-                    www.SetRequestHeader("Authorization", auth_token);
-                    yield return www.SendWebRequest();
-
-                    if (www.result == UnityWebRequest.Result.Success)
-                    {
-                        success = true;
-                    }
-                    else
-                    {
-                        retryCount++;
-                        Debug.LogWarning($"[重試第 {retryCount} 次] 題目 API 下載失敗: {url}\n錯誤: {www.error}");
-                        yield return new WaitForSeconds(1f);
-                    }
-                }
-
-                if (!success)
-                {
-                    Debug.LogError($"[失敗] 題目 API 連線失敗（Chapter: {chapter}）: {url}");
-                    continue;
-                }
-
-                string json = www.downloadHandler.text;
-                data = JsonUtility.FromJson<ProblemData>(json);
-
-                int availableCount = Mathf.Min(questionCountThisChapter, data.problem.Length);
-
-                for (int i = 0; i < availableCount && downloadedCount < totalQuestionCount; i++)
-                {
-                    Problem problem = data.problem[i];
-                    var question = new global::Question.Data.Question()
-                    {
-                        Answer = int.Parse(problem.answer),
-                        Publisher = publisher,
-                        Grade = grade,
-                        questionName = problem.problemLink,
-                        optionsName = problem.ansLink
-                    };
-
-                    yield return DownloadImageWithRetry(question, problem.problemLink, true);
-                    yield return DownloadImageWithRetry(question, problem.ansLink, false);
-
-                    tempQuestions.Add(question);
-                    downloadedCount++;
-                }
-
-                www.Dispose();
+                // 隨機選一個單元下載
+                int chapter = Random.Range(0, 12) + 1;
+                int questionHard = Random.Range(0, 8) + 1;
+                yield return DownloadQuestion(publisher, grade, chapter, questionHard);
             }
-
+            
             questions = tempQuestions;
             EventLogger.Instance.LogEvent(LogEventType.Question, $"下載完成 - 成功下載 {tempQuestions.Count} 題",
                 $"出版社 {publisher}, 年級 {grade}");
+        }
+
+        private IEnumerator DownloadQuestion(Publisher publisher, Grade grade, int chapter, int hard)
+        {
+            string url = GetURL(publisher, grade, chapter, 1, hard);
+            bool success = false;
+            var www = UnityWebRequest.Get(url);
+            www.SetRequestHeader("Authorization", auth_token);
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.Success)
+            {
+                string json = www.downloadHandler.text;
+                data = JsonUtility.FromJson<ProblemData>(json);
+
+                Problem problem = data.problem[0];
+                var question = new global::Question.Data.Question()
+                {
+                    Answer = int.Parse(problem.answer),
+                    Publisher = publisher,
+                    Grade = grade,
+                    questionName = problem.problemLink,
+                    optionsName = problem.ansLink
+                };
+
+                imageDownloadSueecss = true;
+                yield return DownloadImageWithRetry(question, problem.problemLink, true);
+                yield return DownloadImageWithRetry(question, problem.ansLink, false);
+
+                // 圖片下載成功，才能放入問題集
+                if (imageDownloadSueecss)
+                {
+                    tempQuestions.Add(question);
+                }
+                
+                www.Dispose();
+                Debug.Log($"[成功] 下載題目 （Chapter: {chapter}, Hard: {hard}）: {url}");
+            }
+            else
+            {
+                Debug.LogError($"[失敗] 題目 API 連線失敗（Chapter: {chapter}, Hard: {hard}）: {url}");
+            }
         }
 
         private string GetURL(Publisher publisher, Grade grade, int chapter, int count, int hard)
@@ -133,7 +114,7 @@ namespace Question.QuestionLoader
                 {
                     retryCount++;
                     Debug.LogWarning($"[重試第 {retryCount} 次] 圖片下載失敗: {imageUrl}\n錯誤: {www.error}");
-                    yield return new WaitForSeconds(1f);
+                    yield return new WaitForSeconds(0.5f);
                 }
             }
 
@@ -149,6 +130,7 @@ namespace Question.QuestionLoader
             }
             else
             {
+                imageDownloadSueecss = false;
                 Debug.LogError($"[失敗] 圖片下載失敗: {imageUrl}");
             }
 

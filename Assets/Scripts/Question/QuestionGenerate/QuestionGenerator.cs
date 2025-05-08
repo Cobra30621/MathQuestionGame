@@ -40,7 +40,7 @@ namespace Question.QuestionGenerate
             // 啟動線上題目下載協程，下載完成後設定旗標
             IEnumerator DownloadQuestions()
             {
-                yield return _onlineDownloader.DownloadQuestionCoroutine(
+                yield return _onlineDownloader.DownloadQuestionsCoroutine(
                     setting.Publishers[0],
                     setting.Grades[0],
                     needQuestionCount,
