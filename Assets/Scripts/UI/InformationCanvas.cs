@@ -32,6 +32,10 @@ namespace UI
             SetGoldText(CoinManager.Instance.Money);
             SetStoneText(CoinManager.Instance.Stone);
             
+            if (StageSelectedManager.Instance.GetAllyData() != null)
+            {
+                SetNameText(StageSelectedManager.Instance.GetAllyData().CharacterName);
+            }
         }
 
         #endregion
