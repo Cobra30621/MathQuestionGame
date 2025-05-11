@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1099,6 +1099,114 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.size
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: dd7b1e1846c3341cc9ee7f8d7b021134, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 694db94acb5a5426188a8e077092b680, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 27276d626c1ab49eaa48cc7d45dc0086, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6595b81e12e824b83a7563a64e35f687, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: f29ba93bd4c7247dd99cc51d46aae3c8, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6c14e64ef9d044cedab25395e7489115, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f0aa17f06be243f3a373b4c33ec13bf, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 62c4d1d3d858d48b591464761f5b19ad, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: ac1085c54b5e4411aabb40ccb00d8706, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[9]
+      value: 
+      objectReference: {fileID: 21300000, guid: 104ebe014a4044c6790bc0ab0e3665de, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[10]
+      value: 
+      objectReference: {fileID: 21300000, guid: 08e8f24e301ef4209b7fe5559a1f3ad2, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[11]
+      value: 
+      objectReference: {fileID: 21300000, guid: d2cabf2c4cb3c46698b9a0723f636e0a, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[12]
+      value: 
+      objectReference: {fileID: 21300000, guid: d217c7b6e4afd419cb32046f4f4be5c1, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[13]
+      value: 
+      objectReference: {fileID: 21300000, guid: bcaf67aba3199479faecb8531ca54ecf, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[14]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a952cdc8685441909fb76ec25499a55, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[15]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8853238a70d9c459c920cd6d4089e7eb, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[16]
+      value: 
+      objectReference: {fileID: 21300000, guid: b585c51a3b7ba452da85d85dac489c82, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[17]
+      value: 
+      objectReference: {fileID: 21300000, guid: 97323daf360ee481194907d48e9aba34, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[18]
+      value: 
+      objectReference: {fileID: 21300000, guid: 46159d731d7ad4f269dbe4fc9a27fb1d, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[19]
+      value: 
+      objectReference: {fileID: 21300000, guid: 04ee2e954b9174ff9b5ed36e6873d520, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[20]
+      value: 
+      objectReference: {fileID: 21300000, guid: c58bb99b43222433d83bc39a97402bb2, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[21]
+      value: 
+      objectReference: {fileID: 21300000, guid: c5d78d6b6539f4a77823ef54f2a9915a, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[22]
+      value: 
+      objectReference: {fileID: 21300000, guid: b8a0d292008994adbb53c3b4c27a9643, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[23]
+      value: 
+      objectReference: {fileID: 21300000, guid: b61f1a9a4085c42a2bb381fd6e5c17f0, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[24]
+      value: 
+      objectReference: {fileID: 21300000, guid: a33c619d9fce243da996694166929c94, type: 3}
+    - target: {fileID: 3670468550402088230, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
+      propertyPath: tutorialImages.Array.data[25]
+      value: 
+      objectReference: {fileID: 21300000, guid: 96506e51db440460cb82c45aab3efa55, type: 3}
     - target: {fileID: 3691220551985753293, guid: fe4c5d93acf671e48b2593ed75c25a5f, type: 3}
       propertyPath: serializationData.Prefab
       value: 
