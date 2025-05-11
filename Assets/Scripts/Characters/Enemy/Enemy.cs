@@ -23,7 +23,7 @@ namespace Characters.Enemy
         private EnemyData data;
 
         public EnemyAbility enemyAbility;
-
+        
         public EnemySkill currentSkill;
 
         private CharacterHandler _characterHandler;
@@ -49,6 +49,7 @@ namespace Characters.Enemy
             CharacterStats = new CharacterStats(data.MaxHp, this, _characterCanvas);
 
             SubscribeEvent();
+            currentSkill = null;
         }
 
         protected override void SubscribeEvent()

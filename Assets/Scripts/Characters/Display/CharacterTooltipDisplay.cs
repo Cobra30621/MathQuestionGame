@@ -57,11 +57,18 @@ namespace Characters.Display
 
         protected void ShowPowerTooltipInfo()
         {
-           
-            foreach (var powerName in  _characterBase.GetPowerDict().Keys)
+           // 顯示能力的提示
+            foreach (var (powerName, power) in  _characterBase.GetPowerDict())
             {
                 PowerData powerData = _powersData.GetPowerData(powerName);
-                ShowTooltipInfo(powerData.GetContent(),powerData.GetHeader());
+                // 顯示能力層數
+                int amount = power.Amount;
+                var title = $"{powerData.GetHeader()} : {amount}";
+                if (powerData.HideAmount)
+                {
+                    title = powerData.GetHeader();
+                }
+                ShowTooltipInfo(powerData.GetContent(), title);
             }
         }
         

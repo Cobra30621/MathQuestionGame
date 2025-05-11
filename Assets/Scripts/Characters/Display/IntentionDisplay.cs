@@ -14,9 +14,12 @@ namespace Characters.Display
 
         public void Show(EnemySkill currentSkill)
         {
+            if (currentSkill == null)
+            {
+                return;
+            }
+            
             gameObject.SetActive(true);
-            
-            
             if (currentSkill.GetIntentionValue(out string info))
             {
                 ShowWithValue(currentSkill._intention, info);
