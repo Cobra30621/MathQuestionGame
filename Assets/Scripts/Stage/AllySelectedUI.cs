@@ -37,15 +37,18 @@ namespace Stage
 
         
         private bool _haveAllySelected = false;
+        
+        [Required]
+        public AllyDataOverview allyDataOverview;
 
-        public void Init(List<AllyData> allyData)
+        public void Init(List<AllyName> allyNames)
         {
-            CreateSelectedIcons(allyData);
+            CreateSelectedIcons(allyNames);
             
             ClosePanel();
         }
 
-        public void CreateSelectedIcons(List<AllyData> allyDataList)
+        public void CreateSelectedIcons(List<AllyName> allyDataList)
         {
             // Clear any existing icons
             foreach (Transform child in spawnIconPos)
@@ -54,11 +57,12 @@ namespace Stage
             }
 
             // Create icons for each AllyData in the list
-            foreach (AllyData allyData in allyDataList)
+            foreach (var allyName in allyDataList)
             {
                 CharacterSelectedIcon iconInstance =
                     Instantiate(iconPrefab, spawnIconPos).GetComponent<CharacterSelectedIcon>();
-                iconInstance.SetAllyData(allyData);
+                var allyData = allyDataOverview.FindUniqueId(allyName.Id);
+                iconInstance.SetAllyData(allyName, allyData);
             }
         }
         

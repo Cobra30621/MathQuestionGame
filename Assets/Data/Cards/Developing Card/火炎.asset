@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u706B\u708E"
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: customerFeedback
-      Entry: 6
-      Data: 
+  uniqueId:
+    dataId: 9febaea6-7c57-4bea-ae1c-6a744eeef47b
+    displayName: 31
   isDevelopCard: 0
   developLevelInfo:
     ID: 
@@ -51,9 +42,9 @@ MonoBehaviour:
     Class: 3
     MaxLevel: 1
     TitleLang: "\u706B\u708E"
-    DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62108\u9EDE\u50B7\u5BB3"
+    DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62106\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
-    ExhaustAfterPlay: 0
+    ExhaustAfterPlay: 1
     skillIDs:
     - 1100010
     SkillInfos: []
@@ -67,6 +58,6 @@ MonoBehaviour:
     Delay: -1
   useDefaultAttackFeedback: 0
   useCustomFeedback: 0
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: f8c04224d69884b12969a01069ae70ab, type: 3}
   rarity: 0
   description: 

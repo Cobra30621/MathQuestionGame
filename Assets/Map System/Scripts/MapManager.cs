@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Encounter;
+using Encounter.Data;
 using Managers;
 using Map_System.Scripts.MapData;
 using Newtonsoft.Json;
@@ -10,6 +11,7 @@ using Sirenix.OdinInspector;
 using Stage;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace Map
 {
@@ -21,8 +23,8 @@ namespace Map
         public StageDataOverview stageDataOverview;
         
         public StageData stageData;
-        
-        private int _currentMapIndex;
+        [ShowInInspector]
+        public int currentMapIndex { get; private set; }
 
         public Map CurrentMap;
 
@@ -94,7 +96,7 @@ namespace Map
         {
             this.stageName = stageName;
             stageData = stageDataOverview.FindUniqueId(this.stageName.Id);
-            _currentMapIndex = 0;
+            currentMapIndex = 0;
             needInitializedMap = true;
         }
 
@@ -110,26 +112,32 @@ namespace Map
         public void GenerateNewMap()
         {
             // 檢查當前地圖索引是否有效
-            if (_currentMapIndex < 0 || _currentMapIndex >= stageData.maps.Count)
+            if (currentMapIndex < 0 || currentMapIndex >= stageData.maps.Count)
             {
-                Debug.LogError($"Invalid CurrentMapIndex: {_currentMapIndex}");
+                Debug.LogError($"Invalid CurrentMapIndex: {currentMapIndex}");
                 return;
             }
 
             // 根據當前地圖配置生成新地圖
-            var mapConfig = stageData.maps[_currentMapIndex];
+            var mapConfig = stageData.maps[currentMapIndex];
             var map = MapGenerator.GetMap(mapConfig);
             CurrentMap = map;
 
             // 生成新地圖遭遇
-            EncounterManager.Instance.GenerateNewMapEncounter(mapConfig.encounterStage);
+            var encounterStage = GetEncounterStage();
+            EncounterManager.Instance.GenerateNewMapEncounter(encounterStage);
             showMapEvent.Invoke(map);
+        }
+
+        private EncounterStage GetEncounterStage()
+        {
+            return stageData.maps[currentMapIndex].encounterStage;
         }
 
         // 生成下一張地圖
         public void GenerateNextMap()
         {
-            _currentMapIndex++;
+            currentMapIndex++;
             GenerateNewMap();
         }
 
@@ -145,7 +153,7 @@ namespace Map
         [Button]
         public bool IsLastMap()
         {
-            var isLastMap = _currentMapIndex == stageData.maps.Count() - 1;
+            var isLastMap = currentMapIndex == stageData.maps.Count() - 1;
             return isLastMap;
         }
         
@@ -153,11 +161,14 @@ namespace Map
         {
             CurrentMap = JsonConvert.DeserializeObject<Map>(data.MapJson, 
                 new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
-            _currentMapIndex = data.CurrentMapIndex;
+            currentMapIndex = data.CurrentMapIndex;
 
             stageName = new StageName();
             stageName.SetId(data.StageName);
             stageData = stageDataOverview.FindUniqueId(stageName.Id);
+            
+            var encounterStage = GetEncounterStage();
+            EncounterManager.Instance.SetEncounterStage(encounterStage);
         }
         
         public void SaveData(GameData data)
@@ -166,7 +177,7 @@ namespace Map
                 new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
             
             data.MapJson = json;
-            data.CurrentMapIndex = _currentMapIndex;
+            data.CurrentMapIndex = currentMapIndex;
             data.StageName = stageName.Id;
         }
     }

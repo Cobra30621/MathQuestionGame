@@ -45,7 +45,8 @@ namespace Characters.Ally
         protected override void UnsubscribeEvent()
         {
             base.UnsubscribeEvent();
-            OnHealthChanged -= UIManager.InformationCanvas.SetHealthText;
+            if (UIManager != null)
+                OnHealthChanged -= UIManager.InformationCanvas.SetHealthText;
         }
     }
 

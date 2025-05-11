@@ -1,12 +1,11 @@
 using UnityEngine;
 
-namespace CampFire
+namespace Question.UI
 {
-    public class CharacterSkillLevelUpPanel : MonoBehaviour
+    public class WaitDownloadUI : MonoBehaviour
     {
         [SerializeField] private GameObject mainPanel;
-
-        public void Open()
+        public void Show()
         {
             mainPanel.SetActive(true);
         }
@@ -15,6 +14,6 @@ namespace CampFire
         {
             mainPanel.SetActive(false);
         }
-
+        
     }
 }

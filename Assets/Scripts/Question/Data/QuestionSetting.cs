@@ -18,7 +18,11 @@ namespace Question.Data
         /// 出版社清單
         /// </summary>
         public List<Publisher> Publishers;
-
+        
+        /// <summary>
+        /// 需要回答的次數
+        /// </summary>
+        public int needAnswerCount;
 
         public QuestionSetting()
         {

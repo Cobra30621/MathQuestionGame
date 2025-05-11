@@ -1,15 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Card.Data;
-using Effect;
-using Log;
 using Managers;
-using NueGames.Enums;
-using Save;
-using Save.Data;
-using Save.FileHandler;
 using Sirenix.OdinInspector;
-using UnityEngine;
 using UnityEngine.Events;
 
 
@@ -67,6 +60,7 @@ namespace Card
         /// 玩家本局卡組
         /// </summary>
         public List<CardData> CurrentDeck => playerDeckHandler.CurrentDeck;
+
 
 
         #region 升級卡牌

@@ -42,7 +42,7 @@ namespace Question.UI
         {
             // 訂閱關閉介面方法
             closeButton.onClick.AddListener(
-                ()=>mainPanel.SetActive(false));
+                ClosePanel);
             // 訂閱開啟商店方法
             shopButton.onClick.AddListener(
                 ()=> UIManager.Instance.ShopCanvas.OpenCanvas());
@@ -57,6 +57,11 @@ namespace Question.UI
         public void OpenPanel()
         {
             mainPanel.SetActive(true);
+            
+        }
+
+        private void Update()
+        {
             UpdateUI();
         }
 
@@ -67,8 +72,6 @@ namespace Question.UI
         public void SetQuestionCount(int count)
         {
             questionCount = count;
-            
-            UpdateUI();
         }
         
         private void UpdateUI()
@@ -96,10 +99,10 @@ namespace Question.UI
                 QuestionMode = QuestionMode.Easy
             };
             
-            QuestionManager.Instance.EnterQuestionMode(normalQuestionAction);
+            QuestionManager.Instance.EnterQuestionMode(normalQuestionAction, questionCount);
         }
 
-        public void ClosePanel()
+        private void ClosePanel()
         {
             mainPanel.SetActive(false);
         }

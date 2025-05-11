@@ -19,7 +19,6 @@ using Relic;
 using Reward;
 using Save;
 using Save.Data;
-using Save.FileHandler;
 using Sirenix.OdinInspector;
 using Stage;
 using UI;
@@ -38,7 +37,6 @@ namespace Managers
         [Title("存檔相關")] 
         [Required] public SaveManager SaveManager;
         [Required] [SerializeField] private SystemGameVersion systemGameVersion;
-        [Required] [SerializeField] private ScriptableObjectFileHandler allyDataFileHandler;
         [Required] public StageSelectedManager stageSelectedManager;
         
         [Title("物品相關")] 
@@ -50,7 +48,6 @@ namespace Managers
         [Title("地圖相關")] 
         [Required] public MapManager MapManager;
         [Required] public EncounterManager EncounterManager;
-        [Required] public CampFireManager CampFireManager;
         [Required] public EventManager EventManager;
         
         [Title("特效與反饋相關")] 
@@ -93,6 +90,9 @@ namespace Managers
         [InlineEditor()] [Required]
         [LabelText("遊戲基礎設定")]
         public GameplayData GameplayData;
+
+        [Required]
+        public AllyDataOverview allyDataOverview;
         
 
         #endregion
@@ -115,17 +115,15 @@ namespace Managers
         {
             AllyHealthHandler.SetAllyHealthData(data.AllyHealthData);
             
-            stageSelectedManager.SetAllyData(
-                allyDataFileHandler.GuidToData<AllyData>(data.AllyDataGuid));
+            stageSelectedManager.SetAllyData(data.AllyName);
 
         }
 
         public void SaveData(GameData data)
         {
             data.AllyHealthData = AllyHealthHandler.GetAllyHealthData();
-            
-            data.AllyDataGuid = allyDataFileHandler.DataToGuid(
-                stageSelectedManager.GetAllyData());
+
+            data.AllyName = stageSelectedManager.GetCurrentAllyName();
         }
         
         #endregion
@@ -174,6 +172,7 @@ namespace Managers
         {
             EventLogger.LogEvent(LogEventType.Main, "離開 - 單局遊戲");
             
+            SaveManager.SaveSingleGame();
             RelicManager.RemoveAllRelic();
             _sceneChanger.OpenMainMenuScene();
         }
@@ -191,9 +190,9 @@ namespace Managers
         }
         
         
-        public void SetAllyData(AllyData allyData)
+        public void SetAllyData(AllyName allyName)
         {
-            stageSelectedManager.SetAllyData(allyData);
+            stageSelectedManager.SetAllyData(allyName);
         }
 
         
@@ -205,7 +204,7 @@ namespace Managers
         }
         
         
-        public float GetMoneyDropRate()
+        public float GetDifficultyMoneyDropRate()
         {
             return stageSelectedManager.GetMoneyDropRate();
         }

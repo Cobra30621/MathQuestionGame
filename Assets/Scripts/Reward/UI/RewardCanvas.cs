@@ -9,6 +9,7 @@ using Reward.Data;
 using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 using static UnityEngine.Random;
 namespace Reward.UI
 {
@@ -27,7 +28,7 @@ namespace Reward.UI
         /// <summary>
         /// 房間完成處理器
         /// </summary>
-        [SerializeField] private RoomFinishHandler roomFinishHandler;
+        [FormerlySerializedAs("roomFinishHandler")] [SerializeField] private CombatRoomFinishHandler combatRoomFinishHandler;
 
         /// <summary>
         /// 卡片獎勵選擇面板
@@ -120,7 +121,6 @@ namespace Reward.UI
                     rewardText = $"+ {money}";
                     break;
                 case RewardType.Card:
-                    var cardRewardList = RewardManager.Instance.GetCardList(rewardData, 3);
                     rewardText = "卡片獎勵";
                     break;
                 case RewardType.Stone:
@@ -206,7 +206,7 @@ namespace Reward.UI
             if (backToMap)
             {
                 // 回到地圖(戰鬥後
-                roomFinishHandler.BackToMap();
+                combatRoomFinishHandler.BackToMap();
             }
             else
             {

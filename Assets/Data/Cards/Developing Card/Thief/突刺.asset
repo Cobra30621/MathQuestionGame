@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u7A81\u523A"
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: customerFeedback
-      Entry: 6
-      Data: 
+  uniqueId:
+    dataId: d6354c64-008a-4a6c-85aa-2c9e9c3fc6ce
+    displayName: 7
   isDevelopCard: 0
   developLevelInfo:
     ID: 
@@ -44,63 +35,67 @@ MonoBehaviour:
   _levelInfos:
   - ID: 140001
     GroupID: 7
-    SkillID: 1000001
+    SkillID: 1000001, 3020001
     ManaCost: 1
     UpgradeCost: 50
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3"
+    DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000001
+    - 3020001
     SkillInfos: []
   - ID: 140002
     GroupID: 7
-    SkillID: 1000051
+    SkillID: 1000051, 3020001
     ManaCost: 1
     UpgradeCost: 300
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C2\u6B21"
+    DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C2\u6B21"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000051
+    - 3020001
     SkillInfos: []
   - ID: 140003
     GroupID: 7
-    SkillID: 1000052
+    SkillID: 1000052, 3020001
     ManaCost: 1
     UpgradeCost: 1200
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C3\u6B21"
+    DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C3\u6B21"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000052
+    - 3020001
     SkillInfos: []
   - ID: 140004
     GroupID: 7
-    SkillID: 1000053
+    SkillID: 1000053, 3020001
     ManaCost: 1
     UpgradeCost: 2800
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C4\u6B21"
+    DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C4\u6B21"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000053
+    - 3020001
     SkillInfos: []
   - ID: 140005
     GroupID: 7
@@ -111,7 +106,7 @@ MonoBehaviour:
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C5\u6B21"
+    DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C5\u6B21"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
@@ -119,78 +114,83 @@ MonoBehaviour:
     SkillInfos: []
   - ID: 140006
     GroupID: 7
-    SkillID: 1000055
+    SkillID: 1000055, 3020001
     ManaCost: 1
     UpgradeCost: 10000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C6\u6B21"
+    DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C6\u6B21"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000055
+    - 3020001
     SkillInfos: []
   - ID: 140007
     GroupID: 7
-    SkillID: 1000056
+    SkillID: 1000056, 3020001
     ManaCost: 1
     UpgradeCost: 18000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C7\u6B21"
+    DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C7\u6B21"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000056
+    - 3020001
     SkillInfos: []
   - ID: 140008
     GroupID: 7
-    SkillID: 1000057
+    SkillID: 1000057, 3020001
     ManaCost: 1
     UpgradeCost: 32000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: "\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C8\u6B21"
+    DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3\uFF0C8\u6B21"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000057
+    - 3020001
     SkillInfos: []
   - ID: 140009
     GroupID: 7
-    SkillID: 1000067
+    SkillID: 1000067, 3020001
     ManaCost: 2
     UpgradeCost: 50000
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 0
     TitleLang: "\u7A81\u523A"
-    DesLang: "\u5C0D\u602A\u7269\u9020\u62102\u9EDE\u50B7\u5BB3\uFF0C9\u6B21"
+    DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62102\u9EDE\u50B7\u5BB3\uFF0C9\u6B21"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000067
+    - 3020001
     SkillInfos: []
   - ID: 140010
     GroupID: 7
-    SkillID: 1000068
+    SkillID: 1000068, 3020001
     ManaCost: 2
     UpgradeCost: 0
     UpgradeCostStone: 0
     Class: 4
     MaxLevel: 1
     TitleLang: "\u7A81\u523A"
-    DesLang: "\u5C0D\u602A\u7269\u9020\u62102\u9EDE\u50B7\u5BB3\uFF0C10\u6B21"
+    DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62102\u9EDE\u50B7\u5BB3\uFF0C10\u6B21"
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
     - 1000068
+    - 3020001
     SkillInfos: []
   _allyClassType: 4
   canNotPlay: 0

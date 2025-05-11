@@ -12,21 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d037adff9e04706b4a24a2529895710, type: 3}
   m_Name: Cobra Test
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
+  uniqueId:
+    dataId: 13270e23-60c8-4395-82d7-0179ea61167e
+    displayName: "Cobra\u6E2C\u8A66"
   characterName: 
   characterDescription: 
-  maxHealth: 999999
+  maxHealth: 9
   AllyClassType: 0
   prefab: {fileID: 5029677903328548650, guid: f6c1da1c725334a9ea104e8f4e977a2d, type: 3}
-  InitialDeck: {fileID: 11400000, guid: bf3dd57d5a17b4108a0b3e19c871bf43, type: 2}
+  InitialDeck: {fileID: 11400000, guid: 0d8b556c7688a4833901d3a5cad41e8b, type: 2}
   CardRewardData: {fileID: 11400000, guid: 0d8b556c7688a4833901d3a5cad41e8b, type: 2}
   initialRelic: 429c0000
   rewardDropRelic: 

@@ -4,7 +4,6 @@ using Feedback;
 using Log;
 using Save;
 using Save.Data;
-using Save.FileHandler;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,14 +14,9 @@ namespace Card
     /// </summary>
     public class PlayerDeckHandler : MonoBehaviour, IDataPersistence
     {
-        [LabelText("玩家本局遊戲的卡組")]
-        public List<CardData> CurrentDeck;
-        
-        /// <summary>
-        /// 獲得 CardData ScriptableObject 的處理器
-        /// </summary>
-        [Required] public ScriptableObjectFileHandler cardDataFileHandler;
+        [LabelText("玩家本局遊戲的卡組")] public List<CardData> CurrentDeck;
 
+ 
         /// <summary>
         /// 獲得卡片的反饋
         /// </summary>
@@ -32,6 +26,8 @@ namespace Card
         /// 丟棄卡片的反饋
         /// </summary>
         [Required] [SerializeField] private IFeedback throwCardFeedback;
+
+        [Required] [SerializeField] private CardDataOverview cardDataOverview;
         
         
         /// <summary>
@@ -87,14 +83,26 @@ namespace Card
 
         public void LoadData(GameData data)
         {
-            CurrentDeck = 
-                cardDataFileHandler.GuidToData<CardData>(data.CardDataGuids);
+            CurrentDeck = new List<CardData>();
+
+            foreach (var cardName in data.CardNames)
+            {
+                var cardData = cardDataOverview.FindUniqueId(cardName.Id);
+                CurrentDeck.Add(cardData);
+            }
         }
 
         public void SaveData(GameData data)
         {
-            data.CardDataGuids =  cardDataFileHandler.DataToGuid(
-                CurrentDeck);
+            var cardNames = new List<CardName>();
+
+            foreach (var cardData in CurrentDeck)
+            {
+                var cardName = cardDataOverview.GetCardName(cardData);
+                cardNames.Add(cardName);
+            }
+
+            data.CardNames = cardNames;
         }
 
         #endregion

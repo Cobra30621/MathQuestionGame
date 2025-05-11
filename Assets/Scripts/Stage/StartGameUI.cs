@@ -58,7 +58,7 @@ namespace Stage
             _canvasGroup.interactable = true;
 
             stageSelectedUI.Init(allyAndStageSetting.StageNameList);
-            allySelectedUI.Init(allyAndStageSetting.AllyDataList);
+            allySelectedUI.Init(allyAndStageSetting.AllyNameList);
         }
 
         /// <summary>
@@ -86,7 +86,6 @@ namespace Stage
         private IEnumerator StartGameCoroutine()
         {
             GameManager.Instance.NewGame();
-            QuestionManager.Instance.StartDownloadOnlineQuestions();
             yield return sceneChanger.OpenMapScene();
         }
     }

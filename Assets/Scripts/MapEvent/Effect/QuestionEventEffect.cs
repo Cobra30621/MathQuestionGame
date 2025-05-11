@@ -24,7 +24,7 @@ namespace MapEvent.Effect
                 onComplete =  onComplete
             };
             
-            QuestionManager.Instance.EnterQuestionMode(questionAction);
+            QuestionManager.Instance.EnterQuestionMode(questionAction, 1);
         }
 
 

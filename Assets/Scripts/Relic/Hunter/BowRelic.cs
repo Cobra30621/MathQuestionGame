@@ -16,15 +16,19 @@ namespace Relic.Hunter
         public override void OnDead(DamageInfo info)
         {
             var target = info.Target;
-            
+            // 傷害目標對象是敵人
             if (target.IsCharacterType(CharacterType.Enemy))
             {
-                damage = IsMaxLevel() ? 35 : 10;
-                var damageInfo = new DamageInfo(damage, GetEffectSource(), fixDamage: true);
-                var targets = CombatManager.EnemiesForTarget();
-                targets.Remove(target);
-                var damageEffect = new DamageEffect(damageInfo, targets);
-                damageEffect.Play();
+                // 只有傷害來自卡牌才會觸發效果
+                if (info.EffectSource.SourceType == SourceType.Card)
+                {
+                    damage = IsMaxLevel() ? 35 : 10;
+                    var damageInfo = new DamageInfo(damage, GetEffectSource(), fixDamage: true);
+                    var targets = CombatManager.EnemiesForTarget();
+                    targets.Remove(target);
+                    var damageEffect = new DamageEffect(damageInfo, targets);
+                    damageEffect.Play();
+                }
             }
         }
        

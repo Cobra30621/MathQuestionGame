@@ -6,6 +6,7 @@ using Card.Display;
 using Economy.Shop.Data;
 using NueGames.Enums;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,7 +32,6 @@ namespace Economy.Shop
         [SerializeField] private Transform toogleSpawnPos;
 
         [Required] [SerializeField] private ToggleGroup _toggleGroup;
-
         
         /// <summary>
         /// 提供卡牌資訊

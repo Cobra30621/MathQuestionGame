@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 namespace Card.Display
 {
     public class UICard : CardBase,
-        IPointerEnterHandler,IPointerDownHandler,IPointerExitHandler,IPointerUpHandler
+        IPointerEnterHandler,IPointerDownHandler,IPointerExitHandler, IPointerClickHandler
     {
         [SerializeField] private float showScaleRate = 1.15f;
  
@@ -32,15 +32,15 @@ namespace Card.Display
             transform.localScale = _initalScale;
         }
 
-        public override void OnPointerUp(PointerEventData eventData)
-        {
-            OnCardChose?.Invoke();
-            
-        }
-
+        
         public void CloseAllDisplay()
         {
             _cardDisplay.CloseAllDisplay();
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            OnCardChose?.Invoke();
         }
     }
 }

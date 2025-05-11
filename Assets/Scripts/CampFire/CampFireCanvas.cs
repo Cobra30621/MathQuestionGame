@@ -13,13 +13,16 @@ namespace CampFire
     {
         [SerializeField] private GameObject optionPanel;
 
-        [SerializeField] private CharacterSkillLevelUpPanel characterSkillLevelUpPanel;
         [SerializeField] private ThrowCardPanel throwCardPanel;
 
         
         [SerializeField] private Text healText;
         
         private SceneChanger _sceneChanger;
+        
+        public float healPercent = 0.3f;
+        
+        
         private void Awake()
         {
             _sceneChanger = GetComponent<SceneChanger>();
@@ -31,7 +34,7 @@ namespace CampFire
             optionPanel.SetActive(true);
 
             var maxHealth = StageSelectedManager.Instance.GetAllyData().MaxHealth;
-            int healAmount = (int) Math.Ceiling(maxHealth * CampFireManager.Instance.healPercent);
+            int healAmount = (int) Math.Ceiling(maxHealth * healPercent);
             healText.text = $"回血 ({healAmount}";
         }
 
@@ -49,14 +52,11 @@ namespace CampFire
 
         public void Heal()
         {
-            CampFireManager.Instance.Heal();
+            GameManager.HealAlly(healPercent);
+            
+            Leave();
         }
-
-        public void CharacterSkillLevelUp()
-        {
-            Debug.Log("Character Skill Level Up");
-            characterSkillLevelUpPanel.Open();
-        }
+        
 
         public void ThrowCard()
         {
@@ -67,6 +67,8 @@ namespace CampFire
         public void OnSelectOption()
         {
             optionPanel.SetActive(false);
+            
+            Leave();
         }
 
         #endregion

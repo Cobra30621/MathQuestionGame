@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Map;
 using Question.Data;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Question.QuestionGenerate
@@ -8,7 +9,7 @@ namespace Question.QuestionGenerate
     /// <summary>
     /// 讀取本地端的數學題目(Demo 版用)
     /// </summary>
-    public class LocalQuestionGetter : IQuestionGetter
+    public class LocalQuestionGetter : SerializedMonoBehaviour
     {
         [SerializeField] private QuestionData questionData;
         /// <summary>
@@ -16,7 +17,7 @@ namespace Question.QuestionGenerate
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public override List<Data.Question> GetQuestions(QuestionSetting request)
+        public List<Data.Question> GetQuestions(QuestionSetting request)
         {
             var questions = new List<Data.Question>();
             foreach (var publisher in request.Publishers)
@@ -30,11 +31,6 @@ namespace Question.QuestionGenerate
             questions.Shuffle();
 
             return questions;
-        }
-
-        public override bool EnableGetQuestion(QuestionSetting request)
-        {
-            return true;
         }
     }
 }

@@ -67,8 +67,6 @@ namespace Relic
         public void OnGainRelic(RelicName relicName)
         {
             CheckHaveInitDict();
-            relicSaveInfos[relicName].HasGained = true;
-            
             relicSaveInfos.TryGetValue(relicName, out var relicSaveInfo);
 
             if (relicSaveInfo is { HasGained: false })
@@ -76,7 +74,7 @@ namespace Relic
                 relicSaveInfo.HasGained = true;
                 
                 EventLogger.Instance.LogEvent(LogEventType.Relic, 
-                    $"第一次獲得卡牌 - {relicName}");
+                    $"第一次獲得遺物 - {relicName}");
                 SaveManager.Instance.SavePermanentGame();
             }
         }

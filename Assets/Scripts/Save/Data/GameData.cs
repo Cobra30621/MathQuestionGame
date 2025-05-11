@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Card.Data;
 using Characters.Ally;
 using Encounter;
 using Relic.Data;
@@ -8,9 +9,9 @@ namespace Save.Data
     public class GameData
     {
         /// <summary>
-        /// 玩家選擇的角色 ID
+        /// 玩家選擇的角色
         /// </summary>
-        public string AllyDataGuid;
+        public AllyName AllyName;
         
         
         public AllyHealthData AllyHealthData;
@@ -18,7 +19,7 @@ namespace Save.Data
         /// <summary>
         /// 卡牌資料
         /// </summary>
-        public List<string> CardDataGuids;
+        public List<CardName> CardNames;
         
         /// <summary>
         /// 遺物資料

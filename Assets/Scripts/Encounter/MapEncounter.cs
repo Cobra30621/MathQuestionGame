@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Encounter.Data;
+using Log;
+using Map;
+using UnityEngine;
 
 namespace Encounter
 {
@@ -15,7 +18,8 @@ namespace Encounter
         public List<EncounterName> bossList;
 
         public int addCount = 10;
-        
+
+
         public void GeneratorStageData(EncounterStage stage)
         {
             enemyList = new List<EncounterName>();
@@ -26,34 +30,71 @@ namespace Encounter
             bossList = stage.bossEnemies.GetEncounterListByWeight(1);
         }
         
+
         /// <summary>
         /// 取得一般敵人遭遇
         /// </summary>
-        /// <returns></returns>
-        public EncounterName GetEnemyEncounter()
+        public EncounterName GetEnemyEncounter(EncounterStage stage)
         {
+            if (enemyList == null || enemyList.Count == 0)
+            {
+                enemyList = new List<EncounterName>();
+                enemyList.AddRange(stage.strongEnemies.GetEncounterListByWeight(addCount));
+            }
+
             var encounterName = enemyList[0];
-            enemyList.Remove(encounterName);
             
             return encounterName;
         }
 
-        public EncounterName GetEliteEncounter()
+        public EncounterName GetEliteEncounter(EncounterStage stage)
         {
+            if (eliteEnemyList == null || eliteEnemyList.Count == 0)
+            {
+                eliteEnemyList = stage.eliteEnemies.GetEncounterListByWeight(addCount);
+            }
+
             var encounterName = eliteEnemyList[0];
-            eliteEnemyList.Remove(encounterName);
-            
             return encounterName;
         }
-        
-        public EncounterName GetBossEncounter()
+
+        public EncounterName GetBossEncounter(EncounterStage stage)
         {
+            if (bossList == null || bossList.Count == 0)
+            {
+                bossList = stage.bossEnemies.GetEncounterListByWeight(1);
+            }
+
             var encounterName = bossList[0];
-            bossList.Remove(encounterName);
-            
             return encounterName;
         }
 
-
+        /// <summary>
+        /// 完成此關卡
+        /// </summary>
+        /// <param name="nodeType"></param>
+        public void CompleteRoom(NodeType nodeType, EncounterName encounterName)
+        {
+            switch (nodeType)
+            {
+                case NodeType.MinorEnemy:
+                    enemyList.RemoveAt(0);
+                    break;
+                case NodeType.EliteEnemy:
+                    eliteEnemyList.RemoveAt(0);
+                    break;
+                case NodeType.Boss:
+                    bossList.RemoveAt(0);
+                    break;
+                case NodeType.Treasure:
+                    break;
+                default:
+                    Debug.LogError($"Wrong Node Type {nodeType} for EnemyEncounter");
+                    break;
+            }
+            
+            EventLogger.Instance.LogEvent(LogEventType.MapEncounter, 
+                $"擊敗遭遇: {encounterName}({nodeType})");
+        }
     }
 }

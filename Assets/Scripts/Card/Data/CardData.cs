@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Characters.Display;
 using Effect.Parameters;
 using NueGames.Enums;
+using rStarTools.Scripts.StringList;
 using Save;
 using Sirenix.OdinInspector;
 using Tool;
@@ -12,7 +13,7 @@ using UnityEngine;
 namespace Card.Data
 {
     [CreateAssetMenu(fileName = "Card Data", menuName = "Collection/Card", order = 0)]
-    public class CardData : SerializedScriptableObject ,ISerializeReferenceByAssetGuid
+    public class CardData : SODataBase<CardDataOverview>
     {
         // equivalent to groupID now, I guess
 
@@ -132,14 +133,6 @@ namespace Card.Data
         }
         
         
-
-#if UNITY_EDITOR // Editor-related code must be excluded from builds
-        private IEnumerable GetAssets()
-        {
-            return AssetGetter.GetAssets(AssetGetter.DataName.Fx);
-        }
-#endif
-
         #endregion
     }
 

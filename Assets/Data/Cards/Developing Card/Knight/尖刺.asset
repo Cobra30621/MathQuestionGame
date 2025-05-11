@@ -12,18 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: "\u5C16\u523A"
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: customerFeedback
-      Entry: 6
-      Data: 
+  uniqueId:
+    dataId: ee5cd6b3-b52a-4f50-b1f9-db347456beda
+    displayName: 11
   isDevelopCard: 0
   developLevelInfo:
     ID: 
@@ -51,7 +42,7 @@ MonoBehaviour:
     Class: 1
     MaxLevel: 0
     TitleLang: "\u5C16\u523A"
-    DesLang: "\u7372\u5F97\u53CD\u5F48"
+    DesLang: "\u7372\u5F9710\u9EDE\u53CD\u5F48"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs:
@@ -59,33 +50,33 @@ MonoBehaviour:
     SkillInfos: []
   - ID: 110402
     GroupID: 11
-    SkillID: 3000001
+    SkillID: 3000002
     ManaCost: 2
     UpgradeCost: 0
     UpgradeCostStone: 60
     Class: 1
     MaxLevel: 0
     TitleLang: "\u5C16\u523A"
-    DesLang: "\u7372\u5F97\u53CD\u5F48"
+    DesLang: "\u7372\u5F9720\u9EDE\u53CD\u5F48"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs:
-    - 3000001
+    - 3000002
     SkillInfos: []
   - ID: 110403
     GroupID: 11
-    SkillID: 3000001
+    SkillID: 3000003
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 0
     Class: 1
     MaxLevel: 1
     TitleLang: "\u5C16\u523A"
-    DesLang: "\u7372\u5F97\u53CD\u5F48"
+    DesLang: "\u7372\u5F9730\u9EDE\u53CD\u5F48"
     TargetChoose: 0
     ExhaustAfterPlay: 0
     skillIDs:
-    - 3000001
+    - 3000003
     SkillInfos: []
   _allyClassType: 1
   canNotPlay: 0

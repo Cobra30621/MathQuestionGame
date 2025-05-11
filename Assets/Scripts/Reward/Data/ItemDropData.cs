@@ -23,6 +23,8 @@ namespace Reward.Data
         public int treasureRoomDropMoney;
 
         [LabelText("金錢隨機浮動")] public float randomMoneyRange;
+
+        [LabelText("不同層的金幣掉落倍率")] public float[] layerMoneyDropRates;
         
         [LabelText("答題掉錢")]
         public int questionDropMoney;
@@ -115,7 +117,19 @@ namespace Reward.Data
 
 
 
+        /// <summary>
+        /// 根據樓層 index 取得金幣倍率，如 index 超出則回傳 1f 並印出錯誤
+        /// </summary>
+        public float GetLayerMoneyRate(int index)
+        {
+            if (index < 0 || index >= layerMoneyDropRates.Length)
+            {
+                Debug.LogError($"[RewardManager] 層級索引超出範圍：index={index}，目前最大為 {layerMoneyDropRates.Length - 1}");
+                return 1f;
+            }
 
+            return layerMoneyDropRates[index];
+        }
 
         public int GetNodeDropStone(NodeType nodeType)
         {

@@ -1,10 +1,13 @@
+using System.Collections;
 using System.Collections.Generic;
 using Economy.Shop.Data;
 using Managers;
 using Relic;
 using Relic.Data;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Economy.Shop
 {
@@ -21,7 +24,6 @@ namespace Economy.Shop
         [SerializeField] private Transform spawnPos;
         
         [SerializeField] private RelicUpgradePanel _relicUpgradeCommodityUI;
-
 
         
         /// <summary>
@@ -41,6 +43,7 @@ namespace Economy.Shop
                 relic.SetData(new RelicUpgradeCommodity(relicInfo), this, relicInfo);
             }
         }
+        
         
         
         

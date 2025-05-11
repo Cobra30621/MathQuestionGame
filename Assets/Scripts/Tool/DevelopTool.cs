@@ -32,9 +32,8 @@ namespace Tool
         [LabelText("遊戲開始時，執行事件")]
         public UnityEvent TestEvent;
         
-        [InlineEditor()]
         [LabelText("玩家資料")]
-        public AllyData allyData;
+        public AllyName allyName;
         
         [LabelText("產生的敵人們")]
         public EncounterName enemyEncounter;
@@ -88,7 +87,7 @@ namespace Tool
 
         private void SetDevelopModeData()
         {
-            GameManager.Instance.SetAllyData(allyData);
+            GameManager.Instance.SetAllyData(allyName);
             EncounterManager.Instance.SetEnemyEncounter(enemyEncounter);
             QuestionManager.Instance.SetQuestionSetting(QuestionSetting); 
             
