@@ -1,6 +1,12 @@
-# 數學魔法師 MathQuestionGame
+# 數學魔法使 Math Magician
 
 A roguelite card game that combines math problem-solving with strategic card battles. Players navigate through procedurally generated maps, solve math questions, and use cards to defeat enemies.
+
+## 📺 Promo Video
+
+[![Watch the Trailer](https://img.youtube.com/vi/QCVSIcKTRp8/0.jpg)](https://youtu.be/QCVSIcKTRp8)
+
+> 🎬 Click the thumbnail above to watch our official gameplay trailer!
 
 ## Game Overview
 
