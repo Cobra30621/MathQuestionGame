@@ -2,91 +2,128 @@ using System.Collections;
 using System.Collections.Generic;
 using Managers;
 using Question;
+using Save;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utils;
 
 namespace Stage
 {
-    public class StartGameUI : MonoBehaviour
+    /// <summary>
+    /// 控制遊戲開始畫面的 UI 行為與流程
+    /// </summary>
+    public class StartGameUI  : MonoBehaviour
     {
-        [Required] public Button startButton;
-        [Required] public Button backButton;
-        [Required] [SerializeField] private CanvasGroup _canvasGroup;
+        [Required] public Button StartButton;
+        [Required] public Button BackButton;
 
-        [Required] [InlineEditor] [LabelText("角色與難度選擇")] [SerializeField]
-        private AllyAndStageSetting allyAndStageSetting;
+        [Required] [SerializeField]
+        private CanvasGroup PanelCanvasGroup;
 
+        [Required] [InlineEditor]
+        [LabelText("角色與關卡設定")] 
+        [SerializeField]
+        private AllyAndStageSetting AllyAndStageSetting;
 
-        [SerializeField] private StageDataOverview _stageDataOverview;
+        [SerializeField] 
+        private StageDataOverview StageDataOverview;
 
-        private StageSelectedManager _stageSelectedManager;
-        [Required] public StageSelectedUI stageSelectedUI;
-        [Required] public AllySelectedUI allySelectedUI;
+        private StageSelectedManager _stageManager;
 
-        [Required] [SerializeField] private SceneChanger sceneChanger;
+        [Required] public StageSelectedUI StageSelectionUI;
+        [Required] public AllySelectedUI AllySelectionUI;
+
+        [Required] [SerializeField]
+        private SceneChanger SceneChanger;
+
+        /// <summary>
+        /// 顯示是否放棄原本存檔，開啟新遊戲確認視窗
+        /// </summary>
+        [Required] public GameObject ConfirmNewGamePanel;
+
+        [Required] public Button ConfirmStartButton;
+        [Required] public Button CancelConfirmButton;
 
         private void Awake()
         {
-            startButton.onClick.AddListener(StartGame);
-            backButton.onClick.AddListener(ClosePanel);
+            StartButton.onClick.AddListener(HandleStartButtonClicked);
+            BackButton.onClick.AddListener(HidePanel);
 
+            ConfirmStartButton.onClick.AddListener(StartGame);
+            CancelConfirmButton.onClick.AddListener(() => ConfirmNewGamePanel.SetActive(false));
 
-            ClosePanel();
+            HidePanel();
         }
 
         private void Start()
         {
-            // Set up listeners for stage and ally data changed events
-            StageSelectedManager.Instance.OnAllyDataChanged.AddListener(
-                allySelectedUI.OnAllySelected);
+            _stageManager = StageSelectedManager.Instance;
 
-            // Can Click Start Button when allyData Have Selected
-            StageSelectedManager.Instance.OnAllyDataChanged.AddListener(
-                (a) => startButton.interactable = true
-            );
+            // 設定角色選擇變更時的監聽
+            _stageManager.OnAllyDataChanged.AddListener(AllySelectionUI.OnAllySelected);
+
+            // 當選擇角色後才可按下開始遊戲
+            _stageManager.OnAllyDataChanged.AddListener((ally) => StartButton.interactable = true);
         }
 
         /// <summary>
-        /// Shows the panel by enabling the canvas group and setting its alpha to 1.
+        /// 顯示開始遊戲的 UI 面板
         /// </summary>
         public void ShowPanel()
         {
-            _canvasGroup.alpha = 1;
-            _canvasGroup.blocksRaycasts = true;
-            _canvasGroup.interactable = true;
+            PanelCanvasGroup.alpha = 1;
+            PanelCanvasGroup.blocksRaycasts = true;
+            PanelCanvasGroup.interactable = true;
 
-            stageSelectedUI.Init(allyAndStageSetting.StageNameList);
-            allySelectedUI.Init(allyAndStageSetting.AllyNameList);
+            StageSelectionUI.Init(AllyAndStageSetting.StageNameList);
+            AllySelectionUI.Init(AllyAndStageSetting.AllyNameList);
         }
 
         /// <summary>
-        /// Closes the panel by disabling the canvas group and setting its alpha to 0.
+        /// 隱藏開始遊戲的 UI 面板
         /// </summary>
-        public void ClosePanel()
+        public void HidePanel()
         {
-            _canvasGroup.alpha = 0;
-            _canvasGroup.blocksRaycasts = false;
-            _canvasGroup.interactable = false;
+            PanelCanvasGroup.alpha = 0;
+            PanelCanvasGroup.blocksRaycasts = false;
+            PanelCanvasGroup.interactable = false;
 
-            startButton.interactable = false;
-            allySelectedUI.ClosePanel();
+            StartButton.interactable = false;
+            AllySelectionUI.ClosePanel();
         }
 
         /// <summary>
-        /// Handles the start game button click event.
+        /// 點擊開始按鈕時檢查是否有未完成的遊戲
+        /// </summary>
+        public void HandleStartButtonClicked()
+        {
+            if (SaveManager.Instance.HasOngoingGame())
+            {
+                ConfirmNewGamePanel.SetActive(true);
+            }
+            else
+            {
+                StartGame();
+            }
+        }
+
+        /// <summary>
+        /// 正式啟動新遊戲流程
         /// </summary>
         public void StartGame()
         {
             StartCoroutine(StartGameCoroutine());
         }
 
-
+        /// <summary>
+        /// 啟動新遊戲並切換到地圖場景的協程
+        /// </summary>
         private IEnumerator StartGameCoroutine()
         {
             GameManager.Instance.NewGame();
-            yield return sceneChanger.OpenMapScene();
+            yield return SceneChanger.OpenMapScene();
         }
     }
 }
