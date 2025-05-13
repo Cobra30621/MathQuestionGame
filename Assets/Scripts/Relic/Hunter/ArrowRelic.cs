@@ -11,7 +11,7 @@ namespace Relic.Hunter
     public class ArrowRelic : RelicBase
     {
         public override RelicName RelicName => RelicName.Arrow;
-        public override int AtGainTurnStartMana(int rawValue)
+        public override int GainMaxMana(int rawValue)
         {
                 return rawValue + 1;
         }

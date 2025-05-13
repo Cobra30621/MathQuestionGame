@@ -130,7 +130,7 @@ namespace Combat
         /// </summary>
         /// <param name="rawValue"></param>
         /// <returns></returns>
-        public static int GetManaValue(int rawValue)
+        public static int GetTurnStartManaValue(int rawValue)
         {
             int gainValue = rawValue;
             var allyPowers = CombatManager.Instance.MainAlly.GetPowerDict();
@@ -146,6 +146,24 @@ namespace Combat
             foreach (var relicBase in relics)
             {
                 gainValue = relicBase.AtGainTurnStartMana(gainValue);
+            }
+
+            return gainValue;
+        }
+
+        /// <summary>
+        /// 取得最大魔力
+        /// </summary>
+        /// <param name="rawValue"></param>
+        /// <returns></returns>
+        public static int GainMaxManaValue(int rawValue)
+        {
+            int gainValue = rawValue;
+            // 遺物系統瑪娜加成
+            var relics = GameManager.Instance.RelicManager.CurrentRelicDict.Values;
+            foreach (var relicBase in relics)
+            {
+                gainValue = relicBase.GainMaxMana(gainValue);
             }
 
             return gainValue;

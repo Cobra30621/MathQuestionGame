@@ -13,7 +13,7 @@ namespace GameListener
     /// </summary>
     public class GameEventListener
     {
-        #region 戰鬥加成計算
+        #region 加成計算
         
         /// <summary>
         /// 傷害加成的計算順序
@@ -62,11 +62,21 @@ namespace GameListener
         }
 
         /// <summary>
-        /// 回合開始獲得瑪娜加成
+        /// 回合開始獲得魔力加成
         /// </summary>
         /// <param name="rawValue"></param>
         /// <returns></returns>
         public virtual int AtGainTurnStartMana(int rawValue)
+        {
+            return rawValue;
+        }
+
+        /// <summary>
+        /// 取得最大魔力
+        /// </summary>
+        /// <param name="rawValue"></param>
+        /// <returns></returns>
+        public virtual int GainMaxMana(int rawValue)
         {
             return rawValue;
         }
@@ -80,6 +90,8 @@ namespace GameListener
         {
             return rawValue;
         }
+        
+        
         
         /// <summary>
         /// 卡片初始魔力加成的計算

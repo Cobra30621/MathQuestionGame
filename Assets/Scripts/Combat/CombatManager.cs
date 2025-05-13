@@ -52,7 +52,9 @@ namespace Combat
 
         public int MaxMana()
         {
-            return _gameplayData.MaxMana;
+            int rawValue = _gameplayData.MaxMana;
+            int mana = CombatCalculator.GainMaxManaValue(rawValue);
+            return mana;
         }
         
         public int CurrentMana => _manaManager.CurrentMana;

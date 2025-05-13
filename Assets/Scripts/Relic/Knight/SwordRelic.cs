@@ -12,7 +12,7 @@ namespace Relic.Knight
     {
         public override RelicName RelicName => RelicName.Sword;
   
-        public override int AtGainTurnStartMana(int rawValue)
+        public override int GainMaxMana(int rawValue)
         {
             return rawValue - 1;
         }

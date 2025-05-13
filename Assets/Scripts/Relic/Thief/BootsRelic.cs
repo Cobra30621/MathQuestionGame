@@ -14,7 +14,7 @@ namespace Relic.Thief
     public class BootsRelic : RelicBase
     {
         public override RelicName RelicName => RelicName.Boots;
-        public override int AtGainTurnStartMana(int rawValue)
+        public override int GainMaxMana(int rawValue)
         {
             return rawValue + 1;
         }

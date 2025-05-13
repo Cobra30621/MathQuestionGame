@@ -11,7 +11,7 @@ namespace Relic.Mage
     public class OrbRelic : RelicBase
     {
         public override RelicName RelicName => RelicName.Orb;
-        public override int AtGainTurnStartMana(int rawValue)
+        public override int GainMaxMana(int rawValue)
         {
             return rawValue + 1;
         }

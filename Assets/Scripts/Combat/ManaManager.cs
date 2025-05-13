@@ -22,7 +22,8 @@ namespace Combat
         /// </summary>
         public void HandleAtTurnStartMana()
         {
-            int gainValue = CombatCalculator.GetManaValue(CombatManager.Instance.MaxMana());
+            int maxMana = CombatManager.Instance.MaxMana();
+            int gainValue = CombatCalculator.GetTurnStartManaValue(maxMana);
             
             // 每回合開始，將瑪娜歸零
             ReSetMana(); 
