@@ -1297,7 +1297,7 @@ MonoBehaviour:
   - ID: 110302
     GroupID: 10
     SkillID: 3130002
-    ManaCost: 2
+    ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 60
     Class: 1
@@ -1312,7 +1312,7 @@ MonoBehaviour:
   - ID: 110303
     GroupID: 10
     SkillID: 3130002
-    ManaCost: 2
+    ManaCost: 0
     UpgradeCost: 0
     UpgradeCostStone: 0
     Class: 1
@@ -1878,7 +1878,7 @@ MonoBehaviour:
     SkillInfos: []
   - ID: 100030
     GroupID: 23
-    SkillID: 1100010, 5020001
+    SkillID: 1000010, 5020001
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 35
@@ -1889,12 +1889,12 @@ MonoBehaviour:
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
-    - 1100010
+    - 1000010
     - 5020001
     SkillInfos: []
   - ID: 100031
     GroupID: 23
-    SkillID: 1100017, 5020002
+    SkillID: 1000017, 5020002
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 60
@@ -1905,12 +1905,12 @@ MonoBehaviour:
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
-    - 1100017
+    - 1000017
     - 5020002
     SkillInfos: []
   - ID: 100032
     GroupID: 23
-    SkillID: 1100025, 5020003
+    SkillID: 1000025, 5020003
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 0
@@ -1921,7 +1921,7 @@ MonoBehaviour:
     TargetChoose: 1
     ExhaustAfterPlay: 0
     skillIDs:
-    - 1100025
+    - 1000025
     - 5020003
     SkillInfos: []
   - ID: 100040
