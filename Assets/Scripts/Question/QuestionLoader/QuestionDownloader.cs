@@ -57,12 +57,13 @@ namespace Question.QuestionLoader
                     Debug.Log($"[下載成功]（{publisher}, {grade}, Chapter: {chapter}, Hard: {difficulty}\n{url}");
                 }else
                 {
-                    Debug.LogError($"[下載失敗] 圖片下載失敗（{publisher}, {grade}, Chapter: {chapter}, Hard: {difficulty}\n{url}");
+                    Debug.LogWarning($"[下載失敗] 圖片下載失敗（{publisher}, {grade}, Chapter: {chapter}, Hard: {difficulty}\n{url}");
                 }
             }
             else
             {
-                Debug.LogError($"[下載失敗] 題目 API 連線失敗（{publisher}, {grade}, Chapter: {chapter}, Hard: {difficulty}\n{url}");
+                Debug.LogWarning($"[下載失敗] 題目 API 連線失敗（{publisher}, {grade}, Chapter: {chapter}, Hard: {difficulty}\n{url}");
+                Debug.LogWarning($"[下載失敗] 題目 API 連線失敗（{publisher}, {grade}, Chapter: {chapter}, Hard: {difficulty}\n{url}");
             }
 
             request.Dispose();
@@ -126,7 +127,7 @@ namespace Question.QuestionLoader
             }
             else
             {
-                Debug.LogError($"[失敗] 圖片下載失敗: {imageUrl}");
+                Debug.LogWarning($"[失敗] 圖片下載失敗: {imageUrl}");
                 _imageDownloadSuccess = false;
             }
 

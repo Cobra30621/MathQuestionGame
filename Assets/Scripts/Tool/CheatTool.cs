@@ -29,6 +29,7 @@ namespace Tool
         [SerializeField] private Button clearSaveDataButton;
         [SerializeField] private Button loadSheetButton;
         [SerializeField] private Button logToFileButton;
+        [SerializeField] private Button testErrorButton;
 
         [Required]
         [SerializeField] private SheetDataLoader _sheetDataLoader;
@@ -53,6 +54,7 @@ namespace Tool
             clearSaveDataButton.onClick.AddListener(ClearSaveData);
             loadSheetButton.onClick.AddListener(LoadSheet);
             logToFileButton.onClick.AddListener(LogToFile.SaveLogToFile);
+            testErrorButton.onClick.AddListener(()=>{Debug.LogError("Test Error");});
         }
 
         private void OnAddMoneyClick()
