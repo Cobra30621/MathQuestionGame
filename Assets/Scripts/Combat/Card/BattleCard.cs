@@ -128,10 +128,10 @@ namespace Combat.Card
             };
             
             
-            var gameActions = EffectFactory.GetEffects(CardLevelInfo.SkillInfos,
+            var effects = EffectFactory.GetEffects(CardLevelInfo.SkillInfos,
                 specifiedTargets, effectSource);
 
-            return gameActions;
+            return effects;
         }
 
         /// <summary>

@@ -10,119 +10,132 @@ using UnityEngine;
 
 namespace Effect.Sequence
 {
+    /// <summary>
+    /// 表示一段特效序列，包含多個 EffectBase 與實體 FX 播放。
+    /// </summary>
     [Serializable]
     public class FXSequence : ISequence
     {
         [ShowInInspector]
-        private FxInfo _fxInfo;
+        private FxInfo fxInfo;
+
         [ShowInInspector]
-        private List<EffectBase> _effects;
+        private List<EffectBase> effectList;
+
         [ShowInInspector]
-        protected List<CharacterBase> TargetList;
-        
+        protected List<CharacterBase> targetCharacters;
+
         protected FxManager FxManager => FxManager.Instance;
 
         [ShowInInspector]
-        private List<FXPlayer> playingFXs;
+        private List<FXPlayer> activeFXPlayers;
 
-        private Action _onCompleted;
+        private Action onSequenceComplete;
 
 
-        public FXSequence( List<EffectBase> effects, FxInfo fxInfo, List<CharacterBase> targetList, Action onComplete)
+        public FXSequence(List<EffectBase> effects, FxInfo fxInfo, List<CharacterBase> targets, Action onComplete)
         {
-            _fxInfo = fxInfo;
-            _effects = effects;
-            TargetList = targetList;
-            _onCompleted = onComplete;
+            this.fxInfo = fxInfo;
+            this.effectList = effects;
+            this.targetCharacters = targets;
+            this.onSequenceComplete = onComplete;
         }
 
-
+        /// <summary>
+        /// 執行特效播放與邏輯效果，同步或延遲等候。
+        /// </summary>
         public override IEnumerator Execute(Action setActionCompleted)
         {
-            foreach (var effect in _effects)
+            // 播放邏輯效果
+            foreach (var effect in effectList)
             {
                 effect.Play();
             }
-            
-            playingFXs = new List<FXPlayer>();
+
+            activeFXPlayers = new List<FXPlayer>();
             FXPlayer fxPlayer;
-            
-            if (_fxInfo.FxPrefab != null)
+
+            // 播放特效
+            if (fxInfo.FxPrefab != null)
             {
-                var spawnTransform = FxManager.GetFXSpawnPosition(_fxInfo.FxSpawnPosition);
-                switch (_fxInfo.FxSpawnPosition)
+                var spawnTransform = FxManager.GetFXSpawnPosition(fxInfo.FxSpawnPosition);
+                switch (fxInfo.FxSpawnPosition)
                 {
                     case FxSpawnPosition.EachTarget:
-                        foreach (var target in TargetList)
+                        foreach (var target in targetCharacters)
                         {
-                            fxPlayer = FxManager.PlayFx(_fxInfo.FxPrefab, spawnTransform, 
-                                target.transform.position);
-                            playingFXs.Add(fxPlayer);
+                            fxPlayer = FxManager.PlayFx(fxInfo.FxPrefab, spawnTransform, target.transform.position);
+                            activeFXPlayers.Add(fxPlayer);
                             fxPlayer.Play();
-                        };
+                        }
                         break;
                     case FxSpawnPosition.Ally:
                         spawnTransform.position = CombatManager.Instance.GetMainAllyTransform().position;
-                        fxPlayer = FxManager.PlayFx(_fxInfo.FxPrefab, spawnTransform);
+                        fxPlayer = FxManager.PlayFx(fxInfo.FxPrefab, spawnTransform);
                         fxPlayer.Play();
-                        playingFXs.Add(fxPlayer);
+                        activeFXPlayers.Add(fxPlayer);
                         break;
                     case FxSpawnPosition.EnemyMiddle:
                     case FxSpawnPosition.ScreenMiddle:
-                        fxPlayer =FxManager.PlayFx(_fxInfo.FxPrefab, spawnTransform);
+                        fxPlayer = FxManager.PlayFx(fxInfo.FxPrefab, spawnTransform);
                         fxPlayer.Play();
-                        playingFXs.Add(fxPlayer);
+                        activeFXPlayers.Add(fxPlayer);
                         break;
                 }
             }
 
-            yield return WaitComplete();
-            
+            yield return WaitUntilReady();
+
             setActionCompleted.Invoke();
-            _onCompleted?.Invoke();
-            
-            // 播放特效完畢後，刪除所有特效
-            yield return new WaitUntil(()=> !HaveFXPlaying());
-            DestroyAllFxPlayers();
+            onSequenceComplete?.Invoke();
+
+            // 等待所有特效結束後銷毀
+            yield return new WaitUntil(() => !IsAnyFXPlaying());
+            DestroyAllFX();
         }
 
-        private IEnumerator WaitComplete()
+        /// <summary>
+        /// 根據 WaitMethod 等待特效完成或延遲時間。
+        /// </summary>
+        private IEnumerator WaitUntilReady()
         {
-            if (_fxInfo.WaitMethod == WaitMethod.WaitFXFinish)
+            if (fxInfo.WaitMethod == WaitMethod.WaitFXFinish)
             {
-                yield return new WaitUntil(()=> !HaveFXPlaying());
-                
-            }else if (_fxInfo.WaitMethod == WaitMethod.WaitDelay)
+                yield return new WaitUntil(() => !IsAnyFXPlaying());
+            }
+            else if (fxInfo.WaitMethod == WaitMethod.WaitDelay)
             {
-                yield return new WaitForSeconds(_fxInfo.Delay);
+                yield return new WaitForSeconds(fxInfo.Delay);
             }
         }
 
-        private bool HaveFXPlaying()
+        /// <summary>
+        /// 檢查是否還有特效正在播放。
+        /// </summary>
+        private bool IsAnyFXPlaying()
         {
-            foreach (var playingFX in playingFXs)
+            foreach (var fx in activeFXPlayers)
             {
-                if (playingFX.IsPlaying())
-                {
-                    return true;
-                }
+                if (fx.IsPlaying()) return true;
             }
-
             return false;
         }
 
-        private void DestroyAllFxPlayers()
+        /// <summary>
+        /// 銷毀所有播放過的特效。
+        /// </summary>
+        private void DestroyAllFX()
         {
-            foreach (var playingFX in playingFXs)
+            foreach (var fx in activeFXPlayers)
             {
-                Debug.Log($"Destroy {playingFX.name}");
-                GameObject.Destroy(playingFX.gameObject);
+                Debug.Log($"Destroy FX: {fx.name}");
+                GameObject.Destroy(fx.gameObject);
             }
         }
 
         public override string ToString()
         {
-            return $"{nameof(_fxInfo)}: {_fxInfo}, {nameof(_effects)}: {_effects}, {nameof(TargetList)}: {TargetList}, {nameof(playingFXs)}: {playingFXs}";
+            return $"FX Info: {fxInfo}, Effects: {effectList}, Targets: {targetCharacters}, FX Instances: {activeFXPlayers}";
         }
     }
 }

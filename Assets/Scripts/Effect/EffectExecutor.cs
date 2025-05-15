@@ -8,7 +8,7 @@ namespace Effect
 {
     /// <summary>
     /// 負責執行遊戲效果（Effect）
-    /// 提供 AddToTop, AddAction 方法，讓其他人加入想要執行的（Effect）
+    /// 提供 AddEffect, AddActionWithFX, ExecuteImmediately方法，讓其他人加入想要執行的（Effect）
     /// </summary>
     public class EffectExecutor : SerializedMonoBehaviour
     {
