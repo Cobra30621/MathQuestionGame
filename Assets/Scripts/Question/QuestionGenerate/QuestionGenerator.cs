@@ -41,8 +41,8 @@ namespace Question.QuestionGenerate
             IEnumerator DownloadQuestions()
             {
                 yield return _onlineDownloader.DownloadQuestionsCoroutine(
-                    setting.Publishers[0],
-                    setting.Grades[0],
+                    setting.Publisher,
+                    setting.Grade,
                     needQuestionCount
                 );
 

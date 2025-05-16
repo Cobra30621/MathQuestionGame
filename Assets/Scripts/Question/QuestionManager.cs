@@ -14,6 +14,7 @@ using Question.UI;
 using Save;
 using Save.Data;
 using Sirenix.OdinInspector;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Question
@@ -62,6 +63,8 @@ namespace Question
         /// </summary>
         public QuestionSetting QuestionSetting;
 
+
+        public static UnityEvent<QuestionSetting> onQuestionSettingChange = new UnityEvent<QuestionSetting>();
 
         #region Public Method
 
@@ -119,6 +122,8 @@ namespace Question
         public void SetQuestionSetting(QuestionSetting setting)
         {
             QuestionSetting = setting;
+            onQuestionSettingChange.Invoke(setting);
+            
             SaveManager.Instance.SavePermanentGame();
         }
 

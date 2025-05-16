@@ -3957,8 +3957,8 @@ MonoBehaviour:
   questionDisplay: {fileID: 9145330851529146018}
   outcomeUI: {fileID: 8253572457370102316}
   QuestionSetting:
-    Grades: 00000000
-    Publishers: 00000000
+    Grade: 0
+    Publisher: 0
     needAnswerCount: 0
 --- !u!95 &7805969782776372664
 Animator:
@@ -4421,7 +4421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _localGetter: {fileID: 631274316755946036}
   _onlineDownloader: {fileID: 7154230856530658928}
-  perQuestionMaxWaitTime: 1
+  perQuestionMaxWaitTime: 1.5
 --- !u!1 &3961865962040824742
 GameObject:
   m_ObjectHideFlags: 0

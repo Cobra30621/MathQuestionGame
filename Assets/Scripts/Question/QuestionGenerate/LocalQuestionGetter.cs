@@ -20,13 +20,7 @@ namespace Question.QuestionGenerate
         public List<Data.Question> GetQuestions(QuestionSetting request)
         {
             var questions = new List<Data.Question>();
-            foreach (var publisher in request.Publishers)
-            {
-                foreach (var grade in request.Grades)
-                {
-                    questions.AddRange(questionData.GetQuestion(publisher, grade));
-                }
-            }
+            questions.AddRange(questionData.GetQuestion(request.Publisher, request.Grade));
 
             questions.Shuffle();
 

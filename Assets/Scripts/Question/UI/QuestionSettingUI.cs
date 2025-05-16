@@ -1,3 +1,4 @@
+using System;
 using Question.Data;
 using Question.Enum;
 using TMPro;
@@ -14,10 +15,21 @@ namespace Question.UI
             publishDropdown.onValueChanged.AddListener((e)=>SetQuestionSetting());
             gradeDropdown.onValueChanged.AddListener((e)=>SetQuestionSetting());
 
-            var publish = (int)QuestionManager.Instance.QuestionSetting.Publishers[0];
+            QuestionManager.onQuestionSettingChange.AddListener(UpdateDropdown);
+        }
+
+        private void OnEnable()
+        {
+            UpdateDropdown(QuestionManager.Instance.QuestionSetting);
+        }
+
+
+        private void UpdateDropdown(QuestionSetting questionSetting)
+        {
+            var publish = (int)questionSetting.Publisher;
             publishDropdown?.SetValueWithoutNotify(publish);
             
-            var grade = (int)QuestionManager.Instance.QuestionSetting.Grades[0];
+            var grade = (int)questionSetting.Grade;
             gradeDropdown?.SetValueWithoutNotify(grade);
         }
 
@@ -27,7 +39,6 @@ namespace Question.UI
             Grade grade = (Grade)gradeDropdown.value;
             Publisher publisher = (Publisher)publishDropdown.value;
             
-            Debug.Log($"grade:{grade}, publish:{publisher}");
 
             var questionSetting = new QuestionSetting(grade, publisher);
 
