@@ -17,8 +17,8 @@ namespace Sheets
         [Required] [InlineEditor] [LabelText("敵人")]
         public EnemyDataOverview enemyData;
         
-        [Required] [InlineEditor] [LabelText("敵人技能")]
-        public EnemySkillDataOverview enemySkillData;
+        [FormerlySerializedAs("enemySkillData")] [Required] [InlineEditor] [LabelText("敵人技能")]
+        public EnemyIntentionData enemyIntentionData;
         
         [Required] [InlineEditor] [LabelText("技能")]
         public SkillData skillData;
@@ -51,9 +51,9 @@ namespace Sheets
         /// </summary>
         /// <param name="id">The ID of the enemy skill.</param>
         /// <returns>The enemy skill data.</returns>
-        public EnemySkillData GetEnemySkillInfo(string id)
+        public EnemyIntentionInfo GetEnemySkillInfo(string id)
         {
-            return enemySkillData.GetEnemySkillData(id);
+            return enemyIntentionData.GetEnemyIntentionInfo(id);
         }
 
         /// <summary>

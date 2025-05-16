@@ -20,6 +20,8 @@ MonoBehaviour:
     ID: 0
     GroupID: 
     SkillID: 
+    skillIDs: []
+    SkillInfos: []
     ManaCost: 0
     UpgradeCost: 0
     UpgradeCostStone: 0
@@ -29,13 +31,14 @@ MonoBehaviour:
     DesLang: 
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs: []
-    SkillInfos: []
   cardId: 5
   _levelInfos:
   - ID: 130001
     GroupID: 5
     SkillID: 1000007
+    skillIDs:
+    - 1000007
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 50
     UpgradeCostStone: 0
@@ -45,12 +48,12 @@ MonoBehaviour:
     DesLang: "\u5C0D\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3\u3002"
     TargetChoose: 1
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 1000007
-    SkillInfos: []
   - ID: 130002
     GroupID: 5
     SkillID: 1000008
+    skillIDs:
+    - 1000008
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 300
     UpgradeCostStone: 0
@@ -60,12 +63,12 @@ MonoBehaviour:
     DesLang: "\u5C0D\u602A\u7269\u9020\u62108\u9EDE\u50B7\u5BB3\u3002"
     TargetChoose: 1
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 1000008
-    SkillInfos: []
   - ID: 130003
     GroupID: 5
     SkillID: 1000009
+    skillIDs:
+    - 1000009
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 1200
     UpgradeCostStone: 0
@@ -75,12 +78,12 @@ MonoBehaviour:
     DesLang: "\u5C0D\u602A\u7269\u9020\u62109\u9EDE\u50B7\u5BB3\u3002"
     TargetChoose: 1
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 1000009
-    SkillInfos: []
   - ID: 130004
     GroupID: 5
     SkillID: 1000010
+    skillIDs:
+    - 1000010
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 2800
     UpgradeCostStone: 0
@@ -90,12 +93,12 @@ MonoBehaviour:
     DesLang: "\u5C0D\u602A\u7269\u9020\u621010\u9EDE\u50B7\u5BB3\u3002"
     TargetChoose: 1
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 1000010
-    SkillInfos: []
   - ID: 130005
     GroupID: 5
     SkillID: 1100004
+    skillIDs:
+    - 1100004
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 5200
     UpgradeCostStone: 0
@@ -105,12 +108,12 @@ MonoBehaviour:
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62104\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 1100004
-    SkillInfos: []
   - ID: 130006
     GroupID: 5
     SkillID: 1100005
+    skillIDs:
+    - 1100005
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 10000
     UpgradeCostStone: 0
@@ -120,12 +123,12 @@ MonoBehaviour:
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62105\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 1100005
-    SkillInfos: []
   - ID: 130007
     GroupID: 5
     SkillID: 1100006
+    skillIDs:
+    - 1100006
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 18000
     UpgradeCostStone: 0
@@ -135,12 +138,12 @@ MonoBehaviour:
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62106\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 1100006
-    SkillInfos: []
   - ID: 130008
     GroupID: 5
     SkillID: 1100007
+    skillIDs:
+    - 1100007
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 32000
     UpgradeCostStone: 0
@@ -150,12 +153,12 @@ MonoBehaviour:
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 1100007
-    SkillInfos: []
   - ID: 130009
     GroupID: 5
     SkillID: 1100009
+    skillIDs:
+    - 1100009
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 50000
     UpgradeCostStone: 0
@@ -165,12 +168,12 @@ MonoBehaviour:
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62109\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 1100009
-    SkillInfos: []
   - ID: 130010
     GroupID: 5
     SkillID: 1100010
+    skillIDs:
+    - 1100010
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 0
@@ -180,9 +183,6 @@ MonoBehaviour:
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u621010\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 1100010
-    SkillInfos: []
   _allyClassType: 3
   canNotPlay: 0
   exhaustIfNotPlay: 0

@@ -23,7 +23,7 @@ namespace Characters.Enemy
          
          private Enemy _enemy; // 敌人基类引用
 
-         private EnemySkillData _skillData; // 技能数据
+         private EnemyIntentionInfo _intentionInfo; // 技能数据
 
          public List<SkillInfo> skillInfos; // 技能信息列表
 
@@ -40,15 +40,15 @@ namespace Characters.Enemy
          /// <summary>
          /// 使用表格数据初始化敌人技能
          /// </summary>
-         public EnemySkill(EnemySkillData skillData, Enemy enemy, SheetDataGetter getter)
+         public EnemySkill(EnemyIntentionInfo intentionInfo, Enemy enemy, SheetDataGetter getter)
          {
-             _skillData = skillData;
+             _intentionInfo = intentionInfo;
              _enemy = enemy;
              
              currentCd = 0;
-             skillInfos = _skillData.skillIDs.ConvertAll(getter.GetSkillInfo);
-             _intention = getter.GetIntention(skillData.Intention);
-             _skillName = skillData.ps;
+             skillInfos = _intentionInfo.skillIDs.ConvertAll(getter.GetSkillInfo);
+             _intention = getter.GetIntention(intentionInfo.Intention);
+             _skillName = intentionInfo.ps;
 
              useSheetInfos = true;
          }
@@ -73,7 +73,7 @@ namespace Characters.Enemy
         {
             // 更新 CD
             if(useSheetInfos)
-                currentCd = _skillData.CD;
+                currentCd = _intentionInfo.CD;
             
             var actionSource = GetEffectSource();
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using rStarTools.Scripts.StringList;
+using UnityEngine.Serialization;
 
 namespace Characters.Enemy.Data
 {
@@ -9,10 +10,10 @@ namespace Characters.Enemy.Data
     {
         public string ID;
         public string Lang;
-        public string EnemySkillID;
+        public string EnemyIntentionID;
         public string Level;
         public string Prefab;
-        public string StartBattleSkillID;
+        public string StartBattleIntentionID;
         public int MaxHp;
         public bool IsBoss;
         

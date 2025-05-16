@@ -43,8 +43,8 @@ namespace Characters.Enemy.Data
                 {
                     enemyInfo.SetDataId($"{enemyInfo.ID}");
                     enemyInfo.SetDisplayName($"{enemyInfo.Lang}/{enemyInfo.Level}");
-                    enemyInfo.enemySkillIDs = Helper.ConvertStringToStringList(enemyInfo.EnemySkillID);
-                    enemyInfo.startBattleSkillIDs = Helper.ConvertStringToStringList(enemyInfo.StartBattleSkillID);
+                    enemyInfo.enemySkillIDs = Helper.ConvertStringToStringList(enemyInfo.EnemyIntentionID);
+                    enemyInfo.startBattleSkillIDs = Helper.ConvertStringToStringList(enemyInfo.StartBattleIntentionID);
                     
                     AddData(enemyInfo);
                 }

@@ -20,6 +20,8 @@ MonoBehaviour:
     ID: 
     GroupID: 
     SkillID: 
+    skillIDs: []
+    SkillInfos: []
     ManaCost: 0
     UpgradeCost: 0
     UpgradeCostStone: 0
@@ -29,13 +31,15 @@ MonoBehaviour:
     DesLang: 
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs: []
-    SkillInfos: []
   cardId: 21
   _levelInfos:
   - ID: 100010
     GroupID: 21
     SkillID: 8000002, 5000001
+    skillIDs:
+    - 8000002
+    - 5000001
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 35
@@ -45,13 +49,14 @@ MonoBehaviour:
     DesLang: "\u62BD2\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C1\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD1\u5F35"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 8000002
-    - 5000001
-    SkillInfos: []
   - ID: 100011
     GroupID: 21
     SkillID: 8000002, 5000002, 5000001
+    skillIDs:
+    - 8000002
+    - 5000002
+    - 5000001
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 60
@@ -61,14 +66,14 @@ MonoBehaviour:
     DesLang: "\u62BD2\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C1\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD1\u5F35\u3001\u7372\u5F975\u9EDE\u8B77\u76FE"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 8000002
-    - 5000002
-    - 5000001
-    SkillInfos: []
   - ID: 100012
     GroupID: 21
     SkillID: 8000002, 5000003, 5000001
+    skillIDs:
+    - 8000002
+    - 5000003
+    - 5000001
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 0
@@ -78,11 +83,6 @@ MonoBehaviour:
     DesLang: "\u62BD2\u5F35\u724C\uFF0C\u82E5\u9019\u662F\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C1\u5F35\u724C\uFF0C\u5247\u984D\u5916\u518D\u62BD1\u5F35\u3001\u7372\u5F9712\u9EDE\u8B77\u76FE"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs:
-    - 8000002
-    - 5000003
-    - 5000001
-    SkillInfos: []
   _allyClassType: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0

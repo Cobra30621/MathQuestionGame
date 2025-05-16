@@ -43,8 +43,8 @@ namespace Sheets
             yield return new WaitUntil(()=>!getter.skillData.IsLoading);
             
             // Load enemy skill data from Google Sheets
-            getter.enemySkillData.ParseDataFromGoogleSheet();
-            yield return new WaitUntil(()=>!getter.enemySkillData.IsLoading);
+            getter.enemyIntentionData.ParseDataFromGoogleSheet();
+            yield return new WaitUntil(()=>!getter.enemyIntentionData.IsLoading);
             
             // Load enemy data from Google Sheets
             getter.enemyData.ParseDataFromGoogleSheet();
@@ -88,7 +88,7 @@ namespace Sheets
         {
 #if UNITY_EDITOR
             EditorUtility.SetDirty(getter.skillData);
-            EditorUtility.SetDirty(getter.enemySkillData);
+            EditorUtility.SetDirty(getter.enemyIntentionData);
             EditorUtility.SetDirty(getter.enemyData);
             EditorUtility.SetDirty(getter.cardLevelData);
             AssetDatabase.SaveAssets();

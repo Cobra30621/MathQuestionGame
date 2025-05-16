@@ -69,13 +69,13 @@ namespace Sheets
             {
                 foreach (var enemySkillID in enemyData.enemySkillIDs)
                 {
-                    getter.enemySkillData.GetEnemySkillData(
+                    getter.enemyIntentionData.GetEnemyIntentionInfo(
                         enemySkillID, $"Enemy {enemyData.ID}: ");
                 }
 
                 foreach (var enemySkillID in enemyData.startBattleSkillIDs)
                 {
-                    getter.enemySkillData.GetEnemySkillData(
+                    getter.enemyIntentionData.GetEnemyIntentionInfo(
                         enemySkillID, $"Enemy {enemyData.ID}: ");
                 }
                 
@@ -86,7 +86,7 @@ namespace Sheets
         private void ValidateEnemySkillData()
         {
             // Validates skill IDs and intentions for enemy skills.
-            foreach (var enemySkillData in getter.enemySkillData.EnemySkills)
+            foreach (var enemySkillData in getter.enemyIntentionData.EnemyIntentions)
             {
                 foreach (var skillID in enemySkillData.skillIDs)
                 {

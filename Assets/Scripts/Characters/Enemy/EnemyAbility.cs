@@ -18,7 +18,7 @@ namespace Characters.Enemy
                 ConvertAll(id => 
                     new EnemySkill(getter.GetEnemySkillInfo(id), enemy, getter));
 
-            if (!data.StartBattleSkillID.IsNullOrWhitespace())
+            if (!data.StartBattleIntentionID.IsNullOrWhitespace())
             {
                 _startBattleSkills = new List<EnemySkill>();
                 foreach (var skillID in data.startBattleSkillIDs)

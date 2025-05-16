@@ -20,6 +20,8 @@ MonoBehaviour:
     ID: 
     GroupID: 
     SkillID: 
+    skillIDs: []
+    SkillInfos: []
     ManaCost: 0
     UpgradeCost: 0
     UpgradeCostStone: 0
@@ -29,13 +31,14 @@ MonoBehaviour:
     DesLang: 
     TargetChoose: 0
     ExhaustAfterPlay: 0
-    skillIDs: []
-    SkillInfos: []
   cardId: 31
   _levelInfos:
   - ID: 200001
     GroupID: 31
     SkillID: 1100010
+    skillIDs:
+    - 1100010
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 0
@@ -45,9 +48,6 @@ MonoBehaviour:
     DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62106\u9EDE\u50B7\u5BB3"
     TargetChoose: 0
     ExhaustAfterPlay: 1
-    skillIDs:
-    - 1100010
-    SkillInfos: []
   _allyClassType: 3
   canNotPlay: 0
   exhaustIfNotPlay: 0
