@@ -24,9 +24,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9101003
     MaxHp: 21
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9101003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9101001
     - 9101002
   - uniqueId:
@@ -40,9 +40,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9102003
     MaxHp: 29
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9102003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9102001
     - 9102002
   - uniqueId:
@@ -56,9 +56,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9103003
     MaxHp: 50
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9103003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9103001
     - 9103002
   - uniqueId:
@@ -72,8 +72,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 202
     IsBoss: 1
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 9111001
   - uniqueId:
       dataId: 112
@@ -86,8 +86,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 222
     IsBoss: 1
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 9112001
   - uniqueId:
       dataId: 113
@@ -100,8 +100,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 242
     IsBoss: 1
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 9113001
   - uniqueId:
       dataId: 201
@@ -114,9 +114,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9201001
     MaxHp: 21
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9201001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9201003
   - uniqueId:
       dataId: 202
@@ -129,9 +129,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9202001
     MaxHp: 29
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9202001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9202003
   - uniqueId:
       dataId: 203
@@ -144,9 +144,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9203001
     MaxHp: 50
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9203001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9203003
   - uniqueId:
       dataId: 211
@@ -159,9 +159,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9211001
     MaxHp: 100
     IsBoss: 1
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9211001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9211004
   - uniqueId:
       dataId: 212
@@ -174,9 +174,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9212001
     MaxHp: 200
     IsBoss: 1
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9212001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9212003
     - 9212004
   - uniqueId:
@@ -190,9 +190,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9213001
     MaxHp: 300
     IsBoss: 1
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9213001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9213003
     - 9213004
   - uniqueId:
@@ -206,9 +206,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9211001
     MaxHp: 100
     IsBoss: 1
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9211001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9211003
     - 9211004
   - uniqueId:
@@ -222,9 +222,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9212001
     MaxHp: 200
     IsBoss: 1
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9212001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9212003
     - 9212004
   - uniqueId:
@@ -238,9 +238,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9213001
     MaxHp: 300
     IsBoss: 1
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9213001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9213003
     - 9213004
   - uniqueId:
@@ -254,9 +254,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9301001
     MaxHp: 21
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9301001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9301002
   - uniqueId:
       dataId: 302
@@ -269,9 +269,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9302001
     MaxHp: 29
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9302001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9302002
   - uniqueId:
       dataId: 303
@@ -284,9 +284,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9303001
     MaxHp: 50
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9303001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9303002
   - uniqueId:
       dataId: 311
@@ -299,8 +299,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 100
     IsBoss: 1
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 9311002
     - 9311003
   - uniqueId:
@@ -314,8 +314,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 200
     IsBoss: 1
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 9312002
     - 9312003
   - uniqueId:
@@ -329,8 +329,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 300
     IsBoss: 1
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 9313002
     - 9313003
   - uniqueId:
@@ -344,8 +344,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 0
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs: []
+    startBattleIntentionIDs: []
+    enemyIntentionIDs: []
   - uniqueId:
       dataId: 402
       displayName: "\u9CE5\u4EBA/\u96E3\u5EA6\u4E8C"
@@ -357,8 +357,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 0
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs: []
+    startBattleIntentionIDs: []
+    enemyIntentionIDs: []
   - uniqueId:
       dataId: 403
       displayName: "\u9CE5\u4EBA/\u96E3\u5EA6\u4E09"
@@ -370,8 +370,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 0
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs: []
+    startBattleIntentionIDs: []
+    enemyIntentionIDs: []
   - uniqueId:
       dataId: 411
       displayName: "\u91CE\u751F\u9CE5\u4EBA/\u96E3\u5EA6\u4E00"
@@ -383,8 +383,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 0
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs: []
+    startBattleIntentionIDs: []
+    enemyIntentionIDs: []
   - uniqueId:
       dataId: 412
       displayName: "\u91CE\u751F\u9CE5\u4EBA/\u96E3\u5EA6\u4E8C"
@@ -396,8 +396,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 0
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs: []
+    startBattleIntentionIDs: []
+    enemyIntentionIDs: []
   - uniqueId:
       dataId: 413
       displayName: "\u91CE\u751F\u9CE5\u4EBA/\u96E3\u5EA6\u4E09"
@@ -409,8 +409,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 0
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs: []
+    startBattleIntentionIDs: []
+    enemyIntentionIDs: []
   - uniqueId:
       dataId: 501
       displayName: "\u6A5F\u5668\u58EB\u5175/\u96E3\u5EA6\u4E00"
@@ -422,9 +422,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9501001
     MaxHp: 58
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9501001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9501002
   - uniqueId:
       dataId: 502
@@ -437,9 +437,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9502001
     MaxHp: 81
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9502001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9502002
   - uniqueId:
       dataId: 503
@@ -452,9 +452,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9503001
     MaxHp: 139
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9503001
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9502002
   - uniqueId:
       dataId: 511
@@ -467,10 +467,10 @@ MonoBehaviour:
     StartBattleIntentionID: 9511001, 9511002
     MaxHp: 100
     IsBoss: 1
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9511001
     - 9511002
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9511003
   - uniqueId:
       dataId: 512
@@ -483,10 +483,10 @@ MonoBehaviour:
     StartBattleIntentionID: 9512001, 9512002
     MaxHp: 200
     IsBoss: 1
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9512001
     - 9512002
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9512003
   - uniqueId:
       dataId: 513
@@ -499,10 +499,10 @@ MonoBehaviour:
     StartBattleIntentionID: 9513001, 9513002
     MaxHp: 300
     IsBoss: 1
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9513001
     - 9513002
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9513003
   - uniqueId:
       dataId: 601
@@ -515,8 +515,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 100
     IsBoss: 1
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 9601001
     - 9601002
   - uniqueId:
@@ -530,8 +530,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 200
     IsBoss: 1
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 9602001
     - 9602002
   - uniqueId:
@@ -545,8 +545,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 300
     IsBoss: 1
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 9603001
     - 9603002
   - uniqueId:
@@ -560,9 +560,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9611003
     MaxHp: 58
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9611003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9611001
     - 9611002
   - uniqueId:
@@ -576,9 +576,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9612003
     MaxHp: 81
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9612003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9612001
     - 9612002
   - uniqueId:
@@ -592,9 +592,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9613003
     MaxHp: 139
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9613003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9613001
     - 9613002
   - uniqueId:
@@ -608,9 +608,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9621003
     MaxHp: 58
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9621003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9621001
     - 9621002
   - uniqueId:
@@ -624,9 +624,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9622003
     MaxHp: 81
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9622003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9622001
     - 9622002
   - uniqueId:
@@ -640,9 +640,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9623003
     MaxHp: 139
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9623003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9623001
     - 9623002
   - uniqueId:
@@ -656,9 +656,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9631003
     MaxHp: 58
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9631003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9631001
     - 9631002
   - uniqueId:
@@ -672,9 +672,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9632003
     MaxHp: 81
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9632003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9632001
     - 9632002
   - uniqueId:
@@ -688,9 +688,9 @@ MonoBehaviour:
     StartBattleIntentionID: 9633003
     MaxHp: 139
     IsBoss: 0
-    startBattleSkillIDs:
+    startBattleIntentionIDs:
     - 9633003
-    enemySkillIDs:
+    enemyIntentionIDs:
     - 9633001
     - 9633002
   - uniqueId:
@@ -704,8 +704,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 999
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 900101
   - uniqueId:
       dataId: 902
@@ -718,8 +718,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 999
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 900102
   - uniqueId:
       dataId: 903
@@ -732,8 +732,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 999
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 900001
   - uniqueId:
       dataId: 904
@@ -746,8 +746,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 200
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 910001
   - uniqueId:
       dataId: 905
@@ -760,8 +760,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 999
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs:
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
     - 910001
   - uniqueId:
       dataId: 906
@@ -774,8 +774,8 @@ MonoBehaviour:
     StartBattleIntentionID: 
     MaxHp: 999
     IsBoss: 0
-    startBattleSkillIDs: []
-    enemySkillIDs: []
+    startBattleIntentionIDs: []
+    enemyIntentionIDs: []
   useDataPath: 0
   dataPath: 
   sortingByDisplayName: 0

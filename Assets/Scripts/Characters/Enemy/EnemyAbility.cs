@@ -14,14 +14,14 @@ namespace Characters.Enemy
 
         public EnemyAbility(EnemyData data, Enemy enemy, SheetDataGetter getter)
         {
-            _enemySkills = data.enemySkillIDs.
+            _enemySkills = data.enemyIntentionIDs.
                 ConvertAll(id => 
                     new EnemySkill(getter.GetEnemySkillInfo(id), enemy, getter));
 
             if (!data.StartBattleIntentionID.IsNullOrWhitespace())
             {
                 _startBattleSkills = new List<EnemySkill>();
-                foreach (var skillID in data.startBattleSkillIDs)
+                foreach (var skillID in data.startBattleIntentionIDs)
                 {
                     _startBattleSkills.Add(new EnemySkill(
                         getter.GetEnemySkillInfo(skillID), enemy, getter

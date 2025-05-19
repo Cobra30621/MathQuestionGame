@@ -67,13 +67,13 @@ namespace Sheets
             // Validates enemy skill IDs and checks for prefabs.
             foreach (var enemyData in getter.enemyData.GetAllData())
             {
-                foreach (var enemySkillID in enemyData.enemySkillIDs)
+                foreach (var enemySkillID in enemyData.enemyIntentionIDs)
                 {
                     getter.enemyIntentionData.GetEnemyIntentionInfo(
                         enemySkillID, $"Enemy {enemyData.ID}: ");
                 }
 
-                foreach (var enemySkillID in enemyData.startBattleSkillIDs)
+                foreach (var enemySkillID in enemyData.startBattleIntentionIDs)
                 {
                     getter.enemyIntentionData.GetEnemyIntentionInfo(
                         enemySkillID, $"Enemy {enemyData.ID}: ");
