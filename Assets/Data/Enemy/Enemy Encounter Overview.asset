@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ba38e469c84b088ed3937f5fb956e9, type: 3}
+  m_Name: Enemy Encounter Overview
+  m_EditorClassIdentifier: 
+  ids:
+  - uniqueId:
+      dataId: 97801a6b-0a03-46d9-b8a0-8f30e128daf1
+      displayName: Nelson Test
+    enemyList:
+    - id: 901
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 68dfd6c4-3b6d-437d-92aa-39339cec5956
+      displayName: "\u53F2\u840A\u6BCD\u7FA4(1)-\u96E3\u5EA61"
+    enemyList:
+    - id: 201
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: e7d7b04c-c225-4c68-820f-0040e0a89d33
+      displayName: "\u53F2\u840A\u6BCD\u7FA4(2)-\u96E3\u5EA61"
+    enemyList:
+    - id: 201
+    - id: 201
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 44367732-45ec-462f-8010-87a884a00767
+      displayName: "\u60E1\u9B54\u7FA4(1)-\u96E3\u5EA61"
+    enemyList:
+    - id: 101
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 8611c6cb-bce1-4b43-8683-d52ea1ed9632
+      displayName: "\u60E1\u9B54\u7FA4(3)-\u96E3\u5EA61"
+    enemyList:
+    - id: 101
+    - id: 101
+    - id: 101
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 2134e1cd-2c8a-495e-a2c5-4f73597744e6
+      displayName: "\u60E1\u9B54\u7FA4(2)-\u96E3\u5EA61"
+    enemyList:
+    - id: 101
+    - id: 101
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 6ae8f55a-4a16-4a18-a129-c2acb889b826
+      displayName: "\u6A39\u7CBE\u7FA4(1)-\u96E3\u5EA61"
+    enemyList:
+    - id: 301
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: fe352b0b-f734-46df-b904-2522c34f67d7
+      displayName: "\u6A39\u7CBE\u7FA4(2)-\u96E3\u5EA61"
+    enemyList:
+    - id: 301
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 5f16597d-245c-4ba9-9688-8db399aefe10
+      displayName: "\u6A39\u7CBE\u7FA4(3)-\u96E3\u5EA61"
+    enemyList:
+    - id: 301
+    - id: 301
+    - id: 301
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: e30f2837-0d04-4195-93ba-f240487b47cb
+      displayName: "\u6A5F\u5668\u58EB\u5175(2)-\u96E3\u5EA61"
+    enemyList:
+    - id: 501
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 930e0a32-5c3e-4d82-9151-0ac88f75e0e5
+      displayName: "\u53F2\u840A\u59C6\u738B-\u96E3\u5EA61"
+    enemyList:
+    - id: 211
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: f5632744-846e-4c33-ad02-343f036c804b
+      displayName: "\u60E1\u9B54\u738B(2)-\u96E3\u5EA61"
+    enemyList:
+    - id: 111
+    - id: 101
+    - id: 101
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: c34194b5-6fcb-4685-a70c-6e6871393b39
+      displayName: "\u53E4\u6A39(2)-\u96E3\u5EA61"
+    enemyList:
+    - id: 311
+    - id: 301
+    - id: 301
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 761e3d04-cd92-4c37-97c2-d04841d15f7b
+      displayName: "\u6A5F\u5668\u5718(2)-\u96E3\u5EA61"
+    enemyList:
+    - id: 511
+    - id: 501
+    - id: 501
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: cdd4496d-2c29-4969-9b2d-d85f3e773d3d
+      displayName: "\u6A5F\u5668\u58EB\u5175(1)-\u96E3\u5EA61"
+    enemyList:
+    - id: 501
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 35f2123a-b1f5-462a-b1b2-5a40d9a2d90b
+      displayName: "\u6A5F\u5668\u58EB\u5175(3)-\u96E3\u5EA61"
+    enemyList:
+    - id: 501
+    - id: 501
+    - id: 501
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: d68fcb58-5e70-4758-ba94-ab13463e2e2b
+      displayName: "\u60E1\u9B54\u738B(1)-\u96E3\u5EA61"
+    enemyList:
+    - id: 111
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: fa7482f0-4059-432a-8c88-70c4ac4bfb16
+      displayName: "\u53E4\u6A39(1)-\u96E3\u5EA61"
+    enemyList:
+    - id: 311
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: d45162fa-0d4d-46a8-a4bf-b3ba4d22fa37
+      displayName: "\u6A5F\u5668\u5718(1)-\u96E3\u5EA61"
+    enemyList:
+    - id: 511
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 49e6533e-271f-47f1-889c-e6bf084910e2
+      displayName: "\u871C\u8702-\u7D05-\u96E3\u5EA61"
+    enemyList:
+    - id: 611
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 45827a04-7a12-4810-84c7-80259bcea93b
+      displayName: "\u871C\u8702-\u85CD-\u96E3\u5EA61"
+    enemyList:
+    - id: 631
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: e6a244e8-83b6-4cea-9cb0-a94ea96bf84b
+      displayName: "\u871C\u8702-\u9EC3-\u96E3\u5EA61"
+    enemyList:
+    - id: 621
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: f21475ae-4e4b-4221-b7df-8aeb021dc7ef
+      displayName: "\u871C\u8702-\u5168-\u96E3\u5EA61"
+    enemyList:
+    - id: 611
+    - id: 621
+    - id: 631
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 13a3df6c-850c-4beb-8516-5434fa8d22be
+      displayName: "\u8702\u5DE2(1)-\u96E3\u5EA61"
+    enemyList:
+    - id: 601
+    targetBackgroundType: 0
+  - uniqueId:
+      dataId: 010fa9a4-4ec9-4140-ae02-b2a673af41ea
+      displayName: "\u53F2\u3001\u60E1\u3001\u6A39\u3001\u6A5F"
+    enemyList:
+    - id: 101
+    - id: 201
+    - id: 301
+    - id: 501
+    targetBackgroundType: 0
+  useDataPath: 0
+  dataPath: 
+  sortingByDisplayName: 1

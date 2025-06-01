@@ -163,6 +163,7 @@ namespace Managers
             EventLogger.LogEvent(LogEventType.Main, "繼續 - 單局遊戲");
             
             SaveManager.LoadSingleGame();
+            StartCoroutine(_sceneChanger.OpenMapScene());
         }
 
         /// <summary>

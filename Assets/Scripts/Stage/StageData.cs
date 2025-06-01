@@ -17,7 +17,7 @@ namespace Stage
         public float moneyDropRate = 1f;
         
         [TableColumnWidth(700)]
-        [LabelText("每一層數據")]
+        [LabelText("每一張地圖")]
         [GUIColor("#FF9797")]
         public List<MapConfig> maps = new List<MapConfig>();
         

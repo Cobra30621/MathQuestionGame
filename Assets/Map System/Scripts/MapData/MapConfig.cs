@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Map_System.Scripts.MapData
 {
     /// <summary>
-    /// 一層地圖的資料
+    /// 一張地圖的資料
     /// </summary>
     [Serializable]
     public class MapConfig 

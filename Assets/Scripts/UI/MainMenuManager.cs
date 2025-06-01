@@ -28,7 +28,7 @@ namespace UI
         public void ContinueGame()
         {
             GameManager.Instance.ContinueGame();
-            StartCoroutine(sceneChanger.OpenMapScene());
+            
         }
 
         public void ExitGame()
