@@ -138,6 +138,8 @@ namespace Managers
             
             SaveManager.SetOngoingGame();
             SaveManager.SaveSingleGame();
+
+            StartCoroutine(_sceneChanger.OpenMapScene());
         }
 
         public void StartDevelopMode()
