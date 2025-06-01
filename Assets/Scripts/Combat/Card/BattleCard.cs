@@ -96,7 +96,7 @@ namespace Combat.Card
 
             SpendMana(ManaCost);
 
-            DoCharacterFeedback(_cardInfo.CardData);
+            CombatManager.Instance.MainAlly.PlayDefaultAttackFeedback();
             
             CollectionManager.OnCardPlayed(this);
             
@@ -134,21 +134,6 @@ namespace Combat.Card
             return effects;
         }
 
-        /// <summary>
-        /// 執行要撥放的特效
-        /// </summary>
-        protected void DoCharacterFeedback(CardData cardData)
-        {
-            if (cardData.UseDefaultAttackFeedback)
-            {
-                CombatManager.Instance.MainAlly.PlayDefaultAttackFeedback();
-            }
-
-            if (cardData.UseCustomFeedback)
-            {
-                CombatManager.Instance.MainAlly.PlayFeedback(cardData.CustomFeedbackKey);
-            }
-        }
 
         #endregion
 

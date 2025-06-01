@@ -43,8 +43,11 @@ namespace Effect.Parameters
 
     public enum WaitMethod
     {
+        [LabelText("無")]
         None,
+        [LabelText("等待特效撥放完畢，才執行下一個效果")]
         WaitFXFinish,
+        [LabelText("等待時間後，才執行下一個效果")]
         WaitDelay
     }
 }

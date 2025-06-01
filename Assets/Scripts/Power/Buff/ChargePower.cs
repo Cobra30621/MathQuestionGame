@@ -24,7 +24,7 @@ namespace Power.Buff
             var sourceCharacter = info.EffectSource.SourceCharacter;
             
             // 如果是玩家，- 1 層
-            if (sourceCharacter != null && sourceCharacter.IsCharacterType(CharacterType.Ally))
+            if (info.EffectSource.SourceType == SourceType.Card)
             {
                 EffectExecutor.ExecuteImmediately(
                     new ApplyPowerEffect(-1, PowerName, 

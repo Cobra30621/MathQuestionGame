@@ -14,106 +14,92 @@ namespace Card.Data
 {
     /// <summary>
     /// 卡片資料物件
-    /// 透過 SODataBase 與 CardDataOverview 結合，管理單張卡牌的各種設定與屬性
+    /// 使用 ScriptableObject 形式定義卡片的基本資訊、等級資料及特效。
+    /// 搭配 SODataBase 及 CardDataOverview，用於管理單張卡牌的屬性與設定。
     /// </summary>
-    [CreateAssetMenu(fileName = "Card Data", menuName = "Collection/Card", order = 0)]
+    [CreateAssetMenu(fileName = "Card Data", menuName = "Card")]
     public class CardData : SODataBase<CardDataOverview>
     {
-        #region Inspector 設定
-        
-        [LabelText("開發者卡片")]
+        [LabelText("是否為開發者卡片")]
         [SerializeField]
         private bool isDevelopCard;  
-        // 是否為開發者專用卡片，切換不同資料來源
+
         
-        [ShowIf("isDevelopCard")]
-        [LabelText("卡片效果 (開發者)")]
-        [SerializeField]
-        private CardLevelInfo developLevelInfo;  
-        // 當 isDevelopCard = true 時，使用此等級資訊
+        #region 一定要設定
         
         [ShowIf("@isDevelopCard == false")]
+        [FoldoutGroup("一定要設定")]
+        [LabelText("Group Id (卡片唯一 id，對應到表單)")]
         [SerializeField]
-        private string cardId;  
-        // 卡片群組 ID (非開發者卡片時使用)
+        private string cardId; 
         
-        [ShowIf("@isDevelopCard == false")]
+        [FoldoutGroup("一定要設定")]
         [SerializeField]
-        private List<CardLevelInfo> _levelInfos;  
-        // 存放多層級的卡片資訊列表
+        [LabelText("卡片的圖片")]
+        private Sprite cardSprite;  
+    
         
         [SerializeField]
+        [FoldoutGroup("一定要設定")]
+        [LabelText("卡片職業類別")]
         private AllyClassType _allyClassType;  
-        // 卡片所屬職業／陣營類型
+        
+        
+        [SerializeField]
+        [FoldoutGroup("一定要設定")]
+        [LabelText("卡牌特效")]
+        private FxInfo fxInfo;  
         
         #endregion
-
-        #region 數值參數
         
-        [FoldoutGroup("數值參數")]
+        #region 卡片效果
+        [ShowIf("@isDevelopCard == false")]
+        [LabelText("卡片效果(表單)")]
         [SerializeField]
+        private List<CardLevelInfo> _levelInfos;
+        
+        
+        [ShowIf("isDevelopCard")]
+        [LabelText("卡片效果 (開發者卡片)")]
+        [SerializeField]
+        private CardLevelInfo developLevelInfo;  
+
+        #endregion
+
+        
+        
+        #region 暫時用不到
+        [FoldoutGroup("暫時用不到")]
+        [LabelText("卡片關鍵字顯示")]
+        private List<SpecialKeywords> specialKeywordsList;  
+
+        
+        [FoldoutGroup("暫時用不到")]
+        [SerializeField]
+        [LabelText("無法手動打出的卡片")]
         private bool canNotPlay;  
         // 是否不可手動打出
         
-        [FoldoutGroup("數值參數")]
+        [FoldoutGroup("暫時用不到")]
+        [LabelText("虛無: 本回合沒打出，消耗")]
         [SerializeField]
-        private bool exhaustIfNotPlay;  
-        // 如果未打出，回合結束後是否疲憊（移除）
+        private bool exhaustIfNotPlay;
+        
+        [FoldoutGroup("暫時用不到")]
+        [LabelText("卡片稀有度")]
+        [SerializeField]
+        private RarityType rarity; 
         
         #endregion
 
-        #region 卡牌特效與動畫設定
         
-        [FoldoutGroup("卡牌特效")]
-        [SerializeField]
-        private FxInfo fxInfo;  
-        // 卡片釋放時的特效設定
         
-        [FoldoutGroup("角色動畫")]
-        [SerializeField]
-        private bool useDefaultAttackFeedback;  
-        // 是否使用預設攻擊反饋動畫
         
-        [FoldoutGroup("角色動畫")]
-        [SerializeField]
-        private bool useCustomFeedback;  
-        // 是否使用自訂反饋動畫
-        
-        [FoldoutGroup("角色動畫")]
-        [ShowIf("useCustomFeedback")]
-        [SerializeField]
-        private CustomerFeedbackSetting customerFeedback;  
-        // 自訂反饋動畫的設定，須搭配 useCustomFeedback = true
-        
-        #endregion
-
-        #region 顯示設定
-        
-        [FoldoutGroup("卡牌顯示")]
-        [SerializeField]
-        private Sprite cardSprite;  
-        // 卡面圖片
-        
-        [FoldoutGroup("卡牌顯示")]
-        [SerializeField]
-        private RarityType rarity;  
-        // 稀有度
-        
-        [FoldoutGroup("卡牌顯示")]
-        [TextArea(4, 10)]
-        [SerializeField]
-        private string description;  
-        // 原始描述文字
-        
-        [FoldoutGroup("顯示提示字")]
-        private List<SpecialKeywords> specialKeywordsList;  
-        // 卡片特殊關鍵字列表（運行階段賦值）
-        
-        #endregion
 
         #region 快取屬性
 
         public bool IsDevelopCard => isDevelopCard;
+        // public string CardId => DisplayName;
         public string CardId => cardId;
         public Sprite CardSprite => cardSprite;
         public RarityType Rarity => rarity;
@@ -121,28 +107,7 @@ namespace Card.Data
         public FxInfo FxInfo => fxInfo;
         public bool CanNotPlay => canNotPlay;
 
-        public bool UseDefaultAttackFeedback => useDefaultAttackFeedback;
-
-        public bool UseCustomFeedback
-        {
-            get
-            {
-                if (customerFeedback == null) return false;
-                return useCustomFeedback;
-            }
-        }
-
-        public string CustomFeedbackKey
-        {
-            get
-            {
-                if (customerFeedback == null) return string.Empty;
-                return customerFeedback.customFeedbackKey;
-            }
-        }
-
-        public List<SpecialKeywords> KeywordsList => specialKeywordsList;
-        public string MyDescription { get; set; }
+   
 
         public AllyClassType AllyClassType
         {
@@ -153,14 +118,6 @@ namespace Card.Data
         #endregion
 
         #region 方法
-
-        /// <summary>
-        /// 將原始 description 複製到 MyDescription 以便後續動態替換
-        /// </summary>
-        public void UpdateDescription()
-        {
-            MyDescription = description;
-        }
 
         /// <summary>
         /// 根據等級取得對應的 CardLevelInfo
