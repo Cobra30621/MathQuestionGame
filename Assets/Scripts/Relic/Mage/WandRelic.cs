@@ -26,14 +26,14 @@ namespace Relic.Mage
                 {
                     // Create the card
                     var handController = CollectionManager.Instance.HandController;
-                    var clone = GameManager.Instance.BuildAndGetCard(cardData, handController.drawTransform);
+                    var clone = GameManager.Instance.BuildAndGetCard(cardData, handController.drawPileTransform);
                     
                     // Add the card to hand
-                    handController.AddCardToHand(clone);
+                    handController.InsertCard(clone);
                     CollectionManager.Instance.HandPile.Add(cardData);
                     
                     // Update UI
-                    foreach (var cardObject in handController.hand)
+                    foreach (var cardObject in handController.handCards)
                     {
                         cardObject.UpdateCardDisplay();
                     }
@@ -42,11 +42,11 @@ namespace Relic.Mage
                     if (IsMaxLevel())
                     {
                         // Add the card to hand
-                        handController.AddCardToHand(clone);
+                        handController.InsertCard(clone);
                         CollectionManager.Instance.HandPile.Add(cardData);
                     
                         // Update UI
-                        foreach (var cardObject in handController.hand)
+                        foreach (var cardObject in handController.handCards)
                         {
                             cardObject.UpdateCardDisplay();
                         }

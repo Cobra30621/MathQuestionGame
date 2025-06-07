@@ -63,7 +63,7 @@ namespace Combat.Card
             
             SetInitCardManaCost();
             
-            _camera = CollectionManager.HandController.cam;
+            _camera = CollectionManager.HandController.selectionCamera;
             if (canvas)
                 canvas.worldCamera = _camera;
         }
@@ -184,7 +184,7 @@ namespace Combat.Card
         protected virtual IEnumerator DiscardRoutine()
         {
             var timer = 0f;
-            transform.SetParent(CollectionManager.HandController.discardTransform);
+            transform.SetParent(CollectionManager.HandController.discardPileTransform);
 
             var startPos = CachedTransform.localPosition;
             var endPos = Vector3.zero;
@@ -217,7 +217,7 @@ namespace Combat.Card
         protected virtual IEnumerator ExhaustRoutine()
         {
             var timer = 0f;
-            transform.SetParent(CollectionManager.HandController.exhaustTransform);
+            transform.SetParent(CollectionManager.HandController.exhaustPileTransform);
 
             var startPos = CachedTransform.localPosition;
             var endPos = Vector3.zero;

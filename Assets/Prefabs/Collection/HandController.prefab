@@ -251,41 +251,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34484b9e4c8699c4cae91a78013d51a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardUprightWhenSelected: 1
-  cardTilt: 1
-  selectionSpacing: 1
-  curveStart: {x: 2.3, y: -1, z: 0}
-  curveEnd: {x: -2.3, y: -1, z: 0}
-  handOffset: {x: 0, y: -0.12}
-  handSize: {x: 11, y: 1.2}
-  selectedCardSize: 1.5
-  selectedCardOffsetY: 0.2
-  cardOffsetY: 0
-  discardTransform: {fileID: 1301813272609245044}
-  exhaustTransform: {fileID: 7325747974993925843}
-  drawTransform: {fileID: 236058445813137690}
-  selectableLayer:
+  isUprightOnSelect: 1
+  enableTilt: 1
+  curveStartPoint: {x: 2, y: -0.2, z: 0}
+  curveEndPoint: {x: -2, y: -0.2, z: 0}
+  handAreaOffset: {x: 0, y: 0.3}
+  handAreaSize: {x: 9, y: 1.7}
+  selectedCardScale: 1.5
+  selectedCardYOffset: 0.3
+  discardPileTransform: {fileID: 1301813272609245044}
+  exhaustPileTransform: {fileID: 7325747974993925843}
+  drawPileTransform: {fileID: 236058445813137690}
+  targetLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  cam: {fileID: 7048625804953322726}
-  hand: []
-  arrowController: {fileID: 0}
-  _selected: -1
-  _dragged: -1
-  _heldCardOffset: {x: 0, y: 0, z: 0}
-  _heldCardTilt: {x: 0, y: 0}
-  _force: {x: 0, y: 0}
-  _mouseWorldPos: {x: 0, y: 0, z: 0}
-  _prevMousePos: {x: 0, y: 0}
-  _mousePosDelta: {x: 0, y: 0}
-  _mouseInsideHand: 0
-  _usingSelectingEffectCardIndex: -1
-  _isUsingSelectingEffectCard: 0
-  _enemyIsBeingSelected: 0
-  selectingEffectCardPos: {x: 0, y: 1, z: 0}
+    m_Bits: 128
+  selectionCamera: {fileID: 7048625804953322726}
+  handCards: []
+  arrowEffectController: {fileID: 0}
+  selectingEffectCardPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &2993060145185236037
 MonoBehaviour:
   m_ObjectHideFlags: 0

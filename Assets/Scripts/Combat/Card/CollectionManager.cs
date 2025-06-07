@@ -86,20 +86,20 @@ namespace Combat.Card
                 }
 
                 var randomCard = DrawPile[Random.Range(0, DrawPile.Count)];
-                var clone = GameManager.BuildAndGetCard(randomCard, HandController.drawTransform);
-                HandController.AddCardToHand(clone);
+                var clone = GameManager.BuildAndGetCard(randomCard, HandController.drawPileTransform);
+                HandController.InsertCard(clone);
                 HandPile.Add(randomCard);
                 DrawPile.Remove(randomCard);
                 currentDrawCount++;
                 UIManager.CombatCanvas.SetPileTexts();
             }
             
-            foreach (var cardObject in HandController.hand)
+            foreach (var cardObject in HandController.handCards)
                 cardObject.UpdateCardDisplay();
         }
         public void DiscardHand()
         {
-            foreach (var cardBase in HandController.hand)
+            foreach (var cardBase in HandController.handCards)
             {
                 if (cardBase.CardInfo.ExhaustIfNotPlay)
                 {
@@ -111,7 +111,7 @@ namespace Combat.Card
                 }
             }
             
-            HandController.hand.Clear();
+            HandController.handCards.Clear();
         }
         
         public void OnCardDiscarded(BattleCard targetBattleCard)
@@ -134,7 +134,7 @@ namespace Combat.Card
             else
                 targetBattleCard.Discard();
           
-            foreach (var cardObject in HandController.hand)
+            foreach (var cardObject in HandController.handCards)
                 cardObject.UpdateCardDisplay();
             
             // 執行 GameEventListener(遊戲事件監聽器)，包含角色持有的能力、遺物
@@ -156,7 +156,7 @@ namespace Combat.Card
             DrawPile.Clear();
             HandPile.Clear();
             ExhaustPile.Clear();
-            HandController.hand.Clear();
+            HandController.handCards.Clear();
         }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace Combat.Card
         /// </summary>
         public void UpdateAllCardsManaCost()
         {
-            foreach (var card in HandController.hand)
+            foreach (var card in HandController.handCards)
             {
                 card.SetInitCardManaCost();
             }
@@ -259,7 +259,7 @@ namespace Combat.Card
             PileDict[targetPile].Remove(cardData);
             if (targetPile == PileType.Hand)
             {
-                HandController.RemoveCardFromHand(cardData);
+                HandController.DiscardCard(cardData);
             }
         }
         
@@ -269,23 +269,8 @@ namespace Combat.Card
         /// <param name="cardData"></param>
         protected void AddCardOnHand(CardData cardData)
         {
-            var clone = GameManager.BuildAndGetCard(cardData, HandController.drawTransform);
-            HandController.AddCardToHand(clone);
-        }
-
-        /// <summary>
-        /// 從手牌移除卡牌
-        /// </summary>
-        /// <param name="cardData"></param>
-        public void RemoveCardFromHand(int index)
-        {
-            HandController.RemoveCardFromHand(index);
-        }
-        
-        /// 增加手牌上限
-        public void AddMaxHandCard(int amount)
-        {
-            GameManager.GameplayData.MaxCardOnHand += amount;
+            var clone = GameManager.BuildAndGetCard(cardData, HandController.drawPileTransform);
+            HandController.InsertCard(clone);
         }
 
 

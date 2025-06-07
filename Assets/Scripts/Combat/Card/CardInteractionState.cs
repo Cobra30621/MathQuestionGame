@@ -7,7 +7,6 @@ namespace Combat.Card
     [Serializable]
     public class CardInteractionState
     {
-        public HandState HandState = HandState.Hover;
         /// <summary>目前與滑鼠距離最近、會被選中的卡牌索引。若為 -1 則表示沒有選中任何卡。 </summary>
         public int ClosestMouseIndex  = -1;
 
@@ -51,12 +50,4 @@ namespace Combat.Card
         public bool EnemyIsBeingSelected;
     }
 
-
-    public enum HandState
-    {
-        Hover, // 閒置
-        Selected, // 有手牌被選擇
-        DraggedInsideHand, // 在手牌區被拖移
-        DraggedOutsideHand, // 在手牌需外被拖移
-    }
 }
