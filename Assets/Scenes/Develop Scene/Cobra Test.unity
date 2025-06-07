@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -937,6 +937,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7048625805859230004, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
     - target: {fileID: 7048625806080352387, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
+      propertyPath: selectionSpacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048625806080352387, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
       propertyPath: hand.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -959,6 +963,10 @@ PrefabInstance:
     - target: {fileID: 7048625806080352387, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
       propertyPath: hand.Array.data[5]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048625806080352387, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
+      propertyPath: selectingEffectCardPos.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8170335362538848892, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
       propertyPath: m_BlockingMask.m_Bits
