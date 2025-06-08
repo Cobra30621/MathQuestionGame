@@ -937,6 +937,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7048625805859230004, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
     - target: {fileID: 7048625806080352387, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
+      propertyPath: handAreaSize.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048625806080352387, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
       propertyPath: selectionSpacing
       value: 0
       objectReference: {fileID: 0}
@@ -1104,7 +1108,7 @@ PrefabInstance:
       objectReference: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
@@ -1112,6 +1116,21 @@ PrefabInstance:
         Assembly-CSharp],[Relic.RelicSaveInfo, Assembly-CSharp]], mscorlib","comparer":{"$id":1,"$type":"System.Collections.Generic.EnumEqualityComparer`1[[Relic.Data.RelicName,
         Assembly-CSharp]], mscorlib","$rlength":0,"$rcontent":[]},"$rlength":1,"$rcontent":[{"$k":40002,"$v":{"$id":2,"$type":"Relic.RelicSaveInfo,
         Assembly-CSharp","Level":0,"HasGained":true}}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[1]
+      value: '"path":"relicInfos.{40002es}","value":{"$id":0,"$type":"Relic.RelicSaveInfo,
+        Assembly-CSharp","Level":0,"HasGained":true}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[2]
+      value: '"path":"relicInfos.{40002es}.HasGained","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",true}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[3]
+      value: '"path":"relicInfos.{40002es}.Level","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",0}'
       objectReference: {fileID: 0}
     - target: {fileID: 2466699180288306852, guid: b042899817880484eab426b811071a88, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size

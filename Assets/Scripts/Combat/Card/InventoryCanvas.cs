@@ -41,14 +41,14 @@ namespace Combat.Card
         {
             base.OpenCanvas();
             if (CollectionManager.HasInstance())
-                CollectionManager.Instance.HandController.DisableDragging();
+                CollectionManager.CloseHandController();
         }
 
         public override void CloseCanvas()
         {
             base.CloseCanvas();
             if (CollectionManager.HasInstance())
-                CollectionManager.Instance.HandController.EnableDragging();
+                CollectionManager.OpenHandController();
         }
 
         public override void ResetCanvas()

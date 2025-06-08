@@ -1,3 +1,4 @@
+using Combat.Card;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,9 @@ namespace UI
         {
             tutorialPanel.SetActive(true);
             ShowImageAtIndex(currentIndex);
+            
+            // 當在戰鬥場景時，要將手牌關閉
+            CollectionManager.CloseHandController();
         }
 
         private void ShowImageAtIndex(int index)
@@ -65,6 +69,8 @@ namespace UI
         private void CloseTutorial()
         {
             tutorialPanel.SetActive(false);
+            // 當在戰鬥場景時，要將手牌開啟
+            CollectionManager.OpenHandController();
         }
     }
 }

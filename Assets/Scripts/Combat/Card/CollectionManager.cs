@@ -46,6 +46,7 @@ namespace Combat.Card
         protected override void DoAtAwake()
         {
             SetupPileDict();
+            OpenHandController();
         }
 
         /// <summary>
@@ -279,6 +280,29 @@ namespace Combat.Card
         
         #endregion
 
+        #region HandCrotroller
+
+        /// <summary>
+        /// 開啟手牌
+        /// </summary>
+        public static void OpenHandController()
+        {
+            if(Instance != null)
+                Instance.handController.gameObject.SetActive(true);
+        }
+        
+        /// <summary>
+        /// 關閉手牌
+        /// </summary>
+        public static void CloseHandController()
+        {
+            if(Instance != null)
+                Instance.handController.gameObject.SetActive(false);
+        }
+        
+
+        #endregion
+        
         #region Private Methods
 
         private void ReshuffleDiscardPile()
@@ -295,6 +319,7 @@ namespace Combat.Card
             
             DrawPile.Clear();
         }
+        
         #endregion
 
     }
