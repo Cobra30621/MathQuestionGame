@@ -175,6 +175,9 @@ namespace Managers
         {
             EventLogger.LogEvent(LogEventType.Main, "離開 - 單局遊戲");
             
+            // 關閉手牌，避免手排檔到黑頻畫面
+            CollectionManager.CloseHandController();
+            
             SaveManager.SaveSingleGame();
             RelicManager.RemoveAllRelic();
             _sceneChanger.OpenMainMenuScene();
