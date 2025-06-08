@@ -44,7 +44,7 @@ namespace Tool
         [LabelText("玩家初始獲得的能力")]
         public List<PowerName> allyPowerAtGameStart;
 
-        private void Start()
+        private void Awake()
         {
             Debug.Log("開發者模式");
             if(GameManager.Instance.IsDeveloperMode)

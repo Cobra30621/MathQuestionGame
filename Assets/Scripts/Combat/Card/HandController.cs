@@ -48,7 +48,7 @@ namespace Combat.Card
         private Rect handAreaRect;                            // 手牌區域（Local Space）
         private Vector3 curvePointA, curvePointB, curvePointC; // 貝茲曲線三個世界座標控制點
         private Plane mouseHitPlane;                          // 滑鼠射線對應的平面
-        private CharacterHighlightController highlightController = new CharacterHighlightController();  // 角色高亮控制
+        private CharacterHighlightController highlightController = new CharacterHighlightController();  // 角色被選擇時控制
         private Camera mainCamera;                           // 場景主攝影機
         [SerializeField] private Vector3 selectingEffectCardPosition; // 指定目標特效卡牌顯示位置
 
@@ -73,13 +73,14 @@ namespace Combat.Card
         private void Update()
         {
             if (!IsDraggingEnabled) return;
-            UpdateMouseState();
-            EvaluateSelectionState();
-            LayoutHandCards();
-            UpdateSelectedOrDraggedCard();
-            HandleDragWithinHand();
-            HandleDragOutsideHand();
-            HighlightSingleEnemyTarget();
+
+            UpdateMouseState();               // 更新滑鼠世界位置與是否在手牌範圍內
+            EvaluateSelectionState();         // 根據滑鼠位置與狀態更新選擇/拖曳卡牌邏輯
+            LayoutHandCards();               // 根據貝茲曲線排列卡牌位置
+            UpdateSelectedOrDraggedCard();   // 處理選中或拖曳中的卡牌位置與動畫
+            HandleDragWithinHand();          // 檢查是否拖出卡牌
+            HandleDragOutsideHand();         // 拖出後的持續操作與出牌行為
+            HighlightSingleEnemyTarget();    // 若需選擇敵人，則進行目標高亮
         }
 
 #if UNITY_EDITOR
@@ -128,7 +129,7 @@ namespace Combat.Card
             mouseHitPlane = new Plane(-Vector3.forward, transform.position);
 
             // 4. 初始化互動狀態
-            interactionState = new CardInteractionState { PrevMousePos = Input.mousePosition };
+            interactionState = new CardInteractionState { };
 
             // 5. 初始化滑鼠處理
             mouseHandler = new MouseHandler(selectionCamera, mouseHitPlane, enableTilt);
@@ -166,13 +167,63 @@ namespace Combat.Card
         /// <summary>計算最接近滑鼠的卡片索引，並判斷是否開始拖曳</summary>
         private void EvaluateSelectionState()
         {
+            // 尋找離滑鼠最近的卡片
+            FindClosestMouseIndex();
+            
+            // 檢查卡牌是否被選擇、拖曳
+            int count = handCards.Count;
+            for (int i = 0; i < count; i++)
+            {
+                var card       = handCards[i];
+                var cardTrans  = card.transform;
+ 
+                // 判斷滑鼠在手牌範圍內且沒有正在拖曳別張卡
+                bool noHeldCard      = interactionState.HeldOutHandCard == null;
+                bool draggingInHand  = interactionState.DraggedInsideHandIndex != -1;
+                bool isHoverClosest  = noHeldCard && interactionState.ClosestMouseIndex == i && interactionState.MouseInsideHand && !draggingInHand;
+
+                // 選中卡片
+                if (isHoverClosest)
+                    interactionState.SelectedIndex = i;
+                
+                // 按下滑鼠開始拖曳
+                if (isHoverClosest && mouseHandler.MouseButton)
+                {
+                    interactionState.DraggedInsideHandIndex = i;
+                    interactionState.SelectedIndex           = -1;
+                    interactionState.HeldCardOffset          = cardTrans.position - mouseHandler.MouseWorldPos;
+                    interactionState.HeldCardOffset.z        = -0.1f;
+                }
+            }
+            
+            // 滑鼠離開選擇區塊，取消選擇
+            if (!interactionState.MouseInsideHand)
+            {
+                interactionState.SelectedIndex          = -1;
+            }
+            
+            // 若不允許出牌，重置所有選擇
+            if (!CombatManager.Instance.CanSelectCards)
+            {
+                interactionState.SelectedIndex          = -1;
+                interactionState.DraggedInsideHandIndex = -1;
+            }
+
+            // 放開滑鼠則清除拖曳狀態
+            if (!mouseHandler.MouseButton)
+            {
+                interactionState.DraggedInsideHandIndex = -1;
+                interactionState.HeldCardOffset         = Vector3.zero;
+            }
+        }
+
+        private void FindClosestMouseIndex()
+        {
             int count = handCards.Count;
             float closestDistSq = CalculateClosestCardDistanceSquared();
 
             for (int i = 0; i < count; i++)
             {
-                var card       = handCards[i];
-                var cardTrans  = card.transform;
                 float t        = (i + 0.5f) / count;
                 Vector3 curveP = LayoutCurveUtility.GetCurvePoint(curvePointA, curvePointB, curvePointC, t);
                 float dSq      = (curveP - mouseHandler.MouseWorldPos).sqrMagnitude;
@@ -183,38 +234,6 @@ namespace Combat.Card
                     closestDistSq = dSq;
                     interactionState.ClosestMouseIndex = i;
                 }
-
-                // 判斷滑鼠在手牌範圍內且沒有正在拖曳別張卡
-                bool noHeldCard      = interactionState.HeldOutHandCard == null;
-                bool draggingInHand  = interactionState.DraggedInsideHandIndex != -1;
-                bool isHoverClosest  = noHeldCard && interactionState.ClosestMouseIndex == i && interactionState.MouseInsideHand && !draggingInHand;
-
-                // 選中卡片
-                if (isHoverClosest)
-                    interactionState.SelectedIndex = i;
-
-                // 按下滑鼠開始拖曳
-                if (isHoverClosest && mouseHandler.MouseButton)
-                {
-                    interactionState.DraggedInsideHandIndex = i;
-                    interactionState.SelectedIndex           = -1;
-                    interactionState.HeldCardOffset          = cardTrans.position - mouseHandler.MouseWorldPos;
-                    interactionState.HeldCardOffset.z        = -0.1f;
-                }
-
-                // 若不允許出牌，重置所有選擇
-                if (!CombatManager.Instance.CanSelectCards)
-                {
-                    interactionState.SelectedIndex          = -1;
-                    interactionState.DraggedInsideHandIndex = -1;
-                }
-            }
-
-            // 放開滑鼠則清除拖曳狀態
-            if (!mouseHandler.MouseButton)
-            {
-                interactionState.DraggedInsideHandIndex = -1;
-                interactionState.HeldCardOffset         = Vector3.zero;
             }
         }
 

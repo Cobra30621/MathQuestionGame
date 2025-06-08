@@ -253,12 +253,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isUprightOnSelect: 1
   enableTilt: 1
-  curveStartPoint: {x: 2, y: -0.2, z: 0}
-  curveEndPoint: {x: -2, y: -0.2, z: 0}
-  handAreaOffset: {x: 0, y: 0.3}
-  handAreaSize: {x: 9, y: 1.7}
+  curveStartPoint: {x: 2.3, y: -1, z: 0}
+  curveEndPoint: {x: -2.3, y: -1, z: 0}
+  handAreaOffset: {x: 0, y: -0.12}
+  handAreaSize: {x: 11, y: 1.2}
   selectedCardScale: 1.5
-  selectedCardYOffset: 0.3
+  selectedCardYOffset: 0.2
   discardPileTransform: {fileID: 1301813272609245044}
   exhaustPileTransform: {fileID: 7325747974993925843}
   drawPileTransform: {fileID: 236058445813137690}
@@ -268,7 +268,7 @@ MonoBehaviour:
   selectionCamera: {fileID: 7048625804953322726}
   handCards: []
   arrowEffectController: {fileID: 0}
-  selectingEffectCardPosition: {x: 0, y: 0, z: 0}
+  selectingEffectCardPosition: {x: 0, y: 0.3, z: 0}
 --- !u!114 &2993060145185236037
 MonoBehaviour:
   m_ObjectHideFlags: 0
