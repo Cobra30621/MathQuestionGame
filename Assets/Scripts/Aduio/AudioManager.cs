@@ -16,7 +16,7 @@ namespace Aduio
 
         [SerializeField] private AudioConfigSO sfxConfig;
 
-        public static AudioManager Instance => GameManager.Instance.AudioManager;
+        public static AudioManager Instance  => GameManager.Instance != null ? GameManager.Instance.AudioManager : null;
         
         
         private void Awake()

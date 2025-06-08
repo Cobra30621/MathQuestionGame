@@ -36,7 +36,7 @@ namespace Map
 
         public bool Locked;
 
-        public static MapManager Instance => GameManager.Instance.MapManager;
+        public static MapManager Instance  => GameManager.Instance != null ? GameManager.Instance.MapManager : null;
 
         [SerializeField] private Canvas canvas;
         

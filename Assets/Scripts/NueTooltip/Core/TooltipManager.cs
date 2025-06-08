@@ -31,7 +31,7 @@ namespace NueTooltip.Core
 
         private int _currentShownTooltipCount;
 
-        public static TooltipManager Instance => GameManager.Instance.TooltipManager;
+        public static TooltipManager Instance  => GameManager.Instance != null ? GameManager.Instance.TooltipManager : null;
     
 
         private IEnumerator ShowRoutine(float delay = 0)

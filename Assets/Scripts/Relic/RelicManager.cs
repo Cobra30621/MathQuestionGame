@@ -21,8 +21,6 @@ namespace Relic
     /// </summary>
     public class RelicManager : SerializedMonoBehaviour, IDataPersistence
     {
-        protected UIManager UIManager => UIManager.Instance;
-
         public UnityEvent<Dictionary<RelicName, RelicBase>> OnRelicUpdated =
             new UnityEvent<Dictionary<RelicName, RelicBase>>();
 

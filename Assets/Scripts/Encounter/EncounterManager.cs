@@ -31,7 +31,7 @@ namespace Encounter
         
         public EncounterStage EncounterStage;
 
-        public static EncounterManager Instance => GameManager.Instance.EncounterManager;
+        public static EncounterManager Instance  => GameManager.Instance != null ? GameManager.Instance.EncounterManager : null;
 
         
         public void GenerateNewMapEncounter(EncounterStage stage)

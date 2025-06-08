@@ -9,7 +9,7 @@ namespace Feedback
 {
     public class FxManager : SerializedMonoBehaviour
     {
-        public static FxManager Instance => GameManager.Instance.FxManager;
+        public static FxManager Instance  => GameManager.Instance != null ? GameManager.Instance.FxManager : null;
         
         [Header("Floating Text")]
         [SerializeField] private FloatingText floatingTextPrefab;

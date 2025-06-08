@@ -26,7 +26,7 @@ namespace MapEvent
         public static UnityEvent<Option> OnExecuteCompleted = new UnityEvent<Option>();
 
 
-        public static EventManager Instance => GameManager.Instance.EventManager;
+        public static EventManager Instance  => GameManager.Instance != null ? GameManager.Instance.EventManager : null;
         
         
         private SceneChanger _sceneChanger;

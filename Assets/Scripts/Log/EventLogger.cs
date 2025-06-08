@@ -10,7 +10,7 @@ namespace Log
     /// </summary>
     public class EventLogger : MonoBehaviour
     {
-        public static EventLogger Instance => GameManager.Instance.EventLogger;
+        public static EventLogger Instance  => GameManager.Instance != null ? GameManager.Instance.EventLogger : null;
         
         [SerializeField] private List<LogEvent> _logMessages;
         

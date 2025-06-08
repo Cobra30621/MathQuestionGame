@@ -24,7 +24,7 @@ namespace Question
     /// </summary>
     public class QuestionManager : MonoBehaviour, IPermanentDataPersistence
     {
-        public static QuestionManager Instance => GameManager.Instance.QuestionManager;
+        public static QuestionManager Instance => GameManager.Instance != null ? GameManager.Instance.QuestionManager : null;
 
         /// <summary>
         /// 流程控制器

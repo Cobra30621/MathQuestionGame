@@ -13,7 +13,7 @@ namespace Card
     /// </summary>
     public class CardManager : SerializedMonoBehaviour
     {
-        public static CardManager Instance => GameManager.Instance.CardManager;
+        public static CardManager Instance => GameManager.Instance != null ? GameManager.Instance.CardManager : null;
 
         #region 資料
         [Required]

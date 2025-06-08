@@ -16,7 +16,7 @@ namespace Effect
         /// <summary>
         /// 單例模式
         /// </summary>
-        public static EffectExecutor Instance => GameManager.Instance.effectManager;
+        public static EffectExecutor Instance  => GameManager.Instance != null ? GameManager.Instance.effectManager : null;
 
         public SequenceManager SequenceManager;
 

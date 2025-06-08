@@ -22,7 +22,7 @@ namespace Reward
         [Required, InlineEditor] public RewardContainerData rewardContainerData;
 
         // 單例存取方式
-        public static RewardManager Instance => GameManager.Instance.RewardManager;
+        public static RewardManager Instance  => GameManager.Instance != null ? GameManager.Instance.RewardManager : null;
 
         /// <summary>
         /// 根據獎勵類型取得對應的圖片

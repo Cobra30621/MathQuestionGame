@@ -19,9 +19,9 @@ namespace UI
     [DefaultExecutionOrder(-4)]
     public class UIManager : MonoBehaviour
     {
-        public static UIManager Instance => GameManager.Instance.UIManager;
-        
-        
+        public static UIManager Instance => GameManager.Instance != null ? GameManager.Instance.UIManager : null;
+
+
         [Header("Canvases")] [SerializeField] private CombatCanvas combatCanvas;
         [SerializeField] private InformationCanvas informationCanvas;
         [SerializeField] private RewardCanvas rewardCanvas;

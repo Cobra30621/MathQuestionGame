@@ -19,7 +19,7 @@ namespace Economy
     /// </summary>
     public class CoinManager : MonoBehaviour, IPermanentDataPersistence
     {
-        public static CoinManager Instance => GameManager.Instance.CoinManager;
+        public static CoinManager Instance  => GameManager.Instance != null ? GameManager.Instance.CoinManager : null; 
 
         [SerializeField] private CoinFeedback feedback;
         [SerializeField] private int money;
