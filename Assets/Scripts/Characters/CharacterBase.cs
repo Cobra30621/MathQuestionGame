@@ -45,7 +45,7 @@ namespace Characters
         /// </summary>
         public Transform TextSpawnRoot => textSpawnRoot;
         protected GameManager GameManager => GameManager.Instance;
-        protected UIManager UIManager => UIManager.Instance;
+
 
         #endregion
         

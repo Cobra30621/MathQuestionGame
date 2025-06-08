@@ -8,12 +8,19 @@ using UnityEngine;
 public abstract class Singleton<T> : SerializedMonoBehaviour where T : SerializedMonoBehaviour
 {
     private static T instance;
+    private static bool _isShuttingDown = false;
 
     // Singleton instance property.
     public static T Instance
     {
         get
         {
+            if (_isShuttingDown)
+            {
+                Debug.LogWarning($"[Singleton] Instance '{typeof(T)}' already destroyed. Returning null.");
+                return null;
+            }
+            
             // If instance is not assigned, try to find it in the scene.
             if (instance == null)
             {
@@ -78,5 +85,15 @@ public abstract class Singleton<T> : SerializedMonoBehaviour where T : Serialize
     public static bool HasInstance()
     {
         return instance != null;
+    }
+    
+    protected virtual void OnApplicationQuit()
+    {
+        _isShuttingDown = true;
+    }
+
+    protected virtual void OnDestroy()
+    {
+        _isShuttingDown = true;
     }
 }

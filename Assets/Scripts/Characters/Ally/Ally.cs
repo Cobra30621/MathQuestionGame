@@ -1,6 +1,7 @@
 ﻿using System;
 using Combat;
 using Effect.Parameters;
+using UI;
 
 namespace Characters.Ally
 {
@@ -39,14 +40,14 @@ namespace Characters.Ally
         protected override void SubscribeEvent()
         {
             base.SubscribeEvent();
-            OnHealthChanged += UIManager.InformationCanvas.SetHealthText;
+            OnHealthChanged +=  UIManager.Instance.InformationCanvas.SetHealthText;
         }
 
         protected override void UnsubscribeEvent()
         {
             base.UnsubscribeEvent();
-            if (UIManager != null)
-                OnHealthChanged -= UIManager.InformationCanvas.SetHealthText;
+            if ( UIManager.Instance != null)
+                OnHealthChanged -=  UIManager.Instance.InformationCanvas.SetHealthText;
         }
     }
 

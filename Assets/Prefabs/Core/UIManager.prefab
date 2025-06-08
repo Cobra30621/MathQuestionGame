@@ -1578,15 +1578,6 @@ MonoBehaviour:
       ID: 120401
       GroupID: 14
       SkillID: 3000001
-      ManaCost: 2
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 2
-      MaxLevel: 0
-      TitleLang: "\u9677\u9631"
-      DesLang: "\u7372\u5F97\u53CD\u5F48"
-      TargetChoose: 0
-      ExhaustAfterPlay: 0
       skillIDs:
       - 3000001
       SkillInfos:
@@ -1596,6 +1587,15 @@ MonoBehaviour:
         EffectParameterList: 000000000a000000
         Target: 0
         ps: "\u53CD\u5F48"
+      ManaCost: 2
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 2
+      MaxLevel: 0
+      TitleLang: "\u9677\u9631"
+      DesLang: "\u7372\u5F97\u53CD\u5F48"
+      TargetChoose: 0
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 83d55567871fd41a3b7256154f9c9956, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 04e2f191df5bf4797b59ed2a1a88ea7d, type: 3}
@@ -6659,15 +6659,6 @@ MonoBehaviour:
       ID: 130201
       GroupID: 15
       SkillID: 4010003
-      ManaCost: 1
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 3
-      MaxLevel: 0
-      TitleLang: "\u8679\u5438"
-      DesLang: "\u6839\u64DA\u6575\u65B9\u6578\u91CF\u4E58\u4E0A3\u7372\u5F97\u8B77\u76FE"
-      TargetChoose: 0
-      ExhaustAfterPlay: 0
       skillIDs:
       - 4010003
       SkillInfos:
@@ -6677,6 +6668,15 @@ MonoBehaviour:
         EffectParameterList: 0100000003000000
         Target: 0
         ps: "\u8679\u5438"
+      ManaCost: 1
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 3
+      MaxLevel: 0
+      TitleLang: "\u8679\u5438"
+      DesLang: "\u6839\u64DA\u6575\u65B9\u6578\u91CF\u4E58\u4E0A3\u7372\u5F97\u8B77\u76FE"
+      TargetChoose: 0
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 20ae3251a1b3546bbb1060ad8da75ebb, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 0071bf0ae07da4170a13cdfe5f181a78, type: 3}
@@ -18011,15 +18011,6 @@ MonoBehaviour:
       ID: 140101
       GroupID: 8
       SkillID: 2000006
-      ManaCost: 1
-      UpgradeCost: 50
-      UpgradeCostStone: 0
-      Class: 4
-      MaxLevel: 0
-      TitleLang: "\u96B1\u533F"
-      DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
-      TargetChoose: 0
-      ExhaustAfterPlay: 0
       skillIDs:
       - 2000006
       SkillInfos:
@@ -18029,6 +18020,15 @@ MonoBehaviour:
         EffectParameterList: 0600000001000000
         Target: 0
         ps: "\u8B77\u76FE"
+      ManaCost: 1
+      UpgradeCost: 50
+      UpgradeCostStone: 0
+      Class: 4
+      MaxLevel: 0
+      TitleLang: "\u96B1\u533F"
+      DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
+      TargetChoose: 0
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: f5f805bbfeff04aca8378adfd6bfa6ae, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: c3e47e2d7809c4cef8d4202a4b3ea4c4, type: 3}
@@ -18333,15 +18333,6 @@ MonoBehaviour:
       ID: 130101
       GroupID: 6
       SkillID: 2000006
-      ManaCost: 1
-      UpgradeCost: 50
-      UpgradeCostStone: 0
-      Class: 3
-      MaxLevel: 0
-      TitleLang: "\u9632\u79A6"
-      DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
-      TargetChoose: 0
-      ExhaustAfterPlay: 0
       skillIDs:
       - 2000006
       SkillInfos:
@@ -18351,6 +18342,15 @@ MonoBehaviour:
         EffectParameterList: 0600000001000000
         Target: 0
         ps: "\u8B77\u76FE"
+      ManaCost: 1
+      UpgradeCost: 50
+      UpgradeCostStone: 0
+      Class: 3
+      MaxLevel: 0
+      TitleLang: "\u9632\u79A6"
+      DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
+      TargetChoose: 0
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 20ae3251a1b3546bbb1060ad8da75ebb, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 0071bf0ae07da4170a13cdfe5f181a78, type: 3}
@@ -22557,15 +22557,6 @@ MonoBehaviour:
       ID: 120001
       GroupID: 3
       SkillID: 1000007
-      ManaCost: 1
-      UpgradeCost: 50
-      UpgradeCostStone: 0
-      Class: 2
-      MaxLevel: 0
-      TitleLang: "\u5C04\u64CA"
-      DesLang: "\u5C0D\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3\u3002"
-      TargetChoose: 1
-      ExhaustAfterPlay: 0
       skillIDs:
       - 1000007
       SkillInfos:
@@ -22575,6 +22566,15 @@ MonoBehaviour:
         EffectParameterList: 0700000001000000
         Target: 1
         ps: "\u50B7\u5BB3"
+      ManaCost: 1
+      UpgradeCost: 50
+      UpgradeCostStone: 0
+      Class: 2
+      MaxLevel: 0
+      TitleLang: "\u5C04\u64CA"
+      DesLang: "\u5C0D\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3\u3002"
+      TargetChoose: 1
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 83d55567871fd41a3b7256154f9c9956, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 04e2f191df5bf4797b59ed2a1a88ea7d, type: 3}
@@ -26139,15 +26139,6 @@ MonoBehaviour:
       ID: 130001
       GroupID: 5
       SkillID: 1000007
-      ManaCost: 1
-      UpgradeCost: 50
-      UpgradeCostStone: 0
-      Class: 3
-      MaxLevel: 0
-      TitleLang: "\u65BD\u6CD5"
-      DesLang: "\u5C0D\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3\u3002"
-      TargetChoose: 1
-      ExhaustAfterPlay: 0
       skillIDs:
       - 1000007
       SkillInfos:
@@ -26157,6 +26148,15 @@ MonoBehaviour:
         EffectParameterList: 0700000001000000
         Target: 1
         ps: "\u50B7\u5BB3"
+      ManaCost: 1
+      UpgradeCost: 50
+      UpgradeCostStone: 0
+      Class: 3
+      MaxLevel: 0
+      TitleLang: "\u65BD\u6CD5"
+      DesLang: "\u5C0D\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3\u3002"
+      TargetChoose: 1
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 20ae3251a1b3546bbb1060ad8da75ebb, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 0071bf0ae07da4170a13cdfe5f181a78, type: 3}
@@ -27459,15 +27459,6 @@ MonoBehaviour:
       ID: 120301
       GroupID: 13
       SkillID: 3140001
-      ManaCost: 2
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 2
-      MaxLevel: 0
-      TitleLang: "\u84C4\u529B"
-      DesLang: "\u4E0B\u4E00\u6B21\u50B7\u5BB3\u9020\u6210\u5169\u500D"
-      TargetChoose: 0
-      ExhaustAfterPlay: 0
       skillIDs:
       - 3140001
       SkillInfos:
@@ -27477,6 +27468,15 @@ MonoBehaviour:
         EffectParameterList: 0e00000001000000
         Target: 0
         ps: "\u755C\u529B"
+      ManaCost: 2
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 2
+      MaxLevel: 0
+      TitleLang: "\u84C4\u529B"
+      DesLang: "\u4E0B\u4E00\u6B21\u50B7\u5BB3\u9020\u6210\u5169\u500D"
+      TargetChoose: 0
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 83d55567871fd41a3b7256154f9c9956, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 04e2f191df5bf4797b59ed2a1a88ea7d, type: 3}
@@ -38838,15 +38838,6 @@ MonoBehaviour:
       ID: 120101
       GroupID: 4
       SkillID: 2000006
-      ManaCost: 1
-      UpgradeCost: 50
-      UpgradeCostStone: 0
-      Class: 2
-      MaxLevel: 0
-      TitleLang: "\u7FFB\u6EFE"
-      DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
-      TargetChoose: 0
-      ExhaustAfterPlay: 0
       skillIDs:
       - 2000006
       SkillInfos:
@@ -38856,6 +38847,15 @@ MonoBehaviour:
         EffectParameterList: 0600000001000000
         Target: 0
         ps: "\u8B77\u76FE"
+      ManaCost: 1
+      UpgradeCost: 50
+      UpgradeCostStone: 0
+      Class: 2
+      MaxLevel: 0
+      TitleLang: "\u7FFB\u6EFE"
+      DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
+      TargetChoose: 0
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 83d55567871fd41a3b7256154f9c9956, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 04e2f191df5bf4797b59ed2a1a88ea7d, type: 3}
@@ -54914,15 +54914,6 @@ MonoBehaviour:
       ID: 110001
       GroupID: 1
       SkillID: 1000007
-      ManaCost: 1
-      UpgradeCost: 50
-      UpgradeCostStone: 0
-      Class: 1
-      MaxLevel: 0
-      TitleLang: "\u63EE\u528D"
-      DesLang: "\u5C0D\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3\u3002"
-      TargetChoose: 1
-      ExhaustAfterPlay: 0
       skillIDs:
       - 1000007
       SkillInfos:
@@ -54932,6 +54923,15 @@ MonoBehaviour:
         EffectParameterList: 0700000001000000
         Target: 1
         ps: "\u50B7\u5BB3"
+      ManaCost: 1
+      UpgradeCost: 50
+      UpgradeCostStone: 0
+      Class: 1
+      MaxLevel: 0
+      TitleLang: "\u63EE\u528D"
+      DesLang: "\u5C0D\u602A\u7269\u9020\u62107\u9EDE\u50B7\u5BB3\u3002"
+      TargetChoose: 1
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 7dba2db421c86432ca0ba5bdea8cb587, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 4da8da34a2b14468782598a2b8f74243, type: 3}
@@ -55737,15 +55737,6 @@ MonoBehaviour:
       ID: 130301
       GroupID: 16
       SkillID: 4000001
-      ManaCost: 0
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 3
-      MaxLevel: 0
-      TitleLang: "\u80FD\u91CF"
-      DesLang: "\u7372\u5F971\u9EDEmana"
-      TargetChoose: 0
-      ExhaustAfterPlay: 0
       skillIDs:
       - 4000001
       SkillInfos:
@@ -55755,6 +55746,15 @@ MonoBehaviour:
         EffectParameterList: 01000000
         Target: 0
         ps: "\u56DE\u5FA9\u9B54\u529B"
+      ManaCost: 0
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 3
+      MaxLevel: 0
+      TitleLang: "\u80FD\u91CF"
+      DesLang: "\u7372\u5F971\u9EDEmana"
+      TargetChoose: 0
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 20ae3251a1b3546bbb1060ad8da75ebb, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 0071bf0ae07da4170a13cdfe5f181a78, type: 3}
@@ -62702,15 +62702,6 @@ MonoBehaviour:
       ID: 110101
       GroupID: 2
       SkillID: 2000006
-      ManaCost: 1
-      UpgradeCost: 50
-      UpgradeCostStone: 0
-      Class: 1
-      MaxLevel: 0
-      TitleLang: "\u683C\u64CB"
-      DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
-      TargetChoose: 0
-      ExhaustAfterPlay: 0
       skillIDs:
       - 2000006
       SkillInfos:
@@ -62720,6 +62711,15 @@ MonoBehaviour:
         EffectParameterList: 0600000001000000
         Target: 0
         ps: "\u8B77\u76FE"
+      ManaCost: 1
+      UpgradeCost: 50
+      UpgradeCostStone: 0
+      Class: 1
+      MaxLevel: 0
+      TitleLang: "\u683C\u64CB"
+      DesLang: "\u7372\u5F976\u9EDE\u8B77\u76FE"
+      TargetChoose: 0
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 7dba2db421c86432ca0ba5bdea8cb587, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 4da8da34a2b14468782598a2b8f74243, type: 3}
@@ -67268,15 +67268,6 @@ MonoBehaviour:
       ID: 130401
       GroupID: 17
       SkillID: 4020003
-      ManaCost: 1
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 3
-      MaxLevel: 0
-      TitleLang: "\u9695\u77F3"
-      DesLang: "\u6839\u64DA\u6575\u4EBA\u6578\u91CF\u9020\u62105\u5168\u9AD4\u50B7\u5BB3"
-      TargetChoose: 2
-      ExhaustAfterPlay: 0
       skillIDs:
       - 4020003
       SkillInfos:
@@ -67286,6 +67277,15 @@ MonoBehaviour:
         EffectParameterList: 0100000005000000
         Target: 2
         ps: "\u9695\u77F3"
+      ManaCost: 1
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 3
+      MaxLevel: 0
+      TitleLang: "\u9695\u77F3"
+      DesLang: "\u6839\u64DA\u6575\u4EBA\u6578\u91CF\u9020\u62105\u5168\u9AD4\u50B7\u5BB3"
+      TargetChoose: 2
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 20ae3251a1b3546bbb1060ad8da75ebb, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 0071bf0ae07da4170a13cdfe5f181a78, type: 3}
@@ -82488,15 +82488,6 @@ MonoBehaviour:
       ID: 120201
       GroupID: 12
       SkillID: 3010011, 3150011
-      ManaCost: 2
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 2
-      MaxLevel: 0
-      TitleLang: "\u5F31\u9EDE"
-      DesLang: "\u7D66\u4E881\u5C64\u6613\u50B7\u3001\u865B\u5F31"
-      TargetChoose: 1
-      ExhaustAfterPlay: 0
       skillIDs:
       - 3010011
       - 3150011
@@ -82513,6 +82504,15 @@ MonoBehaviour:
         EffectParameterList: 0f00000001000000
         Target: 1
         ps: "\u865B\u5F31"
+      ManaCost: 2
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 2
+      MaxLevel: 0
+      TitleLang: "\u5F31\u9EDE"
+      DesLang: "\u7D66\u4E881\u5C64\u6613\u50B7\u3001\u865B\u5F31"
+      TargetChoose: 1
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 83d55567871fd41a3b7256154f9c9956, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 04e2f191df5bf4797b59ed2a1a88ea7d, type: 3}
@@ -86598,15 +86598,6 @@ MonoBehaviour:
       ID: 200001
       GroupID: 31
       SkillID: 1100010
-      ManaCost: 1
-      UpgradeCost: 0
-      UpgradeCostStone: 0
-      Class: 3
-      MaxLevel: 1
-      TitleLang: "\u706B\u708E"
-      DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62106\u9EDE\u50B7\u5BB3"
-      TargetChoose: 0
-      ExhaustAfterPlay: 1
       skillIDs:
       - 1100010
       SkillInfos:
@@ -86616,6 +86607,15 @@ MonoBehaviour:
         EffectParameterList: 0800000001000000
         Target: 2
         ps: "\u50B7\u5BB3"
+      ManaCost: 1
+      UpgradeCost: 0
+      UpgradeCostStone: 0
+      Class: 3
+      MaxLevel: 1
+      TitleLang: "\u706B\u708E"
+      DesLang: "\u5C0D\u5168\u9AD4\u602A\u7269\u9020\u62106\u9EDE\u50B7\u5BB3"
+      TargetChoose: 0
+      ExhaustAfterPlay: 1
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 20ae3251a1b3546bbb1060ad8da75ebb, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 0071bf0ae07da4170a13cdfe5f181a78, type: 3}
@@ -90729,15 +90729,6 @@ MonoBehaviour:
       ID: 140001
       GroupID: 7
       SkillID: 1000001, 3020001
-      ManaCost: 1
-      UpgradeCost: 50
-      UpgradeCostStone: 0
-      Class: 4
-      MaxLevel: 0
-      TitleLang: "\u7A81\u523A"
-      DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3"
-      TargetChoose: 1
-      ExhaustAfterPlay: 0
       skillIDs:
       - 1000001
       - 3020001
@@ -90754,6 +90745,15 @@ MonoBehaviour:
         EffectParameterList: 0200000001000000
         Target: 0
         ps: "\u529B\u91CF"
+      ManaCost: 1
+      UpgradeCost: 50
+      UpgradeCostStone: 0
+      Class: 4
+      MaxLevel: 0
+      TitleLang: "\u7A81\u523A"
+      DesLang: "\u7372\u5F97\u4E00\u9EDE\u529B\u91CF\uFF0C\u5C0D\u602A\u7269\u9020\u62101\u9EDE\u50B7\u5BB3"
+      TargetChoose: 1
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: f5f805bbfeff04aca8378adfd6bfa6ae, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: c3e47e2d7809c4cef8d4202a4b3ea4c4, type: 3}
@@ -90923,15 +90923,6 @@ MonoBehaviour:
       ID: 140401
       GroupID: 20
       SkillID: 3030001
-      ManaCost: 3
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 4
-      MaxLevel: 0
-      TitleLang: "\u9041\u9003"
-      DesLang: "\u7372\u5F97\u7121\u6575\u6548\u679C"
-      TargetChoose: 0
-      ExhaustAfterPlay: 0
       skillIDs:
       - 3030001
       SkillInfos:
@@ -90941,6 +90932,15 @@ MonoBehaviour:
         EffectParameterList: 0300000001000000
         Target: 0
         ps: "\u7121\u6575"
+      ManaCost: 3
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 4
+      MaxLevel: 0
+      TitleLang: "\u9041\u9003"
+      DesLang: "\u7372\u5F97\u7121\u6575\u6548\u679C"
+      TargetChoose: 0
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: f5f805bbfeff04aca8378adfd6bfa6ae, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: c3e47e2d7809c4cef8d4202a4b3ea4c4, type: 3}
@@ -94893,15 +94893,6 @@ MonoBehaviour:
       ID: 140201
       GroupID: 18
       SkillID: 3060011
-      ManaCost: 1
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 4
-      MaxLevel: 0
-      TitleLang: "\u5857\u6BD2"
-      DesLang: "\u7D66\u4E88\u5C0D\u624B1\u5C64\u4E2D\u6BD2"
-      TargetChoose: 1
-      ExhaustAfterPlay: 0
       skillIDs:
       - 3060011
       SkillInfos:
@@ -94911,6 +94902,15 @@ MonoBehaviour:
         EffectParameterList: 0600000001000000
         Target: 1
         ps: "\u4E2D\u6BD2"
+      ManaCost: 1
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 4
+      MaxLevel: 0
+      TitleLang: "\u5857\u6BD2"
+      DesLang: "\u7D66\u4E88\u5C0D\u624B1\u5C64\u4E2D\u6BD2"
+      TargetChoose: 1
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: f5f805bbfeff04aca8378adfd6bfa6ae, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: c3e47e2d7809c4cef8d4202a4b3ea4c4, type: 3}
@@ -99385,15 +99385,6 @@ MonoBehaviour:
       ID: 110301
       GroupID: 10
       SkillID: 3130001
-      ManaCost: 2
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 1
-      MaxLevel: 0
-      TitleLang: "\u88DD\u5099"
-      DesLang: "\u8B77\u76FE\u4E0D\u6703\u6D88\u5931"
-      TargetChoose: 0
-      ExhaustAfterPlay: 1
       skillIDs:
       - 3130001
       SkillInfos:
@@ -99403,6 +99394,15 @@ MonoBehaviour:
         EffectParameterList: 0d00000001000000
         Target: 0
         ps: "\u88DD\u5099"
+      ManaCost: 2
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 1
+      MaxLevel: 0
+      TitleLang: "\u88DD\u5099"
+      DesLang: "\u8B77\u76FE\u4E0D\u6703\u6D88\u5931"
+      TargetChoose: 0
+      ExhaustAfterPlay: 1
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 7dba2db421c86432ca0ba5bdea8cb587, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 4da8da34a2b14468782598a2b8f74243, type: 3}
@@ -100454,15 +100454,6 @@ MonoBehaviour:
       ID: 110401
       GroupID: 11
       SkillID: 3000001
-      ManaCost: 3
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 1
-      MaxLevel: 0
-      TitleLang: "\u5C16\u523A"
-      DesLang: "\u7372\u5F9710\u9EDE\u53CD\u5F48"
-      TargetChoose: 0
-      ExhaustAfterPlay: 0
       skillIDs:
       - 3000001
       SkillInfos:
@@ -100472,6 +100463,15 @@ MonoBehaviour:
         EffectParameterList: 000000000a000000
         Target: 0
         ps: "\u53CD\u5F48"
+      ManaCost: 3
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 1
+      MaxLevel: 0
+      TitleLang: "\u5C16\u523A"
+      DesLang: "\u7372\u5F9710\u9EDE\u53CD\u5F48"
+      TargetChoose: 0
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 7dba2db421c86432ca0ba5bdea8cb587, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 4da8da34a2b14468782598a2b8f74243, type: 3}
@@ -103090,15 +103090,6 @@ MonoBehaviour:
       ID: 140301
       GroupID: 19
       SkillID: 4030003
-      ManaCost: 1
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 4
-      MaxLevel: 0
-      TitleLang: "\u6495\u88C2"
-      DesLang: "\u6839\u64DA\u4E4B\u524D\u6253\u51FA\u7684\u5361\u724C\u4E58\u4E0A5\u9020\u6210\u50B7\u5BB3"
-      TargetChoose: 1
-      ExhaustAfterPlay: 0
       skillIDs:
       - 4030003
       SkillInfos:
@@ -103108,6 +103099,15 @@ MonoBehaviour:
         EffectParameterList: 0200000005000000
         Target: 1
         ps: "\u6495\u88C2"
+      ManaCost: 1
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 4
+      MaxLevel: 0
+      TitleLang: "\u6495\u88C2"
+      DesLang: "\u6839\u64DA\u4E4B\u524D\u6253\u51FA\u7684\u5361\u724C\u4E58\u4E0A5\u9020\u6210\u50B7\u5BB3"
+      TargetChoose: 1
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: f5f805bbfeff04aca8378adfd6bfa6ae, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: c3e47e2d7809c4cef8d4202a4b3ea4c4, type: 3}
@@ -110937,15 +110937,6 @@ MonoBehaviour:
       ID: 110201
       GroupID: 9
       SkillID: 3120001
-      ManaCost: 2
-      UpgradeCost: 0
-      UpgradeCostStone: 35
-      Class: 1
-      MaxLevel: 0
-      TitleLang: "\u5805\u786C"
-      DesLang: "\u7372\u5F971\u5C64\u76D4\u7532"
-      TargetChoose: 0
-      ExhaustAfterPlay: 0
       skillIDs:
       - 3120001
       SkillInfos:
@@ -110955,6 +110946,15 @@ MonoBehaviour:
         EffectParameterList: 0c00000001000000
         Target: 0
         ps: "\u76D4\u7532"
+      ManaCost: 2
+      UpgradeCost: 0
+      UpgradeCostStone: 35
+      Class: 1
+      MaxLevel: 0
+      TitleLang: "\u5805\u786C"
+      DesLang: "\u7372\u5F971\u5C64\u76D4\u7532"
+      TargetChoose: 0
+      ExhaustAfterPlay: 0
     _cardSprite:
       backgroundSprite: {fileID: 21300000, guid: 7dba2db421c86432ca0ba5bdea8cb587, type: 3}
       ungainCardSprite: {fileID: 21300000, guid: 4da8da34a2b14468782598a2b8f74243, type: 3}
@@ -113308,6 +113308,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2388636854935074172}
     m_Modifications:
+    - target: {fileID: 312794434149693488, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 312794434149693488, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 312794434149693488, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428692045072249675, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428692045072249675, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680599064174034279, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680599064174034279, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3172954012221253652, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -113395,6 +113423,18 @@ PrefabInstance:
     - target: {fileID: 5356777879725227279, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
       propertyPath: m_Name
       value: InventoryCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680680943303086143, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401917818877787718, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401917818877787718, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 266a4aa1df17dff44ab9c52b6bc694ab, type: 3}
