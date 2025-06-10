@@ -50,11 +50,11 @@ namespace Tool
         
         
         [Title("卡牌")] 
-        [Required] [InlineEditor] [LabelText("存檔用卡組")]
-        public DeckData SaveDeck;
+        [Required] [InlineEditor] [LabelText("正式版遊戲的卡片")]
+        public DeckData officialDeck;
         
-        [Required] [InlineEditor] [LabelText("戰鬥中可獲得的卡片")]
-        public DeckData GainInBattleDeck;
+        [Required] [InlineEditor] [LabelText("開發者卡片")]
+        public DeckData developDeck;
 
         [Required] [InlineEditor] [LabelText("卡牌資料管理")]
         public CardDataOverview CardDataOverview;

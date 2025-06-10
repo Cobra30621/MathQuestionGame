@@ -14,35 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId:
     dataId: bc7b0583-fcbb-4b9c-b4f4-40a3d8d6d659
-    displayName: "Cobra-\u6E2C\u8A669"
-  isDevelopCard: 0
-  developLevelInfo:
-    ID: 
-    GroupID: 
-    SkillID: 
-    ManaCost: 0
-    UpgradeCost: 0
-    UpgradeCostStone: 0
-    Class: 0
-    MaxLevel: 0
-    TitleLang: 
-    DesLang: 
-    TargetChoose: 0
-    ExhaustAfterPlay: 0
-    skillIDs: []
-    SkillInfos: []
-  cardId: 
-  _levelInfos: []
+    displayName: "\u7121\u9650\u8CC7\u6E90"
+  canLevelUp: 1
+  cardId: 1010
+  cardSprite: {fileID: 21300000, guid: 478bbcc6c43ce42e095cfaa3e51898cf, type: 3}
   _allyClassType: 0
-  canNotPlay: 0
-  exhaustIfNotPlay: 0
   fxInfo:
     fxPrefab: {fileID: 0}
     FxSpawnPosition: 0
     WaitMethod: 0
     Delay: -1
-  useDefaultAttackFeedback: 0
-  useCustomFeedback: 0
-  cardSprite: {fileID: 21300000, guid: 478bbcc6c43ce42e095cfaa3e51898cf, type: 3}
+  _levelInfos:
+  - ID: 900010
+    GroupID: 1010
+    SkillID: 15000001, 15000002
+    skillIDs:
+    - 15000001
+    - 15000002
+    SkillInfos: []
+    ManaCost: 0
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u7121\u9650\u8CC7\u6E90"
+    DesLang: "\u62BD 100 \u5F35\u624B\u724C, \u7372\u5F97 100 \u9B54\u529B"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
   rarity: 2
-  description: "\u7372\u5F97 999 \u9EDE\u9B54\u529B\uFF0C\u62BD 999 \u5F35\u724C"
