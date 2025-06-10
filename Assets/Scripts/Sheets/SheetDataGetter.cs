@@ -33,9 +33,12 @@ namespace Sheets
         [Required] [InlineEditor] [LabelText("意圖")]
         public IntentionData intentionData;
         
-        [Required] [InlineEditor] [LabelText("需存檔用的卡片")]
-        public DeckData saveDeck;
-
+        [Required] [InlineEditor] [LabelText("正式版遊戲的卡片")]
+        public DeckData officialDeck;
+        
+        [Required] [InlineEditor] [LabelText("開發者卡片")]
+        public DeckData developDeck;
+ 
         /// <summary>
         /// Retrieves intention data based on the given ID.
         /// </summary>

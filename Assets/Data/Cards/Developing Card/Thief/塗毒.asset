@@ -15,7 +15,7 @@ MonoBehaviour:
   uniqueId:
     dataId: c4a90553-0d83-421e-a941-a8d0b703c0f4
     displayName: 18
-  isDevelopCard: 0
+  canLevelUp: 1
   cardId: 18
   cardSprite: {fileID: 21300000, guid: 22394472808f2471fbac3512cdc81d5c, type: 3}
   _allyClassType: 4
@@ -69,21 +69,6 @@ MonoBehaviour:
     TitleLang: "\u5857\u6BD2"
     DesLang: "\u7D66\u4E88\u5C0D\u624B5\u5C64\u4E2D\u6BD2"
     TargetChoose: 1
-    ExhaustAfterPlay: 0
-  developLevelInfo:
-    ID: 
-    GroupID: 
-    SkillID: 
-    skillIDs: []
-    SkillInfos: []
-    ManaCost: 0
-    UpgradeCost: 0
-    UpgradeCostStone: 0
-    Class: 0
-    MaxLevel: 0
-    TitleLang: 
-    DesLang: 
-    TargetChoose: 0
     ExhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0

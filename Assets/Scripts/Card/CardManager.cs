@@ -17,12 +17,12 @@ namespace Card
 
         #region 資料
         [Required]
-        [LabelText("會放入存檔的卡片")]
-        public DeckData saveDeck;
+        [LabelText("正式版遊戲的卡片")]
+        public DeckData officialDeck;
 
-        [Required]
-        [LabelText("其他卡片")]
-        public  DeckData otherCardDeck;
+        // [Required]
+        // [LabelText("其他卡片")]
+        // public  DeckData otherCardDeck;
 
         [Required] [LabelText("角色卡片圖片")] 
         public CharacterCardSprites characterCardSprites;

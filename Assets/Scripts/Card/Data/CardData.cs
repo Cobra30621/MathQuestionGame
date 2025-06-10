@@ -20,50 +20,38 @@ namespace Card.Data
     [CreateAssetMenu(fileName = "Card Data", menuName = "Card")]
     public class CardData : SODataBase<CardDataOverview>
     {
-        [LabelText("是否為開發者卡片")]
+        [LabelText("可以升級（會在商店中顯示）")]
         [SerializeField]
-        private bool isDevelopCard;  
+        private bool canLevelUp = true; 
 
         
         #region 一定要設定
         
-        [ShowIf("@isDevelopCard == false")]
-        [FoldoutGroup("一定要設定")]
         [LabelText("Group Id (卡片唯一 id，對應到表單)")]
         [SerializeField]
         private string cardId; 
         
-        [FoldoutGroup("一定要設定")]
         [SerializeField]
         [LabelText("卡片的圖片")]
         private Sprite cardSprite;  
     
         
         [SerializeField]
-        [FoldoutGroup("一定要設定")]
         [LabelText("卡片職業類別")]
         private AllyClassType _allyClassType;  
         
         
         [SerializeField]
-        [FoldoutGroup("一定要設定")]
         [LabelText("卡牌特效")]
         private FxInfo fxInfo;  
         
         #endregion
         
         #region 卡片效果
-        [ShowIf("@isDevelopCard == false")]
         [LabelText("卡片效果(表單)")]
         [SerializeField]
         private List<CardLevelInfo> _levelInfos;
         
-        
-        [ShowIf("isDevelopCard")]
-        [LabelText("卡片效果 (開發者卡片)")]
-        [SerializeField]
-        private CardLevelInfo developLevelInfo;  
-
         #endregion
 
         
@@ -98,7 +86,6 @@ namespace Card.Data
 
         #region 快取屬性
 
-        public bool IsDevelopCard => isDevelopCard;
         // public string CardId => DisplayName;
         public string CardId => cardId;
         public Sprite CardSprite => cardSprite;
@@ -106,6 +93,8 @@ namespace Card.Data
         public List<CardLevelInfo> LevelInfos => _levelInfos;
         public FxInfo FxInfo => fxInfo;
         public bool CanNotPlay => canNotPlay;
+
+        public bool CanLevelUp => canLevelUp;
 
    
 
@@ -125,10 +114,6 @@ namespace Card.Data
         /// <param name="level">0 為第一階，依此類推</param>
         public CardLevelInfo GetLevelInfo(int level)
         {
-            // 開發者卡片直接回傳 developLevelInfo
-            if (isDevelopCard)
-                return developLevelInfo;
-
             // 等級超出清單範圍則拋例外
             if (level >= _levelInfos.Count)
                 throw new Exception($"Level {level} 超過卡片 {_levelInfos.Count} 個等級資訊");

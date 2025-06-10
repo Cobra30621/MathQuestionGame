@@ -1,5 +1,6 @@
 ﻿
 using System.Collections;
+using Card.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -53,7 +54,10 @@ namespace Sheets
             getter.cardLevelData.ParseDataFromGoogleSheet();
             yield return new WaitUntil(()=>!getter.cardLevelData.IsLoading);
 
-            BuildCardData();
+            // 建立遊戲正式版卡牌
+            BuildCardData(getter.officialDeck);
+            // 建立開發者卡牌
+            BuildCardData(getter.developDeck);
             
             Debug.Log("Loaded data from Google Sheets");
             
@@ -63,9 +67,9 @@ namespace Sheets
             sheetDataValidator.ValidateSheet();
         }
 
-        private void BuildCardData()
+        private void BuildCardData(DeckData deck)
         {
-            foreach (var cardData in getter.saveDeck.CardList)
+            foreach (var cardData in deck.CardList)
             {
                 var cardLevelInfos = getter.cardLevelData.GetLevelInfo(cardData.CardId);
                 cardData.SetCardLevels(cardLevelInfos);

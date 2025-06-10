@@ -46,8 +46,11 @@ namespace Card
         /// <returns></returns>
         public List<CardInfo> GetAllCardInfos()
         {
-            var saveDeck = CardManager.Instance.saveDeck;
-            var cardInfos = saveDeck.CardList.Select(CreateCardInfo).ToList();
+            var deck = CardManager.Instance.officialDeck;
+            // 取得所有可以升級的卡片
+            var cards = deck.CardList.FindAll(c=>c.CanLevelUp);
+            // 將 CardData 轉換成 CardInfo
+            var cardInfos = cards.Select(CreateCardInfo).ToList();
 
             return cardInfos;
         }
@@ -90,7 +93,7 @@ namespace Card
         public bool GetCardDataWithId(string id, out CardData cardData)
         {
             // 尋找儲存的卡片
-            foreach (var data in CardManager.Instance.saveDeck.CardList)
+            foreach (var data in CardManager.Instance.officialDeck.CardList)
             {
                 if (id == data.CardId)
                 {
@@ -99,15 +102,15 @@ namespace Card
                 }
             }
             
-            // 尋找其他的卡片
-            foreach (var data in CardManager.Instance.otherCardDeck.CardList)
-            {
-                if (id == data.CardId)
-                {
-                    cardData = data;
-                    return true;
-                }
-            }
+            // // 尋找其他的卡片
+            // foreach (var data in CardManager.Instance.otherCardDeck.CardList)
+            // {
+            //     if (id == data.CardId)
+            //     {
+            //         cardData = data;
+            //         return true;
+            //     }
+            // }
 
             Debug.LogError("找不到卡片 " + id);
             cardData = null;

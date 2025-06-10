@@ -15,23 +15,15 @@ MonoBehaviour:
   uniqueId:
     dataId: 372bc158-283a-422d-b7ba-0411e2311ace
     displayName: 13
-  isDevelopCard: 0
-  developLevelInfo:
-    ID: 
-    GroupID: 
-    SkillID: 
-    skillIDs: []
-    SkillInfos: []
-    ManaCost: 0
-    UpgradeCost: 0
-    UpgradeCostStone: 0
-    Class: 0
-    MaxLevel: 0
-    TitleLang: 
-    DesLang: 
-    TargetChoose: 0
-    ExhaustAfterPlay: 0
+  canLevelUp: 1
   cardId: 13
+  cardSprite: {fileID: 21300000, guid: 3379bf0a39c7b497ebc291fe19becabc, type: 3}
+  _allyClassType: 2
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
   _levelInfos:
   - ID: 120301
     GroupID: 13
@@ -39,7 +31,7 @@ MonoBehaviour:
     skillIDs:
     - 3140001
     SkillInfos: []
-    ManaCost: 2
+    ManaCost: 3
     UpgradeCost: 0
     UpgradeCostStone: 35
     Class: 2
@@ -54,7 +46,7 @@ MonoBehaviour:
     skillIDs:
     - 3140001
     SkillInfos: []
-    ManaCost: 1
+    ManaCost: 2
     UpgradeCost: 0
     UpgradeCostStone: 60
     Class: 2
@@ -69,7 +61,7 @@ MonoBehaviour:
     skillIDs:
     - 3140001
     SkillInfos: []
-    ManaCost: 0
+    ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 0
     Class: 2
@@ -78,16 +70,6 @@ MonoBehaviour:
     DesLang: "\u4E0B\u4E00\u6B21\u50B7\u5BB3\u9020\u6210\u5169\u500D"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-  _allyClassType: 2
   canNotPlay: 0
   exhaustIfNotPlay: 0
-  fxInfo:
-    fxPrefab: {fileID: 0}
-    FxSpawnPosition: 0
-    WaitMethod: 0
-    Delay: -1
-  useDefaultAttackFeedback: 0
-  useCustomFeedback: 0
-  cardSprite: {fileID: 21300000, guid: 3379bf0a39c7b497ebc291fe19becabc, type: 3}
   rarity: 0
-  description: 

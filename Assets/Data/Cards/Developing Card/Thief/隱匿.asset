@@ -15,23 +15,15 @@ MonoBehaviour:
   uniqueId:
     dataId: 1643e6de-f4af-4f69-a6c7-053a1e7e7fc3
     displayName: 8
-  isDevelopCard: 0
-  developLevelInfo:
-    ID: 
-    GroupID: 
-    SkillID: 
-    skillIDs: []
-    SkillInfos: []
-    ManaCost: 0
-    UpgradeCost: 0
-    UpgradeCostStone: 0
-    Class: 0
-    MaxLevel: 0
-    TitleLang: 
-    DesLang: 
-    TargetChoose: 0
-    ExhaustAfterPlay: 0
+  canLevelUp: 1
   cardId: 8
+  cardSprite: {fileID: 21300000, guid: 3e0c81f7ab6424c65b45eab52a7b9b61, type: 3}
+  _allyClassType: 4
+  fxInfo:
+    fxPrefab: {fileID: 0}
+    FxSpawnPosition: 0
+    WaitMethod: 0
+    Delay: -1
   _levelInfos:
   - ID: 140101
     GroupID: 8
@@ -183,16 +175,6 @@ MonoBehaviour:
     DesLang: "\u7372\u5F9726\u9EDE\u8B77\u76FE"
     TargetChoose: 0
     ExhaustAfterPlay: 0
-  _allyClassType: 4
   canNotPlay: 0
   exhaustIfNotPlay: 0
-  fxInfo:
-    fxPrefab: {fileID: 0}
-    FxSpawnPosition: 0
-    WaitMethod: 0
-    Delay: -1
-  useDefaultAttackFeedback: 0
-  useCustomFeedback: 0
-  cardSprite: {fileID: 21300000, guid: 3e0c81f7ab6424c65b45eab52a7b9b61, type: 3}
   rarity: 0
-  description: 

@@ -73,11 +73,8 @@ namespace Card.Display
 
         protected void UpdateCardLevelInfo()
         {
-            if (!_cardInfo.CardData.IsDevelopCard)
-            {
-                CardLevelInfo.SkillInfos = CardManager.Instance.
-                    cardInfoGetter.GetSkillInfos(CardLevelInfo.skillIDs);
-            }
+            CardLevelInfo.SkillInfos = CardManager.Instance.
+                cardInfoGetter.GetSkillInfos(CardLevelInfo.skillIDs);
         }
 
         

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Card.Data;
 using Combat;
 using Effect.Parameters;
 using NueGames.Enums;
@@ -52,9 +54,14 @@ namespace Sheets
         {
             var groupIds = getter.cardLevelData.GetGroupIds();
 
+            var cardList = new List<CardData>();
+            cardList.AddRange(getter.officialDeck.CardList);
+            cardList.AddRange(getter.developDeck.CardList);
+            
+            
             foreach (var groupId in groupIds)
             {
-                var firstOrDefault = getter.saveDeck.CardList.FirstOrDefault(x => x.CardId == groupId);
+                var firstOrDefault =  cardList.FirstOrDefault(x => x.CardId == groupId);
                 if (firstOrDefault == null)
                 {
                     Debug.LogError($"未找到卡片組 {groupId} 對應的 CardData");

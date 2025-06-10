@@ -14,47 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId:
     dataId: b41857f3-4fe9-4c44-911c-7d605defe44c
-    displayName: "Cobra-\u6E2C\u8A667"
-  isDevelopCard: 1
-  developLevelInfo:
-    ID: 
-    GroupID: 
-    SkillID: 
-    ManaCost: 0
-    UpgradeCost: 0
-    UpgradeCostStone: 0
-    Class: 0
-    MaxLevel: 0
-    TitleLang: "\u6E2C\u8A66-\u73A9\u5BB6"
-    DesLang: "\u56DE\u5408\u7D50\u675F\uFF0C\u7372\u5F97\u683C\u6A94"
-    TargetChoose: 0
-    ExhaustAfterPlay: 0
-    skillIDs: []
-    SkillInfos:
-    - SkillID: 
-      EffectID: 20100
-      EffectParameter: 
-      EffectParameterList: 
-      Target: 0
-      ps: 
-    - SkillID: 
-      EffectID: 20002
-      EffectParameter: 
-      EffectParameterList: 1400000001000000
-      Target: 0
-      ps: 
-  cardId: 
-  _levelInfos: []
+    displayName: "\u6E2C\u8A66-\u73A9\u5BB6\u7372\u5F97\u80FD\u529B"
+  canLevelUp: 1
+  cardId: 1003
+  cardSprite: {fileID: 21300000, guid: deb20f18003224931880f65cab644b4c, type: 3}
   _allyClassType: 0
-  canNotPlay: 0
-  exhaustIfNotPlay: 0
   fxInfo:
     fxPrefab: {fileID: 0}
     FxSpawnPosition: 0
     WaitMethod: 0
     Delay: -1
-  useDefaultAttackFeedback: 0
-  useCustomFeedback: 1
-  cardSprite: {fileID: 21300000, guid: deb20f18003224931880f65cab644b4c, type: 3}
+  _levelInfos:
+  - ID: 900003
+    GroupID: 1003
+    SkillID: 12000001
+    skillIDs:
+    - 12000001
+    SkillInfos: []
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u6E2C\u8A66-\u73A9\u5BB6\u7372\u5F97\u80FD\u529B"
+    DesLang: "\u73A9\u5BB6\u7372\u5F97\u80FD\u529B"
+    TargetChoose: 1
+    ExhaustAfterPlay: 0
+  canNotPlay: 0
+  exhaustIfNotPlay: 0
   rarity: 0
-  description: "\u6E2C\u8A66-\u73A9\u5BB6"
