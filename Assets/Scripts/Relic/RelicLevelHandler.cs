@@ -46,7 +46,7 @@ namespace Relic
         /// <returns>The new level of the relic.</returns>
         public int UpgradeRelic(RelicName name)
         {
-            CheckHaveInitDict();
+            CheckThenInitDict();
             bool contain = relicSaveInfos.TryGetValue(name, out var relicSaveInfo);
 
             Debug.Log($"Upgrade relic {name} to {relicSaveInfo.Level + 1}");
@@ -66,7 +66,7 @@ namespace Relic
         /// <param name="relicName">The name of the relic.</param>
         public void OnGainRelic(RelicName relicName)
         {
-            CheckHaveInitDict();
+            CheckThenInitDict();
             relicSaveInfos.TryGetValue(relicName, out var relicSaveInfo);
 
             if (relicSaveInfo is { HasGained: false })
@@ -86,7 +86,7 @@ namespace Relic
         /// <returns>The save info for the relic.</returns>
         public RelicSaveInfo GetRelicSaveInfo(RelicName relicName)
         {
-            CheckHaveInitDict();
+            CheckThenInitDict();
             return relicSaveInfos.TryGetValue(relicName, out var relicSaveInfo) ? 
                 relicSaveInfo : new RelicSaveInfo();
         }
@@ -128,10 +128,12 @@ namespace Relic
             data.relicInfo = relicSaveInfos;
         }
     
-        private void CheckHaveInitDict()
+        private void CheckThenInitDict()
         {
             if(haveInitDict)return;
-            Debug.LogError($"{nameof(RelicLevelHandler)} have not init dictionary");
+            
+            InitDictionary();
+            // Debug.Log($"{nameof(RelicLevelHandler)} have not init dictionary");
         }
     }
 

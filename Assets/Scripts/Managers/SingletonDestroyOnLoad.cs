@@ -19,7 +19,7 @@ public abstract class SingletonDestroyOnLoad<T> : SerializedMonoBehaviour where 
                 // If instance is still not found, log an error.
                 if (instance == null)
                 {
-                    Debug.LogError($"The GameObject of type {typeof(T)} is not present in the scene, " +
+                    Debug.LogWarning($"The GameObject of type {typeof(T)} is not present in the scene, " +
                                    $"yet its method is being called. Please add {typeof(T)} to the scene.");
                 }
             }

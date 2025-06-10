@@ -42,7 +42,7 @@ namespace Card
         /// </summary>
         public void UpgradeCard(string id)
         {
-            CheckHaveInitDict();
+            CheckThenInitDict();
             bool contain = cardSaveInfos.TryGetValue(id, out var cardSaveLevel);
 
             Debug.Log($"Upgrade card {id} to {cardSaveLevel.Level + 1}");
@@ -59,7 +59,7 @@ namespace Card
         /// </summary>
         public void OnGainCard(string id)
         {
-            CheckHaveInitDict();
+            CheckThenInitDict();
             cardSaveInfos.TryGetValue(id, out var cardSaveLevel);
 
             if (cardSaveLevel is { HasGained: false })
@@ -77,15 +77,15 @@ namespace Card
         /// </summary>
         public CardSaveInfo GetSaveInfo(string id)
         {
-            CheckHaveInitDict();
+            CheckThenInitDict();
             return cardSaveInfos.TryGetValue(id, out var cardSaveLevel) ? cardSaveLevel : new CardSaveInfo();
         }
 
-        private void CheckHaveInitDict()
+        private void CheckThenInitDict()
         {
             if(haveInitDict)return;
             
-            Debug.LogError($"{nameof(CardLevelHandler)} have not init dictionary");
+            InitDictionary();
         }
 
         /// <summary>

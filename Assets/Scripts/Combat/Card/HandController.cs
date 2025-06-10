@@ -316,7 +316,8 @@ namespace Combat.Card
             // 拖曳則直接跟隨滑鼠
             if (interactionState.DraggedInsideHandIndex != -1)
             {
-                cardTrans.position = mouseHandler.MouseWorldPos + interactionState.HeldCardOffset;
+                var pos = mouseHandler.MouseWorldPos + interactionState.HeldCardOffset;
+                cardTrans.position = Vector3.MoveTowards(cardTrans.position, pos, 16f * Time.deltaTime);
             }
             else
             {
@@ -373,8 +374,15 @@ namespace Combat.Card
                 cardTrans.localScale = selectedCardScale * Vector3.one;
                 pos.x = selectingEffectCardPosition.x;
                 pos.y = selectingEffectCardPosition.y;
+                cardTrans.position = Vector3.MoveTowards(cardTrans.position, pos, 12f * Time.deltaTime);
             }
-            cardTrans.position = pos;
+            else
+            {
+                cardTrans.position = pos;
+            }
+
+
+
 
             // 顯示高亮
             highlightController.OnDraggedCardOutsideHand(held.TargetChoose);
