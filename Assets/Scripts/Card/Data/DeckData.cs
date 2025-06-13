@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Card.Data
 {
-    [CreateAssetMenu(fileName = "Deck Data", menuName = "Collection/Deck", order = 1)]
+    [CreateAssetMenu(fileName = "Deck Data", menuName = "Deck", order = 1)]
     public class DeckData : ScriptableObject
     {
         [ValueDropdown("GetAssets", IsUniqueList = false)]
