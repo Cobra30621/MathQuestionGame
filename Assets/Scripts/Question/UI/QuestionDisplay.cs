@@ -35,7 +35,10 @@ namespace Question.UI
         [Required]
         [SerializeField] private TextMeshProUGUI infoText;
         
-        
+        /// <summary>
+        /// 選項按鈕
+        /// </summary>
+        [SerializeField] private GameObject [] options;
         
         /// <summary>
         /// 動畫
@@ -69,6 +72,21 @@ namespace Question.UI
             optionImage.sprite = question.OptionSprite;
 
             WaitingForAnimation = true; // 設定目前正在播動畫
+            
+            // 依據選項數量，設定可以點擊的選項
+            for (int i = 0; i < options.Length; i++)
+            {
+                if (i >= question.choiceCounts)
+                {
+                    options[i].SetActive(false);
+                }
+                else
+                {
+                    options[i].SetActive(true);
+                }
+                
+            }
+            
             animator.SetTrigger(ShowQuestion);
             
             yield return new WaitUntil(()=> !WaitingForAnimation); 

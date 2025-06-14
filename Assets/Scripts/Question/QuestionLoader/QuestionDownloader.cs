@@ -38,6 +38,7 @@ namespace Question.QuestionLoader
                 var question = new global::Question.Data.Question
                 {
                     Answer = int.Parse(problem.answer),
+                    choiceCounts = int.Parse(problem.choices),
                     Publisher = publisher,
                     Grade = grade,
                     questionName = problem.problemLink,

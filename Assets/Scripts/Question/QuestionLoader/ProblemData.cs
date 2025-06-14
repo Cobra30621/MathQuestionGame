@@ -12,5 +12,6 @@
         public string problemLink;
         public string ansLink;
         public string answer;
+        public string choices;
     }
 }

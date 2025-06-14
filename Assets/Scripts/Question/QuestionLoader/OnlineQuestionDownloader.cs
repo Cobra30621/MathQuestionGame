@@ -41,17 +41,30 @@ namespace Question.QuestionLoader
 
             // 初始化題目列表
             questions = new List<Data.Question>();
-
+            
             while (questions.Count < totalQuestionCount)
             {
-                // 隨機選擇一個章節 (1 ~ 12)
-                int chapter = Random.Range(1, 13);
-                // 隨機選擇一個難度 (1 ~ 8)
-                int difficulty = Random.Range(1, 9);
+                // 隨機選擇一個章節 (1 ~ 8)
+                //  (最大 12 單元，但大多只到第 8 單元)
+                int chapter = Random.Range(1, 9);
+
+                int difficulty;
+                float roll = Random.value; // 會產生一個 0.0 ~ 1.0 的浮點數
+                if (roll < 0.7f)
+                {
+                    // 70% 機率選 2 (2的題型最多)
+                    difficulty =  2 ;
+                }
+                else
+                {
+                    // 30% 機率從 1~8 隨機
+                    difficulty = Random.Range(1, 9);
+                }
 
                 // 啟動下載協程，將題目加入列表
                 yield return downloader.DownloadQuestion(publisher, grade, chapter, difficulty, false, questions);
             }
+
 
             // 紀錄完成下載的事件
             EventLogger.Instance.LogEvent(LogEventType.Question, $"下載完成 - 成功下載 {questions.Count} 題",

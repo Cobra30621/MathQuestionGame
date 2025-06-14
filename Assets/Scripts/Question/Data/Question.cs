@@ -26,6 +26,8 @@ namespace Question.Data
         /// </summary>
         public int Answer;
 
+        public int choiceCounts;
+
         /// <summary>
         /// The grade of the question.
         /// </summary>
