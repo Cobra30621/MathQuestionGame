@@ -620,7 +620,7 @@ MonoBehaviour:
       displayName: "Cobra/\u6E2C\u8A66 1"
     ID: 901
     Lang: Cobra
-    EnemyIntentionID: 900101
+    EnemyIntentionID: 19000001
     Level: "\u6E2C\u8A66 1"
     Prefab: Hive
     StartBattleIntentionID: 
@@ -628,13 +628,13 @@ MonoBehaviour:
     IsBoss: 0
     startBattleIntentionIDs: []
     enemyIntentionIDs:
-    - 900101
+    - 19000001
   - uniqueId:
       dataId: 902
       displayName: "Cobra/\u6E2C\u8A66 2"
     ID: 902
     Lang: Cobra
-    EnemyIntentionID: 900102
+    EnemyIntentionID: 19001001
     Level: "\u6E2C\u8A66 2"
     Prefab: Soldier
     StartBattleIntentionID: 
@@ -642,13 +642,13 @@ MonoBehaviour:
     IsBoss: 0
     startBattleIntentionIDs: []
     enemyIntentionIDs:
-    - 900102
+    - 19001001
   - uniqueId:
       dataId: 903
       displayName: "Cobra/\u6E2C\u8A66 3"
     ID: 903
     Lang: Cobra
-    EnemyIntentionID: 900001
+    EnemyIntentionID: 19002001
     Level: "\u6E2C\u8A66 3"
     Prefab: Bird
     StartBattleIntentionID: 
@@ -656,13 +656,13 @@ MonoBehaviour:
     IsBoss: 0
     startBattleIntentionIDs: []
     enemyIntentionIDs:
-    - 900001
+    - 19002001
   - uniqueId:
       dataId: 904
       displayName: "Nelson/\u6E2C\u8A66 1"
     ID: 904
     Lang: Nelson
-    EnemyIntentionID: 910001
+    EnemyIntentionID: 19100001
     Level: "\u6E2C\u8A66 1"
     Prefab: Hive
     StartBattleIntentionID: 
@@ -670,13 +670,13 @@ MonoBehaviour:
     IsBoss: 0
     startBattleIntentionIDs: []
     enemyIntentionIDs:
-    - 910001
+    - 19100001
   - uniqueId:
       dataId: 905
       displayName: "Nelson/\u6E2C\u8A66 2"
     ID: 905
     Lang: Nelson
-    EnemyIntentionID: 910001
+    EnemyIntentionID: 19101001
     Level: "\u6E2C\u8A66 2"
     Prefab: Hive
     StartBattleIntentionID: 
@@ -684,20 +684,21 @@ MonoBehaviour:
     IsBoss: 0
     startBattleIntentionIDs: []
     enemyIntentionIDs:
-    - 910001
+    - 19101001
   - uniqueId:
       dataId: 906
       displayName: "Nelson/\u6E2C\u8A66 3"
     ID: 906
     Lang: Nelson
-    EnemyIntentionID: 
+    EnemyIntentionID: 19102001
     Level: "\u6E2C\u8A66 3"
     Prefab: Hive
     StartBattleIntentionID: 
     MaxHp: 999
     IsBoss: 0
     startBattleIntentionIDs: []
-    enemyIntentionIDs: []
+    enemyIntentionIDs:
+    - 19102001
   useDataPath: 0
   dataPath: 
   sortingByDisplayName: 0
