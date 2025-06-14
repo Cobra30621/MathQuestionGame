@@ -2268,9 +2268,9 @@ MonoBehaviour:
     ExhaustAfterPlay: 1
   - ID: 900001
     GroupID: 1001
-    SkillID: 11000001
+    SkillID: 11000010
     skillIDs:
-    - 11000001
+    - 11000010
     SkillInfos: []
     ManaCost: 1
     UpgradeCost: 0
@@ -2283,9 +2283,9 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
   - ID: 900002
     GroupID: 1002
-    SkillID: 11000002
+    SkillID: 11000020
     skillIDs:
-    - 11000002
+    - 11000020
     SkillInfos: []
     ManaCost: 1
     UpgradeCost: 0
@@ -2298,9 +2298,9 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
   - ID: 900003
     GroupID: 1003
-    SkillID: 12000001
+    SkillID: 12000010
     skillIDs:
-    - 12000001
+    - 12000010
     SkillInfos: []
     ManaCost: 1
     UpgradeCost: 0
@@ -2313,9 +2313,9 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
   - ID: 900004
     GroupID: 1004
-    SkillID: 12000002
+    SkillID: 12000020
     skillIDs:
-    - 12000002
+    - 12000020
     SkillInfos: []
     ManaCost: 1
     UpgradeCost: 0
@@ -2328,9 +2328,9 @@ MonoBehaviour:
     ExhaustAfterPlay: 0
   - ID: 900005
     GroupID: 1005
-    SkillID: 12000003
+    SkillID: 12000030
     skillIDs:
-    - 12000003
+    - 12000030
     SkillInfos: []
     ManaCost: 1
     UpgradeCost: 0
@@ -2341,12 +2341,29 @@ MonoBehaviour:
     DesLang: "\u602A\u7269\u5168\u9AD4\u7372\u5F97 3 \u5C64\u71C3\u71D2"
     TargetChoose: 0
     ExhaustAfterPlay: 0
+  - ID: 900006
+    GroupID: 1006
+    SkillID: 13000010, 13000011
+    skillIDs:
+    - 13000010
+    - 13000011
+    SkillInfos: []
+    ManaCost: 1
+    UpgradeCost: 0
+    UpgradeCostStone: 0
+    Class: 0
+    MaxLevel: 1
+    TitleLang: "\u6E2C\u8A66-\u4EFB\u610F\u6548\u679C"
+    DesLang: "\u62BD 2 \u5F35\u724C\uFF0C\u70BA\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u5361\u724C\uFF0C\u7372\u5F97
+      10 \u9EDE\u8B77\u76FE 1 \u6B21"
+    TargetChoose: 0
+    ExhaustAfterPlay: 0
   - ID: 900010
     GroupID: 1010
-    SkillID: 15000001, 15000002
+    SkillID: 15000010, 15000011
     skillIDs:
-    - 15000001
-    - 15000002
+    - 15000010
+    - 15000011
     SkillInfos: []
     ManaCost: 0
     UpgradeCost: 0

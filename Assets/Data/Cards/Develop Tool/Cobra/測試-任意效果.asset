@@ -10,35 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: "\u6E2C\u8A66-\u55AE\u4E00\u6575\u4EBA-\u4E0A\u80FD\u529B"
+  m_Name: "\u6E2C\u8A66-\u4EFB\u610F\u6548\u679C"
   m_EditorClassIdentifier: 
   uniqueId:
-    dataId: 5c7a2395-21dd-47f8-a982-c2da4a42f799
-    displayName: "\u6E2C\u8A66-\u55AE\u9AD4\u6575\u4EBA-\u4E0A\u80FD\u529B-1"
-  canLevelUp: 0
-  cardId: 1004
-  cardSprite: {fileID: 21300000, guid: b5f5839c0c638184d90210de34685b87, type: 3}
+    dataId: 7b282fb5-2225-441d-8170-848ee21557a7
+    displayName: "\u6E2C\u8A66-\u4EFB\u610F\u6548\u679C"
+  canLevelUp: 1
+  cardId: 1006
+  cardSprite: {fileID: 21300000, guid: fbc6daa43d3c7423db1de5c08349ed02, type: 3}
   _allyClassType: 0
   fxInfo:
-    fxPrefab: {fileID: 9217137000476708333, guid: 8d038ba3f664d485d9be71d35ddf5da9, type: 3}
+    fxPrefab: {fileID: 0}
     FxSpawnPosition: 0
-    WaitMethod: 1
+    WaitMethod: 0
     Delay: -1
   _levelInfos:
-  - ID: 900004
-    GroupID: 1004
-    SkillID: 12000020
+  - ID: 900006
+    GroupID: 1006
+    SkillID: 13000010, 13000011
     skillIDs:
-    - 12000020
+    - 13000010
+    - 13000011
     SkillInfos: []
     ManaCost: 1
     UpgradeCost: 0
     UpgradeCostStone: 0
     Class: 0
     MaxLevel: 1
-    TitleLang: "\u6E2C\u8A66-\u55AE\u9AD4\u6575\u4EBA-\u4E0A\u80FD\u529B"
-    DesLang: "\u55AE\u9AD4\u6575\u4EBA\u7372\u5F97 2 \u5C64\u6613\u50B7"
-    TargetChoose: 1
+    TitleLang: "\u6E2C\u8A66-\u4EFB\u610F\u6548\u679C"
+    DesLang: "\u62BD 2 \u5F35\u724C\uFF0C\u70BA\u672C\u56DE\u5408\u6253\u51FA\u7684\u7B2C\u4E00\u5F35\u5361\u724C\uFF0C\u7372\u5F97
+      10 \u9EDE\u8B77\u76FE 1 \u6B21"
+    TargetChoose: 0
     ExhaustAfterPlay: 0
   canNotPlay: 0
   exhaustIfNotPlay: 0
