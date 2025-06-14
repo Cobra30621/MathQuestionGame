@@ -106,6 +106,8 @@ namespace Question.Core
         
         private IEnumerator RunQuestioningLoop(QuestionActionBase action)
         {
+            // 開始時封鎖答題按鈕
+            _uiController.SetEnableAnswer(false);
             // 進入答題介面
             yield return _uiController.EnterQuestionMode();
             
@@ -150,7 +152,6 @@ namespace Question.Core
             // 等待玩家回答問題
             yield return new WaitUntil(()=> !_waitingForAnswer);
         }
-
         
         /// <summary>
         /// 檢查並設定是否答題結束

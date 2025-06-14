@@ -116,7 +116,7 @@ namespace Question.UI
         {
             foreach (var answerButton in answerButtons)
             {
-                answerButton.enabled = enable;
+                answerButton.interactable = enable;
             }
         }
     }
