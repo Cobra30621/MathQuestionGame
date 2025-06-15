@@ -20,7 +20,7 @@ MonoBehaviour:
   cardSprite: {fileID: 21300000, guid: 8ddc37125615a44869c6cfa524c1039c, type: 3}
   _allyClassType: 1
   fxInfo:
-    fxPrefab: {fileID: 0}
+    fxPrefab: {fileID: 7010805399001825214, guid: 4b2a490122c284130bac51fa97189c8c, type: 3}
     FxSpawnPosition: 0
     WaitMethod: 0
     Delay: -1
@@ -30,7 +30,13 @@ MonoBehaviour:
     SkillID: 3000001
     skillIDs:
     - 3000001
-    SkillInfos: []
+    SkillInfos:
+    - SkillID: 3000001
+      EffectID: 20003
+      EffectParameter: 0,10
+      EffectParameterList: 000000000a000000
+      Target: 0
+      ps: "\u53CD\u5F48"
     ManaCost: 3
     UpgradeCost: 0
     UpgradeCostStone: 35
