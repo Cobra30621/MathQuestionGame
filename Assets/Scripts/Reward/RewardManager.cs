@@ -6,6 +6,7 @@ using Managers;
 using Map;
 using NueGames.Data.Containers;
 using Question;
+using Question.Data;
 using Relic;
 using Relic.Data;
 using Reward.Data;
@@ -21,6 +22,8 @@ namespace Reward
         [Required, InlineEditor] public ItemDropData itemDropData;
         [Required, InlineEditor] public RewardContainerData rewardContainerData;
 
+        [Required] public QuestionStoneDropTable questionStoneDropTable;
+        
         // 單例存取方式
         public static RewardManager Instance  => GameManager.Instance != null ? GameManager.Instance.RewardManager : null;
 
@@ -120,11 +123,14 @@ namespace Reward
         }
 
         /// <summary>
-        /// 計算答題獎勵（石頭 = 正確題數 * 單位掉落值）
+        /// 計算答題獎勵
         /// </summary>
         public int GetQuestionReward(AnswerRecord record)
         {
-            return record.CorrectCount * itemDropData.questionDropStone;
+            var stoneDropAmountsForQuestionCount = questionStoneDropTable.GetStoneDropAmountsForQuestionCount(record.QuestionCount);
+            var rewardStone = stoneDropAmountsForQuestionCount[record.CorrectCount];
+
+            return rewardStone;
         }
 
         /// <summary>

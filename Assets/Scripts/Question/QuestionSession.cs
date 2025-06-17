@@ -27,7 +27,7 @@ namespace Question.Core
         public int HasAnswerCount => _answerRecord.AnswerCount;
         public int CorrectAnswerCount => _answerRecord.CorrectCount;
         public int WrongAnswerCount => _answerRecord.WrongCount;
-        public int QuestionCount => questionAction.QuestionCount;
+        public int QuestionCount => _answerRecord.QuestionCount;
         
         
         public Data.Question CurrentQuestion => _currentQuestion;
@@ -36,6 +36,7 @@ namespace Question.Core
         {
             this.questionAction = questionAction;
             _answerRecord.Clear();
+            _answerRecord.QuestionCount = questionAction.QuestionCount;
         }
 
         public void SetQuestions(List<Data.Question> questions)

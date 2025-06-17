@@ -26,10 +26,11 @@ namespace Reward.Data
 
         [LabelText("不同層的金幣掉落倍率")] public float[] layerMoneyDropRates;
         
-        [LabelText("答題掉錢")]
-        public int questionDropMoney;
+
         [LabelText("答題寶石")]
         public int questionDropStone;
+        
+        
 
         [LabelText("通用遺物獎勵清單")] 
         public List<RelicName> commonRelics;
@@ -57,8 +58,6 @@ namespace Reward.Data
                     return (int) Math.Floor(bossDropMoney * rate);
                 case NodeType.Treasure:
                     return (int) Math.Floor(treasureRoomDropMoney * rate);
-                case NodeType.Event:
-                    return (int) Math.Floor(questionDropMoney * rate);
                 default:
                     Debug.LogError("nodeType: " + nodeType + " not supported drop Money");
                     return 0;

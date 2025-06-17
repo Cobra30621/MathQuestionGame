@@ -84,6 +84,9 @@ namespace Tool
         [Title("答題")] 
         [Required] [InlineEditor] [LabelText("本地端的題目資料")]
         public QuestionData LocalQuestionData;
+
+        [Required] [InlineEditor] [LabelText("答對題目數量與對應掉落寶石金額的對照表")]
+        public QuestionStoneDropTable QuestionStoneDropTable;
         
         [Title("讀表相關")] 
         [Required] [InlineEditor] [LabelText("存檔用卡組")]

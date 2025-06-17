@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Economy;
 using Question.Action;
+using Question.Data;
 using Question.Enum;
 using Reward.Data;
 using Sirenix.OdinInspector;
@@ -35,6 +37,11 @@ namespace Question.UI
 
         [Required] [SerializeField] private ItemDropData ItemDropData;
 
+        [Required] [SerializeField] private QuestionStoneDropTable _questionStoneDropTable;
+
+        [Required] [SerializeField] private ToggleGroup toggleGroup;
+        [Required] [SerializeField] private QuestionCountToggle _questionCountTogglePrefab;
+        [Required] [SerializeField] private Transform toggleSpawnPos;
 
         public int questionCount;
         
@@ -48,6 +55,20 @@ namespace Question.UI
                 ()=> UIManager.Instance.ShopCanvas.OpenCanvas());
             // 訂閱開始答題方法
             startButton.onClick.AddListener(StartQuestion);
+
+            InitQuestionCountToggles();
+        }
+
+        private void InitQuestionCountToggles()
+        {
+            var questionCounts = _questionStoneDropTable.GetAvailableQuestionCounts();
+            var toggles = new List<QuestionCountToggle>();
+            foreach (var count in questionCounts)
+            {
+                var questionCountToggle = Instantiate(_questionCountTogglePrefab, toggleSpawnPos);
+                questionCountToggle.Init(this, toggleGroup, count);
+                toggles.Add(questionCountToggle);
+            }
         }
 
          /// <summary>
@@ -78,9 +99,9 @@ namespace Question.UI
         {
             int stone = CoinManager.Instance.Stone;
             currentStone.text = $"現在寶石: {stone}";
-            int dropStone = ItemDropData.questionDropStone;
-            unitDropStone.text = $"答對一題獲得的寶石: {dropStone}";
-            int totalDropStone = questionCount * dropStone;
+            unitDropStone.text = $"待處理";
+            var stoneDropAmountsForQuestionCount = _questionStoneDropTable.GetStoneDropAmountsForQuestionCount(questionCount);
+            int totalDropStone = stoneDropAmountsForQuestionCount[stoneDropAmountsForQuestionCount.Count - 1];
             maxGainStone.text = $"最多獲得寶石: {totalDropStone}";
             
         }
