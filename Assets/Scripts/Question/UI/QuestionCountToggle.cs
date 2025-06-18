@@ -17,11 +17,6 @@ namespace Question.UI
         [SerializeField] private TextMeshProUGUI info;
 
         private SelectedQuestionUI _selectedQuestionUI;
-        
-        private void Awake()
-        {
-            _toggle.onValueChanged.AddListener(OnToggleSelected);
-        }
 
         public void Init(SelectedQuestionUI selectedQuestionUI, ToggleGroup toggleGroup,  int questionCount)
         {
@@ -31,6 +26,7 @@ namespace Question.UI
            
            _toggle = GetComponent<Toggle>();
            _toggle.group = toggleGroup;
+           _toggle.onValueChanged.AddListener(OnToggleSelected);
         }
 
         private void OnToggleSelected(bool selected)

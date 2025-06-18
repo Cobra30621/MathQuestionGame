@@ -41,5 +41,21 @@ namespace Question.Data
                 return new List<int>();
             }
         }
+        
+        /// <summary>
+        /// 取得所有掉落資料中出現過的題數索引（從所有 value list 的長度推算）
+        /// </summary>
+        public List<int> GetAllQuestionCountsFromAllModes()
+        {
+            HashSet<int> result = new HashSet<int>();
+            foreach (var kv in stoneDropAmountsByQuestionCount)
+            {
+                for (int i = 1; i <= kv.Value.Count; i++)
+                {
+                    result.Add(i);
+                }
+            }
+            return new List<int>(result);
+        }
     }
 }
