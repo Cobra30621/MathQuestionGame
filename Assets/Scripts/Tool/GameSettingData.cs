@@ -16,6 +16,7 @@ using Reward.Data;
 using Sirenix.OdinInspector;
 using Stage;
 using UnityEngine;
+using VersionControl;
 
 namespace Tool
 {
@@ -27,6 +28,10 @@ namespace Tool
         
         [Required] [InlineEditor] [LabelText("物品掉落量")]
         public ItemDropData ItemDropData;
+
+        [Title("版本")] 
+        [Required] [InlineEditor] [LabelText("遊戲版本資料")]
+        public GameVersionData GameVersionData;
         
         [Title("關卡設定")] 
         [Required] [InlineEditor] [LabelText("可選擇的玩家與關卡")]

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89495208fba44d8994351bdbebdd4760, type: 3}
+  m_Name: game version data
+  m_EditorClassIdentifier: 
+  versionList:
+  - VersionName: "\u958B\u767C\u4E2D"
+    MainVersionNum: 0
+    SubVersionNum: 5
+    FixVersionNum: 2
+    UpdateMemo: "- \u4FEE\u6B63\u5927\u591A 4/5 \u63D0\u51FA\u554F\u984C\n- \u4FEE\u6B63\u90E8\u5206\u6C34\u90CE\u63D0\u51FA\u554F\u984C\n-
+      \u589E\u52A0 Debug \u6E2C\u8A66\u5668"
+  - VersionName: "\u958B\u767C\u4E2D"
+    MainVersionNum: 0
+    SubVersionNum: 6
+    FixVersionNum: 1
+    UpdateMemo: "- \u4FEE\u6B63\u984C\u76EE\u7372\u53D6\u5BF6\u77F3\u8B80\u53D6\u8868\u55AE\n-
+      \u65B0\u589E\u904A\u6232\u7248\u672C\u7BA1\u7406\u8CC7\u6599"

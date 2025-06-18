@@ -108,7 +108,7 @@ namespace Managers
         /// <returns></returns>
         public GameVersion SystemVersion()
         {
-            return systemGameVersion.systemVersion;
+            return systemGameVersion.SystemVersion();
         }
         
         public void LoadData(GameData data)

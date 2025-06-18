@@ -26,7 +26,7 @@ namespace VersionControl
         /// <summary>
         /// 更新內容
         /// </summary>
-        [TextArea]
+        [TextArea(5, 10)]
         public string UpdateMemo;
 
         /// <summary>

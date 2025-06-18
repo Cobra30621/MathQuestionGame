@@ -10,16 +10,22 @@ namespace VersionControl
     /// </summary>
     public class SystemGameVersion : MonoBehaviour, IPermanentDataPersistence
     {
-        [LabelText("現在的遊戲版本")] public GameVersion systemVersion;
-
-
+        [Required]
+        [SerializeField] private GameVersionData _gameVersionData;
+        
         public void LoadData(PermanentGameData data)
         {
         }
 
         public void SaveData(PermanentGameData data)
         {
+            var systemVersion = _gameVersionData.GetLatestVersion();
             data.saveVersion = systemVersion;
+        }
+
+        public GameVersion SystemVersion()
+        {
+            return _gameVersionData.GetLatestVersion();
         }
     }
 }
