@@ -116,7 +116,6 @@ namespace Question.UI
             var normalQuestionAction = new NormalQuestionAction()
             {
                 QuestionCount = questionCount,
-                NeedCorrectCount = 0,
                 fallbackToLocalIfNoInternet = false
             };
             

@@ -13,15 +13,12 @@ namespace Question.Action
 
         public System.Action onComplete;
         
-        public override void DoCorrectAction()
+        public override void DoAnswerCompeled()
         {
             UIManager.Instance.RewardCanvas.ShowReward(RewardData, NodeType.Event, false, onComplete);
             
         }
 
-        public override void DoWrongAction()
-        {
-            onComplete.Invoke();
-        }
+
     }
 }

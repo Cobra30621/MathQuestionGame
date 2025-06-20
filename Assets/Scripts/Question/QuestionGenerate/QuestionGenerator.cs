@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Log;
@@ -29,51 +30,82 @@ namespace Question.QuestionGenerate
         /// </summary>
         /// <param name="onQuestionReady">當題目準備好後的回呼 (成功, 題目列表)</param>
         /// <param name="needQuestionCount">所需題目數量</param>
-        public IEnumerator GenerateQuestion(System.Action<bool, List<Data.Question>> onQuestionReady, int needQuestionCount)
+        public IEnumerator GenerateQuestion(Action<bool, List<Data.Question>> onQuestionReady, int needQuestionCount)
         {
             var setting = QuestionManager.Instance.QuestionSetting;
-            float totalWaitTime = perQuestionMaxWaitTime * needQuestionCount;
 
-            List<Data.Question> onlineQuestions = new List<Data.Question>();
-            bool downloadFinished = false;
-
-            // 啟動線上題目下載協程，下載完成後設定旗標
-            IEnumerator DownloadQuestions()
+            if (!IsInternetAvailable())
             {
-                yield return _onlineDownloader.DownloadQuestionsCoroutine(
-                    setting.Publisher,
-                    setting.Grade,
-                    needQuestionCount
-                );
-
-                onlineQuestions = _onlineDownloader.questions;
-                downloadFinished = true;
+                var local = LoadLocalQuestions(setting, onQuestionReady);
+                yield break;
             }
 
-            // 開始執行下載協程
-            StartCoroutine(DownloadQuestions());
+            float timeout = perQuestionMaxWaitTime * needQuestionCount;
 
-            float elapsedTime = 0f;
+            // 嘗試下載題目，限制時間內完成
+            yield return StartCoroutine(DownloadOnlineQuestionsWithTimeout(setting, needQuestionCount, timeout));
 
-            // 等待下載完成或超時
-            while (!downloadFinished && elapsedTime < totalWaitTime)
-            {
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
+            List<Data.Question> onlineQuestions = _onlineDownloader.questions;
 
-            // 判斷是否成功下載足夠的題目
-            if (onlineQuestions.Count >= needQuestionCount)
+            if (onlineQuestions != null && onlineQuestions.Count >= needQuestionCount)
             {
                 EventLogger.Instance.LogEvent(LogEventType.Question, $"使用線上題目 - 數量 {onlineQuestions.Count}");
                 onQuestionReady.Invoke(true, onlineQuestions);
             }
             else
             {
-                var localQuestions = _localGetter.GetQuestions(setting);
-                EventLogger.Instance.LogEvent(LogEventType.Question, $"使用本地題目 - 數量 {localQuestions.Count}");
-                onQuestionReady.Invoke(false, localQuestions);
+                var local = LoadLocalQuestions(setting, onQuestionReady);
             }
+        }
+
+        /// <summary>
+        /// 嘗試在限定時間內下載線上題目
+        /// </summary>
+        private IEnumerator DownloadOnlineQuestionsWithTimeout(QuestionSetting setting, int count, float timeout)
+        {
+            bool finished = false;
+
+            StartCoroutine(DownloadQuestions(setting, count, () => finished = true));
+
+            float elapsed = 0f;
+            while (!finished && elapsed < timeout)
+            {
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        /// <summary>
+        /// 啟動線上下載協程
+        /// </summary>
+        private IEnumerator DownloadQuestions(QuestionSetting setting, int count, System.Action onComplete)
+        {
+            yield return _onlineDownloader.DownloadQuestionsCoroutine(
+                setting.Publisher,
+                setting.Grade,
+                count
+            );
+            onComplete?.Invoke();
+        }
+
+        /// <summary>
+        /// 使用本地題目並回傳
+        /// </summary>
+        private List<Data.Question> LoadLocalQuestions(QuestionSetting setting, Action<bool, List<Data.Question>> callback)
+        {
+            var localQuestions = _localGetter.GetQuestions(setting);
+            EventLogger.Instance.LogEvent(LogEventType.Question, $"使用本地題目 - 數量 {localQuestions.Count}");
+            callback.Invoke(false, localQuestions);
+            return localQuestions;
+        }
+
+        /// <summary>
+        /// 是否連上網路（WiFi 或行動數據）
+        /// </summary>
+        public static bool IsInternetAvailable()
+        {
+            // Debug.Log($"Internet {Application.internetReachability}");
+            return Application.internetReachability != NetworkReachability.NotReachable;
         }
     }
 }

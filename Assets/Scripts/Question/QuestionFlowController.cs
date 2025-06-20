@@ -60,7 +60,7 @@ namespace Question.Core
         
         
         /// <summary>
-        /// 當網路不佳下載失敗時是否改用本地資料
+        /// 當網路不佳下載失敗時是否改用本地資料，否則顯示錯誤介面
         /// </summary>
         [LabelText("網路失敗時是否使用本地題庫")]
         [SerializeField] private bool _fallbackToLocalIfNoInternet = true;
@@ -224,15 +224,7 @@ namespace Question.Core
         /// <exception cref="NotImplementedException"></exception>
         private void FinishSession(QuestionActionBase action)
         {
-            // 執行是答題數量達到條件
-            if (Session.ReachSuccessCondition())
-            {
-                action.DoCorrectAction();
-            }
-            else
-            {
-                action.DoWrongAction();
-            }
+            action.DoAnswerCompeled();
         }
     }
 }

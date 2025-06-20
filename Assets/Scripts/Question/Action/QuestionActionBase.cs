@@ -13,23 +13,14 @@ namespace Question.Action
         public int QuestionCount;
         
         /// <summary>
-        /// 需要答對的題數
-        /// </summary>
-        public int NeedCorrectCount;
-        
-        /// <summary>
         /// 當網路不佳下載失敗時是否改用本地資料
         /// </summary>
         public bool fallbackToLocalIfNoInternet = true;
         
         /// <summary>
-        /// 答題成功的行動
+        /// 答題結束後的行動
         /// </summary>
-        public abstract void DoCorrectAction();
-        /// <summary>
-        /// 答題失敗的行動
-        /// </summary>
-        public abstract void DoWrongAction();
-  
+        public abstract void DoAnswerCompeled();
+
     }
 }

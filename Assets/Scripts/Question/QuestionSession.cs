@@ -77,9 +77,6 @@ namespace Question.Core
             return _answerRecord.AnswerCount >= questionAction.QuestionCount;
         }
         
-        public bool ReachSuccessCondition()
-        {
-            return _answerRecord.CorrectCount >= questionAction.NeedCorrectCount;
-        }
+
     }
 }
