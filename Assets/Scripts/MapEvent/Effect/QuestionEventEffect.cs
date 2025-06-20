@@ -19,7 +19,6 @@ namespace MapEvent.Effect
             {
                 QuestionCount = 1,
                 NeedCorrectCount = 1,
-                QuestionMode = _effectData.QuestionMode,
                 RewardData = _effectData.RewardData,
                 onComplete =  onComplete
             };

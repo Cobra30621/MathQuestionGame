@@ -117,7 +117,7 @@ namespace Question.UI
             {
                 QuestionCount = questionCount,
                 NeedCorrectCount = 0,
-                QuestionMode = QuestionMode.Easy
+                fallbackToLocalIfNoInternet = false
             };
             
             QuestionManager.Instance.EnterQuestionMode(normalQuestionAction, questionCount);

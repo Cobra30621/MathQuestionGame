@@ -18,9 +18,9 @@ namespace Question.Action
         public int NeedCorrectCount;
         
         /// <summary>
-        /// 問題難度
+        /// 當網路不佳下載失敗時是否改用本地資料
         /// </summary>
-        public QuestionMode QuestionMode;
+        public bool fallbackToLocalIfNoInternet = true;
         
         /// <summary>
         /// 答題成功的行動
@@ -30,7 +30,6 @@ namespace Question.Action
         /// 答題失敗的行動
         /// </summary>
         public abstract void DoWrongAction();
-
   
     }
 }

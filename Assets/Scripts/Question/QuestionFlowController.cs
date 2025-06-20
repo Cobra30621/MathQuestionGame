@@ -9,6 +9,7 @@ using Question.UI;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Question.Core
 {
@@ -34,6 +35,9 @@ namespace Question.Core
         [Required]
         [SerializeField] private WaitDownloadUI _waitDownloadUI;
         
+        [Required]
+        [SerializeField] private GameObject _noInternetWarningUI;
+        
         /// <summary>
         /// 問題產生器
         /// </summary>
@@ -54,6 +58,12 @@ namespace Question.Core
         [ShowInInspector]
         private bool _waitingForAnswer;
         
+        
+        /// <summary>
+        /// 當網路不佳下載失敗時是否改用本地資料
+        /// </summary>
+        [LabelText("網路失敗時是否使用本地題庫")]
+        [SerializeField] private bool _fallbackToLocalIfNoInternet = true;
  
         
         /// <summary>
@@ -64,14 +74,31 @@ namespace Question.Core
         public IEnumerator StartQuestionFlow(QuestionActionBase action)
         {
             Session = new QuestionSession();
-            // 下載題目
-            yield return DownloadOnlineQuestions();
+            _fallbackToLocalIfNoInternet = action.fallbackToLocalIfNoInternet;
             
+            bool downloadSuccess = false;
+            bool waitDownloadDone = false;
+
+            // 呼叫下載並等待 callback 結果
+            yield return StartCoroutine(DownloadOnlineQuestions(success =>
+            {
+                downloadSuccess = success;
+                waitDownloadDone = true;
+            }));
+
+            // 等待 callback 結束（保險用）
+            yield return new WaitUntil(() => waitDownloadDone);
+
+            if (!downloadSuccess && !_fallbackToLocalIfNoInternet)
+            {
+                Debug.LogWarning("網路訊號不好，下載失敗，無法進行答題流程。");
+                _noInternetWarningUI.SetActive(true);
+                yield break;
+            }
+
+            // 初始化與後續流程
             InitializeSession(action);
-            
-            // 答題迴圈
             yield return RunQuestioningLoop(action);
-            
             FinishSession(action);
         }
 
@@ -88,19 +115,24 @@ namespace Question.Core
         }
 
 
-        private IEnumerator DownloadOnlineQuestions()
+        private IEnumerator DownloadOnlineQuestions(Action<bool> onComplete)
         {
             _waitDownloadUI.Show();
 
             int needQuestionCount = QuestionManager.Instance.QuestionSetting.needAnswerCount;
-            // 下載題目
-            yield return _generator.GenerateQuestion((bool isOnline, List<Data.Question> questions) =>
+
+            bool downloadSuccess = false;
+
+            yield return _generator.GenerateQuestion((bool success, List<Data.Question> questions) =>
             {
+                downloadSuccess = success;
                 Session.SetQuestions(questions);
-                isOnlineText.text = isOnline ? "使用線上題目" : "使用本地端題庫";
+                isOnlineText.text = success ? "使用線上題目" : "使用本地端題庫";
             }, needQuestionCount);
-            
+
             _waitDownloadUI.Close();
+
+            onComplete?.Invoke(downloadSuccess);
         }
         
         

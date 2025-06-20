@@ -19,11 +19,7 @@ namespace MapEvent.Data
         [LabelText("獎勵")]
         [ShowIf("IsShowRewardData")]
         public List<RewardData> RewardData;
-
-        [LabelText("問題難度")]
-        [ShowIf("IsShowQuestionMode")]
-        public QuestionMode QuestionMode;
-
+        
         [LabelText("血量調整數值")] [ShowIf("IsShowChangeHeartData")]
         public int changeHealthValue;
         
