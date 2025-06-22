@@ -53,6 +53,10 @@ namespace Question.QuestionLoader
             {
                 yield return GetQuestionsByGradeCoroutine(Publisher.Ziyou, grade);
             }
+            
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(QuestionData);
+#endif
         }
 
         /// <summary>

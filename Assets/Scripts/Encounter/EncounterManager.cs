@@ -140,7 +140,6 @@ namespace Encounter
         /// <param name="stage"></param>
         public void SetEncounterStage(EncounterStage stage)
         {
-            Debug.Log(stage);
             EncounterStage = stage;
         }
 

@@ -224,7 +224,15 @@ namespace Question.Core
         /// <exception cref="NotImplementedException"></exception>
         private void FinishSession(QuestionActionBase action)
         {
-            action.DoAnswerCompeled();
+            // 執行是答題數量達到條件
+            if (Session.ReachSuccessCondition())
+            {
+                action.DoCorrectAction();
+            }
+            else
+            {
+                action.DoWrongAction();
+            }
         }
     }
 }
