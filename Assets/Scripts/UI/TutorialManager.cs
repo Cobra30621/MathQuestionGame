@@ -52,6 +52,7 @@ namespace UI
             else
             {
                 currentIndex = 0;
+                ShowImageAtIndex(currentIndex);
             }
         }
 
@@ -65,6 +66,7 @@ namespace UI
             else
             {
                 currentIndex = tutorialImages.Length - 1; // 如果已經是第一張，則跳到最後一張
+                ShowImageAtIndex(currentIndex);
             }
         }
 
