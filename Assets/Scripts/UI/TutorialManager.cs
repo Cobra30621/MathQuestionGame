@@ -1,7 +1,7 @@
 using Combat.Card;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 namespace UI
 {
     public class TutorialManager : MonoBehaviour
@@ -11,10 +11,11 @@ namespace UI
         public Button nextButton;
         public Button prevButton; // 新增的上一張按鈕
         public Button closeButton;
-
         public Sprite[] tutorialImages;
+        
         private int currentIndex = 0;
-
+        [SerializeField] private TMP_Text indexObject; // 用於顯示當前圖片的索引
+        
         private void Start()
         {
             nextButton.onClick.AddListener(ShowNextImage);
@@ -37,6 +38,7 @@ namespace UI
             if (index >= 0 && index < tutorialImages.Length)
             {
                 tutorialImage.sprite = tutorialImages[index];
+                UpdateIndexObject();
             }
         }
 
@@ -62,7 +64,7 @@ namespace UI
             }
             else
             {
-                currentIndex = 0;
+                currentIndex = tutorialImages.Length - 1; // 如果已經是第一張，則跳到最後一張
             }
         }
 
@@ -71,6 +73,15 @@ namespace UI
             tutorialPanel.SetActive(false);
             // 當在戰鬥場景時，要將手牌開啟
             CollectionManager.OpenHandController();
+        }
+        
+        private void UpdateIndexObject() 
+        {
+            if (indexObject)
+            {
+                indexObject.text =
+                    $"{currentIndex + 1} / {tutorialImages.Length}";
+            }
         }
     }
 }
