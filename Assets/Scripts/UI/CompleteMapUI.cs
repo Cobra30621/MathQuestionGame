@@ -30,7 +30,6 @@ namespace UI
         public void UpdateUI()
         {
             var info =  "突破地圖:" + MapManager.Instance.CurrentMap.mapName;
-            Debug.Log(info);
             mapName.text = info;
         }
 
