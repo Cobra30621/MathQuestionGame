@@ -12,7 +12,14 @@ namespace Characters.Display
             {
                 return;
             }
-            var intention = _enemy.currentSkill._intention;
+
+            var skill = _enemy.currentSkill;
+            if (skill == null)
+            {
+                return;
+            }
+            
+            var intention = skill._intention;
             ShowTooltipInfo(intention.Content, intention.Header);
             
             ShowPowerTooltipInfo();
