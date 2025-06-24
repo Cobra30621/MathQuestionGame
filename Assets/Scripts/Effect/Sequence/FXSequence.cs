@@ -89,9 +89,8 @@ namespace Effect.Sequence
             setActionCompleted.Invoke();
             onSequenceComplete?.Invoke();
 
-            // 等待所有特效結束後銷毀
-            yield return new WaitUntil(() => !IsAnyFXPlaying());
-            DestroyAllFX();
+            
+            EffectExecutor.Instance.StartCoroutine(DestroyAllFXWhenCompleted());
         }
 
         /// <summary>
@@ -124,8 +123,11 @@ namespace Effect.Sequence
         /// <summary>
         /// 銷毀所有播放過的特效。
         /// </summary>
-        private void DestroyAllFX()
+        private IEnumerator DestroyAllFXWhenCompleted()
         {
+            // 等待所有特效結束後銷毀
+            yield return new WaitUntil(() => !IsAnyFXPlaying());
+            
             foreach (var fx in activeFXPlayers)
             {
                 Debug.Log($"Destroy FX: {fx.name}");
