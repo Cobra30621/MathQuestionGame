@@ -98,6 +98,8 @@ namespace Map
             stageData = stageDataOverview.FindUniqueId(this.stageName.Id);
             currentMapIndex = 0;
             needInitializedMap = true;
+            
+            InitializedMap();
         }
 
         // 初始化地圖
@@ -166,9 +168,10 @@ namespace Map
             stageName = new StageName();
             stageName.SetId(data.StageName);
             stageData = stageDataOverview.FindUniqueId(stageName.Id);
-            
+
             var encounterStage = GetEncounterStage();
             EncounterManager.Instance.SetEncounterStage(encounterStage);
+            EncounterManager.Instance.mapEncounter = data.MapEncounter;
         }
         
         public void SaveData(GameData data)
@@ -179,6 +182,8 @@ namespace Map
             data.MapJson = json;
             data.CurrentMapIndex = currentMapIndex;
             data.StageName = stageName.Id;
+
+            data.MapEncounter = EncounterManager.Instance.mapEncounter;
         }
     }
 }
