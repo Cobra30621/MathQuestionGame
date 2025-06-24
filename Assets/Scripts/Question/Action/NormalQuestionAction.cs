@@ -5,7 +5,12 @@ namespace Question.Action
     /// </summary>
     public class NormalQuestionAction : QuestionActionBase
     {
-        public override void DoAnswerCompeled()
+        public override void DoCorrectAction()
+        {
+            QuestionManager.Instance.ShowOutcome();
+        }
+
+        public override void DoWrongAction()
         {
             QuestionManager.Instance.ShowOutcome();
         }

@@ -18,9 +18,18 @@ namespace Question.Action
         public bool fallbackToLocalIfNoInternet = true;
         
         /// <summary>
-        /// 答題結束後的行動
+        /// 需要答對的題數
         /// </summary>
-        public abstract void DoAnswerCompeled();
+        public int NeedCorrectCount;
+        
+        /// <summary>
+        /// 答題成功的行動
+        /// </summary>
+        public abstract void DoCorrectAction();
+        /// <summary>
+        /// 答題失敗的行動
+        /// </summary>
+        public abstract void DoWrongAction();
 
     }
 }
