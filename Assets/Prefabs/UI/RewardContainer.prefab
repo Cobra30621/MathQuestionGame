@@ -57,6 +57,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardImage: {fileID: 4868451501250604991}
   rewardText: {fileID: 9218843318041924869}
+  needShowTooltip: 0
+  tooltipTitle: 
+  tooltipDescription: 
 --- !u!222 &1326120995084144035
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -151,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb50ee18843aca43923ca3c8ff18d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundProfileData: {fileID: 11400000, guid: 2d30565e54caf3e40a21dfdac091b79e, type: 2}
 --- !u!1 &6551312787832402391
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,8 +222,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Text1Text2Text3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9e18b53076efa2241807c9f6e756d5f1, type: 2}
-  m_sharedMaterial: {fileID: -1470829451554156410, guid: 9e18b53076efa2241807c9f6e756d5f1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 91dff817ceb0e6a4c87cf33aa6e6ccda, type: 2}
+  m_sharedMaterial: {fileID: -5983068599249183672, guid: 91dff817ceb0e6a4c87cf33aa6e6ccda, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
