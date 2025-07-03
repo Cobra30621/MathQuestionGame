@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using NueGames.Data.Containers;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
@@ -75,6 +76,12 @@ namespace Characters.Display
         public void ShowTooltipInfo(string content, string header = "", Transform tooltipStaticTransform = null, Camera cam = null, float delayShow =0)
         {
             TooltipManager.Instance.ShowTooltip(content,header,tooltipStaticTransform, cam,delayShow);
+        }
+
+
+        private void OnDestroy()
+        {
+            HideTooltipInfo();
         }
 
         public void HideTooltipInfo()

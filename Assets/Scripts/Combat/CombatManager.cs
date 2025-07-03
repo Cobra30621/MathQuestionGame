@@ -15,6 +15,7 @@ using Log;
 using Managers;
 using Map;
 using NueGames.Data.Settings;
+using NueTooltip.Core;
 using Reward.Data;
 using Sirenix.OdinInspector;
 using Stage;
@@ -471,6 +472,8 @@ namespace Combat
         {
             CollectionManager.DiscardHand();
             CollectionManager.ClearPiles();
+            
+            TooltipManager.Instance.HideTooltip();
             
             CombatCounter.OnBattleEnd();
         }
