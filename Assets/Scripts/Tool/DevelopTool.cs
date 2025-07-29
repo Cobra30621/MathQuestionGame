@@ -47,7 +47,6 @@ namespace Tool
         private void Awake()
         {
             Debug.Log("開發者模式");
-            if(GameManager.Instance.IsDeveloperMode)
                 StartDevelopMode();
         }
 

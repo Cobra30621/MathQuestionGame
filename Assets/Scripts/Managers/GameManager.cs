@@ -75,14 +75,6 @@ namespace Managers
         #region Cache
         [Title("設定")] 
         
-        [LabelText("開發者模式")]
-        [SerializeField] private bool isDevelopMode;
-        
-        /// <summary>
-        /// 開發者模式
-        /// </summary>
-        public bool IsDeveloperMode => isDevelopMode;
-
         
         /// <summary>
         /// 遊戲基礎設定
