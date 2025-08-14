@@ -48,7 +48,7 @@ namespace MapEvent
             currentEvent = eventManager.GetRandomEvent();
             if (currentEvent!= null)
             {
-                eventText.text = currentEvent.data.Text;
+                eventText.text = currentEvent.data.Description;
                 nameText.text = currentEvent.data.nameText;
                 image.sprite = currentEvent.data.eventSprite;
                 
