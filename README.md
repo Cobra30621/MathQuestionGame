@@ -125,6 +125,10 @@ The game is built with Unity and follows these architectural patterns:
 6. **Progression**: Players advance through maps and stages until completing the game
 
 ## References
+- [專案交接文件 Handover](Docs/Handover.md)
+- [交接計畫 Handover Plan](Docs/HandoverPlan.md)
+- [數值平衡交接手冊 Balance Handover](Docs/BalanceHandover.md)
+- [數值清單 Game Data](Docs/GameData.md)
 - [Documents](https://hackmd.io/@Cobra3279/HJK2qpy9h/%2F7ZU6DAlyRvS1JLM7dXL0dA)
 
   
