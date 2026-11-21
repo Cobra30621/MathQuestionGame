@@ -289,7 +289,7 @@ flowchart TB
 
 **測試場景**
 
-- `Scenes/Develop Scene`：各成員的個人測試場景（Cobra、Ling、Nelson、Reno、Toby 等），另有 `Test Template 1` 可複製來用。
+- `Scenes/Develop Scene`：各成員的個人測試場景（Cobra、Ling、Nelson、Reno、Toby 等），另有 `Test Template 1` 範本；新人用選單 Tools → 開發者工具 → 建立我的測試場景，一鍵建立自己的場景、測試角色與牌組（見[新人入門指南](Onboarding.md)）。
 - `Scenes/Test`：題目 UI、題目下載、Feel、Odin 等單一功能測試。
 
 **測試工具**
@@ -319,7 +319,7 @@ flowchart TB
 | 新增卡牌 | 見「資料維運 → 新增一張卡牌」 |
 | 新增事件 | 編輯 `Assets/Data/Event/事件.asset`，用 TestTool「更新事件」測試 |
 | 調整關卡、敵人出現機率 | 編輯 `Assets/Data/Stage` 與 `Enemy Encounter Overview` |
-| 測試單場戰鬥 | 複製 `Test Template 1`，設定開發者測試器的角色與敵人後按 Play |
+| 測試單場戰鬥 | Tools → 開發者工具 → 建立我的測試場景（`Assets/Editor/DevSceneCreator.cs`），設定開發者測試器的敵人後按 Play |
 | 玩家回報問題 | 請玩家用作弊面板匯出 Log，或到 Sentry 查錯誤 |
 | 存檔結構改變 | 更新 GameData 後，在 VersionControl 加版本轉換，避免舊存檔壞掉 |
 | 發布新版 | 更新 Player Settings 的 bundleVersion 與 SystemGameVersion，從 Build Settings 建置 |

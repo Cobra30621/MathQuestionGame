@@ -98,6 +98,72 @@ flowchart LR
 - **開著 Console 玩**：出現紅字或遊戲卡住時，截圖並記下你剛剛做了什麼。這些就是之後要修的 bug，可以對照 [Bug 清單](BugList.md) 看看是不是已經列過。
 - **邊玩邊想「這個畫面是哪個系統在處理」**，對照上方「專案怎麼運作」的圖。
 
+## 建立自己的測試場景
+
+修 bug 時，不必每次都從主選單一路玩到出問題的戰鬥。`Assets/Scenes/Develop Scene/` 裡的開發場景放了「開發者測試器」，按 Play 就直接進入指定的戰鬥。它自帶 GameManager，所以是「一定要從主選單按 Play」的例外。每個人用下面的按鈕建立一份自己的。
+
+### 1. 一鍵建立
+
+1. 在 Unity 選單選 **Tools → 開發者工具 → 建立我的測試場景**。
+2. 輸入你的名字（建議用英文，例如 `Amy`），按 **建立**。
+3. 跳出「建立完成」就好了，場景會自動開啟。
+
+這個按鈕會一次做完下面的事：
+
+| 建立或修改的檔案 | 內容 |
+| --- | --- |
+| `Assets/Scenes/Develop Scene/<名字> Test.unity` | 從 `Test Template 1` 複製的場景，開發者測試器已設成你的角色 |
+| `Assets/Data/Allies/Test/<名字> Test.asset` | 你的測試角色，從 `Test Ally` 複製，下拉選單顯示「<名字>測試」 |
+| `Assets/Data/Decks/Develop/<名字> Deck.asset` | 你的個人牌組，作為角色的初始卡牌 |
+| `Assets/Data/Allies/ally data overview.asset` | 把你的角色加進總覽，下拉選單才找得到 |
+
+已經有同名角色或牌組時會直接沿用，不會覆蓋；同名場景已存在時則不會建立。
+
+**不要用 Ctrl/Cmd + D 手動複製角色。** 複製出來的角色會和原本的角色共用同一個 `dataId`，下拉選單選到的其實是原本那一個。按鈕會自動換一個新的 `dataId`。另外，**不要改 `Test Template 1` 本身**，它是大家共用的範本。
+
+### 2. 設定要測的內容
+
+- **牌組與遺物**：選取你的角色（`<名字> Test.asset`），改「玩家初始遺物」；打開你的牌組（`<名字> Deck.asset`）增減卡片。改的都是自己的檔案，不會影響別人。
+- **敵人與其他設定**：在 Hierarchy 展開 `開發者測試器`，選取同名的子物件，在 `DevelopTool` 設定：
+
+| 欄位 | 設什麼 |
+| --- | --- |
+| 玩家資料 | 已設成你的角色；也可以換成正式角色（Knight、Hunter、Mage、Thief） |
+| 產生的敵人們 | 要對戰的遭遇，例如「樹精群(1)-難度1」；「史、惡、樹、機」是四種敵人各一隻 |
+| 玩家初始獲得的能力 | 選填，開場給的 Power。可能因執行時機而無效，使用前先確認 |
+| 遊戲開始時，執行事件 | 選填，開場要呼叫的方法 |
+
+改完場景按 **Ctrl/Cmd + S** 存檔。
+
+### 3. 按 Play 驗證
+
+應該會直接進入戰鬥，Console 依序出現「開發者模式」、「創建 - 新的單局遊戲」、「---------- 戰鬥開始 ----------」。
+
+| 症狀 | 處理 |
+| --- | --- |
+| 選單沒有「開發者工具」 | 先看 Console 有沒有編譯錯誤（紅字），修好後 Unity 才會載入選單 |
+| `The GameObject of type ... is not present in the scene` | 場景少了 Manager，刪掉場景重新用按鈕建立 |
+| 想重開戰鬥 | 停止 Play 再按一次 Play。按 R 重開可能會失敗 |
+
+注意：開發場景每次 Play 都會把「問題設定」寫進永久存檔，之後從主選單玩時，答題設定可能被改掉。
+
+### 4. 提交
+
+開一個分支，**只 add 按鈕建立的檔案**，`.meta` 一定要一起：
+
+```bash
+git checkout -b add/<你的名字>-test-scene
+git add "Assets/Scenes/Develop Scene/<你的名字> Test.unity"* \
+        "Assets/Data/Allies/Test/<你的名字> Test.asset"* \
+        "Assets/Data/Decks/Develop/<你的名字> Deck.asset"* \
+        "Assets/Data/Allies/ally data overview.asset"
+git commit -m "add: <你的名字> Test scene"
+```
+
+結尾的 `*` 會把 `.meta` 一起加進去。commit 前先跑 `git status`。Unity 常會順手改到字型、存檔設定等不相關的檔案，不要一起帶進去。
+
+其他測試工具（設定卡片等級的 LevelSetterTool、遊戲中的作弊面板等）見[程式交接文件](Handover.md)「場景與遊戲流程」裡的「測試工具」表。
+
 ## 參考文件
 
 | 文件 | 什麼時候看 |
