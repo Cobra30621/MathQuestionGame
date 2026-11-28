@@ -28,12 +28,11 @@ namespace Sheets
         {
             if (source == SheetSource.Test)
             {
-                if (getter == null || !getter.HasTestData(out var missing))
+                // getter 為 null 時不會呼叫 HasTestData，所以要先給 missing 初始值
+                var missing = "找不到 SheetDataGetter";
+                if (getter == null || !getter.HasTestData(out missing))
                 {
-                    // Debug.LogError("測試數據不完整，改用正式數據。請先下載測試資料" +
-                    //                (getter == null ? "" : $"（缺少：{missing}）"));
-                    Debug.LogError("測試數據不完整，改用正式數據。請先下載測試資料" +
-                                   (getter == null ? "" : $"（缺少：）"));
+                    Debug.LogError($"測試數據不完整，改用正式數據。請先下載測試資料（缺少：{missing}）");
                     source = SheetSource.Official;
                 }
                 else
