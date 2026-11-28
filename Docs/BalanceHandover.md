@@ -145,7 +145,7 @@ flowchart LR
 遊戲不會自動讀最新的試算表。數值會存在 Unity 的資料檔裡，打包時用的是這份副本，所以改完表一定要在 Unity 裡「讀取表單」並提交到 git。
 
 1. **改表**：直接在 Google Sheet 上改。不要下載成 Excel 改完再上傳，參數會被轉成日期（見「注意事項」）。改之前在表上記一筆「改了什麼、為什麼」。
-2. **讀進 Unity**：開啟 `Assets/Scenes/Main Game/0- Main Menu.unity`，在階層中選「開發者測試器」，在 SheetDataLoader 元件上按「讀取表單」。它會讀四張 A 表、更新卡牌資料、存檔，最後自動檢查。
+2. **讀進 Unity**：開啟 `Assets/Scenes/Main Game/0- Main Menu.unity`，在階層中選「開發者測試器」，按「下載正式資料」。它會讀四張 A 表、更新卡牌資料、存檔，最後自動檢查。
 3. **看 Console**：有紅字就回表單修正後重讀。常見訊息：
     - `找不到 SkillInfo: 'xxx'`：卡牌或敵人引用了不存在的 SkillID
     - `重複的 SkillID` / `Duplicate ID`：編號重複
@@ -156,7 +156,9 @@ flowchart LR
 6. **提交**：用 git 提交變更的 `.asset` 檔（`Assets/Data/Cards/`、`Assets/Data/Enemy/` 下），訊息寫改了哪些數值。
 7. **出 APK**：`File > Build Settings`，平台選 Android，按 Build。第一次要先安裝 Unity 的 Android Build Support 模組。
 
-手機上也能即時套用新數值：遊戲內作弊面板有「讀取表單」按鈕，會從網路重讀試算表，但重開遊戲就會還原。適合請測試者幫忙試不同數值，不必每次重新出 APK。
+想先試數值又不影響正式資料時，改表單的測試分頁（CardTest、SkillTest、EnemyTest、EnemyIntentionTest），在測試場景的開發者測試器按「下載測試資料」，並把「使用數據」切到「測試」。測試資料存在 `Assets/Data/Sheets Test/`，從主選單開始的遊戲不會用到。
+
+手機上也能即時套用新數值：遊戲內作弊面板有「讀取表單」按鈕，會從網路重讀試算表（主選單流程讀正式分頁），但重開遊戲就會還原。適合請測試者幫忙試不同數值，不必每次重新出 APK。
 
 ## 常見調整情境
 

@@ -245,7 +245,7 @@ flowchart TB
 **更新資料流程**
 
 1. 在 Google Sheet 修改數值（新增卡牌時 GroupID 要與 CardData 的 cardId 一致）。
-2. 在 Unity 選取 `Prefabs/Core/開發者測試器.prefab`（或遊戲中的 Cheat Canvas）上的 `SheetDataLoader`，按「讀取表單」。
+2. 在 Unity 選取 `Prefabs/Core/開發者測試器.prefab`（或遊戲中的 Cheat Canvas）上的 `SheetDataLoader`（或開發者測試器），按「下載正式資料」；作弊面板則是「讀取表單」。測試分頁（CardTest 等）用「下載測試資料」，存在 `Assets/Data/Sheets Test/`，只在測試場景「使用數據」選測試時才會用到。
 3. 它會依序讀技能 → 敵人意圖 → 敵人 → 卡牌等級，再把等級資料寫進正式版與開發者牌組的每張 CardData，並存檔。
 4. 最後 `SheetDataValidator` 會檢查 SkillID、意圖等參照是否存在，Console 出現「驗證完成」且沒有錯誤才算成功。
 5. 將變動的 `.asset` 一起 commit。這也是為什麼讀一次表單會讓一大批卡片 asset 出現修改。
