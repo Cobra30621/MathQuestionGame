@@ -16,6 +16,7 @@ using Power;
 using Question;
 using Question.Data;
 using Sirenix.OdinInspector;
+using Sheets;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -26,9 +27,26 @@ namespace Tool
     /// </summary>
     public class DevelopTool : MonoBehaviour
     {
+        [Title("數據")]
+        [LabelText("使用數據")] [EnumToggleButtons]
+        [InfoBox("測試數據讀取表單的 CardTest、SkillTest、EnemyTest、EnemyIntentionTest 分頁；第一次使用請先按「下載測試資料」",
+            InfoMessageType.Warning, nameof(UseTestData))]
+        public SheetSource dataSource = SheetSource.Official;
+
+        private bool UseTestData => dataSource == SheetSource.Test;
+
+        [Button("下載正式資料", ButtonSizes.Medium)]
+        [HorizontalGroup("SheetLoad")]
+        public void LoadOfficialSheet() => LoadSheet(SheetSource.Official);
+
+        [Button("下載測試資料", ButtonSizes.Medium)]
+        [HorizontalGroup("SheetLoad")]
+        public void LoadTestSheet() => LoadSheet(SheetSource.Test);
+
         /// <summary>
         /// 測試的事件
         /// </summary>
+        [Title("測試設定")]
         [LabelText("遊戲開始時，執行事件")]
         public UnityEvent TestEvent;
         
@@ -47,6 +65,8 @@ namespace Tool
         private void Awake()
         {
             Debug.Log("開發者模式");
+            // 要在建立角色、敵人與卡牌之前決定使用哪一份數據
+            ApplyDataSource();
                 StartDevelopMode();
         }
 
@@ -83,6 +103,29 @@ namespace Tool
             TestEvent.Invoke();
         }
 
+
+        /// <summary>
+        /// 依「使用數據」設定，切換遊戲使用正式或測試數據
+        /// </summary>
+        private void ApplyDataSource()
+        {
+            var loader = GetSheetDataLoader();
+            SheetDataMode.Use(dataSource, loader != null ? loader.getter : null);
+        }
+
+        private void LoadSheet(SheetSource source)
+        {
+            var loader = GetSheetDataLoader();
+            if (loader == null)
+            {
+                Debug.LogError("開發者測試器底下找不到 SheetDataLoader（表單讀取器）");
+                return;
+            }
+
+            loader.Load(source);
+        }
+
+        private SheetDataLoader GetSheetDataLoader() => GetComponentInChildren<SheetDataLoader>(true);
 
         private void SetDevelopModeData()
         {

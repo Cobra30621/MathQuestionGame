@@ -41,10 +41,13 @@ namespace Characters.Enemy.Data
         /// </summary>
         [Button]
         [BoxGroup("LoadData")]
-        public void ParseDataFromGoogleSheet()
+        public void ParseDataFromGoogleSheet() => ParseDataFromGoogleSheet(url);
+
+        /// <summary>從指定網址載入（由 SheetDataLoader 依讀取來源傳入）</summary>
+        public void ParseDataFromGoogleSheet(string sheetUrl)
         {
             IsLoading = true;
-            GoogleSheetService.LoadDataArray<EnemyIntentionInfo>(url, infos =>
+            GoogleSheetService.LoadDataArray<EnemyIntentionInfo>(sheetUrl, infos =>
             {
                 // 過濾掉 SkillID 欄位為空的列
                 EnemyIntentions = infos

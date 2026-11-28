@@ -35,36 +35,49 @@ namespace Characters.Enemy.Data
         /// </summary>
         [Button]
         [BoxGroup("LoadData")]
-        public void ParseDataFromGoogleSheet()
+        public void ParseDataFromGoogleSheet() => ParseDataFromGoogleSheet(url);
+
+        /// <summary>從指定網址載入（由 SheetDataLoader 依讀取來源傳入）</summary>
+        public void ParseDataFromGoogleSheet(string sheetUrl)
         {
             IsLoading = true;
-            GoogleSheetService.LoadDataArray<EnemyData>(url, infos =>
+            GoogleSheetService.LoadDataArray<EnemyData>(sheetUrl, infos =>
             {
-                // 過濾掉 ID 欄位為空的列
-                var enemyInfos = infos
-                    .Where(info => !info.ID.IsNullOrWhitespace())
-                    .ToArray();
-                Debug.Log($"EnemyData Count: {enemyInfos.Length}");
-                
-                // 清空現有索引
+                // 清空現有索引，加入解析後的資料
                 ids = new List<EnemyData>();
-                
-                foreach (var enemyInfo in enemyInfos)
+                foreach (var enemyInfo in PrepareEnemyData(infos))
                 {
-                    // 設定在 DataOverviewBase 中使用的唯一識別與顯示名稱
-                    enemyInfo.SetDataId($"{enemyInfo.ID}");
-                    enemyInfo.SetDisplayName($"{enemyInfo.Lang}/{enemyInfo.Level}");
-                    
-                    // 解析原始逗號分隔字串為清單
-                    enemyInfo.enemyIntentionIDs = Helper.ConvertStringToStringList(enemyInfo.EnemyIntentionID);
-                    enemyInfo.startBattleIntentionIDs = Helper.ConvertStringToStringList(enemyInfo.StartBattleIntentionID);
-                    
-                    // 加入到總覽列表與字典
                     AddData(enemyInfo);
                 }
 
                 IsLoading = false;
             });
+        }
+
+        /// <summary>
+        /// 整理從表單讀到的敵人資料：過濾空白列、設定唯一 ID 與顯示名稱、解析意圖 ID 清單。
+        /// 正式（EnemyDataOverview）與測試（EnemyTestData）共用。
+        /// </summary>
+        public static List<EnemyData> PrepareEnemyData(EnemyData[] infos)
+        {
+            // 過濾掉 ID 欄位為空的列
+            var enemyInfos = infos
+                .Where(info => !info.ID.IsNullOrWhitespace())
+                .ToList();
+            Debug.Log($"EnemyData Count: {enemyInfos.Count}");
+
+            foreach (var enemyInfo in enemyInfos)
+            {
+                // 設定在 DataOverviewBase 中使用的唯一識別與顯示名稱
+                enemyInfo.SetDataId($"{enemyInfo.ID}");
+                enemyInfo.SetDisplayName($"{enemyInfo.Lang}/{enemyInfo.Level}");
+
+                // 解析原始逗號分隔字串為清單
+                enemyInfo.enemyIntentionIDs = Helper.ConvertStringToStringList(enemyInfo.EnemyIntentionID);
+                enemyInfo.startBattleIntentionIDs = Helper.ConvertStringToStringList(enemyInfo.StartBattleIntentionID);
+            }
+
+            return enemyInfos;
         }
     }
 }

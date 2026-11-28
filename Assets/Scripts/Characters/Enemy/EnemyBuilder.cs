@@ -20,13 +20,13 @@ namespace Characters.Enemy
         
         public Enemy Build(string id)
         {
-            var enemyData =sheetDataGetter.enemyData.FindUniqueId(id);
+            var enemyData = sheetDataGetter.FindEnemy(id);
             return Build(enemyData);
         }
 
         public Enemy Build(EnemyName enemyName)
         {
-            var enemyData = sheetDataGetter.enemyData.FindUniqueId(enemyName.Id);
+            var enemyData = sheetDataGetter.FindEnemy(enemyName.Id);
             return Build(enemyData);
         }
         

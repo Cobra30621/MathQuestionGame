@@ -84,10 +84,13 @@ namespace Card
         /// </summary>
         [Button]
         [BoxGroup("LoadData")]
-        public void ParseDataFromGoogleSheet()
+        public void ParseDataFromGoogleSheet() => ParseDataFromGoogleSheet(url);
+
+        /// <summary>從指定網址載入（由 SheetDataLoader 依讀取來源傳入）</summary>
+        public void ParseDataFromGoogleSheet(string sheetUrl)
         {
             IsLoading = true;
-            GoogleSheetService.LoadDataArray<CardLevelInfo>(url, infos =>
+            GoogleSheetService.LoadDataArray<CardLevelInfo>(sheetUrl, infos =>
             {
                 // 剔除空白列（ID 欄位為空白）
                 cardInfos = infos

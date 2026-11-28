@@ -127,9 +127,13 @@ namespace Card
         public List<SkillInfo> GetSkillInfos(List<string> skillIds)
         {
             var skillInfos = new List<SkillInfo>();
+            // 測試場景選用測試數據時，改讀測試技能資料
+            var activeSkillData = Sheets.SheetDataMode.IsTest
+                ? Sheets.SheetDataMode.Getter.testSkillData
+                : skillData;
             foreach (var skillId in skillIds)
             {
-                var skillInfo = skillData.GetSkillInfo(skillId);
+                var skillInfo = activeSkillData.GetSkillInfo(skillId);
                 if (skillInfo!= null)
                 {
                     skillInfos.Add(skillInfo);

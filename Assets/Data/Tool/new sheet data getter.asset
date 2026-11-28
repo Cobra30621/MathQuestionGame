@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ea1326823d420abba480753ed84857, type: 3}
   m_Name: new sheet data getter
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: f35e2fb79d231c64095d3f074ae47383, type: 2}
-  enemyIntentionData: {fileID: 11400000, guid: 3c803195b41f5dc4790e30a453ad2e40, type: 2}
-  skillData: {fileID: 11400000, guid: fcdcaa925d8d8446db1919662da02639, type: 2}
-  cardLevelData: {fileID: 11400000, guid: b7b41caa65a104107ab307b5f8a3aaab, type: 2}
+  sheetLink: https://docs.google.com/spreadsheets/d/1tCaaCrB-9xcP_sgVigBUC5hSNOEx9KzDwsomPIC7asU/edit
+  officialEnemyData: {fileID: 11400000, guid: f35e2fb79d231c64095d3f074ae47383, type: 2}
+  officialEnemyIntentionData: {fileID: 11400000, guid: 3c803195b41f5dc4790e30a453ad2e40, type: 2}
+  officialSkillData: {fileID: 11400000, guid: fcdcaa925d8d8446db1919662da02639, type: 2}
+  officialCardLevelData: {fileID: 11400000, guid: b7b41caa65a104107ab307b5f8a3aaab, type: 2}
+  testEnemyData: {fileID: 11400000, guid: d1c9628aa268e45f1b08aa394880e702, type: 2}
+  testEnemyIntentionData: {fileID: 11400000, guid: 4b59468b5793e4dd9b8dfc899cd22fc9, type: 2}
+  testSkillData: {fileID: 11400000, guid: e276c583bc5eb48899f03775897d3e7a, type: 2}
+  testCardLevelData: {fileID: 11400000, guid: 2679dd573cc6d4312b7ca711d3f4d456, type: 2}
   enemyPrefabData: {fileID: 11400000, guid: 89f6bf46d877c2443ad8322052e244e8, type: 2}
   intentionData: {fileID: 11400000, guid: 7c0f89dafa582f942801519ad7c6232f, type: 2}
   officialDeck: {fileID: 11400000, guid: 0d8b556c7688a4833901d3a5cad41e8b, type: 2}

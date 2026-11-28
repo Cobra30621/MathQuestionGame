@@ -72,11 +72,14 @@ namespace Effect
         /// </summary>
         [Button]
         [BoxGroup("LoadData")]
-        public void ParseDataFromGoogleSheet()
+        public void ParseDataFromGoogleSheet() => ParseDataFromGoogleSheet(url);
+
+        /// <summary>從指定網址載入（由 SheetDataLoader 依讀取來源傳入）</summary>
+        public void ParseDataFromGoogleSheet(string sheetUrl)
         {
-            Debug.Log($"開始從 URL 載入：{url}");
+            Debug.Log($"開始從 URL 載入：{sheetUrl}");
             IsLoading = true;
-            GoogleSheetService.LoadDataArray<SkillInfo>(url, infos =>
+            GoogleSheetService.LoadDataArray<SkillInfo>(sheetUrl, infos =>
             {
                 // 過濾掉 SkillID 欄位為空的列
                 skillInfos = infos

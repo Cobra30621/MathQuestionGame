@@ -90,7 +90,7 @@ namespace Card.Data
         public string CardId => cardId;
         public Sprite CardSprite => cardSprite;
         public RarityType Rarity => rarity;
-        public List<CardLevelInfo> LevelInfos => _levelInfos;
+        public List<CardLevelInfo> LevelInfos => GetActiveLevelInfos();
         public FxInfo FxInfo => fxInfo;
         public bool CanNotPlay => canNotPlay;
 
@@ -114,11 +114,29 @@ namespace Card.Data
         /// <param name="level">0 為第一階，依此類推</param>
         public CardLevelInfo GetLevelInfo(int level)
         {
+            var levelInfos = GetActiveLevelInfos();
             // 等級超出清單範圍則拋例外
-            if (level >= _levelInfos.Count)
-                throw new Exception($"Level {level} 超過卡片 {_levelInfos.Count} 個等級資訊");
+            if (level >= levelInfos.Count)
+                throw new Exception($"Level {level} 超過卡片 {levelInfos.Count} 個等級資訊");
 
-            return _levelInfos[level];
+            return levelInfos[level];
+        }
+
+        /// <summary>
+        /// 取得目前使用中的等級資訊：正式數據用本卡片存的資料；
+        /// 測試場景選用測試數據時，改讀測試表單（CardTest）的資料，找不到才退回正式資料。
+        /// </summary>
+        private List<CardLevelInfo> GetActiveLevelInfos()
+        {
+            if (Sheets.SheetDataMode.IsTest)
+            {
+                var testLevelInfos = Sheets.SheetDataMode.Getter.testCardLevelData.GetLevelInfo(cardId);
+                if (testLevelInfos.Count > 0) return testLevelInfos;
+
+                Debug.LogWarning($"測試卡牌資料沒有卡片 {cardId}，改用正式資料");
+            }
+
+            return _levelInfos;
         }
 
         /// <summary>
