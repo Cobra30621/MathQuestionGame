@@ -31,19 +31,7 @@ MonoBehaviour:
     skillIDs:
     - 1000001
     - 3020001
-    SkillInfos:
-    - SkillID: 1000001
-      EffectID: 20001
-      EffectParameter: 1 ,1
-      EffectParameterList: 0100000001000000
-      Target: 1
-      ps: "\u50B7\u5BB3"
-    - SkillID: 3020001
-      EffectID: 20003
-      EffectParameter: 2,1
-      EffectParameterList: 0200000001000000
-      Target: 0
-      ps: "\u529B\u91CF"
+    SkillInfos: []
     ManaCost: 1
     UpgradeCost: 50
     UpgradeCostStone: 0

@@ -616,15 +616,30 @@ MonoBehaviour:
     - 9633001
     - 9633002
   - uniqueId:
+      dataId: 711
+      displayName: "\u6BD2\u8718\u86DB/\u96E3\u5EA6\u4E00"
+    ID: 711
+    Lang: "\u6BD2\u8718\u86DB"
+    EnemyIntentionID: 9711001, 9711002
+    Level: "\u96E3\u5EA6\u4E00"
+    Prefab: PoisonousSpider
+    StartBattleIntentionID: 
+    MaxHp: 20
+    IsBoss: 0
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
+    - 9711001
+    - 9711002
+  - uniqueId:
       dataId: 901
       displayName: "Cobra/\u6E2C\u8A66 1"
     ID: 901
     Lang: Cobra
     EnemyIntentionID: 19000001
     Level: "\u6E2C\u8A66 1"
-    Prefab: Hive
+    Prefab: DemonKing
     StartBattleIntentionID: 
-    MaxHp: 999
+    MaxHp: 10000
     IsBoss: 0
     startBattleIntentionIDs: []
     enemyIntentionIDs:
@@ -636,9 +651,9 @@ MonoBehaviour:
     Lang: Cobra
     EnemyIntentionID: 19001001
     Level: "\u6E2C\u8A66 2"
-    Prefab: Soldier
+    Prefab: BlueBee
     StartBattleIntentionID: 
-    MaxHp: 999
+    MaxHp: 1000
     IsBoss: 0
     startBattleIntentionIDs: []
     enemyIntentionIDs:
@@ -650,9 +665,9 @@ MonoBehaviour:
     Lang: Cobra
     EnemyIntentionID: 19002001
     Level: "\u6E2C\u8A66 3"
-    Prefab: Bird
+    Prefab: YellowBee
     StartBattleIntentionID: 
-    MaxHp: 999
+    MaxHp: 9999
     IsBoss: 0
     startBattleIntentionIDs: []
     enemyIntentionIDs:
@@ -699,6 +714,20 @@ MonoBehaviour:
     startBattleIntentionIDs: []
     enemyIntentionIDs:
     - 19102001
+  - uniqueId:
+      dataId: 1001
+      displayName: "OWO/\u6E2C\u8A66 1"
+    ID: 1001
+    Lang: OWO
+    EnemyIntentionID: 19000001
+    Level: "\u6E2C\u8A66 1"
+    Prefab: DemonKing
+    StartBattleIntentionID: 
+    MaxHp: 10000
+    IsBoss: 0
+    startBattleIntentionIDs: []
+    enemyIntentionIDs:
+    - 19000001
   useDataPath: 0
   dataPath: 
   sortingByDisplayName: 0
